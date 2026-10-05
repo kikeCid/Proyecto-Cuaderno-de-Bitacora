@@ -1,0 +1,130 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "1.0.0",
+  "updated": "2026-10-05",
+  "organization": "Línea Directa Aseguradora",
+  "categories": [
+    {
+      "id": "direct",
+      "title": "Gestión Directa (PO / PM)",
+      "subtitle": "Proyectos liderados por el área de Personas",
+      "borderColor": "var(--lda-red)"
+    },
+    {
+      "id": "facilitator",
+      "title": "Facilitadores / Afectados",
+      "subtitle": "Colaboración estratégica en proyectos transversales",
+      "borderColor": "#f59e0b"
+    },
+    {
+      "id": "service",
+      "title": "Servicios y Operativas",
+      "subtitle": "Catálogo de servicios transversales y documentación funcional",
+      "borderColor": "#3b82f6"
+    },
+    {
+      "id": "closed",
+      "title": "Proyectos Cerrados",
+      "subtitle": "Histórico de proyectos finalizados y archivados",
+      "borderColor": "var(--text-sec)"
+    }
+  ],
+  "projects": [
+    {
+      "id": "gobierno-info",
+      "categoryId": "direct",
+      "title": "Gestión de la Información",
+      "kicker": "TRASPASADO (APOYO)",
+      "kickerColor": "#8B5CF6",
+      "desc": "Proyecto de Inteligencia LidIA y GIN transferido al Área de Transformación. Mantenemos un rol activo de apoyo y transferencia de conocimiento.",
+      "url": "../Gobierno de Informacion/index.html",
+      "status": "traspasado",
+      "cardStyle": "border-color: rgba(139, 92, 246, 0.3); background: linear-gradient(135deg, var(--bg-card) 0%, rgba(139, 92, 246, 0.02) 100%);",
+      "icon": "layers"
+    },
+    {
+      "id": "hcm-cloud",
+      "categoryId": "direct",
+      "title": "Evolución HCM Cloud",
+      "kicker": "LICITACIÓN (ARRANQUE 2027)",
+      "kickerColor": "var(--lda-red)",
+      "desc": "Migración estratégica de PeopleSoft RR.HH. a arquitectura Cloud para digitalizar procesos y habilitar capacidades de IA y analítica avanzada.",
+      "url": "../HCM/index.html",
+      "status": "licitacion",
+      "icon": "users"
+    },
+    {
+      "id": "ia-personas",
+      "categoryId": "direct",
+      "title": "Transformación y Eficiencia RRHH",
+      "kicker": "PENDIENTE DE APROBACIÓN",
+      "kickerColor": "var(--lda-red)",
+      "desc": "Proyecto en fase de definición, pendiente de presentar para aprobación. Iniciativa estratégica para optimizar procesos y elevar la eficiencia operativa.",
+      "url": "../IA Area Personas/index.html",
+      "status": "pendiente",
+      "icon": "cpu"
+    },
+    {
+      "id": "perseo",
+      "categoryId": "facilitator",
+      "title": "Proyecto Perseo",
+      "kicker": "IMPLANTACIÓN HASTA JUNIO 2026",
+      "kickerColor": "#8b5cf6",
+      "desc": "Auditoría inteligente masiva impulsada por IA Generativa para extraer 'Dark Data' y transformarlo en insights para coaching y negocio.",
+      "url": "../Perseo/index.html",
+      "status": "implantacion",
+      "cardStyle": "border: 2px solid #8b5cf6; background: rgba(139, 92, 246, 0.05);",
+      "icon": "pie-chart"
+    },
+    {
+      "id": "crm-operacional",
+      "categoryId": "facilitator",
+      "title": "CRM Operacional",
+      "kicker": "ADJUDICADO Y EN MARCHA",
+      "kickerColor": "#10b981",
+      "desc": "Proyecto adjudicado a OMEGA (Salesforce). Plataforma integral de gestión de operaciones en despliegue.",
+      "url": "../CRM Operacional/index.html",
+      "status": "en_marcha",
+      "cardStyle": "border: 2px solid #10b981; background: rgba(16, 185, 129, 0.05);",
+      "relatedTo": "Telefonía CX",
+      "icon": "layout"
+    },
+    {
+      "id": "telefonia-cx",
+      "categoryId": "facilitator",
+      "title": "Telefonía CX",
+      "kicker": "PROYECTO ACTIVO - GENESYS CX",
+      "kickerColor": "var(--lda-red)",
+      "desc": "Evolución de los canales de contacto corporativos hacia el modelo omnicanal basado en Genesys Cloud CX.",
+      "url": "../Telefonia - Genesis CX/index.html",
+      "status": "en_marcha",
+      "cardClass": "blue-card",
+      "relatedTo": "CRM Operacional",
+      "icon": "phone-call"
+    },
+    {
+      "id": "reingenieria-siniestros",
+      "categoryId": "facilitator",
+      "title": "Reingeniería Siniestros",
+      "kicker": "ADJUDICADO Y EN MARCHA",
+      "kickerColor": "#10b981",
+      "desc": "Proyecto adjudicado a Bip Consulting. Transformación integral del modelo operativo y tecnológico con IA.",
+      "url": "../Reingenieria Siniestros/index.html",
+      "status": "en_marcha",
+      "cardStyle": "border: 2px solid #10b981; background: rgba(16, 185, 129, 0.05);",
+      "icon": "truck"
+    },
+    {
+      "id": "gestion-usuarios",
+      "categoryId": "service",
+      "title": "Gestión de Usuarios",
+      "kicker": "ACTIVO",
+      "kickerColor": "var(--lda-red)",
+      "desc": "Documentación sobre el funcionamiento, arquitectura operativa y servicios vinculados al sistema de Gestión de Usuarios y sus integraciones.",
+      "url": "../Gestion de Usuarios/index.html",
+      "status": "activo",
+      "cardClass": "blue-card",
+      "icon": "user-check"
+    }
+  ]
+}
