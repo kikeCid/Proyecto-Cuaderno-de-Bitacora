@@ -191,11 +191,12 @@ addons = """
    ILUMINACIÓN CROMÁTICA REACTIVA DE ICONOS (.card-visual) EN MODO CLARO
    ========================================================================== */
 .card-visual {
-    flex: 0 0 160px;
-    height: 160px;
-    margin-top: 20px;
-    border-radius: 18px;
-    background: rgba(0, 0, 0, 0.03);
+    flex: 0 0 170px;
+    height: 170px;
+    width: 100%;
+    margin-top: 18px;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.025);
     border: 1px solid rgba(0, 0, 0, 0.06);
     display: flex;
     align-items: center;
@@ -218,7 +219,7 @@ addons = """
     border-color: rgba(228, 0, 43, 0.35);
     color: var(--lda-red);
     box-shadow: 0 10px 28px rgba(228, 0, 43, 0.18);
-    transform: scale(1.06) translateY(-2px);
+    transform: scale(1.04) translateY(-2px);
 }
 
 /* Hover de tarjetas ámbar (Facilitadores / Perseo, CRM, Telefonía, Siniestros) */
@@ -233,7 +234,7 @@ addons = """
     border-color: rgba(217, 119, 6, 0.35);
     color: #b45309;
     box-shadow: 0 10px 28px rgba(217, 119, 6, 0.18);
-    transform: scale(1.06) translateY(-2px);
+    transform: scale(1.04) translateY(-2px);
 }
 
 /* Hover de tarjetas azules (Servicios y Operativas / Gestión de Usuarios) */
@@ -248,7 +249,7 @@ addons = """
     border-color: rgba(37, 99, 235, 0.38);
     color: #1d4ed8;
     box-shadow: 0 10px 28px rgba(37, 99, 235, 0.20);
-    transform: scale(1.06) translateY(-2px);
+    transform: scale(1.04) translateY(-2px);
 }
 
 /* Hover de tarjetas púrpuras (Proyectos Cerrados / Gestión de la Información) */
@@ -263,7 +264,7 @@ addons = """
     border-color: rgba(139, 92, 246, 0.45);
     color: #7c3aed;
     box-shadow: 0 10px 28px rgba(139, 92, 246, 0.24);
-    transform: scale(1.06) translateY(-2px);
+    transform: scale(1.04) translateY(-2px);
 }
 
 /* Hover de tarjetas disabled en modo claro */
@@ -273,14 +274,20 @@ addons = """
     color: var(--text-muted);
 }
 
-/* Transición suave para SVGs en card-visual */
+/* Transición suave para SVGs en card-visual - Tamaño Proporcional y Simétrico */
 .card-visual svg {
-    transition: transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.35s ease;
+    width: 96px;
+    height: 96px;
+    max-width: 100px;
+    max-height: 100px;
+    display: block;
+    margin: auto;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.4s ease;
 }
 
 .apple-card:hover .card-visual svg {
-    transform: scale(1.08);
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12));
+    transform: scale(1.06);
+    filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.14));
 }
 
 /* BREADCRUMB - Smart Collapse Dropdown */
@@ -648,6 +655,11 @@ addons = """
     background: rgba(255, 255, 255, 0.08) !important;
     border: 1px solid rgba(255, 255, 255, 0.12) !important;
     color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] .card-visual svg {
+    width: 96px !important;
+    height: 96px !important;
 }
 
 [data-theme="dark"] .apple-card:hover .card-visual {
