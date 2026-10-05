@@ -1682,7 +1682,265 @@ body::before {
 
 """
 
-full_core_css = base_css.strip() + "\n\n" + addons.strip() + "\n"
+clean_addons_css = """
+/* ==========================================================================
+   BARRA SUPERIOR FLOTANTE ESTABLE Y SERENA (SIN AUTO-HIDE / SIN PARPADEOS)
+   ========================================================================== */
+.app-header-island {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+    max-width: 1080px;
+    width: calc(100% - 32px);
+    margin: 8px auto 25px auto;
+    padding: 6px 18px;
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    border-radius: 999px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+[data-theme="dark"] .app-header-island {
+    background: rgba(18, 20, 30, 0.78);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
+   HERO LIMPIO Y SOBRIO (BASE DE CONOCIMIENTO)
+   ========================================================================== */
+.hero {
+    text-align: center;
+    margin-bottom: 35px;
+    padding: 40px 30px;
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 32px;
+    box-shadow: var(--shadow);
+}
+
+.hero-top-badges {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.hero h1 {
+    font-size: 3.2rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, var(--text-main) 0%, var(--lda-red) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    font-size: 1.15rem;
+    color: var(--text-sec);
+    max-width: 660px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   BARRA DE FILTROS SEGMENTADA (CON RESPIRO DE SCROLL Y ACCESO PERMANENTE)
+   ========================================================================== */
+.view-controls-bar {
+    max-width: 1200px;
+    margin: 15px auto 35px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 8px 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    scroll-margin-top: 80px !important;
+}
+
+/* ==========================================================================
+   CARDS DE BASE DE CONOCIMIENTO: SIMÉTRICAS, LIMPIAS Y SIN DATOS FICTICIOS
+   ========================================================================== */
+.apple-card {
+    flex: 0 0 auto;
+    width: 325px;
+    height: 460px;
+    background: var(--bg-card);
+    border-radius: 22px;
+    padding: 26px 24px 22px 24px;
+    scroll-snap-align: start;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+                box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+                border-color 0.3s ease;
+    border: 1px solid var(--glass-border);
+}
+
+.apple-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.09);
+    border-color: rgba(228, 0, 43, 0.3);
+}
+
+[data-theme="dark"] .apple-card {
+    background: rgba(22, 24, 35, 0.7);
+    border-color: rgba(255, 255, 255, 0.09);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .apple-card:hover {
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Spotlight sutil que sigue al ratón */
+.apple-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+        350px circle at var(--mouse-x, -200px) var(--mouse-y, -200px),
+        var(--card-spotlight, rgba(228, 0, 43, 0.10)),
+        transparent 65%
+    );
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.apple-card:hover::before {
+    opacity: 1;
+}
+
+[data-accent="red"] { --card-spotlight: rgba(228, 0, 43, 0.12); }
+[data-accent="amber"] { --card-spotlight: rgba(245, 158, 11, 0.12); }
+[data-accent="blue"] { --card-spotlight: rgba(37, 99, 235, 0.12); }
+[data-accent="purple"] { --card-spotlight: rgba(139, 92, 246, 0.12); }
+
+[data-theme="dark"] [data-accent="red"] { --card-spotlight: rgba(228, 0, 43, 0.22); }
+[data-theme="dark"] [data-accent="amber"] { --card-spotlight: rgba(245, 158, 11, 0.22); }
+[data-theme="dark"] [data-accent="blue"] { --card-spotlight: rgba(37, 99, 235, 0.22); }
+[data-theme="dark"] [data-accent="purple"] { --card-spotlight: rgba(139, 92, 246, 0.22); }
+
+.apple-card .kicker {
+    margin-bottom: 8px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 2;
+}
+
+.apple-card .title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    line-height: 1.25;
+    position: relative;
+    z-index: 2;
+}
+
+.apple-card .desc {
+    font-size: 0.88rem;
+    line-height: 1.45;
+    color: var(--text-sec);
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Tags temáticas de la Base de Conocimiento */
+.card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 2;
+}
+
+.tech-tag {
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.035);
+    color: var(--text-sec);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    transition: all 0.2s ease;
+}
+
+[data-theme="dark"] .tech-tag {
+    background: rgba(255, 255, 255, 0.05);
+    color: #94a3b8;
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Visual vectorial inferior simétrico */
+.card-visual {
+    flex: 0 0 140px !important;
+    height: 140px !important;
+    width: 100% !important;
+    margin-top: auto !important;
+    border-radius: 16px !important;
+    background: rgba(0, 0, 0, 0.02) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+    z-index: 2 !important;
+}
+
+[data-theme="dark"] .card-visual {
+    background: rgba(255, 255, 255, 0.02) !important;
+    border-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+.card-visual svg {
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.06));
+    transition: transform 0.3s ease;
+}
+
+.apple-card:hover .card-visual svg {
+    transform: scale(1.05);
+}
+"""
+
+full_core_css = base_css.strip() + "\n\n" + addons.strip() + "\n\n" + clean_addons_css.strip() + "\n"
 
 # Escribir en assets/css/bitacora-core.css
 with open(BITACORA_CORE, "w", encoding="utf-8") as f:

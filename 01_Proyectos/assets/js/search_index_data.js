@@ -254,7 +254,7 @@ window.BITACORA_SEARCH_INDEX = [
     "id": "Cuaderno de Bitacora (Proyectos)/index.html",
     "title": "Cuaderno de Bitácora - Portfolio de Proyectos",
     "h1": "Cuaderno de Bitácora",
-    "kicker": "Command Center v2.0",
+    "kicker": "Base de Conocimiento",
     "desc": "Núcleo integral de RR.HH. Migración estratégica de PeopleSoft a Oracle Cloud Fusion, optimizando la gestión del talento, nóminas y estructura organizativa.",
     "project": "Cuaderno de Bitacora (Proyectos)",
     "category": "Portal Central",
