@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Perfil | Portfolio Profesional</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles_bitacora.css">
+    <link rel="stylesheet" href="../assets/css/bitacora-core.css">
     <style>
         .profile-container {
             max-width: 1000px;
@@ -419,8 +419,6 @@
             box-shadow: 0 10px 20px rgba(228, 0, 43, 0.1);
         }
     </style>
-
-    <link rel="stylesheet" href="../local_styles.css">
 </head>
 
 <body>
@@ -613,53 +611,11 @@
     <footer style="text-align: center; padding: 60px 20px; font-size: 0.95rem; color: var(--text-sec); opacity: 0.7;">
         <p>&copy; 2026 Cuaderno de Bit�cora | Portfolio de Proyectos Profesionales</p>
     </footer>
-    <script>
-        function toggleTheme() {
-            const checkbox = document.getElementById('theme-checkbox');
-            const isDark = checkbox.checked;
-            if (isDark) {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                document.documentElement.setAttribute('data-theme', 'light');
-                localStorage.setItem('theme', 'light');
-            }
-        }
-        function initTheme() {
-            const savedTheme = localStorage.getItem('theme');
-            const checkbox = document.getElementById('theme-checkbox');
-            if (savedTheme === 'dark') {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                if (checkbox) checkbox.checked = true;
-            } else {
-                document.documentElement.setAttribute('data-theme', 'light');
-                if (checkbox) checkbox.checked = false;
-            }
-        }
-        document.addEventListener('DOMContentLoaded', initTheme);
-    </script>
-    <script>
-        // BREADCRUMB MANAGER - DYNAMIC ISLAND
-        function initDynamicBreadcrumb() {
-            const wrapper = document.querySelector('.global-nav-wrapper');
-            if (!wrapper) return;
-            if (window.scrollY > 50) wrapper.classList.add('compacted');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) wrapper.classList.add('compacted');
-                else wrapper.classList.remove('compacted');
-            });
-            wrapper.addEventListener('click', (e) => {
-                if (wrapper.classList.contains('compacted') && window.innerWidth <= 768) {
-                    e.preventDefault();
-                    wrapper.classList.remove('compacted');
-                    setTimeout(() => {
-                        if (window.scrollY > 50) wrapper.classList.add('compacted');
-                    }, 3000);
-                }
-            });
-        }
-        document.addEventListener('DOMContentLoaded', initDynamicBreadcrumb);
-    </script>
+    
+    
+    <!-- MOTOR DE BÚSQUEDA Y NÚCLEO TRANSVERSAL -->
+    <script src="../assets/js/search_index_data.js"></script>
+    <script src="../assets/js/bitacora-core.js"></script>
 </body>
 
 </html>

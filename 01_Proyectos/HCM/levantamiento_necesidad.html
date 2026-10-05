@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Levantamiento de Necesidad | HCM Evo</title>
+    <link rel="stylesheet" href="../assets/css/bitacora-core.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles_hcm.css">
@@ -209,8 +210,6 @@
             }
         }
     </style>
-
-    <link rel="stylesheet" href="../local_styles.css">
 </head>
 
 <body>
@@ -238,8 +237,6 @@
             <span class="nav-breadcrumb-item current">Levantamiento</span>
         </div>
     </nav>
-
-
 
     <div class="theme-toggle-wrapper">
         <span class="theme-label">MODO OSCURO</span>
@@ -618,57 +615,12 @@
         <p>&copy; 2026 Portal de Gestión HCM Cloud | Memoria Corporativa Permanente</p>
     </footer>
 
-    <script>
-        function toggleTheme() {
-            const checkbox = document.getElementById('theme-checkbox');
-            const isDark = checkbox.checked;
-            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        }
-
-        function initTheme() {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            const checkbox = document.getElementById('theme-checkbox');
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            if (checkbox) checkbox.checked = savedTheme === 'dark';
-        }
-
-        document.addEventListener('DOMContentLoaded', initTheme);
-    </script>
-
-<script>
-// BREADCRUMB MANAGER - DYNAMIC ISLAND
-function initDynamicBreadcrumb() {
-    const wrapper = document.querySelector('.global-nav-wrapper');
-    if (!wrapper) return;
     
-    // Check initial scroll position
-    if (window.scrollY > 50) wrapper.classList.add('compacted');
 
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            wrapper.classList.add('compacted');
-        } else {
-            wrapper.classList.remove('compacted');
-        }
-    });
-
-    // Handle touch devices to expand on tap if compacted
-    wrapper.addEventListener('click', (e) => {
-        if (wrapper.classList.contains('compacted') && window.innerWidth <= 768) {
-            e.preventDefault();
-            wrapper.classList.remove('compacted');
-            // Give them time to click before it auto-compacts again
-            setTimeout(() => {
-                if (window.scrollY > 50) wrapper.classList.add('compacted');
-            }, 3000);
-        }
-    });
-}
-document.addEventListener('DOMContentLoaded', initDynamicBreadcrumb);
-</script>
+    <!-- MOTOR DE BÚSQUEDA Y NÚCLEO TRANSVERSAL -->
+    <script src="../assets/js/search_index_data.js"></script>
+    <script src="../assets/js/bitacora-core.js"></script>
 </body>
 
 </html>
-
 

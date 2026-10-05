@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RFI Implantación | Proyecto Evolutivo HCM</title>
+    <link rel="stylesheet" href="../assets/css/bitacora-core.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles_hcm.css">
@@ -289,8 +290,6 @@
             top: 0;
         }
     </style>
-
-    <link rel="stylesheet" href="../local_styles.css">
 </head>
 
 <body>
@@ -317,7 +316,6 @@
             <span class="nav-breadcrumb-item current">RFI Implantación</span>
         </div>
     </nav>
-
 
     <main class="container" style="padding-bottom: 80px;">
         <header class="section-header">
@@ -1554,37 +1552,10 @@
         </div>
     </main>
 
-    <script>
-        // BREADCRUMB MANAGER - DYNAMIC ISLAND
-        function initDynamicBreadcrumb() {
-            const wrapper = document.querySelector('.global-nav-wrapper');
-            if (!wrapper) return;
-
-            // Check initial scroll position
-            if (window.scrollY > 50) wrapper.classList.add('compacted');
-
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    wrapper.classList.add('compacted');
-                } else {
-                    wrapper.classList.remove('compacted');
-                }
-            });
-
-            // Handle touch devices to expand on tap if compacted
-            wrapper.addEventListener('click', (e) => {
-                if (wrapper.classList.contains('compacted') && window.innerWidth <= 768) {
-                    e.preventDefault();
-                    wrapper.classList.remove('compacted');
-                    // Give them time to click before it auto-compacts again
-                    setTimeout(() => {
-                        if (window.scrollY > 50) wrapper.classList.add('compacted');
-                    }, 3000);
-                }
-            });
-        }
-        document.addEventListener('DOMContentLoaded', initDynamicBreadcrumb);
-    </script>
+    
+    <!-- MOTOR DE BÚSQUEDA Y NÚCLEO TRANSVERSAL -->
+    <script src="../assets/js/search_index_data.js"></script>
+    <script src="../assets/js/bitacora-core.js"></script>
 </body>
 
 </html>

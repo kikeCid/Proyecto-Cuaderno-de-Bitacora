@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hub de Licitación RFQ | CRM Operacional</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../Cuaderno de Bitacora (Proyectos)/styles_bitacora.css">
-
-    <link rel="stylesheet" href="../local_styles.css">
+    <link rel="stylesheet" href="../assets/css/bitacora-core.css">
 </head>
 
 <body>
@@ -368,55 +366,10 @@
         <p>&copy; 2026 Portal de Gestión de Proyectos | Sistema Portable de Información</p>
     </footer>
 
-    <script>
-        function toggleTheme() {
-            const checkbox = document.getElementById('theme-checkbox');
-            const isDark = checkbox.checked;
-            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        }
-
-        function initTheme() {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            const checkbox = document.getElementById('theme-checkbox');
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            if (checkbox) checkbox.checked = savedTheme === 'dark';
-        }
-
-        function scrollCarousel(btn, offset) {
-            const container = btn.parentElement.querySelector('.carousel-track');
-            container.scrollBy({ left: offset, behavior: 'smooth' });
-        }
-
-        function updateCarouselButtons(track) {
-            const container = track.parentElement;
-            const leftBtn = container.querySelector('.carousel-btn.left');
-            const rightBtn = container.querySelector('.carousel-btn.right');
-
-            if (leftBtn && rightBtn) {
-                if (track.scrollLeft > 0) leftBtn.classList.remove('hidden');
-                else leftBtn.classList.add('hidden');
-
-                if (track.scrollWidth > track.clientWidth && Math.ceil(track.scrollLeft + track.clientWidth) < track.scrollWidth) {
-                    rightBtn.classList.remove('hidden');
-                } else {
-                    rightBtn.classList.add('hidden');
-                }
-            }
-        }
-
-        function initCarousels() {
-            document.querySelectorAll('.carousel-track').forEach(track => {
-                updateCarouselButtons(track);
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            initTheme();
-            setTimeout(initCarousels, 100);
-        });
-        window.addEventListener('resize', initCarousels);
-    </script>
+    
+    <!-- MOTOR DE BÚSQUEDA Y NÚCLEO TRANSVERSAL -->
+    <script src="../assets/js/search_index_data.js"></script>
+    <script src="../assets/js/bitacora-core.js"></script>
 </body>
 
 </html>

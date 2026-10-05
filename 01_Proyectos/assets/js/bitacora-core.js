@@ -98,6 +98,60 @@ function initCarousels() {
 // ==========================================
 // 3. BREADCRUMBS Y NAVEGACIÓN DINÁMICA
 // ==========================================
+function initBreadcrumbLogic() {
+    const breadcrumb = document.querySelector('.nav-breadcrumb');
+    if (!breadcrumb) return;
+
+    // Si ya fue inicializado, evitar duplicación
+    if (breadcrumb.querySelector('.collapsed-trigger')) return;
+
+    const items = Array.from(breadcrumb.querySelectorAll('.nav-breadcrumb-item:not(.current)'));
+    const separators = Array.from(breadcrumb.querySelectorAll('.nav-breadcrumb-sep'));
+
+    if (items.length > 3) {
+        const toCollapse = items.slice(1, -1);
+
+        const trigger = document.createElement('span');
+        trigger.className = 'nav-breadcrumb-item collapsed-trigger';
+        trigger.innerHTML = '...';
+        trigger.title = 'Ver más niveles';
+
+        const dropdown = document.createElement('div');
+        dropdown.className = 'breadcrumb-dropdown';
+
+        toCollapse.forEach((item, index) => {
+            const link = document.createElement('a');
+            link.href = item.href || '#';
+            link.className = 'breadcrumb-dropdown-item';
+            link.textContent = item.textContent || item.title || ('Nivel ' + (index + 2));
+            dropdown.appendChild(link);
+
+            item.style.display = 'none';
+            const sepIndex = items.indexOf(item);
+            if (separators[sepIndex]) {
+                separators[sepIndex].style.display = 'none';
+            }
+        });
+
+        trigger.appendChild(dropdown);
+        items[0].insertAdjacentElement('afterend', trigger);
+
+        const newSep = document.createElement('span');
+        newSep.className = 'nav-breadcrumb-sep';
+        newSep.textContent = '›';
+        trigger.insertAdjacentElement('afterend', newSep);
+
+        trigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle('active');
+        });
+
+        document.addEventListener('click', () => {
+            dropdown.classList.remove('active');
+        });
+    }
+}
+
 function initDynamicBreadcrumb() {
     const wrapper = document.querySelector('.global-nav-wrapper');
     if (!wrapper) return;
@@ -279,7 +333,7 @@ class BitacoraSearch {
 
         this.selectedIndex = 0;
         this.resultsContainer.innerHTML = matches.slice(0, 15).map((item, idx) => `
-            <a href="${item.url}" class="search-result-item ${idx === 0 ? 'selected' : ''}">
+            <a href="${this.resolveUrl(item)}" class="search-result-item ${idx === 0 ? 'selected' : ''}">
                 <div class="search-result-header">
                     <span class="search-result-badge">${item.category}</span>
                     <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">${item.project}</span>
@@ -288,6 +342,25 @@ class BitacoraSearch {
                 ${item.desc ? `<div class="search-result-desc">${this.highlightMatch(item.desc, terms)}</div>` : ''}
             </a>
         `).join('');
+    }
+
+    getBasePath() {
+        const coreScript = document.querySelector('script[src*="bitacora-core.js"]');
+        if (!coreScript) return '..';
+        const src = coreScript.getAttribute('src');
+        const idx = src.indexOf('assets/');
+        if (idx > 0) {
+            return src.substring(0, idx - 1);
+        } else if (idx === 0) {
+            return '.';
+        }
+        return '..';
+    }
+
+    resolveUrl(item) {
+        const base = this.getBasePath();
+        const cleanId = (item.id || item.url).replace(/^(\.\.\/)+/, '');
+        return `${base}/${cleanId}`;
     }
 
     highlightMatch(text, terms) {
@@ -305,6 +378,7 @@ class BitacoraSearch {
 document.addEventListener('DOMContentLoaded', () => {
     initTheme();
     setTimeout(initCarousels, 100);
+    initBreadcrumbLogic();
     initDynamicBreadcrumb();
     window.bitacoraSearchInstance = new BitacoraSearch();
 });

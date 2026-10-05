@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Track Universo GIN | Registro de Acciones</title>
+    <link rel="stylesheet" href="../../assets/css/bitacora-core.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles_infografia.css">
     <style>
@@ -179,8 +180,6 @@
             transform: translateX(5px);
         }
     </style>
-
-    <link rel="stylesheet" href="../../local_styles.css">
 </head>
 
 <body>
@@ -209,8 +208,6 @@
         </div>
     </nav>
 
-
-
     <div class="theme-toggle-wrapper">
         <span class="theme-label">MODO OSCURO</span>
         <label class="theme-switch">
@@ -220,7 +217,6 @@
     </div>
 
     <div class="page-container">
-
 
         <header class="hero" style="margin-bottom: 0;">
             <span class="hero-badge">Track Operativo</span>
@@ -337,99 +333,10 @@
 
     </div>
 
-    <script src="../scripts_infografia.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', initTheme);
-    </script>
-<script>
-
-// BREADCRUMB MANAGER - SMART COLLAPSE
-function initBreadcrumbLogic() {
-    const breadcrumb = document.querySelector('.nav-breadcrumb');
-    if (!breadcrumb) return;
-
-    const items = Array.from(breadcrumb.querySelectorAll('.nav-breadcrumb-item:not(.current)'));
-    const separators = Array.from(breadcrumb.querySelectorAll('.nav-breadcrumb-sep'));
-    
-    if (items.length > 3) {
-        const toCollapse = items.slice(1, -1);
-        
-        const trigger = document.createElement('span');
-        trigger.className = 'nav-breadcrumb-item collapsed-trigger';
-        trigger.innerHTML = '...';
-        trigger.title = 'Ver más niveles';
-
-        const dropdown = document.createElement('div');
-        dropdown.className = 'breadcrumb-dropdown';
-
-        toCollapse.forEach((item, index) => {
-            const link = document.createElement('a');
-            link.href = item.href || '#';
-            link.className = 'breadcrumb-dropdown-item';
-            link.textContent = item.textContent || item.title || 'Nivel ' + (index + 2);
-            dropdown.appendChild(link);
-            
-            item.style.display = 'none';
-            const sepIndex = items.indexOf(item);
-            if (separators[sepIndex]) {
-                separators[sepIndex].style.display = 'none';
-            }
-        });
-
-        trigger.appendChild(dropdown);
-        items[0].insertAdjacentElement('afterend', trigger);
-        
-        const newSep = document.createElement('span');
-        newSep.className = 'nav-breadcrumb-sep';
-        newSep.textContent = '›';
-        trigger.insertAdjacentElement('afterend', newSep);
-
-        trigger.addEventListener('click', (e) => {
-            e.stopPropagation();
-            dropdown.classList.toggle('active');
-        });
-
-        document.addEventListener('click', () => {
-            dropdown.classList.remove('active');
-        });
-    }
-}
-document.addEventListener('DOMContentLoaded', initBreadcrumbLogic);
-</script>
-
-<script>
-// BREADCRUMB MANAGER - DYNAMIC ISLAND
-function initDynamicBreadcrumb() {
-    const wrapper = document.querySelector('.global-nav-wrapper');
-    if (!wrapper) return;
-    
-    // Check initial scroll position
-    if (window.scrollY > 50) wrapper.classList.add('compacted');
-
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            wrapper.classList.add('compacted');
-        } else {
-            wrapper.classList.remove('compacted');
-        }
-    });
-
-    // Handle touch devices to expand on tap if compacted
-    wrapper.addEventListener('click', (e) => {
-        if (wrapper.classList.contains('compacted') && window.innerWidth <= 768) {
-            e.preventDefault();
-            wrapper.classList.remove('compacted');
-            // Give them time to click before it auto-compacts again
-            setTimeout(() => {
-                if (window.scrollY > 50) wrapper.classList.add('compacted');
-            }, 3000);
-        }
-    });
-}
-document.addEventListener('DOMContentLoaded', initDynamicBreadcrumb);
-</script>
+    <!-- MOTOR DE BÚSQUEDA Y NÚCLEO TRANSVERSAL -->
+    <script src="../../assets/js/search_index_data.js"></script>
+    <script src="../../assets/js/bitacora-core.js"></script>
 </body>
 
 </html>
-
 

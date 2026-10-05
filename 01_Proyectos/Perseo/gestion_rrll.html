@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RRLL y Bienestar | Proyecto Perseo</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../Cuaderno de Bitacora (Proyectos)/styles_bitacora.css">
+    <link rel="stylesheet" href="../assets/css/bitacora-core.css">
     <style>
         .content-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 40px; }
         .info-card { background: var(--bg-card); border-radius: 24px; padding: 32px; box-shadow: var(--shadow); border: 1px solid var(--border-color); }
@@ -15,7 +15,6 @@
         .info-list li { margin-bottom: 12px; position: relative; padding-left: 20px; }
         .info-list li::before { content: "•"; color: #10b981; font-weight: bold; position: absolute; left: 0; }
     </style>
-    <link rel="stylesheet" href="../local_styles.css">
 </head>
 <body>
     <nav class="global-nav-wrapper">
@@ -111,18 +110,9 @@
             </p>
         </div>
     </main>
-    <script>
-        function toggleTheme() {
-            const isDark = document.getElementById('theme-checkbox').checked;
-            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        }
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            const cb = document.getElementById('theme-checkbox');
-            if (cb) cb.checked = savedTheme === 'dark';
-        });
-    </script>
+    
+    <!-- MOTOR DE BÚSQUEDA Y NÚCLEO TRANSVERSAL -->
+    <script src="../assets/js/search_index_data.js"></script>
+    <script src="../assets/js/bitacora-core.js"></script>
 </body>
 </html>

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evolución HCM Cloud | Cronograma Global</title>
+    <link rel="stylesheet" href="../assets/css/bitacora-core.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles_hcm.css">
     <style>
@@ -216,8 +217,6 @@
         }
 
     </style>
-
-    <link rel="stylesheet" href="../local_styles.css">
 </head>
 
 <body>
@@ -417,8 +416,6 @@
                 </div>
             </div>
 
-
-
             <!-- FASE 12 -->
             <div class="timeline-block status-pending">
                 <div class="timeline-marker"></div>
@@ -452,23 +449,10 @@
         <p>&copy; 2026 Portal de Gestión HCM Cloud | Memoria Corporativa Permanente</p>
     </footer>
 
-    <script>
-        function toggleTheme() {
-            const checkbox = document.getElementById('theme-checkbox');
-            const isDark = checkbox.checked;
-            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        }
-
-        function initTheme() {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            const checkbox = document.getElementById('theme-checkbox');
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            if (checkbox) checkbox.checked = savedTheme === 'dark';
-        }
-
-        document.addEventListener('DOMContentLoaded', initTheme);
-    </script>
+    
+    <!-- MOTOR DE BÚSQUEDA Y NÚCLEO TRANSVERSAL -->
+    <script src="../assets/js/search_index_data.js"></script>
+    <script src="../assets/js/bitacora-core.js"></script>
 </body>
 
 </html>

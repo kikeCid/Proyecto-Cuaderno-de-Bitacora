@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plan de Acción IA | La Pócima de Perscom</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles_bitacora.css">
+    <link rel="stylesheet" href="../assets/css/bitacora-core.css">
     <style>
         :root {
             --plan-red: #E4002B;
@@ -219,8 +219,6 @@
             text-transform: uppercase;
         }
     </style>
-
-    <link rel="stylesheet" href="../local_styles.css">
 </head>
 
 <body>
@@ -405,14 +403,9 @@
         <p>&copy; 2026 Portal de Transformación y Eficiencia | Grupo Línea Directa</p>
     </footer>
 
-    <script src="breadcrumb_manager.js"></script>
-    <script>
-        function initTheme() {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
-        }
-        document.addEventListener('DOMContentLoaded', initTheme);
-    </script>
+    <!-- MOTOR DE BÚSQUEDA Y NÚCLEO TRANSVERSAL -->
+    <script src="../assets/js/search_index_data.js"></script>
+    <script src="../assets/js/bitacora-core.js"></script>
 </body>
 
 </html>

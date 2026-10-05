@@ -4,7 +4,7 @@
     "title": "Contexto del Proyecto | CRM Operacional",
     "h1": "Contexto del Proyecto",
     "kicker": "MATERIAL APOYO",
-    "desc": "Punto de partida, objetivos fundacionales y roadmap de implementación para el nuevo CRM operativo, destinado a reemplazar el portal interno \"Galgo\".",
+    "desc": "Punto de situación, introducción y metas clave de la implantación",
     "project": "CRM Operacional",
     "category": "Facilitadores",
     "url": "../CRM Operacional/contexto_proyecto.html"
@@ -14,7 +14,7 @@
     "title": "Defensa Fase 2 - Sesión 2: Accenture | CRM Operacional",
     "h1": "Segunda Defensa Propuesta Accenture",
     "kicker": "⬤ DEFENSA TÉCNICA: SESIÓN DE CIERRE",
-    "desc": "Profundización en el enfoque operativo bajo el paradigma \"Standard First\" utilizando el ecosistema Salesforce, aclarando arquitectura técnica y la importanci...",
+    "desc": "Aproximación por Fases (Releases) con alcance firmemente cerrado",
     "project": "CRM Operacional",
     "category": "Facilitadores",
     "url": "../CRM Operacional/defensa_r2_accenture.html"
@@ -24,7 +24,7 @@
     "title": "Defensa Fase 2 - Sesión 2: Ayesa | CRM Operacional",
     "h1": "Segunda Defensa Propuesta Ayesa",
     "kicker": "⬤ DEFENSA TÉCNICA: SESIÓN DE CONTROL",
-    "desc": "Aterrizaje técnico y resolución de retos de integración. Foco en el ecosistema Salesforce+Genesys y la estrategia de convivencia CRM-Galgo.",
+    "desc": "Defensa de la vertical financiera frente al modelo estándar",
     "project": "CRM Operacional",
     "category": "Facilitadores",
     "url": "../CRM Operacional/defensa_r2_ayesa.html"
@@ -34,7 +34,7 @@
     "title": "Defensa Fase 2 - Sesión 2: Capgemini | CRM Operacional",
     "h1": "Segunda Defensa Propuesta Capgemini",
     "kicker": "⬤ DEFENSA TÉCNICA: SESIÓN DE CIERRE",
-    "desc": "Profundización en el enfoque metodológico, arquitectura de integración, modelo de convivencia con sistema Galgo y estrategias en la gestión de personas para ...",
+    "desc": "Aproximación secuenciada al despliegue, disminuyendo drásticamente el riesgo de puesta en producción",
     "project": "CRM Operacional",
     "category": "Facilitadores",
     "url": "../CRM Operacional/defensa_r2_capgemini.html"
@@ -44,7 +44,7 @@
     "title": "Defensa Fase 2 - Sesión 2: Minsait | CRM Operacional",
     "h1": "Segunda Defensa Propuesta Minsait",
     "kicker": "⬤ DEFENSA TÉCNICA: SESIÓN DE ALIANZA",
-    "desc": "Propuesta de integración única CRM + Contact Center. Foco en la arquitectura event-driven con Kafka y el modelo nativo FSC con OmniStudio.",
+    "desc": "Planificación estratégica de Go-Lives parciales por bloques de negocio",
     "project": "CRM Operacional",
     "category": "Facilitadores",
     "url": "../CRM Operacional/defensa_r2_indra.html"
@@ -54,7 +54,7 @@
     "title": "Defensa Fase 2 - Sesión 2: NTT Data | CRM Operacional",
     "h1": "Segunda Defensa Propuesta NTT Data",
     "kicker": "⬤ DEFENSA TÉCNICA: MODELO POR OLAS",
-    "desc": "Propuesta pragmática centrada en Salesforce S&S. Foco en la orquestación vía MuleSoft y la explotación de datos conversacionales mediante Digital Engagement.",
+    "desc": "Horizonte temporal y secuencia lógica de despliegue progresivo",
     "project": "CRM Operacional",
     "category": "Facilitadores",
     "url": "../CRM Operacional/defensa_r2_ntt_data.html"
@@ -64,7 +64,7 @@
     "title": "Defensa Fase 2 - Sesión 2: Omega | CRM Operacional",
     "h1": "Segunda Defensa Propuesta Omega",
     "kicker": "⬤ DEFENSA TÉCNICA: SESIÓN DE CIERRE",
-    "desc": "Consolidación de la propuesta técnica y operativa. Aclaración de arquitectura MuleSoft, modelo de licenciamiento y plan de adopción táctico.",
+    "desc": "Posicionamiento de Omega sobre la elección de nube de Salesforce",
     "project": "CRM Operacional",
     "category": "Facilitadores",
     "url": "../CRM Operacional/defensa_r2_omega.html"
@@ -74,7 +74,7 @@
     "title": "Defensa Fase 2: Accenture | CRM Operacional",
     "h1": "Análisis de Sesión Accenture",
     "kicker": "⬤ FASE 2: SESIÓN DE DEFENSA TÉCNICA",
-    "desc": "Consolidado de los puntos clave defendidos durante la sesión presencial del 11 de marzo de 2026. Foco en la aceleración mediante IA y el modelo de adopción p...",
+    "desc": "Capacidades base presentadas en el pliego inicial (11 de Marzo)",
     "project": "CRM Operacional",
     "category": "Facilitadores",
     "url": "../CRM Operacional/defensa_r1_accenture.html"
@@ -84,7 +84,7 @@
     "title": "Defensa Fase 2: Ayesa | CRM Operacional",
     "h1": "Análisis de Sesión Ayesa",
     "kicker": "⬤ FASE 2: SESIÓN DE DEFENSA TÉCNICA",
-    "desc": "Consolidado de los puntos clave defendidos durante la sesión presencial del 16 de marzo de 2026. Foco en la adopción operativa (\"Fit-to-standard\") y cercanía...",
+    "desc": "Capacidades base presentadas en el pliego inicial (16 de Marzo)",
     "project": "CRM Operacional",
     "category": "Facilitadores",
     "url": "../CRM Operacional/defensa_r1_ayesa.html"
@@ -94,7 +94,7 @@
     "title": "Defensa Fase 2: Capgemini | CRM Operacional",
     "h1": "Análisis de Sesión Capgemini",
     "kicker": "⬤ FASE 2: SESIÓN DE DEFENSA TÉCNICA",
-    "desc": "Consolidado de los puntos clave defendidos durante la sesión de defensa. Énfasis en el modelo mixto \"Right-shore\" y su avanzado stack de aceleradores IA.",
+    "desc": "Capacidades industriales presentadas en la sesión del 20 de Marzo",
     "project": "CRM Operacional",
     "category": "Facilitadores",
     "url": "../CRM Operacional/defensa_r1_capgemini.html"
@@ -104,7 +104,7 @@
     "title": "Defensa Fase 2: Minsait | CRM Operacional",
     "h1": "Análisis de Sesión Minsait (Indra Group)",
     "kicker": "⬤ FASE 2: SESIÓN DE DEFENSA TÉCNICA",
-    "desc": "Resumen de la defensa técnica realizada por la alianza Minsait + Nespon Solutions. Enfoque \"Customer First\" con hiper-especialización en la vertical Salesfor...",
+    "desc": "Capacidades base presentadas por la alianza Minsait+Nespon (12 de Marzo)",
     "project": "CRM Operacional",
     "category": "Facilitadores",
     "url": "../CRM Operacional/defensa_r1_indra.html"
@@ -114,7 +114,7 @@
     "title": "Defensa Fase 2: NTT Data | CRM Operacional",
     "h1": "Análisis de Sesión NTT Data",
     "kicker": "⬤ FASE 2: SESIÓN DE DEFENSA TÉCNICA",
-    "desc": "Consolidado de los pilares de defensa presentados. Enfoque centrado en la coexistencia sin riesgos con Galgo y la transformación operativa profunda.",
+    "desc": "Puntos clave defendidos en la sesión presencial del 13 de Marzo",
     "project": "CRM Operacional",
     "category": "Facilitadores",
     "url": "../CRM Operacional/defensa_r1_ntt_data.html"
@@ -124,7 +124,7 @@
     "title": "Defensa Fase 2: Omega | CRM Operacional",
     "h1": "Análisis de Sesión Omega (Merkle)",
     "kicker": "⬤ FASE 2: SESIÓN DE DEFENSA TÉCNICA",
-    "desc": "Puntos clave de la sesión de defensa estratégica. Foco absoluto en la excelencia operativa mediante el binomio IA + Personas sobre Salesforce FSC.",
+    "desc": "Puntos clave defendidos en la sesión presencial del 17 de Marzo",
     "project": "CRM Operacional",
     "category": "Facilitadores",
     "url": "../CRM Operacional/defensa_r1_omega.html"
@@ -134,17 +134,17 @@
     "title": "Fase 3: Matriz de Decisión | CRM Operacional",
     "h1": "Matriz de Valoración y Análisis de Adjudicación",
     "kicker": "⬤ FASE 3: ANÁLISIS DE DECISIÓN",
-    "desc": "Mejor equilibrio entre visión, ejecución y riesgo. Entendimiento profundo del contexto LDA y enfoque en estándares FSC para minimizar deuda técnica.",
+    "desc": "Matriz de Valoración y Análisis de Adjudicación",
     "project": "CRM Operacional",
     "category": "Facilitadores",
     "url": "../CRM Operacional/adjudicacion_final.html"
   },
   {
     "id": "CRM Operacional/index.html",
-    "title": "Hub de CRM Operacional",
+    "title": "Hub de CRM Operacional | Proyectos LDAP",
     "h1": "Hub de Gestión CRM Operacional",
     "kicker": "Centro de Operaciones CRM",
-    "desc": "Diagnóstico de situación, objetivos y análisis comparativo de plataformas (Dynamics vs Salesforce) junto al roadmap de despliegue.",
+    "desc": "Hub de Gestión CRM Operacional",
     "project": "CRM Operacional",
     "category": "Facilitadores",
     "url": "../CRM Operacional/index.html"
@@ -154,7 +154,7 @@
     "title": "Hub de Licitación RFQ | CRM Operacional",
     "h1": "Proceso de Licitación RFQ",
     "kicker": "ADQUISICIONES TÉCNICAS",
-    "desc": "Aterrizaje de nuestras necesidades, objetivos de Transformación y requerimientos organizativos detallados para el ecosistema CRM.",
+    "desc": "Documentación base requerida para la licitación",
     "project": "CRM Operacional",
     "category": "Facilitadores",
     "url": "../CRM Operacional/hub_licitacion.html"
@@ -164,7 +164,7 @@
     "title": "Master Roadmap Licitación | CRM Operacional",
     "h1": "Master Roadmap Licitación CRM",
     "kicker": "FECHA ACTUAL: ABRIL 2026",
-    "desc": "Cronología actualizada de hitos y decisiones estratégicas del proceso RFQ.",
+    "desc": "Master Roadmap Licitación CRM",
     "project": "CRM Operacional",
     "category": "Facilitadores",
     "url": "../CRM Operacional/cronograma_licitacion.html"
@@ -174,7 +174,7 @@
     "title": "Proceso RFQ | CRM Operacional",
     "h1": "Proceso RFQ y Proveedores",
     "kicker": "LICITACIÓN EN CURSO",
-    "desc": "Análisis sobre el pliego de petición de oferta (RFQ 2026-039). Descubre la necesidad operativa de Línea Directa y los requerimientos formativos y técnicos qu...",
+    "desc": "¿Qué le hemos solicitado a los proveedores?",
     "project": "CRM Operacional",
     "category": "Facilitadores",
     "url": "../CRM Operacional/proceso_rfq.html"
@@ -184,7 +184,7 @@
     "title": "Propuesta Accenture | CRM Operacional",
     "h1": "Oferta Integral Accenture",
     "kicker": "PROVEEDOR LICITANTE",
-    "desc": "Valoración estructurada de la propuesta de Accenture, orientada bajo una misma metodología de trabajo en 3 ejes principales de control.",
+    "desc": "Diferencias clave en las aproximaciones tecnológicas presentadas",
     "project": "CRM Operacional",
     "category": "Facilitadores",
     "url": "../CRM Operacional/propuesta_accenture.html"
@@ -194,7 +194,7 @@
     "title": "Propuesta Ayesa | CRM Operacional",
     "h1": "Oferta Integral Ayesa",
     "kicker": "PROVEEDOR LICITANTE",
-    "desc": "Análisis comprensivo de la propuesta de Ayesa, estructurada en base a 4 ejes fundamentales de control. El proveedor apuesta como tecnología exclusiva de desp...",
+    "desc": "Arquitectura core centrada en Salesforce, Integración e Inteligencia",
     "project": "CRM Operacional",
     "category": "Facilitadores",
     "url": "../CRM Operacional/propuesta_ayesa.html"
@@ -204,7 +204,7 @@
     "title": "Propuesta Capgemini | CRM Operacional",
     "h1": "Oferta Integral Capgemini",
     "kicker": "PROVEEDOR LICITANTE",
-    "desc": "Análisis de la propuesta de Capgemini, dividida en los 4 ejes de control del proyecto CRM. Su oferta se desdobla compitiendo con los dos principales fabrican...",
+    "desc": "Diferencias y estrategias de la aproximación tecnológica de Capgemini",
     "project": "CRM Operacional",
     "category": "Facilitadores",
     "url": "../CRM Operacional/propuesta_capgemini.html"
@@ -214,7 +214,7 @@
     "title": "Propuesta Minsait (Indra) | CRM Operacional",
     "h1": "Oferta Integral Minsait (Indra)",
     "kicker": "PROVEEDOR LICITANTE",
-    "desc": "Análisis de la propuesta económica y operativa de Minsait. Con un enfoque dirigido exclusivamente hacia Salesforce FSC y una planificación agresiva que compa...",
+    "desc": "Arquitectura unificada y compresión del calendario",
     "project": "CRM Operacional",
     "category": "Facilitadores",
     "url": "../CRM Operacional/propuesta_indra.html"
@@ -224,7 +224,7 @@
     "title": "Propuesta NTT DATA | CRM Operacional",
     "h1": "Oferta Integral NTT DATA",
     "kicker": "PROVEEDOR LICITANTE",
-    "desc": "Análisis de la propuesta de NTT DATA para la transformación del modelo asegurador de Línea Directa. Presentan un enfoque basado en 'Olas de Negocio' sobre Sa...",
+    "desc": "Transformación por bloques y despliegue progresivo",
     "project": "CRM Operacional",
     "category": "Facilitadores",
     "url": "../CRM Operacional/propuesta_ntt_data.html"
@@ -234,7 +234,7 @@
     "title": "Propuesta OMEGA | CRM Operacional",
     "h1": "Oferta Integral OMEGA CRM",
     "kicker": "PROVEEDOR LICITANTE",
-    "desc": "Análisis de la propuesta de OMEGA CRM (Merkle Company). Enfoque premium centrado en la metodología \"The Bridge\" sobre Salesforce FSC, destacando por su fuert...",
+    "desc": "Arquitectura híbrida y metodología \"The Bridge\"",
     "project": "CRM Operacional",
     "category": "Facilitadores",
     "url": "../CRM Operacional/propuesta_omega.html"
@@ -244,7 +244,7 @@
     "title": "Tecnologías CRM | CRM Operacional",
     "h1": "Plataformas Tecnológicas Mapeadas",
     "kicker": "ARQUITECTURA DE ECOSISTEMAS",
-    "desc": "Comparativa técnica de las soluciones CRM que estamos evaluando en la licitación. Un análisis enfocado en desgranar las capacidades nativas de Microsoft y Sa...",
+    "desc": "Alternativa consolidada como suite transversal",
     "project": "CRM Operacional",
     "category": "Facilitadores",
     "url": "../CRM Operacional/soluciones_tecnologicas.html"
@@ -254,29 +254,29 @@
     "title": "Cuaderno de Bitácora | Hub de Proyectos",
     "h1": "Cuaderno de Bitácora",
     "kicker": "Command Center v1.0",
-    "desc": "Migración estratégica de PeopleSoft RR.HH. a arquitectura Cloud para digitalizar procesos y habilitar capacidades de IA y analítica avanzada.",
+    "desc": "Proyectos liderados por el área de Personas",
     "project": "Cuaderno de Bitacora (Proyectos)",
-    "category": "Portal Central",
-    "url": "index.html"
+    "category": "Core Platform",
+    "url": "../Cuaderno de Bitacora (Proyectos)/index.html"
   },
   {
     "id": "Cuaderno de Bitacora (Proyectos)/perfil.html",
     "title": "Mi Perfil | Portfolio Profesional",
     "h1": "Kike Cid",
-    "kicker": "",
-    "desc": "'\"> Kike Cid Recurso en Local Project Manager Senior | Especialista en Transformaci�n Digital Estratega con mentalidad digital, apasionado por la inteligenci...",
+    "kicker": "Recurso en Local",
+    "desc": "Kike Cid",
     "project": "Cuaderno de Bitacora (Proyectos)",
-    "category": "Portal Central",
-    "url": "perfil.html"
+    "category": "Core Platform",
+    "url": "../Cuaderno de Bitacora (Proyectos)/perfil.html"
   },
   {
     "id": "Gestion de Usuarios/arquitectura_gus.html",
     "title": "Arquitectura del Servicio GUS",
-    "h1": "Arquitectura del Servicio GUS",
+    "h1": "Arquitectura del ServicioGUS",
     "kicker": "Estructura",
-    "desc": "Visión técnica de cómo se enlazan las distintas piezas de software del ciclo vital de un empleado corporativo, desde el origen de la contratación en Selecció...",
+    "desc": "Arquitectura del ServicioGUS",
     "project": "Gestion de Usuarios",
-    "category": "Servicios",
+    "category": "Tecnología",
     "url": "../Gestion de Usuarios/arquitectura_gus.html"
   },
   {
@@ -284,9 +284,9 @@
     "title": "Gestión de Usuarios | Hub Operativo",
     "h1": "Hub de Gestión de Usuarios",
     "kicker": "Servicios y Operativas",
-    "desc": "Visión técnica de cómo se enlazan las distintas piezas de software, desde el Active Directory hasta los sistemas satélite.",
+    "desc": "Hub de Gestión de Usuarios",
     "project": "Gestion de Usuarios",
-    "category": "Servicios",
+    "category": "Tecnología",
     "url": "../Gestion de Usuarios/index.html"
   },
   {
@@ -294,19 +294,19 @@
     "title": "Integraciones & APIs GUS",
     "h1": "Integraciones y Sincronización",
     "kicker": "Conexiones",
-    "desc": "Catálogo de servicios de aprovisionamiento, APIs de identidad y automatizaciones que mantienen la coherencia en tiempo real en todo el ecosistema de Línea Di...",
+    "desc": "Integraciones y Sincronización",
     "project": "Gestion de Usuarios",
-    "category": "Servicios",
+    "category": "Tecnología",
     "url": "../Gestion de Usuarios/integraciones_gus.html"
   },
   {
     "id": "Gestion de Usuarios/sistema_contratacion_gus.html",
     "title": "Sistema de Contratación y Gestión de Usuarios (GUS)",
-    "h1": "Sistema de Contratación y Gestión de Usuarios (GUS)",
+    "h1": "Sistema de Contratación yGestión de Usuarios (GUS)",
     "kicker": "Flujos Operativos",
-    "desc": "Esta operativa describe el ciclo de vida del alta de un empleado, desde su contratación hasta la provisión de sus accesos tecnológicos. El sistema maestro do...",
+    "desc": "Sistema de Contratación yGestión de Usuarios (GUS)",
     "project": "Gestion de Usuarios",
-    "category": "Servicios",
+    "category": "Tecnología",
     "url": "../Gestion de Usuarios/sistema_contratacion_gus.html"
   },
   {
@@ -314,9 +314,9 @@
     "title": "Base de Conocimiento Wiki | Proyecto LidIA Negocio",
     "h1": "Base de Conocimiento LidIA Negocio",
     "kicker": "WIKI CONFLUENCE",
-    "desc": "A diferencia de RRHH, Negocio no contaba con una base global de conocimiento estructurada. Esta es la historia de cómo construimos su cerebro y lo adaptamos ...",
+    "desc": "Base de Conocimiento LidIA Negocio",
     "project": "Gobierno de Informacion",
-    "category": "Proyectos Cerrados",
+    "category": "Estratégico",
     "url": "../Gobierno de Informacion/Lidia/lidia_negocio_wiki.html"
   },
   {
@@ -324,9 +324,9 @@
     "title": "Bitácora Track LidIA | Estado y Tareas",
     "h1": "Track LidIA Core",
     "kicker": "Bitácora de Ejecución",
-    "desc": "Seguimiento detallado de estados, tareas y avances en la lónea de aceleración operativa.",
+    "desc": "Track LidIA Core",
     "project": "Gobierno de Informacion",
-    "category": "Proyectos Cerrados",
+    "category": "Estratégico",
     "url": "../Gobierno de Informacion/Lidia/track_lidia.html"
   },
   {
@@ -334,9 +334,9 @@
     "title": "Carga de Contenidos | Proyecto LidIA Negocio",
     "h1": "Hitos Carga de Contenidos LidIA Negocio",
     "kicker": "KNOWLEDGE BASE",
-    "desc": "Registro histórico de las subidas de información y operativas a la Base de Conocimiento, detallando fechas de primera carga y actualizaciones por producto.",
+    "desc": "Hitos Carga de Contenidos LidIA Negocio",
     "project": "Gobierno de Informacion",
-    "category": "Proyectos Cerrados",
+    "category": "Estratégico",
     "url": "../Gobierno de Informacion/Lidia/lidia_negocio_carga.html"
   },
   {
@@ -344,9 +344,9 @@
     "title": "Cronograma del Proyecto | Universo LidIA",
     "h1": "Cronograma de Tareas Proyecto LidIA",
     "kicker": "PLAN DE EJECUCIÓN",
-    "desc": "Desglose operativo de entregables y avances tecnológicos planificados a corto, medio y largo plazo durante la vida del proyecto.",
+    "desc": "Cronograma de Tareas Proyecto LidIA",
     "project": "Gobierno de Informacion",
-    "category": "Proyectos Cerrados",
+    "category": "Estratégico",
     "url": "../Gobierno de Informacion/Lidia/lidia_cronograma.html"
   },
   {
@@ -354,9 +354,9 @@
     "title": "Despliegues y Adopción | Proyecto LidIA Negocio",
     "h1": "Despliegues y Plan de Adopción LidIA Negocio",
     "kicker": "ROADMAP OPERATIVO",
-    "desc": "Cronograma de integración de LidIA en las áreas core de negocio: desde los despliegues iniciales hasta la adopción estructurada por parte de los equipos de F...",
+    "desc": "Despliegues y Plan de Adopción LidIA Negocio",
     "project": "Gobierno de Informacion",
-    "category": "Proyectos Cerrados",
+    "category": "Estratégico",
     "url": "../Gobierno de Informacion/Lidia/lidia_negocio_despliegues.html"
   },
   {
@@ -364,9 +364,9 @@
     "title": "Estándar de Gestión del Conocimiento | Fase 1",
     "h1": "Hub de Gestión de la Información",
     "kicker": "Estructura de Información del Proyecto",
-    "desc": "Proyecto Base: Historia, Orquestador Técnico y Estrategia 2026.",
+    "desc": "Hub de Gestión de la Información",
     "project": "Gobierno de Informacion",
-    "category": "Proyectos Cerrados",
+    "category": "Estratégico",
     "url": "../Gobierno de Informacion/Lidia/fase1_gobierno_estrategia.html"
   },
   {
@@ -374,9 +374,9 @@
     "title": "Estándar de Gestión del Conocimiento | Fase 2",
     "h1": "Hub de Gestión de la Información",
     "kicker": "Estructura de Información del Proyecto",
-    "desc": "Proyecto Base: Historia, Orquestador Técnico y Estrategia 2026.",
+    "desc": "Hub de Gestión de la Información",
     "project": "Gobierno de Informacion",
-    "category": "Proyectos Cerrados",
+    "category": "Estratégico",
     "url": "../Gobierno de Informacion/Lidia/fase2_operativa_tecnologia.html"
   },
   {
@@ -384,19 +384,19 @@
     "title": "Historia y Contexto | LidIA-MCP",
     "h1": "Historia y Contexto",
     "kicker": "ADN LidIA: Nuestra Visión",
-    "desc": "Analizamos la evolución del proyecto: un viaje desde la experimentación técnica hasta la consolidación de un ecosistema de inteligencia corporativa basado en...",
+    "desc": "Historia y Contexto",
     "project": "Gobierno de Informacion",
-    "category": "Proyectos Cerrados",
+    "category": "Estratégico",
     "url": "../Gobierno de Informacion/Lidia/historia_contexto.html"
   },
   {
     "id": "Gobierno de Informacion/index.html",
-    "title": "Hub de Gestión de la Información",
+    "title": "Hub de Gestión de la Información | LDA",
     "h1": "Hub de Gestión de la Información",
     "kicker": "Estructura de Información del Proyecto",
-    "desc": "Cimientos del proyecto: desde el ADN histórico hasta la arquitectura del orquestador técnico y la visión hacia 2026.",
+    "desc": "Hub de Gestión de la Información",
     "project": "Gobierno de Informacion",
-    "category": "Proyectos Cerrados",
+    "category": "Estratégico",
     "url": "../Gobierno de Informacion/index.html"
   },
   {
@@ -404,9 +404,9 @@
     "title": "Libro Blanco | LidIA-MCP",
     "h1": "Libro Blanco: Reglas de Juego",
     "kicker": "LidIA-MCP v1.2",
-    "desc": "Consolidamos el marco normativo definitivo: una guóa técnica y estratégica para la estandarización del activo intelectual, garantizando la consistencia absol...",
+    "desc": "Libro Blanco: Reglas de Juego",
     "project": "Gobierno de Informacion",
-    "category": "Proyectos Cerrados",
+    "category": "Estratégico",
     "url": "../Gobierno de Informacion/Lidia/libro_blanco.html"
   },
   {
@@ -414,9 +414,9 @@
     "title": "Metodologóa de Trabajo | LidIA-MCP",
     "h1": "Metodologóa de Trabajo LidIA",
     "kicker": "Modelo Operativo 2026",
-    "desc": "Integramos el rigor normativo con la capacidad tecnológica avanzada para edificar un ecosistema de conocimiento robusto, confiable y preparado para la escala...",
+    "desc": "Metodologóa de Trabajo LidIA",
     "project": "Gobierno de Informacion",
-    "category": "Proyectos Cerrados",
+    "category": "Estratégico",
     "url": "../Gobierno de Informacion/Lidia/metodologia_trabajo.html"
   },
   {
@@ -424,9 +424,9 @@
     "title": "Modelo de Gobierno de Información | LidIA-MCP",
     "h1": "Ecosistema de Gobierno",
     "kicker": "Gobernanza LidIA",
-    "desc": "Roles y Responsabilidades.",
+    "desc": "Ecosistema de Gobierno",
     "project": "Gobierno de Informacion",
-    "category": "Proyectos Cerrados",
+    "category": "Estratégico",
     "url": "../Gobierno de Informacion/Lidia/modelo_gobierno_gin.html"
   },
   {
@@ -434,9 +434,9 @@
     "title": "Modelo de Gobierno | LidIA-MCP",
     "h1": "Modelo de Gobierno",
     "kicker": "Gestión de la información de Negocio",
-    "desc": "Definición de roles, funciones y modelo organizativo del gobierno de información.",
+    "desc": "Modelo de Gobierno",
     "project": "Gobierno de Informacion",
-    "category": "Proyectos Cerrados",
+    "category": "Estratégico",
     "url": "../Gobierno de Informacion/Lidia/modelo_gobierno.html"
   },
   {
@@ -444,29 +444,29 @@
     "title": "Objetivos Corporativos | Proyecto LidIA",
     "h1": "Objetivos Corporativos Proyecto LidIA",
     "kicker": "ROADMAP ESTRATÉGICO",
-    "desc": "Hitos principales, fases de ejecución y despliegue del Proyecto LidIA (incluyendo RRHH y Negocio) desglosados trimestralmente.",
+    "desc": "Objetivos Corporativos Proyecto LidIA",
     "project": "Gobierno de Informacion",
-    "category": "Proyectos Cerrados",
+    "category": "Estratégico",
     "url": "../Gobierno de Informacion/Lidia/lidia_objetivos.html"
   },
   {
     "id": "Gobierno de Informacion/Lidia/orquestador_ia.html",
     "title": "Orquestador IA LidIA | Infraestructura Tecnológica",
-    "h1": "Orquestador IA LidIA",
+    "h1": "OrquestadorIA LidIA",
     "kicker": "Arquitectura Técnica",
-    "desc": "No es un modelo de IA en sí mismo, sino un sistema que coordina múltiples componentes, servicios y modelos de lenguaje para ofrecer respuestas precisas y con...",
+    "desc": "OrquestadorIA LidIA",
     "project": "Gobierno de Informacion",
-    "category": "Proyectos Cerrados",
+    "category": "Estratégico",
     "url": "../Gobierno de Informacion/Lidia/orquestador_ia.html"
   },
   {
     "id": "Gobierno de Informacion/Lidia/lidia_negocio_riesgos.html",
     "title": "Posibles Riesgos | LidIA Negocio",
     "h1": "Posibles Riesgos",
-    "kicker": "",
-    "desc": "Proyecto Lid IA",
+    "kicker": "Repositorio",
+    "desc": "Posibles Riesgos",
     "project": "Gobierno de Informacion",
-    "category": "Proyectos Cerrados",
+    "category": "Estratégico",
     "url": "../Gobierno de Informacion/Lidia/lidia_negocio_riesgos.html"
   },
   {
@@ -474,9 +474,9 @@
     "title": "Potenciadores IA | LidIA-MCP",
     "h1": "Potenciadores LidIA IA",
     "kicker": "Habilidades IA",
-    "desc": "Módulos de inteligencia especializada diseñados para amplificar la capacidad de curación, garantizar la precisión extrema y asegurar la trazabilidad absoluta...",
+    "desc": "Potenciadores LidIA IA",
     "project": "Gobierno de Informacion",
-    "category": "Proyectos Cerrados",
+    "category": "Estratégico",
     "url": "../Gobierno de Informacion/Lidia/potenciadores_ia.html"
   },
   {
@@ -484,9 +484,9 @@
     "title": "Proceso de Trabajo (4 Fases) | LidIA-MCP",
     "h1": "Proceso de Trabajo: 4 Fases",
     "kicker": "Ciclo de Vida",
-    "desc": "El ciclo de vida del conocimiento: desde la detección de una necesidad operativa hasta su transformación en un activo de inteligencia estandarizado.",
+    "desc": "Proceso de Trabajo: 4 Fases",
     "project": "Gobierno de Informacion",
-    "category": "Proyectos Cerrados",
+    "category": "Estratégico",
     "url": "../Gobierno de Informacion/Lidia/proceso_trabajo.html"
   },
   {
@@ -494,9 +494,9 @@
     "title": "Propuesta GIN | Universo GIN",
     "h1": "Modelo de Gobierno GIN",
     "kicker": "Propuesta Estratégica",
-    "desc": "Propuesta del Modelo de Gobierno de la Información de Negocio (GIN).",
+    "desc": "Modelo de Gobierno GIN",
     "project": "Gobierno de Informacion",
-    "category": "Proyectos Cerrados",
+    "category": "Estratégico",
     "url": "../Gobierno de Informacion/Metodologia de gobierno de informacion/propuesta_gin.html"
   },
   {
@@ -504,9 +504,9 @@
     "title": "Proyecto LidIA Negocio | Hub de Gestión de la Información",
     "h1": "Proyecto LidIA Negocio",
     "kicker": "Valor Estratégico",
-    "desc": "Creación del cerebro de negocio de LidIA en Confluence (Markdown). Estructuración por productos y operativas, y su evolución hacia LIAC y Gemini.",
+    "desc": "Proyecto LidIA Negocio",
     "project": "Gobierno de Informacion",
-    "category": "Proyectos Cerrados",
+    "category": "Estratégico",
     "url": "../Gobierno de Informacion/Lidia/lidia_negocio.html"
   },
   {
@@ -514,9 +514,9 @@
     "title": "Proyecto LidIA RRHH | Hub de Gestión de la Información",
     "h1": "Proyecto LidIA RRHH",
     "kicker": "Gestión de Personas",
-    "desc": "Inteligencia aplicada al desarrollo del talento, la cultura organizativa y la optimización de procesos humanos.",
+    "desc": "Proyecto LidIA RRHH",
     "project": "Gobierno de Informacion",
-    "category": "Proyectos Cerrados",
+    "category": "Estratégico",
     "url": "../Gobierno de Informacion/Lidia/lidia_rrhh.html"
   },
   {
@@ -524,9 +524,9 @@
     "title": "Reenfoque Proyecto 2026 | LidIA-MCP",
     "h1": "Reenfoque Proyecto LidIA 2026",
     "kicker": "Estrategia 2026",
-    "desc": "Modelo organizativo y pilares estratégicos: por qué el orden es el único camino hacia una inteligencia artificial fiable.",
+    "desc": "Reenfoque Proyecto LidIA 2026",
     "project": "Gobierno de Informacion",
-    "category": "Proyectos Cerrados",
+    "category": "Estratégico",
     "url": "../Gobierno de Informacion/Lidia/estrategia_2026.html"
   },
   {
@@ -534,9 +534,9 @@
     "title": "Sincronización de Vóas de Trabajo | LidIA-MCP",
     "h1": "Sincronización de Vóas de Trabajo",
     "kicker": "Modelo Operativo 2026",
-    "desc": "Sincronizamos el rigor institucional del gobierno de información con la agilidad del despliegue tecnológico para un crecimiento equilibrado.",
+    "desc": "Sincronización de Vóas de Trabajo",
     "project": "Gobierno de Informacion",
-    "category": "Proyectos Cerrados",
+    "category": "Estratégico",
     "url": "../Gobierno de Informacion/Lidia/vias_trabajo.html"
   },
   {
@@ -544,9 +544,9 @@
     "title": "Track Universo GIN | Registro de Acciones",
     "h1": "Cronograma GIN",
     "kicker": "Track Operativo",
-    "desc": "Registro de acciones operativas y evolución del Modelo de Gobierno de la Información de Negocio (GIN).",
+    "desc": "Cronograma GIN",
     "project": "Gobierno de Informacion",
-    "category": "Proyectos Cerrados",
+    "category": "Estratégico",
     "url": "../Gobierno de Informacion/Metodologia de gobierno de informacion/track_gin.html"
   },
   {
@@ -554,9 +554,9 @@
     "title": "Universo GIN 360° | LidIA-MCP",
     "h1": "Infografóa LidIA 360°",
     "kicker": "Visión Integral",
-    "desc": "Exploramos la arquitectura integral del proyecto: la convergencia estratégica entre la disciplina del gobierno de información y la capacidad exponencial de l...",
+    "desc": "Infografóa LidIA 360°",
     "project": "Gobierno de Informacion",
-    "category": "Proyectos Cerrados",
+    "category": "Estratégico",
     "url": "../Gobierno de Informacion/Lidia/universo_gin_360.html"
   },
   {
@@ -564,9 +564,9 @@
     "title": "Universo GIN | Hub de Gestión de la Información",
     "h1": "Universo GIN",
     "kicker": "Ecosistema LidIA",
-    "desc": "Registro de acciones operativas e hitos del proyecto.",
+    "desc": "Universo GIN",
     "project": "Gobierno de Informacion",
-    "category": "Proyectos Cerrados",
+    "category": "Estratégico",
     "url": "../Gobierno de Informacion/Metodologia de gobierno de informacion/hub_gin.html"
   },
   {
@@ -574,9 +574,9 @@
     "title": "Universo LidIA 360° | Hub de Gestión de Información",
     "h1": "Universo LidIA 360°",
     "kicker": "Visión Integral",
-    "desc": "La simbiosis perfecta entre conocimiento humano y automatización inteligente.",
+    "desc": "Universo LidIA 360°",
     "project": "Gobierno de Informacion",
-    "category": "Proyectos Cerrados",
+    "category": "Estratégico",
     "url": "../Gobierno de Informacion/Lidia/universo_lidia_360.html"
   },
   {
@@ -584,9 +584,9 @@
     "title": "Universo LidIA | Hub de Gestión de la Información",
     "h1": "Universo LidIA",
     "kicker": "Ecosistema LidIA",
-    "desc": "El recorrido de LidIA: aprendizajes críticos de años anteriores y la visión editorial que impulsa el cambio en 2026.",
+    "desc": "Universo LidIA",
     "project": "Gobierno de Informacion",
-    "category": "Proyectos Cerrados",
+    "category": "Estratégico",
     "url": "../Gobierno de Informacion/Lidia/hub_lidia.html"
   },
   {
@@ -594,19 +594,19 @@
     "title": "Análisis Interno de Procesos (AS-IS) | HCM Evo",
     "h1": "Análisis Interno de Procesos",
     "kicker": "Fase 3",
-    "desc": "Auditoría exhaustiva de la situación tecnológica y funcional actual de Recursos Humanos en Línea Directa. Un mapa detallado de nuestro ecosistema, desarrollo...",
+    "desc": "Análisis Interno de Procesos",
     "project": "HCM",
-    "category": "Gestión Directa",
+    "category": "Corporativo",
     "url": "../HCM/analisis_procesos.html"
   },
   {
     "id": "HCM/export_estatico.html",
     "title": "Dossier Evolucion HCM Cloud 2026",
-    "h1": "Evolucion HCM Cloud",
-    "kicker": "Estudio de Mercado",
-    "desc": "An&aacute;lisis del dilema arquitect&oacute;nico y estrat&eacute;gico previo a la evoluci&oacute;n de los sistemas Legacy. Un marco de decisi&oacute;n para e...",
+    "h1": "EvolucionHCM Cloud",
+    "kicker": "INDICE DE DOCUMENTOS SELECCIONADOS",
+    "desc": "EvolucionHCM Cloud",
     "project": "HCM",
-    "category": "Gestión Directa",
+    "category": "Corporativo",
     "url": "../HCM/export_estatico.html"
   },
   {
@@ -614,9 +614,9 @@
     "title": "Estrategia Tecnológica HR | Ecosistema Unificado vs Nichos",
     "h1": "Dise&ntilde;o del Ecosistema: Global Unificado vs Nichos Funcionales",
     "kicker": "",
-    "desc": "An&aacute;lisis del dilema arquitect&oacute;nico y estrat&eacute;gico previo a la evoluci&oacute;n de los sistemas Legacy. Un marco de decisi&oacute;n para e...",
+    "desc": "Dise&ntilde;o del Ecosistema: Global Unificado vs Nichos Funcionales",
     "project": "HCM",
-    "category": "Gestión Directa",
+    "category": "Corporativo",
     "url": "../HCM/estrategia_ecosistema.html"
   },
   {
@@ -624,9 +624,9 @@
     "title": "Evolución HCM Cloud | Business Case",
     "h1": "Business Case HCM Cloud",
     "kicker": "Aprobación y Viabilidad",
-    "desc": "Justificación estratégica y económica para la migración desde PeopleSoft hacia una plataforma Cloud (Oracle HCM). Garantizar la evolución tecnológica, integr...",
+    "desc": "Business Case HCM Cloud",
     "project": "HCM",
-    "category": "Gestión Directa",
+    "category": "Corporativo",
     "url": "../HCM/vision_general.html"
   },
   {
@@ -634,9 +634,9 @@
     "title": "Evolución HCM Cloud | Cronograma Global",
     "h1": "Cronograma Global del Proyecto",
     "kicker": "Visión End-to-End",
-    "desc": "Trazabilidad completa de las fases del proyecto Evolución HCM Cloud, desde el análisis inicial hasta el arranque planificado en 2027.",
+    "desc": "Cronograma Global del Proyecto",
     "project": "HCM",
-    "category": "Gestión Directa",
+    "category": "Corporativo",
     "url": "../HCM/cronograma.html"
   },
   {
@@ -644,9 +644,9 @@
     "title": "Evolución HCM Cloud | Evaluación del Mercado",
     "h1": "Roadmap de Evaluación de Proveedores",
     "kicker": "Estudio de Mercado",
-    "desc": "Análisis detallado de las principales alternativas Cloud del ecosistema HCM. Comparativa de licenciamiento, tiempos y valoración técnica por proveedor.",
+    "desc": "Roadmap de Evaluación de Proveedores",
     "project": "HCM",
-    "category": "Gestión Directa",
+    "category": "Corporativo",
     "url": "../HCM/evaluacion_mercado.html"
   },
   {
@@ -654,29 +654,29 @@
     "title": "Evolución HCM Cloud | Lanzamiento RFQ",
     "h1": "Lanzamiento RFQ de Ofertas",
     "kicker": "Fase 9: En Curso",
-    "desc": "Preparación técnica y funcional del pliego de condiciones (Request For Quotation) para el mercado, capitalizando el conocimiento adquirido en la fase de RFI ...",
+    "desc": "Lanzamiento RFQ de Ofertas",
     "project": "HCM",
-    "category": "Gestión Directa",
+    "category": "Corporativo",
     "url": "../HCM/lanzamiento_rfq.html"
   },
   {
     "id": "HCM/export_proyecto.html",
     "title": "Exportar Proyecto | Evolución HCM Cloud",
-    "h1": "Exportar Proyecto | Evolución HCM Cloud",
-    "kicker": "",
-    "desc": "",
+    "h1": "",
+    "kicker": "8 secciones · 2026",
+    "desc": "Evolución HCM Cloud — Documento Completo",
     "project": "HCM",
-    "category": "Gestión Directa",
+    "category": "Corporativo",
     "url": "../HCM/export_proyecto.html"
   },
   {
     "id": "HCM/gestion_cambio.html",
     "title": "Gestión del Cambio | Proyecto Evolutivo HCM",
     "h1": "Gestión del Cambio y Adopción",
-    "kicker": "",
-    "desc": "Objetivo Funcional Diseñar y ejecutar un Plan Integral de Gestión del Cambio orientado no solo a la capacitación, sino a garantizar la autonomía operativa de...",
+    "kicker": "FASE 7",
+    "desc": "Gestión del Cambio y Adopción",
     "project": "HCM",
-    "category": "Gestión Directa",
+    "category": "Corporativo",
     "url": "../HCM/gestion_cambio.html"
   },
   {
@@ -684,9 +684,9 @@
     "title": "Hub de Evoluci&oacute;n HCM | Transformaci&oacute;n de Personas",
     "h1": "Hub de Evolución HCM Cloud",
     "kicker": "Centro de Mando HCM",
-    "desc": "Línea de tiempo integral para el control estratégico de todas las fases del proyecto, desde el análisis hasta el despliegue final.",
+    "desc": "Hub de Evolución HCM Cloud",
     "project": "HCM",
-    "category": "Gestión Directa",
+    "category": "Corporativo",
     "url": "../HCM/index.html"
   },
   {
@@ -694,29 +694,29 @@
     "title": "Levantamiento de Necesidad | HCM Evo",
     "h1": "Levantamiento de Necesidad",
     "kicker": "Fase 1",
-    "desc": "Análisis de la situación de nuestro core de Recursos Humanos, el diagnóstico de obsolescencia técnica y los objetivos críticos que motivan el proyecto evolut...",
+    "desc": "Levantamiento de Necesidad",
     "project": "HCM",
-    "category": "Gestión Directa",
+    "category": "Corporativo",
     "url": "../HCM/levantamiento_necesidad.html"
   },
   {
     "id": "HCM/rfi_implantacion.html",
     "title": "RFI Implantación | Proyecto Evolutivo HCM",
     "h1": "Análisis Ofertas",
-    "kicker": "",
-    "desc": "Evaluar 6 propuestas de implantaciÑn sobre Oracle HCM Cloud y Workday para definir criterios de la fase RFQ.",
+    "kicker": "RESUMEN EJECUTIVO",
+    "desc": "Análisis Ofertas",
     "project": "HCM",
-    "category": "Gestión Directa",
+    "category": "Corporativo",
     "url": "../HCM/rfi_implantacion.html"
   },
   {
     "id": "HCM/rfi_productos.html",
     "title": "RFI Productos | Proyecto Evolutivo HCM",
     "h1": "Comparativa oferta licencias HCM",
-    "kicker": "",
-    "desc": "Identificar soluciones del mercado capacitadas para cubrir los requerimientos funcionales y de producto actuales y futuros del área de Personas y Comunicación.",
+    "kicker": "Resumen Ejecutivo",
+    "desc": "Comparativa oferta licencias HCM",
     "project": "HCM",
-    "category": "Gestión Directa",
+    "category": "Corporativo",
     "url": "../HCM/rfi_productos.html"
   },
   {
@@ -724,49 +724,49 @@
     "title": "Universo Estratégico HCM | Hoja de Ruta",
     "h1": "Fases del Proyecto / Roadmap HCM",
     "kicker": "Centro de Mando HCM",
-    "desc": "Identificación de obsolescencia en sistemas Legacy (PeopleSoft) y evaluación de riesgos a futuro.",
+    "desc": "Fases del Proyecto / Roadmap HCM",
     "project": "HCM",
-    "category": "Gestión Directa",
+    "category": "Corporativo",
     "url": "../HCM/universo_estrategico.html"
   },
   {
     "id": "IA Area Personas/kronos_agent.html",
     "title": "Agente KRONOS | Ecosistema IA",
     "h1": "ECOSISTEMA KRONOS",
-    "kicker": "EL CONCEPTO",
-    "desc": "Explora la visión estratégica, el enfoque MVP y los beneficios directos de integrar a KRONOS en el día a día de RRHH.",
+    "kicker": "Recurso en Local",
+    "desc": "ECOSISTEMA KRONOS",
     "project": "IA Area Personas",
-    "category": "Gestión Directa",
+    "category": "Innovación",
     "url": "../IA Area Personas/kronos_agent.html"
   },
   {
     "id": "IA Area Personas/copilot_comparativa.html",
     "title": "Anexo: Comparativa de Licencias Copilot",
-    "h1": "Comparativa de Licencias Ecosistema Copilot LDG",
+    "h1": "Comparativa de LicenciasEcosistema Copilot LDG",
     "kicker": "ANEXO TÉCNICO",
-    "desc": "Desglose técnico y funcional para entender las diferencias entre el despliegue general y el piloto temprano en el área de Personas.",
+    "desc": "Comparativa de LicenciasEcosistema Copilot LDG",
     "project": "IA Area Personas",
-    "category": "Gestión Directa",
+    "category": "Innovación",
     "url": "../IA Area Personas/copilot_comparativa.html"
   },
   {
     "id": "IA Area Personas/kronos_architecture.html",
     "title": "Arquitectura KRONOS | Agentes y Estructura",
     "h1": "ARQUITECTURA KRONOS",
-    "kicker": "",
-    "desc": "",
+    "kicker": "Recurso en Local",
+    "desc": "ARQUITECTURA KRONOS",
     "project": "IA Area Personas",
-    "category": "Gestión Directa",
+    "category": "Innovación",
     "url": "../IA Area Personas/kronos_architecture.html"
   },
   {
     "id": "IA Area Personas/sesiones_transformacion.html",
     "title": "Capacitación y Cambio | Perscom",
     "h1": "Itinerarios de Capacitación",
-    "kicker": "",
-    "desc": "Ejes estratégicos de las sesiones para transformar la forma de trabajar en Personas y Comunicación.",
+    "kicker": "Recurso en Local",
+    "desc": "Itinerarios de Capacitación",
     "project": "IA Area Personas",
-    "category": "Gestión Directa",
+    "category": "Innovación",
     "url": "../IA Area Personas/sesiones_transformacion.html"
   },
   {
@@ -774,19 +774,19 @@
     "title": "Catálogo de Planes | Cuaderno de Bitácora",
     "h1": "Catálogo de Planes Estratégicos",
     "kicker": "ESTRATEGIA ACTIVA",
-    "desc": "Proyecto de transformación del área para diagnosticar cómo interactuamos (correo, Teams, documentos) y establecer un decálogo y usos de IA.",
+    "desc": "Catálogo de Planes Estratégicos",
     "project": "IA Area Personas",
-    "category": "Gestión Directa",
+    "category": "Innovación",
     "url": "../IA Area Personas/catalogo_planes.html"
   },
   {
     "id": "IA Area Personas/m365_copilot.html",
     "title": "Copilot M365 | Usuarios Licencia E3",
-    "h1": "Copilot Chat (Basic) Capacidades del Usuario",
+    "h1": "Copilot Chat (Basic)Capacidades del Usuario",
     "kicker": "LICENCIA ESTÁNDAR (E3)",
-    "desc": "LICENCIA ESTÁNDAR (E3) Copilot Chat (Basic) Capacidades del Usuario Recurso en Local Guía detallada de las herramientas de IA generativa disponibles para el ...",
+    "desc": "Copilot Chat (Basic)Capacidades del Usuario",
     "project": "IA Area Personas",
-    "category": "Gestión Directa",
+    "category": "Innovación",
     "url": "../IA Area Personas/m365_copilot.html"
   },
   {
@@ -794,9 +794,9 @@
     "title": "Ecosistema RRHH | Transformación y Eficiencia",
     "h1": "Mapa de Procesos y Aplicaciones",
     "kicker": "INVENTARIO DETALLADO",
-    "desc": "Estructura detallada de los servicios de Gestión de Personas, analizando cada proceso y la herramienta asociada.",
+    "desc": "Mapa de Procesos y Aplicaciones",
     "project": "IA Area Personas",
-    "category": "Gestión Directa",
+    "category": "Innovación",
     "url": "../IA Area Personas/mapa_aplicaciones.html"
   },
   {
@@ -804,99 +804,99 @@
     "title": "Investigación IA para Selección | Perscom",
     "h1": "IA en Herramientas de Selección",
     "kicker": "INVESTIGACIÓN PROCESOS",
-    "desc": "Análisis comparativo de las aplicaciones de reclutamiento con IA mejor valoradas por el equipo de Procesos RRHH según su funcionalidad, integración y coste.",
+    "desc": "IA en Herramientas de Selección",
     "project": "IA Area Personas",
-    "category": "Gestión Directa",
+    "category": "Innovación",
     "url": "../IA Area Personas/investigacion_seleccion.html"
   },
   {
     "id": "IA Area Personas/sesion_01_marmita.html",
     "title": "La Marmita: Ventanas IA | Transformación y formas de trabajar",
     "h1": "La Marmita: Nuestras Ventanas IA",
-    "kicker": "",
-    "desc": "Entendiendo que no importa dónde escribas, sino qué \"potencia\" hay detrás. Estas son las formas más comunes de interactuar con el cerebro (pócima) de la IA e...",
+    "kicker": "Recurso en Local",
+    "desc": "La Marmita: Nuestras Ventanas IA",
     "project": "IA Area Personas",
-    "category": "Gestión Directa",
+    "category": "Innovación",
     "url": "../IA Area Personas/sesion_01_marmita.html"
   },
   {
     "id": "IA Area Personas/sesion_01_pociones.html",
     "title": "La Poción Mágica: Tipos de Cerebros (pócimas) | Transformación y formas de trabajar",
     "h1": "La Poción Mágica: Eligiendo el Cerebro (pócima) Adecuado",
-    "kicker": "",
-    "desc": "No todas las pociones sirven para lo mismo. Aprender a elegir el tipo de modelo (LLM) es clave para obtener el mejor resultado al menor \"coste\" de tiempo.",
+    "kicker": "Recurso en Local",
+    "desc": "La Poción Mágica: Eligiendo el Cerebro (pócima) Adecuado",
     "project": "IA Area Personas",
-    "category": "Gestión Directa",
+    "category": "Innovación",
     "url": "../IA Area Personas/sesion_01_pociones.html"
   },
   {
     "id": "IA Area Personas/premium_copilot.html",
     "title": "M365 Copilot Premium | Licencia Plus",
-    "h1": "M365 Copilot (Premium) Experiencia Early Adopters",
+    "h1": "M365 Copilot (Premium)Experiencia Early Adopters",
     "kicker": "LICENCIA ADICIONAL (PLUS)",
-    "desc": "LICENCIA ADICIONAL (PLUS) M365 Copilot (Premium) Experiencia Early Adopters Recurso en Local Guía de capacidades avanzadas para usuarios piloto del área de P...",
+    "desc": "M365 Copilot (Premium)Experiencia Early Adopters",
     "project": "IA Area Personas",
-    "category": "Gestión Directa",
+    "category": "Innovación",
     "url": "../IA Area Personas/premium_copilot.html"
   },
   {
     "id": "IA Area Personas/sesion_01_mapa_jugadores.html",
     "title": "Mapa del Ecosistema IA | Sesión 1",
     "h1": "Mapa del Ecosistema IA",
-    "kicker": "",
-    "desc": "Un resumen visual de los grandes jugadores y sus propuestas de valor.",
+    "kicker": "VISUALIZACIÓN ESTRATÉGICA",
+    "desc": "Mapa del Ecosistema IA",
     "project": "IA Area Personas",
-    "category": "Gestión Directa",
+    "category": "Innovación",
     "url": "../IA Area Personas/sesion_01_mapa_jugadores.html"
   },
   {
     "id": "IA Area Personas/plan_accion_ia.html",
     "title": "Plan de Acción IA | La Pócima de Perscom",
     "h1": "La Pócima de IA: Plan de Acción Perscom",
-    "kicker": "",
-    "desc": "",
+    "kicker": "Propuesta Ejecutiva MAR 2026",
+    "desc": "La Pócima de IA: Plan de Acción Perscom",
     "project": "IA Area Personas",
-    "category": "Gestión Directa",
+    "category": "Innovación",
     "url": "../IA Area Personas/plan_accion_ia.html"
   },
   {
     "id": "IA Area Personas/plan_accion_m365.html",
     "title": "Plan de Acción M365 | Transformación y formas de trabajar",
     "h1": "Plan de Acción M365: Elevando nuestra operativa",
-    "kicker": "",
-    "desc": "",
+    "kicker": "Estrategia de Adopción",
+    "desc": "Plan de Acción M365: Elevando nuestra operativa",
     "project": "IA Area Personas",
-    "category": "Gestión Directa",
+    "category": "Innovación",
     "url": "../IA Area Personas/plan_accion_m365.html"
   },
   {
     "id": "IA Area Personas/plan_accion_hcm.html",
     "title": "Plan de Acción Procesos Puros RRHH (HCM) | Perscom",
     "h1": "Procesos Puros RRHH (Nuevo HCM)",
-    "kicker": "",
-    "desc": "",
+    "kicker": "Estrategia 2026",
+    "desc": "Procesos Puros RRHH (Nuevo HCM)",
     "project": "IA Area Personas",
-    "category": "Gestión Directa",
+    "category": "Innovación",
     "url": "../IA Area Personas/plan_accion_hcm.html"
   },
   {
     "id": "IA Area Personas/sesion_01_radar.html",
     "title": "Sesión 1: Radar de IA | Transformación y formas de trabajar",
     "h1": "Radar de IA: Ecosistema y Superpoderes",
-    "kicker": "",
-    "desc": "Área de Personas · Documento de Trabajo interno. Una sesión para entender el tablero global de la IA sin tecnicismos, enfocada en lo que ya está transformand...",
+    "kicker": "SESIÓN 1 · ABRIL 2026",
+    "desc": "Radar de IA: Ecosistema y Superpoderes",
     "project": "IA Area Personas",
-    "category": "Gestión Directa",
+    "category": "Innovación",
     "url": "../IA Area Personas/sesion_01_radar.html"
   },
   {
     "id": "IA Area Personas/sesion_02_mas_alla.html",
     "title": "Sesión 2: Más allá del chat | Transformación y formas de trabajar",
     "h1": "Radar de IA: más allá del chat",
-    "kicker": "",
-    "desc": "Área de Personas · Documento de Trabajo interno. Una sesión para entender qué está operando ya fuera del chat: agentes, navegadores inteligentes, computer us...",
+    "kicker": "SESIÓN 2 · ABRIL 2026",
+    "desc": "Radar de IA: más allá del chat",
     "project": "IA Area Personas",
-    "category": "Gestión Directa",
+    "category": "Innovación",
     "url": "../IA Area Personas/sesion_02_mas_alla.html"
   },
   {
@@ -904,19 +904,19 @@
     "title": "Transformación y Eficiencia RRHH | Cuaderno de Bitácora",
     "h1": "Transformación y Eficiencia RRHH",
     "kicker": "PENDIENTE DE APROBACIÓN",
-    "desc": "Consolidar nuestra evolución en HCM, M365 e IA desde la fase pilar hasta producción.",
+    "desc": "Impulsando el cambio cultural y técnico en Perscom",
     "project": "IA Area Personas",
-    "category": "Gestión Directa",
+    "category": "Innovación",
     "url": "../IA Area Personas/index.html"
   },
   {
     "id": "IA Area Personas/kronos_vision.html",
     "title": "Visión KRONOS | ¿Qué es el Agente?",
     "h1": "¿QUÉ ES KRONOS?",
-    "kicker": "",
-    "desc": "",
+    "kicker": "Recurso en Local",
+    "desc": "¿QUÉ ES KRONOS?",
     "project": "IA Area Personas",
-    "category": "Gestión Directa",
+    "category": "Innovación",
     "url": "../IA Area Personas/kronos_vision.html"
   },
   {
@@ -924,19 +924,19 @@
     "title": "Casos de Uso | Proyecto Perseo",
     "h1": "Casos de Uso Analíticos",
     "kicker": "APLICACIONES ESTRATÉGICAS",
-    "desc": "Cómo Perseo transforma el \"Dark Data\" en aplicaciones reales: desde la inteligencia comercial decodificando la venta, hasta el radar preventivo de fraude y f...",
+    "desc": "Casos de Uso Analíticos",
     "project": "Perseo",
-    "category": "Facilitadores",
+    "category": "Estratégico",
     "url": "../Perseo/casos_uso.html"
   },
   {
     "id": "Perseo/index.html",
-    "title": "Hub de Proyecto Perseo",
+    "title": "Hub de Proyecto Perseo | Proyectos LDAP",
     "h1": "Proyecto PERSEO",
     "kicker": "IA Generativa (Voice-to-Value)",
-    "desc": "Evolución de auditoría manual (500 llamadas) a masiva (>15.000). Objetivos: Eficiencia, Riesgos y Coaching con garantía \"Man-in-the-loop\".",
+    "desc": "Proyecto PERSEO",
     "project": "Perseo",
-    "category": "Facilitadores",
+    "category": "Estratégico",
     "url": "../Perseo/index.html"
   },
   {
@@ -944,9 +944,9 @@
     "title": "Planes de Coaching | Proyecto Perseo",
     "h1": "Planes de Coaching",
     "kicker": "COACHING FRANCOTIRADOR",
-    "desc": "Transición de una formación generalista (\"café para todos\") a micro-formaciones focalizadas en brechas reales y específicas identificadas por Perseo.",
+    "desc": "Planes de Coaching",
     "project": "Perseo",
-    "category": "Facilitadores",
+    "category": "Estratégico",
     "url": "../Perseo/planes_coaching.html"
   },
   {
@@ -954,9 +954,9 @@
     "title": "RRLL y Bienestar | Proyecto Perseo",
     "h1": "Gestión de RRLL y Bienestar",
     "kicker": "IMPACTO ORGANIZATIVO",
-    "desc": "Abordaje normativo y preventivo para casos de uso de IA catalogados de \"alto riesgo\" respecto al impacto en empleados.",
+    "desc": "Gestión de RRLL y Bienestar",
     "project": "Perseo",
-    "category": "Facilitadores",
+    "category": "Estratégico",
     "url": "../Perseo/gestion_rrll.html"
   },
   {
@@ -964,9 +964,9 @@
     "title": "Roles y Dashboard | Proyecto Perseo",
     "h1": "Roles y Dashboard",
     "kicker": "NUEVO MODELO",
-    "desc": "Nuevo modelo organizativo de calidad soportado por IA y la visibilidad compartimentada en el cuadro de mando de lectura Perseo.",
+    "desc": "Roles y Dashboard",
     "project": "Perseo",
-    "category": "Facilitadores",
+    "category": "Estratégico",
     "url": "../Perseo/roles_dashboard.html"
   },
   {
@@ -974,9 +974,9 @@
     "title": "Visión y Objetivos | Proyecto Perseo",
     "h1": "Visión y Objetivos Core",
     "kicker": "VOICE-TO-VALUE",
-    "desc": "Pasar de la intuición basada en muestras pequeñas (Auditoría Manual) a la certeza absoluta extrayendo todo el Dark Data de las llamadas.",
+    "desc": "Visión y Objetivos Core",
     "project": "Perseo",
-    "category": "Facilitadores",
+    "category": "Estratégico",
     "url": "../Perseo/vision_objetivos.html"
   },
   {
@@ -984,19 +984,19 @@
     "title": "Contexto y Propuestas | Reingeniería Siniestros",
     "h1": "Reingeniería de Siniestros Motor",
     "kicker": "ADJUDICADO Y EN MARCHA (BIP CONSULTING)",
-    "desc": "Transformación estructural del modelo de gestión operativa y tecnológica para optimización de costes y eficiencia.",
+    "desc": "Reingeniería de Siniestros Motor",
     "project": "Reingenieria Siniestros",
-    "category": "Facilitadores",
+    "category": "Operaciones",
     "url": "../Reingenieria Siniestros/index.html"
   },
   {
     "id": "Telefonia - Genesis CX/contexto_proyecto.html",
     "title": "Contexto del Proyecto | Telefonía CX",
-    "h1": "Contexto del Proyecto | Telefonía CX",
+    "h1": "",
     "kicker": "",
     "desc": "",
     "project": "Telefonia - Genesis CX",
-    "category": "Facilitadores",
+    "category": "Infraestructura",
     "url": "../Telefonia - Genesis CX/contexto_proyecto.html"
   },
   {
@@ -1004,9 +1004,9 @@
     "title": "Hub de Telefonía CX | Proyectos",
     "h1": "Hub de Telefonía Genesys CX",
     "kicker": "Centro de Operaciones",
-    "desc": "Información consolidada a partir del informe de Estado de Áreas (Abril 2026), incluyendo objetivos y situación actual de la implantación de Genesys.",
+    "desc": "Hub de Telefonía Genesys CX",
     "project": "Telefonia - Genesis CX",
-    "category": "Facilitadores",
+    "category": "Infraestructura",
     "url": "../Telefonia - Genesis CX/index.html"
   },
   {
@@ -1014,9 +1014,9 @@
     "title": "Roadmap de Despliegue | Telefonía CX",
     "h1": "Cronograma Global del Proyecto",
     "kicker": "Estándar Seguimiento Hitos",
-    "desc": "Trazabilidad del ecosistema Genesys CX. Detalle macro por fases y desglose de módulos (Fechas de Inicio vs Go-Live).",
+    "desc": "Cronograma Global del Proyecto",
     "project": "Telefonia - Genesis CX",
-    "category": "Facilitadores",
+    "category": "Infraestructura",
     "url": "../Telefonia - Genesis CX/roadmap.html"
   }
 ]

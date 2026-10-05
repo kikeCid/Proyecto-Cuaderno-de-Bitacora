@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Diseño responsive para móviles y tablets -->
     <title>Estándar de Gestión del Conocimiento | Fase 1</title>
+    <link rel="stylesheet" href="../../assets/css/bitacora-core.css">
     <link rel="stylesheet" href="../styles_infografia.css">
 
     <!-- FUENTES EXTERNAS -->
@@ -335,14 +336,11 @@
 
         /* El background-image rojo persiste automáticamente */
 
-
         .role-card.active .role-name,
         .role-card:hover .role-name {
             color: var(--lda-red);
             /* Título rojo al activar */
         }
-
-
 
         .role-name {
             font-size: 1.8rem;
@@ -371,8 +369,6 @@
             /* CORREGIDO: color dinámico */
             opacity: 0.9;
         }
-
-
 
         /* --- SECCIÓN PROCESO (GRID DE TARJETAS TIPO APP) --- */
         .process-grid {
@@ -629,8 +625,6 @@
             color: #E5E7EB !important;
             /* Blanco hueso brillante para lectura cómoda */
         }
-
-
 
         /* --- FOOTER --- */
         footer {
@@ -1384,7 +1378,6 @@
             }
         }
 
-
         /* --- REFINAMIENTO VISUAL --- */
 
         /* Efecto hover mejorado en iconos de tarjetas de proceso */
@@ -1995,8 +1988,6 @@
             color: #10B981;
         }
 
-
-
         @media (max-width: 800px) {
             .editorial-header h1 {
                 font-size: 2.5rem;
@@ -2037,8 +2028,6 @@
             }
         }
     </style>
-
-    <link rel="stylesheet" href="../../local_styles.css">
 </head>
 
 <body>
@@ -2068,7 +2057,6 @@
             <span class="nav-breadcrumb-item current">Fase 1: Estrategia</span>
         </div>
     </nav>
-
 
     <div class="theme-toggle-wrapper">
         <span class="theme-label">MODO OSCURO</span>
@@ -2307,7 +2295,6 @@
     <!-- VISTA ESTRATEGIA / REENFOQUE (NUEVA) -->
     <div id="view-strategy" class="container view-section hidden">
 
-
         <button class="back-nav" onclick="switchView('hub-lidia')">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
@@ -2421,7 +2408,6 @@
             </div>
         </section>
 
-
         <!-- REENFOQUE ESTRATÉGICO -->
         <section class="editorial-section">
             <h2>Reenfoque Estratégico</h2>
@@ -2516,7 +2502,6 @@
     <!-- VISTA HISTORIA Y CONTEXTO (RESTAURADA) -->
     <div id="view-history" class="container view-section hidden">
 
-
         <button class="back-nav" onclick="switchView('hub-lidia')">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
@@ -2598,9 +2583,6 @@
                 </div>
             </div>
         </section>
-
-
-
 
         <!-- SECCIÓN 1: EL RECORRIDO -->
         <section class="editorial-section">
@@ -2999,7 +2981,6 @@
                     </div>
                 </div>
             </div>
-
 
             <!-- ROL 3 Y 4 (Igualados en diseño) -->
 
@@ -3609,12 +3590,6 @@
             </div>
         </div>
 
-
-
-
-
-
-
         <!-- LOS 3 MOTORES DE LA METODOLOGÍA (FOCO EN PRODUCCIÓN) -->
         <h2 class="section-title">Contexto Metodológico: El Motor de Producción</h2>
         <p
@@ -3664,7 +3639,6 @@
             </div>
 
         </div>
-
 
         <!-- 1. REDACCIÓN Lid<span style="color: var(--lda-red);">IA</span> -->
         <div id="seccion-redaccion" style="margin-bottom: 80px;">
@@ -4160,7 +4134,6 @@
             </div>
         </div>
 
-
         <!-- CONCLUSIONES -->
         <div class="manual-alert"
             style="background: var(--bg-card); border-left: 6px solid var(--lda-red); margin-bottom: 80px; box-shadow: 0 10px 30px var(--shadow-color);">
@@ -4477,8 +4450,6 @@
                     </p>
                 </div>
 
-
-
             </div>
 
             <!-- Footer Sección -->
@@ -4743,37 +4714,9 @@
         </div>
     </footer>
 
-<script>
-// BREADCRUMB MANAGER - DYNAMIC ISLAND
-function initDynamicBreadcrumb() {
-    const wrapper = document.querySelector('.global-nav-wrapper');
-    if (!wrapper) return;
-    
-    // Check initial scroll position
-    if (window.scrollY > 50) wrapper.classList.add('compacted');
-
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            wrapper.classList.add('compacted');
-        } else {
-            wrapper.classList.remove('compacted');
-        }
-    });
-
-    // Handle touch devices to expand on tap if compacted
-    wrapper.addEventListener('click', (e) => {
-        if (wrapper.classList.contains('compacted') && window.innerWidth <= 768) {
-            e.preventDefault();
-            wrapper.classList.remove('compacted');
-            // Give them time to click before it auto-compacts again
-            setTimeout(() => {
-                if (window.scrollY > 50) wrapper.classList.add('compacted');
-            }, 3000);
-        }
-    });
-}
-document.addEventListener('DOMContentLoaded', initDynamicBreadcrumb);
-</script>
+    <!-- MOTOR DE BÚSQUEDA Y NÚCLEO TRANSVERSAL -->
+    <script src="../../assets/js/search_index_data.js"></script>
+    <script src="../../assets/js/bitacora-core.js"></script>
 </body>
 <script>document.addEventListener("DOMContentLoaded", function () { if (typeof switchView === "function") switchView("methodology"); });</script>
 

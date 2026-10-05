@@ -1,6 +1,6 @@
 ﻿/* 
     CUADERNO DE BITÃCORA - ESTILOS FUTURISTAS
-    Basado en el sistema de diseÃ±o LidIA-MCP
+    Basado en el sistema de diseño LidIA-MCP
 */
 
 :root {
@@ -13,7 +13,7 @@
     --lda-red-hover: #b30022;
     --lda-red-glow: rgba(228, 0, 43, 0.3);
     --lda-dark: #2c2c2e;
-    /* Gris carbÃ³n corporativo */
+    /* Gris carbón corporativo */
     --lda-grey-light: #f5f5f7;
     --glass-border: rgba(228, 0, 43, 0.1);
     --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
@@ -514,7 +514,7 @@ footer {
 }
 
 /* =========================================
-   SISTEMA DE NAVEGACIÃ“N GLOBAL (FLOTANTE)
+   SISTEMA DE NAVEGACIÓN GLOBAL (FLOTANTE)
    ========================================= */
 .global-nav-wrapper {
     position: fixed;
@@ -698,7 +698,7 @@ footer {
     }
 }
 
-/* NORMALIZACIÃ“N GLOBAL DE BARRA DE NAVEGACIÃ“N Y MIGAS DE PAN */
+/* NORMALIZACIÓN GLOBAL DE BARRA DE NAVEGACIÓN Y MIGAS DE PAN */
 .global-nav-wrapper {
     height: 48px !important;
     padding: 0 4px !important;

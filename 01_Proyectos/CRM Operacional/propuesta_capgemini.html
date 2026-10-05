@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Propuesta Capgemini | CRM Operacional</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../Cuaderno de Bitacora (Proyectos)/styles_bitacora.css">
+    <link rel="stylesheet" href="../assets/css/bitacora-core.css">
     <style>
         .content-grid {
             display: grid;
@@ -110,8 +110,6 @@
 
         .eje-section { margin-top: 20px; }
     </style>
-
-    <link rel="stylesheet" href="../local_styles.css">
 </head>
 
 <body>
@@ -280,27 +278,9 @@
 
     </main>
 
-    <script>
-        function toggleTheme() {
-            const checkbox = document.getElementById('theme-checkbox');
-            const isDark = checkbox.checked;
-            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        }
-        function initTheme() {
-            const savedTheme = localStorage.getItem('theme');
-            const checkbox = document.getElementById('theme-checkbox');
-            if (savedTheme === 'dark') {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                if(checkbox) checkbox.checked = true;
-            } else {
-                document.documentElement.setAttribute('data-theme', 'light');
-                if(checkbox) checkbox.checked = false;
-            }
-        }
-        document.addEventListener('DOMContentLoaded', () => {
-            initTheme();
-        });
-    </script>
+    
+    <!-- MOTOR DE BÚSQUEDA Y NÚCLEO TRANSVERSAL -->
+    <script src="../assets/js/search_index_data.js"></script>
+    <script src="../assets/js/bitacora-core.js"></script>
 </body>
 </html>

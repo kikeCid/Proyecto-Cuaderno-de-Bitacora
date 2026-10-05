@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Base de Conocimiento Wiki | Proyecto LidIA Negocio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../Cuaderno de Bitacora (Proyectos)/styles_bitacora.css">
+    <link rel="stylesheet" href="../../assets/css/bitacora-core.css">
     <style>
         .content-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 40px; }
         .section-title-wrapper { text-align: center; margin-bottom: 30px; margin-top: 60px; }
@@ -22,7 +22,6 @@
         
         .wide-card { background: var(--bg-card); border: 1px solid var(--border-color); padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); display: flex; gap: 24px; align-items: flex-start; margin-bottom: 20px; }
     </style>
-    <link rel="stylesheet" href="../../local_styles.css">
 </head>
 <body>
     <nav class="global-nav-wrapper">
@@ -157,18 +156,9 @@
         </div>
 
     </main>
-    <script>
-        function toggleTheme() {
-            const isDark = document.getElementById('theme-checkbox').checked;
-            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        }
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            const cb = document.getElementById('theme-checkbox');
-            if (cb) cb.checked = savedTheme === 'dark';
-        });
-    </script>
+    
+    <!-- MOTOR DE BÚSQUEDA Y NÚCLEO TRANSVERSAL -->
+    <script src="../../assets/js/search_index_data.js"></script>
+    <script src="../../assets/js/bitacora-core.js"></script>
 </body>
 </html>
