@@ -867,6 +867,345 @@ addons = """
     box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65), 0 0 25px rgba(228, 0, 43, 0.2) !important;
     transform: translateY(-4px) !important;
 }
+
+/* ==========================================================================
+   FASE 1: FLOATING ISLAND HEADER & BENTO GRID VIEW CONTROLS
+   ========================================================================== */
+
+/* 1. Header Flotante Isla (Floating Island Header) */
+.app-header-island {
+    position: sticky;
+    top: 14px;
+    z-index: 1000;
+    max-width: 1200px;
+    margin: 10px auto 30px auto;
+    padding: 8px 18px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    transition: var(--transition);
+}
+
+[data-theme="dark"] .app-header-island {
+    background: rgba(20, 22, 32, 0.85);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Brand Section */
+.island-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text-main);
+}
+
+.island-logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    background: var(--lda-red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    box-shadow: 0 4px 12px var(--lda-red-glow);
+}
+
+.island-logo svg {
+    width: 18px;
+    height: 18px;
+}
+
+.island-title {
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.island-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 12px;
+    background: rgba(16, 185, 129, 0.12);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Quick Jump Navigation Links */
+.island-nav {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0, 0, 0, 0.03);
+    padding: 4px 6px;
+    border-radius: 30px;
+}
+
+[data-theme="dark"] .island-nav {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.island-nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-sec);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.island-nav-link:hover {
+    color: var(--text-main);
+    background: var(--bg-card);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.island-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* Island Action Utilities */
+.island-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.island-search-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 30px;
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    color: var(--text-sec);
+    font-size: 0.82rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: var(--transition);
+}
+
+.island-search-btn:hover {
+    color: var(--text-main);
+    border-color: var(--lda-red);
+    transform: translateY(-1px);
+}
+
+.island-theme-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-main);
+    transition: var(--transition);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.island-theme-btn:hover {
+    transform: rotate(20deg) scale(1.05);
+    border-color: var(--lda-red);
+}
+
+.theme-icon-sun { display: none; }
+.theme-icon-moon { display: block; }
+
+[data-theme="dark"] .theme-icon-sun { display: block; color: #f59e0b; }
+[data-theme="dark"] .theme-icon-moon { display: none; }
+
+.island-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--glass-border);
+    transition: var(--transition);
+    display: block;
+}
+
+.island-avatar:hover {
+    transform: scale(1.08);
+    border-color: var(--lda-red);
+    box-shadow: 0 4px 14px var(--lda-red-glow);
+}
+
+/* 2. Control de Visualización y Filtros (View Controls Bar) */
+.view-controls-bar {
+    max-width: 1200px;
+    margin: 25px auto 35px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 8px 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.filter-segments {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.filter-chip {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-sec);
+    background: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.filter-chip:hover {
+    color: var(--text-main);
+    background: rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="dark"] .filter-chip:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.filter-chip.active {
+    background: var(--text-main);
+    color: var(--bg-card);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.filter-count {
+    font-size: 0.72rem;
+    padding: 1px 6px;
+    border-radius: 10px;
+    background: rgba(125, 125, 125, 0.15);
+}
+
+.filter-chip.active .filter-count {
+    background: rgba(255, 255, 255, 0.25);
+    color: inherit;
+}
+
+/* Switcher de Vistas (Carrusel vs Bento Grid) */
+.view-mode-toggle {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(0, 0, 0, 0.04);
+    padding: 3px;
+    border-radius: 16px;
+}
+
+[data-theme="dark"] .view-mode-toggle {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.view-btn {
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-sec);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.view-btn svg {
+    width: 15px;
+    height: 15px;
+}
+
+.view-btn.active {
+    background: var(--bg-card);
+    color: var(--text-main);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.kbd-hint {
+    font-size: 0.65rem;
+    padding: 1px 5px;
+    border-radius: 4px;
+    background: rgba(125, 125, 125, 0.2);
+    font-family: ui-monospace, monospace;
+}
+
+/* 3. Transformación Dinámica a Bento Grid */
+.view-mode-grid .carousel-container {
+    overflow: visible;
+}
+
+.view-mode-grid .carousel-track {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+    gap: 24px !important;
+    overflow-x: visible !important;
+    padding: 10px 0 20px 0 !important;
+    width: 100% !important;
+    scroll-snap-type: none !important;
+}
+
+.view-mode-grid .carousel-btn {
+    display: none !important;
+}
+
+.view-mode-grid .apple-card {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 440px !important;
+}
+
+/* Filtrado Dinámico de Secciones */
+.section-hidden {
+    display: none !important;
+}
+
+@media (max-width: 900px) {
+    .island-nav {
+        display: none;
+    }
+}
 """
 
 full_core_css = base_css.strip() + "\n\n" + addons.strip() + "\n"
