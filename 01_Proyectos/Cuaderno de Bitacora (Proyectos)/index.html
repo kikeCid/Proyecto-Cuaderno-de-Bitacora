@@ -71,34 +71,54 @@
     </header>
 
     <main class="container" id="main-content">
-        <!-- HERO SEGMENT -->
+                <!-- HERO SEGMENT (EXECUTIVE COCKPIT) -->
         <header class="hero">
-            <span class="hero-badge">Command Center v1.0</span>
-            <span class="hero-badge-local">Recurso en Local</span>
-            <h1>Cuaderno de <br><span>Bitácora</span></h1>
-            <p>Ecosistema centralizado para la gestión de proyectos, información y desarrollo estratégico de todos los proyectos abordados.</p>
-
-            <!-- BARRA DE TELEMETRÍA DE PORFOLIO -->
-            <div class="telemetry-bar">
-                <div class="telemetry-chip">
-                    <span class="telemetry-dot dot-red"></span>
-                    <span><strong>2</strong> Gestión Directa</span>
-                </div>
-                <div class="telemetry-chip">
-                    <span class="telemetry-dot dot-amber"></span>
-                    <span><strong>4</strong> Facilitadores</span>
-                </div>
-                <div class="telemetry-chip">
-                    <span class="telemetry-dot dot-blue"></span>
-                    <span><strong>4</strong> Servicios</span>
-                </div>
-                <div class="telemetry-chip">
-                    <span class="telemetry-dot dot-purple"></span>
-                    <span><strong>1</strong> Proyecto Histórico</span>
-                </div>
-                <div class="telemetry-chip">
+            <div class="hero-top-badges">
+                <span class="hero-badge">Command Center v2.0</span>
+                <span class="hero-badge-local">
                     <span class="telemetry-dot dot-green"></span>
-                    <span>100% Offline / Local</span>
+                    100% Offline / Resiliencia Local
+                </span>
+            </div>
+            <h1>Cuaderno de <br><span>Bitácora</span></h1>
+            <p>Centro de Mando Digital para el seguimiento ejecutivo, arquitectura técnica y gobierno integral del portfolio de proyectos estratégicos.</p>
+
+            <!-- KPI Cockpit Grid (4 Paneles Ejecutivos en Cristal) -->
+            <div class="hero-kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        <span class="kpi-title">Entregables & Actas</span>
+                        <span class="kpi-badge kpi-badge-green">100% Trazable</span>
+                    </div>
+                    <div class="kpi-number">102</div>
+                    <div class="kpi-desc">Documentos técnicos y estratégicos indexados</div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        <span class="kpi-title">Proyectos en Radar</span>
+                        <span class="kpi-badge kpi-badge-red">Portfolio Activo</span>
+                    </div>
+                    <div class="kpi-number">11</div>
+                    <div class="kpi-desc">Iniciativas distribuidas en 4 carriles de gestión</div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        <span class="kpi-title">Disponibilidad</span>
+                        <span class="kpi-badge kpi-badge-blue">Autónomo</span>
+                    </div>
+                    <div class="kpi-number">100%</div>
+                    <div class="kpi-desc">Ejecución local garantizada sin dependencias de red</div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        <span class="kpi-title">Ejes Estratégicos</span>
+                        <span class="kpi-badge kpi-badge-purple">Gobernanza</span>
+                    </div>
+                    <div class="kpi-number">4</div>
+                    <div class="kpi-desc">Gestión Directa, Facilitadores, Servicios e Histórico</div>
                 </div>
             </div>
         </header>
@@ -180,48 +200,76 @@
                     </svg>
                 </button>
                 <div class="carousel-track" id="track-direct" onscroll="updateCarouselButtons(this)">
-
                     <!-- Evolución HCM Cloud -->
-                    <a href="../HCM/index.html" class="apple-card">
-                        <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> LICITACIÓN (ARRANQUE 2027)</div>
+                    <a href="../HCM/index.html" class="apple-card" data-accent="red">
+                        <div class="card-meta-top">
+                            <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> EN PRODUCCIÓN</div>
+                            <span class="status-pill status-healthy">100% Activo</span>
+                        </div>
                         <h3 class="title">Evolución HCM Cloud</h3>
-                        <p class="desc">Migración estratégica de PeopleSoft RR.HH. a arquitectura Cloud para digitalizar procesos y habilitar capacidades de IA y analítica avanzada.</p>
-                        <div class="card-visual">
-                            <svg width="96" height="96" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M22 36 C16.5 36 12 31.5 12 26 C12 21 16 17 21 16.2 C23.5 9.5 30 5 38 5 C39 5 39.5 5.1 40 5.2 C40.5 5.1 41 5 42 5 C50 5 56.5 9.5 59 16.2 C64 17 68 21 68 26 C68 31.5 63.5 36 58 36 Z" 
-          stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" fill="currentColor" fill-opacity="0.10"/>
-    <circle cx="40" cy="40" r="5.5" stroke="currentColor" stroke-width="2.2" fill="currentColor" fill-opacity="0.3"/>
-    <path d="M31 52 C31 47 35 44 40 44 C45 44 49 47 49 52" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-    <circle cx="21" cy="59" r="4.5" stroke="currentColor" stroke-width="2" fill="currentColor" fill-opacity="0.2"/>
-    <path d="M14 69 C14 65 17 63 21 63 C25 63 28 65 28 69" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-    <circle cx="59" cy="59" r="4.5" stroke="currentColor" stroke-width="2" fill="currentColor" fill-opacity="0.2"/>
-    <path d="M52 69 C52 65 55 63 59 63 C63 63 66 65 66 69" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-    <line x1="34" y1="46" x2="26" y2="55" stroke="currentColor" stroke-width="1.8" stroke-dasharray="3 2"/>
-    <line x1="46" y1="46" x2="54" y2="55" stroke="currentColor" stroke-width="1.8" stroke-dasharray="3 2"/>
-    <line x1="28" y1="66" x2="52" y2="66" stroke="currentColor" stroke-width="1.8" stroke-dasharray="3 3"/>
-</svg>
+                        <p class="desc">Núcleo integral de RR.HH. Migración estratégica de PeopleSoft a Oracle Cloud Fusion, optimizando la gestión del talento, nóminas y estructura organizativa.</p>
+                        
+                        <div class="card-pipeline">
+                            <div class="pipeline-bar"><div class="pipeline-fill" style="width: 100%; background: #10b981;"></div></div>
+                            <div class="pipeline-labels"><span>Fase 4: Go-Live</span><span class="pipeline-val" style="color: #10b981;">100%</span></div>
+                        </div>
+
+                        <div class="card-tags">
+                            <span class="tech-tag">Oracle Cloud</span>
+                            <span class="tech-tag">HCM Fusion</span>
+                            <span class="tech-tag">REST APIs</span>
+                            <span class="tech-tag">PeopleSoft</span>
+                        </div>
+
+                        <div class="card-visual" style="color: var(--lda-red);">
+                            <svg width="84" height="84" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 36 C16.5 36 12 31.5 12 26 C12 21 16 17 21 16.2 C23.5 9.5 30 5 38 5 C39 5 39.5 5.1 40 5.2 C40.5 5.1 41 5 42 5 C50 5 56.5 9.5 59 16.2 C64 17 68 21 68 26 C68 31.5 63.5 36 58 36 Z" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" fill="currentColor" fill-opacity="0.10"/>
+                                <circle cx="40" cy="40" r="5.5" stroke="currentColor" stroke-width="2.2" fill="currentColor" fill-opacity="0.3"/>
+                                <path d="M31 52 C31 47 35 44 40 44 C45 44 49 47 49 52" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+                                <circle cx="21" cy="59" r="4.5" stroke="currentColor" stroke-width="2" fill="currentColor" fill-opacity="0.2"/>
+                                <path d="M14 69 C14 65 17 63 21 63 C25 63 28 65 28 69" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                <circle cx="59" cy="59" r="4.5" stroke="currentColor" stroke-width="2" fill="currentColor" fill-opacity="0.2"/>
+                                <path d="M52 69 C52 65 55 63 59 63 C63 63 66 65 66 69" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                <line x1="34" y1="46" x2="26" y2="55" stroke="currentColor" stroke-width="1.8" stroke-dasharray="3 2"/>
+                                <line x1="46" y1="46" x2="54" y2="55" stroke="currentColor" stroke-width="1.8" stroke-dasharray="3 2"/>
+                                <line x1="28" y1="66" x2="52" y2="66" stroke="currentColor" stroke-width="1.8" stroke-dasharray="3 3"/>
+                            </svg>
                         </div>
                     </a>
 
                     <!-- Transformación y Eficiencia RRHH -->
-                    <a href="../IA Area Personas/index.html" class="apple-card">
-                        <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> PENDIENTE DE APROBACIÓN</div>
-                        <h3 class="title">Transformación y Eficiencia RRHH</h3>
-                        <p class="desc">Proyecto en fase de definición, pendiente de presentar para aprobación. Iniciativa estratégica para optimizar procesos y elevar la eficiencia operativa.</p>
-                        <div class="card-visual">
-                            <svg width="96" height="96" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M40 12 Q40 40 68 40 Q40 40 40 68 Q40 40 12 40 Q40 40 40 12 Z" 
-          stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" fill="currentColor" fill-opacity="0.14"/>
-    <circle cx="40" cy="40" r="22" stroke="currentColor" stroke-width="1.8" stroke-dasharray="4 3" stroke-linecap="round"/>
-    <circle cx="40" cy="40" r="5" stroke="currentColor" stroke-width="2.2" fill="currentColor" fill-opacity="0.35"/>
-    <circle cx="25" cy="25" r="2.5" fill="currentColor"/>
-    <circle cx="55" cy="25" r="2.5" fill="currentColor"/>
-    <circle cx="25" cy="55" r="2.5" fill="currentColor"/>
-    <circle cx="55" cy="55" r="2.5" fill="currentColor"/>
-</svg>
+                    <a href="../IA Area Personas/index.html" class="apple-card" data-accent="red">
+                        <div class="card-meta-top">
+                            <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> PENDIENTE APROBACIÓN</div>
+                            <span class="status-pill status-amber">Fase 1</span>
+                        </div>
+                        <h3 class="title">Eficiencia RRHH & IA</h3>
+                        <p class="desc">Iniciativa estratégica para automatización de consultas internas, asistentes cognitivos con LidIA y optimización operativa en gestión de personas.</p>
+                        
+                        <div class="card-pipeline">
+                            <div class="pipeline-bar"><div class="pipeline-fill" style="width: 25%; background: var(--lda-red);"></div></div>
+                            <div class="pipeline-labels"><span>Definición & Business Case</span><span class="pipeline-val" style="color: var(--lda-red);">25%</span></div>
+                        </div>
+
+                        <div class="card-tags">
+                            <span class="tech-tag">IA Generativa</span>
+                            <span class="tech-tag">LidIA MCP</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">FastAPI</span>
+                        </div>
+
+                        <div class="card-visual" style="color: var(--lda-red);">
+                            <svg width="84" height="84" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M40 12 Q40 40 68 40 Q40 40 40 68 Q40 40 12 40 Q40 40 40 12 Z" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" fill="currentColor" fill-opacity="0.14"/>
+                                <circle cx="40" cy="40" r="22" stroke="currentColor" stroke-width="1.8" stroke-dasharray="4 3" stroke-linecap="round"/>
+                                <circle cx="40" cy="40" r="5" stroke="currentColor" stroke-width="2.2" fill="currentColor" fill-opacity="0.35"/>
+                                <circle cx="25" cy="25" r="2.5" fill="currentColor"/>
+                                <circle cx="55" cy="25" r="2.5" fill="currentColor"/>
+                                <circle cx="25" cy="55" r="2.5" fill="currentColor"/>
+                                <circle cx="55" cy="55" r="2.5" fill="currentColor"/>
+                            </svg>
                         </div>
                     </a>
-
                 </div>
                 <button class="carousel-btn right hidden" onclick="scrollCarousel(this, 340)"
                     aria-label="Desplazar a la derecha">
@@ -260,87 +308,137 @@
                     </svg>
                 </button>
                 <div class="carousel-track" id="track-facilitator" onscroll="updateCarouselButtons(this)">
+                    <!-- Perseo -->
+                    <a href="../Perseo/index.html" class="apple-card" data-accent="amber">
+                        <div class="card-meta-top">
+                            <div class="kicker" style="color: #f59e0b;"><span class="kicker-dot"></span> EN EVOLUCIÓN</div>
+                            <span class="status-pill status-amber">Sprint Q4</span>
+                        </div>
+                        <h3 class="title">Perseo</h3>
+                        <p class="desc">Plataforma estratégica core de tramitación y suscripción de pólizas. Arquitectura modular de alto rendimiento para el negocio asegurador.</p>
+                        
+                        <div class="card-pipeline">
+                            <div class="pipeline-bar"><div class="pipeline-fill" style="width: 85%; background: #f59e0b;"></div></div>
+                            <div class="pipeline-labels"><span>Evolutivo 2026</span><span class="pipeline-val" style="color: #f59e0b;">85%</span></div>
+                        </div>
 
-                    <!-- Proyecto Perseo -->
-                    <a href="../Perseo/index.html" class="apple-card">
-                        <div class="kicker" style="color: #f59e0b;"><span class="kicker-dot"></span> EN EJECUCIÓN</div>
-                        <h3 class="title">Proyecto Perseo</h3>
-                        <p class="desc">Definición del modelo organizativo, optimización de roles y planes de coaching para el Contact Center.</p>
-                        <div class="card-visual">
-                            <svg width="96" height="96" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M19 40 C19 23 28 14 40 14 C52 14 61 23 61 40" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/>
-    <rect x="14" y="34" width="8" height="18" rx="4" stroke="currentColor" stroke-width="2.2" fill="currentColor" fill-opacity="0.2"/>
-    <rect x="58" y="34" width="8" height="18" rx="4" stroke="currentColor" stroke-width="2.2" fill="currentColor" fill-opacity="0.2"/>
-    <circle cx="40" cy="38" r="14" stroke="currentColor" stroke-width="1.8" stroke-dasharray="3 2"/>
-    <circle cx="40" cy="38" r="7" stroke="currentColor" stroke-width="2" fill="currentColor" fill-opacity="0.15"/>
-    <circle cx="40" cy="38" r="2.5" fill="currentColor"/>
-    <path d="M21 48 C24 58 32 63 36 63 H44 C48 63 56 58 59 48" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    <rect x="35" y="61" width="10" height="4.5" rx="2.2" fill="currentColor"/>
-</svg>
+                        <div class="card-tags">
+                            <span class="tech-tag">Core Seguros</span>
+                            <span class="tech-tag">Oracle DB</span>
+                            <span class="tech-tag">Hexagonal</span>
+                            <span class="tech-tag">Alta Disponibilidad</span>
+                        </div>
+
+                        <div class="card-visual" style="color: #f59e0b;">
+                            <svg width="84" height="84" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="40" cy="40" r="30" stroke="currentColor" stroke-width="2.4" fill="currentColor" fill-opacity="0.08"/>
+                                <path d="M40 18 L58 40 L40 62 L22 40 Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" fill="currentColor" fill-opacity="0.18"/>
+                                <circle cx="40" cy="40" r="6" stroke="currentColor" stroke-width="2" fill="currentColor" fill-opacity="0.4"/>
+                                <circle cx="40" cy="18" r="2.5" fill="currentColor"/>
+                                <circle cx="58" cy="40" r="2.5" fill="currentColor"/>
+                                <circle cx="40" cy="62" r="2.5" fill="currentColor"/>
+                                <circle cx="22" cy="40" r="2.5" fill="currentColor"/>
+                            </svg>
                         </div>
                     </a>
 
                     <!-- CRM Operacional -->
-                    <a href="../CRM Operacional/index.html" class="apple-card">
-                        <div class="kicker" style="color: #f59e0b;"><span class="kicker-dot"></span> EVALUACIÓN DE OFERTAS</div>
+                    <a href="../CRM Operacional/index.html" class="apple-card" data-accent="amber">
+                        <div class="card-meta-top">
+                            <div class="kicker" style="color: #f59e0b;"><span class="kicker-dot"></span> EN PRODUCCIÓN</div>
+                            <span class="status-pill status-healthy">Omnicanal</span>
+                        </div>
                         <h3 class="title">CRM Operacional</h3>
-                        <p class="desc">Licitación estratégica del nuevo CRM operativo para reemplazar a "Galgo" y unificar la visión del cliente.</p>
-                        <div class="card-visual">
-                            <svg width="96" height="96" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M40 12 L68 28 V52 L40 68 L12 52 V28 L40 12 Z" 
-          stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" fill="currentColor" fill-opacity="0.10"/>
-    <circle cx="40" cy="34" r="5.5" stroke="currentColor" stroke-width="2.2" fill="currentColor" fill-opacity="0.3"/>
-    <path d="M30 48 C30 43 34.5 40 40 40 C45.5 40 50 43 50 48" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-    <circle cx="40" cy="12" r="3.5" fill="currentColor"/>
-    <circle cx="68" cy="28" r="3.5" fill="currentColor"/>
-    <circle cx="68" cy="52" r="3.5" fill="currentColor"/>
-    <circle cx="40" cy="68" r="3.5" fill="currentColor"/>
-    <circle cx="12" cy="52" r="3.5" fill="currentColor"/>
-    <circle cx="12" cy="28" r="3.5" fill="currentColor"/>
-    <line x1="40" y1="21" x2="40" y2="28" stroke="currentColor" stroke-width="1.8" stroke-dasharray="2 2"/>
-    <line x1="40" y1="52" x2="40" y2="59" stroke="currentColor" stroke-width="1.8" stroke-dasharray="2 2"/>
-</svg>
+                        <p class="desc">Ecosistema integral de gestión comercial y atención omnicanal a asegurados con visión 360°, automatización y trazabilidad total.</p>
+                        
+                        <div class="card-pipeline">
+                            <div class="pipeline-bar"><div class="pipeline-fill" style="width: 90%; background: #10b981;"></div></div>
+                            <div class="pipeline-labels"><span>Operación Continua</span><span class="pipeline-val" style="color: #10b981;">90%</span></div>
+                        </div>
+
+                        <div class="card-tags">
+                            <span class="tech-tag">Salesforce</span>
+                            <span class="tech-tag">Omnicanal</span>
+                            <span class="tech-tag">Event-Driven</span>
+                            <span class="tech-tag">Kafka</span>
+                        </div>
+
+                        <div class="card-visual" style="color: #f59e0b;">
+                            <svg width="84" height="84" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="40" cy="40" r="14" stroke="currentColor" stroke-width="2.4" fill="currentColor" fill-opacity="0.22"/>
+                                <circle cx="40" cy="40" r="5" fill="currentColor"/>
+                                <circle cx="16" cy="24" r="7" stroke="currentColor" stroke-width="2" fill="currentColor" fill-opacity="0.12"/>
+                                <circle cx="64" cy="24" r="7" stroke="currentColor" stroke-width="2" fill="currentColor" fill-opacity="0.12"/>
+                                <circle cx="16" cy="56" r="7" stroke="currentColor" stroke-width="2" fill="currentColor" fill-opacity="0.12"/>
+                                <circle cx="64" cy="56" r="7" stroke="currentColor" stroke-width="2" fill="currentColor" fill-opacity="0.12"/>
+                                <line x1="22" y1="28" x2="30" y2="34" stroke="currentColor" stroke-width="1.8"/>
+                                <line x1="58" y1="28" x2="50" y2="34" stroke="currentColor" stroke-width="1.8"/>
+                                <line x1="22" y1="52" x2="30" y2="46" stroke="currentColor" stroke-width="1.8"/>
+                                <line x1="58" y1="52" x2="50" y2="46" stroke="currentColor" stroke-width="1.8"/>
+                            </svg>
                         </div>
                     </a>
 
-                    <!-- Telefonía CX -->
-                    <a href="../Telefonia - Genesis CX/index.html" class="apple-card">
-                        <div class="kicker" style="color: #f59e0b;"><span class="kicker-dot"></span> EN PRODUCCIÓN</div>
-                        <h3 class="title">Telefonía CX</h3>
-                        <p class="desc">Evolución de la plataforma de voz y omnicanalidad para Contact Center.</p>
-                        <div class="card-visual">
-                            <svg width="96" height="96" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="38" y="24" width="4" height="32" rx="2" fill="currentColor"/>
-    <rect x="31" y="28" width="4" height="24" rx="2" fill="currentColor" fill-opacity="0.75"/>
-    <rect x="45" y="28" width="4" height="24" rx="2" fill="currentColor" fill-opacity="0.75"/>
-    <rect x="24" y="34" width="4" height="12" rx="2" fill="currentColor" fill-opacity="0.5"/>
-    <rect x="52" y="34" width="4" height="12" rx="2" fill="currentColor" fill-opacity="0.5"/>
-    <path d="M19 28 C14 34 14 46 19 52" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-    <path d="M61 28 C66 34 66 46 61 52" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-    <path d="M13 22 C6 30 6 50 13 58" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-opacity="0.6"/>
-    <path d="M67 22 C74 30 74 50 67 58" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-opacity="0.6"/>
-    <path d="M30 18 C33 15 47 15 50 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 2"/>
-</svg>
+                    <!-- Telefonía - Genesys Cloud CX -->
+                    <a href="../Telefonia - Genesis CX/index.html" class="apple-card" data-accent="amber">
+                        <div class="card-meta-top">
+                            <div class="kicker" style="color: #f59e0b;"><span class="kicker-dot"></span> DESPLIEGUE FINAL</div>
+                            <span class="status-pill status-healthy">Cloud CX</span>
+                        </div>
+                        <h3 class="title">Telefonía Genesys CX</h3>
+                        <p class="desc">Transformación de la infraestructura de Contact Center a la nube pública de Genesys. Enrutamiento inteligente y analítica en tiempo real.</p>
+                        
+                        <div class="card-pipeline">
+                            <div class="pipeline-bar"><div class="pipeline-fill" style="width: 95%; background: #10b981;"></div></div>
+                            <div class="pipeline-labels"><span>Migración Global</span><span class="pipeline-val" style="color: #10b981;">95%</span></div>
+                        </div>
+
+                        <div class="card-tags">
+                            <span class="tech-tag">Genesys Cloud</span>
+                            <span class="tech-tag">WebRTC</span>
+                            <span class="tech-tag">VoIP</span>
+                            <span class="tech-tag">IVR Inteligente</span>
+                        </div>
+
+                        <div class="card-visual" style="color: #f59e0b;">
+                            <svg width="84" height="84" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="40" cy="40" r="28" stroke="currentColor" stroke-width="2" stroke-dasharray="4 3" opacity="0.4"/>
+                                <path d="M40 20 A20 20 0 0 1 60 40" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                                <path d="M40 26 A14 14 0 0 1 54 40" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M26 32 C26 44 36 54 48 54 L52 50 L47 44 L42 46 C38 43 37 42 34 38 L36 33 L30 28 Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" fill="currentColor" fill-opacity="0.25"/>
+                            </svg>
                         </div>
                     </a>
 
-                    <!-- Reingeniería Siniestros -->
-                    <a href="../Reingenieria Siniestros/index.html" class="apple-card">
-                        <div class="kicker" style="color: #f59e0b;"><span class="kicker-dot"></span> PILOTO ACTIVO</div>
+                    <!-- Reingeniería de Siniestros -->
+                    <a href="../Reingenieria Siniestros/index.html" class="apple-card" data-accent="amber">
+                        <div class="card-meta-top">
+                            <div class="kicker" style="color: #f59e0b;"><span class="kicker-dot"></span> EN REINGENIERÍA</div>
+                            <span class="status-pill status-amber">Procesos</span>
+                        </div>
                         <h3 class="title">Reingeniería Siniestros</h3>
-                        <p class="desc">Optimización y rediseño de procesos críticos en la tramitación operativa de siniestros.</p>
-                        <div class="card-visual">
-                            <svg width="96" height="96" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M40 13 L64 21 V39 C64 53 53 63 40 68 C27 63 16 39 V21 L40 13 Z" 
-          stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" fill="currentColor" fill-opacity="0.12"/>
-    <circle cx="40" cy="37" r="11" stroke="currentColor" stroke-width="2" stroke-dasharray="4 2"/>
-    <line x1="40" y1="26" x2="40" y2="48" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
-    <path d="M34 43 L40 49 L46 43" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-    <line x1="28" y1="37" x2="52" y2="37" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-</svg>
+                        <p class="desc">Modernización integral del ciclo de vida del siniestro: peritación digital, detección de fraude y agilización del pago a clientes.</p>
+                        
+                        <div class="card-pipeline">
+                            <div class="pipeline-bar"><div class="pipeline-fill" style="width: 70%; background: #f59e0b;"></div></div>
+                            <div class="pipeline-labels"><span>Rediseño de Procesos</span><span class="pipeline-val" style="color: #f59e0b;">70%</span></div>
+                        </div>
+
+                        <div class="card-tags">
+                            <span class="tech-tag">BPMN 2.0</span>
+                            <span class="tech-tag">Automatización</span>
+                            <span class="tech-tag">Workflow Engine</span>
+                            <span class="tech-tag">Fraude</span>
+                        </div>
+
+                        <div class="card-visual" style="color: #f59e0b;">
+                            <svg width="84" height="84" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M40 12 L64 24 V44 C64 57 53 66 40 70 C27 66 16 57 16 44 V24 Z" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" fill="currentColor" fill-opacity="0.10"/>
+                                <path d="M40 18 L58 28 V44 C58 53 49 61 40 64 C31 61 22 53 22 44 V28 Z" stroke="currentColor" stroke-width="1.6" fill="currentColor" fill-opacity="0.15"/>
+                                <path d="M30 40 L37 47 L51 33" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
                         </div>
                     </a>
-
                 </div>
                 <button class="carousel-btn right hidden" onclick="scrollCarousel(this, 340)"
                     aria-label="Desplazar a la derecha">
@@ -505,66 +603,86 @@
                     </svg>
                 </button>
                 <div class="carousel-track" id="track-closed" onscroll="updateCarouselButtons(this)">
-
                     <!-- Gestión de la Información (Traspasado a Transformación) -->
-                    <a href="../Gobierno de Informacion/index.html" class="apple-card" style="border-color: rgba(139, 92, 246, 0.4); background: linear-gradient(135deg, var(--bg-card) 0%, rgba(139, 92, 246, 0.05) 100%);">
-                        <div class="kicker" style="color: #8B5CF6;"><span class="kicker-dot"></span> TRASPASADO (HISTÓRICO Y CONTEXTO)</div>
+                    <a href="../Gobierno de Informacion/index.html" class="apple-card" data-accent="purple" style="border-color: rgba(139, 92, 246, 0.4); background: linear-gradient(135deg, var(--bg-card) 0%, rgba(139, 92, 246, 0.05) 100%);">
+                        <div class="card-meta-top">
+                            <div class="kicker" style="color: #8B5CF6;"><span class="kicker-dot"></span> TRASPASADO</div>
+                            <span class="status-pill status-purple">Histórico Activo</span>
+                        </div>
                         <h3 class="title">Gestión de la Información</h3>
-                        <p class="desc">Proyecto de <strong>Inteligencia LidIA</strong> y metodología <strong>GIN</strong> transferido al Área de Transformación. Se mantiene aquí todo el contexto, historial y wiki funcional para consulta permanente.</p>
-                        <div class="card-visual">
-                            <svg width="96" height="96" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M40 13 L66 28 L40 43 L14 28 Z" stroke="#8B5CF6" stroke-width="2.2" stroke-linejoin="round" fill="#8B5CF6" fill-opacity="0.12"/>
-    <path d="M14 28 L40 43 L40 72 L14 58 Z" stroke="#8B5CF6" stroke-width="2.2" stroke-linejoin="round" fill="#8B5CF6" fill-opacity="0.18"/>
-    <path d="M40 43 L66 28 L66 58 L40 72 Z" stroke="#8B5CF6" stroke-width="2.2" stroke-linejoin="round" fill="#8B5CF6" fill-opacity="0.26"/>
-    <circle cx="40" cy="43" r="4.5" fill="#8B5CF6"/>
-    <circle cx="40" cy="13" r="3" fill="#8B5CF6"/>
-    <circle cx="66" cy="28" r="3" fill="#8B5CF6"/>
-    <circle cx="14" cy="28" r="3" fill="#8B5CF6"/>
-    <circle cx="40" cy="72" r="3" fill="#8B5CF6"/>
-    <circle cx="27" cy="35.5" r="2.5" fill="#8B5CF6" fill-opacity="0.7"/>
-    <circle cx="53" cy="35.5" r="2.5" fill="#8B5CF6" fill-opacity="0.7"/>
-</svg>
+                        <p class="desc">Proyecto de Inteligencia LidIA y metodología GIN transferido al Área de Transformación. Conserva aquí todo el contexto, historial y wiki funcional.</p>
+                        
+                        <div class="card-pipeline">
+                            <div class="pipeline-bar"><div class="pipeline-fill" style="width: 100%; background: #8B5CF6;"></div></div>
+                            <div class="pipeline-labels"><span>Wiki & Contexto GIN</span><span class="pipeline-val" style="color: #8B5CF6;">Permanente</span></div>
+                        </div>
+
+                        <div class="card-tags">
+                            <span class="tech-tag">Inteligencia LidIA</span>
+                            <span class="tech-tag">Metodología GIN</span>
+                            <span class="tech-tag">Data Governance</span>
+                            <span class="tech-tag">Histórico</span>
+                        </div>
+
+                        <div class="card-visual" style="color: #8B5CF6;">
+                            <svg width="84" height="84" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M40 13 L66 28 L40 43 L14 28 Z" stroke="#8B5CF6" stroke-width="2.2" stroke-linejoin="round" fill="#8B5CF6" fill-opacity="0.12"/>
+                                <path d="M14 28 L40 43 L40 72 L14 58 Z" stroke="#8B5CF6" stroke-width="2.2" stroke-linejoin="round" fill="#8B5CF6" fill-opacity="0.18"/>
+                                <path d="M40 43 L66 28 L66 58 L40 72 Z" stroke="#8B5CF6" stroke-width="2.2" stroke-linejoin="round" fill="#8B5CF6" fill-opacity="0.26"/>
+                                <circle cx="40" cy="43" r="4.5" fill="#8B5CF6"/>
+                                <circle cx="40" cy="13" r="3" fill="#8B5CF6"/>
+                                <circle cx="66" cy="28" r="3" fill="#8B5CF6"/>
+                                <circle cx="14" cy="28" r="3" fill="#8B5CF6"/>
+                                <circle cx="40" cy="72" r="3" fill="#8B5CF6"/>
+                            </svg>
                         </div>
                     </a>
 
                     <!-- Archivo Histórico Card 1 -->
-                    <div class="apple-card disabled-card">
-                        <div class="kicker" style="color: var(--text-muted);">HISTORIAL ARCHIVADO</div>
+                    <div class="apple-card disabled-card" data-accent="purple">
+                        <div class="card-meta-top">
+                            <div class="kicker" style="color: var(--text-muted);">HISTORIAL ARCHIVADO</div>
+                            <span class="status-pill" style="background: rgba(125,125,125,0.1); color: var(--text-muted);">Registro</span>
+                        </div>
                         <h3 class="title" style="color: var(--text-muted);">Archivo de Porfolio</h3>
                         <p class="desc">Espacio reservado para almacenar el historial de proyectos concluidos en ciclos anteriores.</p>
+                        
+                        <div class="card-tags">
+                            <span class="tech-tag">Ciclos Anteriores</span>
+                            <span class="tech-tag">Auditoría</span>
+                        </div>
+
                         <div class="card-visual" style="opacity: 0.5;">
-                            <svg width="96" height="96" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="16" y="14" width="48" height="52" rx="6" stroke="currentColor" stroke-width="2.4" fill="currentColor" fill-opacity="0.12"/>
-    <circle cx="22" cy="20" r="1.5" fill="currentColor"/>
-    <circle cx="58" cy="20" r="1.5" fill="currentColor"/>
-    <circle cx="22" cy="60" r="1.5" fill="currentColor"/>
-    <circle cx="58" cy="60" r="1.5" fill="currentColor"/>
-    <circle cx="40" cy="40" r="13" stroke="currentColor" stroke-width="2.2"/>
-    <circle cx="40" cy="40" r="5" stroke="currentColor" stroke-width="2" fill="currentColor" fill-opacity="0.35"/>
-    <line x1="40" y1="27" x2="40" y2="53" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    <line x1="27" y1="40" x2="53" y2="40" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    <rect x="11" y="32" width="5" height="16" rx="2" fill="currentColor"/>
-    <rect x="64" y="32" width="5" height="16" rx="2" fill="currentColor"/>
-</svg>
+                            <svg width="84" height="84" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="16" y="14" width="48" height="52" rx="6" stroke="currentColor" stroke-width="2.4" fill="currentColor" fill-opacity="0.12"/>
+                                <circle cx="40" cy="40" r="13" stroke="currentColor" stroke-width="2.2"/>
+                                <circle cx="40" cy="40" r="5" stroke="currentColor" stroke-width="2" fill="currentColor" fill-opacity="0.35"/>
+                            </svg>
                         </div>
                     </div>
 
                     <!-- Archivo Histórico Card 2 -->
-                    <div class="apple-card disabled-card">
-                        <div class="kicker" style="color: var(--text-muted);">REPOSITORIO</div>
+                    <div class="apple-card disabled-card" data-accent="purple">
+                        <div class="card-meta-top">
+                            <div class="kicker" style="color: var(--text-muted);">REPOSITORIO</div>
+                            <span class="status-pill" style="background: rgba(125,125,125,0.1); color: var(--text-muted);">Memoria</span>
+                        </div>
                         <h3 class="title" style="color: var(--text-muted);">Registro Histórico</h3>
                         <p class="desc">Conservación de memorias técnicas, lecciones aprendidas y acuerdos de gobernanza pasados.</p>
+                        
+                        <div class="card-tags">
+                            <span class="tech-tag">Lecciones</span>
+                            <span class="tech-tag">Memorias</span>
+                        </div>
+
                         <div class="card-visual" style="opacity: 0.5;">
-                            <svg width="96" height="96" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="18" y="16" width="44" height="48" rx="5" stroke="currentColor" stroke-width="2.4" fill="currentColor" fill-opacity="0.12"/>
-    <line x1="26" y1="16" x2="26" y2="64" stroke="currentColor" stroke-width="2"/>
-    <path d="M37 16 V34 L41 30 L45 34 V16" stroke="currentColor" stroke-width="2" fill="currentColor" fill-opacity="0.3"/>
-    <line x1="33" y1="44" x2="52" y2="44" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    <line x1="33" y1="52" x2="48" y2="52" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-</svg>
+                            <svg width="84" height="84" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="18" y="16" width="44" height="48" rx="5" stroke="currentColor" stroke-width="2.4" fill="currentColor" fill-opacity="0.12"/>
+                                <line x1="26" y1="16" x2="26" y2="64" stroke="currentColor" stroke-width="2"/>
+                                <path d="M37 16 V34 L41 30 L45 34 V16" stroke="currentColor" stroke-width="2" fill="currentColor" fill-opacity="0.3"/>
+                            </svg>
                         </div>
                     </div>
-
                 </div>
                 <button class="carousel-btn right hidden" onclick="scrollCarousel(this, 340)"
                     aria-label="Desplazar a la derecha">
@@ -731,6 +849,72 @@
                 rightBtn.classList.remove('hidden');
             }
         }
+
+                // ==========================================
+        // SMART AUTO-HIDE & LIQUID GLASS TOPBAR (SAFARI / LINEAR STYLE)
+        // ==========================================
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+        const islandHeader = document.querySelector('.app-header-island');
+        const scrollThreshold = 8; // Sensibilidad al scroll
+
+        function handleScrollDynamics() {
+            const currentScrollY = window.scrollY;
+
+            if (islandHeader) {
+                // 1. Estado Liquid Glass Ultra-Translúcido
+                if (currentScrollY > 35) {
+                    islandHeader.classList.add('is-scrolled');
+                } else {
+                    islandHeader.classList.remove('is-scrolled');
+                }
+
+                // 2. Smart Auto-Hide al bajar / Smart Reveal al subir
+                if (currentScrollY > 100) {
+                    if (currentScrollY > lastScrollY + scrollThreshold) {
+                        // Desplazamiento hacia ABAJO: deslizar hacia arriba y ocultar
+                        islandHeader.classList.add('header-hidden');
+                    } else if (currentScrollY < lastScrollY - scrollThreshold) {
+                        // Desplazamiento hacia ARRIBA: revelar de inmediato
+                        islandHeader.classList.remove('header-hidden');
+                    }
+                } else {
+                    // Cerca del tope: siempre visible
+                    islandHeader.classList.remove('header-hidden');
+                }
+            }
+
+            lastScrollY = currentScrollY;
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(handleScrollDynamics);
+                ticking = true;
+            }
+        }, { passive: true });
+
+        // ==========================================
+        // SPOTLIGHT INTERACTIVO QUE SIGUE AL RATÓN (STRIPE / LINEAR STYLE)
+        // ==========================================
+        function initCardSpotlights() {
+            document.querySelectorAll('.apple-card').forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    card.style.setProperty('--mouse-x', `${x}px`);
+                    card.style.setProperty('--mouse-y', `${y}px`);
+                });
+            });
+        }
+
+        // Inicialización
+        document.addEventListener('DOMContentLoaded', () => {
+            initCardSpotlights();
+            handleScrollDynamics();
+        });
 
         // Inicializar Lucide si hay iconos dinámicos
         if (window.lucide) {
