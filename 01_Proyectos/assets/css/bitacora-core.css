@@ -1,29 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
 /* 
-    CUADERNO DE BITÃCORA - ESTILOS FUTURISTAS
-    Basado en el sistema de diseÃ±o LidIA-MCP
+    CUADERNO DE BITÁCORA - SISTEMA CORPORATIVO LÍNEA DIRECTA
+    Tipografía oficial Roboto y Paleta Brandbook LDA
 */
 
 :root {
+    --font-family-primary: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    --font-family-headings: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    --text-muted: #6b7280;
     --bg-page: #f8f9fa;
-    --bg-card: rgba(255, 255, 255, 0.8);
+    --bg-card: rgba(255, 255, 255, 0.95);
     --bg-header: #ffffff;
     --text-main: #1a1a1a;
     --text-sec: #4a4a4a;
-    --lda-red: #E4002B;
+    --lda-red: #CC3333;
     --lda-red-hover: #b30022;
-    --lda-red-glow: rgba(228, 0, 43, 0.3);
+    --lda-red-glow: rgba(204, 51, 51, 0.25);
     --lda-dark: #2c2c2e;
-    /* Gris carbÃ³n corporativo */
+    /* Gris carbón corporativo */
     --lda-grey-light: #f5f5f7;
-    --glass-border: rgba(228, 0, 43, 0.1);
-    --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
-    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    --glass-border: rgba(204, 51, 51, 0.12);
+    --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08);
+    --transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 [data-theme="dark"] {
+    --text-muted: #9ca3af;
     --bg-page: #0a0a0b;
-    --bg-card: rgba(30, 30, 35, 0.6);
-    --bg-header: rgba(25, 25, 30, 0.8);
+    --bg-card: rgba(30, 30, 35, 0.85);
+    --bg-header: rgba(25, 25, 30, 0.9);
     --text-main: #f0f0f0;
     --text-sec: #b0b0b0;
     --lda-dark: #1c1c1e;
@@ -35,7 +41,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: var(--font-family-primary, 'CircularXX', sans-serif);
+    font-family: var(--font-family-primary);
 }
 
 body {
@@ -248,55 +254,23 @@ body {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
-.apple-card.dark-card {
-    background: var(--lda-dark);
-    color: #fff;
+/* All apple-cards adhere strictly to Línea Directa brand palette */
+.apple-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
 }
-
-.apple-card.dark-card .kicker {
-    color: var(--lda-red);
-    margin-bottom: 8px;
-    font-weight: 800;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+.apple-card .title {
+    color: var(--text-main) !important;
 }
-
-.apple-card.dark-card .desc {
-    color: rgba(255, 255, 255, 0.7);
+.apple-card .desc {
+    color: var(--text-sec) !important;
 }
-
-[data-theme="dark"] .apple-card.dark-card {
-    background: var(--lda-dark);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+.apple-card .kicker {
+    color: var(--lda-red) !important;
 }
-
-.apple-card.blue-card {
-    background: #f0f7ff;
-    color: #0f172a;
-    border: 1px solid rgba(37, 99, 235, 0.1);
-}
-
-.apple-card.blue-card .desc {
-    color: #475569;
-}
-
-.apple-card.blue-card .kicker {
-    color: #2563eb;
-    margin-bottom: 8px;
-    font-weight: 800;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-[data-theme="dark"] .apple-card.blue-card {
-    background: #0c4a6e;
-    color: #e0f2fe;
-}
-
-[data-theme="dark"] .apple-card.blue-card .desc {
-    color: #bae6fd;
+.apple-card .card-visual {
+    color: var(--lda-red) !important;
 }
 
 .apple-card.disabled-card {
@@ -330,7 +304,7 @@ body {
 
 .dark-card .title,
 .blue-card .title {
-    color: inherit;
+    color: var(--text-main) !important;
 }
 
 .desc {
@@ -3479,4 +3453,58 @@ html, body, button, input, select, textarea, .title, h1, h2, h3, h4, h5, h6, p, 
 .kicker-dot {
     background: var(--lda-red) !important;
     box-shadow: 0 0 8px rgba(204, 51, 51, 0.6) !important;
+}
+
+/* ==========================================================================
+   GARANTÍA DE CONTRASTE Y LEGIBILIDAD UNIVERSAL (CERO TEXTO INVISIBLE)
+   ========================================================================== */
+.apple-card {
+    background: var(--bg-card) !important;
+}
+
+.apple-card .title,
+.apple-card.dark-card .title,
+.apple-card.blue-card .title,
+.apple-card h3 {
+    color: var(--text-main) !important;
+}
+
+.apple-card .desc,
+.apple-card.dark-card .desc,
+.apple-card.blue-card .desc,
+.apple-card p {
+    color: var(--text-sec) !important;
+    opacity: 1 !important;
+}
+
+[data-theme="dark"] .apple-card {
+    background: var(--bg-card) !important;
+}
+
+[data-theme="dark"] .apple-card .title,
+[data-theme="dark"] .apple-card.dark-card .title,
+[data-theme="dark"] .apple-card.blue-card .title,
+[data-theme="dark"] .apple-card h3 {
+    color: var(--text-main) !important;
+}
+
+[data-theme="dark"] .apple-card .desc,
+[data-theme="dark"] .apple-card.dark-card .desc,
+[data-theme="dark"] .apple-card.blue-card .desc,
+[data-theme="dark"] .apple-card p {
+    color: var(--text-sec) !important;
+    opacity: 1 !important;
+}
+
+/* Kickers siempre visibles en rojo Línea Directa */
+.apple-card .kicker,
+.apple-card.dark-card .kicker,
+.apple-card.blue-card .kicker {
+    color: var(--lda-red) !important;
+}
+
+.apple-card.disabled-card .kicker,
+.apple-card.disabled-card .title,
+.apple-card.disabled-card .desc {
+    opacity: 0.8 !important;
 }

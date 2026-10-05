@@ -107,12 +107,12 @@
         
         .timeline-btn:hover {
             transform: translateY(-2px);
-            border-color: #10b981;
-            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.2);
+            border-color: var(--lda-red);
+            box-shadow: 0 8px 25px rgba(204, 51, 51, 0.2);
         }
         
         .timeline-btn svg {
-            color: #10b981;
+            color: var(--lda-red);
         }
     </style>
 </head>
@@ -164,111 +164,87 @@
             <div class="carousel-track" onscroll="updateCarouselButtons(this)">
 
                 <!-- CRONOGRAMA / ROADMAP (DISTINTIVO) -->
-                <a href="cronograma.html" class="apple-card dark-card" style="border-left: 4px solid var(--lda-red); background: linear-gradient(145deg, #1a1a2e 0%, rgba(228, 0, 43, 0.08) 100%);">
+                <a href="cronograma.html" class="apple-card" data-accent="red" style="border-left: 4px solid var(--lda-red);">
                     <div class="kicker" style="color: var(--lda-red);">SEGUIMIENTO GLOBAL</div>
                     <h3 class="title">Cronograma <span>End-to-End</span></h3>
                     <p class="desc">Línea de tiempo integral para el control estratégico de todas las fases del proyecto, desde el análisis hasta el despliegue final.</p>
                     <div class="card-visual" style="color: var(--lda-red); opacity: 0.8;">
-                        <svg width="96" height="96" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="16" y="16" width="48" height="48" rx="7" stroke="currentColor" stroke-width="2.4" fill="currentColor" fill-opacity="0.10"/>
-    <line x1="16" y1="28" x2="64" y2="28" stroke="currentColor" stroke-width="2.2"/>
-    <line x1="28" y1="11" x2="28" y2="19" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
-    <line x1="52" y1="11" x2="52" y2="19" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
-    <!-- Barras de Gantt simétricas y ordenadas -->
-    <rect x="23" y="36" width="16" height="5" rx="2.5" fill="currentColor"/>
-    <rect x="32" y="45" width="22" height="5" rx="2.5" fill="currentColor" fill-opacity="0.55"/>
-    <rect x="42" y="54" width="15" height="5" rx="2.5" fill="currentColor" fill-opacity="0.3"/>
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.3" fill="currentColor" fill-opacity="0.08"/>
+    <line x1="3" y1="9" x2="21" y2="9" stroke="currentColor" stroke-width="1.2"/>
+    <rect x="6" y="12" width="6" height="2" rx="1" fill="currentColor"/>
+    <rect x="10" y="15" width="8" height="2" rx="1" fill="currentColor" fill-opacity="0.5"/>
 </svg>
                     </div>
                 </a>
 
                 <!-- ESTRATEGIA Y BUSINESS CASE -->
-                <a href="universo_estrategico.html" class="apple-card dark-card">
-                    <div class="kicker">PREPARACIÓN</div>
+                <a href="universo_estrategico.html" class="apple-card" data-accent="red">
+                    <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> PREPARACIÓN</div>
                     <h3 class="title">Estrategia y <span>Business Case</span></h3>
                     <p class="desc">Análisis de patrimonio: 2 años de preparación, Business Case, TCO, comparativa
                         Oracle vs Workday y objetivos 2026.</p>
-                    <div class="card-visual">
-                        <svg width="96" height="96" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- Marco de Análisis Estratégico y Business Case (Eje X=40) -->
-    <rect x="16" y="15" width="48" height="50" rx="6" stroke="currentColor" stroke-width="2.4" fill="currentColor" fill-opacity="0.10"/>
-    <!-- Curva de Retorno de Inversión y TCO -->
-    <path d="M24 53 L34 41 L44 47 L56 31" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M47 31 H56 V40" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="34" cy="41" r="3" fill="currentColor"/>
-    <circle cx="44" cy="47" r="3" fill="currentColor"/>
-    <circle cx="56" cy="31" r="3" fill="currentColor"/>
-    <line x1="22" y1="57" x2="58" y2="57" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <div class="card-visual" style="color: var(--lda-red);">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.3" fill="currentColor" fill-opacity="0.08"/>
+    <path d="M7 16L11 12L14 14L17 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <polyline points="14 9 17 9 17 12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
                     </div>
                 </a>
 
                 <!-- UNIVERSO DE EJECUCIÓN -->
-                <a href="#" class="apple-card blue-card disabled-card">
-                    <div class="kicker">DESPLIEGUE</div>
+                <a href="#" class="apple-card disabled-card" data-accent="red">
+                    <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> DESPLIEGUE</div>
                     <h3 class="title">Universo de <span>Ejecución</span></h3>
-                    <p class="desc">Estrategia "Zero Impact": fases modulares, migraciones "As-Is", roadmap ejecutivo y
+                    <p class="desc">Estrategia"Zero Impact": fases modulares, migraciones"As-Is", roadmap ejecutivo y
                         gestión de integradores.</p>
-                    <div class="card-visual">
-                        <svg width="96" height="96" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- Cohete / Motor de Despliegue de Simetría Bilateral (Eje X=40) -->
-    <path d="M40 13 C40 13 54 22 54 41 L47 48 L40 46 L33 48 L26 41 C26 22 40 13 40 13 Z" 
-          stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" fill="currentColor" fill-opacity="0.14"/>
-    <circle cx="40" cy="31" r="5" stroke="currentColor" stroke-width="2.2" fill="currentColor" fill-opacity="0.3"/>
-    <!-- Toberas Gemelas Simétricas -->
-    <path d="M26 41 L18 49 V56 L28 52 L33 48" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-    <path d="M54 41 L62 49 V56 L52 52 L47 48" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-    <!-- Propulsión Central -->
-    <line x1="40" y1="52" x2="40" y2="65" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
-    <path d="M35 59 L40 65 L45 59" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <div class="card-visual" style="color: var(--lda-red);">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2.5C12 2.5 17 6 17 13L15 16L12 15L9 16L7 13C7 6 12 2.5 12 2.5Z" stroke="currentColor" stroke-width="1.3" fill="currentColor" fill-opacity="0.1" stroke-linejoin="round"/>
+    <circle cx="12" cy="9" r="1.5" fill="currentColor"/>
+    <path d="M7 13L4 16V19L8 18L9 16" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+    <path d="M17 13L20 16V19L16 18L15 16" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
 </svg>
                     </div>
                 </a>
 
                 <!-- UNIVERSO DE INTEGRACIÓN -->
-                <a href="#" class="apple-card disabled-card">
-                    <div class="kicker">CONEXIÓN</div>
+                <a href="#" class="apple-card disabled-card" data-accent="red">
+                    <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> CONEXIÓN</div>
                     <h3 class="title">Universo de <span>Conexión</span></h3>
                     <p class="desc">Integraciones nativas: CRM, Data BI, Telefonía Cloud y Seguridad (OAM/OIM)
                         para un
                         ecosistema unificado.</p>
-                    <div class="card-visual">
-                        <svg width="96" height="96" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- Núcleo Central de Integración -->
-    <circle cx="40" cy="40" r="10" stroke="currentColor" stroke-width="2.4" fill="currentColor" fill-opacity="0.2"/>
-    <!-- 4 Nodos Satélites de Conexión en Cuadrantes Simétricos -->
-    <circle cx="21" cy="24" r="6" stroke="currentColor" stroke-width="2.2" fill="currentColor" fill-opacity="0.12"/>
-    <circle cx="59" cy="24" r="6" stroke="currentColor" stroke-width="2.2" fill="currentColor" fill-opacity="0.12"/>
-    <circle cx="21" cy="56" r="6" stroke="currentColor" stroke-width="2.2" fill="currentColor" fill-opacity="0.12"/>
-    <circle cx="59" cy="56" r="6" stroke="currentColor" stroke-width="2.2" fill="currentColor" fill-opacity="0.12"/>
-    <!-- Enlaces Diagonales Simétricos -->
-    <line x1="26" y1="28" x2="33" y2="34" stroke="currentColor" stroke-width="2.2"/>
-    <line x1="54" y1="28" x2="47" y2="34" stroke="currentColor" stroke-width="2.2"/>
-    <line x1="26" y1="52" x2="33" y2="46" stroke="currentColor" stroke-width="2.2"/>
-    <line x1="54" y1="52" x2="47" y2="46" stroke="currentColor" stroke-width="2.2"/>
+                    <div class="card-visual" style="color: var(--lda-red);">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.3" fill="currentColor" fill-opacity="0.2"/>
+    <circle cx="5" cy="6" r="2" stroke="currentColor" stroke-width="1.2"/>
+    <circle cx="19" cy="6" r="2" stroke="currentColor" stroke-width="1.2"/>
+    <circle cx="5" cy="18" r="2" stroke="currentColor" stroke-width="1.2"/>
+    <circle cx="19" cy="18" r="2" stroke="currentColor" stroke-width="1.2"/>
+    <line x1="7" y1="7.5" x2="10" y2="10" stroke="currentColor" stroke-width="1.2"/>
+    <line x1="17" y1="7.5" x2="14" y2="10" stroke="currentColor" stroke-width="1.2"/>
+    <line x1="7" y1="16.5" x2="10" y2="14" stroke="currentColor" stroke-width="1.2"/>
+    <line x1="17" y1="16.5" x2="14" y2="14" stroke="currentColor" stroke-width="1.2"/>
 </svg>
                     </div>
                 </a>
                 <!-- UNIVERSO DE PERSONAS -->
-                <a href="#" class="apple-card dark-card disabled-card">
-                    <div class="kicker">CHANGE MANAGEMENT</div>
+                <a href="#" class="apple-card disabled-card" data-accent="red">
+                    <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> CHANGE MANAGEMENT</div>
                     <h3 class="title">Universo de <span>Personas</span></h3>
                     <p class="desc">Gesti&oacute;n del cambio: impacto organizativo, formaci&oacute;n, adopci&oacute;n
                         del nuevo modelo y
                         experiencia de usuario.</p>
-                    <div class="card-visual">
-                        <svg width="96" height="96" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- Trío de Talento Humano Simétrico (Eje X=40) -->
-    <!-- Líder Central -->
-    <circle cx="40" cy="29" r="7.5" stroke="currentColor" stroke-width="2.4" fill="currentColor" fill-opacity="0.25"/>
-    <path d="M26 53 C26 44 32.5 38 40 38 C47.5 38 54 44 54 53" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
-    <!-- Gemelo Izquierdo -->
-    <circle cx="20" cy="35" r="5.5" stroke="currentColor" stroke-width="2" fill="currentColor" fill-opacity="0.12"/>
-    <path d="M11 58 C11 51 15 47 20 47 C23 47 25 48.5 27 51" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    <!-- Gemelo Derecho -->
-    <circle cx="60" cy="35" r="5.5" stroke="currentColor" stroke-width="2" fill="currentColor" fill-opacity="0.12"/>
-    <path d="M53 51 C55 48.5 57 47 60 47 C65 47 69 51 69 58" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    <line x1="16" y1="65" x2="64" y2="65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 3"/>
+                    <div class="card-visual" style="color: var(--lda-red);">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="7" r="3" stroke="currentColor" stroke-width="1.3" fill="currentColor" fill-opacity="0.2"/>
+    <path d="M6 18C6 14.7 8.7 12 12 12C15.3 12 18 14.7 18 18" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    <circle cx="4" cy="9" r="2" stroke="currentColor" stroke-width="1.1"/>
+    <path d="M1 18C1 15.8 2.5 14 4.5 14" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+    <circle cx="20" cy="9" r="2" stroke="currentColor" stroke-width="1.1"/>
+    <path d="M23 18C23 15.8 21.5 14 19.5 14" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
 </svg>
                     </div>
                 </a>
@@ -297,8 +273,22 @@
         </a>
     </div>
 
-    <footer>
-        <p>&copy; 2026 Portal de Gestión HCM Cloud | Memoria Corporativa Permanente</p>
+        <footer class="lda-hub-footer" style="margin-top: 60px; padding: 30px 24px; border-top: 1px solid var(--border-color); background: var(--bg-card); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; max-width: 1200px; margin-left: auto; margin-right: auto; border-radius: 20px 20px 0 0; box-shadow: var(--shadow);">
+        <div style="display: flex; align-items: center; gap: 16px;">
+            <img src="../assets/img/logo_header_lda.png" alt="Línea Directa Aseguradora" style="height: 32px; width: auto; object-fit: contain;">
+            <div style="border-left: 2px solid var(--lda-red); padding-left: 12px;">
+                <div style="font-weight: 800; font-size: 0.95rem; color: var(--text-main); letter-spacing: -0.2px;">Cuaderno de Bitácora</div>
+                <div style="font-size: 0.8rem; color: var(--text-sec);">Línea Directa Aseguradora, S.A. &bull; Base de Conocimiento</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 20px; font-size: 0.85rem;">
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html" style="color: var(--lda-red); text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Inicio Portfolio
+            </a>
+            <span style="color: var(--border-color);">|</span>
+            <span style="color: var(--text-sec);">&copy; 2026 Línea Directa Aseguradora</span>
+        </div>
     </footer>
 
     

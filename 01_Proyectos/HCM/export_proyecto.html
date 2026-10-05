@@ -937,7 +937,7 @@
             return main.innerHTML;
         }
 
-        // Crea una "página" PDF con header, contenido y footer
+        // Crea una"página" PDF con header, contenido y footer
         function buildPage(numero, totalPaginas, kicker, titulo, htmlContent, isIndex = false) {
             const page = document.createElement('div');
             page.className = 'pdf-page' + (isIndex ? ' page-index' : ' page-content');

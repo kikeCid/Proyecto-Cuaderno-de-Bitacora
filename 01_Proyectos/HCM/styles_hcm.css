@@ -158,56 +158,23 @@ body {
     border-color: var(--hcm-green);
 }
 
-.apple-card.dark-card {
-    background: var(--lda-dark);
-    color: #fff;
-}
+/* neutralized dark-card */
 
-.apple-card.dark-card .kicker {
-    color: var(--hcm-green);
-    margin-bottom: 8px;
-    font-weight: 800;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
 
-.apple-card.dark-card .desc {
-    color: rgba(255, 255, 255, 0.7);
-}
 
-[data-theme="dark"] .apple-card.dark-card {
-    background: var(--lda-dark);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
 
-.apple-card.blue-card {
-    background: #f0f7ff;
-    color: #0f172a;
-    border: 1px solid rgba(2, 132, 199, 0.1);
-}
 
-.apple-card.blue-card .desc {
-    color: #475569;
-}
+[data-theme="dark"] /* neutralized dark-card */
 
-.apple-card.blue-card .kicker {
-    color: #0284c7;
-    margin-bottom: 8px;
-    font-weight: 800;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
+/* neutralized blue-card */
 
-[data-theme="dark"] .apple-card.blue-card {
-    background: #0c4a6e;
-    color: #e0f2fe;
-}
 
-[data-theme="dark"] .apple-card.blue-card .desc {
-    color: #bae6fd;
-}
+
+
+
+[data-theme="dark"] /* neutralized blue-card */
+
+[data-theme="dark"] 
 
 .apple-card.disabled-card {
     opacity: 0.6;
@@ -238,10 +205,7 @@ body {
     color: var(--text-main);
 }
 
-.dark-card .title,
-.blue-card .title {
-    color: inherit;
-}
+.dark-card .title { color: var(--text-main) !important; }
 
 .desc {
     font-size: 0.95rem;
@@ -264,19 +228,11 @@ body {
     transition: background-color 0.3s;
 }
 
-.dark-card .card-visual {
-    background-color: rgba(16, 185, 129, 0.1);
-    color: var(--hcm-green);
-}
 
-.blue-card .card-visual {
-    background-color: rgba(255, 255, 255, 0.5);
-    color: inherit;
-}
 
-[data-theme="dark"] .blue-card .card-visual {
-    background-color: rgba(0, 0, 0, 0.3);
-}
+
+
+[data-theme="dark"] 
 
 [data-theme="dark"] .card-visual {
     background-color: var(--hcm-green-soft);
@@ -554,7 +510,7 @@ input:checked+.slider:before {
         font-size: 2.5rem;
     }
 }
-/* CORRECCI”N GLOBAL DE SIMETRÕA PARA GRIDS DE 4 TARJETAS (EVITAR 3 ARRIBA Y 1 ABAJO) */
+/* CORRECCIN GLOBAL DE SIMETRA PARA GRIDS DE 4 TARJETAS (EVITAR 3 ARRIBA Y 1 ABAJO) */
 @media screen and (min-width: 769px) {
     div[style*="grid-template-columns: repeat(auto-fit"]:has(> :nth-child(4):last-child),
     div[style*="grid-template-columns: repeat(auto-fill"]:has(> :nth-child(4):last-child),
@@ -599,4 +555,24 @@ input:checked+.slider:before {
 .nav-breadcrumb-sep {
     padding: 0 2px !important;
     opacity: 0.5 !important;
+}
+
+
+/* UNIVERSAL HIGH-CONTRAST CARD RULES (L√çNEA DIRECTA) */
+.apple-card, .project-card {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-main) !important;
+}
+.apple-card .title, .project-card .title {
+    color: var(--text-main) !important;
+}
+.apple-card .desc, .project-card .desc {
+    color: var(--text-sec) !important;
+}
+.apple-card .kicker, .project-card .kicker {
+    color: var(--lda-red) !important;
+}
+.apple-card .card-visual, .project-card .card-visual {
+    color: var(--lda-red) !important;
 }

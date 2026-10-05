@@ -467,50 +467,26 @@ input:checked+.slider:before {
 }
 
 /* Dark Card Variant */
-.apple-card.dark-card {
-    background: var(--lda-dark);
-    color: #fff;
-    border-color: rgba(255, 255, 255, 0.1);
-}
+/* neutralized dark-card */
 
-.apple-card.dark-card:hover {
-    border-color: var(--lda-blue);
-}
 
-.apple-card.dark-card .kicker {
-    color: var(--lda-blue);
-}
 
-.apple-card.dark-card .desc {
-    color: rgba(255, 255, 255, 0.7);
-}
 
-.apple-card.dark-card .title {
-    color: #fff;
-}
+
+
+
+
 
 /* Blue Card Variant */
-.apple-card.blue-card {
-    background: #f0f7ff;
-    color: #0f172a;
-    border: 1px solid rgba(2, 132, 199, 0.1);
-}
+/* neutralized blue-card */
 
-.apple-card.blue-card:hover {
-    border-color: var(--lda-blue);
-}
 
-.apple-card.blue-card .desc {
-    color: #475569;
-}
 
-.apple-card.blue-card .kicker {
-    color: #0284c7;
-}
 
-.apple-card.blue-card .title {
-    color: #0f172a;
-}
+
+
+
+
 
 /* Typography elements */
 .kicker {
@@ -555,15 +531,9 @@ input:checked+.slider:before {
     flex-shrink: 0;
 }
 
-.dark-card .card-visual {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #fff;
-}
 
-.blue-card .card-visual {
-    background-color: rgba(255, 255, 255, 0.5);
-    color: #0284c7;
-}
+
+
 
 [data-theme="dark"] .card-visual {
     background-color: rgba(255, 255, 255, 0.05);
@@ -674,4 +644,24 @@ footer {
 .nav-breadcrumb-sep {
     padding: 0 2px !important;
     opacity: 0.5 !important;
+}
+
+
+/* UNIVERSAL HIGH-CONTRAST CARD RULES (LÍNEA DIRECTA) */
+.apple-card, .project-card {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-main) !important;
+}
+.apple-card .title, .project-card .title {
+    color: var(--text-main) !important;
+}
+.apple-card .desc, .project-card .desc {
+    color: var(--text-sec) !important;
+}
+.apple-card .kicker, .project-card .kicker {
+    color: var(--lda-red) !important;
+}
+.apple-card .card-visual, .project-card .card-visual {
+    color: var(--lda-red) !important;
 }

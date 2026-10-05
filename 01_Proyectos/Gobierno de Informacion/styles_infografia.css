@@ -1,6 +1,6 @@
 /* 
-    DEFINICIÓN DE VARIABLES (PALETA DE COLORES CORPORATIVA) 
-    DEFINICIÓN DE SISTEMA DE COLOR SEMÁNTICO
+    DEFINICIÃN DE VARIABLES (PALETA DE COLORES CORPORATIVA) 
+    DEFINICIÃN DE SISTEMA DE COLOR SEMÃNTICO
 */
 :root {
     /* 1. PALETA BASE (MODO CLARO - CLEAN WHITE) */
@@ -16,7 +16,7 @@
     --border-color: #E5E7EB;
     --shadow-color: rgba(0, 0, 0, 0.08);
     --lda-dark: #2c2c2e;
-    /* Gris carbón corporativo */
+    /* Gris carbÃ³n corporativo */
     --lda-grey-light: #f5f5f7;
 
     /* 2. ACENTOS DE MARCA */
@@ -55,7 +55,7 @@
     --lda-dark: #1c1c1e;
 }
 
-/* RESETEO BÁSICO DE ESTILOS */
+/* RESETEO BÃSICO DE ESTILOS */
 * {
     margin: 0;
     padding: 0;
@@ -109,8 +109,8 @@ h1 span {
 }
 
 /* =========================================
-   ESTÁNDAR DE CABECERA (HERO SECTION)
-   Basado en el diseño del Cuaderno de Bitácora
+   ESTÃNDAR DE CABECERA (HERO SECTION)
+   Basado en el diseÃ±o del Cuaderno de BitÃ¡cora
    ========================================= */
 .hero {
     text-align: center;
@@ -167,13 +167,13 @@ h1 span {
     margin: 0 auto;
 }
 
-/* Ajustes para h1 fuera de .hero si se mantiene el diseño anterior por compatibilidad */
+/* Ajustes para h1 fuera de .hero si se mantiene el diseÃ±o anterior por compatibilidad */
 h1 .social-links a:hover {
     color: var(--lda-red);
 }
 
 /* =========================================
-   SISTEMA DE NAVEGACIÓN GLOBAL (FLOTANTE)
+   SISTEMA DE NAVEGACIÃN GLOBAL (FLOTANTE)
    ========================================= */
 .global-nav-wrapper {
     position: fixed;
@@ -675,7 +675,7 @@ h1 .social-links a:hover {
     opacity: 1;
 }
 
-/* THEME TOGGLE (DISEÑO PREMIUM CUADERNO DE BITÁCORA) */
+/* THEME TOGGLE (DISEÃO PREMIUM CUADERNO DE BITÃCORA) */
 .theme-toggle-wrapper {
     position: fixed;
     top: 30px;
@@ -1203,56 +1203,23 @@ input:checked+.slider:before {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
-.apple-card.dark-card {
-    background: var(--lda-dark);
-    color: #fff;
-}
+/* neutralized dark-card */
 
-.apple-card.dark-card .kicker {
-    color: var(--lda-red);
-    margin-bottom: 8px;
-    font-weight: 800;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
 
-.apple-card.dark-card .desc {
-    color: rgba(255, 255, 255, 0.7);
-}
 
-[data-theme="dark"] .apple-card.dark-card {
-    background: var(--lda-dark);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
 
-.apple-card.blue-card {
-    background: #f0f7ff;
-    color: #0f172a;
-    border: 1px solid rgba(37, 99, 235, 0.1);
-}
 
-.apple-card.blue-card .desc {
-    color: #475569;
-}
+[data-theme="dark"] /* neutralized dark-card */
 
-.apple-card.blue-card .kicker {
-    color: #2563eb;
-    margin-bottom: 8px;
-    font-weight: 800;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
+/* neutralized blue-card */
 
-[data-theme="dark"] .apple-card.blue-card {
-    background: #0c4a6e;
-    color: #e0f2fe;
-}
 
-[data-theme="dark"] .apple-card.blue-card .desc {
-    color: #bae6fd;
-}
+
+
+
+[data-theme="dark"] /* neutralized blue-card */
+
+[data-theme="dark"] 
 
 .kicker {
     font-size: 0.75rem;
@@ -1272,10 +1239,7 @@ input:checked+.slider:before {
     color: var(--text-main);
 }
 
-.dark-card .title,
-.blue-card .title {
-    color: inherit;
-}
+
 
 .desc {
     font-size: 0.95rem;
@@ -1298,19 +1262,11 @@ input:checked+.slider:before {
     transition: background-color 0.3s;
 }
 
-.dark-card .card-visual {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #fff;
-}
 
-.blue-card .card-visual {
-    background-color: rgba(255, 255, 255, 0.5);
-    color: inherit;
-}
 
-[data-theme="dark"] .blue-card .card-visual {
-    background-color: rgba(0, 0, 0, 0.3);
-}
+
+
+[data-theme="dark"] 
 
 [data-theme="dark"] .card-visual {
     background-color: rgba(255, 255, 255, 0.05);
@@ -1361,7 +1317,7 @@ input:checked+.slider:before {
     pointer-events: none;
     transform: translateY(-50%) scale(0.8);
 }
-/* CORRECCI�N GLOBAL DE SIMETR�A PARA GRIDS DE 4 TARJETAS (EVITAR 3 ARRIBA Y 1 ABAJO) */
+/* CORRECCIÓN GLOBAL DE SIMETRÍA PARA GRIDS DE 4 TARJETAS (EVITAR 3 ARRIBA Y 1 ABAJO) */
 @media screen and (min-width: 769px) {
     div[style*="grid-template-columns: repeat(auto-fit"]:has(> :nth-child(4):last-child),
     div[style*="grid-template-columns: repeat(auto-fill"]:has(> :nth-child(4):last-child),
@@ -1379,7 +1335,7 @@ input:checked+.slider:before {
     }
 }
 
-/* NORMALIZACIÓN GLOBAL DE BARRA DE NAVEGACIÓN Y MIGAS DE PAN */
+/* NORMALIZACIÃN GLOBAL DE BARRA DE NAVEGACIÃN Y MIGAS DE PAN */
 .global-nav-wrapper {
     height: 48px !important;
     padding: 0 4px !important;
@@ -1406,4 +1362,24 @@ input:checked+.slider:before {
 .nav-breadcrumb-sep {
     padding: 0 2px !important;
     opacity: 0.5 !important;
+}
+
+
+/* UNIFIED APPLE-CARD HIGH CONTRAST RULES */
+.apple-card {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-main) !important;
+}
+.apple-card .title {
+    color: var(--text-main) !important;
+}
+.apple-card .desc {
+    color: var(--text-sec) !important;
+}
+.apple-card .kicker {
+    color: var(--lda-red) !important;
+}
+.apple-card .card-visual {
+    color: var(--lda-red) !important;
 }

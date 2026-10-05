@@ -572,7 +572,7 @@
             pointer-events: none;
         }
 
-        /* Badge rojo de "ESTANDAR" */
+        /* Badge rojo de"ESTANDAR" */
         .badge {
             display: inline-block;
             background: var(--lda-red);
@@ -1311,7 +1311,7 @@
 
         .slider:before {
             position: absolute;
-            content: "";
+            content:"";
             height: 26px;
             width: 26px;
             left: 4px;
@@ -2084,7 +2084,7 @@
                 <button class="carousel-btn left hidden" onclick="scrollCarousel(this, -340)">‹</button>
                 <div class="carousel-track" onscroll="updateCarouselButtons(this)">
                     <!-- UNIVERSO LIDIA -->
-                    <a href="#" class="apple-card dark-card" onclick="switchView('hub-lidia'); return false;">
+                    <a href="#" class="apple-card" data-accent="red" onclick="switchView('hub-lidia'); return false;">
                         <div class="kicker">ENTORNO CORE</div>
                         <h3 class="title">Universo Lid<span style="color: var(--lda-red);">IA</span></h3>
                         <p class="desc">Proyecto Base: Historia, Orquestador Técnico y Estrategia 2026.</p>
@@ -2100,7 +2100,7 @@
                     </a>
 
                     <!-- UNIVERSO GOBIERNO -->
-                    <a href="#" class="apple-card blue-card" onclick="switchView('hub-gin'); return false;">
+                    <a href="#" class="apple-card" data-accent="red" onclick="switchView('hub-gin'); return false;">
                         <div class="kicker">MARCO NORMATIVO</div>
                         <h3 class="title">Universo Gobierno</h3>
                         <p class="desc">Gobierno de Información: Metodología, Libro Blanco y Skills.</p>
@@ -2138,7 +2138,7 @@
                 <button class="carousel-btn left hidden" onclick="scrollCarousel(this, -340)">‹</button>
                 <div class="carousel-track" onscroll="updateCarouselButtons(this)">
                     <!-- Card 1: Historia y Contexto -->
-                    <a href="#" class="apple-card dark-card" onclick="switchView('history'); return false;">
+                    <a href="#" class="apple-card" data-accent="red" onclick="switchView('history'); return false;">
                         <div class="kicker">ORIGEN Y EVOLUCIÓN</div>
                         <h3 class="title">Historia y Contexto</h3>
                         <p class="desc">De dónde venimos, qué hemos aprendido y hacia dónde vamos en 2026.</p>
@@ -2151,7 +2151,7 @@
                     </a>
 
                     <!-- Card 2: Orquestador IA -->
-                    <a href="#" class="apple-card blue-card" onclick="switchView('orchestrator'); return false;">
+                    <a href="#" class="apple-card" data-accent="red" onclick="switchView('orchestrator'); return false;">
                         <div class="kicker">ARQUITECTURA</div>
                         <h3 class="title">Orquestador IA</h3>
                         <p class="desc">El motor tecnológico: cómo Lid<span style="color: var(--lda-red);">IA</span>
@@ -2168,7 +2168,7 @@
                     </a>
 
                     <!-- Card 3: Reenfoque Proyecto 2026 -->
-                    <a href="#" class="apple-card dark-card" onclick="switchView('strategy'); return false;">
+                    <a href="#" class="apple-card" data-accent="red" onclick="switchView('strategy'); return false;">
                         <div class="kicker">ESTRATEGIA 2026</div>
                         <h3 class="title">Reenfoque Proyecto 2026</h3>
                         <p class="desc">Los 5 pilares para transformar Lid<span style="color: var(--lda-red);">IA</span>
@@ -2209,7 +2209,7 @@
                 <button class="carousel-btn left hidden" onclick="scrollCarousel(this, -340)">‹</button>
                 <div class="carousel-track" onscroll="updateCarouselButtons(this)">
                     <!-- Card 1: Modelo de Gobierno -->
-                    <a href="#" class="apple-card dark-card" onclick="switchView('methodology'); return false;">
+                    <a href="#" class="apple-card" data-accent="red" onclick="switchView('methodology'); return false;">
                         <div class="kicker">DISEÑO Y PILARES</div>
                         <h3 class="title">Modelo de Gobierno Información</h3>
                         <p class="desc">Modelo organizativo, pilares estratégicos y beneficios de la inteligencia
@@ -2226,7 +2226,7 @@
                     </a>
 
                     <!-- Card 2: Metodología de Trabajo -->
-                    <a href="#" class="apple-card blue-card" onclick="switchView('work'); return false;">
+                    <a href="#" class="apple-card" data-accent="red" onclick="switchView('work'); return false;">
                         <div class="kicker">EJECUCIÓN</div>
                         <h3 class="title">Metodología de Trabajo</h3>
                         <p class="desc">Sincronización de información (Libro Blanco) y habilitadores tecnológicos para
@@ -2242,7 +2242,7 @@
                     </a>
 
                     <!-- Card 3: Estrategia de Trabajo -->
-                    <a href="#" class="apple-card dark-card" onclick="switchView('work-strategy'); return false;">
+                    <a href="#" class="apple-card" data-accent="red" onclick="switchView('work-strategy'); return false;">
                         <div class="kicker">ENFOQUE DUAL</div>
                         <h3 class="title">Estrategia de Trabajo</h3>
                         <p class="desc">Sincronización de dos tracks de información: Track LidIA (Valor de Negocio) y
@@ -2256,7 +2256,7 @@
                     </a>
 
                     <!-- Card 4: Libro Blanco -->
-                    <a href="#" class="apple-card blue-card" onclick="switchView('manual'); return false;">
+                    <a href="#" class="apple-card" data-accent="red" onclick="switchView('manual'); return false;">
                         <div class="kicker">NORMATIVA Y REGLAS</div>
                         <h3 class="title">Libro Blanco</h3>
                         <p class="desc">Estándares para IA, fichas maestras y reglas operativas del conocimiento.</p>
@@ -2271,7 +2271,7 @@
                     </a>
 
                     <!-- Card 5: Potenciadores IA -->
-                    <a href="#" class="apple-card dark-card" onclick="switchView('skills'); return false;">
+                    <a href="#" class="apple-card" data-accent="red" onclick="switchView('skills'); return false;">
                         <div class="kicker">HERRAMIENTAS CLAVE</div>
                         <h3 class="title">Potenciadores IA</h3>
                         <p class="desc">Habilidades ("Skills") supervisadas para acelerar la curación y calidad del
@@ -2413,7 +2413,7 @@
             <h2>Reenfoque Estratégico</h2>
             <div style="display: flex; gap: 40px; align-items: flex-start; margin-top: 30px;">
                 <div style="flex: 1.2;">
-                    <h3 style="font-size: 1.8rem; margin-bottom: 20px;">De "Repositorio General" a <span
+                    <h3 style="font-size: 1.8rem; margin-bottom: 20px;">De"Repositorio General" a <span
                             style="color: var(--lda-red);">"Gestión por Casos de Uso"</span></h3>
                     <p style="font-size: 1.15rem; line-height: 1.7; margin-bottom: 20px;">
                         Siguiendo los principios del <strong>Libro Blanco</strong> y nuestro <strong>Sistema de
@@ -2443,7 +2443,7 @@
                                     style="color: var(--lda-red); font-weight: 800; margin-bottom: 8px; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px;">
                                     Salto en Fiabilidad y Precisión</h4>
                                 <p style="font-size: 1rem; color: var(--text-main); line-height: 1.5;">
-                                    Frente al sistema actual de "Búsqueda Global" (que recupera los 5 fragmentos más
+                                    Frente al sistema actual de"Búsqueda Global" (que recupera los 5 fragmentos más
                                     cercanos por estadística vectorial), este modelo garantiza que la IA acceda a la
                                     pieza exacta de verdad. Al eliminar el ruido de documentos irrelevantes,
                                     aumentamos exponencialmente la fiabilidad de la respuesta final.
@@ -2487,7 +2487,7 @@
                                 Total</strong>
                             <span style="font-size: 0.95rem; color: var(--text-sec);">Sabemos exactamente de qué
                                 fuente proviene cada dato, asegurando que Lid<span
-                                    style="color: var(--lda-red);">IA</span> siempre beba de la "Fuente de la
+                                    style="color: var(--lda-red);">IA</span> siempre beba de la"Fuente de la
                                 Verdad".</span>
                         </li>
                     </ul>
@@ -2577,8 +2577,7 @@
                     <div class="pilar-content">
                         <h4>Visión de cliente</h4>
                         <p>Facilitar la información sobre los diferentes productos por ramos de la compañía, impulso
-                            del
-                            "multiproducto".</p>
+                            del"multiproducto".</p>
                     </div>
                 </div>
             </div>
@@ -2882,7 +2881,7 @@
                                 style="font-size: 0.95rem; font-weight: 800; color: var(--text-main); margin-bottom: 5px;">
                                 Arquitectura Lógica</h4>
                             <p style="font-size: 0.9rem; color: var(--text-sec); line-height: 1.5; margin: 0;">
-                                Diseñar el "mapa del conocimiento" y criterio de ordenación.</p>
+                                Diseñar el"mapa del conocimiento" y criterio de ordenación.</p>
                         </div>
                         <div
                             style="padding: 15px; border-left: 3px solid var(--lda-red); background: rgba(228, 0, 43, 0.02);">
@@ -3110,8 +3109,7 @@
                         style="font-size: 0.75rem; background: rgba(59, 130, 246, 0.1); color: #3B82F6; padding: 4px 10px; border-radius: 12px; font-weight: 700; text-transform: uppercase;">Investigación</span>
                 </div>
                 <div style="padding: 25px;">
-                    <p style="font-size: 0.95rem; color: var(--text-sec); margin-bottom: 20px; line-height: 1.6;">El
-                        "sabueso" que encuentra la información donde esté.</p>
+                    <p style="font-size: 0.95rem; color: var(--text-sec); margin-bottom: 20px; line-height: 1.6;">El"sabueso" que encuentra la información donde esté.</p>
                     <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; color: var(--text-sec);">
                         <li style="margin-bottom: 8px; display: flex; gap: 8px; align-items: start;">
                             <span style="color: #3B82F6; font-weight: 800;">→</span>
@@ -3317,7 +3315,7 @@
         <div style="max-width: 850px; margin: 0 auto 40px auto; text-align: center;">
             <p style="font-size: 1.1rem; color: var(--text-sec); line-height: 1.6;">
                 Nuestra estrategia evoluciona desde un enfoque operativo hacia uno institucional. El **Track LidIA
-                (Core)** representa nuestro origen: una ejecución "a la guerrilla" que permitió identificar la necesidad
+                (Core)** representa nuestro origen: una ejecución"a la guerrilla" que permitió identificar la necesidad
                 de un marco estructural. Como respuesta, el **Track de Gobierno** formaliza esta necesidad
                 integrándola a nivel organizativo, estando actualmente en fase de aprobación para liderar el estándar
                 definitivo.
@@ -3792,8 +3790,7 @@
                             <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
                         </svg></div>
                     <h5 style="font-weight: 800; margin-bottom: 8px;">Doc ID</h5>
-                    <p style="font-size: 0.85rem; line-height: 1.4;">Identificador único.<br><em>Ej:
-                            "DOC-2026-001"</em></p>
+                    <p style="font-size: 0.85rem; line-height: 1.4;">Identificador único.<br><em>Ej:"DOC-2026-001"</em></p>
                 </div>
                 <!-- 2. Caso de Uso -->
                 <div class="rule-card" style="padding: 20px;">
@@ -3802,7 +3799,7 @@
                             <path d="M4 9h16M4 15h16M10 3L8 21M16 3l-2 18"></path>
                         </svg></div>
                     <h5 style="font-weight: 800; margin-bottom: 8px;">Caso de Uso</h5>
-                    <p style="font-size: 0.85rem; line-height: 1.4;">Proceso macro.<br><em>Ej: "Gestión de
+                    <p style="font-size: 0.85rem; line-height: 1.4;">Proceso macro.<br><em>Ej:"Gestión de
                             Bajas"</em></p>
                 </div>
                 <!-- 3. Nombre Operativa -->
@@ -3814,7 +3811,7 @@
                             <polyline points="14 2 14 8 20 8"></polyline>
                         </svg></div>
                     <h5 style="font-weight: 800; margin-bottom: 8px;">Nombre</h5>
-                    <p style="font-size: 0.85rem; line-height: 1.4;">Tótulo especófico.<br><em>Ej: "Devolución
+                    <p style="font-size: 0.85rem; line-height: 1.4;">Tótulo especófico.<br><em>Ej:"Devolución
                             Prima"</em></p>
                 </div>
                 <!-- 4. Tipo Documento -->
@@ -3825,7 +3822,7 @@
                             </path>
                         </svg></div>
                     <h5 style="font-weight: 800; margin-bottom: 8px;">Tipo</h5>
-                    <p style="font-size: 0.85rem; line-height: 1.4;">Naturaleza.<br><em>Ej: "Normativa"</em></p>
+                    <p style="font-size: 0.85rem; line-height: 1.4;">Naturaleza.<br><em>Ej:"Normativa"</em></p>
                 </div>
                 <!-- 5. Ramo / Producto -->
                 <div class="rule-card" style="padding: 20px;">
@@ -3834,7 +3831,7 @@
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                         </svg></div>
                     <h5 style="font-weight: 800; margin-bottom: 8px;">Ramo</h5>
-                    <p style="font-size: 0.85rem; line-height: 1.4;">Alcance.<br><em>Ej: "Hogar", "Motor"</em>
+                    <p style="font-size: 0.85rem; line-height: 1.4;">Alcance.<br><em>Ej:"Hogar","Motor"</em>
                     </p>
                 </div>
                 <!-- 6. Estado -->
@@ -3844,7 +3841,7 @@
                             <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
                         </svg></div>
                     <h5 style="font-weight: 800; margin-bottom: 8px;">Estado</h5>
-                    <p style="font-size: 0.85rem; line-height: 1.4;">Confianza.<br><em>Ej: "Vigente"</em></p>
+                    <p style="font-size: 0.85rem; line-height: 1.4;">Confianza.<br><em>Ej:"Vigente"</em></p>
                 </div>
                 <!-- 7. Vigencia -->
                 <div class="rule-card" style="padding: 20px;">
@@ -3855,7 +3852,7 @@
                             <line x1="8" y1="2" x2="8" y2="6"></line>
                         </svg></div>
                     <h5 style="font-weight: 800; margin-bottom: 8px;">Vigencia</h5>
-                    <p style="font-size: 0.85rem; line-height: 1.4;">Tempo.<br><em>Ej: "Desde 01/2026"</em></p>
+                    <p style="font-size: 0.85rem; line-height: 1.4;">Tempo.<br><em>Ej:"Desde 01/2026"</em></p>
                 </div>
                 <!-- 8. Etiquetas -->
                 <div class="rule-card" style="padding: 20px;">
@@ -3866,7 +3863,7 @@
                             <line x1="7" y1="7" x2="7.01" y2="7"></line>
                         </svg></div>
                     <h5 style="font-weight: 800; margin-bottom: 8px;">Etiquetas</h5>
-                    <p style="font-size: 0.85rem; line-height: 1.4;">Anzuelos.<br><em>Ej: "baja, anulación"</em>
+                    <p style="font-size: 0.85rem; line-height: 1.4;">Anzuelos.<br><em>Ej:"baja, anulación"</em>
                     </p>
                 </div>
                 <!-- 9. Autor -->
@@ -3877,7 +3874,7 @@
                             <circle cx="12" cy="7" r="4"></circle>
                         </svg></div>
                     <h5 style="font-weight: 800; margin-bottom: 8px;">Autor</h5>
-                    <p style="font-size: 0.85rem; line-height: 1.4;">Dueño.<br><em>Ej: "Calidad Operativa"</em>
+                    <p style="font-size: 0.85rem; line-height: 1.4;">Dueño.<br><em>Ej:"Calidad Operativa"</em>
                     </p>
                 </div>
                 <!-- 10. Resumen -->
@@ -3889,7 +3886,7 @@
                             <line x1="17" y1="18" x2="3" y2="18"></line>
                         </svg></div>
                     <h5 style="font-weight: 800; margin-bottom: 8px;">Resumen</h5>
-                    <p style="font-size: 0.85rem; line-height: 1.4;">Sóntesis.<br><em>Ej: "Pauta extornos"</em>
+                    <p style="font-size: 0.85rem; line-height: 1.4;">Sóntesis.<br><em>Ej:"Pauta extornos"</em>
                     </p>
                 </div>
                 <!-- 11. Relaciones -->
@@ -3901,8 +3898,7 @@
                             <line x1="8" y1="12" x2="16" y2="12"></line>
                         </svg></div>
                     <h5 style="font-weight: 800; margin-bottom: 8px;">Relaciones</h5>
-                    <p style="font-size: 0.85rem; line-height: 1.4;">Vónculos.<br><em>Ej:
-                            "[[Condicionado]]"</em>
+                    <p style="font-size: 0.85rem; line-height: 1.4;">Vónculos.<br><em>Ej:"[[Condicionado]]"</em>
                     </p>
                 </div>
                 <!-- 12. Tipo de Origen -->
@@ -3914,7 +3910,7 @@
                             <path d="M2 12l10 5 10-5"></path>
                         </svg></div>
                     <h5 style="font-weight: 800; margin-bottom: 8px;">Tipo de Origen</h5>
-                    <p style="font-size: 0.85rem; line-height: 1.4;">Procedencia.<br><em>Ej: "Primaria
+                    <p style="font-size: 0.85rem; line-height: 1.4;">Procedencia.<br><em>Ej:"Primaria
                             Externa"</em>
                     </p>
                 </div>
@@ -3929,8 +3925,7 @@
                             </path>
                         </svg></div>
                     <h5 style="font-weight: 800; margin-bottom: 8px;">Fuente Origen</h5>
-                    <p style="font-size: 0.85rem; line-height: 1.4;">Ubicación.<br><em>Ej:
-                            "https://hub.lda..."</em>
+                    <p style="font-size: 0.85rem; line-height: 1.4;">Ubicación.<br><em>Ej:"https://hub.lda..."</em>
                     </p>
                 </div>
                 <!-- 14. Última revisión -->
@@ -3941,7 +3936,7 @@
                             <path d="m9 12 2 2 4-4"></path>
                         </svg></div>
                     <h5 style="font-weight: 800; margin-bottom: 8px;">Última revisión</h5>
-                    <p style="font-size: 0.85rem; line-height: 1.4;">Validación.<br><em>Ej: "12/02/2026"</em>
+                    <p style="font-size: 0.85rem; line-height: 1.4;">Validación.<br><em>Ej:"12/02/2026"</em>
                     </p>
                 </div>
                 <!-- 15. Privacidad -->
@@ -3952,7 +3947,7 @@
                             <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                         </svg></div>
                     <h5 style="font-weight: 800; margin-bottom: 8px;">Privacidad</h5>
-                    <p style="font-size: 0.85rem; line-height: 1.4;">Seguridad.<br><em>Ej: "Confidencial"</em>
+                    <p style="font-size: 0.85rem; line-height: 1.4;">Seguridad.<br><em>Ej:"Confidencial"</em>
                     </p>
                 </div>
             </div>
@@ -4275,7 +4270,7 @@
                 curar la información de operativas, condicionados o material de negocio. Para ello, creamos
                 habilidades
                 especóficas que son utilizadas por agentes autónomos supervisados por humanos. De esta manera,
-                desplegamos "features" modulares que aceleran drásticamente el proceso de mejora de la
+                desplegamos"features" modulares que aceleran drásticamente el proceso de mejora de la
                 información,
                 permitiendo abordar grandes volúmenes de documentación con precisión y coherencia.
             </p>
@@ -4718,6 +4713,6 @@
     <script src="../../assets/js/search_index_data.js"></script>
     <script src="../../assets/js/bitacora-core.js"></script>
 </body>
-<script>document.addEventListener("DOMContentLoaded", function () { if (typeof switchView === "function") switchView("methodology"); });</script>
+<script>document.addEventListener("DOMContentLoaded", function () { if (typeof switchView ==="function") switchView("methodology"); });</script>
 
 </html>
