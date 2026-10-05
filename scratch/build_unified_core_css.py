@@ -2300,6 +2300,194 @@ clean_addons_css = """
     border-radius: 8px;
 }
 
+
+
+/* ==========================================================================
+   CALIBRACIÓN MAESTRA DE ESPACIOS Y RITMO VERTICAL (UI/UX DE ÉLITE)
+   ========================================================================== */
+
+/* 1. Header flotante: margen superior e inferior equilibrado */
+.app-header-island {
+    margin: 8px auto 12px auto !important;
+}
+
+/* 2. Contenedor Home: elimina el padding excesivo de 120px */
+.container.home-container {
+    padding-top: 14px !important;
+    padding-bottom: 24px !important;
+}
+
+/* 3. Hero compacto y elegante */
+.hero {
+    text-align: center;
+    margin-bottom: 20px !important;
+    padding: 28px 24px 24px 24px !important;
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px !important;
+    box-shadow: var(--shadow);
+}
+
+.hero-top-badges {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 12px !important;
+    flex-wrap: wrap;
+}
+
+.hero-top-badges .hero-badge {
+    margin-bottom: 0 !important;
+}
+
+.hero-top-badges .hero-badge-local {
+    margin-bottom: 0 !important;
+    margin-left: 0 !important;
+}
+
+.hero h1 {
+    font-size: 2.5rem !important;
+    font-weight: 800;
+    line-height: 1.1 !important;
+    margin-bottom: 10px !important;
+    letter-spacing: -0.02em;
+}
+
+.hero p {
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+    max-width: 620px !important;
+    margin: 0 auto !important;
+    color: var(--text-sec);
+}
+
+/* 4. Centro de Control de Filtros (Segmented Bar) */
+.view-controls-bar {
+    max-width: 1200px;
+    margin: 0 auto 24px auto !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 6px 12px !important;
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 18px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    scroll-margin-top: 75px !important;
+}
+
+/* 5. Cadencia y ritmo vertical entre Secciones */
+.portfolio-section {
+    margin-top: 36px !important;
+    margin-bottom: 0 !important;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.portfolio-section:first-of-type {
+    margin-top: 0 !important;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 0 0 16px 0 !important;
+    padding: 12px 20px !important;
+    background: var(--bg-card);
+    border-radius: 14px !important;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    scroll-margin-top: 75px !important;
+}
+
+.section-title {
+    font-size: 1.25rem !important;
+    margin: 0 !important;
+}
+
+.section-subtitle {
+    font-size: 0.84rem !important;
+    margin: 2px 0 0 0 !important;
+}
+
+/* 6. Pistas de carrusel y tarjetas equilibradas */
+.carousel-container {
+    position: relative;
+    margin: 0 auto !important;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 18px !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 6px 4px 16px 4px !important;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.apple-card {
+    height: 430px !important;
+    padding: 22px 20px 18px 20px !important;
+    border-radius: 20px !important;
+}
+
+.apple-card .kicker {
+    margin-bottom: 6px !important;
+}
+
+.apple-card .title {
+    font-size: 1.22rem !important;
+    margin-bottom: 6px !important;
+}
+
+.apple-card .desc {
+    font-size: 0.85rem !important;
+    line-height: 1.42 !important;
+    margin-bottom: 8px !important;
+}
+
+.card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px !important;
+    margin: 2px 0 10px 0 !important;
+    position: relative;
+    z-index: 2;
+}
+
+.card-visual {
+    flex: 0 0 125px !important;
+    height: 125px !important;
+    width: 100% !important;
+    margin-top: auto !important;
+    border-radius: 14px !important;
+}
+
+/* 7. Footer compacto con respiro simétrico */
+.app-footer {
+    margin-top: 38px !important;
+    padding: 42px 20px 28px !important;
+}
+
+.footer-inner {
+    gap: 26px !important;
+}
+
+.footer-brand-block {
+    padding-bottom: 18px !important;
+}
+
 """
 
 full_core_css = base_css.strip() + "\n\n" + addons.strip() + "\n\n" + clean_addons_css.strip() + "\n"
