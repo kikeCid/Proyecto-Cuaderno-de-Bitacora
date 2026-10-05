@@ -635,7 +635,8 @@
                 btnGrid.classList.remove('active');
                 localStorage.setItem('bitacora-view-mode', 'carousel');
                 // Re-inicializar botones de carrusel
-                document.querySelectorAll('.carousel-track').forEach(track => {
+                initIslandLiquidGlass();
+            document.querySelectorAll('.carousel-track').forEach(track => {
                     updateCarouselButtons(track);
                 });
             }
@@ -694,6 +695,7 @@
             setViewMode(savedView);
 
             // Inicializar botones de todos los carruseles
+            initIslandLiquidGlass();
             document.querySelectorAll('.carousel-track').forEach(track => {
                 updateCarouselButtons(track);
             });

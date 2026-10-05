@@ -898,31 +898,111 @@ body::before {
                 radial-gradient(circle at 90% 92%, rgba(139, 92, 246, 0.045) 0%, transparent 45%);
 }
 
-/* 1. Header Flotante Ejecutivo (Executive Topbar) */
+/* 1. Header Flotante Ejecutivo - Edición Apple Liquid Glass */
 .app-header-island {
     position: sticky;
     top: 12px;
     z-index: 1000;
-    max-width: 1200px;
+    max-width: 1080px;
+    width: calc(100% - 32px);
     margin: 8px auto 25px auto;
-    padding: 6px 16px;
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    padding: 6px 18px;
+    background: rgba(255, 255, 255, 0.68);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
     border: 1px solid var(--glass-border);
-    border-radius: 40px;
+    border-radius: 999px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    transition: var(--transition);
+    transition: max-width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                padding 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                background 0.35s ease,
+                backdrop-filter 0.35s ease,
+                border-color 0.35s ease,
+                box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                top 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, background, max-width;
 }
 
 [data-theme="dark"] .app-header-island {
-    background: rgba(20, 22, 32, 0.88);
+    background: rgba(18, 20, 30, 0.74);
     border-color: rgba(255, 255, 255, 0.12);
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
+   ESTADO SCROLLED: APPLE LIQUID GLASS (Ultra-transparente y desenfocado al pasar sobre secciones)
+   ========================================================================== */
+.app-header-island.is-scrolled {
+    max-width: 920px !important;
+    top: 8px !important;
+    padding: 4px 14px !important;
+    background: rgba(255, 255, 255, 0.22) !important;
+    backdrop-filter: blur(32px) saturate(220%) contrast(102%) !important;
+    -webkit-backdrop-filter: blur(32px) saturate(220%) contrast(102%) !important;
+    border-color: rgba(255, 255, 255, 0.38) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
+}
+
+[data-theme="dark"] .app-header-island.is-scrolled {
+    background: rgba(12, 14, 24, 0.28) !important;
+    backdrop-filter: blur(32px) saturate(220%) contrast(105%) !important;
+    -webkit-backdrop-filter: blur(32px) saturate(220%) contrast(105%) !important;
+    border-color: rgba(255, 255, 255, 0.10) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+}
+
+/* RECUPERACIÓN TÁCTIL (Hover durante scroll: se solidifica para dar foco) */
+.app-header-island.is-scrolled:hover {
+    background: rgba(255, 255, 255, 0.90) !important;
+    border-color: var(--glass-border) !important;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="dark"] .app-header-island.is-scrolled:hover {
+    background: rgba(20, 22, 32, 0.94) !important;
+    border-color: rgba(255, 255, 255, 0.18) !important;
+    box-shadow: 0 14px 44px rgba(0, 0, 0, 0.65) !important;
+}
+
+/* Micro-compactación armónica de los componentes internos */
+.app-header-island.is-scrolled .island-logo {
+    width: 26px !important;
+    height: 26px !important;
+    border-radius: 7px !important;
+}
+
+.app-header-island.is-scrolled .island-logo svg {
+    width: 14px !important;
+    height: 14px !important;
+}
+
+.app-header-island.is-scrolled .island-title {
+    font-size: 0.86rem !important;
+}
+
+.app-header-island.is-scrolled .island-badge {
+    padding: 1px 6px !important;
+    font-size: 0.58rem !important;
+}
+
+.app-header-island.is-scrolled .island-search-btn {
+    padding: 4px 10px !important;
+    font-size: 0.76rem !important;
+    background: rgba(255, 255, 255, 0.3) !important;
+}
+
+[data-theme="dark"] .app-header-island.is-scrolled .island-search-btn {
+    background: rgba(255, 255, 255, 0.06) !important;
+}
+
+.app-header-island.is-scrolled .island-theme-btn,
+.app-header-island.is-scrolled .island-avatar {
+    width: 30px !important;
+    height: 30px !important;
 }
 
 /* Brand Section */

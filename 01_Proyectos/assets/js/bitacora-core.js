@@ -384,3 +384,36 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 window.addEventListener('resize', initCarousels);
+
+// ==========================================
+// 5. EFECTO APPLE LIQUID GLASS (SCROLL-AWARE GLASS)
+// ==========================================
+function initIslandLiquidGlass() {
+    const island = document.querySelector('.app-header-island');
+    if (!island) return;
+
+    let ticking = false;
+
+    function updateGlass() {
+        const currentScrollY = window.scrollY;
+        if (currentScrollY > 35) {
+            island.classList.add('is-scrolled');
+        } else {
+            island.classList.remove('is-scrolled');
+        }
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(updateGlass);
+            ticking = true;
+        }
+    }, { passive: true });
+
+    // Ejecución inicial por si carga con scroll previo
+    updateGlass();
+}
+
+// Auto-inicializar Liquid Glass al cargar
+document.addEventListener('DOMContentLoaded', initIslandLiquidGlass);
