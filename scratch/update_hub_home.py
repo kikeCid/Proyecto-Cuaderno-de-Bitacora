@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 """
 Script para actualizar 01_Proyectos/Cuaderno de Bitacora (Proyectos)/index.html
-incorporando la FASE 1:
-- Header Flotante Isla Glassmorphism (Floating Island Header)
-- Segmented Control & Switcher de Vistas (Carrusel Showcase vs Bento Grid Matrix)
-- Atajos de teclado profesionales (B para Bento Grid, D para Dark mode, Ctrl+K para Spotlight)
+con la arquitectura refinada:
+- Executive Topbar simplificada y elegante (sin enlaces redundantes)
+- Segmented Control unificado debajo del Hero con filtro por carriles y scroll-margin-top
+- Switcher Bento Grid / Carrusel con atajo B
+- Atajo D para tema con cambio automático sol/luna
 """
 import os
 
@@ -179,7 +180,7 @@ full_html = f'''<!DOCTYPE html>
 </head>
 
 <body>
-    <!-- FASE 1: CABECERA ISLA FLOTANTE GLASSMORPHISM -->
+    <!-- CABECERA EJECUTIVA FLOTANTE (EXECUTIVE TOPBAR) -->
     <header class="app-header-island">
         <!-- Identidad Corporativa -->
         <a href="#" class="island-brand" title="Inicio - Cuaderno de Bitácora">
@@ -191,30 +192,10 @@ full_html = f'''<!DOCTYPE html>
                 </svg>
             </div>
             <div class="island-title">
-                <span>Bitácora OS</span>
-                <span class="island-badge">Command Center</span>
+                <span>Cuaderno de Bitácora</span>
+                <span class="island-badge">Command Center v1.0</span>
             </div>
         </a>
-
-        <!-- Enlaces Rápidos de Navegación -->
-        <nav class="island-nav">
-            <a href="#seccion-directa" class="island-nav-link" onclick="scrollToSection(event, 'seccion-directa')">
-                <span class="island-dot dot-red"></span>
-                <span>Directa</span>
-            </a>
-            <a href="#seccion-facilitadores" class="island-nav-link" onclick="scrollToSection(event, 'seccion-facilitadores')">
-                <span class="island-dot dot-amber"></span>
-                <span>Facilitadores</span>
-            </a>
-            <a href="#seccion-servicios" class="island-nav-link" onclick="scrollToSection(event, 'seccion-servicios')">
-                <span class="island-dot dot-blue"></span>
-                <span>Servicios</span>
-            </a>
-            <a href="#seccion-cerrados" class="island-nav-link" onclick="scrollToSection(event, 'seccion-cerrados')">
-                <span class="island-dot dot-purple"></span>
-                <span>Histórico</span>
-            </a>
-        </nav>
 
         <!-- Utilidades de Acción -->
         <div class="island-actions">
@@ -284,7 +265,7 @@ full_html = f'''<!DOCTYPE html>
             </div>
         </header>
 
-        <!-- FASE 1: BARRA DE CONTROL DE VISUALIZACIÓN Y FILTROS -->
+        <!-- CENTRO DE CONTROL DE FILTRADO Y VISTAS (SEGMENTED CONTROL) -->
         <div class="view-controls-bar">
             <!-- Segmented Control de Filtrado por Carril -->
             <div class="filter-segments">
@@ -293,22 +274,22 @@ full_html = f'''<!DOCTYPE html>
                     <span class="filter-count">11</span>
                 </button>
                 <button class="filter-chip" onclick="filterPortfolio('direct', this)">
-                    <span class="island-dot dot-red"></span>
-                    <span>Directa</span>
+                    <span class="filter-dot dot-red"></span>
+                    <span>Gestión Directa</span>
                     <span class="filter-count">2</span>
                 </button>
                 <button class="filter-chip" onclick="filterPortfolio('facilitator', this)">
-                    <span class="island-dot dot-amber"></span>
+                    <span class="filter-dot dot-amber"></span>
                     <span>Facilitadores</span>
                     <span class="filter-count">4</span>
                 </button>
                 <button class="filter-chip" onclick="filterPortfolio('services', this)">
-                    <span class="island-dot dot-blue"></span>
+                    <span class="filter-dot dot-blue"></span>
                     <span>Servicios</span>
                     <span class="filter-count">4</span>
                 </button>
                 <button class="filter-chip" onclick="filterPortfolio('closed', this)">
-                    <span class="island-dot dot-purple"></span>
+                    <span class="filter-dot dot-purple"></span>
                     <span>Histórico</span>
                     <span class="filter-count">1</span>
                 </button>
@@ -704,7 +685,7 @@ full_html = f'''<!DOCTYPE html>
         }}
 
         // ==========================================
-        // 3. SEGMENTED CONTROL: FILTRADO POR CARRILES
+        // 3. SEGMENTED CONTROL: FILTRADO POR CARRILES CON SCROLL PRECISO
         // ==========================================
         function filterPortfolio(category, btn) {{
             // Actualizar botones de filtro
@@ -712,31 +693,26 @@ full_html = f'''<!DOCTYPE html>
             if (btn) btn.classList.add('active');
 
             const sections = document.querySelectorAll('.portfolio-section');
+            let firstVisibleSection = null;
+
             sections.forEach(sec => {{
                 const secCat = sec.getAttribute('data-category');
                 if (category === 'all' || secCat === category) {{
                     sec.classList.remove('section-hidden');
+                    if (!firstVisibleSection) firstVisibleSection = sec;
                 }} else {{
                     sec.classList.add('section-hidden');
                 }}
             }});
-        }}
 
-        // ==========================================
-        // 4. DESPLAZAMIENTO SUAVE A SECCIONES
-        // ==========================================
-        function scrollToSection(e, secId) {{
-            e.preventDefault();
-            const target = document.getElementById(secId);
-            if (target) {{
-                // Asegurar que si estaba oculto por filtro, se muestre
-                target.classList.remove('section-hidden');
-                target.scrollIntoView({{ behavior: 'smooth', block: 'start' }});
+            // Si es un filtro específico, hacer scroll suave asegurando que la cabecera quede visible
+            if (category !== 'all' && firstVisibleSection) {{
+                firstVisibleSection.scrollIntoView({{ behavior: 'smooth', block: 'start' }});
             }}
         }}
 
         // ==========================================
-        // 5. ATAJOS DE TECLADO DE ÉLITE (B para Grid, D para Dark, etc.)
+        // 4. ATAJOS DE TECLADO DE ÉLITE (B para Grid, D para Dark, etc.)
         // ==========================================
         document.addEventListener('keydown', (e) => {{
             // Si el foco está en un input o el modal está abierto, ignorar
@@ -753,7 +729,7 @@ full_html = f'''<!DOCTYPE html>
         }});
 
         // ==========================================
-        // 6. INICIALIZACIÓN COMPLETA DOM
+        // 5. INICIALIZACIÓN COMPLETA DOM
         // ==========================================
         document.addEventListener('DOMContentLoaded', () => {{
             // Restaurar modo de vista (Carrusel o Bento Grid)
@@ -810,4 +786,4 @@ full_html = f'''<!DOCTYPE html>
 with open(HUB_HTML_PATH, 'w', encoding='utf-8') as f:
     f.write(full_html)
 
-print(f"[+] Hub index.html actualizado con FASE 1 (Header Isla Flotante & Bento Grid View Controls).")
+print(f"[+] Hub index.html actualizado con arquitectura refinada.")

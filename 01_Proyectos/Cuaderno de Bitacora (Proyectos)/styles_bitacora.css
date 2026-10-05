@@ -1573,23 +1573,49 @@ footer {
 }
 
 /* ==========================================================================
-   FASE 1: FLOATING ISLAND HEADER & BENTO GRID VIEW CONTROLS
+   FASE 1 REFINADA: EXECUTIVE TOPBAR, BENTO GRID & SCROLL-MARGIN-TOP
    ========================================================================== */
 
-/* 1. Header Flotante Isla (Floating Island Header) */
+/* Solución definitiva para que los encabezados de sección NUNCA se tapen */
+.portfolio-section,
+[id^="seccion-"],
+.section-header {
+    scroll-margin-top: 85px !important;
+}
+
+/* Aura de Fondo Ambiental Sutil (Ambient Mesh Glow) */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: -1;
+    background: radial-gradient(circle at 10% 8%, rgba(228, 0, 43, 0.025) 0%, transparent 40%),
+                radial-gradient(circle at 90% 92%, rgba(37, 99, 235, 0.025) 0%, transparent 40%);
+}
+
+[data-theme="dark"] body::before {
+    background: radial-gradient(circle at 10% 8%, rgba(228, 0, 43, 0.045) 0%, transparent 45%),
+                radial-gradient(circle at 90% 92%, rgba(139, 92, 246, 0.045) 0%, transparent 45%);
+}
+
+/* 1. Header Flotante Ejecutivo (Executive Topbar) */
 .app-header-island {
     position: sticky;
-    top: 14px;
+    top: 12px;
     z-index: 1000;
     max-width: 1200px;
-    margin: 10px auto 30px auto;
-    padding: 8px 18px;
+    margin: 8px auto 25px auto;
+    padding: 6px 16px;
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--glass-border);
     border-radius: 40px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1598,9 +1624,9 @@ footer {
 }
 
 [data-theme="dark"] .app-header-island {
-    background: rgba(20, 22, 32, 0.85);
+    background: rgba(20, 22, 32, 0.88);
     border-color: rgba(255, 255, 255, 0.12);
-    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 0, 0, 0.25);
 }
 
 /* Brand Section */
@@ -1613,24 +1639,24 @@ footer {
 }
 
 .island-logo {
-    width: 32px;
-    height: 32px;
-    border-radius: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
     background: var(--lda-red);
     display: flex;
     align-items: center;
     justify-content: center;
     color: #fff;
-    box-shadow: 0 4px 12px var(--lda-red-glow);
+    box-shadow: 0 3px 10px var(--lda-red-glow);
 }
 
 .island-logo svg {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
 }
 
 .island-title {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     font-weight: 800;
     letter-spacing: -0.02em;
     display: flex;
@@ -1641,53 +1667,13 @@ footer {
 .island-badge {
     font-size: 0.65rem;
     font-weight: 700;
-    padding: 2px 7px;
+    padding: 2px 8px;
     border-radius: 12px;
     background: rgba(16, 185, 129, 0.12);
     color: #10b981;
     border: 1px solid rgba(16, 185, 129, 0.25);
     text-transform: uppercase;
     letter-spacing: 0.5px;
-}
-
-/* Quick Jump Navigation Links */
-.island-nav {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(0, 0, 0, 0.03);
-    padding: 4px 6px;
-    border-radius: 30px;
-}
-
-[data-theme="dark"] .island-nav {
-    background: rgba(255, 255, 255, 0.05);
-}
-
-.island-nav-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--text-sec);
-    text-decoration: none;
-    transition: var(--transition);
-}
-
-.island-nav-link:hover {
-    color: var(--text-main);
-    background: var(--bg-card);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-}
-
-.island-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    display: inline-block;
 }
 
 /* Island Action Utilities */
@@ -1708,7 +1694,7 @@ footer {
     color: var(--text-sec);
     font-size: 0.82rem;
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
     transition: var(--transition);
 }
 
@@ -1719,8 +1705,8 @@ footer {
 }
 
 .island-theme-btn {
-    width: 36px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
     background: var(--bg-card);
     border: 1px solid var(--glass-border);
@@ -1730,7 +1716,7 @@ footer {
     cursor: pointer;
     color: var(--text-main);
     transition: var(--transition);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
 }
 
 .island-theme-btn:hover {
@@ -1745,8 +1731,8 @@ footer {
 [data-theme="dark"] .theme-icon-moon { display: none; }
 
 .island-avatar {
-    width: 36px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
     overflow: hidden;
     border: 2px solid var(--glass-border);
@@ -1763,7 +1749,7 @@ footer {
 /* 2. Control de Visualización y Filtros (View Controls Bar) */
 .view-controls-bar {
     max-width: 1200px;
-    margin: 25px auto 35px auto;
+    margin: 20px auto 35px auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1827,6 +1813,13 @@ footer {
     color: inherit;
 }
 
+.filter-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
 /* Switcher de Vistas (Carrusel vs Bento Grid) */
 .view-mode-toggle {
     display: flex;
@@ -1882,7 +1875,7 @@ footer {
 
 .view-mode-grid .carousel-track {
     display: grid !important;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)) !important;
     gap: 24px !important;
     overflow-x: visible !important;
     padding: 10px 0 20px 0 !important;
@@ -1896,6 +1889,7 @@ footer {
 
 .view-mode-grid .apple-card {
     width: 100% !important;
+    max-width: 100% !important;
     height: auto !important;
     min-height: 440px !important;
 }
@@ -1903,10 +1897,4 @@ footer {
 /* Filtrado Dinámico de Secciones */
 .section-hidden {
     display: none !important;
-}
-
-@media (max-width: 900px) {
-    .island-nav {
-        display: none;
-    }
 }
