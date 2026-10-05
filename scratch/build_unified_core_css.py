@@ -2676,6 +2676,53 @@ body, button, input, select, textarea, .title, h1, h2, h3, h4 {
     letter-spacing: 0.04em !important;
 }
 
+
+
+/* ==========================================================================
+   TIPOGRAFÍA OFICIAL CIRCULAR XX (LÍNEA DIRECTA ASEGURADORA)
+   ========================================================================== */
+@font-face {
+    font-family: 'CircularXX';
+    src: url('../fonts/CircularXXSub-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CircularXX';
+    src: url('../fonts/CircularXXSub-Book.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CircularXX';
+    src: url('../fonts/CircularXXSub-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CircularXX';
+    src: url('../fonts/CircularXXSub-Medium.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Forzar que todos los iconos vectoriales de tarjeta sean siempre ROJOS LÍNEA DIRECTA */
+.card-visual {
+    color: var(--lda-red) !important;
+}
+
+.card-visual svg {
+    color: var(--lda-red) !important;
+    fill: currentColor !important;
+}
+
 """
 
 full_core_css = base_css.strip() + "\n\n" + addons.strip() + "\n\n" + clean_addons_css.strip() + "\n"
