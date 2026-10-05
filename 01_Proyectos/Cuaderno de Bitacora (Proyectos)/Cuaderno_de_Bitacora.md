@@ -16,14 +16,17 @@ Este es el portal central para la gestión y seguimiento de todos los proyectos 
 
 ## 📁 Proyectos Vinculados
 
-- **[[01_Proyectos/Gobierno de Informacion/index.html|Gestión de la Información]]**: Integración de los universos LidIA y GIN.
+### Proyectos Activos
 - **[[01_Proyectos/HCM/index.html|Evolución HCM Cloud]]**: Migración estratégica de PeopleSoft a Oracle/Workday Cloud.
-- **[[01_Proyectos/Reingenieria Siniestros/Reingenieria_Siniestros|Reingeniería Siniestros Motor]]**: Transformación operativa y analítica del proceso core de siniestros.
+- **[[01_Proyectos/IA Area Personas/index.html|Transformación y Eficiencia RRHH]]**: Capacitación, agentes (Kronos) e IA aplicada.
 - **[[01_Proyectos/CRM Operacional/index.html|CRM Operacional]]**: Plataforma integral adjudicada a OMEGA (Salesforce).
 - **[[01_Proyectos/Perseo/index.html|Proyecto Perseo]]**: Auditoría masiva con IA Generativa y analítica del habla.
 - **[[01_Proyectos/Telefonia - Genesis CX/index.html|Telefonía CX]]**: Evolución omnicanal basada en Genesys Cloud CX.
-- **[[01_Proyectos/IA Area Personas/index.html|Transformación y Eficiencia RRHH]]**: Capacitación, agentes (Kronos) e IA aplicada.
+- **[[01_Proyectos/Reingenieria Siniestros/Reingenieria_Siniestros|Reingeniería Siniestros Motor]]**: Transformación operativa y analítica del proceso core de siniestros.
 - **[[01_Proyectos/Gestion de Usuarios/index.html|Gestión de Usuarios]]**: Servicios e integraciones transversales.
+
+### Proyectos Cerrados / Traspasados
+- **[[01_Proyectos/Gobierno de Informacion/index.html|Gestión de la Información]]**: Proyecto LidIA y GIN traspasado a otra área sin visibilidad directa (conservación de histórico documental y arquitectura).
 
 ## 📝 Notas de Versión
 

@@ -16,13 +16,16 @@ Bienvenido a la Base de Conocimiento de **LidIA-MCP**. Este es el mapa central q
 
 - [[01_Proyectos/Cuaderno de Bitacora (Proyectos)/Cuaderno_de_Bitacora|Cuaderno de Bitácora]] - Portal central de gestión de proyectos.
 - [[01_Proyectos/Reingenieria Siniestros/Reingenieria_Siniestros|Reingeniería Siniestros Motor]] - Transformación operativa y analítica del proceso core de siniestros.
-- [[01_Proyectos/Gobierno de Informacion/index.html|Gobierno de Información]] - Memoria Corporativa Permanente y orquestador LidIA.
 - [[01_Proyectos/HCM/index.html|Evolución HCM Cloud]] - Licitación y modernización tecnológica de Personas.
 - [[01_Proyectos/CRM Operacional/index.html|CRM Operacional]] - Plataforma integral de clientes (Salesforce/Omega).
 - [[01_Proyectos/Perseo/index.html|Proyecto Perseo]] - Auditoría masiva y analítica con IA Generativa.
 - [[01_Proyectos/Telefonia - Genesis CX/index.html|Telefonía CX]] - Contact center y omnicanalidad con Genesys.
 - [[01_Proyectos/IA Area Personas/index.html|Transformación y Eficiencia RRHH]] - Capacitación, agentes de IA (Kronos) y Copilot.
 - [[01_Proyectos/Gestion de Usuarios/index.html|Gestión de Usuarios]] - Arquitectura y operativas transversales.
+
+## 📦 Proyectos Cerrados / Histórico
+
+- [[01_Proyectos/Gobierno de Informacion/index.html|Gobierno de Información]] - Proyecto LidIA y GIN traspasado a otra área (conservación de histórico, metodología y arquitectura).
 
 ## 📁 Conocimiento
 

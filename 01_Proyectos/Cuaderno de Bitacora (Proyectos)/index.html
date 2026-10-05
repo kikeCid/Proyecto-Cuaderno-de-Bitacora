@@ -73,7 +73,7 @@
                 <h2 class="section-title">Gestión Directa (PO / PM)</h2>
                 <p class="section-subtitle">Proyectos liderados por el área de Personas</p>
             </div>
-            <div class="section-counter">3</div>
+            <div class="section-counter">2</div>
         </div>
         <div class="carousel-container">
             <button class="carousel-btn left hidden" onclick="scrollCarousel(this, -340)"
@@ -84,19 +84,6 @@
                 </svg>
             </button>
             <div class="carousel-track" id="track-direct" onscroll="updateCarouselButtons(this)">
-
-                <!-- Gestión de la Información -->
-                <a href="../Gobierno de Informacion/index.html" class="apple-card" style="border-color: rgba(139, 92, 246, 0.3); background: linear-gradient(135deg, var(--bg-card) 0%, rgba(139, 92, 246, 0.02) 100%);">
-                    <div class="kicker" style="color: #8B5CF6;">TRASPASADO (APOYO)</div>
-                    <h3 class="title">Gestión de la Información</h3>
-                    <p class="desc">Proyecto de <strong>Inteligencia LidIA</strong> y <strong>GIN</strong> transferido al Área de Transformación. Mantenemos un rol activo de apoyo y transferencia de conocimiento.</p>
-                    <div class="card-visual">
-                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                        </svg>
-                    </div>
-                </a>
 
                 <!-- Evolución HCM Cloud -->
                 <a href="../HCM/index.html" class="apple-card">
@@ -327,19 +314,42 @@
             </div>
             <div class="section-title-wrapper">
                 <h2 class="section-title">Proyectos Cerrados</h2>
-                <p class="section-subtitle">Histórico de proyectos finalizados y archivados</p>
+                <p class="section-subtitle">Histórico y contexto de proyectos finalizados o traspasados a otras áreas</p>
             </div>
-            <div class="section-counter">0</div>
+            <div class="section-counter">1</div>
         </div>
 
-        <div style="margin-bottom: 60px;">
-            <div class="empty-state-card">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+        <div class="carousel-container" style="margin-bottom: 60px;">
+            <button class="carousel-btn left hidden" onclick="scrollCarousel(this, -340)"
+                aria-label="Desplazar a la izquierda">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
                 </svg>
-                <h4>Sin proyectos cerrados en este ciclo</h4>
-                <p>Todos los proyectos e iniciativas estratégicas del catálogo se encuentran en fase activa de definición, licitación o despliegue operativo.</p>
+            </button>
+            <div class="carousel-track" id="track-closed" onscroll="updateCarouselButtons(this)">
+
+                <!-- Gestión de la Información (Traspasado a otra área / Cerrado) -->
+                <a href="../Gobierno de Informacion/index.html" class="apple-card" style="border-color: rgba(107, 114, 128, 0.4); background: linear-gradient(135deg, var(--bg-card) 0%, rgba(107, 114, 128, 0.04) 100%);">
+                    <div class="kicker" style="color: var(--text-sec); font-weight: 800;">TRASPASADO A OTRA ÁREA (CERRADO)</div>
+                    <h3 class="title">Gestión de la Información</h3>
+                    <p class="desc">Proyecto de <strong>Inteligencia LidIA</strong> y <strong>GIN</strong> traspasado a otra área de la compañía sin visibilidad directa. Se conserva en este carril todo el histórico documental, la metodología y la arquitectura estratégica.</p>
+                    <div class="card-visual" style="opacity: 0.7;">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
+                </a>
+
             </div>
+            <button class="carousel-btn right hidden" onclick="scrollCarousel(this, 340)"
+                aria-label="Desplazar a la derecha">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
         </div>
 
     </main>

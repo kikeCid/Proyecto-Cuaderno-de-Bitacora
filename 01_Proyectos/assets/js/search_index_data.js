@@ -255,7 +255,7 @@ window.BITACORA_SEARCH_INDEX = [
     "title": "Cuaderno de Bitácora | Hub de Proyectos",
     "h1": "Cuaderno de Bitácora",
     "kicker": "Command Center v1.0",
-    "desc": "Proyecto de Inteligencia LidIA y GIN transferido al Área de Transformación. Mantenemos un rol activo de apoyo y transferencia de conocimiento.",
+    "desc": "Migración estratégica de PeopleSoft RR.HH. a arquitectura Cloud para digitalizar procesos y habilitar capacidades de IA y analítica avanzada.",
     "project": "Cuaderno de Bitacora (Proyectos)",
     "category": "Portal Central",
     "url": "index.html"
@@ -317,7 +317,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "WIKI CONFLUENCE",
     "desc": "A diferencia de RRHH, Negocio no contaba con una base global de conocimiento estructurada. Esta es la historia de cómo construimos su cerebro y lo adaptamos ...",
     "project": "Gobierno de Informacion",
-    "category": "Gestión Directa",
+    "category": "Proyectos Cerrados",
     "url": "../Gobierno de Informacion/Lidia/lidia_negocio_wiki.html"
   },
   {
@@ -327,7 +327,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "Bitácora de Ejecución",
     "desc": "Seguimiento detallado de estados, tareas y avances en la lónea de aceleración operativa.",
     "project": "Gobierno de Informacion",
-    "category": "Gestión Directa",
+    "category": "Proyectos Cerrados",
     "url": "../Gobierno de Informacion/Lidia/track_lidia.html"
   },
   {
@@ -337,7 +337,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "KNOWLEDGE BASE",
     "desc": "Registro histórico de las subidas de información y operativas a la Base de Conocimiento, detallando fechas de primera carga y actualizaciones por producto.",
     "project": "Gobierno de Informacion",
-    "category": "Gestión Directa",
+    "category": "Proyectos Cerrados",
     "url": "../Gobierno de Informacion/Lidia/lidia_negocio_carga.html"
   },
   {
@@ -347,7 +347,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "PLAN DE EJECUCIÓN",
     "desc": "Desglose operativo de entregables y avances tecnológicos planificados a corto, medio y largo plazo durante la vida del proyecto.",
     "project": "Gobierno de Informacion",
-    "category": "Gestión Directa",
+    "category": "Proyectos Cerrados",
     "url": "../Gobierno de Informacion/Lidia/lidia_cronograma.html"
   },
   {
@@ -357,7 +357,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "ROADMAP OPERATIVO",
     "desc": "Cronograma de integración de LidIA en las áreas core de negocio: desde los despliegues iniciales hasta la adopción estructurada por parte de los equipos de F...",
     "project": "Gobierno de Informacion",
-    "category": "Gestión Directa",
+    "category": "Proyectos Cerrados",
     "url": "../Gobierno de Informacion/Lidia/lidia_negocio_despliegues.html"
   },
   {
@@ -367,7 +367,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "Estructura de Información del Proyecto",
     "desc": "Proyecto Base: Historia, Orquestador Técnico y Estrategia 2026.",
     "project": "Gobierno de Informacion",
-    "category": "Gestión Directa",
+    "category": "Proyectos Cerrados",
     "url": "../Gobierno de Informacion/Lidia/fase1_gobierno_estrategia.html"
   },
   {
@@ -377,7 +377,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "Estructura de Información del Proyecto",
     "desc": "Proyecto Base: Historia, Orquestador Técnico y Estrategia 2026.",
     "project": "Gobierno de Informacion",
-    "category": "Gestión Directa",
+    "category": "Proyectos Cerrados",
     "url": "../Gobierno de Informacion/Lidia/fase2_operativa_tecnologia.html"
   },
   {
@@ -387,7 +387,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "ADN LidIA: Nuestra Visión",
     "desc": "Analizamos la evolución del proyecto: un viaje desde la experimentación técnica hasta la consolidación de un ecosistema de inteligencia corporativa basado en...",
     "project": "Gobierno de Informacion",
-    "category": "Gestión Directa",
+    "category": "Proyectos Cerrados",
     "url": "../Gobierno de Informacion/Lidia/historia_contexto.html"
   },
   {
@@ -397,7 +397,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "Estructura de Información del Proyecto",
     "desc": "Cimientos del proyecto: desde el ADN histórico hasta la arquitectura del orquestador técnico y la visión hacia 2026.",
     "project": "Gobierno de Informacion",
-    "category": "Gestión Directa",
+    "category": "Proyectos Cerrados",
     "url": "../Gobierno de Informacion/index.html"
   },
   {
@@ -407,7 +407,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "LidIA-MCP v1.2",
     "desc": "Consolidamos el marco normativo definitivo: una guóa técnica y estratégica para la estandarización del activo intelectual, garantizando la consistencia absol...",
     "project": "Gobierno de Informacion",
-    "category": "Gestión Directa",
+    "category": "Proyectos Cerrados",
     "url": "../Gobierno de Informacion/Lidia/libro_blanco.html"
   },
   {
@@ -417,7 +417,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "Modelo Operativo 2026",
     "desc": "Integramos el rigor normativo con la capacidad tecnológica avanzada para edificar un ecosistema de conocimiento robusto, confiable y preparado para la escala...",
     "project": "Gobierno de Informacion",
-    "category": "Gestión Directa",
+    "category": "Proyectos Cerrados",
     "url": "../Gobierno de Informacion/Lidia/metodologia_trabajo.html"
   },
   {
@@ -427,7 +427,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "Gobernanza LidIA",
     "desc": "Roles y Responsabilidades.",
     "project": "Gobierno de Informacion",
-    "category": "Gestión Directa",
+    "category": "Proyectos Cerrados",
     "url": "../Gobierno de Informacion/Lidia/modelo_gobierno_gin.html"
   },
   {
@@ -437,7 +437,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "Gestión de la información de Negocio",
     "desc": "Definición de roles, funciones y modelo organizativo del gobierno de información.",
     "project": "Gobierno de Informacion",
-    "category": "Gestión Directa",
+    "category": "Proyectos Cerrados",
     "url": "../Gobierno de Informacion/Lidia/modelo_gobierno.html"
   },
   {
@@ -447,7 +447,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "ROADMAP ESTRATÉGICO",
     "desc": "Hitos principales, fases de ejecución y despliegue del Proyecto LidIA (incluyendo RRHH y Negocio) desglosados trimestralmente.",
     "project": "Gobierno de Informacion",
-    "category": "Gestión Directa",
+    "category": "Proyectos Cerrados",
     "url": "../Gobierno de Informacion/Lidia/lidia_objetivos.html"
   },
   {
@@ -457,7 +457,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "Arquitectura Técnica",
     "desc": "No es un modelo de IA en sí mismo, sino un sistema que coordina múltiples componentes, servicios y modelos de lenguaje para ofrecer respuestas precisas y con...",
     "project": "Gobierno de Informacion",
-    "category": "Gestión Directa",
+    "category": "Proyectos Cerrados",
     "url": "../Gobierno de Informacion/Lidia/orquestador_ia.html"
   },
   {
@@ -467,7 +467,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "",
     "desc": "Proyecto Lid IA",
     "project": "Gobierno de Informacion",
-    "category": "Gestión Directa",
+    "category": "Proyectos Cerrados",
     "url": "../Gobierno de Informacion/Lidia/lidia_negocio_riesgos.html"
   },
   {
@@ -477,7 +477,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "Habilidades IA",
     "desc": "Módulos de inteligencia especializada diseñados para amplificar la capacidad de curación, garantizar la precisión extrema y asegurar la trazabilidad absoluta...",
     "project": "Gobierno de Informacion",
-    "category": "Gestión Directa",
+    "category": "Proyectos Cerrados",
     "url": "../Gobierno de Informacion/Lidia/potenciadores_ia.html"
   },
   {
@@ -487,7 +487,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "Ciclo de Vida",
     "desc": "El ciclo de vida del conocimiento: desde la detección de una necesidad operativa hasta su transformación en un activo de inteligencia estandarizado.",
     "project": "Gobierno de Informacion",
-    "category": "Gestión Directa",
+    "category": "Proyectos Cerrados",
     "url": "../Gobierno de Informacion/Lidia/proceso_trabajo.html"
   },
   {
@@ -497,7 +497,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "Propuesta Estratégica",
     "desc": "Propuesta del Modelo de Gobierno de la Información de Negocio (GIN).",
     "project": "Gobierno de Informacion",
-    "category": "Gestión Directa",
+    "category": "Proyectos Cerrados",
     "url": "../Gobierno de Informacion/Metodologia de gobierno de informacion/propuesta_gin.html"
   },
   {
@@ -507,7 +507,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "Valor Estratégico",
     "desc": "Creación del cerebro de negocio de LidIA en Confluence (Markdown). Estructuración por productos y operativas, y su evolución hacia LIAC y Gemini.",
     "project": "Gobierno de Informacion",
-    "category": "Gestión Directa",
+    "category": "Proyectos Cerrados",
     "url": "../Gobierno de Informacion/Lidia/lidia_negocio.html"
   },
   {
@@ -517,7 +517,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "Gestión de Personas",
     "desc": "Inteligencia aplicada al desarrollo del talento, la cultura organizativa y la optimización de procesos humanos.",
     "project": "Gobierno de Informacion",
-    "category": "Gestión Directa",
+    "category": "Proyectos Cerrados",
     "url": "../Gobierno de Informacion/Lidia/lidia_rrhh.html"
   },
   {
@@ -527,7 +527,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "Estrategia 2026",
     "desc": "Modelo organizativo y pilares estratégicos: por qué el orden es el único camino hacia una inteligencia artificial fiable.",
     "project": "Gobierno de Informacion",
-    "category": "Gestión Directa",
+    "category": "Proyectos Cerrados",
     "url": "../Gobierno de Informacion/Lidia/estrategia_2026.html"
   },
   {
@@ -537,7 +537,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "Modelo Operativo 2026",
     "desc": "Sincronizamos el rigor institucional del gobierno de información con la agilidad del despliegue tecnológico para un crecimiento equilibrado.",
     "project": "Gobierno de Informacion",
-    "category": "Gestión Directa",
+    "category": "Proyectos Cerrados",
     "url": "../Gobierno de Informacion/Lidia/vias_trabajo.html"
   },
   {
@@ -547,7 +547,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "Track Operativo",
     "desc": "Registro de acciones operativas y evolución del Modelo de Gobierno de la Información de Negocio (GIN).",
     "project": "Gobierno de Informacion",
-    "category": "Gestión Directa",
+    "category": "Proyectos Cerrados",
     "url": "../Gobierno de Informacion/Metodologia de gobierno de informacion/track_gin.html"
   },
   {
@@ -557,7 +557,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "Visión Integral",
     "desc": "Exploramos la arquitectura integral del proyecto: la convergencia estratégica entre la disciplina del gobierno de información y la capacidad exponencial de l...",
     "project": "Gobierno de Informacion",
-    "category": "Gestión Directa",
+    "category": "Proyectos Cerrados",
     "url": "../Gobierno de Informacion/Lidia/universo_gin_360.html"
   },
   {
@@ -567,7 +567,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "Ecosistema LidIA",
     "desc": "Registro de acciones operativas e hitos del proyecto.",
     "project": "Gobierno de Informacion",
-    "category": "Gestión Directa",
+    "category": "Proyectos Cerrados",
     "url": "../Gobierno de Informacion/Metodologia de gobierno de informacion/hub_gin.html"
   },
   {
@@ -577,7 +577,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "Visión Integral",
     "desc": "La simbiosis perfecta entre conocimiento humano y automatización inteligente.",
     "project": "Gobierno de Informacion",
-    "category": "Gestión Directa",
+    "category": "Proyectos Cerrados",
     "url": "../Gobierno de Informacion/Lidia/universo_lidia_360.html"
   },
   {
@@ -587,7 +587,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "Ecosistema LidIA",
     "desc": "El recorrido de LidIA: aprendizajes críticos de años anteriores y la visión editorial que impulsa el cambio en 2026.",
     "project": "Gobierno de Informacion",
-    "category": "Gestión Directa",
+    "category": "Proyectos Cerrados",
     "url": "../Gobierno de Informacion/Lidia/hub_lidia.html"
   },
   {

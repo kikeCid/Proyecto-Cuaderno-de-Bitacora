@@ -25,21 +25,21 @@
     {
       "id": "closed",
       "title": "Proyectos Cerrados",
-      "subtitle": "Histórico de proyectos finalizados y archivados",
+      "subtitle": "Histórico y contexto de proyectos finalizados o traspasados a otras áreas",
       "borderColor": "var(--text-sec)"
     }
   ],
   "projects": [
     {
       "id": "gobierno-info",
-      "categoryId": "direct",
+      "categoryId": "closed",
       "title": "Gestión de la Información",
-      "kicker": "TRASPASADO (APOYO)",
-      "kickerColor": "#8B5CF6",
-      "desc": "Proyecto de Inteligencia LidIA y GIN transferido al Área de Transformación. Mantenemos un rol activo de apoyo y transferencia de conocimiento.",
+      "kicker": "TRASPASADO A OTRA ÁREA (CERRADO)",
+      "kickerColor": "var(--text-sec)",
+      "desc": "Proyecto de Inteligencia LidIA y GIN traspasado a otra área sin visibilidad directa. Se conserva todo el histórico documental, metodología y arquitectura.",
       "url": "../Gobierno de Informacion/index.html",
-      "status": "traspasado",
-      "cardStyle": "border-color: rgba(139, 92, 246, 0.3); background: linear-gradient(135deg, var(--bg-card) 0%, rgba(139, 92, 246, 0.02) 100%);",
+      "status": "cerrado",
+      "cardStyle": "border-color: rgba(107, 114, 128, 0.4); background: linear-gradient(135deg, var(--bg-card) 0%, rgba(107, 114, 128, 0.04) 100%);",
       "icon": "layers"
     },
     {

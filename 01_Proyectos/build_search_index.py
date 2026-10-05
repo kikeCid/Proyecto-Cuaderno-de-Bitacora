@@ -13,7 +13,7 @@ OUTPUT_JS = os.path.join(BASE_DIR, "assets", "js", "search_index_data.js")
 HUB_DIR = os.path.join(BASE_DIR, "Cuaderno de Bitacora (Proyectos)")
 
 PROJECT_CATEGORIES = {
-    "Gobierno de Informacion": "Gestión Directa",
+    "Gobierno de Informacion": "Proyectos Cerrados",
     "HCM": "Gestión Directa",
     "IA Area Personas": "Gestión Directa",
     "Perseo": "Facilitadores",
