@@ -728,7 +728,7 @@ footer {
 }
 
 /* ==========================================================================
-   MÓDULOS TRANSVERSALES ADICIONALES (BITÁCORA CORE)
+   MÓDULOS TRANSVERSALES ADICIONALES (BITÁCORA CORE v2.0)
    ========================================================================== */
 
 /* CONTROLES SUPERIORES (AVATAR + BUSCADOR + TEMA) */
@@ -799,6 +799,192 @@ footer {
     0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
     70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
     100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* ==========================================================================
+   TELEMETRÍA EJECUTIVA EN EL HERO (PORTFOLIO STATUS CHIPS)
+   ========================================================================== */
+.telemetry-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 10px auto 0 auto;
+    max-width: 860px;
+}
+
+.telemetry-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 30px;
+    font-size: 0.82rem;
+    color: var(--text-sec);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: var(--transition);
+}
+
+.telemetry-chip:hover {
+    transform: translateY(-2px);
+    border-color: var(--lda-red);
+    color: var(--text-main);
+    box-shadow: 0 8px 24px rgba(228, 0, 43, 0.12);
+}
+
+.telemetry-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot-green { background: #10b981; box-shadow: 0 0 8px rgba(16, 185, 129, 0.7); animation: pulse-dot 2s infinite; }
+.dot-red { background: var(--lda-red); box-shadow: 0 0 8px var(--lda-red-glow); animation: pulse-dot 2s infinite 0.5s; }
+.dot-purple { background: #8b5cf6; box-shadow: 0 0 8px rgba(139, 92, 246, 0.7); animation: pulse-dot 2s infinite 1s; }
+.dot-amber { background: #f59e0b; box-shadow: 0 0 8px rgba(245, 158, 11, 0.7); animation: pulse-dot 2s infinite 0.75s; }
+.dot-blue { background: #2563eb; box-shadow: 0 0 8px rgba(37, 99, 235, 0.7); animation: pulse-dot 2s infinite 1.5s; }
+
+@keyframes pulse-dot {
+    0%, 100% { transform: scale(0.9); opacity: 0.85; }
+    50% { transform: scale(1.25); opacity: 1; }
+}
+
+[data-theme="dark"] .telemetry-chip {
+    background: rgba(28, 30, 42, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: #cbd5e1;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .telemetry-chip:hover {
+    border-color: var(--lda-red);
+    color: #ffffff;
+    box-shadow: 0 8px 25px rgba(228, 0, 43, 0.25);
+}
+
+/* ==========================================================================
+   MICRO-PULSOS VIVOS EN KICKER BADGES
+   ========================================================================== */
+.kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.kicker-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+    display: inline-block;
+    animation: kicker-pulse 1.8s infinite ease-in-out;
+}
+
+@keyframes kicker-pulse {
+    0%, 100% { opacity: 0.65; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.35); }
+}
+
+/* ==========================================================================
+   ILUMINACIÓN CROMÁTICA REACTIVA DE ICONOS (.card-visual) EN MODO CLARO
+   ========================================================================== */
+.card-visual {
+    flex: 0 0 160px;
+    height: 160px;
+    margin-top: 20px;
+    border-radius: 18px;
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-sec);
+    transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover de tarjeta roja (Gestión Directa / HCM / Eficiencia RRHH) */
+#track-direct .apple-card .card-visual {
+    background: rgba(228, 0, 43, 0.04);
+    border: 1px solid rgba(228, 0, 43, 0.12);
+    color: var(--lda-red);
+}
+
+#track-direct .apple-card:hover .card-visual {
+    background: rgba(228, 0, 43, 0.10);
+    border-color: rgba(228, 0, 43, 0.35);
+    color: var(--lda-red);
+    box-shadow: 0 10px 28px rgba(228, 0, 43, 0.18);
+    transform: scale(1.06) translateY(-2px);
+}
+
+/* Hover de tarjetas ámbar (Facilitadores / Perseo, CRM, Telefonía, Siniestros) */
+#track-facilitator .apple-card .card-visual {
+    background: rgba(217, 119, 6, 0.04);
+    border: 1px solid rgba(217, 119, 6, 0.14);
+    color: #d97706;
+}
+
+#track-facilitator .apple-card:hover .card-visual {
+    background: rgba(217, 119, 6, 0.12);
+    border-color: rgba(217, 119, 6, 0.35);
+    color: #b45309;
+    box-shadow: 0 10px 28px rgba(217, 119, 6, 0.18);
+    transform: scale(1.06) translateY(-2px);
+}
+
+/* Hover de tarjetas azules (Servicios y Operativas / Gestión de Usuarios) */
+.apple-card.blue-card .card-visual {
+    background: rgba(37, 99, 235, 0.05);
+    border: 1px solid rgba(37, 99, 235, 0.16);
+    color: #2563eb;
+}
+
+.apple-card.blue-card:hover .card-visual {
+    background: rgba(37, 99, 235, 0.13);
+    border-color: rgba(37, 99, 235, 0.38);
+    color: #1d4ed8;
+    box-shadow: 0 10px 28px rgba(37, 99, 235, 0.20);
+    transform: scale(1.06) translateY(-2px);
+}
+
+/* Hover de tarjetas púrpuras (Proyectos Cerrados / Gestión de la Información) */
+#track-closed .apple-card[style*="139, 92, 246"] .card-visual {
+    background: rgba(139, 92, 246, 0.06);
+    border: 1px solid rgba(139, 92, 246, 0.22);
+    color: #8b5cf6;
+}
+
+#track-closed .apple-card[style*="139, 92, 246"]:hover .card-visual {
+    background: rgba(139, 92, 246, 0.16);
+    border-color: rgba(139, 92, 246, 0.45);
+    color: #7c3aed;
+    box-shadow: 0 10px 28px rgba(139, 92, 246, 0.24);
+    transform: scale(1.06) translateY(-2px);
+}
+
+/* Hover de tarjetas disabled en modo claro */
+.apple-card.disabled-card .card-visual {
+    background: rgba(0, 0, 0, 0.02);
+    border: 1px dashed rgba(0, 0, 0, 0.08);
+    color: var(--text-muted);
+}
+
+/* Transición suave para SVGs en card-visual */
+.card-visual svg {
+    transition: transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.35s ease;
+}
+
+.apple-card:hover .card-visual svg {
+    transform: scale(1.08);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12));
 }
 
 /* BREADCRUMB - Smart Collapse Dropdown */
@@ -1173,6 +1359,13 @@ footer {
     border-color: rgba(228, 0, 43, 0.5) !important;
     color: #ffffff !important;
     box-shadow: 0 0 20px rgba(228, 0, 43, 0.3) !important;
+}
+
+[data-theme="dark"] #track-facilitator .apple-card:hover .card-visual {
+    background: rgba(245, 158, 11, 0.25) !important;
+    border-color: rgba(245, 158, 11, 0.7) !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.35) !important;
 }
 
 /* TARJETAS BLUE-CARD (GESTIÓN DE USUARIOS) EN MODO OSCURO */
