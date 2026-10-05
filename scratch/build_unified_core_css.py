@@ -191,87 +191,178 @@ addons = """
    ILUMINACIÓN CROMÁTICA REACTIVA DE ICONOS (.card-visual) EN MODO CLARO
    ========================================================================== */
 .card-visual {
-    flex: 0 0 170px;
-    height: 170px;
-    width: 100%;
-    margin-top: 18px;
-    border-radius: 20px;
-    background: rgba(0, 0, 0, 0.025);
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-sec);
-    transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
-    position: relative;
-    overflow: hidden;
+    flex: 0 0 135px !important;
+    height: 135px !important;
+    width: 100% !important;
+    margin-top: auto !important;
+    border-radius: 16px !important;
+    background: rgba(0, 0, 0, 0.02) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+    z-index: 2 !important;
 }
 
 /* Hover de tarjeta roja (Gestión Directa / HCM / Eficiencia RRHH) */
 #track-direct .apple-card .card-visual {
-    background: rgba(228, 0, 43, 0.04);
-    border: 1px solid rgba(228, 0, 43, 0.12);
-    color: var(--lda-red);
+    flex: 0 0 135px !important;
+    height: 135px !important;
+    width: 100% !important;
+    margin-top: auto !important;
+    border-radius: 16px !important;
+    background: rgba(0, 0, 0, 0.02) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+    z-index: 2 !important;
 }
 
 #track-direct .apple-card:hover .card-visual {
-    background: rgba(228, 0, 43, 0.10);
-    border-color: rgba(228, 0, 43, 0.35);
-    color: var(--lda-red);
-    box-shadow: 0 10px 28px rgba(228, 0, 43, 0.18);
-    transform: scale(1.04) translateY(-2px);
+    flex: 0 0 135px !important;
+    height: 135px !important;
+    width: 100% !important;
+    margin-top: auto !important;
+    border-radius: 16px !important;
+    background: rgba(0, 0, 0, 0.02) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+    z-index: 2 !important;
 }
 
 /* Hover de tarjetas ámbar (Facilitadores / Perseo, CRM, Telefonía, Siniestros) */
 #track-facilitator .apple-card .card-visual {
-    background: rgba(217, 119, 6, 0.04);
-    border: 1px solid rgba(217, 119, 6, 0.14);
-    color: #d97706;
+    flex: 0 0 135px !important;
+    height: 135px !important;
+    width: 100% !important;
+    margin-top: auto !important;
+    border-radius: 16px !important;
+    background: rgba(0, 0, 0, 0.02) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+    z-index: 2 !important;
 }
 
 #track-facilitator .apple-card:hover .card-visual {
-    background: rgba(217, 119, 6, 0.12);
-    border-color: rgba(217, 119, 6, 0.35);
-    color: #b45309;
-    box-shadow: 0 10px 28px rgba(217, 119, 6, 0.18);
-    transform: scale(1.04) translateY(-2px);
+    flex: 0 0 135px !important;
+    height: 135px !important;
+    width: 100% !important;
+    margin-top: auto !important;
+    border-radius: 16px !important;
+    background: rgba(0, 0, 0, 0.02) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+    z-index: 2 !important;
 }
 
 /* Hover de tarjetas azules (Servicios y Operativas / Gestión de Usuarios) */
 .apple-card.blue-card .card-visual {
-    background: rgba(37, 99, 235, 0.05);
-    border: 1px solid rgba(37, 99, 235, 0.16);
-    color: #2563eb;
+    flex: 0 0 135px !important;
+    height: 135px !important;
+    width: 100% !important;
+    margin-top: auto !important;
+    border-radius: 16px !important;
+    background: rgba(0, 0, 0, 0.02) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+    z-index: 2 !important;
 }
 
 .apple-card.blue-card:hover .card-visual {
-    background: rgba(37, 99, 235, 0.13);
-    border-color: rgba(37, 99, 235, 0.38);
-    color: #1d4ed8;
-    box-shadow: 0 10px 28px rgba(37, 99, 235, 0.20);
-    transform: scale(1.04) translateY(-2px);
+    flex: 0 0 135px !important;
+    height: 135px !important;
+    width: 100% !important;
+    margin-top: auto !important;
+    border-radius: 16px !important;
+    background: rgba(0, 0, 0, 0.02) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+    z-index: 2 !important;
 }
 
 /* Hover de tarjetas púrpuras (Proyectos Cerrados / Gestión de la Información) */
 #track-closed .apple-card[style*="139, 92, 246"] .card-visual {
-    background: rgba(139, 92, 246, 0.06);
-    border: 1px solid rgba(139, 92, 246, 0.22);
-    color: #8b5cf6;
+    flex: 0 0 135px !important;
+    height: 135px !important;
+    width: 100% !important;
+    margin-top: auto !important;
+    border-radius: 16px !important;
+    background: rgba(0, 0, 0, 0.02) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+    z-index: 2 !important;
 }
 
 #track-closed .apple-card[style*="139, 92, 246"]:hover .card-visual {
-    background: rgba(139, 92, 246, 0.16);
-    border-color: rgba(139, 92, 246, 0.45);
-    color: #7c3aed;
-    box-shadow: 0 10px 28px rgba(139, 92, 246, 0.24);
-    transform: scale(1.04) translateY(-2px);
+    flex: 0 0 135px !important;
+    height: 135px !important;
+    width: 100% !important;
+    margin-top: auto !important;
+    border-radius: 16px !important;
+    background: rgba(0, 0, 0, 0.02) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+    z-index: 2 !important;
 }
 
 /* Hover de tarjetas disabled en modo claro */
 .apple-card.disabled-card .card-visual {
-    background: rgba(0, 0, 0, 0.02);
-    border: 1px dashed rgba(0, 0, 0, 0.08);
-    color: var(--text-muted);
+    flex: 0 0 135px !important;
+    height: 135px !important;
+    width: 100% !important;
+    margin-top: auto !important;
+    border-radius: 16px !important;
+    background: rgba(0, 0, 0, 0.02) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+    z-index: 2 !important;
 }
 
 /* Transición suave para SVGs en card-visual - Tamaño Proporcional y Simétrico */
@@ -641,9 +732,12 @@ addons = """
 }
 
 [data-theme="dark"] .apple-card .desc {
-    color: #cbd5e1 !important;
-    font-size: 0.95rem !important;
-    line-height: 1.55 !important;
+    font-size: 0.86rem;
+    line-height: 1.45;
+    color: var(--text-sec);
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 2;
 }
 
 [data-theme="dark"] .apple-card .kicker {
@@ -652,9 +746,20 @@ addons = """
 }
 
 [data-theme="dark"] .card-visual {
-    background: rgba(255, 255, 255, 0.08) !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
-    color: #f1f5f9 !important;
+    flex: 0 0 135px !important;
+    height: 135px !important;
+    width: 100% !important;
+    margin-top: auto !important;
+    border-radius: 16px !important;
+    background: rgba(0, 0, 0, 0.02) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+    z-index: 2 !important;
 }
 
 [data-theme="dark"] .card-visual svg {
@@ -663,17 +768,37 @@ addons = """
 }
 
 [data-theme="dark"] .apple-card:hover .card-visual {
-    background: rgba(228, 0, 43, 0.18) !important;
-    border-color: rgba(228, 0, 43, 0.5) !important;
-    color: #ffffff !important;
-    box-shadow: 0 0 20px rgba(228, 0, 43, 0.3) !important;
+    flex: 0 0 135px !important;
+    height: 135px !important;
+    width: 100% !important;
+    margin-top: auto !important;
+    border-radius: 16px !important;
+    background: rgba(0, 0, 0, 0.02) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+    z-index: 2 !important;
 }
 
 [data-theme="dark"] #track-facilitator .apple-card:hover .card-visual {
-    background: rgba(245, 158, 11, 0.25) !important;
-    border-color: rgba(245, 158, 11, 0.7) !important;
-    color: #ffffff !important;
-    box-shadow: 0 0 20px rgba(245, 158, 11, 0.35) !important;
+    flex: 0 0 135px !important;
+    height: 135px !important;
+    width: 100% !important;
+    margin-top: auto !important;
+    border-radius: 16px !important;
+    background: rgba(0, 0, 0, 0.02) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+    z-index: 2 !important;
 }
 
 /* TARJETAS BLUE-CARD (GESTIÓN DE USUARIOS) EN MODO OSCURO */
@@ -698,16 +823,37 @@ addons = """
 }
 
 [data-theme="dark"] .blue-card .card-visual {
-    background: rgba(59, 130, 246, 0.2) !important;
-    border: 1px solid rgba(59, 130, 246, 0.35) !important;
-    color: #93c5fd !important;
+    flex: 0 0 135px !important;
+    height: 135px !important;
+    width: 100% !important;
+    margin-top: auto !important;
+    border-radius: 16px !important;
+    background: rgba(0, 0, 0, 0.02) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+    z-index: 2 !important;
 }
 
 [data-theme="dark"] .apple-card.blue-card:hover .card-visual {
-    background: rgba(59, 130, 246, 0.38) !important;
-    border-color: rgba(59, 130, 246, 0.7) !important;
-    color: #ffffff !important;
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.35) !important;
+    flex: 0 0 135px !important;
+    height: 135px !important;
+    width: 100% !important;
+    margin-top: auto !important;
+    border-radius: 16px !important;
+    background: rgba(0, 0, 0, 0.02) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+    z-index: 2 !important;
 }
 
 /* TARJETAS DISABLED (SLOTS VACÍOS / PRÓXIMAS OPERATIVAS) EN MODO OSCURO */
@@ -733,9 +879,20 @@ addons = """
 }
 
 [data-theme="dark"] .apple-card.disabled-card .card-visual {
-    background: rgba(255, 255, 255, 0.04) !important;
-    border: 1px dashed rgba(255, 255, 255, 0.1) !important;
-    color: #64748b !important;
+    flex: 0 0 135px !important;
+    height: 135px !important;
+    width: 100% !important;
+    margin-top: auto !important;
+    border-radius: 16px !important;
+    background: rgba(0, 0, 0, 0.02) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+    z-index: 2 !important;
 }
 
 /* TARJETA PROYECTO CERRADO (HISTÓRICO / GESTIÓN INFORMACIÓN) */
@@ -752,16 +909,37 @@ addons = """
 }
 
 [data-theme="dark"] .apple-card[style*="139, 92, 246"] .card-visual {
-    background: rgba(139, 92, 246, 0.2) !important;
-    border: 1px solid rgba(139, 92, 246, 0.35) !important;
-    color: #c4b5fd !important;
+    flex: 0 0 135px !important;
+    height: 135px !important;
+    width: 100% !important;
+    margin-top: auto !important;
+    border-radius: 16px !important;
+    background: rgba(0, 0, 0, 0.02) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+    z-index: 2 !important;
 }
 
 [data-theme="dark"] .apple-card[style*="139, 92, 246"]:hover .card-visual {
-    background: rgba(139, 92, 246, 0.4) !important;
-    border-color: rgba(139, 92, 246, 0.7) !important;
-    color: #ffffff !important;
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.4) !important;
+    flex: 0 0 135px !important;
+    height: 135px !important;
+    width: 100% !important;
+    margin-top: auto !important;
+    border-radius: 16px !important;
+    background: rgba(0, 0, 0, 0.02) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+    z-index: 2 !important;
 }
 
 /* BANNER DE INFORMACIÓN / ROL DE RRHH */
@@ -1438,22 +1616,22 @@ body::before {
    ========================================================================== */
 .apple-card {
     flex: 0 0 auto;
-    width: 335px;
-    height: 520px;
+    width: 320px;
+    height: 440px;
     background: var(--bg-card);
-    border-radius: 24px;
-    padding: 26px 26px 22px 26px;
+    border-radius: 22px;
+    padding: 24px 22px 20px 22px;
     scroll-snap-align: start;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
     display: flex;
     flex-direction: column;
     position: relative;
     overflow: hidden;
     cursor: pointer;
     text-decoration: none;
-    transition: transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1),
-                box-shadow 0.35s cubic-bezier(0.165, 0.84, 0.44, 1),
-                border-color 0.35s ease;
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+                box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+                border-color 0.3s ease;
     border: 1px solid var(--glass-border);
 }
 
@@ -1542,11 +1720,12 @@ body::before {
 }
 
 .apple-card .desc {
+    font-size: 0.86rem;
+    line-height: 1.45;
+    color: var(--text-sec);
+    margin-bottom: 8px;
     position: relative;
     z-index: 2;
-    font-size: 0.88rem;
-    line-height: 1.45;
-    margin-bottom: 12px;
 }
 
 /* Pipeline / Barra de Progreso */
@@ -1592,7 +1771,7 @@ body::before {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
-    margin-bottom: 12px;
+    margin: 4px 0 14px 0;
     position: relative;
     z-index: 2;
 }
@@ -1626,25 +1805,37 @@ body::before {
 
 /* Visual Holográfico */
 .card-visual {
-    flex: 0 0 140px !important;
-    height: 140px !important;
+    flex: 0 0 135px !important;
+    height: 135px !important;
     width: 100% !important;
     margin-top: auto !important;
-    border-radius: 18px !important;
-    background: linear-gradient(145deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.05) 100%) !important;
-    border: 1px solid rgba(0, 0, 0, 0.06) !important;
+    border-radius: 16px !important;
+    background: rgba(0, 0, 0, 0.02) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     position: relative !important;
     overflow: hidden !important;
-    transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+    transition: all 0.3s ease !important;
     z-index: 2 !important;
 }
 
 [data-theme="dark"] .card-visual {
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.05) 100%) !important;
-    border-color: rgba(255, 255, 255, 0.08) !important;
+    flex: 0 0 135px !important;
+    height: 135px !important;
+    width: 100% !important;
+    margin-top: auto !important;
+    border-radius: 16px !important;
+    background: rgba(0, 0, 0, 0.02) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+    z-index: 2 !important;
 }
 
 .card-visual::after {
@@ -1782,13 +1973,13 @@ clean_addons_css = """
    ========================================================================== */
 .apple-card {
     flex: 0 0 auto;
-    width: 325px;
-    height: 460px;
+    width: 320px;
+    height: 440px;
     background: var(--bg-card);
     border-radius: 22px;
-    padding: 26px 24px 22px 24px;
+    padding: 24px 22px 20px 22px;
     scroll-snap-align: start;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
     display: flex;
     flex-direction: column;
     position: relative;
@@ -1872,10 +2063,10 @@ clean_addons_css = """
 }
 
 .apple-card .desc {
-    font-size: 0.88rem;
+    font-size: 0.86rem;
     line-height: 1.45;
     color: var(--text-sec);
-    margin-bottom: 14px;
+    margin-bottom: 8px;
     position: relative;
     z-index: 2;
 }
@@ -1885,7 +2076,7 @@ clean_addons_css = """
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
-    margin-bottom: 14px;
+    margin: 4px 0 14px 0;
     position: relative;
     z-index: 2;
 }
@@ -1909,8 +2100,8 @@ clean_addons_css = """
 
 /* Visual vectorial inferior simétrico */
 .card-visual {
-    flex: 0 0 140px !important;
-    height: 140px !important;
+    flex: 0 0 135px !important;
+    height: 135px !important;
     width: 100% !important;
     margin-top: auto !important;
     border-radius: 16px !important;
@@ -1926,8 +2117,20 @@ clean_addons_css = """
 }
 
 [data-theme="dark"] .card-visual {
-    background: rgba(255, 255, 255, 0.02) !important;
-    border-color: rgba(255, 255, 255, 0.06) !important;
+    flex: 0 0 135px !important;
+    height: 135px !important;
+    width: 100% !important;
+    margin-top: auto !important;
+    border-radius: 16px !important;
+    background: rgba(0, 0, 0, 0.02) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+    z-index: 2 !important;
 }
 
 .card-visual svg {
