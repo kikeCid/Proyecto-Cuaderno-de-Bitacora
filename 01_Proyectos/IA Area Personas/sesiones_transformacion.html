@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capacitación y Cambio | Perscom</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles_bitacora.css">
+    <style>
+        :root {
+            --sessions-red: #E4002B;
+            --sessions-blue: #0078d4;
+            --sessions-bg-red: rgba(228, 0, 43, 0.05);
+            --sessions-bg-blue: rgba(0, 120, 212, 0.05);
+        }
+
+        /* HERO REFINADO */
+        .sessions-hero {
+            position: relative;
+            padding: 80px 40px;
+            border-radius: 40px;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            margin: 40px 0;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+
+        .sessions-hero::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 20% 30%, rgba(228, 0, 43, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(0, 120, 212, 0.15) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .sessions-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(to right, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sessions-hero p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* TRACKS LAYOUT */
+        .tracks-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        @media (max-width: 900px) {
+            .tracks-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .track-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .track-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 10px;
+            padding: 0 10px;
+        }
+
+        .track-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .track-label h2 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin: 0;
+        }
+
+        .track-label p {
+            font-size: 0.8rem;
+            color: var(--text-sec);
+            margin: 3px 0 0 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        /* SESSION CARDS PREMIUM */
+        .session-item {
+            position: relative;
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 24px;
+            border: 1px solid var(--border-color);
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            gap: 20px;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            overflow: hidden;
+        }
+
+        .session-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border-color: var(--sessions-red);
+        }
+
+        .session-item.m365:hover {
+            border-color: var(--sessions-blue);
+        }
+
+        .session-status {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 6px 14px;
+            font-size: 0.6rem;
+            font-weight: 800;
+            border-bottom-left-radius: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .status-ready { background: #dcfce7; color: #166534; }
+        .status-soon { background: #f1f5f9; color: #475569; }
+        .status-interactive { background: #F3D0D9; color: #c96277; }
+
+        .session-marker {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: var(--sessions-bg-red);
+            color: var(--sessions-red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            border: 1px solid rgba(228, 0, 43, 0.1);
+        }
+
+        .m365 .session-marker {
+            background: var(--sessions-bg-blue);
+            color: var(--sessions-blue);
+            border-color: rgba(0, 120, 212, 0.1);
+        }
+
+        .session-content {
+            flex-grow: 1;
+        }
+
+        .session-content h3 {
+            font-size: 1rem;
+            font-weight: 800;
+            margin: 0 0 6px 0;
+            line-height: 1.2;
+        }
+
+        .session-content p {
+            font-size: 0.85rem;
+            color: var(--text-sec);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* DARK MODE ADJUSTMENTS */
+        [data-theme="dark"] .session-item {
+            background: rgba(255, 255, 255, 0.03);
+        }
+    </style>
+
+    <link rel="stylesheet" href="../local_styles.css">
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper">
+        <button class="nav-btn" onclick="javascript:history.back()" title="Volver atrás">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+        </button>
+        <div class="nav-divider"></div>
+        <div class="nav-breadcrumb">
+            <a href="index.html" class="nav-breadcrumb-item">Transformación y Eficiencia</a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <span class="nav-breadcrumb-item current">Capacitación</span>
+        </div>
+    </nav>
+
+    <div class="bg-mesh"></div>
+
+    <main class="container">
+        <!-- HERO SEGMENT -->
+        <header class="sessions-hero">
+            <h1>Itinerarios de <br>Capacitación</h1>
+                <span class="hero-badge-local" style="margin-top: 10px;">Recurso en Local</span>
+            <p>Ejes estratégicos de las sesiones para transformar la forma de trabajar en Personas y Comunicación.</p>
+        </header>
+
+        <div class="tracks-container">
+            <!-- VÍA 1: M365 -->
+            <div class="track-column">
+                <div class="track-header">
+                    <div class="track-icon" style="background: var(--sessions-blue);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 12h18"></path><path d="M9 3v18"></path><path d="M15 3v18"></path></svg>
+                    </div>
+                    <div class="track-label">
+                        <p>Track 01</p>
+                        <h2>Adopción M365</h2>
+                    </div>
+                </div>
+
+                <!-- Sesión M1 -->
+                <div class="session-item m365" style="cursor: default;">
+                    <div class="session-status status-soon">Próximamente</div>
+                    <div class="session-marker">M1</div>
+                    <div class="session-content">
+                        <h3>Decálogo y Diagnóstico</h3>
+                        <p>Nuevas formas de relación digital, expectativas operativas e hitos del Q2.</p>
+                    </div>
+                </div>
+
+                <!-- Sesión M2 -->
+                <div class="session-item m365" style="cursor: default;">
+                    <div class="session-status status-soon">Próximamente</div>
+                    <div class="session-marker">M2</div>
+                    <div class="session-content">
+                        <h3>Estandarización y Protocolos</h3>
+                        <p>Control de canales de Teams, gestión de archivos y flujos de revisión documental.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VÍA 2: IA -->
+            <div class="track-column">
+                <div class="track-header">
+                    <div class="track-icon" style="background: var(--sessions-red);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v10l4 2"/><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m16 2-4 4-4-4"/></svg>
+                    </div>
+                    <div class="track-label">
+                        <p>Track 02</p>
+                        <h2>Ecosistema IA</h2>
+                    </div>
+                </div>
+
+                <!-- Sesión 01 -->
+                <a href="sesion_01_radar.html" class="session-item">
+                    <div class="session-status status-interactive">MASTERCLASS</div>
+                    <div class="session-marker">01</div>
+                    <div class="session-content">
+                        <h3>Radar de IA: Ecosistema</h3>
+                        <p>Exploración visual de herramientas y "superpoderes" aplicados a RRHH.</p>
+                    </div>
+                </a>
+
+                <!-- Sesión 02 -->
+                <a href="sesion_02_mas_alla.html" class="session-item">
+                    <div class="session-status status-interactive">MASTERCLASS</div>
+                    <div class="session-marker">02</div>
+                    <div class="session-content">
+                        <h3>IA: Más allá del Chat</h3>
+                        <p>Automatizaciones, análisis de datos y casos de uso no conversacionales.</p>
+                    </div>
+                </a>
+
+                <!-- Sesión 03 -->
+                <a href="Documentos/Sesiones/sesion-3-marco-de-seguridad-y-regulacion.pdf" target="_blank" class="session-item">
+                    <div class="session-status status-ready">MATERIAL APOYO</div>
+                    <div class="session-marker">03</div>
+                    <div class="session-content">
+                        <h3>Seguridad y Regulación</h3>
+                        <p>Límites éticos y legales para innovar con confianza en el entorno corporativo.</p>
+                    </div>
+                </a>
+
+                <!-- Sesión 04 -->
+                <a href="Documentos/Sesiones/sesion-4-la-pocima-en-casa-entendiendo-a-nuestro-copilot.pdf" target="_blank" class="session-item">
+                    <div class="session-status status-ready">MATERIAL APOYO</div>
+                    <div class="session-marker">04</div>
+                    <div class="session-content">
+                        <h3>Nuestro Copilot M365</h3>
+                        <p>Uso estratégico de las herramientas nativas de Microsoft para RRHH.</p>
+                    </div>
+                </a>
+
+                <!-- Sesión 05 -->
+                <a href="Documentos/Sesiones/sesion-5-el-arte-de-dirigir-a-la-ia-contexto-e-instrucciones.pdf" target="_blank" class="session-item">
+                    <div class="session-status status-ready">MATERIAL APOYO</div>
+                    <div class="session-marker">05</div>
+                    <div class="session-content">
+                        <h3>El Arte de Dirigir a la IA</h3>
+                        <p>Prompting avanzado: cómo dar instrucciones efectivas basadas en el contexto del negocio.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portal de Transformación y Eficiencia | Grupo Línea Directa</p>
+    </footer>
+
+    <script src="breadcrumb_manager.js"></script>
+    <script>
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        }
+        document.addEventListener('DOMContentLoaded', initTheme);
+    </script>
+</body>
+
+</html>

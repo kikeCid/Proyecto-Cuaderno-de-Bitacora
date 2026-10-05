@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Despliegues y Adopción | Proyecto LidIA Negocio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../Cuaderno de Bitacora (Proyectos)/styles_bitacora.css">
+    <style>
+        .section-title-wrapper { text-align: center; margin-bottom: 40px; margin-top: 60px; }
+        .section-title { color: var(--text-main); font-size: 1.5rem; margin: 0; font-weight: 700; }
+        .section-divider { width: 40px; height: 3px; background-color: var(--lda-red); margin: 12px auto 0; border-radius: 2px; }
+
+        .timeline-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; margin-bottom: 40px; }
+        .feature-card { background: var(--bg-card); border: 1px solid var(--border-color); padding: 24px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .feature-icon-box { background: rgba(227, 0, 27, 0.08); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; color: var(--lda-red); }
+        .feature-badge { position: absolute; top: -12px; right: 20px; background: var(--lda-red); color: white; font-size: 0.7rem; font-weight: 800; padding: 4px 12px; border-radius: 12px; letter-spacing: 0.5px; }
+        
+        .timeline-title { color: var(--text-main); font-weight: 700; font-size: 1.05rem; margin-bottom: 12px; }
+        .timeline-desc { color: var(--text-sec); font-size: 0.9rem; line-height: 1.5; margin: 0; }
+
+        .adoption-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; max-width: 1000px; margin: 0 auto; }
+        .adoption-card { flex: 1 1 320px; background: var(--bg-card); border-radius: 12px; padding: 30px; border: 1px solid var(--border-color); box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+        .adoption-card h4 { color: var(--text-main); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; font-size: 1.2rem; margin-top: 0; }
+        
+        .action-list { list-style: none; padding: 0; margin: 0; }
+        .action-list li { margin-bottom: 14px; font-size: 0.9rem; color: var(--text-sec); display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed var(--border-color); padding-bottom: 10px; }
+        .action-list li:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        
+        .badge-outline { font-size: 0.75rem; font-weight: 600; padding: 4px 10px; border-radius: 6px; background: rgba(227, 0, 27, 0.05); color: var(--lda-red); border: 1px solid rgba(227, 0, 27, 0.2); }
+    </style>
+    <link rel="stylesheet" href="../../local_styles.css">
+</head>
+<body>
+    <nav class="global-nav-wrapper">
+        <div class="nav-breadcrumb">
+            <a href="../../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <a href="hub_lidia.html" class="nav-breadcrumb-item">Universo LidIA</a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <a href="lidia_negocio.html" class="nav-breadcrumb-item">LidIA Negocio</a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <span class="nav-breadcrumb-item current">Despliegues y Adopción</span>
+        </div>
+    </nav>
+    <div class="top-controls-wrapper" style="position: fixed; top: 30px; right: 30px; z-index: 100;">
+        <div class="theme-toggle-wrapper" style="box-shadow: var(--shadow);">
+            <span class="theme-label">MODO OSCURO</span>
+            <label class="theme-switch"><input type="checkbox" id="theme-checkbox" onchange="toggleTheme()"><span class="slider"></span></label>
+        </div>
+    </div>
+    <main class="container">
+        <header class="hero" style="text-align: center; padding: 60px 0 40px;">
+            <span class="hero-badge" style="background:var(--lda-red);">ROADMAP OPERATIVO</span>
+            <h1>Despliegues y Plan de Adopción <br><span>LidIA Negocio</span></h1>
+            <p style="margin: 0 auto; max-width: 800px;">Cronograma de integración de LidIA en las áreas core de negocio: desde los despliegues iniciales hasta la adopción estructurada por parte de los equipos de Front y Back Office.</p>
+        </header>
+
+        <!-- HITOS DE DESPLIEGUE -->
+        <div class="section-title-wrapper">
+            <h2 class="section-title">Hitos de Despliegue (Fase Inicial)</h2>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="timeline-grid" style="margin-bottom: 60px;">
+            <div class="feature-card">
+                <span class="feature-badge">OCT 2024</span>
+                <div class="feature-icon-box">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                </div>
+                <h3 class="timeline-title">Arranque Core</h3>
+                <p class="timeline-desc">Lanzamiento inicial (23/10) para Responsables, Coordinadores, Supervisores y equipos de Formación. Despliegue en Áreas Back Office.</p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-badge">NOV 2024</span>
+                <div class="feature-icon-box">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+                <h3 class="timeline-title">Primeros Pilotos</h3>
+                <p class="timeline-desc">Apertura a Grupos de Chat (04/11) y a un Nuevo Grupo selecto de 8 personas del Área de Cartera (25/11).</p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-badge">DIC 2024</span>
+                <div class="feature-icon-box">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                </div>
+                <h3 class="timeline-title">Expansión Front Office</h3>
+                <p class="timeline-desc">Despliegue escalado al Área Front Office de Cartera y al Área Front Office Comercial (31/12).</p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-badge">FEB 2025</span>
+                <div class="feature-icon-box">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+                </div>
+                <h3 class="timeline-title">Nuevo Negocio</h3>
+                <p class="timeline-desc">Apertura completa al Área Front Office de Nuevo Negocio Comercial (05/02).</p>
+            </div>
+        </div>
+
+        <!-- PLAN DE ADOPCIÓN -->
+        <div class="section-title-wrapper">
+            <h2 class="section-title">Plan de Adopción y Formación</h2>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="adoption-grid" style="margin-bottom: 60px;">
+            <!-- Cartera -->
+            <div class="adoption-card">
+                <h4>
+                    <div class="feature-icon-box" style="width: 36px; height: 36px; margin-bottom: 0;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    </div>
+                    Área Cartera (Chat)
+                </h4>
+                <ul class="action-list">
+                    <li><span>Comunicado inicial sala</span> <span class="badge-outline">04/11/24</span></li>
+                    <li><span>Adopción a SPV y Asesores</span> <span class="badge-outline">20/01/25</span></li>
+                    <li><span>Píldora Formativa</span> <span class="badge-outline">06/02/25</span></li>
+                    <li><span>Inicio envío material</span> <span class="badge-outline">14/02/25</span></li>
+                </ul>
+                <div style="margin-top: 24px; font-size: 0.85rem; color: var(--text-light); border-top: 1px solid var(--border-color); padding-top: 16px;">
+                    <strong>Grupos Implicados:</strong> Retención (607), Salud y Venta (89), Digitalización y Eficiencia (5).
+                </div>
+            </div>
+
+            <!-- Comercial -->
+            <div class="adoption-card">
+                <h4>
+                    <div class="feature-icon-box" style="width: 36px; height: 36px; margin-bottom: 0;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                    </div>
+                    Área Comercial
+                </h4>
+                <ul class="action-list">
+                    <li><span>Adopción a SPV y Asesores</span> <span class="badge-outline">20/01/25</span></li>
+                    <li><span>Comunicado inicial sala</span> <span class="badge-outline">05/02/25</span></li>
+                    <li><span>Píldora Formativa</span> <span class="badge-outline">05/02/25</span></li>
+                    <li><span>Formación Presencial</span> <span class="badge-outline">11/02/25</span></li>
+                    <li><span>Inicio envío material</span> <span class="badge-outline">14/02/25</span></li>
+                </ul>
+                <div style="margin-top: 24px; font-size: 0.85rem; color: var(--text-light); border-top: 1px solid var(--border-color); padding-top: 16px;">
+                    <strong>Grupos Implicados:</strong> Supervisores NN (28): Recepción (13), Emisión Externa (5), Ventas Internet (5), Operaciones Salud (3) y Recepción Externa (2). Coordinadores NN (5).
+                </div>
+            </div>
+
+            <!-- Conocimiento -->
+            <div class="adoption-card" style="flex: 1 1 100%;">
+                <h4>
+                    <div class="feature-icon-box" style="width: 36px; height: 36px; margin-bottom: 0;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                    Apoyo a Calidad y Conocimiento
+                </h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                    <!-- Calidad Comercial -->
+                    <div style="background: rgba(0, 0, 0, 0.02); border: 1px solid var(--border-color); padding: 24px; border-radius: 12px;">
+                        <div style="font-weight: 700; font-size: 1.05rem; margin-bottom: 16px; color: var(--text-main); display: flex; align-items: center; gap: 8px;">
+                            <span style="display: inline-block; width: 8px; height: 8px; background: var(--lda-red); border-radius: 50%;"></span>
+                            Calidad Comercial
+                        </div>
+                        <ul class="action-list">
+                            <li><span>Comunicado a Calidad</span> <span class="badge-outline">21/01/25</span></li>
+                            <li><span>Escalabilidad Contenidos</span> <span class="badge-outline">Febrero 2025</span></li>
+                            <li><span>Restructuración Wiki</span> <span class="badge-outline">14/02/25</span></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Calidad Cartera -->
+                    <div style="background: rgba(0, 0, 0, 0.02); border: 1px solid var(--border-color); padding: 24px; border-radius: 12px;">
+                        <div style="font-weight: 700; font-size: 1.05rem; margin-bottom: 16px; color: var(--text-main); display: flex; align-items: center; gap: 8px;">
+                            <span style="display: inline-block; width: 8px; height: 8px; background: var(--lda-red); border-radius: 50%;"></span>
+                            Calidad Cartera
+                        </div>
+                        <ul class="action-list">
+                            <li><span>Comunicado a Calidad</span> <span class="badge-outline">14/03/25</span></li>
+                            <li><span>Escalabilidad Contenidos</span> <span class="badge-outline">Febrero 2025</span></li>
+                            <li><span>Restructuración Wiki</span> <span class="badge-outline">10/03/25</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Servicios y Prestaciones -->
+                    <div style="background: rgba(0, 0, 0, 0.02); border: 1px solid var(--border-color); padding: 24px; border-radius: 12px;">
+                        <div style="font-weight: 700; font-size: 1.05rem; margin-bottom: 16px; color: var(--text-main); display: flex; align-items: center; gap: 8px;">
+                            <span style="display: inline-block; width: 8px; height: 8px; background: var(--lda-red); border-radius: 50%;"></span>
+                            Servicios y Prestaciones
+                        </div>
+                        <ul class="action-list">
+                            <li><span>Comunicado a Calidad</span> <span class="badge-outline">28/04/25</span></li>
+                            <li><span>Restructuración Wiki</span> <span class="badge-outline">Mayo 2025</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <script>
+        function toggleTheme() {
+            const isDark = document.getElementById('theme-checkbox').checked;
+            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            const cb = document.getElementById('theme-checkbox');
+            if (cb) cb.checked = savedTheme === 'dark';
+        });
+    </script>
+</body>
+</html>

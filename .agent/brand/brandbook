@@ -1,0 +1,1176 @@
+# BRANDBOOK - Línea Directa Design System
+
+> *Versión:* 1.0  
+> *Última actualización:* Febrero 2026  
+> *Propósito:* Guía completa de identidad visual y directrices de marca  
+> *Audiencia:* Diseñadores, desarrolladores, marketing, stakeholders
+
+-----
+
+## 📖 Índice
+
+1. [Introducción](#introducción)
+1. [Valores de Marca](#valores-de-marca)
+1. [Identidad Visual](#identidad-visual)
+1. [Logo y Aplicaciones](#logo-y-aplicaciones)
+1. [Paleta de Colores](#paleta-de-colores)
+1. [Tipografía](#tipografía)
+1. [Iconografía](#iconografía)
+1. [Fotografía e Imágenes](#fotografía-e-imágenes)
+1. [Componentes UI](#componentes-ui)
+1. [Tono y Voz](#tono-y-voz)
+1. [Aplicaciones](#aplicaciones)
+1. [Usos Prohibidos](#usos-prohibidos)
+
+-----
+
+## 🎯 Introducción
+
+### Sobre Esta Guía
+
+Este brandbook define la identidad visual completa del proyecto de diseño inspirado en Línea Directa. Es un sistema vivo que evoluciona con las necesidades del producto, pero mantiene consistencia en sus principios fundamentales.
+
+### Objetivo del Sistema
+
+Crear experiencias digitales que sean:
+
+- *Claras:* Sin ambigüedades, directas al punto
+- *Confiables:* Transmitir seguridad y profesionalismo
+- *Modernas:* Actuales sin ser efímeras
+- *Accesibles:* Para todos, sin excepciones
+- *Humanas:* Tecnología con calidez
+
+### Cómo Usar Este Documento
+
+- *Diseñadores:* Referencia exacta para toda decisión visual
+- *Desarrolladores:* Especificaciones técnicas para implementación
+- *Marketing:* Guía de comunicación y tono
+- *Stakeholders:* Entender la visión y coherencia de marca
+
+-----
+
+## 💎 Valores de Marca
+
+### Esencia de la Marca
+
+*Protección simplificada, confianza transparente*
+
+No vendemos seguros, vendemos tranquilidad. Nuestra marca debe transmitir:
+
+1. *Cercanía sin ser informal*
+- Profesional pero no distante
+- Ejemplo: “Te ayudamos” ✅ vs “Le asistimos” ❌
+1. *Claridad sobre complejidad*
+- Información accesible sin jerga
+- Ejemplo: “Tu seguro” ✅ vs “Su póliza contractual” ❌
+1. *Modernidad sin frialdad*
+- Digital pero humano
+- Tecnología al servicio de las personas
+1. *Confianza ganada, no impuesta*
+- Transparencia en procesos
+- Datos claros, no letra pequeña
+
+### Personalidad de Marca
+
+Si nuestra marca fuera una persona:
+
+- *Edad:* 32-38 años (madura pero no anticuada)
+- *Estilo:* Moderno casual (jeans + camisa, no traje)
+- *Tono:* Amigable profesional (tu asesor de confianza)
+- *Actitud:* Proactiva, directa, honesta
+- *No es:* Corporativa rígida, superficial trendy, complicada técnica
+
+-----
+
+## 🎨 Identidad Visual
+
+### Principios Visuales
+
+#### 1. Minimalismo Funcional
+
+- Eliminar lo innecesario
+- Cada elemento tiene propósito
+- Respiración > Saturación
+
+#### 2. Jerarquía Clara
+
+- Lo importante destaca naturalmente
+- Guiar la mirada sin forzar
+- Menos de 3 niveles de importancia
+
+#### 3. Consistencia Obsesiva
+
+- Mismo componente = misma apariencia
+- Reutilizar antes de inventar
+- Grid de 8pt no negociable
+
+#### 4. Color con Propósito
+
+- Rojo = Acción, urgencia, identidad
+- Verde = Éxito, activo, positivo
+- Naranja = Atención, pendiente
+- Gris = Información, secundario
+
+-----
+
+## 🏷️ Logo y Aplicaciones
+
+### Logo Principal
+
+*Nota:* Esta sección describe el logo conceptual. En implementaciones reales, usar assets oficiales.
+
+#### Composición
+
+
+┌─────────────────────────────┐
+│  📞  línea directa          │
+└─────────────────────────────┘
+  Icono  Logotipo
+
+- Icono: Teléfono rojo estilizado (40x40px)
+- Logotipo: "línea directa" en lowercase
+- Peso: Semibold (600)
+- Color: #2D3339 (light) / #F5F5F5 (dark)
+- Altura total: 40px
+
+
+### Variantes del Logo
+
+#### 1. Versión Completa (Preferida)
+
+
+Uso: Headers, pantallas principales
+Mínimo ancho: 160px
+Máximo ancho: 320px
+Padding alrededor: Mínimo 16px
+
+
+#### 2. Solo Isotipo (Icono)
+
+
+Uso: Favicons, avatares, espacios reducidos
+Tamaños: 16px, 32px, 48px, 64px
+Background: Transparente o #FFFFFF
+
+
+#### 3. Versión Monocromática
+
+
+Uso: Documentos impresos, fondos fotográficos
+Color único: #FFFFFF (sobre oscuro) / #2D3339 (sobre claro)
+
+
+### Área de Respeto
+
+*Espacio mínimo alrededor del logo:*
+
+
+┌─────────────────────────────────┐
+│                                 │
+│   ┌─────────────────────────┐   │ ← Altura del icono (40px)
+│   │  📞  línea directa      │   │   = área de respeto
+│   └─────────────────────────┘   │
+│                                 │
+└─────────────────────────────────┘
+
+
+No colocar elementos (texto, imágenes, botones) dentro de esta área.
+
+### Ubicación Estándar
+
+*Mobile:*
+
+- Header: Top left, 16px desde bordes
+- Footer: Centrado, 24px desde bottom
+
+*Desktop:*
+
+- Header: Top left, 32px desde bordes
+- Footer: Left, 48px desde bottom
+
+-----
+
+## 🎨 Paleta de Colores
+
+### Colores Primarios
+
+#### Rojo Principal (#E4002B)
+
+
+HEX:  #E4002B
+RGB:  228, 0, 43
+HSL:  351°, 100%, 45%
+CMYK: 0, 100, 81, 11
+
+Uso:
+✅ CTAs primarios (botones "Solicitar", "Contratar")
+✅ Links y acciones principales
+✅ Iconos activos en navegación
+✅ Progress bars y indicadores
+✅ Estados de éxito en formularios (alternativamente verde)
+
+❌ Backgrounds grandes (saturación excesiva)
+❌ Textos largos (fatiga visual)
+❌ Borders sutiles (usar versión light)
+
+
+#### Rojo Hover (#B80023)
+
+
+HEX:  #B80023
+RGB:  184, 0, 35
+HSL:  349°, 100%, 36%
+
+Uso:
+✅ Estado hover de botones primarios
+✅ Estado pressed/active
+✅ Links visitados (opcional)
+
+
+#### Rojo Light (#FF1744)
+
+
+HEX:  #FF1744
+RGB:  255, 23, 68
+HSL:  349°, 100%, 55%
+
+Uso:
+✅ Acentos sobre fondos oscuros (dark mode)
+✅ Gradientes (inicio o fin)
+✅ Glow effects sutiles
+
+
+### Colores Secundarios
+
+#### Rosa Suave (#FFE5EA)
+
+
+HEX:  #FFE5EA
+RGB:  255, 229, 234
+HSL:  349°, 100%, 95%
+
+Uso:
+✅ Backgrounds de badges
+✅ Hover states sutiles
+✅ Highlights de selección
+✅ Fondos de secciones alternadas
+
+
+#### Gris Oscuro (#2D3339)
+
+
+HEX:  #2D3339
+RGB:  45, 51, 57
+HSL:  210°, 12%, 20%
+
+Uso:
+✅ Textos principales (light mode)
+✅ Backgrounds de navegación inferior
+✅ Headers y footers oscuros
+✅ Iconos principales
+
+
+#### Gris Medio (#6B7280)
+
+
+HEX:  #6B7280
+RGB:  107, 114, 128
+HSL:  220°, 9%, 46%
+
+Uso:
+✅ Textos secundarios
+✅ Labels y metadatos
+✅ Placeholders en inputs
+✅ Iconos inactivos
+
+
+#### Gris Claro (#F5F5F5)
+
+
+HEX:  #F5F5F5
+RGB:  245, 245, 245
+HSL:  0°, 0%, 96%
+
+Uso:
+✅ Backgrounds alternos
+✅ Separadores sutiles
+✅ Hover states en cards
+✅ Disabled states
+
+
+### Colores de Estado
+
+#### Success (Verde) (#4CAF50)
+
+
+HEX:  #4CAF50
+RGB:  76, 175, 80
+HSL:  122°, 39%, 49%
+
+Uso:
+✅ Confirmaciones exitosas
+✅ Badges "Activa", "Completado"
+✅ Checkmarks e iconos de éxito
+✅ Progress completo
+
+
+#### Warning (Naranja) (#FF9800)
+
+
+HEX:  #FF9800
+RGB:  255, 152, 0
+HSL:  36°, 100%, 50%
+
+Uso:
+✅ Alertas moderadas
+✅ Badges "En renovación", "Pendiente"
+✅ Estados de atención
+✅ Información importante pero no crítica
+
+
+#### Error (Rojo Error) (#F44336)
+
+
+HEX:  #F44336
+RGB:  244, 67, 54
+HSL:  4°, 90%, 58%
+
+Uso:
+✅ Errores en formularios
+✅ Mensajes de fallo
+✅ Acciones destructivas (eliminar)
+✅ Estados críticos
+
+
+#### Info (Azul) (#2196F3)
+
+
+HEX:  #2196F3
+RGB:  33, 150, 243
+HSL:  207°, 90%, 54%
+
+Uso:
+✅ Mensajes informativos neutros
+✅ Tips y ayuda contextual
+✅ Links secundarios (opcional)
+
+
+### Dark Mode Palette
+
+#### Backgrounds Oscuros
+
+
+Primary:   #1A1D23 (RGB: 26, 29, 35)
+Secondary: #2D3339 (RGB: 45, 51, 57)
+Tertiary:  #3A3F47 (RGB: 58, 63, 71)
+
+
+#### Textos en Dark
+
+
+Primary:   #F5F5F5 (casi blanco)
+Secondary: #B0B8C1 (gris claro)
+Tertiary:  #6B7280 (gris medio)
+
+
+#### Bordes en Dark
+
+
+Border:    #3A3F47 (gris oscuro)
+Divider:   #2D3339 (muy oscuro)
+
+
+### Gradientes
+
+#### Gradiente Primario (Rojo)
+
+
+Linear gradient: 90deg
+From: #E4002B
+To:   #FF1744
+
+Uso: Progress bars, decoraciones, overlays
+
+
+#### Gradiente de Overlay (Imágenes)
+
+
+Linear gradient: 180deg (top to bottom)
+0%:   transparent
+50%:  rgba(0, 0, 0, 0.3)
+100%: rgba(0, 0, 0, 0.7)
+
+Uso: Overlays sobre hero images
+
+
+### Accesibilidad de Color
+
+*Contraste mínimo obligatorio:*
+
+|Combinación          |Ratio |Cumple WCAG     |
+|---------------------|------|----------------|
+|#E4002B sobre #FFFFFF|6.1:1 |✅ AA Large / AAA|
+|#2D3339 sobre #FFFFFF|13.6:1|✅ AAA           |
+|#6B7280 sobre #FFFFFF|4.6:1 |✅ AA            |
+|#F5F5F5 sobre #1A1D23|13.1:1|✅ AAA           |
+
+*Herramientas recomendadas:*
+
+- WebAIM Contrast Checker
+- Stark (plugin Figma)
+- Chrome DevTools Accessibility Panel
+
+-----
+
+## 📝 Tipografía
+
+### Sistema de Fuentes
+
+#### Font Stack (Prioridad)
+
+css
+font-family: 
+  -apple-system,           /* macOS/iOS nativo */
+  BlinkMacSystemFont,      /* macOS Chrome */
+  'SF Pro Display',        /* macOS/iOS explícito */
+  'Inter',                 /* Backup moderno */
+  'Segoe UI',              /* Windows */
+  Roboto,                  /* Android */
+  'Helvetica Neue',        /* Fallback clásico */
+  Arial,                   /* Fallback universal */
+  sans-serif;              /* Genérico */
+
+
+*Razón:* Usar fuentes nativas del sistema maximiza rendimiento y familiaridad.
+
+### Escala Tipográfica
+
+#### Móvil (Base)
+
+|Nivel     |Tamaño|Weight|Line Height|Uso             |
+|----------|------|------|-----------|----------------|
+|H1        |32px  |700   |40px       |Hero titles     |
+|H2        |24px  |600   |32px       |Page titles     |
+|H3        |20px  |600   |28px       |Section headers |
+|H4        |18px  |500   |24px       |Card titles     |
+|Body Large|18px  |400   |28px       |Important text  |
+|Body      |16px  |400   |24px       |Standard text   |
+|Body Small|14px  |400   |20px       |Secondary text  |
+|Caption   |12px  |400   |16px       |Labels, metadata|
+
+#### Desktop (Escalado)
+
+|Nivel|Tamaño|Weight|Line Height|
+|-----|------|------|-----------|
+|H1   |40px  |700   |48px       |
+|H2   |28px  |600   |36px       |
+|H3   |24px  |600   |32px       |
+|H4   |20px  |500   |28px       |
+|Body |16px  |400   |24px       |
+
+### Pesos de Fuente
+
+*Paleta de pesos:*
+
+- *400 Regular:* Cuerpo de texto, párrafos
+- *500 Medium:* Labels, metadatos, navegación
+- *600 Semibold:* Subtítulos, énfasis medio
+- *700 Bold:* Títulos principales, CTAs
+
+*No usar:*
+
+- 100-300 (Thin/Light): Pobre legibilidad
+- 800-900 (Heavy/Black): Demasiado agresivo
+
+### Letter Spacing
+
+
+H1-H2 (>28px): -0.02em  (apretado, elegante)
+H3-H4 (18-24px): 0      (estándar)
+Body (14-16px): 0       (estándar)
+Captions (<14px): +0.5px (expandido, legibilidad)
+ALL CAPS: +1px          (siempre expandir mayúsculas)
+
+
+### Jerarquía en Práctica
+
+#### Ejemplo: Card de Póliza
+
+
+┌────────────────────────────┐
+│ SEGURO DE HOGAR            │ ← Caption, 12px, 500, #6B7280, ALL CAPS +1px
+│                            │
+│ C/ San Jenaro              │ ← H3, 20px, 600, #2D3339
+│ Nº 17 · BAJº A · *****     │ ← Body Small, 14px, 400, #6B7280
+│                            │
+│ ● En renovación            │ ← Caption, 12px, 500, #FF9800
+└────────────────────────────┘
+
+
+### Casos Especiales
+
+#### Números Destacados
+
+
+Font-size: 32-48px
+Weight: 700
+Letter-spacing: -1px
+Uso: Métricas, precios, cantidades importantes
+
+
+#### Links
+
+
+Font-size: Heredar contexto (Body 16px típicamente)
+Weight: 500 (ligeramente más grueso)
+Color: #E4002B
+Text-decoration: none (default), underline (hover)
+
+
+-----
+
+## 🎭 Iconografía
+
+### Sistema de Iconos
+
+*Librería:* Heroicons v2 (MIT License)
+
+- Repo: https://heroicons.com
+- Descarga: NPM o CDN directo
+- Dos estilos: Outline (default), Solid (activos)
+
+### Tamaños Estándar
+
+|Tamaño |Pixels|Uso                                |
+|-------|------|-----------------------------------|
+|Tiny   |16px  |Inline con texto pequeño           |
+|Small  |20px  |Botones secundarios, badges        |
+|Default|24px  |*Estándar* - Navegación, acciones|
+|Large  |32px  |Headers, destacados                |
+|XL     |48px  |Iconos decorativos, placeholders   |
+
+### Iconos del Proyecto
+
+#### Seguros
+
+
+🏠 Hogar:    home (outline)
+🚗 Coche:    truck (outline) o car (custom)
+🏍️ Moto:     motorcycle (custom o Lightning)
+❤️ Salud:    heart (outline)
+🐾 Mascotas: paw (custom - buscar en Heroicons extended)
+
+
+#### Navegación
+
+
+🏠 Home:           home (outline/solid)
+📋 Documentos:     document-text (outline/solid)
+👤 Perfil:         user-circle (outline/solid)
+📊 Estadísticas:   chart-bar (outline/solid)
+⚙️ Configuración:  cog-6-tooth (outline/solid)
+
+
+#### Acciones
+
+
+➜ Ver más:        chevron-right (outline, 20px)
+✓ Confirmar:      check (solid)
+✕ Cerrar:         x-mark (outline)
++ Añadir:         plus (outline)
+🔔 Notificación:  bell (outline/solid)
+
+
+### Tratamiento de Iconos
+
+#### Colores
+
+
+Default:     Heredar del texto (#2D3339 light / #F5F5F5 dark)
+Activo:      #E4002B
+Secundario:  #6B7280
+Success:     #4CAF50
+Error:       #F44336
+
+
+#### Background Circular (Cards de Lista)
+
+
+Circle size: 48px
+Background:  #FFE5EA (light) / rgba(228,0,43,0.1) (dark)
+Icon size:   24px
+Icon color:  #E4002B
+
+
+#### Estados
+
+
+Idle:    opacity 1
+Hover:   opacity 0.8, scale 1.05
+Active:  opacity 1, scale 0.95
+
+
+### Iconos Custom (Si se Necesitan)
+
+*Especificaciones:*
+
+- Stroke width: 1.5-2px
+- Corners: Rounded (2px radius)
+- Style: Minimalista, geométrico
+- Viewbox: 24x24
+- Color: Currentcolor (heredar)
+
+-----
+
+## 📸 Fotografía e Imágenes
+
+### Estilo Fotográfico
+
+#### Características
+
+- *Luz natural:* Preferir luz de día, suave
+- *Tonos cálidos:* Evitar fríos azulados
+- *Enfoque:* Nítido, sin blur excesivo
+- *Composición:* Espacios respirados, no saturados
+- *Personas:* Naturales, no excesivamente posadas
+
+#### Temas Principales
+
+- Hogares modernos (arquitectura limpia)
+- Vehículos en contextos reales
+- Familias naturales (no stock evidentes)
+- Espacios seguros y acogedores
+
+### Tratamiento de Imágenes
+
+#### Hero Images (Cards)
+
+
+Dimensiones mínimas: 750x500px (1.5:1 ratio)
+Formato: WebP (fallback JPG)
+Calidad: 80-85% (balance peso/calidad)
+Overlay: Linear gradient bottom to top
+Filtro: Desaturación ligera (90-95% saturation)
+
+
+#### Thumbnails
+
+
+Dimensiones: 240x240px (1:1 ratio)
+Formato: WebP
+Calidad: 75%
+Object-fit: cover
+Border-radius: 12px
+
+
+#### Backgrounds
+
+
+Dimensiones: Según viewport (mínimo 1920x1080)
+Blur: 10-20px (si va detrás de texto)
+Opacity: 30-50% (si necesita menos presencia)
+
+
+### Bancos de Imágenes Recomendados
+
+*Free:*
+
+- Unsplash (filtrar por “home”, “car”, “family”)
+- Pexels
+- Pixabay (revisar licencia)
+
+*Premium:*
+
+- Adobe Stock
+- Shutterstock
+- Getty Images
+
+*Filtros de búsqueda:*
+
+- “Modern home exterior”
+- “Family at home natural light”
+- “Car lifestyle”
+- NO buscar “insurance” (demasiado stock)
+
+-----
+
+## 🧩 Componentes UI
+
+### Botones
+
+#### Jerarquía de Botones
+
+*Primario:*
+
+
+Background: #E4002B
+Text: #FFFFFF, 16px, 600
+Padding: 16px V, 32px H
+Border-radius: 24px (pill)
+Height: 48px mínimo
+Shadow: 0 2px 8px rgba(228,0,43,0.2)
+
+Uso: 1 por pantalla máximo (CTA principal)
+
+
+*Secundario:*
+
+
+Background: transparent
+Border: 2px solid #E4002B
+Text: #E4002B, 16px, 600
+Padding: 14px V, 30px H
+Border-radius: 24px
+Height: 48px
+
+Uso: Acciones alternativas (Cancelar, Volver)
+
+
+*Terciario/Ghost:*
+
+
+Background: transparent
+Text: #E4002B, 16px, 500
+Padding: 12px V, 16px H
+Border-radius: 8px
+Height: 40px
+
+Uso: Acciones menores (Editar, Ver más)
+
+
+### Forms
+
+#### Input
+
+
+Height: 48px
+Padding: 0 16px
+Border: 1px solid #E5E7EB
+Border-radius: 8px
+Font: 16px, 400
+Focus: Border 2px #E4002B, box-shadow 0 0 0 3px rgba(228,0,43,0.1)
+
+
+#### Label
+
+
+Font: 12px, 500, #6B7280
+Margin-bottom: 4px
+Always visible (no floating labels)
+
+
+### Cards
+
+#### Dimensiones Mobile
+
+
+Width: 100% - 32px (padding lateral)
+Min-height: 120px
+Padding: 16-24px
+Border-radius: 16px
+Shadow: 0 1px 3px rgba(0,0,0,0.1)
+
+
+#### Spacing
+
+
+Gap entre cards: 16px
+Margin de sección: 32px vertical
+
+
+-----
+
+## 🗣️ Tono y Voz
+
+### Principios de Comunicación
+
+#### 1. Claridad > Elegancia
+
+
+✅ "Tu seguro vence el 15 de agosto"
+❌ "Su póliza finaliza su vigencia el día 15/08"
+
+
+#### 2. Tú, No Usted
+
+
+✅ "Puedes renovar en 3 clics"
+❌ "Puede Ud. renovar mediante nuestra plataforma"
+
+
+#### 3. Activo, No Pasivo
+
+
+✅ "Añadimos cobertura de cristales"
+❌ "La cobertura de cristales ha sido añadida"
+
+
+#### 4. Verbos Concretos
+
+
+✅ "Contrata", "Renueva", "Solicita"
+❌ "Gestiona", "Realiza trámite", "Procede"
+
+
+### Copy por Contexto
+
+#### Botones (CTAs)
+
+
+✅ "Solicitar grúa"
+✅ "Renovar póliza"
+✅ "Abrir parte"
+✅ "Ver coberturas"
+
+❌ "Hacer click aquí"
+❌ "Enviar"
+❌ "OK"
+❌ "Aceptar y continuar con el proceso"
+
+
+#### Mensajes de Error
+
+
+✅ "No pudimos guardar los cambios. Comprueba tu conexión."
+❌ "Error 500: Internal Server Error"
+
+✅ "Este campo es obligatorio"
+❌ "Field required"
+
+✅ "Introduce un email válido (ej: tu@email.com)"
+❌ "Invalid format"
+
+
+#### Mensajes de Éxito
+
+
+✅ "✓ Grúa solicitada. Te llamamos en 15 minutos."
+❌ "Su solicitud ha sido procesada correctamente."
+
+✅ "✓ Póliza renovada hasta el 15/08/2027"
+❌ "Operación completada con éxito"
+
+
+#### Empty States
+
+
+✅ "Aún no tienes partes abiertos
+    Cuando tengas un siniestro, aparecerán aquí"
+❌ "No hay registros disponibles"
+
+
+-----
+
+## 📱 Aplicaciones
+
+### App Móvil (iOS/Android)
+
+#### Splash Screen
+
+
+Background: #E4002B
+Logo: Centrado, blanco, 80px
+Duración: 1-2 segundos máximo
+Transición: Fade out a Home
+
+
+#### Push Notifications
+
+
+Título: Max 40 caracteres
+Body: Max 120 caracteres
+Icon: Logo en círculo, 192x192px
+Tono: Directo pero amigable
+
+Ejemplo:
+Título: "Tu póliza vence en 7 días"
+Body: "Renueva ahora y mantén tu cobertura"
+
+
+#### App Icon
+
+
+iOS: 1024x1024px (sin esquinas redondeadas)
+Android: 512x512px (adaptive icon)
+Background: #E4002B
+Foreground: Isotipo blanco, centrado
+Safe area: 80% del canvas (padding 10% alrededor)
+
+
+### Web Responsive
+
+#### Breakpoints
+
+
+Mobile:  < 640px  (375px diseño base)
+Tablet:  640-1024px
+Desktop: > 1024px (max-width content: 1200px)
+
+
+#### Meta Tags Esenciales
+
+html
+<meta name="theme-color" content="#E4002B">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+
+
+### Email Templates
+
+#### Header
+
+
+Background: #FFFFFF
+Logo: Left aligned, 32px alto
+Padding: 24px horizontal
+Border-bottom: 1px solid #E5E7EB
+
+
+#### Body
+
+
+Max-width: 600px
+Padding: 32px
+Font: 16px, line-height 24px
+Background: #F5F5F5
+
+
+#### CTA Button
+
+
+Background: #E4002B
+Text: #FFFFFF, 16px, 600
+Padding: 16px 32px
+Border-radius: 24px
+Display: inline-block
+Text-decoration: none
+
+
+-----
+
+## 🚫 Usos Prohibidos
+
+### Logo
+
+❌ *Nunca hacer:*
+
+1. Cambiar proporciones del logo (estirar/comprimir)
+1. Rotar el logo
+1. Añadir efectos (sombras externas, bevels, glows)
+1. Cambiar colores del isotipo
+1. Colocar sobre fondos con bajo contraste
+1. Usar versiones de baja resolución
+1. Recrear el logo con otras fuentes
+
+### Colores
+
+❌ *Nunca:*
+
+1. Inventar nuevos colores fuera de la paleta
+1. Usar gradientes no especificados
+1. Combinar más de 3 colores primarios en un componente
+1. Usar rojo principal (#E4002B) como background grande
+1. Texto negro puro (#000000) o blanco puro (#FFFFFF) como backgrounds
+
+### Tipografía
+
+❌ *Nunca:*
+
+1. Usar más de 2 font-families en una interfaz
+1. Mezclar más de 3 pesos en un componente
+1. Textos menores de 12px (salvo casos excepcionales)
+1. ALL CAPS en párrafos largos
+1. Line-height menor a 1.2 o mayor a 1.8
+
+### Componentes
+
+❌ *Nunca:*
+
+1. Botones menores de 44x44px en mobile
+1. Bordes de más de 3px de grosor
+1. Sombras exageradas (blur > 32px)
+1. Animaciones mayores a 500ms
+1. Crear componentes nuevos sin validar con el sistema
+
+-----
+
+## 📏 Sistema de Espaciado Completo
+
+### Grid de 8pt
+
+*Todos los valores deben ser múltiplos de 8:*
+
+
+4px   - Micro spacing (solo casos excepcionales)
+8px   - Extra pequeño
+12px  - Pequeño
+16px  - Estándar (base)
+24px  - Medio
+32px  - Grande
+40px  - Extra grande
+48px  - XXL
+64px  - Sección
+96px  - Mega sección
+128px - Separación mayor
+
+
+### Spacing por Contexto
+
+|Contexto                   |Spacing                      |
+|---------------------------|-----------------------------|
+|Entre letras de un texto   |0 (inherit)                  |
+|Entre palabra y palabra    |4px (natural)                |
+|Entre líneas de texto      |1.5x font-size               |
+|Entre elementos inline     |8px                          |
+|Entre elementos de lista   |12-16px                      |
+|Padding de botón           |16px V, 24-32px H            |
+|Padding de card            |16-24px                      |
+|Margin entre secciones     |32-48px                      |
+|Padding de página (lateral)|16px (mobile), 32px (desktop)|
+
+-----
+
+## ✅ Checklist de Compliance
+
+### Para Diseñadores
+
+- [ ] Paleta de colores respetada (RGB exactos)
+- [ ] Tipografía correcta (familia, tamaños, pesos)
+- [ ] Espaciado múltiplos de 8px
+- [ ] Contraste mínimo 4.5:1 en textos
+- [ ] Logo con área de respeto
+- [ ] Iconos de Heroicons v2
+- [ ] Componentes del sistema (no custom)
+- [ ] Dark mode funcional
+- [ ] Responsive (mobile, tablet, desktop)
+
+### Para Desarrolladores
+
+- [ ] Colores en variables CSS/SCSS
+- [ ] Font-stack completo implementado
+- [ ] Grid de 8pt en Tailwind config
+- [ ] Componentes reutilizables
+- [ ] Modo oscuro con clase .dark
+- [ ] Animaciones <500ms
+- [ ] Accesibilidad WCAG 2.1 AA
+- [ ] Assets optimizados (WebP, lazy load)
+- [ ] Meta tags presentes
+- [ ] Touch targets mínimo 44px
+
+### Para Contenido
+
+- [ ] Tono “tú” (no “usted”)
+- [ ] Verbos activos
+- [ ] Frases cortas (<20 palabras)
+- [ ] Sin jerga técnica innecesaria
+- [ ] CTAs claros y concretos
+- [ ] Mensajes de error útiles
+- [ ] Copy en español (no mezclar idiomas)
+
+-----
+
+## 📚 Recursos y Herramientas
+
+### Diseño
+
+- *Figma:* Plantillas de componentes
+- *Heroicons:* https://heroicons.com
+- *Coolors:* Generador de paletas (para validar)
+- *Stark:* Plugin accesibilidad
+
+### Desarrollo
+
+- *Tailwind CSS:* Framework CSS
+- *Alpine.js:* Interactividad ligera
+- *Heroicons React:* Componentes NPM
+
+### Assets
+
+- *Logo:* /assets/logo/ (SVG, PNG 1x 2x 3x)
+- *Iconos:* /assets/icons/
+- *Imágenes:* /assets/images/
+
+### Testing
+
+- *WAVE:* Accesibilidad web
+- *Lighthouse:* Performance y SEO
+- *BrowserStack:* Testing cross-browser
+
+-----
+
+## 🔄 Versionado y Evolución
+
+### Historial
+
+- *v1.0 (Feb 2026):* Primera versión completa
+  - Paleta de colores definida
+  - Sistema tipográfico
+  - Componentes base
+  - Tono de voz
+
+### Próximas Versiones
+
+- *v1.1:* Animaciones complejas, ilustraciones
+- *v1.2:* Modo oscuro mejorado
+- *v2.0:* Expansión internacional, multi-idioma
+
+### Proceso de Actualización
+
+1. Propuesta de cambio (con justificación)
+1. Revisión por equipo de diseño
+1. Testing en prototipo
+1. Aprobación stakeholders
+1. Actualización de brandbook
+1. Comunicación a equipos
+1. Implementación gradual
+
+-----
+
+## 📞 Contacto y Soporte
+
+### Preguntas sobre el Brandbook
+
+*Diseño Visual:*
+
+- Lead Designer: [Nombre]
+- Email: design@proyecto.com
+
+*Implementación Técnica:*
+
+- Tech Lead: [Nombre]
+- Email: dev@proyecto.com
+
+*Contenido y Copy:*
+
+- Content Lead: [Nombre]
+- Email: content@proyecto.com
+
+### Reportar Inconsistencias
+
+Si encuentras:
+
+- Violaciones del brandbook en producto
+- Componentes sin documentar
+- Ambigüedades en las guías
+
+Abrir issue en: [Repositorio GitHub del proyecto]
+
+-----
+
+## 💡 Principio Final
+
+> “Un brandbook es tan bueno como su adopción. No es un libro de reglas para limitar creatividad, es un lenguaje común para amplificar impacto.”
+
+*By Kike Cid aplicado a marca:*
+
+> “Consistencia no es monotonía. Es la diferencia entre ruido y sinfonía.”
+
+-----
+
+*Fin del Brandbook v1.0*
+
+-----
+
+*Última actualización:* Febrero 2026  
+*Próxima revisión:* Agosto 2026  
+*Mantenido por:* Equipo de Diseño Producto

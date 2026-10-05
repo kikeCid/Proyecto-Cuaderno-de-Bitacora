@@ -1,0 +1,671 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Contratación y Gestión de Usuarios (GUS)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles_usuarios.css">
+
+    <style>
+        /* ================================================
+           ESTILOS ESPECÍFICOS — FLUJO OPERATIVO GUS
+           ================================================ */
+
+        .view-section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px 100px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 30px;
+            letter-spacing: -0.03em;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: #0066cc;
+            border-radius: 2px;
+        }
+
+        /* ---- FASES TIMELINE CARDS ---- */
+        .phases-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .phase-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 35px 40px;
+            position: relative;
+            box-shadow: 0 4px 20px var(--shadow-color);
+            transition: all 0.3s ease;
+        }
+
+        .phase-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px var(--shadow-color);
+            border-color: #0066cc;
+        }
+
+        .phase-badge {
+            position: absolute;
+            top: -15px;
+            left: 40px;
+            background: #0066cc;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 4px 10px rgba(0, 102, 204, 0.3);
+        }
+
+        .phase-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .phase-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .phase-content.single-col {
+            grid-template-columns: 1fr;
+        }
+
+        @media (max-width: 768px) {
+            .phase-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .info-block {
+            background: var(--bg-mesh);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .info-block h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-block h4 svg {
+            width: 20px;
+            height: 20px;
+            color: #0066cc;
+        }
+
+        .info-block p,
+        .info-block li {
+            font-size: 0.9rem;
+            color: var(--text-sec);
+            line-height: 1.6;
+        }
+
+        .info-block ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .info-block li {
+            margin-bottom: 8px;
+        }
+
+        /* ---- PUNTO CRÍTICO ---- */
+        .critical-alert {
+            background: rgba(255, 59, 48, 0.1);
+            border-left: 4px solid #ff3b30;
+            padding: 15px 20px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 15px;
+        }
+
+        .critical-alert strong {
+            color: #ff3b30;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .critical-alert p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+
+        /* ---- OPTIONS LIST ---- */
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .option-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            transition: all 0.2s;
+        }
+
+        .option-item:hover {
+            border-color: var(--text-light);
+        }
+
+        .option-icon {
+            width: 40px;
+            height: 40px;
+            background: #f0f0f5;
+            color: #0066cc;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+
+        .option-text h5 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin: 0 0 6px 0;
+        }
+
+        .option-text p {
+            font-size: 0.85rem;
+            color: var(--text-sec);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* ---- TABS FOR ROLES ---- */
+        .roles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .role-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .role-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 102, 204, 0.1);
+            color: #0066cc;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+
+        .role-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .role-name {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-main);
+            background: var(--bg-mesh);
+            padding: 4px 10px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .role-desc {
+            font-size: 0.85rem;
+            color: var(--text-sec);
+            line-height: 1.5;
+        }
+
+        /* ---- DIAGRAMA VISUAL ---- */
+        .diagram-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 40px;
+            box-shadow: 0 10px 40px var(--shadow-color);
+            overflow-x: auto;
+            text-align: center;
+        }
+
+        [data-theme="dark"] .diagram-container {
+            background: #ffffff;
+            /* Mermaid can be tricky with dark mode, force light bg for clarity or configure dark mode variables */
+            border: none;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../local_styles.css">
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper">
+        <a href="index.html" class="nav-btn" title="Volver atrás">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+        </a>
+        <div class="nav-divider"></div>
+        <div class="nav-breadcrumb">
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item" title="Inicio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span class="nav-breadcrumb-sep"></span>
+            <a href="index.html" class="nav-breadcrumb-item">Gestión de Usuarios</a>
+            <span class="nav-breadcrumb-sep"></span>
+            <span class="nav-breadcrumb-item current">Sistema de Contratación</span>
+        </div>
+    </nav>
+
+    <!-- THEME TOGGLE -->
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label">MODO OSCURO</span>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-checkbox" onchange="toggleTheme()">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="bg-mesh"></div>
+
+    <main class="container view-section">
+        <!-- HERO SEGMENT -->
+        <header class="hero" style="text-align: left; padding-top: 0;">
+            <span class="hero-badge">Flujos Operativos</span>
+            <span class="hero-badge-local">Recurso en Local</span>
+            <h1 style="font-size: 3.5rem; line-height: 1.1;">Sistema de Contratación y<br><span>Gestión de Usuarios
+                    (GUS)</span></h1>
+            <p style="max-width: 800px; margin: 20px 0 0 0; text-align: left;">
+                Esta operativa describe el ciclo de vida del alta de un empleado, desde su contratación hasta la
+                provisión de sus accesos tecnológicos. El sistema maestro donde reside la verdad de los datos del
+                empleado es PeopleSoft (PS), la plataforma central de Recursos Humanos.
+            </p>
+        </header>
+
+        <!-- FASES -->
+        <div class="phases-grid">
+
+            <!-- FASE 1 -->
+            <div class="phase-card">
+                <div class="phase-badge">Fase 1</div>
+                <h3 class="phase-title">Proceso de Contratación y Alta en PeopleSoft</h3>
+                <div class="phase-content">
+                    <div class="info-block">
+                        <h4>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            Vía Automática (TalentLink - PeopleSoft)
+                        </h4>
+                        <p>TalentLink es la herramienta utilizada por el equipo de Selección para gestionar candidatos.
+                            Cuando un candidato es marcado como "contratado", pasa a una cola de contratación (Queue)
+                            que puede ser individual, grupal o para becarios.</p>
+                        <p>El equipo de Selección solicita a IT la ejecución de un servicio interno que lee esta cola y
+                            vuelca los datos automáticamente en PeopleSoft.</p>
+
+                        <div class="critical-alert">
+                            <strong>Punto Crítico</strong>
+                            <p>Para que la automatización funcione, la información como el código de área o departamento
+                                debe ser <b>exactamente idéntica</b> a la configurada en PeopleSoft. Si hay
+                                discrepancias, el proceso falla y Selección debe corregir el dato manualmente.</p>
+                        </div>
+                    </div>
+                    <div class="info-block">
+                        <h4>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            Vía Manual
+                        </h4>
+                        <p>Aplica a procesos de selección que no utilizan TalentLink. En este escenario, el equipo de
+                            Selección se coordina con el equipo de "Atención Personas".</p>
+                        <p>Posteriormente, Atención Personas realiza el registro y alta del empleado directamente a mano
+                            en el sistema maestro PeopleSoft.</p>
+                        <p><i>Nota: La gestión y alta de las empresas del grupo se realiza desde PeopleSoft por el
+                                equipo de RRHH - Procesos.</i></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FASE 2 -->
+            <div class="phase-card">
+                <div class="phase-badge">Fase 2</div>
+                <h3 class="phase-title">Creación de Identidad Digital</h3>
+                <div class="phase-content single-col">
+                    <div class="info-block">
+                        <p>Independientemente de si el alta fue manual o automática, el registro estructural en
+                            PeopleSoft dispara el inicio del desarrollo a medida de Gestión de Usuarios (GUS),
+                            gestionado directamente por IT.</p>
+                        <ul style="margin-top: 15px;">
+                            <li>Se lanza una orden de creación de usuario en el <strong>Directorio Activo (DC
+                                    Microsoft)</strong>, el sistema fundamental que permite al usuario iniciar sesión en
+                                los equipos de la compañía.</li>
+                            <li><strong>Nomenclatura:</strong> El identificador se construye con las siglas de la
+                                empresa (ej. "LDA" para Línea Directa Aseguradora) seguidas de tres iniciales de nombre
+                                y apellidos. Si el identificador ya existe, el sistema añade un número secuencial (ej.
+                                LDAABC5) para evitar duplicados.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FASE 3 -->
+            <div class="phase-card">
+                <div class="phase-badge">Fase 3</div>
+                <h3 class="phase-title">Aprovisionamiento de Permisos y Herramientas</h3>
+                <p style="color: var(--text-sec); margin-top: -10px; margin-bottom: 25px; font-size: 0.95rem;">Una vez
+                    creada la identidad, se solicitan los permisos para que el empleado pueda trabajar. Este proceso se
+                    divide en diferentes automatismos:</p>
+
+                <div class="options-list">
+                    <div class="option-item">
+                        <div class="option-icon">A</div>
+                        <div class="option-text">
+                            <h5>Plantillas Automáticas en PS (Preautorizadas por Posición)</h5>
+                            <p>En PeopleSoft existe un módulo desarrollado a medida donde GUS administra plantillas de
+                                permisos. Si el usuario tiene asignada una posición con plantilla, se genera una
+                                petición de "alta nueva" preautorizada. Llega directo a IT para que aplique el acceso,
+                                sin requerir aprobaciones humanas. Esta solicitud es de gestión, no ejecuta cambios
+                                técnicos por sí sola.</p>
+                        </div>
+                    </div>
+                    <div class="option-item">
+                        <div class="option-icon">B</div>
+                        <div class="option-text">
+                            <h5>Autoprovisión vía OIM (Oracle Identity Manager)</h5>
+                            <p>OIM es el sistema técnico encargado de aplicar automáticamente los permisos en
+                                herramientas. Un servicio de PeopleSoft avisa a OIM del nuevo alta, y si el empleado
+                                encaja en una plantilla de "Posición + Área", OIM autoprovisiona los recursos técnicos
+                                al instante y notifica por correo a los gestores de permisos. Si no hay plantilla, no se
+                                aprovisiona nada por esta vía.</p>
+                        </div>
+                    </div>
+                    <div class="option-item">
+                        <div class="option-icon">C</div>
+                        <div class="option-text">
+                            <h5>Sin Plantilla (Flujo Manual)</h5>
+                            <p>Si la posición del empleado no tiene plantilla predefinida, el sistema genera una
+                                solicitud vacía. Los gestores de permisos del área deben solicitar manualmente todos los
+                                recursos necesarios (portátil, licencias Microsoft, acceso a edificios, etc.).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FASE 4 -->
+            <div class="phase-card">
+                <div class="phase-badge">Fase 4</div>
+                <h3 class="phase-title">Modificaciones y Solicitudes Adicionales</h3>
+                <div class="phase-content single-col">
+                    <div class="info-block" style="display: flex; gap: 20px; align-items: center;">
+                        <div
+                            style="flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 10px; width: 80px;">
+                            <div
+                                style="width: 40px; height: 40px; background: #0066cc; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">
+                                1</div>
+                            <div style="width: 2px; height: 30px; background: var(--border-color);"></div>
+                            <div
+                                style="width: 40px; height: 40px; background: #0066cc; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">
+                                2</div>
+                            <div style="width: 2px; height: 30px; background: var(--border-color);"></div>
+                            <div
+                                style="width: 40px; height: 40px; background: #0066cc; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">
+                                3</div>
+                        </div>
+                        <div
+                            style="display: flex; flex-direction: column; justify-content: space-between; height: 100%; gap: 20px;">
+                            <div>
+                                <h5 style="margin: 0 0 5px; font-size: 1rem; color: var(--text-main);">1. Solicitud</h5>
+                                <p style="margin: 0; font-size: 0.85rem; color: var(--text-sec);">El responsable de
+                                    permisos del área (perfil GUSU) solicita la modificación o nuevo permiso cuando un
+                                    usuario necesita accesos adicionales a los de su plantilla.</p>
+                            </div>
+                            <div>
+                                <h5 style="margin: 0 0 5px; font-size: 1rem; color: var(--text-main);">2. Autorización
+                                </h5>
+                                <p style="margin: 0; font-size: 0.85rem; color: var(--text-sec);">Cada recurso o sistema
+                                    tecnológico tiene asignada un "Área Autorizadora". Ésta evalúa y aprueba o deniega
+                                    la petición de acceso.</p>
+                            </div>
+                            <div>
+                                <h5 style="margin: 0 0 5px; font-size: 1rem; color: var(--text-main);">3. Aplicación
+                                </h5>
+                                <p style="margin: 0; font-size: 0.85rem; color: var(--text-sec);">Una vez autorizado, IT
+                                    recibe la orden, aplica técnicamente el permiso, cierra la petición y el sistema
+                                    envía un correo de confirmación al usuario.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- END PHASES GRID -->
+
+        <!-- ROLES -->
+        <h2 class="section-title">Roles y Notificaciones</h2>
+        <div class="roles-grid">
+            <div class="role-card">
+                <div class="role-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="8.5" cy="7" r="4"></circle>
+                        <polyline points="17 11 19 13 23 9"></polyline>
+                    </svg>
+                </div>
+                <div class="role-name">LD_GUSU_GESTOR</div>
+                <div class="role-desc">Usuarios de las distintas áreas de negocio autorizados para solicitar permisos y
+                    recursos para los empleados de su entorno.</div>
+            </div>
+
+            <div class="role-card">
+                <div class="role-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                </div>
+                <div class="role-name">LD_GUSU_AUTORIZADOR</div>
+                <div class="role-desc">Usuarios con potestad exclusiva para aprobar o denegar los recursos vinculados
+                    directamente a su Área Autorizadora.</div>
+            </div>
+
+            <div class="role-card">
+                <div class="role-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3zm-8.27 4a2 2 0 0 1-3.46 0">
+                        </path>
+                    </svg>
+                </div>
+                <div class="role-name">Notificaciones Globales</div>
+                <div class="role-desc">Roles informados corporativamente tras las nuevas contrataciones para
+                    sincronización: <code>LD_INFO_COMPEN_GNRAL</code>, <code>LD_LEGAL_1</code>,
+                    <code>LD_RECEPCION</code>, <code>LD_TELECO_TARIF</code>, <code>LD_COMPEN_0</code>.
+                </div>
+            </div>
+        </div>
+
+
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portal de Gestión de Proyectos | Sistema Portable de Información</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const checkbox = document.getElementById('theme-checkbox');
+            const isDark = checkbox.checked;
+
+            if (isDark) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const checkbox = document.getElementById('theme-checkbox');
+
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                if (checkbox) checkbox.checked = true;
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                if (checkbox) checkbox.checked = false;
+            }
+        }
+
+        // BREADCRUMB MANAGER - SMART COLLAPSE
+        function initBreadcrumbLogic() {
+            const breadcrumb = document.querySelector('.nav-breadcrumb');
+            if (!breadcrumb) return;
+
+            const items = Array.from(breadcrumb.querySelectorAll('.nav-breadcrumb-item:not(.current)'));
+            const separators = Array.from(breadcrumb.querySelectorAll('.nav-breadcrumb-sep'));
+
+            if (items.length > 3) {
+                const toCollapse = items.slice(1, -1);
+
+                const trigger = document.createElement('span');
+                trigger.className = 'nav-breadcrumb-item collapsed-trigger';
+                trigger.innerHTML = '...';
+                trigger.title = 'Ver más niveles';
+
+                const dropdown = document.createElement('div');
+                dropdown.className = 'breadcrumb-dropdown';
+
+                toCollapse.forEach((item, index) => {
+                    const link = document.createElement('a');
+                    link.href = item.href || '#';
+                    link.className = 'breadcrumb-dropdown-item';
+                    link.textContent = item.textContent || item.title || 'Nivel ' + (index + 2);
+                    dropdown.appendChild(link);
+
+                    item.style.display = 'none';
+                    const sepIndex = items.indexOf(item);
+                    if (separators[sepIndex]) {
+                        separators[sepIndex].style.display = 'none';
+                    }
+                });
+
+                trigger.appendChild(dropdown);
+                items[0].insertAdjacentElement('afterend', trigger);
+
+                const newSep = document.createElement('span');
+                newSep.className = 'nav-breadcrumb-sep';
+                newSep.textContent = '›';
+                trigger.insertAdjacentElement('afterend', newSep);
+
+                trigger.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    dropdown.classList.toggle('active');
+                });
+
+                document.addEventListener('click', () => {
+                    dropdown.classList.remove('active');
+                });
+            }
+        }
+
+        // BREADCRUMB MANAGER - DYNAMIC ISLAND
+        function initDynamicBreadcrumb() {
+            const wrapper = document.querySelector('.global-nav-wrapper');
+            if (!wrapper) return;
+
+            if (window.scrollY > 50) wrapper.classList.add('compacted');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    wrapper.classList.add('compacted');
+                } else {
+                    wrapper.classList.remove('compacted');
+                }
+            });
+
+            wrapper.addEventListener('click', (e) => {
+                if (wrapper.classList.contains('compacted') && window.innerWidth <= 768) {
+                    e.preventDefault();
+                    wrapper.classList.remove('compacted');
+                    setTimeout(() => {
+                        if (window.scrollY > 50) wrapper.classList.add('compacted');
+                    }, 3000);
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+            initBreadcrumbLogic();
+            initDynamicBreadcrumb();
+        });
+    </script>
+</body>
+
+</html>

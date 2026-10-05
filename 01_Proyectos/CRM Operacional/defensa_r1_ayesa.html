@@ -1,0 +1,499 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Defensa Fase 2: Ayesa | CRM Operacional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Cuaderno de Bitacora (Proyectos)/styles_bitacora.css">
+    <style>
+        .defense-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .highlight-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--lda-red);
+        }
+
+        .point-list {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0 0;
+        }
+
+        .point-list li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.95rem;
+            color: var(--text-sec);
+        }
+
+        .point-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--lda-red);
+            font-weight: 800;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        /* Roadmap Styles */
+        .roadmap-container {
+            position: relative;
+            padding: 40px 0;
+            margin-top: 40px;
+        }
+
+        .roadmap-container::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-color);
+        }
+
+        .phase-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 30px;
+        }
+
+        .phase-dot {
+            position: absolute;
+            left: 11px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: white;
+            border: 4px solid var(--lda-red);
+            z-index: 2;
+        }
+
+        .phase-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .phase-card:hover {
+            transform: translateX(10px);
+            border-color: var(--lda-red);
+        }
+
+        .phase-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .phase-num {
+            font-size: 0.75rem;
+            font-weight: 900;
+            color: var(--lda-red);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .phase-change-badge {
+            background: rgba(228, 0, 43, 0.1);
+            color: var(--lda-red);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../local_styles.css">
+</head>
+
+<body>
+    <nav class="global-nav-wrapper">
+        <div class="nav-breadcrumb">
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item">Inicio</a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <a href="index.html" class="nav-breadcrumb-item">CRM Operacional</a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <a href="hub_licitacion.html" class="nav-breadcrumb-item">Hub Licitación</a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <span class="nav-breadcrumb-item current">Defensa R1: Ayesa</span>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="hero" style="text-align: center; padding: 60px 0 40px;">
+            <span class="hero-badge" style="background: rgba(59, 130, 246, 0.1); color: #3b82f6; border: 1px solid rgba(59, 130, 246, 0.2);">⬤ FASE 2: SESIÓN DE DEFENSA TÉCNICA</span>
+            <h1>Análisis de Sesión <br><span>Ayesa</span></h1>
+                <span class="hero-badge-local" style="margin-top: 10px;">Recurso en Local</span>
+            <p style="margin: 0 auto; max-width: 800px;">Consolidado de los puntos clave defendidos durante la sesión presencial del 16 de marzo de 2026. Foco en la adopción operativa ("Fit-to-standard") y cercanía física.</p>
+        </header>
+
+        <!-- SESIÓN INICIAL: ESTRATEGIA Y DEMO (R1) -->
+        <div class="section-header" style="border-left: 4px solid #3b82f6; margin-top: 20px;">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Sesión Inicial: Estrategia y Demo (R1)</h2>
+                <p class="section-subtitle">Capacidades base presentadas en el pliego inicial (16 de Marzo)</p>
+            </div>
+        </div>
+
+        <div class="defense-grid">
+            <!-- DIFERENCIAL TECNOLÓGICO -->
+            <div class="highlight-card">
+                <span class="tag" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6;">Framework IA</span>
+                <h3>Visión del Dato Unificada</h3>
+                <p style="font-size: 0.85rem; color: var(--text-sec); margin-bottom: 12px;">Foco en la hiper-especialización mediante Omnistudio:</p>
+                <ul class="point-list">
+                    <li><strong>Agentforce + Data 360:</strong> Conexión de la IA generativa con la visión única del cliente (Hogar/Motor) para una atención contextual.</li>
+                    <li><strong>MuleSoft Accelerator:</strong> Librería de conectores pre-configurados para acelerar la integración con el Core Asegurador.</li>
+                    <li><strong>Flujos Guiados:</strong> Reducción del tiempo de formación para nuevos gestores mediante flujos de trabajo simplificados sin saltos de contexto.</li>
+                </ul>
+            </div>
+
+            <!-- IMPLANTACIÓN -->
+            <div class="highlight-card" style="border-top-color: #f59e0b;">
+                <span class="tag" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;">Metodología</span>
+                <h3>Fit-to-standard Operativo</h3>
+                <p style="font-size: 0.85rem; color: var(--text-sec); margin-bottom: 12px;">Estrategia para evitar la deuda técnica futura:</p>
+                <ul class="point-list">
+                    <li><strong>Estandarización 90/10:</strong> Apuesta por funcionalidades nativas de Salesforce FSC limitando el código a medida a procesos críticos.</li>
+                    <li><strong>Quick Win Mes 5:</strong> Entrega operativa del CRM para el ramo de Motor bajo un modelo de mejora continua.</li>
+                    <li><strong>Roadmap Evolutivo:</strong> Plan de despliegue por "Olas de Negocio" para minimizar el impacto en la operación diaria.</li>
+                </ul>
+            </div>
+
+            <!-- GAC -->
+            <div class="highlight-card" style="border-top-color: #10b981;">
+                <span class="tag" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">Proximidad</span>
+                <h3>Cercanía "Hombro con Hombro"</h3>
+                <p style="font-size: 0.85rem; color: var(--text-sec); margin-bottom: 12px;">Compromiso absoluto con el acompañamiento presencial:</p>
+                <ul class="point-list">
+                    <li><strong>Floor Walking:</strong> Presencia diaria de formadores y expertos en las plataformas de Contact Center de Tres Cantos.</li>
+                    <li><strong>Salesforce League:</strong> Dinámicas de gamificación para incentivar el uso correcto de la herramienta entre los 1.600 agentes.</li>
+                    <li><strong>Transferencia KT:</strong> Plan de capacitación progresiva para garantizar que IT de LDA tome el control del sistema al cierre.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="info-card" style="border-left: 4px solid #3b82f6; padding: 30px; margin-top: 20px; margin-bottom: 40px; background: rgba(59,130,246,0.02);">
+            <h3>Conclusión Sesión Inicial (R1: Marzo 2026)</h3>
+            <p style="color: var(--text-main); line-height: 1.6; margin-top: 10px; font-weight: 500;">Ayesa destacó por su altísimo compromiso con la adopción real del sistema, proponiendo un modelo de acompañamiento presencial ("Floor Walking") que garantiza la cercanía con el negocio de LDA. Sin embargo, su roadmap inicial de 19 meses fue considerado poco ambicioso frente a la urgencia estratégica de apagar Galgo, y se solicitaron garantías adicionales sobre el seniority de sus SQUAD leads.</p>
+        </div>
+
+        <!-- AMPLIACIÓN Y REFINAMIENTO (PETICIÓN LDA) -->
+        <div id="refinamiento" class="section-header" style="border-left: 4px solid var(--lda-red); margin-top: 50px;">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Anexo de Rectificación y Aclaraciones (R2)</h2>
+                <p class="section-subtitle">Compromisos extraordinarios de Ayesa para blindar plazos y perfiles (Abril)</p>
+            </div>
+        </div>
+
+        <div class="info-card" style="margin-bottom: 40px; padding: 0; overflow: hidden; border-top: 4px solid var(--lda-red);">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+                <thead>
+                    <tr style="background: rgba(228,0,43,0.05); text-align: left;">
+                        <th style="padding: 15px; border-bottom: 2px solid var(--border-color);">Plica Técnica / Duda LDA</th>
+                        <th style="padding: 15px; border-bottom: 2px solid var(--border-color);">Posición Original R1</th>
+                        <th style="padding: 15px; border-bottom: 2px solid var(--border-color); color: var(--lda-red);">Compromiso Final R2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <td style="padding: 15px; font-weight: 800;">Cronograma</td>
+                        <td style="padding: 15px; color: var(--text-sec);">Roadmap estándar de 19 meses</td>
+                        <td style="padding: 15px; font-weight: 600;"><strong>Compresión a 16 meses:</strong> Paralelización de ramos mediante equipos SQUAD espejo bajo gobierno unificado.</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <td style="padding: 15px; font-weight: 800;">Seniority Equipo</td>
+                        <td style="padding: 15px; color: var(--text-sec);">Mix Seniority Estándar</td>
+                        <td style="padding: 15px; font-weight: 600;"><strong>Blindaje Senior:</strong> Presentación de CVs con >8 años de experiencia para los roles de SQUAD Lead presencial.</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <td style="padding: 15px; font-weight: 800;">Formación Adopción</td>
+                        <td style="padding: 15px; color: var(--text-sec);">Soporte manual básico</td>
+                        <td style="padding: 15px; font-weight: 600;"><strong>Academia de Agentes:</strong> Plan masivo para 1.600+ agentes con métricas de capacitación en tiempo real.</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 15px; font-weight: 800;">Especialización Aseguradora</td>
+                        <td style="padding: 15px; color: var(--text-sec);">Foco Motor corporativo</td>
+                        <td style="padding: 15px; font-weight: 600;"><strong>Vertical FSC Nativo:</strong> Mapeo total de los 56 objetos del modelo de datos Insurance de Salesforce.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="defense-grid">
+            <!-- DETALLE RIESGOS -->
+            <div class="highlight-card" style="border-top-color: #3b82f6;">
+                <span class="tag" style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Plan de Mitigación R2</span>
+                <h3>Entrega de Alta Velocidad</h3>
+                <p style="font-size: 0.85rem; color: var(--text-sec); margin-top: 10px;">Ayesa ha detallado cómo logrará la compresión de plazos:</p>
+                <ul class="point-list">
+                    <li><strong>Factoría Satélite:</strong> Uso del centro de excelencia de Sevilla para el desarrollo de componentes base (Off-site), liberando al equipo de Madrid para despliegue y UX (In-site).</li>
+                    <li><strong>MuleSoft Library:</strong> Reutilización de flujos de integración ya validados con el Core Asegurador para evitar tiempos de investigación técnica (R&D).</li>
+                </ul>
+            </div>
+
+            <!-- DETALLE ECONOMICO -->
+            <div class="highlight-card" style="border-top-color: #10b981;">
+                <span class="tag" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">Eficiencia en Costes R2</span>
+                <h3>Viabilidad Contractual</h3>
+                <p style="font-size: 0.85rem; color: var(--text-sec); margin-top: 10px;">Garantías de inversión ante LDA:</p>
+                <ul class="point-list">
+                    <li><strong>Cierre de Riesgos:</strong> Compromiso de NO facturación de excesos por imprevistos funcionales detectados durante el Sprint 0.</li>
+                    <li><strong>Mantenimiento Preventivo:</strong> Inclusión de 3 meses adicionales de Hipercare (soporte intensivo) tras el último Go-Live sin cargo.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SESIÓN DE DEFENSA R2: DETALLE EJECUTIVO (14/ABRIL) -->
+        <div class="section-header" style="border-left: 4px solid #1e3a8a; margin-top: 50px;">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Defensa de Segunda Ronda (14/Abril)</h2>
+                <p class="section-subtitle">Visión ejecutiva, riesgos técnicos y arquitectura de plataforma comprometida</p>
+            </div>
+        </div>
+
+        <div class="defense-grid">
+            <!-- STACK TECNOLÓGICO -->
+            <div class="highlight-card" style="border-top-color: #1e3a8a;">
+                <span class="tag" style="background: rgba(30, 58, 138, 0.1); color: #1e3a8a;">Arquitectura Producida</span>
+                <h3>Ecosistema de Plataforma</h3>
+                <ul class="point-list">
+                    <li><strong>Salesforce FSC:</strong> CRM de negocio y escritorio único del agente (Productividad).</li>
+                    <li><strong>Genesys Cloud:</strong> Motor de enrutamiento omnicanal integrado vía Service Cloud Voice.</li>
+                    <li><strong>MuleSoft:</strong> Capa de integración "API-led" (Experience/Process/System) y gobierno.</li>
+                </ul>
+            </div>
+
+            <!-- POR QUÉ SALESFORCE -->
+            <div class="highlight-card" style="border-top-color: #1e3a8a;">
+                <span class="tag" style="background: rgba(30, 58, 138, 0.1); color: #1e3a8a;">Justificación de Riesgo</span>
+                <h3>Salesforce FSC vs Dynamics</h3>
+                <p style="font-size: 0.85rem; color: var(--text-sec); margin-top: 10px;">Argumentos de Ayesa para la elección de stack:</p>
+                <ul class="point-list">
+                    <li><strong>Integración Resuelta:</strong> Mayor madurez nativa entre Salesforce y el motor Genesys para CTI.</li>
+                    <li><strong>Time-to-market:</strong> Menor personalización requerida gracias a los aceleradores de FSC.</li>
+                    <li><strong>Referencias Locales:</strong> Sólida base de implantaciones en el sector asegurador español.</li>
+                </ul>
+            </div>
+
+            <!-- GOBIERNO Y METODOLOGÍA -->
+            <div class="highlight-card" style="border-top-color: #1e3a8a;">
+                <span class="tag" style="background: rgba(30, 58, 138, 0.1); color: #1e3a8a;">Modelo Operativo</span>
+                <h3>Ejecución Híbrida</h3>
+                <ul class="point-list">
+                    <li><strong>Waterfall + Agile:</strong> Planificación global controlada con sprints de entrega de 2-4 semanas.</li>
+                    <li><strong>Contingencia 15%:</strong> Recomendación de reserva de presupuesto para gestión de cambios (CR).</li>
+                    <li><strong>Hypercare 6 Semanas:</strong> Soporte presencial intensivo tras cada hito de release.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="info-card" style="border-left: 4px solid #f59e0b; padding: 30px; margin-bottom: 40px; background: rgba(245, 158, 11, 0.02);">
+            <h3 style="color: #d97706;">Puntos de Tensión y Riesgos (Sesión 14/04)</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 20px;">
+                <div>
+                    <h4 style="font-size: 0.9rem; margin-bottom: 10px;">Conflictos de Duplicidad</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-sec); line-height: 1.5;">
+                        <strong>OmniStudio & Generación Documental:</strong> Ayesa reconoce que el uso de estas piezas quedará condicionado a las herramientas internas ya existentes en LDA para evitar solapamientos innecesarios y redundancia de licencias.
+                    </p>
+                    <p style="font-size: 0.85rem; color: var(--text-sec); line-height: 1.5; margin-top: 10px;">
+                        <strong>Digital Engagement:</strong> Se cuestiona la obligatoriedad de esta pieza si Genesys es el maestro de canales digitales, por el riesgo de pagar duplicidades en el routing.
+                    </p>
+                </div>
+                <div>
+                    <h4 style="font-size: 0.9rem; margin-bottom: 10px;">Integración y Persistencia</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-sec); line-height: 1.5;">
+                        <strong>Gap Operativo:</strong> No existe aún un catálogo definitivo de APIs necesarias por fase. Ayesa se compromete a realizar un discovery técnico inmediato tras la adjudicación.
+                    </p>
+                    <p style="font-size: 0.85rem; color: var(--text-sec); line-height: 1.5; margin-top: 10px;">
+                        <strong>Persistencia Batch vs NRT:</strong> La mesa evaluadora presiona para minimizar el uso de "Batch" en datos operativos, forzando un modelo de consulta directa al Mainframe.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ROADMAP DE IMPLANTACIÓN (FASES R2) -->
+        <div class="section-header" style="border-left: 4px solid #10b981; margin-top: 50px;">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Roadmap de Implantación (Fases R2)</h2>
+                <p class="section-subtitle">Plan de despliegue maestro ajustado tras la sesión de defensa del 14/04</p>
+            </div>
+        </div>
+
+        <div class="roadmap-container">
+            <!-- F0 -->
+            <div class="phase-item">
+                <div class="phase-dot"></div>
+                <div class="phase-card">
+                    <div class="phase-header">
+                        <span class="phase-num">Fase 0</span>
+                        <span class="phase-change-badge">Arranque</span>
+                    </div>
+                    <h3>Constitución y Arranque</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-sec);">Kick-off, objetivos, roles, gobierno, riesgos preliminares y plan de comunicación inicial.</p>
+                </div>
+            </div>
+
+            <!-- F1 -->
+            <div class="phase-item">
+                <div class="phase-dot"></div>
+                <div class="phase-card">
+                    <div class="phase-header">
+                        <span class="phase-num">Fase 1</span>
+                    </div>
+                    <h3>Discovery y Diagnóstico</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-sec);">Diagnóstico de sistemas y procesos, refinamiento de requisitos, casos de uso, mockups y diseño de arquitectura/seguridad.</p>
+                </div>
+            </div>
+
+            <!-- F2 -->
+            <div class="phase-item">
+                <div class="phase-dot"></div>
+                <div class="phase-card">
+                    <div class="phase-header">
+                        <span class="phase-num">Fase 2</span>
+                        <span class="phase-change-badge">+ Venta Cruzada</span>
+                    </div>
+                    <h3>Planificación del Proyecto</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-sec);">Planes de migración, integración, gestión del cambio y convivencia (Salesforce-Galgo + Genesys).</p>
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--border-color); font-size: 0.8rem; color: var(--lda-red); font-weight: 600;">
+                        ⚠ Ajuste R2: Inclusión explícita de capacidades NBO para no perder visibilidad de cross-selling.
+                    </div>
+                </div>
+            </div>
+
+            <!-- F3 -->
+            <div class="phase-item">
+                <div class="phase-dot"></div>
+                <div class="phase-card">
+                    <div class="phase-header">
+                        <span class="phase-num">Fase 3</span>
+                        <span class="phase-change-badge">⚡ Unificación Crítica</span>
+                    </div>
+                    <h3>Hogar + Telefonía (1er Despliegue)</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-sec);">Base operativa: Ficha 360, consola agente, oportunidad Hogar, cotizaciones e integración con Genesys/Core/Pagos.</p>
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--border-color); font-size: 0.8rem; color: var(--lda-red); font-weight: 600;">
+                        ⚠ Cambio R2: Se unifica Telefonía + Hogar para que el primer despliegue sea 100% operativo.
+                    </div>
+                </div>
+            </div>
+
+            <!-- F4 -->
+            <div class="phase-item">
+                <div class="phase-dot"></div>
+                <div class="phase-card">
+                    <div class="phase-header">
+                        <span class="phase-num">Fase 4</span>
+                    </div>
+                    <h3>NBO + Knowledge Base</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-sec);">Estabilización de Fase 1, configuración de Next Best Offer, base de conocimiento y migraciones asociadas.</p>
+                </div>
+            </div>
+
+            <!-- F6 -->
+            <div class="phase-item">
+                <div class="phase-dot"></div>
+                <div class="phase-card">
+                    <div class="phase-header">
+                        <span class="phase-num">Fase 6</span>
+                        <span class="phase-change-badge">Hito Crítico</span>
+                    </div>
+                    <h3>Coche (Complejidad Máxima)</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-sec);">Adaptación de modelo y flujos para el ramo de Coche. Es la fase más extensa por su criticidad y volumen de testing.</p>
+                </div>
+            </div>
+
+            <!-- F7 & F8 -->
+            <div class="phase-item">
+                <div class="phase-dot" style="border-color: #3b82f6;"></div>
+                <div class="phase-card" style="border-left: 4px solid #3b82f6;">
+                    <div class="phase-header">
+                        <span class="phase-num">Fases 7 y 8</span>
+                        <span class="phase-change-badge" style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Parallel Track</span>
+                    </div>
+                    <h3>Moto + Expats + Suplementos</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-sec);">Despliegue conjunto de ramos menores y procesos de Up/Cross Selling.</p>
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--border-color); font-size: 0.8rem; color: #3b82f6; font-weight: 600;">
+                        ⚠ Optimización R2: Homogeneización y despliegue en paralelo para reducir la tensión del calendario global.
+                    </div>
+                </div>
+            </div>
+
+            <!-- F9-F11 -->
+            <div class="phase-item">
+                <div class="phase-dot"></div>
+                <div class="phase-card">
+                    <div class="phase-header">
+                        <span class="phase-num">Fases 9, 10 y 11</span>
+                    </div>
+                    <h3>Retención, Salud y Empresas</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-sec);">Ampliación del ecosistema a ramos especialistas y gestión avanzada de recibos, pagos y recobro.</p>
+                </div>
+            </div>
+
+            <!-- F12 -->
+            <div class="phase-item">
+                <div class="phase-dot"></div>
+                <div class="phase-card">
+                    <div class="phase-header">
+                        <span class="phase-num">Fase 12</span>
+                        <span class="phase-change-badge">+1 Mes (Ajuste)</span>
+                    </div>
+                    <h3>Canales Digitales + ATC + QRS</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-sec);">Canales digitales, fidelización, chat integrado y gestión completa de quejas (QRS).</p>
+                    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--border-color); font-size: 0.8rem; color: var(--lda-red); font-weight: 600;">
+                        ⚠ Cambio R2: La inclusión del módulo QRS como pieza nueva implica un incremento de 1 mes en el plan final.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-card" style="border-left: 4px solid var(--lda-red); padding: 30px; margin-top: 40px; margin-bottom: 60px; background: rgba(228,0,43,0.02);">
+            <h3>Conclusión Ejecutiva Final (Post-Defensa 14/04)</h3>
+            <p style="color: var(--text-main); line-height: 1.6; margin-top: 10px; font-weight: 500;">Ayesa trae una propuesta coherente en arquitectura y metodología, con una narrativa documental muy sólida. La sesión del 14/04 ha servido para aterrizar el stack tecnológico (SF+Genesys+MuleSoft), aunque se mantiene una debilidad en el detalle fino de servicios (catálogo de APIs) y una posible dependencia de sus aceleradores propios (Panaya/Easy Forms). Es la opción que ofrece más garantías en gestión del cambio y adopción presencial del Call Center.</p>
+        </div>
+    </main>
+
+    <script>
+        function toggleTheme() {
+            const checkbox = document.getElementById('theme-checkbox');
+            const isDark = checkbox.checked;
+            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        }
+        initTheme();
+    </script>
+</body>
+</html>

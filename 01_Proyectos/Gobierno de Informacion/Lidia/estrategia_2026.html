@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reenfoque Proyecto 2026 | LidIA-MCP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles_infografia.css">
+    <style>
+        .view-section {
+            display: block !important;
+            opacity: 1 !important;
+            transform: none !important;
+        }
+
+        /* Tabs Premium */
+        .tab-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 40px auto 30px auto;
+            max-width: 900px;
+            padding: 5px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 100px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 16px 24px;
+            border: none;
+            background: transparent;
+            color: var(--text-sec);
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-main);
+        }
+
+        .tab-btn.active {
+            background: var(--lda-red);
+            color: white;
+            box-shadow: 0 4px 15px rgba(228, 0, 43, 0.3);
+        }
+
+        .tab-pane {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .tab-pane.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+    <link rel="stylesheet" href="../../local_styles.css">
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper">
+        <div class="nav-breadcrumb">
+            <a href="../../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item" title="Inicio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <a href="../index.html" class="nav-breadcrumb-item">Gestión Info</a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <a href="hub_lidia.html" class="nav-breadcrumb-item">Universo LidIA</a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <span class="nav-breadcrumb-item current">Estrategia 2026</span>
+        </div>
+    </nav>
+
+
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label">MODO OSCURO</span>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-checkbox" onchange="toggleTheme()">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <div id="view-strategy" class="container view-section">
+        <div class="editorial-container">
+            <header class="hero">
+                <span class="hero-badge">Estrategia 2026</span>
+            <span class="hero-badge-local">Recurso en Local</span>
+                <h1>Reenfoque Proyecto <br><span>LidIA 2026</span></h1>
+                <p>Definimos el futuro del conocimiento: una transición estratégica desde el almacenamiento pasivo hacia
+                    un modelo de inteligencia proactiva y gobernanza integral.</p>
+            </header>
+
+            <!-- TAB NAV -->
+            <nav class="tab-nav">
+                <button class="tab-btn active" onclick="switchTab('tab-why', this)">1. El Por Qué</button>
+                <button class="tab-btn" onclick="switchTab('tab-paradigm', this)">2. El Nuevo Paradigma</button>
+                <button class="tab-btn" onclick="switchTab('tab-hub', this)">3. El Ecosistema</button>
+            </nav>
+
+            <div id="tab-hub" class="tab-pane">
+                <!-- SUB-HUB: ECOSISTEMA DEL REENFOQUE -->
+                <section class="editorial-section hub-grid-intro" style="margin-bottom: 40px;">
+                    <h2>Ecosistema del Reenfoque: Herramientas y Gobierno</h2>
+                    <div class="carousel-container">
+                        <button class="carousel-btn left hidden" onclick="scrollCarousel(this, -340)"
+                            aria-label="Desplazar a la izquierda">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg>
+                        </button>
+                        <div class="carousel-track" onscroll="updateCarouselButtons(this)">
+                            <!-- Card: Modelo de Gobierno -->
+                            <a href="modelo_gobierno.html" class="apple-card dark-card">
+                                <div class="kicker">GOBERNANZA</div>
+                                <h3 class="title">Modelo de Gobierno</h3>
+                                <p class="desc">Modelo organizativo y pilares estratégicos: por qué el orden es el
+                                    único
+                                    camino hacia una inteligencia artificial fiable.</p>
+                                <div class="card-visual">
+                                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                                        <path
+                                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
+                                        </path>
+                                        <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                            </a>
+                            <!-- Card: Metodologóa -->
+                            <a href="metodologia_trabajo.html" class="apple-card">
+                                <div class="kicker">FRAMEWORK</div>
+                                <h3 class="title">Metodologóa de Trabajo</h3>
+                                <p class="desc">Del diseño a la ejecución: el flujo de trabajo para sincronizar el
+                                    Libro
+                                    Blanco con los habilitadores tecnológicos.</p>
+                                <div class="card-visual">
+                                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                                        <path
+                                            d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </a>
+                            <!-- Card: Estrategia -->
+                            <a href="vias_trabajo.html" class="apple-card blue-card">
+                                <div class="kicker">ROADMAP</div>
+                                <h3 class="title">Estrategia de Trabajo</h3>
+                                <p class="desc">Sincronización de dos tracks de información: Track LidIA (Valor de
+                                    Negocio) y Track Gobierno (Rigor).</p>
+                                <div class="card-visual">
+                                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                                        <path d="M7 7l5 5-5 5M13 7l5 5-5 5"></path>
+                                    </svg>
+                                </div>
+                            </a>
+                            <!-- Card: Libro Blanco -->
+                            <a href="libro_blanco.html" class="apple-card blue-card">
+                                <div class="kicker">MANUAL</div>
+                                <h3 class="title">Libro Blanco</h3>
+                                <p class="desc">La constitución de LidIA: estándares maestros, reglas de etiquetado y
+                                    protocolos operativos del conocimiento.</p>
+                                <div class="card-visual">
+                                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                                        <path
+                                            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </a>
+                            <!-- Card: Potenciadores IA -->
+                            <a href="potenciadores_ia.html" class="apple-card dark-card">
+                                <div class="kicker">CAPABILITIES</div>
+                                <h3 class="title">Potenciadores IA</h3>
+                                <p class="desc">Habilidades ("Skills") supervisadas para acelerar la curación y
+                                    calidad
+                                    del conocimiento.</p>
+                                <div class="card-visual">
+                                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                                        <path
+                                            d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z">
+                                        </path>
+                                        <path d="M12 8v8"></path>
+                                        <path d="M8 12h8"></path>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                        <button class="carousel-btn right" onclick="scrollCarousel(this, 340)"
+                            aria-label="Desplazar a la derecha">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </section>
+            </div>
+
+            <div id="tab-why" class="tab-pane active">
+                <section class="editorial-section">
+                    <h2>Los 5 Pilares</h2>
+                    <div class="pilar-grid">
+                        <div class="pilar-item">
+                            <div class="pilar-number">01</div>
+                            <div class="pilar-content">
+                                <h4>Gobernanza</h4>
+                                <p>Modelo transversal patrocinado por Dirección con responsables claros por
+                                    área.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="pilar-item">
+                            <div class="pilar-number">02</div>
+                            <div class="pilar-content">
+                                <h4>Casos de Uso</h4>
+                                <p>Indices que orquestan la información. Su priorización dicta <strong>qué</strong>
+                                    contenido técnico debe crearse o mejorarse en la Biblioteca.</p>
+                            </div>
+                        </div>
+                        <div class="pilar-item">
+                            <div class="pilar-number">03</div>
+                            <div class="pilar-content">
+                                <h4>Estándares</h4>
+                                <p>Plantillas y protocolos comunes para garantizar homogeneidad y
+                                    trazabilidad.</p>
+                            </div>
+                        </div>
+                        <div class="pilar-item">
+                            <div class="pilar-number">04</div>
+                            <div class="pilar-content">
+                                <h4>Automatización</h4>
+                                <p>Control de calidad asistido por IA para mantener la base de conocimiento
+                                    viva.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="pilar-item">
+                            <div class="pilar-number">05</div>
+                            <div class="pilar-content">
+                                <h4>Cultura</h4>
+                                <p>Lid<span style="color: var(--lda-red);">IA</span> como herramienta que piensa con
+                                    la
+                                    compañóa, no un simple buscador.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECCIÓN: QUÉ HEMOS APRENDIDO (DANA vs SALUD) -->
+                <section class="editorial-section">
+                    <h2>Qué hemos aprendido (Lo que funciona vs Lo que no)</h2>
+                    <div class="case-comparison">
+                        <!-- Caso Éxito -->
+                        <div class="case-box case-success">
+                            <h4>
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M8 12l2 2 4-4"></path>
+                                </svg>
+                                Cuando FUNCIONA (Caso DANA)
+                            </h4>
+                            <p style="margin-bottom: 20px;"><strong>El Éxito:</strong> Impacto inmediato al
+                                atender
+                                situaciones de alta presión con rapidez y calidad.</p>
+                            <ul class="case-list">
+                                <li>Información organizada especóficamente para el caso de uso.</li>
+                                <li>Atención de emergencias con rapidez.</li>
+                                <li>Calidad de respuesta excepcional.</li>
+                                <li>Responsable de información definido (SvP).</li>
+                            </ul>
+                        </div>
+                        <!-- Caso Fallo -->
+                        <div class="case-box case-fail">
+                            <h4>
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                                </svg>
+                                Cuando NO funciona (Caso Salud)
+                            </h4>
+                            <p style="margin-bottom: 20px;"><strong>La Lección:</strong> Carga masiva sin
+                                foco en la
+                                necesidad del operador.</p>
+                            <ul class="case-list">
+                                <li>Baja usabilidad y menor valor percibido.</li>
+                                <li>Complejidad excesiva para IA y humano.</li>
+                                <li>Falta de memoria de acceso histórico.</li>
+                                <li>Desactualización por falta de circuito de mantenimiento.</li>
+                                <li>Aporte de valor limitado por saturación.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div id="tab-paradigm" class="tab-pane">
+
+                <!-- REENFOQUE ESTRATÉGICO -->
+                <section class="editorial-section">
+                    <h2>Reenfoque Estratégico</h2>
+                    <div style="display: flex; gap: 40px; align-items: flex-start; margin-top: 30px;">
+                        <div style="flex: 1.2;">
+                            <h3 style="font-size: 1.8rem; margin-bottom: 20px;">De "Repositorio General" a <span
+                                    style="color: var(--lda-red);">"Gestión por Casos de Uso"</span></h3>
+                            <p style="font-size: 1.15rem; line-height: 1.7; margin-bottom: 20px;">
+                                Bajo las directrices del **Libro Blanco**, el proyecto evoluciona desde la simple
+                                acumulación documental hacia un modelo de **Inteligencia Aplicada**. Este cambio de
+                                paradigma nos permite pasar de "buscar información" a "habilitar conocimiento
+                                accionable".
+                            </p>
+
+                            <p style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 20px;">
+                                En este nuevo paradigma, <strong>los Casos de Uso no contienen la
+                                    información</strong>;
+                                actúan como un <strong>Bibliotecario Experto</strong> que sabe exactamente qué
+                                buscar. Su
+                                función es indexar y orquestar la recuperación de la información técnica, la cual es
+                                <strong>atómica, única y reside exclusivamente en la Biblioteca de
+                                    Conocimiento</strong>
+                                (nuestra Fuente de la Verdad).
+                            </p>
+
+                            <div class="manual-alert"
+                                style="margin-top: 25px; border-color: var(--lda-red); background: rgba(228, 0, 43, 0.03) !important; border-radius: 16px;">
+                                <div style="display: flex; gap: 15px; align-items: flex-start;">
+                                    <div style="color: var(--lda-red); flex-shrink: 0; padding-top: 4px;">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4
+                                            style="color: var(--lda-red); font-weight: 800; margin-bottom: 8px; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px;">
+                                            Salto en Fiabilidad y Precisión</h4>
+                                        <p style="font-size: 1rem; color: var(--text-main); line-height: 1.5;">
+                                            Frente al sistema actual de "Búsqueda Global" (que recupera los 5
+                                            fragmentos más
+                                            cercanos por estadóstica vectorial), este modelo garantiza que la IA
+                                            acceda a la
+                                            pieza exacta de verdad. Al eliminar el ruido de documentos irrelevantes,
+                                            aumentamos exponencialmente la fiabilidad de la respuesta final.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            style="flex: 0.8; background: var(--bg-card-hover); padding: 40px; border-radius: 32px; border: 1px solid var(--border-color); box-shadow: 0 20px 40px rgba(0,0,0,0.05); position: sticky; top: 20px;">
+                            <h4
+                                style="margin-bottom: 25px; color: var(--text-main); font-weight: 800; display: flex; align-items: center; gap: 10px;">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--lda-red)"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                                Ventajas del Modelo Atómico
+                            </h4>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="margin-bottom: 20px; padding-left: 0; color: var(--text-main);">
+                                    <strong
+                                        style="display: block; color: var(--lda-red); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 5px;">Mantenimiento
+                                        Único</strong>
+                                    <span style="font-size: 0.95rem; color: var(--text-sec);">Actualiza la Pieza
+                                        Maestra una
+                                        vez y el cambio se propaga instantáneamente a todos los Casos de Uso que la
+                                        referencian.</span>
+                                </li>
+                                <li style="margin-bottom: 20px; padding-left: 0; color: var(--text-main);">
+                                    <strong
+                                        style="display: block; color: var(--lda-red); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 5px;">Cero
+                                        Duplicidades</strong>
+                                    <span style="font-size: 0.95rem; color: var(--text-sec);">Evitamos la
+                                        redundancia de
+                                        información que genera confusión tanto en humanos como en modelos de
+                                        lenguaje.</span>
+                                </li>
+                                <li style="padding-left: 0; color: var(--text-main);">
+                                    <strong
+                                        style="display: block; color: var(--lda-red); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 5px;">Trazabilidad
+                                        Total</strong>
+                                    <span style="font-size: 0.95rem; color: var(--text-sec);">Sabemos exactamente de
+                                        qué
+                                        fuente proviene cada dato, asegurando que Lid<span
+                                            style="color: var(--lda-red);">IA</span> siempre beba de la "Fuente de
+                                        la
+                                        Verdad".</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CULMINACIÓN: UNIVERSO GIN -->
+                <section class="editorial-section" style="margin-top: 60px;">
+                    <div style="background: linear-gradient(135deg, var(--lda-red) 0%, #8e001a 100%); border-radius: 24px; padding: 40px; color: white; display: flex; gap: 30px; align-items: center; box-shadow: 0 20px 40px rgba(227,0,27,0.2);">
+                        <div style="flex-shrink: 0; background: rgba(255,255,255,0.1); padding: 20px; border-radius: 50%;">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 1.6rem; font-weight: 800; margin-bottom: 12px; color: white;">El Destino Final: Universo GIN</h3>
+                            <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px; color: rgba(255,255,255,0.9);">
+                                Todo este Reenfoque de 2026 converge y culmina en la creación del <strong>Dominio GIN (Gobierno de la Información)</strong>. Hemos comprendido que la clave y el corazón de todo el Proyecto LidIA no es la tecnología per se, sino <strong>la Información</strong>. GIN nace como el dominio estratégico que orquesta esta nueva era, asegurando que el conocimiento sea preciso, gobernado y el verdadero protagonista de la inteligencia de la compañía.
+                            </p>
+                            <a href="../index.html" style="display: inline-flex; align-items: center; gap: 8px; background: white; color: var(--lda-red); text-decoration: none; padding: 12px 24px; border-radius: 8px; font-weight: 800; font-size: 1rem; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                                Explorar el Dominio GIN
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </div>
+    </div>
+    <script src="../scripts_infografia.js"></script>
+    <script>
+        function switchTab(tabId, btn) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+
+            if (typeof initCarousels === 'function') {
+                setTimeout(initCarousels, 50);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', initTheme);
+    </script>
+    <script>
+
+        // BREADCRUMB MANAGER - SMART COLLAPSE
+        function initBreadcrumbLogic() {
+            const breadcrumb = document.querySelector('.nav-breadcrumb');
+            if (!breadcrumb) return;
+
+            const items = Array.from(breadcrumb.querySelectorAll('.nav-breadcrumb-item:not(.current)'));
+            const separators = Array.from(breadcrumb.querySelectorAll('.nav-breadcrumb-sep'));
+
+            if (items.length > 3) {
+                const toCollapse = items.slice(1, -1);
+
+                const trigger = document.createElement('span');
+                trigger.className = 'nav-breadcrumb-item collapsed-trigger';
+                trigger.innerHTML = '...';
+                trigger.title = 'Ver más niveles';
+
+                const dropdown = document.createElement('div');
+                dropdown.className = 'breadcrumb-dropdown';
+
+                toCollapse.forEach((item, index) => {
+                    const link = document.createElement('a');
+                    link.href = item.href || '#';
+                    link.className = 'breadcrumb-dropdown-item';
+                    link.textContent = item.textContent || item.title || 'Nivel ' + (index + 2);
+                    dropdown.appendChild(link);
+
+                    item.style.display = 'none';
+                    const sepIndex = items.indexOf(item);
+                    if (separators[sepIndex]) {
+                        separators[sepIndex].style.display = 'none';
+                    }
+                });
+
+                trigger.appendChild(dropdown);
+                items[0].insertAdjacentElement('afterend', trigger);
+
+                const newSep = document.createElement('span');
+                newSep.className = 'nav-breadcrumb-sep';
+                newSep.textContent = '›';
+                trigger.insertAdjacentElement('afterend', newSep);
+
+                trigger.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    dropdown.classList.toggle('active');
+                });
+
+                document.addEventListener('click', () => {
+                    dropdown.classList.remove('active');
+                });
+            }
+        }
+        document.addEventListener('DOMContentLoaded', initBreadcrumbLogic);
+    </script>
+
+    <script>
+        // BREADCRUMB MANAGER - DYNAMIC ISLAND
+        function initDynamicBreadcrumb() {
+            const wrapper = document.querySelector('.global-nav-wrapper');
+            if (!wrapper) return;
+
+            // Check initial scroll position
+            if (window.scrollY > 50) wrapper.classList.add('compacted');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    wrapper.classList.add('compacted');
+                } else {
+                    wrapper.classList.remove('compacted');
+                }
+            });
+
+            // Handle touch devices to expand on tap if compacted
+            wrapper.addEventListener('click', (e) => {
+                if (wrapper.classList.contains('compacted') && window.innerWidth <= 768) {
+                    e.preventDefault();
+                    wrapper.classList.remove('compacted');
+                    // Give them time to click before it auto-compacts again
+                    setTimeout(() => {
+                        if (window.scrollY > 50) wrapper.classList.add('compacted');
+                    }, 3000);
+                }
+            });
+        }
+        document.addEventListener('DOMContentLoaded', initDynamicBreadcrumb);
+    </script>
+</body>
+
+</html>

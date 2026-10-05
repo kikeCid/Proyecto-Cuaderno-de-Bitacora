@@ -1,0 +1,208 @@
+﻿Funcion | Breve despricion | Herramienta | Columna1
+Altas Compañia  ETT | Documentar datos people | People
+Altas Compañia  ETT | Asignacion tarifas | People
+Altas Compañia  ETT | Envio documentacion empleados ett | Docusing
+Altas Compañia  ETT | Control documentacion, finalizaciones | Carpeta X
+Altas Compañia LDA grupal | Documentar datos people | People
+Altas Compañia LDA grupal | Verificar documentacion | mail a laboral
+Altas Compañia LDA grupal | Envio datos gestoria alta | mail gestoria
+Altas Compañia LDA grupal | Presentacion y ventajas empleado | presencial
+Altas Compañia LDA grupal | Envio contratos | Docusing
+Altas Compañia LDA grupal | Subir documentos gestor | People
+Altas Compañia LDA grupal | Mandar documentos Reconocimiento medico | Mail a Prevencion
+Altas Compañia  Incorporaciones Individuales | Documentar datos people | People
+Altas Compañia  Incorporaciones Individuales | Verificar documentacion | mail a laboral
+Altas Compañia  Incorporaciones Individuales | Envio datos gestoria alta | mail gestoria
+Altas Compañia  Incorporaciones Individuales | Presentacion y ventajas empleado | presencial
+Altas Compañia  Incorporaciones Individuales | Envio contratos | Docusing
+Altas Compañia  Incorporaciones Individuales | Subir documentos gestor | People
+Altas Compañia  Incorporaciones Individuales | Mandar documentos Reconocimiento medico | Mail a Prevencion
+Altas Compañia Becarios | Documentar datos people | People
+Altas Compañia Becarios | Verificar documentacion | mail a laboral
+Altas Compañia Becarios | Envio datos gestoria alta | mail gestoria
+Altas Compañia Becarios | Envio documentacion empleados beca | Docusing
+Altas Compañia Becarios | Envio documentacion empleados beca (Anexos) | t
+Altas Compañia Becarios | Control documentacion, finalizaciones | Carpeta X
+Teletrabajo | Control finalizaciones mensuales | people /excel
+Teletrabajo | Anexo teletrabajo | People
+Teletrabajo | Envio anexo | Docusing
+Teletrabajo | Información a gestoría para comunicación a Ssª | mail gestoria
+Teletrabajo | Documentar renovacion | People
+Gestionar Anticipos y Prestamos | Documentarlos | People
+Gestionar Anticipos y Prestamos | Justificacion | Carpeta X
+Gestionar Anticipos y Prestamos | Enviar documento firma | Docusing
+Gestionar Anticipos y Prestamos | t | t
+Bajas Voluntarias | Entrevista empleado | presencial
+Bajas Voluntarias | Informe Salida | Carpeta X
+Bajas Voluntarias | t | People
+Bajas Voluntarias | Pedir liquidacion | mail gestoria
+Bajas Voluntarias | Documentar datos people | People
+Bajas Voluntarias | Envío de documentación al Empleado / Gestor | Docusing
+Excedencias | Entrevista empleado | presencial
+Excedencias | Pedir liquidacion | mail gestoria
+Excedencias | Documentar datos people | People
+Excedencias | Envío de documentación al Empleado / Gestor | Docusing
+Excedencias | Pedir liquidacion | Mail
+Reincoporaciones Excedencia | Informar areas | Mail
+Reincoporaciones Excedencia | Informar gestoria para alta SS | mail gestoria
+Reincoporaciones Excedencia | Documentar datos people | people
+Reincoporaciones Excedencia | Subir documentos gestor | people
+Paso a Plantilla de empleados ett | Gestion con las areas | People
+Paso a Plantilla de empleados ett | Entrevistas | teams/telefono/presenciales
+Paso a Plantilla de empleados ett | Peticion documentacio empleado | mail
+Paso a Plantilla de empleados ett | t | People
+Paso a Plantilla de empleados ett | Pasar informacion para altas en SS | mail gestoria
+Paso a Plantilla de empleados ett | Envio contratos | Docusing
+Paso a Plantilla de empleados ett | Subir documentos gestor | People
+Paso a Plantilla de empleados ett | Mandar documentos Reconocimiento medico | Mail a Prevencion
+Paso a Plantilla  becarios | Alta manual | people
+Paso a Plantilla  becarios | Pasar informacion para altas en SS | mail gestoria
+Paso a Plantilla  becarios | Envio contratos | Docusing
+Paso a Plantilla  becarios | Subir documentos gestor | People
+Paso a Plantilla  becarios | Mandar documentos Reconocimiento medico | Mail a Prevencion
+Movilidades /Ampliaciones Horarias | Dar de alta la vacante | People
+Movilidades /Ampliaciones Horarias | Comunicacion empleado | mail
+Movilidades /Ampliaciones Horarias | Consulta candidatos inscritos | People
+Movilidades /Ampliaciones Horarias | Confirmacion con las areas | mail
+Movilidades /Ampliaciones Horarias | Confirmacion con el empleado | teams/telefono
+Movilidades /Ampliaciones Horarias | Documentar | people /excel
+Movilidades /Ampliaciones Horarias | Si hay cambio retribucion , pasar compensacion | t
+Movilidades /Ampliaciones Horarias | Pedir anexos | mail gestoria
+Movilidades /Ampliaciones Horarias | Envio Anexo | Docusing
+Movilidades /Ampliaciones Horarias | t | Carpeta X
+Contratos III 8 | Consulta primeros mes | People
+Contratos III 8 | Informar areas | mail
+Contratos III 8 | Informar empleados | teams/telefono/presenciales
+Contratos III 8 | Mail para cambio de categoria y retribucion | mail gestoria
+Contratos Fijos discontinuos | t | People
+Contratos Fijos discontinuos | t | mail
+Contratos Fijos discontinuos | Inicio Actividad | People
+Contratos Fijos discontinuos | Informar gestoria para alta SS | mail
+Contratos Fijos discontinuos | t | mail
+Contratos Fijos discontinuos | Documentar vacaciones | People
+Contratos Fijos discontinuos | Informar fin periodo actividad empleados | mail
+Contratos Fijos discontinuos | Preparar liquidaciones | mail gestoria
+Contratos Fijos discontinuos | Mandar liquidaciones | mail empleado
+Contratos Fijos discontinuos | Documentar fin actividad | people /excel
+Inicio Jornadas Reducidas | Nos informa empleado | mail / consulta
+Inicio Jornadas Reducidas | Informamos empleado | teams/telefono/presenciales
+Inicio Jornadas Reducidas | Informar gestoria | mail
+Inicio Jornadas Reducidas | Informar area | mail
+Inicio Jornadas Reducidas | t | People
+Inicio Jornadas Reducidas | Envio Anexo | Docusing
+Fin Jornada Reducida | Recibimos archivo | mail
+Fin Jornada Reducida | Contactamos empleado | teams/telefono/presenciales
+Fin Jornada Reducida | t | mail
+Fin Jornada Reducida | Informar gestoria | mail
+Fin Jornada Reducida | Solicitud salario a Compensacion | teams
+Fin Jornada Reducida | Informamos empleado salario | teams/telefono/presenciales
+Fin Jornada Reducida | Envio Anexo | Docusing
+Absentismo | Sacar semanalmente consulta | People
+Absentismo | Gestion Interna | Archivo Teams
+Absentismo | Gestión de las bajas injustificadas | t
+Absentismo | Reuniones con las áreas de Negocio seguimiento | t
+Absentismo | t | mail /teléfono
+Absentismo | Gestión bajas por agotamiento de IT | t
+Absentismo | Contactar empleados /Reuniones empleados | telefono
+Consultas Empleado | Gestion interna | People
+Consultas Empleado | Gestion empleados | telefono/teams
+Consultas Empleado | Resolucion (salvo excepciones) | mail gestoria
+Consultas Empleado | Derivamos departamento correspondiente | People/ mail
+Maternidades y Paternidades | Contacto emplead@ | telefono
+Maternidades y Paternidades | Documentarlo | People
+Maternidades y Paternidades | Informar Area | mail
+Maternidades y Paternidades | Gestion de documentacion | mail gestoria
+Maternidades y Paternidades | Envio Certificado | Docusing
+Bajas por Agotamiento IT | Verificar informacion Mutua | mail
+Bajas por Agotamiento IT | Informar empleados | telefono
+Bajas por Agotamiento IT | Gestionar liquidacion | mail gestoria
+Bajas por Agotamiento IT | Documentar | People
+Bajas por Agotamiento IT | Informar areas | mail
+Recontratacion por denegacion Incapacidad | Informacion empleado | telefono
+Recontratacion por denegacion Incapacidad | t | people
+Recontratacion por denegacion Incapacidad | Informar area | mail
+Recontratacion por denegacion Incapacidad | t | mail
+Recontratacion por denegacion Incapacidad | Informar alta SS | mail gestoria
+Recontratacion por denegacion Incapacidad | Documentar | People
+Recontratacion por denegacion Incapacidad | Contacto con el empleado | presencial
+Adaptaciones Jornada | Traslado de la Adaptacion | mail desde Laboral
+Adaptaciones Jornada | Contacto empleado para informacion | teams
+Adaptaciones Jornada | Envio anexos de adaptacion jornada si procede | Docusing
+Adaptaciones Jornada | Envio anexos teletrabajo adaptaciones jornada | Docusing
+Adaptaciones Jornada | Informar Formacion para @prende | mail
+Adaptaciones Jornada | Informar gestoria | t
+Adaptaciones Jornada | Documentar | people / Carpeta X
+Gestion Licencias | Documentar people si procede | people
+Gestion Licencias | Comprobar si es correcto | mail del empleado
+Gestion Licencias | Subir al gestor | t
+Gestionar Documentos reposo | Documentar people si procede | people
+Gestionar Documentos reposo | Comprobar si es correcto | mail del empleado
+Gestionar Archivo Fie | Revisarlo, archivarlo y enviarlo a E. postal. | t
+Gestionar Avisos Mutua | Revisar Documentar people si procede | people
+Suspensiones | Informar area | t
+Suspensiones | Informar para baja SS | mail gestoria
+Suspensiones | Documentar | t
+Suspensiones | Enviar documentacion | Docusing
+Reincorporacion suspensiones | Informar area | t
+Reincorporacion suspensiones | Informar para alta  SS | mail gestoria
+Reincorporacion suspensiones | Documentar | t
+Permiso parental | Informar area | t
+Permiso parental | Informar para baja SS | mail gestoria
+Permiso parental | Documentar | t
+Permiso parental | Enviar documentacion | Docusing
+Permiso parental | t | carpeta x
+Reincoporacion Permiso Parental | Informar area | t
+Reincoporacion Permiso Parental | Informar para alta  SS | mail gestoria
+Reincoporacion Permiso Parental | Documentar | t
+Cambio de posiciones externos | Documentar | people
+Altas de externos | Documentar | people
+Bajas externos | Documentar | people
+Cambio de posiciones areas | Documentar | people
+Cambios de posicion temporal | Documentar | people
+Cambios de posicion temporal | Envio de Anexos funcionales por cambio puesto | Docusing
+Cambio organizativos | Documentar | people
+Promociones | Documentar | people
+Promociones | pedir anexo si aplica | mail gestoria
+Promociones | t | Docusing
+Promocion Supervisor | Documentar | people
+Promocion Supervisor | t | mail gestoria
+Promocion Supervisor | t | Docusing
+Promocion Supervisor | Presentacion departamento | presencial
+Car | Altas manuales | people
+Car | Informar alta ss | mail gestoria
+Car | envio Contratos | mail
+Car | Entrevistas a Candidatos | Teléfono / Teams
+Car | Salidas /Baja Voluntaria | t
+Car | Interlocución con los Gerentes | t
+Car | Interlocución con el área | t
+Car | Asesoramiento a Administración CAR en HR | t
+Car | t | Teléfono / Teams
+Cesta Navidad | Concurso de proveedores | t
+Cesta Navidad | Reunión de requisitos con Proveedor | t
+Cesta Navidad | Definición de lotes | presencial
+Cesta Navidad | Lanzamiento de campaña | mail
+Cesta Navidad | Gestión de los procesos asociados | mail
+Cesta Navidad | t | mail
+Cesta Navidad | Resolución de incidencias | mail
+Cesta Navidad | Entrega de cestas | presencial
+Cesta Navidad | Gestión de compromisos | presencial
+Cesta Navidad | Envío de Xmas | presencial
+Cesta Navidad | Gestión defectos y devoluciones | presencial
+Cesta Navidad | Liquidación facturas | mail
+Cesta Navidad | Mismo proceso en Asistencia y CAR | mail
+Vehiculos Recuperados | Desde Car  pasan listado para valorar | Mail
+Vehiculos Recuperados | Desde SYP dan el ok | Mail
+Vehiculos Recuperados | Car da de alta los vehiculos | people
+Vehiculos Recuperados | Gestion de comunicaciones a empleados | Mail a Comunicacion
+Vehiculos Recuperados | Cierre del tiempo establecido | people
+Vehiculos Recuperados | Sacar listado de mpleados incscritos en cada coche | people
+Vehiculos Recuperados | Sorteo con compañeros Asesoria | presencial
+Vehiculos Recuperados | Mandar mail a empleados | mail
+Vehiculos Recuperados | Aceptacion empleado | mail
+Vehiculos Recuperados | Informar a Grupo Vehiculos Recuperados | mail
+Renting Vehiculos | t | mail
+Renting Vehiculos | Preparar Comunicacion | mail
+Renting Vehiculos | Lanzamiento de la Ventaja Empleado | mail
+Renting Vehiculos | Comunicacion Empleado | mail
+Renting Vehiculos | Comunicacion con los proveedores | mail
+Renting Vehiculos | Resolucion dudas empleado | presencial / teams/ telefono

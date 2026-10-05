@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión del Cambio | Proyecto Evolutivo HCM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles_hcm.css">
+    <style>
+        :root {
+            --lda-red: #E4002B;
+        }
+
+        .section-header {
+            margin-top: 60px;
+            margin-bottom: 30px;
+        }
+
+        .section-badge {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 800;
+            color: #8b5cf6;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+        }
+
+        .flex-col {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 900px) {
+
+            .grid-3,
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .info-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 8px 32px 0 var(--shadow-color);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .info-card.purple-border-left {
+            border-left: 4px solid #8b5cf6;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--text-main);
+        }
+
+        .card-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8b5cf6;
+            background: transparent;
+        }
+
+        .card-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: currentColor;
+            stroke-width: 1.5;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .alert-box {
+            background: #8b5cf6;
+            color: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        .alert-box.red {
+            background: var(--lda-red);
+        }
+        
+        .box {
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .box-purple {
+            background: #f3f0ff;
+            border-color: #d8b4fe;
+        }
+
+        [data-theme="dark"] .box-purple {
+            background: #3b0764;
+            border-color: #6b21a8;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../local_styles.css">
+</head>
+
+<body>
+    <nav class="global-nav-wrapper">
+        <button class="nav-btn" onclick="javascript:history.back()" title="Volver atrás">
+            <svg viewBox="0 0 24 24">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <div class="nav-divider"></div>
+        <div class="nav-breadcrumb">
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item" title="Inicio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span class="nav-breadcrumb-sep"></span>
+            <a href="index.html" class="nav-breadcrumb-item">HCM Cloud</a>
+            <span class="nav-breadcrumb-sep"></span>
+            <a href="universo_estrategico.html" class="nav-breadcrumb-item">Univ. Estratégico</a>
+            <span class="nav-breadcrumb-sep"></span>
+            <span class="nav-breadcrumb-item current">Gestión del Cambio</span>
+        </div>
+    </nav>
+
+
+    <main class="container" style="padding-bottom: 80px;">
+        <header class="section-header">
+            <span class="section-badge">FASE 7</span>
+            <h1 class="section-title">Gestión del Cambio y Adopción</h1>
+        </header>
+
+        <div class="grid-2">
+            <div class="flex-col">
+                <div class="info-card purple-border-left">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div> 
+                        Objetivo Funcional
+                    </div>
+                    <p style="color: var(--text-sec); font-size: 0.95rem;">
+                        Diseñar y ejecutar un Plan Integral de Gestión del Cambio orientado no solo a la capacitación, sino a 
+                        <strong>garantizar la autonomía operativa</strong> de los usuarios, favorecer la adopción del nuevo modelo y 
+                        reducir el impacto temporal en la productividad de los más de <strong>2.500 empleados</strong>, con especial foco en RRHH.
+                    </p>
+                </div>
+                
+                <div class="alert-box red">
+                    <span style="display:flex; align-items:center; color:white;">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                            <line x1="12" y1="9" x2="12" y2="13" />
+                            <line x1="12" y1="17" x2="12.01" y2="17" />
+                        </svg>
+                    </span>
+                    <div>
+                        <div style="font-size: 1.1rem;">Requisito Crítico: Coordinación</div>
+                        <div style="font-weight: 400; font-size: 0.95rem;">
+                            El adjudicatario debe alinear su planificación con el proveedor de implantación. Las incidencias de adopción tienen un <strong>SLA máximo de 24h</strong>.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <h3 style="margin-top:0; font-weight:800; font-size:1.1rem; display:flex; align-items:center; gap:8px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#8b5cf6;">
+                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                    Métricas de Adopción Requeridas
+                </h3>
+                <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 12px; color: var(--text-sec); font-size: 0.9rem;">
+                    <div><strong style="color:var(--text-main);">Niveles de Uso:</strong> Por colectivo y módulo, midiendo acceso y uso de funcionalidades clave.</div>
+                    <div><strong style="color:var(--text-main);">Cumplimiento de Formación:</strong> Cobertura por colectivos y nivel de aprovechamiento.</div>
+                    <div><strong style="color:var(--text-main);">Autonomía Operativa:</strong> Evolución de la capacidad para completar tareas sin soporte.</div>
+                    <div><strong style="color:var(--text-main);">Satisfacción:</strong> Percepción del sistema, claridad de comunicaciones y apoyo recibido.</div>
+                    <div><strong style="color:var(--text-main);">Volumen de Incidencias:</strong> Tipología y tiempos de resolución (SLA).</div>
+                </div>
+            </div>
+        </div>
+
+        <header class="section-header">
+            <span class="section-badge">EJECUCIÓN</span>
+            <h2 class="section-title">Ámbitos de Trabajo</h2>
+        </header>
+
+        <div class="grid-3">
+            <div class="info-card">
+                <div class="card-header" style="font-size: 1rem;">
+                    <div class="card-icon" style="width:24px; height:24px;"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></div>
+                    1. Diagnóstico Inicial
+                </div>
+                <p style="color: var(--text-sec); font-size: 0.9rem;">
+                    Evaluar el grado de preparación de RRHH y del resto de la compañía. Identificar procesos críticos actuales en PeopleSoft para mitigar fricciones y riesgos operativos.
+                </p>
+            </div>
+            
+            <div class="info-card">
+                <div class="card-header" style="font-size: 1rem;">
+                    <div class="card-icon" style="width:24px; height:24px;"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+                    2. Gobernanza y Grupos
+                </div>
+                <p style="color: var(--text-sec); font-size: 0.9rem;">
+                    Segmentación de colectivos por impacto. Creación de una <strong>red de embajadores del cambio</strong> y estrecha coordinación con RRHH y Comunicación Interna.
+                </p>
+            </div>
+            
+            <div class="info-card">
+                <div class="card-header" style="font-size: 1rem;">
+                    <div class="card-icon" style="width:24px; height:24px;"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></div>
+                    3. Estrategia de Comunicación
+                </div>
+                <p style="color: var(--text-sec); font-size: 0.9rem;">
+                    Definir la identidad y relato del proyecto. Desarrollar planes específicos alineados con los hitos de despliegue para explicar los beneficios y reducir la resistencia.
+                </p>
+            </div>
+            
+            <div class="info-card">
+                <div class="card-header" style="font-size: 1rem;">
+                    <div class="card-icon" style="width:24px; height:24px;"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></div>
+                    4. Modelo de Formación
+                </div>
+                <p style="color: var(--text-sec); font-size: 0.9rem;">
+                    Enfoque diferenciado: materiales sencillos para el autoservicio de empleados, y acompañamiento intensivo para RRHH. Todos los materiales deben ser reutilizables y editables.
+                </p>
+            </div>
+            
+            <div class="info-card">
+                <div class="card-header" style="font-size: 1rem;">
+                    <div class="card-icon" style="width:24px; height:24px;"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+                    5. Acompañamiento Operativo
+                </div>
+                <p style="color: var(--text-sec); font-size: 0.9rem;">
+                    Soporte presencial/remoto intensivo durante la puesta en marcha para RRHH. Resolución ágil de dudas y registro/seguimiento de incidencias para asegurar su cierre.
+                </p>
+            </div>
+            
+            <div class="info-card">
+                <div class="card-header" style="font-size: 1rem;">
+                    <div class="card-icon" style="width:24px; height:24px;"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg></div>
+                    6. Transición y Sostenibilidad
+                </div>
+                <p style="color: var(--text-sec); font-size: 0.9rem;">
+                    Hoja de ruta para transferir conocimiento y responsabilidades al área de RRHH, asegurando la continuidad del modelo una vez finalizado el proyecto.
+                </p>
+            </div>
+        </div>
+        
+        <div class="box box-purple" style="margin-top: 30px;">
+            <div style="font-weight:800; font-size: 1.1rem; color:var(--text-main); margin-bottom: 8px;">Equipo y Experiencia Requerida</div>
+            <p style="color:var(--text-sec); font-size: 0.95rem; margin:0;">
+                El proveedor deberá asignar perfiles especializados en comunicación, formación y soporte. Se requiere demostrar <strong>experiencia comprobable en implantaciones HCM</strong> de complejidad y volumen similares a Línea Directa. Los entregables estarán sujetos a validación según hitos predefinidos.
+            </p>
+        </div>
+
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa del Ecosistema IA | Sesión 1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles_bitacora.css">
+    <style>
+        :root {
+            --lda-red: #E4002B;
+            --lda-border: #e2e8f0;
+        }
+
+        .map-wrapper {
+            background: white;
+            padding: 40px;
+            border-radius: 32px;
+            border: 1px solid var(--lda-border);
+            box-shadow: var(--shadow);
+            margin: 40px 0;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .map-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 16px;
+            transition: transform 0.5s ease;
+            cursor: zoom-in;
+        }
+
+        .map-image:active {
+            transform: scale(1.5);
+            cursor: zoom-out;
+        }
+
+        .map-caption {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 16px;
+            display: inline-block;
+            max-width: 800px;
+            text-align: left;
+            border-left: 5px solid var(--lda-red);
+        }
+    </style>
+
+    <link rel="stylesheet" href="../local_styles.css">
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper">
+        <button class="nav-btn" onclick="javascript:history.back()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+        </button>
+        <div class="nav-divider"></div>
+        <div class="nav-breadcrumb">
+            <a href="index.html" class="nav-breadcrumb-item">Transformación y Eficiencia</a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <a href="sesiones_transformacion.html" class="nav-breadcrumb-item">Sesiones</a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <a href="sesion_01_radar.html" class="nav-breadcrumb-item">Sesión 1: Radar</a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <span class="nav-breadcrumb-item current">Mapa del Ecosistema</span>
+        </div>
+    </nav>
+
+    <div class="bg-mesh"></div>
+
+    <main class="container">
+        <header style="margin-bottom: 60px;">
+            <div class="kicker-red">VISUALIZACIÓN ESTRATÉGICA</div>
+            <h1>Mapa del Ecosistema IA</h1>
+                <span class="hero-badge-local" style="margin-top: 10px;">Recurso en Local</span>
+            <p style="color: var(--text-sec); font-size: 1.1rem; margin-top: 10px;">Un resumen visual de los grandes jugadores y sus propuestas de valor.</p>
+        </header>
+
+        <div class="map-wrapper">
+            <img src="mapa_ecosistema.png" alt="Mapa del Ecosistema IA" class="map-image">
+        </div>
+
+        <div style="text-align: center;">
+            <div class="map-caption">
+                <h3 style="margin-bottom: 10px;">💡 Cómo leer este mapa</h3>
+                <p style="color: var(--text-sec); line-height: 1.6;">Este gráfico conecta los diferentes perfiles que hemos estudiado: desde la seguridad empresarial de Microsoft hasta la multimodalidad de Google, pasando por el rigor de Anthropic y la investigación de Perplexity. Haz clic sobre la imagen para ampliarla.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portal de Transformación y Eficiencia | Grupo Línea Directa</p>
+    </footer>
+
+    <script src="breadcrumb_manager.js"></script>
+</body>
+
+</html>

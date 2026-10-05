@@ -1,0 +1,520 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta GIN | Universo GIN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles_infografia.css">
+    <style>
+        .page-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .proposal-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .proposal-section h2 {
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            color: var(--primary-color);
+        }
+
+        /* 1- Diagnóstico */
+        .diagnostic-card {
+            background: rgba(220, 53, 69, 0.05);
+            border-left: 4px solid #dc3545;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+        }
+
+        .diagnostic-card p {
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .diagnostic-card ul {
+            margin-bottom: 15px;
+            color: var(--text-muted);
+            padding-left: 25px;
+        }
+
+        .consequences-box {
+            background: #fff;
+            border: 1px solid #dc3545;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .dark-theme .consequences-box {
+            background: var(--bg-card);
+        }
+
+        .consequences-box h4 {
+            color: #dc3545;
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .consequences-box ul {
+            color: #dc3545;
+            font-weight: 500;
+            list-style-type: none;
+            padding-left: 25px;
+        }
+
+        .consequences-box ul li {
+            margin-bottom: 10px;
+        }
+
+        /* 2- Propuesta */
+        .proposal-highlight {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            background: var(--bg-color);
+        }
+
+        .proposal-highlight strong {
+            color: #c00000;
+            font-weight: 700;
+        }
+
+        /* Principios */
+        .golden-rule {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            font-style: italic;
+        }
+
+        .golden-rule strong {
+            color: var(--text-color);
+        }
+
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .principle-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-top: 4px solid #c00000;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .principle-card h4 {
+            color: #c00000;
+            margin-top: 0;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .principle-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+
+        /* Modelo de Gobierno */
+        .model-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 900px) {
+            .model-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .model-diagram {
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 8px;
+            background: var(--bg-color);
+        }
+
+        .model-functions {
+            padding: 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+        }
+
+        .model-functions h4 {
+            color: #c00000;
+            margin-top: 0;
+        }
+
+        .model-functions ol {
+            padding-left: 20px;
+            color: var(--text-muted);
+        }
+
+        .model-functions ol li {
+            margin-bottom: 12px;
+        }
+
+        .model-functions ol li strong {
+            color: var(--text-color);
+        }
+
+        /* RACI */
+        .raci-table-wrapper {
+            overflow-x: auto;
+            margin-top: 30px;
+        }
+
+        .raci-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .raci-table th,
+        .raci-table td {
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        .raci-table th {
+            background-color: #d9534f;
+            color: white;
+            font-weight: 600;
+        }
+
+        .raci-table tbody tr:nth-child(even) {
+            background-color: rgba(217, 83, 79, 0.05);
+        }
+
+        .dark-theme .raci-table tbody tr:nth-child(even) {
+            background-color: rgba(217, 83, 79, 0.1);
+        }
+
+        .raci-legend {
+            margin-top: 15px;
+            padding: 15px;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .raci-legend strong {
+            color: #c00000;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../../local_styles.css">
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper">
+        <div class="nav-breadcrumb">
+            <a href="../../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item" title="Inicio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span class="nav-breadcrumb-sep"></span>
+            <a href="../index.html" class="nav-breadcrumb-item">Gestión Info</a>
+            <span class="nav-breadcrumb-sep"></span>
+            <a href="hub_gin.html" class="nav-breadcrumb-item">Universo GIN</a>
+            <span class="nav-breadcrumb-sep"></span>
+            <span class="nav-breadcrumb-item current">Propuesta GIN</span>
+        </div>
+    </nav>
+
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label">MODO OSCURO</span>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-checkbox" onchange="toggleTheme()">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="page-container">
+
+
+        <header class="hero" style="margin-bottom: 0;">
+            <span class="hero-badge">Propuesta Estratégica</span>
+            <span class="hero-badge-local">Recurso en Local</span>
+            <h1>Modelo de Gobierno GIN</h1>
+            <p>Propuesta del Modelo de Gobierno de la Información de Negocio (GIN).</p>
+        </header>
+
+        <!-- Propuesta Presentada -->
+        <section class="proposal-section">
+            <h2 style="margin-bottom: 0;">Propuesta de Gobierno Presentada</h2>
+
+            <!-- 1- Diagnóstico -->
+            <div class="diagnostic-card">
+                <h3 style="color: #dc3545; margin-top: 0;">1- Diagnóstico</h3>
+                <p>La compañía <strong>necesita un marco claro para gestionar su conocimiento operativo y de
+                        negocio</strong>, que hoy se encuentra distribuido entre áreas, distintos formatos y múltiples
+                    responsables, generando:</p>
+                <ul>
+                    <li><strong>Dificultad</strong> para localizar informaci&oacute;n clave.</li>
+                    <li>Dependencia de personas concretas y <strong>p&eacute;rdida de coherencia</strong>.</li>
+                    <li><strong>Falta de trazabilidad</strong> y de un "due&ntilde;o" claro por temas.</li>
+                    <li><strong>Duplicidades</strong> y mensajes no alineados entre &aacute;reas.</li>
+                </ul>
+
+                <div class="consequences-box">
+                    <h4>&nbsp; Posibles Consecuencias:</h4>
+                    <p style="color: var(--text-muted); margin-bottom: 15px; font-weight: normal;">Esto puede provocar:
+                    </p>
+                    <ul>
+                        <li>&bull; Dificultad para aprovechar la potencialidad del CRM.</li>
+                        <li>&bull; P&eacute;rdida de productividad.</li>
+                        <li>&bull; Respuestas no homog&eacute;neas al cliente.</li>
+                        <li>&bull; <strong>En definitiva, una peor experiencia de cliente.</strong></li>
+                    </ul>
+                </div>
+
+                <h3 style="color: #dc3545; margin-top: 40px;">2- Propuesta</h3>
+                <div class="proposal-highlight">
+                    <div style="font-size: 2rem; color: #c00000;">🎯</div>
+                    <div>
+                        Crear un <strong>Modelo de Gobierno de la Información de Negocio</strong> —sencillo y
+                        transversal—
+                        <strong>que establezca responsables, roles y un marco común</strong> para empezar a organizar,
+                        ordenar y disponibilizar esta información.
+                    </div>
+                </div>
+
+                <!-- Principios -->
+                <h3 style="color: #dc3545; margin-top: 50px;">3- Principio del Modelo de Información</h3>
+
+                <div class="golden-rule">
+                    <strong>★ El Principio de Oro</strong><br>
+                    <span style="color: var(--text-muted);">Es necesario <strong>tener la información documentada de
+                            forma
+                            clara, <u>ordenada</u> y actualizada para que</strong>, en el futuro, <strong>cualquier
+                            sistema</strong> â€”incluida la IAâ€” o cualquier persona <strong>pueda encontrarla y
+                            utilizarla
+                            correctamente.</strong></span>
+                </div>
+
+                <h3 style="color: #dc3545; margin-top: 50px;">4- Principios Fundamentales</h3>
+                <div class="principles-grid">
+                    <div class="principle-card">
+                        <h4>Calidad</h4>
+                        <p>Información correcta, alineada con normativa, clara y coherente.</p>
+                    </div>
+                    <div class="principle-card">
+                        <h4>Orden</h4>
+                        <p>Ubicada en repositorios oficiales y organizada por temas.</p>
+                    </div>
+                    <div class="principle-card">
+                        <h4>Contexto</h4>
+                        <p>Indicar para qué proceso, producto y situaciones aplica.</p>
+                    </div>
+                    <div class="principle-card">
+                        <h4>Responsable</h4>
+                        <p>Cada contenido debe tener un titular claro que asuma su gestión.</p>
+                    </div>
+                </div>
+
+                <!-- 5- Modelo Organizativo -->
+                <h3 style="color: #dc3545; margin-top: 50px;">5- Propuesta de Modelo de Gobierno de Información de
+                    Negocio
+                </h3>
+                <div class="model-container">
+                    <div class="model-diagram">
+                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px;"><strong>Estructura
+                                Organizativa:</strong></p>
+                        <ul style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.95rem;">
+                            <li><span
+                                    style="display:inline-block; width:15px; height:15px; background:#d97779; margin-right:8px; vertical-align:middle;"></span>
+                                <strong>Transversal:</strong> Responsable del Gobierno de la Información de Negocio
+                            </li>
+                            <li><span
+                                    style="display:inline-block; width:15px; height:15px; background:#f4a582; margin-right:8px; vertical-align:middle;"></span>
+                                <strong>Negocio:</strong> Owner de la Información de área, Experto(s) Operativo de
+                                área
+                            </li>
+                            <li><span
+                                    style="display:inline-block; width:15px; height:15px; background:#e0b2e0; margin-right:8px; vertical-align:middle;"></span>
+                                <strong>Otras áreas:</strong> Tecnología y Ciberseguridad, CRM
+                            </li>
+                        </ul>
+
+                        <div
+                            style="background: var(--bg-card); border: 1px dashed var(--border-color); padding: 15px; border-radius: 8px;">
+                            <ul
+                                style="color: var(--text-muted); font-size: 0.9rem; padding-left: 20px; margin-bottom: 0;">
+                                <li><strong>áreas Implicadas:</strong> Comercial, Cartera, SyP, Marketing, Técnico,
+                                    Secretaría Gral...</li>
+                                <li style="margin-top: 10px;"><strong>Owner de área:</strong> Responsable de decidir y
+                                    garantizar la vigencia y coherencia de la información en su ámbito.</li>
+                                <li style="margin-top: 10px;"><strong>Experto Operativo:</strong> Aporta el conocimiento
+                                    operativo necesario y actualiza la información según el marco establecido.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="model-functions">
+                        <h4>Principales Funciones del Responsable</h4>
+                        <ol>
+                            <li><strong>Identificar</strong> categorías de información y su contenido.</li>
+                            <li><strong>Definición</strong> de las normas y criterios de etiquetado y registro de la
+                                información.</li>
+                            <li><strong>Planificación</strong> y priorización de la información.</li>
+                            <li><strong>Definición</strong> de un sistema de control de seguimiento de vigencia y
+                                cambios.
+                            </li>
+                            <li><strong>Mantenimiento</strong> de un registro único de roles y responsabilidades por
+                                áreas.
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- 6- Matriz RACI -->
+                <h3 style="color: #dc3545; margin-top: 50px;">6- Propuesta Matriz RACI de responsabilidades</h3>
+                <div class="raci-table-wrapper">
+                    <table class="raci-table">
+                        <thead>
+                            <tr>
+                                <th>Función</th>
+                                <th>Responsable GIN (Corp.)</th>
+                                <th>Owner de la Información de área</th>
+                                <th>Experto(s) Operativo de área</th>
+                                <th>Tecnología & Ciberseguridad / CRM</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>1. Identificar categorías de información y su contenido</strong></td>
+                                <td><strong>A</strong> - Define el marco, valida la propuesta y garantiza coherencia
+                                    transversal</td>
+                                <td><strong>R</strong> - Negocio identifica qué ámbitos y tipos de información son
+                                    críticos
+                                    en su área</td>
+                                <td><strong>C</strong> - Aporta detalle operativo sobre qué información es realmente
+                                    necesaria</td>
+                                <td><strong>I</strong> - Informado para prever implicaciones futuras de ingestión y
+                                    estructura</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2. Definición de las normas y criterios de etiquetado y registro de la
+                                        información</strong></td>
+                                <td><strong>A</strong> - Define marco corporativo</td>
+                                <td><strong>R</strong> - Aplica el marco en su ámbito</td>
+                                <td><strong>C</strong> - Redacta, estructura y mantiene según el marco</td>
+                                <td><strong>C</strong> - Revisa mínimos para garantizar que el modelo encaja con
+                                    soluciones
+                                    futuras</td>
+                            </tr>
+                            <tr>
+                                <td><strong>3. Planificación y priorización de la información</strong></td>
+                                <td><strong>A</strong> - Define criterios corporativos de priorización</td>
+                                <td><strong>R</strong> - Decide qué temas de su ámbito son críticos</td>
+                                <td><strong>C</strong> - Identifica impacto operativo</td>
+                                <td><strong>I</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>4. Definición de un sistema de control de seguimiento de vigencia y
+                                        cambios</strong></td>
+                                <td><strong>A</strong> - Supervisa y exige cumplimiento</td>
+                                <td><strong>R</strong> - Garantiza que su ámbito esté actualizado</td>
+                                <td><strong>R</strong> - Actualiza cambios</td>
+                                <td><strong>I</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>5. Mantenimiento de un registro único de roles y responsabilidades de todas
+                                        las
+                                        áreas y personas</strong></td>
+                                <td><strong>A</strong> - Mantiene la información actualizada</td>
+                                <td><strong>R</strong> - Punto de decisión en su ámbito</td>
+                                <td><strong>R</strong> - Punto de conocimiento operativo</td>
+                                <td><strong>I</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="raci-legend">
+                    <strong>R</strong>- Ejecuta el trabajo. &nbsp; <strong>A</strong>- Responsable último del resultado.
+                    &nbsp; <strong>C</strong>- Consultado (interviene). &nbsp; <strong>I</strong>- Informado
+                </div>
+
+        </section>
+
+    </div>
+
+    <script src="../scripts_infografia.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', initTheme);
+    </script>
+
+    <script>
+        // BREADCRUMB MANAGER - DYNAMIC ISLAND
+        function initDynamicBreadcrumb() {
+            const wrapper = document.querySelector('.global-nav-wrapper');
+            if (!wrapper) return;
+
+            // Check initial scroll position
+            if (window.scrollY > 50) wrapper.classList.add('compacted');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    wrapper.classList.add('compacted');
+                } else {
+                    wrapper.classList.remove('compacted');
+                }
+            });
+
+            // Handle touch devices to expand on tap if compacted
+            wrapper.addEventListener('click', (e) => {
+                if (wrapper.classList.contains('compacted') && window.innerWidth <= 768) {
+                    e.preventDefault();
+                    wrapper.classList.remove('compacted');
+                    // Give them time to click before it auto-compacts again
+                    setTimeout(() => {
+                        if (window.scrollY > 50) wrapper.classList.add('compacted');
+                    }, 3000);
+                }
+            });
+        }
+        document.addEventListener('DOMContentLoaded', initDynamicBreadcrumb);
+    </script>
+</body>
+
+</html>

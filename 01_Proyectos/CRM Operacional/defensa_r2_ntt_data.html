@@ -1,0 +1,365 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Defensa Fase 2 - Sesión 2: NTT Data | CRM Operacional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Cuaderno de Bitacora (Proyectos)/styles_bitacora.css">
+    <style>
+        :root {
+            --ntt-blue: #0066cc;
+            --ntt-dark: #003366;
+            --ntt-accent: #0099ff;
+        }
+
+        .defense-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .highlight-card {
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            border-color: var(--ntt-blue);
+        }
+
+        .highlight-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--ntt-blue);
+            opacity: 0.5;
+        }
+
+        .point-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0;
+        }
+
+        .point-list li {
+            margin-bottom: 16px;
+            padding-left: 28px;
+            position: relative;
+            font-size: 0.95rem;
+            color: var(--text-sec);
+            line-height: 1.5;
+        }
+
+        .point-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--ntt-blue);
+            font-weight: 900;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 15px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 30px 0;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .comparison-table th {
+            background: rgba(0, 102, 204, 0.05);
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        .wave-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .wave-item {
+            padding: 12px 20px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .wave-item:hover {
+            border-color: var(--ntt-blue);
+            background: rgba(0, 102, 204, 0.02);
+        }
+
+        .wave-number {
+            font-weight: 900;
+            color: var(--ntt-blue);
+            background: rgba(0, 102, 204, 0.1);
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            font-size: 0.75rem;
+        }
+
+        .conclusion-banner {
+            background: linear-gradient(135deg, var(--ntt-dark) 0%, #001f3f 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 30px;
+            margin: 60px 0;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+        }
+
+        .conclusion-banner h3 {
+            color: var(--ntt-accent);
+            margin-bottom: 15px;
+        }
+
+        .conclusion-banner p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+        
+        .icon-box {
+            width: 48px;
+            height: 48px;
+            background: rgba(0, 102, 204, 0.1);
+            color: var(--ntt-blue);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .risk-tag {
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.75rem;
+        }
+
+        .info-card {
+            padding: 30px;
+        }
+
+        .section-header {
+            padding-left: 20px;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../local_styles.css">
+</head>
+
+<body>
+    <nav class="global-nav-wrapper">
+        <div class="nav-breadcrumb">
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item">Inicio</a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <a href="index.html" class="nav-breadcrumb-item">CRM Operacional</a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <a href="hub_licitacion.html" class="nav-breadcrumb-item">Hub Licitación</a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <span class="nav-breadcrumb-item current">Defensa R2: NTT Data</span>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="hero" style="text-align: center; padding: 60px 0 40px;">
+            <span class="hero-badge" style="background: rgba(0, 102, 204, 0.1); color: var(--ntt-blue); border: 1px solid rgba(0, 102, 204, 0.2);">⬤ DEFENSA TÉCNICA: MODELO POR OLAS</span>
+            <h1>Segunda Defensa <br><span>Propuesta NTT Data</span></h1>
+                <span class="hero-badge-local" style="margin-top: 10px;">Recurso en Local</span>
+            <p style="margin: 0 auto; max-width: 800px;">Propuesta pragmática centrada en Salesforce S&S. Foco en la orquestación vía MuleSoft y la explotación de datos conversacionales mediante Digital Engagement.</p>
+        </header>
+
+        <!-- POSICIONAMIENTO ESTRATÉGICO -->
+        <div class="info-card" style="margin-bottom: 40px; background: rgba(0, 102, 204, 0.02); border-left: 4px solid var(--ntt-blue);">
+            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                <div class="icon-box" style="margin-bottom: 0;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                </div>
+                <h3 style="margin: 0;">Visión Ejecutiva de Propuesta</h3>
+            </div>
+            <p>NTT Data propone una aproximación **pragmática y realista**, apostando por la edición **Sales & Service (S&S)** en lugar de FSC para esta fase inicial, priorizando el CRM como capa de relación sin duplicar la lógica aseguradora que ya reside en Galgo.</p>
+        </div>
+
+        <div class="defense-grid">
+            <!-- ELECCIÓN PRODUCTO -->
+            <div class="highlight-card">
+                <span class="tag" style="background: rgba(0, 102, 204, 0.1); color: var(--ntt-blue);">Estrategia</span>
+                <div class="icon-box">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                </div>
+                <h3>Salesforce S&S (Standard)</h3>
+                <ul class="point-list">
+                    <li><strong>Capa de Relación:</strong> El CRM orquesta interacciones; Galgo mantiene la lógica contractual.</li>
+                    <li><strong>Eficiencia Técnica:</strong> Cobertura funcional del ~65% con estándar, minimizando complejidad y coste de licencias.</li>
+                    <li><strong>Puerta Abierta:</strong> Evolución futura a FSC contemplada si el negocio lo demanda mas adelante.</li>
+                </ul>
+            </div>
+
+            <!-- ARQUITECTURA -->
+            <div class="highlight-card">
+                <span class="tag" style="background: rgba(14, 165, 233, 0.1); color: #0ea5e9;">Arquitectura</span>
+                <div class="icon-box">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                </div>
+                <h3>Orquestación MuleSoft</h3>
+                <ul class="point-list">
+                    <li><strong>Hub Central:</strong> Capa de integración para evitar conexiones punto a punto.</li>
+                    <li><strong>Modelo Mixto:</strong> Sincronía vía APIs para consultas y eventos asíncronos para procesos de fondo.</li>
+                    <li><strong>Maestría del Dato:</strong> Salesforce (Relación/Casos/Cotizaciones) vs Galgo (Core Asegurador).</li>
+                </ul>
+            </div>
+
+            <!-- CONTACT CENTER -->
+            <div class="highlight-card">
+                <span class="tag" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">Operaciones</span>
+                <div class="icon-box">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                </div>
+                <h3>Digital Engagement</h3>
+                <ul class="point-list">
+                    <li><strong>Modelo B (Recomendado):</strong> Salesforce persiste la conversación como dato estándar.</li>
+                    <li><strong>Inteligencia Real:</strong> Habilita el reporte omnicanal y el uso de IA sobre los datos conversacionales.</li>
+                    <li><strong>Evolución Futura:</strong> Pieza estratégica para que Salesforce actúe como sistema de relación "inteligente".</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- PLAN DE EJECUCIÓN -->
+        <div class="section-header" style="border-left: 4px solid var(--ntt-blue);">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Modelo de Ejecución por Olas (12-13 Meses)</h2>
+                <p class="section-subtitle">Horizonte temporal y secuencia lógica de despliegue progresivo</p>
+            </div>
+        </div>
+
+        <div class="wave-container">
+            <div class="wave-item"><span class="wave-number">0</span> Base Operativa & Inception</div>
+            <div class="wave-item"><span class="wave-number">1</span> Ramo Hogar (MVP)</div>
+            <div class="wave-item"><span class="wave-number">2</span> Ramo Auto</div>
+            <div class="wave-item"><span class="wave-number">3</span> Salud / Expat / Upselling</div>
+            <div class="wave-item"><span class="wave-number">4</span> Retención / Recibos / Recobros</div>
+            <div class="wave-item"><span class="wave-number">5</span> Empresas / Fidelización / Canales</div>
+        </div>
+
+        <!-- RIESGOS CRÍTICOS -->
+        <div class="section-header" style="border-left: 4px solid #ef4444; margin-top: 50px;">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Matriz de Riesgos Críticos</h2>
+                <p class="section-subtitle">Factores con impacto directo en la planificación y el éxito del proyecto</p>
+            </div>
+        </div>
+
+        <div class="defense-grid">
+            <div class="highlight-card" style="border-top-color: #ef4444;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <h3>Técnicos & Integración</h3>
+                    <span class="risk-tag">CRÍTICO</span>
+                </div>
+                <ul class="point-list" style="margin-top: 15px;">
+                    <li>Complejidad de convivencia CRM-Galgo.</li>
+                    <li>Dependencia de la configuración de Genesys.</li>
+                    <li>Calidad de datos y procesos de migración masiva.</li>
+                </ul>
+            </div>
+
+            <div class="highlight-card" style="border-top-color: #ef4444;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <h3>Cumplimiento & Seguridad</h3>
+                    <span class="risk-tag">ALTO</span>
+                </div>
+                <ul class="point-list" style="margin-top: 15px;">
+                    <li>Alineamiento con normativa DORA y RGPD.</li>
+                    <li>Data Masking en entornos no productivos (Requisito Obligatorio).</li>
+                    <li>Impacto de proyectos paralelos en el ecosistema.</li>
+                </ul>
+            </div>
+
+            <div class="highlight-card" style="border-top-color: #f59e0b;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <h3>Adopción & Negocio</h3>
+                    <span class="risk-tag">MEDIO</span>
+                </div>
+                <ul class="point-list" style="margin-top: 15px;">
+                    <li>Falta de adopción por el usuario final.</li>
+                    <li>UATs insuficientes para validar escenarios complejos.</li>
+                    <li>"Scope Creep" tras la fase de congelación de diseño.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CONCLUSIÓN FINAL -->
+        <div class="conclusion-banner">
+            <h3>Resumen Estratégico NTT Data</h3>
+            <p>La propuesta de NTT Data destaca por su **solidez y realismo operativo**. Al elegir Salesforce S&S, priorizan la sostenibilidad y el control de costes sin sacrificar la visión de futuro. Su modelo por olas permite una **mitigación de riesgos progresiva**, aunque la planificación final queda supeditada al control férreo de los riesgos críticos identificados (especialmente la convivencia con Galgo). Es una oferta muy equilibrada para una implantación controlada y eficaz.</p>
+            
+            <div style="margin-top: 30px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: center; gap: 20px;">
+                <a href="defensa_r1_ntt_data.html" style="color: var(--ntt-accent); text-decoration: none; font-weight: 800; font-size: 0.9rem; display: flex; align-items: center; gap: 8px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    VER SESIÓN 1 (ESTRATEGIA INICIAL)
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function toggleTheme() {
+            const checkbox = document.getElementById('theme-checkbox');
+            const isDark = checkbox.checked;
+            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        }
+        initTheme();
+    </script>
+</body>
+</html>

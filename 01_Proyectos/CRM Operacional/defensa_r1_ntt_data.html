@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Defensa Fase 2: NTT Data | CRM Operacional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Cuaderno de Bitacora (Proyectos)/styles_bitacora.css">
+    <style>
+        .defense-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .highlight-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--lda-red);
+        }
+
+        .point-list {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0 0;
+        }
+
+        .point-list li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.95rem;
+            color: var(--text-sec);
+        }
+
+        .point-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--lda-red);
+            font-weight: 800;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../local_styles.css">
+</head>
+
+<body>
+    <nav class="global-nav-wrapper">
+        <div class="nav-breadcrumb">
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item">Inicio</a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <a href="index.html" class="nav-breadcrumb-item">CRM Operacional</a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <a href="hub_licitacion.html" class="nav-breadcrumb-item">Hub Licitación</a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <span class="nav-breadcrumb-item current">Defensa R1: NTT Data</span>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="hero" style="text-align: center; padding: 60px 0 40px;">
+            <span class="hero-badge" style="background: rgba(59, 130, 246, 0.1); color: #3b82f6; border: 1px solid rgba(59, 130, 246, 0.2);">⬤ FASE 2: SESIÓN DE DEFENSA TÉCNICA</span>
+            <h1>Análisis de Sesión <br><span>NTT Data</span></h1>
+                <span class="hero-badge-local" style="margin-top: 10px;">Recurso en Local</span>
+            <p style="margin: 0 auto; max-width: 800px;">Consolidado de los pilares de defensa presentados. Enfoque centrado en la coexistencia sin riesgos con Galgo y la transformación operativa profunda.</p>
+        </header>
+
+        <!-- SESIÓN INICIAL: ESTRATEGIA Y DEMO (R1) -->
+        <div class="section-header" style="border-left: 4px solid #3b82f6; margin-top: 20px;">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Sesión Inicial: Estrategia y Demo (R1)</h2>
+                <p class="section-subtitle">Puntos clave defendidos en la sesión presencial del 13 de Marzo</p>
+            </div>
+        </div>
+
+        <div class="defense-grid">
+            <!-- DIFERENCIAL TECNOLÓGICO -->
+            <div class="highlight-card">
+                <span class="tag" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6;">Soberanía IT</span>
+                <h3>Coexistencia Galgo</h3>
+                <ul class="point-list">
+                    <li><strong>Arquitectura desacoplada:</strong> Integración near-real-time (<5s) vía Kafka/CDC para sincronización total.</li>
+                    <li><strong>Capa de Relación:</strong> Salesforce como Sistema de Compromiso único, manteniendo Galgo como Core Maestro.</li>
+                    <li><strong>Zero Copy:</strong> Minimización de duplicados priorizando la consulta de datos en origen.</li>
+                </ul>
+            </div>
+
+            <!-- IMPLANTACIÓN -->
+            <div class="highlight-card" style="border-top-color: #f59e0b;">
+                <span class="tag" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;">Innovación</span>
+                <h3>Augmented CRM</h3>
+                <ul class="point-list">
+                    <li><strong>Capacidad Predictiva:</strong> Uso de IA (Einstein/Agentforce) para recomendaciones de siguientes acciones en tiempo real.</li>
+                    <li><strong>Olas de Negocio:</strong> Despliegue modular por dominios (Hogar, Motor, Salud) para entregas iterativas.</li>
+                    <li><strong>Acceleradores Propios:</strong> Uso de activos como Axet y Fenix para ganar velocidad en el delivery.</li>
+                </ul>
+            </div>
+
+            <!-- GAC -->
+            <div class="highlight-card" style="border-top-color: #10b981;">
+                <span class="tag" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">Change Journey</span>
+                <h3>Propuesta de Cambio</h3>
+                <ul class="point-list">
+                    <li><strong>Narrativa de Alto Impacto:</strong> Uso de cómic corporativo, videos avatar y podcasts para motivar al personal.</li>
+                    <li><strong>Soporte 4 Niveles:</strong> Desde asistentes IA hasta desarrollo funcional, cubriendo todo el espectro de ayuda.</li>
+                    <li><strong>Métricas de Readiness:</strong> Seguimiento exhaustivo de la preparación del personal antes de cada Go-Live.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="info-card" style="border-left: 4px solid #3b82f6; padding: 30px; margin-top: 20px; margin-bottom: 40px; background: rgba(59,130,246,0.02);">
+            <h3>Conclusión Sesión Inicial (R1: Marzo 2026)</h3>
+            <p style="color: var(--text-main); line-height: 1.6; margin-top: 10px; font-weight: 500;">NTT Data demostró una madurez sobresaliente en el conocimiento del negocio asegurador, apoyándose en expertos globales para diseñar una solución muy alineada con las necesidades de los agentes. La sesión inicial, no obstante, dejó dudas sobre la viabilidad técnica de la sincronía masiva de datos con el Core y el coste total de las licencias Salesforce, lo que motivó una petición de rectificación profunda en estos puntos.</p>
+        </div>
+
+        <!-- AMPLIACIÓN Y REFINAMIENTO (PETICIÓN LDA) -->
+        <div id="refinamiento" class="section-header" style="border-left: 4px solid var(--lda-red); margin-top: 50px;">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Anexo de Rectificación y Aclaraciones (R2)</h2>
+                <p class="section-subtitle">Resolución de dudas sobre integración de datos y licenciamiento (Abril)</p>
+            </div>
+        </div>
+
+        <div class="info-card" style="margin-bottom: 40px; padding: 0; overflow: hidden; border-top: 4px solid var(--lda-red);">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+                <thead>
+                    <tr style="background: rgba(228,0,43,0.05); text-align: left;">
+                        <th style="padding: 15px; border-bottom: 2px solid var(--border-color);">Plica Técnica / Duda LDA</th>
+                        <th style="padding: 15px; border-bottom: 2px solid var(--border-color);">Posición Original R1</th>
+                        <th style="padding: 15px; border-bottom: 2px solid var(--border-color); color: var(--lda-red);">Compromiso Final R2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <td style="padding: 15px; font-weight: 800;">Visualización de Datos</td>
+                        <td style="padding: 15px; color: var(--text-sec);">Sincronización física vía ETL/CDC</td>
+                        <td style="padding: 15px; font-weight: 600;"><strong>Virtualización:</strong> Uso de Salesforce Connect (OData) para acceso síncrono sin persistencia.</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <td style="padding: 15px; font-weight: 800;">Estructura OPEX</td>
+                        <td style="padding: 15px; color: var(--text-sec);">Licencias FSC para toda la base</td>
+                        <td style="padding: 15px; font-weight: 600;"><strong>Mix Optimizado:</strong> Combinación de FSC + Service Cloud para reducir costes recurrentes un 18%.</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <td style="padding: 15px; font-weight: 800;">Dirección Técnica</td>
+                        <td style="padding: 15px; color: var(--text-sec);">Gobierno desde NTT Madrid</td>
+                        <td style="padding: 15px; font-weight: 600;"><strong>Global Insurance SME:</strong> Inclusión de 2 perfiles globales de NTT especializados en arquitecturas aseguradoras.</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 15px; font-weight: 800;">Resiliencia Galgo</td>
+                        <td style="padding: 15px; color: var(--text-sec);">Pendiente de patrón técnico</td>
+                        <td style="padding: 15px; font-weight: 600;"><strong>Proxy Integration:</strong> Capa de mediación NTT para la gestión de picos de carga sobre DB2.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="defense-grid">
+            <!-- DETALLE INTEGRACIÓN -->
+            <div class="highlight-card" style="border-top-color: #3b82f6;">
+                <span class="tag" style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Deep Dive Integración</span>
+                <h3>Cero Duplicidad (Zero Copy)</h3>
+                <p style="font-size: 0.85rem; color: var(--text-sec); margin-top: 10px;">NTT ha detallado el beneficio de su elección de Salesforce Connect:</p>
+                <ul class="point-list">
+                    <li><strong>Transparencia:</strong> Los agentes ven los datos del core como si estuvieran en Salesforce, pero la soberanía del dato permanece en LDA.</li>
+                    <li><strong>Agilidad:</strong> Eliminación de procesos nocturnos de carga de datos, garantizando una atención al cliente 100% actualizada.</li>
+                </ul>
+            </div>
+
+            <!-- DETALLE ECONOMICO -->
+            <div class="highlight-card" style="border-top-color: #10b981;">
+                <span class="tag" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">Eficiencia de Inversión R2</span>
+                <h3>Protección del OPEX</h3>
+                <p style="font-size: 0.85rem; color: var(--text-sec); margin-top: 10px;">Mejoras financieras presentadas en el anexo:</p>
+                <ul class="point-list">
+                    <li><strong>Ahorro en Sandbox:</strong> Uso compartido de entornos de NTT para reducir el pago de entornos parciales de SF.</li>
+                    <li><strong>Precios de Servicio:</strong> Compromiso de mantenimiento de tarifas de soporte post-proyecto durante los primeros 3 años post-proyecto.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="info-card" style="border-left: 4px solid var(--lda-red); padding: 30px; margin-top: 40px; margin-bottom: 60px; background: rgba(228,0,43,0.02);">
+            <h3>Conclusión Análisis de Rectificación (R2: Abril 2026)</h3>
+            <p style="color: var(--text-main); line-height: 1.6; margin-top: 10px; font-weight: 500;">NTT Data ha respondido con una solidez técnica superior sobre la visibilidad y persistencia de datos. Su apuesta definitiva por la virtualización mediante Salesforce Connect resuelve de raíz el problema de la integridad del dato core (Zero Copy). Su oferta rectificada es, a nivel de arquitectura, la más segura y escalable de toda la licitación.</p>
+        </div>
+    </main>
+
+    <script>
+        function toggleTheme() {
+            const checkbox = document.getElementById('theme-checkbox');
+            const isDark = checkbox.checked;
+            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        }
+        initTheme();
+    </script>
+</body>
+</html>

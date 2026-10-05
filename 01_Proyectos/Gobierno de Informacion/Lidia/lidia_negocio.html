@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto LidIA Negocio | Hub de Gestión de la Información</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../Cuaderno de Bitacora (Proyectos)/styles_bitacora.css">
+    <link rel="stylesheet" href="../../local_styles.css">
+    <style>
+        .apple-card-custom {
+            background: var(--bg-card); 
+            border: 1px solid var(--border-color); 
+            text-decoration: none; 
+            color: inherit; 
+            display: flex; 
+            flex-direction: column;
+            border-radius: 24px; 
+            padding: 32px; 
+            position: relative; 
+            transition: all 0.3s ease;
+            min-width: 320px;
+            max-width: 320px;
+            flex-shrink: 0;
+            scroll-snap-align: start;
+        }
+        .apple-card-custom:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-color: rgba(227, 0, 27, 0.3);
+        }
+        .apple-card-custom .kicker { color: var(--text-sec); font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; margin-bottom: 12px; text-transform: uppercase; }
+        .apple-card-custom .title { font-size: 1.5rem; margin-bottom: 12px; color: var(--text-main); font-weight: 800;}
+        .apple-card-custom .desc { color: var(--text-sec); font-size: 0.95rem; line-height: 1.5; margin-bottom: 24px; flex-grow: 1;}
+        .apple-card-custom .card-visual { color: var(--lda-red); display: flex; justify-content: center; align-items: center; margin-top: auto; background: rgba(0,0,0,0.03); border-radius: 16px; padding: 24px; min-height: 120px; }
+        
+        .carousel-container { position: relative; display: flex; align-items: center; margin-top: 40px; margin-bottom: 40px;}
+    </style>
+</head>
+<body>
+    <nav class="global-nav-wrapper">
+        <button class="nav-btn" onclick="javascript:history.back()" title="Volver atrás">
+            <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+        </button>
+        <div class="nav-divider"></div>
+        <div class="nav-breadcrumb">
+            <a href="../../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item" title="Inicio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span class="nav-breadcrumb-sep"></span>
+            <a href="../index.html" class="nav-breadcrumb-item">Gestión Info</a>
+            <span class="nav-breadcrumb-sep"></span>
+            <a href="hub_lidia.html" class="nav-breadcrumb-item">Universo LidIA</a>
+            <span class="nav-breadcrumb-sep"></span>
+            <span class="nav-breadcrumb-item current">LidIA Negocio</span>
+        </div>
+    </nav>
+
+    <div class="top-controls-wrapper" style="position: fixed; top: 30px; right: 30px; z-index: 100;">
+        <div class="theme-toggle-wrapper" style="box-shadow: var(--shadow);">
+            <span class="theme-label">MODO OSCURO</span>
+            <label class="theme-switch"><input type="checkbox" id="theme-checkbox" onchange="toggleTheme()"><span class="slider"></span></label>
+        </div>
+    </div>
+
+    <main class="container">
+        <header class="hero" style="text-align: center; padding: 60px 0 40px;">
+            <span class="hero-badge" style="background:var(--lda-red);">Valor Estratégico</span>
+            <h1>Proyecto <br><span>LidIA Negocio</span></h1>
+            <p style="margin: 0 auto; max-width: 800px;">Impacto estratégico, eficiencia operativa y retorno de inversión a través de la inteligencia corporativa. La visión de negocio de LidIA se centra en habilitar decisiones más rápidas y precisas.</p>
+        </header>
+
+        <div class="carousel-container">
+            <button class="carousel-btn left hidden" onclick="scrollCarousel(this, -340)" aria-label="Desplazar a la izquierda">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            
+            <div class="carousel-track" onscroll="updateCarouselButtons(this)">
+                
+                <!-- TARJETA BASE DE CONOCIMIENTO (WIKI) -->
+                <a href="lidia_negocio_wiki.html" class="apple-card-custom">
+                    <div class="kicker">NÚCLEO DE INFORMACIÓN</div>
+                    <h3 class="title">Base de Conocimiento</h3>
+                    <p class="desc">Creación del cerebro de negocio de LidIA en Confluence (Markdown). Estructuración por productos y operativas, y su evolución hacia LIAC y Gemini.</p>
+                    <div class="card-visual">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Card 2: Carga de Contenidos -->
+                <a href="lidia_negocio_carga.html" class="apple-card-custom">
+                    <div class="kicker">REGISTRO Y ACTUALIZACIONES</div>
+                    <h3 class="title">Carga de Contenidos</h3>
+                    <p class="desc">Registro histórico de las subidas de información, operativas y productos a la Base de Conocimiento de la IA.</p>
+                    <div class="card-visual">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- TARJETA DESPLIEGUES Y ADOPCIÓN -->
+                <a href="lidia_negocio_despliegues.html" class="apple-card-custom">
+                    <div class="kicker">ROADMAP OPERATIVO</div>
+                    <h3 class="title">Despliegues y Adopción</h3>
+                    <p class="desc">Cronograma de integración de LidIA en las áreas core de negocio (Front y Back Office) y plan de asimilación.</p>
+                    <div class="card-visual">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+                            <line x1="4" y1="22" x2="4" y2="15"></line>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- TARJETA POSIBLES RIESGOS -->
+                <a href="lidia_negocio_riesgos.html" class="apple-card-custom">
+                    <div class="kicker">ANÁLISIS Y MITIGACIÓN</div>
+                    <h3 class="title">Posibles Riesgos</h3>
+                    <p class="desc">Identificación de riesgos técnicos y organizativos del proyecto, y planes de acción para minimizarlos o eliminarlos.</p>
+                    <div class="card-visual">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                            <line x1="12" y1="9" x2="12" y2="13"></line>
+                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        </svg>
+                    </div>
+                </a>
+
+            </div>
+            
+            <button class="carousel-btn right hidden" onclick="scrollCarousel(this, 340)" aria-label="Desplazar a la derecha">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px; margin-bottom: 20px;">
+            <a href="hub_lidia.html" class="back-nav" style="display: inline-flex; align-items: center; gap: 8px; color: var(--text-sec); text-decoration: none; font-weight: 500; transition: color 0.2s;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px; height:18px;">
+                    <path d="M19 12H5M12 19l-7-7 7-7"></path>
+                </svg>
+                Volver al Universo LidIA
+            </a>
+        </div>
+    </main>
+
+    <script src="../scripts_infografia.js"></script>
+    <script>
+        function updateCarouselButtons(track) {
+            const container = track.parentElement;
+            const btnLeft = container.querySelector('.carousel-btn.left');
+            const btnRight = container.querySelector('.carousel-btn.right');
+
+            if (btnLeft && btnRight) {
+                if (track.scrollLeft <= 5) {
+                    btnLeft.classList.add('hidden');
+                } else {
+                    btnLeft.classList.remove('hidden');
+                }
+
+                if (Math.ceil(track.scrollLeft) + track.clientWidth >= track.scrollWidth - 5) {
+                    btnRight.classList.add('hidden');
+                } else {
+                    btnRight.classList.remove('hidden');
+                }
+            }
+        }
+
+        function scrollCarousel(btn, amount) {
+            const container = btn.parentElement;
+            const track = container.querySelector('.carousel-track');
+            if (track) {
+                track.scrollBy({ left: amount, behavior: 'smooth' });
+            }
+        }
+
+        function initCarousels() {
+            document.querySelectorAll('.carousel-track').forEach(track => {
+                updateCarouselButtons(track);
+            });
+        }
+
+        window.addEventListener('resize', initCarousels);
+        
+        function toggleTheme() {
+            const isDark = document.getElementById('theme-checkbox').checked;
+            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            const cb = document.getElementById('theme-checkbox');
+            if (cb) cb.checked = savedTheme === 'dark';
+            initDynamicBreadcrumb();
+            setTimeout(initCarousels, 100);
+        });
+
+        // BREADCRUMB MANAGER - DYNAMIC ISLAND
+        function initDynamicBreadcrumb() {
+            const wrapper = document.querySelector('.global-nav-wrapper');
+            if (!wrapper) return;
+            if (window.scrollY > 50) wrapper.classList.add('compacted');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    wrapper.classList.add('compacted');
+                } else {
+                    wrapper.classList.remove('compacted');
+                }
+            });
+            wrapper.addEventListener('click', (e) => {
+                if (wrapper.classList.contains('compacted') && window.innerWidth <= 768) {
+                    e.preventDefault();
+                    wrapper.classList.remove('compacted');
+                    setTimeout(() => {
+                        if (window.scrollY > 50) wrapper.classList.add('compacted');
+                    }, 3000);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

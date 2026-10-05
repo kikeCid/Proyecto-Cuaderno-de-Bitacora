@@ -1,0 +1,416 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesión 2: Más allá del chat | Transformación y formas de trabajar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles_bitacora.css">
+    <style>
+        :root {
+            --lda-red: #E4002B;
+            --lda-red-soft: rgba(228, 0, 43, 0.05);
+            --lda-border: #e2e8f0;
+        }
+
+        .hero-sesion {
+            background: var(--lda-red-soft);
+            padding: 80px 40px;
+            border-radius: 32px;
+            border: 1px solid var(--lda-border);
+            margin: 40px 0 100px 0;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-sesion::after {
+            content: "02";
+            position: absolute;
+            right: -30px;
+            bottom: -50px;
+            font-size: 15rem;
+            font-weight: 900;
+            color: var(--lda-red);
+            opacity: 0.03;
+            pointer-events: none;
+        }
+
+        .session-badge {
+            display: inline-block;
+            background: #F3D0D9; /* matching the image badge background */
+            color: #c96277; /* matching the image text */
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        
+        .hero-sesion h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            line-height: 1.2;
+            color: #1a202c;
+            margin: 0;
+        }
+
+        .section-box {
+            margin-bottom: 100px;
+        }
+
+        .section-box h2 {
+            font-size: 2.8rem;
+            font-weight: 300;
+            color: #1a202c;
+            margin-bottom: 25px;
+            letter-spacing: -1px;
+        }
+
+        .section-subtext {
+            color: var(--text-sec);
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .card-red {
+            background: var(--lda-red);
+            color: white;
+            padding: 40px;
+            border-radius: 16px;
+        }
+        .card-red h3 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .card-red p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .card-white {
+            background: white;
+            color: #1a202c;
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid var(--lda-border);
+        }
+        .card-white h3 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #4a5568;
+        }
+        .card-white p {
+            color: var(--text-sec);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .callout-box {
+            background: #F8D7DA; /* light pinkish */
+            padding: 25px 30px;
+            border-radius: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        .callout-box p {
+            margin: 0;
+            color: #8c3b4a;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+        
+        .browser-card {
+            background: #FCE8EB; /* very light pink */
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #F1C3CB;
+            margin-bottom: 20px;
+        }
+        .browser-card h3 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #4a5568;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .browser-card p {
+            color: #5a6678;
+            font-size: 1.15rem;
+            line-height: 1.6;
+            font-weight: 300;
+            margin: 0;
+        }
+        .browser-card p strong {
+            font-weight: 600;
+        }
+
+        .builder-card {
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            border: 1px solid var(--lda-border);
+            border-left: 6px solid var(--lda-red);
+            margin-bottom: 20px;
+        }
+        .builder-card h3 {
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: #4a5568;
+            margin-bottom: 20px;
+        }
+        .builder-card p {
+            color: var(--text-sec);
+            font-size: 1.15rem;
+            line-height: 1.6;
+            font-weight: 300;
+            margin: 0;
+        }
+
+        .computer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .computer-feature h3 {
+            font-size: 1.3rem;
+            font-weight: 300;
+            color: #4a5568;
+            margin-bottom: 15px;
+            margin-top: 15px;
+        }
+
+        .computer-feature p {
+            color: var(--text-sec);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+        
+        .icon-red {
+            color: var(--lda-red);
+        }
+    </style>
+
+    <link rel="stylesheet" href="../local_styles.css">
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper">
+        <button class="nav-btn" onclick="javascript:history.back()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+        </button>
+        <div class="nav-divider"></div>
+        <div class="nav-breadcrumb">
+            <a href="index.html" class="nav-breadcrumb-item">Transformación y Eficiencia</a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <a href="sesiones_transformacion.html" class="nav-breadcrumb-item">Sesiones</a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <span class="nav-breadcrumb-item current">Sesión 2: Más allá del chat</span>
+        </div>
+    </nav>
+
+    <div class="bg-mesh"></div>
+
+    <main class="container">
+        <!-- HERO SECTION -->
+        <header class="hero-sesion" style="background: white;">
+            <div style="flex-grow: 1;">
+                <span class="session-badge">SESIÓN 2 · ABRIL 2026</span>
+                <h1>Radar de IA: más allá del <br>chat</h1>
+                <span class="hero-badge-local" style="margin-top: 10px;">Recurso en Local</span>
+                <p style="color: #64748b; font-size: 1.15rem; margin-top: 25px; line-height: 1.6; font-weight: 300;">Área de Personas · Documento de Trabajo interno. Una sesión para<br> entender qué está operando ya fuera del chat: agentes, navegadores<br> inteligentes, computer use y el hardware que cambia la interfaz.</p>
+            </div>
+            <div style="width: 140px; height: 140px; background: white; border-radius: 30px; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow);">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--lda-red)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+            </div>
+        </header>
+
+        <!-- MÁS ALLÁ DEL CHAT -->
+        <section class="section-box">
+            <h2>Más allá del chat: la realidad que ya está<br>operando</h2>
+            <p class="section-subtext">Hasta ahora, nuestra relación con la IA ha sido escribir en una caja de texto y esperar una respuesta. <strong>Ese ya es el modelo antiguo.</strong></p>
+            
+            <div class="cards-grid">
+                <div class="card-red">
+                    <h3>📦 El modelo antiguo</h3>
+                    <p>Yo escribo en una caja de texto. La IA responde. Yo leo y aplico. La IA permanece pasiva hasta que vuelvo a escribir.</p>
+                </div>
+                <div class="card-white" style="border: none; background: transparent;">
+                    <h3>⚙️ La nueva realidad</h3>
+                    <p>La IA asume roles operativos activos. Navega, escribe código, controla el ordenador y ejecuta tareas completas de forma autónoma. Ya está disponible hoy.</p>
+                </div>
+            </div>
+
+            <div class="callout-box">
+                <span style="font-size: 1.2rem;">💡</span>
+                <p>La verdadera revolución está ocurriendo <strong>fuera del chat.</strong> No es ciencia ficción ni una promesa a cinco años vista: son herramientas comerciales que ya están activas y accesibles.</p>
+            </div>
+        </section>
+
+        <!-- NAVEGADORES INTELIGENTES -->
+        <section class="section-box">
+            <h2>Navegadores inteligentes: la<br>web que navega por ti</h2>
+            <p class="section-subtext">El navegador deja de ser una simple ventana para convertirse en un <strong>ejecutor</strong>.</p>
+            
+            <div>
+                <div class="browser-card">
+                    <h3>🤖 ChatGPT Atlas</h3>
+                    <p>Incorpora un modo agente que toma el control del cursor para <strong>rellenar formularios, hacer compras o gestionar reservas</strong> de forma autónoma.</p>
+                </div>
+                <div class="browser-card">
+                    <h3>🔍 Comet (Perplexity)</h3>
+                    <p>Es capaz de <strong>escanear y sintetizar la información de muchas pestañas abiertas</strong> al mismo tiempo para devolverte el conocimiento ya procesado.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CREACIÓN DE SOLUCIONES -->
+        <section class="section-box">
+            <h2>Nuevas formas de construir<br>soluciones de negocio</h2>
+            <p class="section-subtext">La barrera técnica se está reduciendo. Más que "crear software", hoy podemos <strong>automatizar flujos y diseñar procesos</strong> hablando en nuestro lenguaje del día a día.</p>
+            
+            <div>
+                <div class="builder-card">
+                    <h3>La tendencia: AntiGravity, Visual Studio, Codex, Claude Code...</h3>
+                    <p>Poco a poco, la industria ofrece plataformas que permiten trasladar ideas directamente a herramientas operativas (como crear un registro o estructurar una encuesta estructurada) simplemente <strong>describiendo lo que necesitas</strong>.</p>
+                </div>
+                <div class="builder-card">
+                    <h3>El valor está en definir bien el proceso</h3>
+                    <p>La tecnología compleja seguirá necesitando a los equipos informáticos. Para RRHH, lo importante no es aprender a programar, sino saber <strong>definir con precisión el problema a resolver</strong> y explicar el proceso paso a paso.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMPUTER USE -->
+        <section class="section-box">
+            <h2>Computer use: control total del ordenador</h2>
+            <p class="section-subtext">Este es un salto muy fuerte y <strong>ya está disponible.</strong> Herramientas como Claude, Copilot o la API de uso de computadora de OpenAI le dan a la IA ojos y manos.</p>
+            
+            <div class="computer-grid">
+                <div class="computer-feature">
+                    <svg class="icon-red" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    <h3>Ven tu pantalla</h3>
+                    <p>La IA captura en tiempo real lo que ocurre en el escritorio: documentos abiertos, aplicaciones activas, datos visibles.</p>
+                </div>
+                <div class="computer-feature">
+                    <svg class="icon-red" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    <h3>Controlan el ratón y el teclado</h3>
+                    <p>Hacen clic, escriben y navegan de forma autónoma, sin que el usuario tenga que intervenir en cada paso.</p>
+                </div>
+                <div class="computer-feature">
+                    <svg class="icon-red" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><polyline points="18 10 21 7 24 10"/><line x1="21" y1="7" x2="21" y2="13"/></svg>
+                    <h3>Cruzan varias aplicaciones</h3>
+                    <p>Pueden completar flujos largos: leer <a href="#" style="color: #6a748c;">un PDF</a>, abrir el correo, redactar un mensaje y volcar información en un sistema interno.</p>
+                </div>
+            </div>
+        </section>
+        <!-- AGENTES AUTÓNOMOS -->
+        <section class="section-box">
+            <h2>Agentes autónomos: la pieza<br>que cierra el círculo</h2>
+            <p class="section-subtext">Aquí está la gran realidad de este año. <strong>Un agente no es un chat que te responde dudas.</strong></p>
+            
+            <div>
+                <div class="browser-card">
+                    <h3>🎯 Tú defines la meta</h3>
+                    <p>"Organiza las entrevistas de esta semana." El agente decide qué aplicaciones usar para conseguirlo.</p>
+                </div>
+                <div class="browser-card">
+                    <h3>⚙️ El agente ejecuta</h3>
+                    <p>Se conecta al calendario, lee correos, diseña un documento y entrega el trabajo terminado. Sin supervisión paso a paso.</p>
+                </div>
+                <div class="browser-card">
+                    <h3>🛠️ Plataformas ya disponibles</h3>
+                    <p>Copilot Studio, OpenAI o Manus AI ya ofrecen este tipo de agentes que cogen todas las herramientas y las usan por nosotros.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- EL HARDWARE -->
+        <section class="section-box">
+            <h2>El hardware: cuando la IA<br>sale de la pantalla</h2>
+            <p class="section-subtext">Si pensabas que los agentes autónomos eran el límite, hay un paso más que ya está en la calle: <strong>sacar la IA del ordenador o del móvil.</strong></p>
+            
+            <div>
+                <div class="builder-card">
+                    <h3>👓 Gafas inteligentes (Ray-Ban Meta)</h3>
+                    <p>Las empresas están integrando los LLM directamente en dispositivos físicos. <strong>La interfaz desaparece: sustituimos la caja de texto por la voz y la visión espacial.</strong></p>
+                </div>
+                <div class="builder-card">
+                    <h3>🤲 Manos libres con contexto visual compartido</h3>
+                    <p>Tú miras un gráfico impreso, una sala de reuniones o la pantalla de un compañero. La IA ve lo mismo que tú en tiempo real, lo procesa y te responde al oído.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CIERRE DE SESIÓN -->
+        <section class="section-box" style="margin-bottom: 100px;">
+            <div style="background: #F3D0D9; color: #c96277; display: inline-block; padding: 4px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; margin-bottom: 25px; text-transform: uppercase;">CIERRE · SESIÓN 2</div>
+            <h2 style="font-size: 3rem; font-weight: 300; margin-bottom: 25px; letter-spacing: -1.5px; line-height: 1.1;">Conclusión: nuestro punto de <br>partida</h2>
+            <p style="font-size: 1.2rem; color: #4a5568; margin-bottom: 50px; max-width: 800px;">Este es el mundo que hay ahí fuera. Tenemos a nuestra disposición un nivel de tecnología operativa <strong>impensable hace apenas dos años.</strong></p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <!-- Card 1 -->
+                <div style="background: #fff5f6; padding: 35px; border-radius: 20px; border: 1px solid rgba(228,0,43,0.05);">
+                    <h3 style="font-size: 1.6rem; font-weight: 400; color: #1a202c; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">🗺️ Conocer el mapa</h3>
+                    <p style="color: #4a5568; line-height: 1.6; font-size: 1.05rem;">No es para asustarnos ni para abrirnos cuentas en todas las plataformas. Es para entender la lógica de lo que ya está funcionando.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div style="background: #fff5f6; padding: 35px; border-radius: 20px; border: 1px solid rgba(228,0,43,0.05);">
+                    <h3 style="font-size: 1.6rem; font-weight: 400; color: #1a202c; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">🏡 Nuestro terreno seguro</h3>
+                    <p style="color: #4a5568; line-height: 1.6; font-size: 1.05rem;">A nivel corporativo, Microsoft Copilot es nuestro entorno protegido y blindado. El objetivo: cambiar la forma de trabajar, no sumar otra herramienta.</p>
+                </div>
+
+                <!-- Card 3 (Wide) -->
+                <div style="grid-column: span 2; background: #fff5f6; padding: 35px; border-radius: 20px; border: 1px solid rgba(228,0,43,0.05);">
+                    <h3 style="font-size: 1.6rem; font-weight: 400; color: #1a202c; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">🤝 El efecto aldea</h3>
+                    <p style="color: #4a5568; line-height: 1.6; font-size: 1.05rem;">Cuando alguien descubre cómo usar esta pócima y lo comparte con el compañero de al lado, hace más fuerte a todo el grupo.</p>
+                </div>
+            </div>
+
+        </section>
+        
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portal de Transformación y Eficiencia | Grupo Línea Directa</p>
+    </footer>
+
+    <script src="breadcrumb_manager.js"></script>
+</body>
+
+</html>

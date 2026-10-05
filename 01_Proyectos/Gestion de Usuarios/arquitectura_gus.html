@@ -1,0 +1,545 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquitectura del Servicio GUS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles_usuarios.css">
+    <style>
+        .view-section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px 100px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 30px;
+            letter-spacing: -0.03em;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: #0066cc;
+            border-radius: 2px;
+        }
+
+        /* ---- PIPELINE / FLUJO ---- */
+        .pipeline-container {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 50px 40px;
+            box-shadow: var(--shadow);
+            margin-bottom: 60px;
+        }
+
+        .pipeline-track {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 15px;
+            overflow-x: auto;
+            padding: 20px 0 40px;
+            scrollbar-width: none;
+            position: relative;
+        }
+
+        .pipeline-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .pipeline-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            min-width: 160px;
+            position: relative;
+        }
+
+        .pipeline-node {
+            width: 80px;
+            height: 80px;
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0066cc;
+            position: relative;
+            z-index: 2;
+            transition: all 0.35s ease;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+        }
+
+        .pipeline-step:hover .pipeline-node {
+            background: #0066cc;
+            border-color: #0066cc;
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(0, 102, 204, 0.35);
+        }
+
+        .pipeline-node svg {
+            width: 32px;
+            height: 32px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .pipeline-connector-wrap {
+            display: flex;
+            align-items: center;
+            margin-top: 40px;
+            width: 100%;
+            flex: 1;
+            padding: 0 10px;
+        }
+
+        .connector-line {
+            flex: 1;
+            height: 3px;
+            background: linear-gradient(90deg, rgba(0, 102, 204, 0.5) 0%, rgba(0, 102, 204, 0.1) 100%);
+            border-radius: 3px;
+        }
+
+        .connector-arrow {
+            color: #0066cc;
+            font-size: 1.2rem;
+            line-height: 1;
+            margin-left: 5px;
+        }
+
+        .pipeline-label {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-main);
+            max-width: 140px;
+        }
+
+        .pipeline-sublabel {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-sec);
+            margin-top: 6px;
+            line-height: 1.4;
+            max-width: 140px;
+        }
+
+        .sys-split {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: relative;
+        }
+
+        .sys-split::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 70%;
+            width: 3px;
+            background: rgba(0, 102, 204, 0.3);
+            border-radius: 3px;
+        }
+
+        /* ---- DETALLES ---- */
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .detail-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-top: 4px solid #0066cc;
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px var(--shadow-color);
+        }
+
+        .detail-card h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .detail-card h3 svg {
+            width: 24px;
+            height: 24px;
+            color: #0066cc;
+        }
+
+        .detail-card p {
+            font-size: 0.9rem;
+            color: var(--text-sec);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .tech-badge {
+            display: inline-block;
+            background: rgba(0, 102, 204, 0.1);
+            color: #0066cc;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            margin-top: 10px;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../local_styles.css">
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper">
+        <button class="nav-btn" onclick="javascript:history.back()" title="Volver atrás">
+            <svg viewBox="0 0 24 24">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <div class="nav-divider"></div>
+        <div class="nav-breadcrumb">
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item" title="Inicio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span class="nav-breadcrumb-sep"></span>
+            <a href="index.html" class="nav-breadcrumb-item">Gestión de Usuarios</a>
+            <span class="nav-breadcrumb-sep"></span>
+            <span class="nav-breadcrumb-item current">Arquitectura de Servicio</span>
+        </div>
+    </nav>
+
+    <!-- THEME TOGGLE -->
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label">MODO OSCURO</span>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-checkbox" onchange="toggleTheme()">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="bg-mesh"></div>
+
+    <main class="container view-section">
+        <!-- HERO SEGMENT -->
+        <header class="hero" style="text-align: left; padding-top: 0;">
+            <span class="hero-badge">Estructura</span>
+            <span class="hero-badge-local">Recurso en Local</span>
+            <h1 style="font-size: 3.5rem; line-height: 1.1;">Arquitectura del Servicio<br><span>GUS</span></h1>
+            <p style="max-width: 800px; margin: 20px 0 0 0; text-align: left;">
+                Visión técnica de cómo se enlazan las distintas piezas de software del ciclo vital de un empleado
+                corporativo, desde el origen de la contratación en Selección hasta la propagación final de su Identidad.
+            </p>
+        </header>
+
+        <!-- PIPELINE ARQUITECTURA -->
+        <h2 class="section-title">Diagrama Lógico Estructural</h2>
+
+        <div class="pipeline-container">
+            <div class="pipeline-track">
+
+                <!-- STEP 1: TALENTLINK / MANUAL -->
+                <div class="pipeline-step">
+                    <div class="pipeline-node">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <div class="pipeline-label">Origen (Selección)</div>
+                    <div class="pipeline-sublabel">TalentLink (Automático) o Atención Personas (Manual)</div>
+                </div>
+
+                <div class="pipeline-connector-wrap">
+                    <div class="connector-line"></div>
+                    <div class="connector-arrow">▶</div>
+                </div>
+
+                <!-- STEP 2: PEOPLESOFT -->
+                <div class="pipeline-step">
+                    <div class="pipeline-node">
+                        <svg viewBox="0 0 24 24">
+                            <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                        </svg>
+                    </div>
+                    <div class="pipeline-label">PeopleSoft (PS)</div>
+                    <div class="pipeline-sublabel">Sistema Maestro RRHH (Centro de la Verdad)</div>
+                </div>
+
+                <div class="pipeline-connector-wrap">
+                    <div class="connector-line"></div>
+                    <div class="connector-arrow">▶</div>
+                </div>
+
+                <!-- STEP 3: ORQUESTADOR IT (GUS) -->
+                <div class="pipeline-step">
+                    <div class="pipeline-node" style="border-width: 3px; border-color: #0066cc; transform: scale(1.1);">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                    </div>
+                    <div class="pipeline-label">GUS Core IT</div>
+                    <div class="pipeline-sublabel">Orquestador interno IT desarrollado a medida</div>
+                </div>
+
+                <div class="pipeline-connector-wrap">
+                    <div class="connector-line"></div>
+                    <div class="connector-arrow">▶</div>
+                </div>
+
+                <!-- BRANCHING -->
+                <div class="sys-split">
+                    <!-- AD -->
+                    <div class="pipeline-step" style="flex-direction: row; align-items: center; gap: 20px;">
+                        <div class="pipeline-node" style="min-width: 80px;">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="9" y1="3" x2="9" y2="21"></line>
+                            </svg>
+                        </div>
+                        <div style="display: flex; flex-direction: column; text-align: left;">
+                            <div class="pipeline-label" style="text-align: left; margin-top: 0;">Directorio Activo (AD)
+                            </div>
+                            <div class="pipeline-sublabel" style="text-align: left;">Identidad Digital en red de
+                                Microsoft</div>
+                        </div>
+                    </div>
+
+                    <!-- OIM / PERMISOS -->
+                    <div class="pipeline-step" style="flex-direction: row; align-items: center; gap: 20px;">
+                        <div class="pipeline-node" style="min-width: 80px;">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="16" x2="12" y2="12"></line>
+                                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                            </svg>
+                        </div>
+                        <div style="display: flex; flex-direction: column; text-align: left;">
+                            <div class="pipeline-label" style="text-align: left; margin-top: 0;">Oracle Identity (OIM)
+                            </div>
+                            <div class="pipeline-sublabel" style="text-align: left;">Autoprovisión de accesos y
+                                plantillas satélite</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- DETAILS -->
+        <h2 class="section-title">Componentes Principales</h2>
+        <div class="details-grid">
+            <div class="detail-card">
+                <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                    </svg> PeopleSoft (Maestro)</h3>
+                <p>Base de datos troncal que mantiene la verdad absoluta sobre los empleados de Línea Directa. Ninguna
+                    identidad nace si no existe previamente el registro estructural en PeopleSoft firmado por RRHH.</p>
+                <div class="tech-badge">HCM Platform</div>
+            </div>
+
+            <div class="detail-card">
+                <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    </svg> Motor GUS (IT)</h3>
+                <p>Desarrollo personalizado e interno de IT que actúa como un puente de orquestación. Recibe "disparos"
+                    estructurales desde PS y gestiona la lógica de generación del identificador de tres iniciales para
+                    evitar duplicados en la red.</p>
+                <div class="tech-badge">Internal Hub Middleware</div>
+            </div>
+
+            <div class="detail-card">
+                <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg> Directorio Activo (AD Microsoft)</h3>
+                <p>El núcleo de seguridad corporativo. Almacena las identidades digitales (ej. LDAABC1) que permiten el
+                    inicio de sesión en máquinas, Office 365 y dominios corporativos. Todos los sistemas posteriores
+                    leen esta identidad.</p>
+                <div class="tech-badge">Microsoft DC</div>
+            </div>
+
+            <div class="detail-card">
+                <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 16 16 12 12 8"></polyline>
+                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                    </svg> Oracle Identity Manager (OIM)</h3>
+                <p>Módulo de automatización técnica de aprovisionamiento de permisos. Escucha los avisos de PeopleSoft e
+                    inyecta acceso a herramientas internas (CRM, aplicaciones core) basándose en una matriz predefinida
+                    de 'Posición + Área'.</p>
+                <div class="tech-badge">Oracle Identity</div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portal de Gestión de Proyectos | Sistema Portable de Información</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const checkbox = document.getElementById('theme-checkbox');
+            const isDark = checkbox.checked;
+
+            if (isDark) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const checkbox = document.getElementById('theme-checkbox');
+
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                if (checkbox) checkbox.checked = true;
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                if (checkbox) checkbox.checked = false;
+            }
+        }
+
+        // BREADCRUMB MANAGER - SMART COLLAPSE
+        function initBreadcrumbLogic() {
+            const breadcrumb = document.querySelector('.nav-breadcrumb');
+            if (!breadcrumb) return;
+
+            const items = Array.from(breadcrumb.querySelectorAll('.nav-breadcrumb-item:not(.current)'));
+            const separators = Array.from(breadcrumb.querySelectorAll('.nav-breadcrumb-sep'));
+
+            if (items.length > 3) {
+                const toCollapse = items.slice(1, -1);
+
+                const trigger = document.createElement('span');
+                trigger.className = 'nav-breadcrumb-item collapsed-trigger';
+                trigger.innerHTML = '...';
+                trigger.title = 'Ver más niveles';
+
+                const dropdown = document.createElement('div');
+                dropdown.className = 'breadcrumb-dropdown';
+
+                toCollapse.forEach((item, index) => {
+                    const link = document.createElement('a');
+                    link.href = item.href || '#';
+                    link.className = 'breadcrumb-dropdown-item';
+                    link.textContent = item.textContent || item.title || 'Nivel ' + (index + 2);
+                    dropdown.appendChild(link);
+
+                    item.style.display = 'none';
+                    const sepIndex = items.indexOf(item);
+                    if (separators[sepIndex]) {
+                        separators[sepIndex].style.display = 'none';
+                    }
+                });
+
+                trigger.appendChild(dropdown);
+                items[0].insertAdjacentElement('afterend', trigger);
+
+                const newSep = document.createElement('span');
+                newSep.className = 'nav-breadcrumb-sep';
+                newSep.textContent = '›';
+                trigger.insertAdjacentElement('afterend', newSep);
+
+                trigger.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    dropdown.classList.toggle('active');
+                });
+
+                document.addEventListener('click', () => {
+                    dropdown.classList.remove('active');
+                });
+            }
+        }
+
+        // BREADCRUMB MANAGER - DYNAMIC ISLAND
+        function initDynamicBreadcrumb() {
+            const wrapper = document.querySelector('.global-nav-wrapper');
+            if (!wrapper) return;
+
+            if (window.scrollY > 50) wrapper.classList.add('compacted');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    wrapper.classList.add('compacted');
+                } else {
+                    wrapper.classList.remove('compacted');
+                }
+            });
+
+            wrapper.addEventListener('click', (e) => {
+                if (wrapper.classList.contains('compacted') && window.innerWidth <= 768) {
+                    e.preventDefault();
+                    wrapper.classList.remove('compacted');
+                    setTimeout(() => {
+                        if (window.scrollY > 50) wrapper.classList.add('compacted');
+                    }, 3000);
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+            initBreadcrumbLogic();
+            initDynamicBreadcrumb();
+        });
+    </script>
+</body>
+
+</html>

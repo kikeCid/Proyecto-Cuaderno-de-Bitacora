@@ -1,0 +1,2301 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFI Productos | Proyecto Evolutivo HCM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles_hcm.css">
+    <style>
+        :root {
+            --lda-red: #E4002B;
+        }
+
+        [data-theme="dark"] .info-card.bg-gray {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        [data-theme="dark"] .platform-item {
+            background: rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .section-header {
+            margin-top: 60px;
+            margin-bottom: 30px;
+        }
+
+        .section-badge {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 800;
+            color: var(--lda-red);
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+        }
+
+        /* Flex & Grid Utils */
+        .flex-col {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Cards */
+        .info-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 8px 32px 0 var(--shadow-color);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--lda-red-glow) 0%, transparent 70%);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 0;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--lda-red);
+            box-shadow: 0 15px 30px rgba(228, 0, 43, 0.1);
+        }
+
+        .info-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .info-card>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        .info-card.bg-gray {
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        .info-card.red-border-left {
+            border-left: 4px solid var(--lda-red);
+        }
+
+        .info-card.green-border-left {
+            border-left: 4px solid var(--hcm-green);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--text-main);
+        }
+
+        .card-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--lda-red);
+            background: transparent;
+        }
+
+        .card-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: currentColor;
+            stroke-width: 1.5;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .card-icon.green {
+            color: var(--hcm-green);
+        }
+
+        .alert-box {
+            background: var(--lda-red);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        .alert-box.green {
+            background: var(--hcm-green);
+        }
+
+        /* Lists */
+        .platform-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .platform-item {
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .platform-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.8rem;
+        }
+
+        .platform-oracle {
+            background: #0b66c2;
+        }
+
+        .platform-workday {
+            background: #0087ce;
+        }
+
+        .platform-sap {
+            background: #6b7280;
+        }
+
+        /* Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px var(--shadow-color);
+            border: 1px solid var(--border-color);
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .comparison-table th {
+            font-weight: 800;
+            color: var(--lda-red);
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        .comparison-table th:first-child,
+        .comparison-table td:first-child {
+            text-align: left;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .tbl-sub {
+            font-size: 0.8rem;
+            color: var(--text-sec);
+            display: block;
+            margin-top: 4px;
+            font-weight: 400;
+        }
+
+        /* Detail sections */
+        .detail-banner {
+            border-radius: 12px;
+            color: white;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .banner-oracle {
+            background: var(--lda-red);
+        }
+
+        .banner-workday {
+            background: var(--lda-red);
+        }
+
+        .banner-sap {
+            background: #6b7280;
+        }
+
+        /* Cost chart simulation */
+        .chart-container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .chart-bars {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            height: 200px;
+            padding-top: 20px;
+            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 16px;
+        }
+
+        .chart-group {
+            display: flex;
+            gap: 8px;
+            align-items: flex-end;
+            position: relative;
+        }
+
+        .bar {
+            width: 34px !important;
+            border-radius: 6px 6px 0 0;
+            text-align: center;
+            color: transparent;
+            position: relative;
+            cursor: pointer;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .segment {
+            width: 100%;
+        }
+
+        .segment.legacy {
+            background: repeating-linear-gradient(-45deg,
+                    rgba(0, 0, 0, 0.4),
+                    rgba(0, 0, 0, 0.4) 4px,
+                    rgba(0, 0, 0, 0.2) 4px,
+                    rgba(0, 0, 0, 0.2) 8px);
+            border-radius: 6px 6px 0 0;
+        }
+
+        [data-theme="dark"] .segment.legacy {
+            background: repeating-linear-gradient(-45deg,
+                    rgba(255, 255, 255, 0.4),
+                    rgba(255, 255, 255, 0.4) 4px,
+                    rgba(255, 255, 255, 0.2) 4px,
+                    rgba(255, 255, 255, 0.2) 8px);
+        }
+
+        .bar.oracle {
+            background: linear-gradient(180deg, #60a5fa 0%, #2563eb 100%) !important;
+            box-shadow: 0 -4px 12px rgba(59, 130, 246, 0.4);
+        }
+
+        .bar.sap {
+            background: linear-gradient(180deg, #9ca3af 0%, #4b5563 100%) !important;
+            box-shadow: 0 -4px 12px rgba(107, 114, 128, 0.4);
+        }
+
+        .bar.workday {
+            background: linear-gradient(180deg, #f87171 0%, #dc2626 100%) !important;
+            box-shadow: 0 -4px 12px rgba(239, 68, 68, 0.4);
+        }
+
+        .bar:hover {
+            filter: brightness(1.15);
+            z-index: 10;
+        }
+
+        .bar:hover::after {
+            content: attr(data-val);
+            position: absolute;
+            top: -32px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            white-space: nowrap;
+            box-shadow: 0 4px 12px var(--shadow-color);
+            pointer-events: none;
+            opacity: 1;
+        }
+
+        .chart-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: linear-gradient(to bottom, var(--border-color) 1px, transparent 1px);
+            background-size: 100% 25%;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .chart-label {
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-sec);
+        }
+
+        /* Next steps */
+        .step-card {
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            background: var(--bg-card);
+        }
+
+        .step-num {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--lda-red);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        [data-theme="dark"] .chart-container {
+            background: var(--bg-card);
+        }
+
+        [data-theme="dark"] .chart-bars {
+            border-color: var(--border-color);
+        }
+
+        .status-box {
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background: rgba(0, 0, 0, 0.02);
+            color: var(--text-main);
+        }
+
+        .status-box.yellow {
+            background: #fff9e6;
+            border-color: #fde08b;
+            color: #856404;
+        }
+
+        .status-box.green {
+            background: #e6f9f0;
+            border-color: #8be4b8;
+            color: #065f46;
+        }
+
+        .status-box.blue {
+            background: #eef2fa;
+            border-color: #b6ccf0;
+            color: #1e40af;
+        }
+
+        .status-box.red {
+            background: #fdf2f2;
+            border-color: #fca5a5;
+            color: #991b1b;
+        }
+
+        [data-theme="dark"] .status-box {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            border-color: var(--border-color);
+        }
+
+        [data-theme="dark"] .status-box.yellow {
+            background: rgba(254, 224, 139, 0.1);
+            border-color: #fde08b;
+            color: #fde08b;
+        }
+
+        [data-theme="dark"] .status-box.green {
+            background: rgba(139, 228, 184, 0.1);
+            border-color: #8be4b8;
+            color: #8be4b8;
+        }
+
+        [data-theme="dark"] .status-box.blue {
+            background: rgba(182, 204, 240, 0.1);
+            border-color: #b6ccf0;
+            color: #b6ccf0;
+        }
+
+        [data-theme="dark"] .status-box.red {
+            background: rgba(252, 165, 165, 0.1);
+            border-color: #fca5a5;
+            color: #fca5a5;
+        }
+
+        /* Interactive Chart Styles */
+        .chart-controls {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .vendor-toggle {
+            cursor: pointer;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            color: var(--text-sec);
+            filter: grayscale(1);
+            opacity: 0.5;
+        }
+
+        .vendor-toggle.active {
+            filter: grayscale(0);
+            opacity: 1;
+            border-color: var(--text-main);
+            color: var(--text-main);
+            box-shadow: 0 4px 15px var(--shadow-color);
+            transform: translateY(-2px);
+        }
+
+        .vendor-toggle:hover {
+            opacity: 0.8;
+            transform: translateY(-1px);
+        }
+
+        .bar {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: bottom;
+        }
+
+        .bar.hidden {
+            transform: scaleY(0);
+            opacity: 0;
+            width: 0 !important;
+            margin: 0 !important;
+            pointer-events: none;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../local_styles.css">
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper">
+        <button class="nav-btn" onclick="javascript:history.back()" title="Volver atrás">
+            <svg viewBox="0 0 24 24">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <div class="nav-divider"></div>
+        <div class="nav-breadcrumb">
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item" title="Inicio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span class="nav-breadcrumb-sep"></span>
+            <a href="index.html" class="nav-breadcrumb-item">HCM Cloud</a>
+            <span class="nav-breadcrumb-sep"></span>
+            <a href="universo_estrategico.html" class="nav-breadcrumb-item">Univ. Estratégico</a>
+            <span class="nav-breadcrumb-sep"></span>
+            <span class="nav-breadcrumb-item current">RFI Productos</span>
+        </div>
+    </nav>
+
+
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label">MODO OSCURO</span>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-checkbox" onchange="toggleTheme()">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <main class="container" style="padding-bottom: 80px;">
+
+        <!-- HEADER -->
+        <header class="section-header">
+            <span class="section-badge">Resumen Ejecutivo</span>
+            <h1 class="section-title">Comparativa oferta licencias HCM</h1>
+        </header>
+
+        <div class="grid-3">
+            <div class="info-card red-border-left">
+                <div class="card-header">
+                    <div class="card-icon"><svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" />
+                            <circle cx="12" cy="12" r="6" />
+                            <circle cx="12" cy="12" r="2" />
+                        </svg></div>
+                    Objetivo
+                </div>
+                <p style="color: var(--text-sec); font-size: 0.95rem; line-height: 1.6;">
+                    Identificar soluciones del mercado capacitadas para cubrir los requerimientos funcionales y de
+                    producto actuales y futuros del área de Personas y Comunicación.
+                </p>
+                <div
+                    style="background: var(--lda-red); color: white; padding: 12px; border-radius: 8px; margin-top: 15px; font-size: 0.85rem; font-weight: 600;">
+                    Este documento cierra la fase de análisis funcional y sienta las bases para la RFI técnica.
+                </div>
+            </div>
+
+            <div class="info-card bg-gray">
+                <div class="card-header">
+                    <div class="card-icon"><svg viewBox="0 0 24 24">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+                        </svg></div>
+                    Plataformas Evaluadas
+                </div>
+                <div class="platform-list">
+                    <div class="platform-item">
+                        <div class="platform-icon platform-oracle">O</div>
+                        <div>
+                            <div style="font-weight: 700; font-size: 0.9rem;">Oracle Cloud HCM</div>
+                            <div style="font-size: 0.75rem; color: var(--text-sec);">Líder en cobertura</div>
+                        </div>
+                    </div>
+                    <div class="platform-item">
+                        <div class="platform-icon platform-workday">W</div>
+                        <div>
+                            <div style="font-weight: 700; font-size: 0.9rem;">Workday Cloud HCM</div>
+                            <div style="font-size: 0.75rem; color: var(--text-sec);">UX avanzada</div>
+                        </div>
+                    </div>
+                    <div class="platform-item" style="opacity: 0.7;">
+                        <div class="platform-icon platform-sap">S</div>
+                        <div>
+                            <div style="font-weight: 700; font-size: 0.9rem;">SAP SuccessFactors</div>
+                            <div style="font-size: 0.75rem; color: var(--text-sec);">Descartado</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-card red-border-left">
+                <div class="card-header">
+                    <div class="card-icon"><svg viewBox="0 0 24 24">
+                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                            <polyline points="17 6 23 6 23 12" />
+                        </svg></div>
+                    Hallazgo Crítico
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <div class="status-box yellow">
+                        <div
+                            style="font-weight: 700; font-size: 0.85rem; margin-bottom: 4px; display:flex; align-items:center; gap:6px;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+                                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+                                <path d="M4 22h16" />
+                                <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+                                <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+                                <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
+                            </svg>
+                            Oracle lidera
+                        </div>
+                        <div style="font-size: 0.8rem;">98% cobertura estándar vs 74% Workday y 65% SAP</div>
+                    </div>
+                    <div class="status-box green">
+                        <div
+                            style="font-weight: 700; font-size: 0.85rem; margin-bottom: 4px; display:flex; align-items:center; gap:6px;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 10h12" />
+                                <path d="M4 14h9" />
+                                <path
+                                    d="M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2" />
+                            </svg>
+                            Modelo económico                      </div>
+                        <div style="font-size: 0.8rem;">Oracle reduce drásticamente impacto financiero inicial</div>
+                    </div>
+                    <div class="status-box blue">
+                        <div
+                            style="font-weight: 700; font-size: 0.85rem; margin-bottom: 4px; display:flex; align-items:center; gap:6px;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg>
+                            Continuidad técnica
+                        </div>
+                        <div style="font-size: 0.8rem;">Evolución natural desde PeopleSoft, menor riesgo</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="alert-box">
+            <span style="display:flex; align-items:center; color:white;"><svg width="28" height="28" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                        d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.9 1.2 1.5 1.5 2.5" />
+                    <path d="M9 18h6" />
+                    <path d="M10 22h4" />
+                </svg></span>
+            <div>
+                <div style="font-size: 1.1rem;">Conclusión Principal</div>
+                <div style="font-weight: 400; font-size: 0.95rem;">Oracle minimiza riesgo técnico por continuidad con
+                    PeopleSoft y ofrece la mejor relación coste-cobertura.</div>
+            </div>
+        </div>
+
+        <!-- COMPARATIVA GENERAL -->
+        <header class="section-header">
+            <span class="section-badge">Comparativa General</span>
+            <h2 class="section-title">Evaluación de Plataformas</h2>
+        </header>
+
+        <div class="info-card"
+            style="padding: 0; overflow: hidden; border: 1px solid var(--border-color); border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+            <!-- Portlet Header -->
+            <div
+                style="background: rgba(0,0,0,0.03); padding: 20px 24px; border-bottom: 2px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+                <h3
+                    style="margin: 0; font-weight: 900; font-size: 1.1rem; display: flex; align-items: center; gap: 10px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2v20"></path>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                    Matriz de Diferenciación Tecnológica
+                </h3>
+                <div style="display: flex; gap: 12px; font-size: 0.8rem; font-weight: 800;">
+                    <div style="color: var(--text-main); display: flex; align-items: center; gap: 6px;">
+                        <span
+                            style="width: 12px; height: 12px; border-radius: 50%; background: var(--hcm-green);"></span>
+                        Oracle
+                        <span
+                            style="background: rgba(16, 185, 129, 0.15); color: var(--hcm-green); padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; font-weight: 900; margin-left: 2px;">REC</span>
+                    </div>
+                    <div style="color: var(--text-main); display: flex; align-items: center; gap: 6px; opacity: 0.8;">
+                        <span style="width: 12px; height: 12px; border-radius: 50%; background: #3b82f6;"></span>
+                        Workday
+                        <span
+                            style="background: rgba(59, 130, 246, 0.15); color: #3b82f6; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; font-weight: 900; margin-left: 2px;">ALT</span>
+                    </div>
+                    <div style="color: var(--text-sec); display: flex; align-items: center; gap: 6px; opacity: 0.5;">
+                        <span style="width: 12px; height: 12px; border-radius: 50%; background: #6b7280;"></span> SAP
+                        <span
+                            style="background: rgba(107, 114, 128, 0.15); color: #6b7280; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; font-weight: 900; margin-left: 2px;">DESC</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column;">
+                <!-- FEATURE ROW: Cobertura Funcional -->
+                <div
+                    style="padding: 24px; border-bottom: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 16px;">
+                    <div
+                        style="font-weight: 800; color: var(--text-main); font-size: 1rem; display: flex; align-items: center; gap: 8px;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" style="color: var(--text-sec);">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                        </svg>
+                        Cobertura Funcional
+                    </div>
+                    <div class="grid-3" style="gap: 16px;">
+                        <div
+                            style="background: rgba(16, 185, 129, 0.05); padding: 16px; border-radius: 8px; border-left: 4px solid var(--hcm-green);">
+                            <div style="font-size: 1.8rem; font-weight: 900; color: var(--text-main); line-height: 1;">
+                                98%</div>
+                            <div style="font-size: 0.8rem; color: var(--hcm-green); font-weight: 700; margin-top: 8px;">
+                                Cobertura estándar nativa</div>
+                        </div>
+                        <div
+                            style="background: rgba(59, 130, 246, 0.05); padding: 16px; border-radius: 8px; border-left: 4px solid #3b82f6;">
+                            <div style="font-size: 1.8rem; font-weight: 900; color: var(--text-main); line-height: 1;">
+                                74%</div>
+                            <div style="font-size: 0.8rem; color: #3b82f6; font-weight: 700; margin-top: 8px;">+13% con
+                                módulos Extend</div>
+                        </div>
+                        <div
+                            style="background: rgba(100, 100, 100, 0.03); padding: 16px; border-radius: 8px; border-left: 4px solid #6b7280; opacity: 0.6;">
+                            <div style="font-size: 1.8rem; font-weight: 900; color: var(--text-main); line-height: 1;">
+                                65%</div>
+                            <div style="font-size: 0.8rem; color: var(--lda-red); font-weight: 700; margin-top: 8px;">
+                                Cobertura insuficiente</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FEATURE ROW: Modelo Económico -->
+                <div
+                    style="padding: 24px; border-bottom: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 16px;">
+                    <div
+                        style="font-weight: 800; color: var(--text-main); font-size: 1rem; display: flex; align-items: center; gap: 8px;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" style="color: var(--text-sec);">
+                            <rect x="2" y="4" width="20" height="16" rx="2" />
+                            <path d="M7 15h0M2 9.5h20" />
+                        </svg>
+                        Modelo Económico
+                    </div>
+                    <div class="grid-3" style="gap: 16px;">
+                        <div
+                            style="background: rgba(16, 185, 129, 0.05); padding: 16px; border-radius: 8px; border-left: 4px solid var(--hcm-green);">
+                            <div style="font-size: 1.2rem; font-weight: 900; color: var(--text-main); line-height: 1;">
+                                Modular</div>
+                            <div style="font-size: 0.8rem; color: var(--text-sec); margin-top: 8px; opacity: 0.9;">
+                                Optimizado. Base mínima + pago por uso.</div>
+                        </div>
+                        <div
+                            style="background: rgba(59, 130, 246, 0.05); padding: 16px; border-radius: 8px; border-left: 4px solid #3b82f6;">
+                            <div style="font-size: 1.2rem; font-weight: 900; color: var(--text-main); line-height: 1;">
+                                FSE Global</div>
+                            <div style="font-size: 0.8rem; color: var(--text-sec); margin-top: 8px; opacity: 0.9;">
+                                Licencia de plantilla completa desde Año 1.</div>
+                        </div>
+                        <div
+                            style="background: rgba(100, 100, 100, 0.03); padding: 16px; border-radius: 8px; border-left: 4px solid #6b7280; opacity: 0.6;">
+                            <div style="font-size: 1.2rem; font-weight: 900; color: var(--lda-red); line-height: 1;">No
+                                viable</div>
+                            <div style="font-size: 0.8rem; color: var(--text-sec); margin-top: 8px; opacity: 0.9;">
+                                Costes de subida inasumibles.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FEATURE ROW: Migración PeopleSoft -->
+                <div
+                    style="padding: 24px; border-bottom: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 16px;">
+                    <div
+                        style="font-weight: 800; color: var(--text-main); font-size: 1rem; display: flex; align-items: center; gap: 8px;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" style="color: var(--text-sec);">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                        </svg>
+                        Alineamiento y Migración (PeopleSoft)
+                    </div>
+                    <div class="grid-3" style="gap: 16px;">
+                        <div
+                            style="background: rgba(16, 185, 129, 0.05); padding: 16px; border-radius: 8px; border-left: 4px solid var(--hcm-green);">
+                            <div style="font-size: 1.1rem; font-weight: 900; color: var(--hcm-green); line-height: 1;">
+                                Alta Confianza</div>
+                            <div style="font-size: 0.8rem; color: var(--text-sec); margin-top: 8px; opacity: 0.9;">
+                                Utiliza herramientas nativas pre-mapeadas.</div>
+                        </div>
+                        <div
+                            style="background: rgba(59, 130, 246, 0.05); padding: 16px; border-radius: 8px; border-left: 4px solid #3b82f6;">
+                            <div style="font-size: 1.1rem; font-weight: 900; color: #f59e0b; line-height: 1;">Media
+                                Complej.</div>
+                            <div style="font-size: 0.8rem; color: var(--text-sec); margin-top: 8px; opacity: 0.9;">
+                                Requiere adaptación y mapeo profundo de datos.</div>
+                        </div>
+                        <div
+                            style="background: rgba(100, 100, 100, 0.03); padding: 16px; border-radius: 8px; border-left: 4px solid #6b7280; opacity: 0.6;">
+                            <div style="font-size: 1.1rem; font-weight: 900; color: var(--lda-red); line-height: 1;">
+                                Riesgo Muy Alto</div>
+                            <div style="font-size: 0.8rem; color: var(--text-sec); margin-top: 8px; opacity: 0.9;">Sin
+                                herramientas automáticas documentadas.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FEATURE ROW: Madurez Funcional -->
+                <div style="padding: 24px; display: flex; flex-direction: column; gap: 16px;">
+                    <div
+                        style="font-weight: 800; color: var(--text-main); font-size: 1rem; display: flex; align-items: center; gap: 8px;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" style="color: var(--text-sec);">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg>
+                        Madurez Funcional
+                    </div>
+                    <div class="grid-3" style="gap: 16px;">
+                        <div
+                            style="background: rgba(16, 185, 129, 0.05); padding: 16px; border-radius: 8px; border-left: 4px solid var(--hcm-green);">
+                            <div style="font-size: 1.1rem; font-weight: 900; color: var(--text-main); line-height: 1;">
+                                Excelente</div>
+                        </div>
+                        <div
+                            style="background: rgba(59, 130, 246, 0.05); padding: 16px; border-radius: 8px; border-left: 4px solid #3b82f6;">
+                            <div style="font-size: 1.1rem; font-weight: 900; color: var(--text-main); line-height: 1;">
+                                Buena</div>
+                        </div>
+                        <div
+                            style="background: rgba(100, 100, 100, 0.03); padding: 16px; border-radius: 8px; border-left: 4px solid #6b7280; opacity: 0.6;">
+                            <div style="font-size: 1.1rem; font-weight: 900; color: var(--lda-red); line-height: 1;">
+                                Deficiente</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="status-box yellow" style="margin-top: 25px; display: flex; align-items: center; gap: 12px;">
+            <div style="color: #856404; display:flex; align-items:center;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="8" x2="12" y2="12" />
+                    <line x1="12" y1="16" x2="12.01" y2="16" />
+                </svg>
+            </div>
+            <div>
+                <strong style="color: #856404; font-weight: 800; font-size: 1rem;">Nota importante:</strong>
+                <span style="opacity: 0.9;">SAP SuccessFactors queda oficialmente fuera del alcance por falta de rigor
+                    funcional y cobertura técnica insuficiente, según los requerimientos solicitados por el equipo de
+                    Personas.</span>
+            </div>
+        </div>
+
+        <!-- DETALLE ORACLE -->
+        <header class="section-header">
+            <span class="section-badge">Análisis Detallado</span>
+            <h2 class="section-title">Oracle Cloud HCM</h2>
+        </header>
+
+        <div class="grid-2">
+            <div class="flex-col">
+                <div class="detail-banner banner-oracle">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 8px; display: flex; align-items:center; gap: 8px;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 4l3 12h14l3-12-6 5-4-7-4 7-6-5z" />
+                            <path d="M5 20h14" />
+                        </svg> Solución Más Sálida y Madura
+                    </h3>
+                    <p style="font-weight: 400; line-height: 1.5; font-size: 0.95rem;">
+                        Actúa como una <strong>evolución directa desde PeopleSoft</strong>, reduciendo drásticamente la
+                        curva de adaptación organizativa y el riesgo técnico en la migración.
+                    </p>
+                </div>
+                <div class="grid-2">
+                    <div class="info-card green-border-left">
+                        <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-sec); margin-bottom: 5px;">
+                            Cobertura</div>
+                        <div style="font-size: 2.2rem; font-weight: 900; color: var(--hcm-green); line-height: 1;">98%
+                        </div>
+                        <p style="font-size: 0.8rem; color: var(--text-sec); margin-top: 10px;">En casi todos los
+                            módulos requeridos de forma nativa, sin necesidad de extensiones.</p>
+                    </div>
+                    <div class="info-card" style="border-left: 4px solid #3b82f6;">
+                        <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-sec); margin-bottom: 5px;">
+                            Migración</div>
+                        <p style="font-size: 0.8rem; color: var(--text-sec); margin-top: 10px;">Aporta herramientas
+                            exclusivas:<br>
+                            &gt; <strong>SOAR</strong><br>
+                            &gt; <strong>Cloud Adoption Toolkit</strong><br>
+                            Automatizan el traspaso del histórico
+                        </p>
+                    </div>
+                </div>
+                <div class="info-card red-border-left">
+                    <div class="card-header" style="margin-bottom: 10px;">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+                                <line x1="1" y1="10" x2="23" y2="10" />
+                            </svg>
+                        </div>
+                        Licenciamiento Modular
+                    </div>
+                    <div class="grid-3" style="gap: 10px; text-align: center;">
+                        <div
+                            style="background: rgba(228,0,43,0.1); padding: 10px; border-radius: 8px; font-size: 0.8rem; font-weight: 600; color: var(--lda-red);">
+                            Activación gradual</div>
+                        <div
+                            style="background: rgba(228,0,43,0.1); padding: 10px; border-radius: 8px; font-size: 0.8rem; font-weight: 600; color: var(--lda-red);">
+                            PeopleSoft paralelo</div>
+                        <div
+                            style="background: rgba(228,0,43,0.1); padding: 10px; border-radius: 8px; font-size: 0.8rem; font-weight: 600; color: var(--lda-red);">
+                            Pago por uso</div>
+                    </div>
+                    <div style="text-align: center; font-size: 0.8rem; color: var(--text-sec); margin-top: 10px;">Ideal
+                        para el control presupuestario y la transiciÑn suave</div>
+                </div>
+            </div>
+
+            <div class="flex-col">
+                <div class="info-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg>
+                        </div>
+                        Fortalezas Clave
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <div class="status-box green">
+                            <div
+                                style="font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; gap: 6px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                EvoluciÑn Natural
+                            </div>
+                            <div style="font-size: 0.8rem; opacity: 0.8;">Del ecosistema PeopleSoft actual
+                            </div>
+                        </div>
+                        <div class="status-box green">
+                            <div
+                                style="font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; gap: 6px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                Menor Riesgo Técnico
+                            </div>
+                            <div style="font-size: 0.8rem; opacity: 0.8;">En migraciÑn de datos histÑricos
+                            </div>
+                        </div>
+                        <div class="status-box green">
+                            <div
+                                style="font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; gap: 6px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                Redwood UX
+                            </div>
+                            <div style="font-size: 0.8rem; opacity: 0.8;">Interfaz premiada internacionalmente
+                            </div>
+                        </div>
+                        <div class="status-box green">
+                            <div
+                                style="font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; gap: 6px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                IA Integrada
+                            </div>
+                            <div style="font-size: 0.8rem; opacity: 0.8;">Oracle Digital Assistant</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="background: #1e293b; color: white; padding: 24px; border-radius: 12px;">
+                    <div
+                        style="font-weight: 800; font-size: 1.1rem; margin-bottom: 8px; display:flex; align-items:center; gap:8px;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+                            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+                            <path d="M4 22h16" />
+                            <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+                            <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+                            <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
+                        </svg>
+                        Veredicto
+                    </div>
+                    <p style="font-size: 0.9rem; line-height: 1.5; margin-bottom: 12px; opacity: 0.9;">
+                        La opciÑn más estratégica por cobertura funcional, control presupuestario y continuidad
+                        operativa.
+                    </p>
+                    <span
+                        style="background: var(--hcm-green); color: white; padding: 6px 16px; border-radius: 20px; font-weight: 800; font-size: 0.8rem;">RECOMENDADO</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- DETALLE WORKDAY -->
+        <header class="section-header" style="margin-top: 80px;">
+            <span class="section-badge">Análisis Detallado</span>
+            <h2 class="section-title">Workday</h2>
+        </header>
+
+        <div class="grid-2">
+            <div class="flex-col">
+                <div class="detail-banner banner-workday">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 8px; display: flex; align-items:center; gap: 8px;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+                            <line x1="12" y1="18" x2="12.01" y2="18" />
+                        </svg> Diseño Mobile-First
+                    </h3>
+                    <p style="font-weight: 400; line-height: 1.5; font-size: 0.95rem;">
+                        Destaca por su <strong>arquitectura nativa en la nube</strong> y una experiencia de usuario
+                        avanzada enfocada al candidato y al empleado.
+                    </p>
+                </div>
+                <div class="grid-2">
+                    <div class="info-card" style="border-left: 4px solid #f59e0b;">
+                        <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-sec); margin-bottom: 5px;">
+                            Cobertura</div>
+                        <div style="font-size: 2.2rem; font-weight: 900; color: #f59e0b; line-height: 1;">74%</div>
+                        <p style="font-size: 0.8rem; color: var(--text-sec); margin-top: 10px; margin-bottom: 10px;">De
+                            forma estándar. Requiere <strong>Workday Extend</strong> para 13% adicional.</p>
+                        <div
+                            style="background: rgba(245,158,11,0.1); padding: 6px; border-radius: 4px; font-size: 0.75rem; color: #b45309; display: flex; align-items: center; gap: 6px;">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lda-red)"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                                <line x1="12" y1="9" x2="12" y2="13" />
+                                <line x1="12" y1="17" x2="12.01" y2="17" />
+                            </svg>
+                            Añade capa técnica extra
+                        </div>
+                    </div>
+                    <div class="info-card" style="border-left: 4px solid #ef4444;">
+                        <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-sec); margin-bottom: 10px;">
+                            Lagunas Críticas</div>
+                        <div
+                            style="display: flex; justify-content: space-between; background: #fee2e2; padding: 8px; border-radius: 6px; margin-bottom: 8px; font-size: 0.85rem; color: #b91c1c;">
+                            <span>Salud y Seguridad</span>
+                            <strong>20%</strong>
+                        </div>
+                        <div
+                            style="display: flex; justify-content: space-between; background: #fee2e2; padding: 8px; border-radius: 6px; font-size: 0.85rem; color: #b91c1c;">
+                            <span>CompensaciÑn</span>
+                            <strong>46%</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-card" style="border-left: 4px solid #f59e0b;">
+                    <div class="card-header" style="margin-bottom: 10px;">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <ellipse cx="12" cy="5" rx="9" ry="3" />
+                                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+                            </svg>
+                        </div>
+                        Problemas de Migración
+                    </div>
+                    <div class="grid-2" style="gap: 10px;">
+                        <div style="background: rgba(245,158,11,0.1); padding: 10px; border-radius: 8px;">
+                            <div style="font-size: 0.8rem; font-weight: 700; color: #b45309; margin-bottom: 4px;">
+                                Trazabilidad</div>
+                            <div style="font-size: 0.75rem; color: var(--text-sec);">Problemas que exigen aislar el
+                                histÑrico</div>
+                        </div>
+                        <div style="background: rgba(245,158,11,0.1); padding: 10px; border-radius: 8px;">
+                            <div style="font-size: 0.8rem; font-weight: 700; color: #b45309; margin-bottom: 4px;">
+                                Repositorios</div>
+                            <div style="font-size: 0.75rem; color: var(--text-sec);">Datos histÑricos en sistemas
+                                separados</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-col">
+                <div class="info-card">
+                    <div class="card-header">
+                        <div class="card-icon" style="color:#f59e0b;">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                                <line x1="12" y1="9" x2="12" y2="13" />
+                                <line x1="12" y1="17" x2="12.01" y2="17" />
+                            </svg>
+                        </div>
+                        Debilidades Clave
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <div class="status-box yellow">
+                            <div
+                                style="font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; gap: 6px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="18" y1="6" x2="6" y2="18" />
+                                    <line x1="6" y1="6" x2="18" y2="18" />
+                                </svg>
+                                Coste Superior
+                            </div>
+                            <div style="font-size: 0.8rem; opacity: 0.8;">Modelo FSE global eleva compromiso
+                            </div>
+                        </div>
+                        <div class="status-box yellow">
+                            <div
+                                style="font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; gap: 6px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="18" y1="6" x2="6" y2="18" />
+                                    <line x1="6" y1="6" x2="18" y2="18" />
+                                </svg>
+                                Cobertura Limitada
+                            </div>
+                            <div style="font-size: 0.8rem; opacity: 0.8;">Obliga a desarrollos paralelos</div>
+                        </div>
+                        <div class="status-box yellow">
+                            <div
+                                style="font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; gap: 6px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="18" y1="6" x2="6" y2="18" />
+                                    <line x1="6" y1="6" x2="18" y2="18" />
+                                </svg>
+                                Migración Compleja
+                            </div>
+                            <div style="font-size: 0.8rem; opacity: 0.8;">HistÑrico en repositorios
+                                independientes</div>
+                        </div>
+                        <div class="status-box yellow">
+                            <div
+                                style="font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; gap: 6px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="18" y1="6" x2="6" y2="18" />
+                                    <line x1="6" y1="6" x2="18" y2="18" />
+                                </svg>
+                                Workday Extend
+                            </div>
+                            <div style="font-size: 0.8rem; opacity: 0.8;">Capa técnica adicional requerida
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="background: #1e293b; color: white; padding: 24px; border-radius: 12px;">
+                    <div
+                        style="font-weight: 800; font-size: 1.1rem; margin-bottom: 8px; display:flex; align-items:center; gap:8px;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                            <path d="M16 3h5v5" />
+                            <path d="M10 14L21 3" />
+                        </svg>
+                        Veredicto
+                    </div>
+                    <p style="font-size: 0.9rem; line-height: 1.5; margin-bottom: 12px; opacity: 0.9;">
+                        Alternativa viable pero con mayor complejidad técnica, costes superiores y gaps funcionales
+                        importantes.
+                    </p>
+                    <span
+                        style="background: #475569; color: white; padding: 6px 16px; border-radius: 20px; font-weight: 800; font-size: 0.8rem;">ALTERNATIVA</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- DETALLE SAP -->
+        <header class="section-header" style="margin-top: 80px;">
+            <span class="section-badge">Análisis Detallado</span>
+            <h2 class="section-title">SAP SuccessFactors</h2>
+        </header>
+
+        <div class="detail-banner banner-sap" style="margin-bottom: 20px;">
+            <h3 style="font-size: 1.5rem; margin-bottom: 8px; display: flex; align-items:center; gap: 8px;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" />
+                </svg> OpciÑn Descartable
+            </h3>
+            <p style="font-weight: 400; line-height: 1.5; font-size: 0.95rem;">
+                La defensa funcional fue <strong>la más débil del proceso</strong>, mostrando nula adaptaciÑn a la
+                realidad de Línea Directa y carencias técnicas fundamentales.
+            </p>
+            <span
+                style="display:inline-flex; background: #ef4444; color: white; padding: 6px 16px; border-radius: 6px; font-weight: 800; font-size: 0.85rem; margin-top: 15px; align-items: center; gap: 8px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+                FUERA DE ALCANCE</span>
+        </div>
+
+        <div class="grid-3">
+            <div class="info-card red-border-left">
+                <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-sec); margin-bottom: 5px;">Cobertura
+                    Insuficiente</div>
+                <div
+                    style="font-size: 2.2rem; font-weight: 900; color: var(--lda-red); line-height: 1; margin-bottom: 10px;">
+                    65%</div>
+                <p style="font-size: 0.8rem; color: var(--text-sec); margin-bottom: 15px;">Cobertura global deficiente
+                    que no cumple con los requerimientos mínimos.</p>
+                <div
+                    style="display: flex; justify-content: space-between; background: #fee2e2; padding: 8px; border-radius: 6px; margin-bottom: 8px; font-size: 0.85rem; color: #b91c1c;">
+                    <span>Ñrea Laboral</span>
+                    <strong>0%</strong>
+                </div>
+                <div
+                    style="display: flex; justify-content: space-between; background: #fee2e2; padding: 8px; border-radius: 6px; font-size: 0.85rem; color: #b91c1c;">
+                    <span>Analytics</span>
+                    <strong>25%</strong>
+                </div>
+            </div>
+            <div class="info-card" style="border-left: 4px solid #f59e0b;">
+                <div
+                    style="font-size: 0.85rem; font-weight: 700; color: var(--text-sec); margin-bottom: 15px; display: flex; align-items: center; gap: 6px;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--lda-red)" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                    </svg>
+                    Incertidumbre Técnica
+                </div>
+                <div style="background: #fffbeb; padding: 10px; border-radius: 8px; margin-bottom: 10px;">
+                    <div
+                        style="font-size: 0.85rem; font-weight: 700; color: #b45309; margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lda-red)"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                            <line x1="12" y1="9" x2="12" y2="13" />
+                            <line x1="12" y1="17" x2="12.01" y2="17" />
+                        </svg>
+                        Migración
+                    </div>
+                    <div style="font-size: 0.8rem; color: var(--text-sec);"><strong>Cero evidencias</strong> de
+                        viabilidad para migrar desde PeopleSoft</div>
+                </div>
+                <div style="background: #fffbeb; padding: 10px; border-radius: 8px;">
+                    <div
+                        style="font-size: 0.85rem; font-weight: 700; color: #b45309; margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lda-red)"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                            <line x1="12" y1="9" x2="12" y2="13" />
+                            <line x1="12" y1="17" x2="12.01" y2="17" />
+                        </svg>
+                        AdaptaciÑn
+                    </div>
+                    <div style="font-size: 0.8rem; color: var(--text-sec);">Nula adaptaciÑn a la realidad de Línea
+                        Directa</div>
+                </div>
+            </div>
+            <div class="info-card bg-gray">
+                <div
+                    style="font-size: 0.85rem; font-weight: 700; color: var(--text-sec); margin-bottom: 15px; display: flex; align-items: center; gap: 6px;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--lda-red)" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+                    </svg>
+                    EvaluaciÑn Final
+                </div>
+                <div style="display:flex; flex-direction: column; gap: 8px;">
+                    <div
+                        style="font-size: 0.85rem; color: var(--text-sec); padding: 6px; background: white; border-radius: 6px; display: flex; align-items: center; gap: 6px;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--lda-red)"
+                            stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                        Defensa funcional débil
+                    </div>
+                    <div
+                        style="font-size: 0.85rem; color: var(--text-sec); padding: 6px; background: white; border-radius: 6px; display: flex; align-items: center; gap: 6px;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--lda-red)"
+                            stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                        Sin casos de éxito similares
+                    </div>
+                    <div
+                        style="font-size: 0.85rem; color: var(--text-sec); padding: 6px; background: white; border-radius: 6px; display: flex; align-items: center; gap: 6px;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--lda-red)"
+                            stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                        Riesgo técnico inaceptable
+                    </div>
+                    <div
+                        style="font-size: 0.85rem; color: var(--text-sec); padding: 6px; background: white; border-radius: 6px; display: flex; align-items: center; gap: 6px;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--lda-red)"
+                            stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                        Inversión no justificada
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div
+            style="background: #fdf2f2; border: 1px solid #fca5a5; padding: 20px; border-radius: 12px; display: flex; align-items: flex-start; gap: 16px; margin-top: 20px;">
+            <div style="color: var(--lda-red); display:flex; align-items:center;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" />
+                </svg>
+            </div>
+            <div>
+                <div style="font-weight: 800; font-size: 1rem; margin-bottom: 4px;">DecisiÑn Oficial</div>
+                <div style="font-size: 0.9rem; color: var(--text-sec);">SAP SuccessFactors queda <strong>oficialmente
+                        fuera del alcance</strong> por falta de rigor funcional y cobertura insuficiente.</div>
+            </div>
+        </div>
+
+        <!-- DASHBOARD ANÁLISIS ECONÓMICO -->
+        <header class="section-header" style="margin-top: 80px;">
+            <span class="section-badge">Dashboard Financiero</span>
+            <h2 class="section-title">Análisis de Inversión y TCO (3 Años)</h2>
+        </header>
+
+        <!-- KPI Metrics -->
+        <div class="grid-3" style="margin-bottom: 30px;">
+            <div class="info-card" style="border-left: 4px solid var(--hcm-green);">
+                <div
+                    style="font-size: 0.85rem; color: var(--text-sec); text-transform: uppercase; letter-spacing: 1px;">
+                    Licencias Acumuladas (Oracle)</div>
+                <div style="font-size: 2.2rem; font-weight: 900; color: var(--text-main); margin: 10px 0;">574K€</div>
+                <div style="font-size: 0.85rem; color: var(--hcm-green);">Eficiencia máxima (Modular)</div>
+            </div>
+            <div class="info-card" style="border-left: 4px solid #6b7280;">
+                <div
+                    style="font-size: 0.85rem; color: var(--text-sec); text-transform: uppercase; letter-spacing: 1px;">
+                    Licencias Acumuladas (SAP SF)</div>
+                <div style="font-size: 2.2rem; font-weight: 900; color: #6b7280; margin: 10px 0;">686K€</div>
+                <div style="font-size: 0.85rem; color: #6b7280;">Escalabilidad progresiva</div>
+            </div>
+            <div class="info-card" style="border-left: 4px solid #ef4444;">
+                <div
+                    style="font-size: 0.85rem; color: var(--text-sec); text-transform: uppercase; letter-spacing: 1px;">
+                    Licencias Acumuladas (Workday)</div>
+                <div style="font-size: 2.2rem; font-weight: 900; color: #ef4444; margin: 10px 0;">1,53M€</div>
+                <div style="font-size: 0.85rem; color: #ef4444;">Modelo Producto Completo</div>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <!-- Chart Side -->
+            <div class="info-card">
+                <div style="font-weight: 800; margin-bottom: 20px; display: flex; flex-direction: column; gap: 12px;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M18 20V10M12 20V4M6 20v-6" />
+                        </svg>
+                        Proyección de Flujo de Caja (K€)
+                    </div>
+                    <div
+                        style="display: flex; gap: 20px; font-size: 0.75rem; color: var(--text-sec); align-items: center; background: rgba(0,0,0,0.02); padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border-color); width: fit-content;">
+                        <div style="display: flex; align-items: center; gap: 6px;">
+                            <span
+                                style="width: 14px; height: 14px; background: rgba(100,100,100,0.8); border-radius: 3px;"></span>
+                            Licencias Nativas
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 6px;">
+                            <span
+                                style="width: 14px; height: 14px; background: repeating-linear-gradient(-45deg, rgba(100,100,100,0.4), rgba(100,100,100,0.4) 3px, rgba(100,100,100,0.1) 3px, rgba(100,100,100,0.1) 6px); border-radius: 3px; border: 1px solid rgba(100,100,100,0.2);"></span>
+                            Costes Heredados
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    style="height: 250px; display: flex; align-items: flex-end; justify-content: space-around; padding: 20px 10px 0 10px; border-left: 2px solid var(--border-color); border-bottom: 2px solid var(--border-color); position: relative; margin-bottom: 20px; background: rgba(0,0,0,0.01); border-radius: 4px;">
+                    <div class="chart-grid"></div>
+                    <!-- Año 1 -->
+                    <div style="display: flex; flex-direction: column; align-items: center; width: 110px; z-index: 1;">
+                        <div
+                            style="display: flex; align-items: flex-end; justify-content: center; gap: 8px; height: 180px; width: 100%;">
+                            <div title="Oracle Año 1 (Total: 186K)" class="bar oracle" style="height: 28%;"
+                                data-val="186K€">
+                                <div class="segment legacy"
+                                    style="height: 40%; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.9); font-size: 0.6rem; font-weight: 800;"
+                                    title="Coste Heredado: 74K">74</div>
+                                <div class="segment"
+                                    style="height: 60%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.65rem; font-weight: 800;"
+                                    title="Licencias Nativas: 112K">112</div>
+                            </div>
+                            <div title="SAP Año 1 (Total: 345K)" class="bar sap" style="height: 52%;" data-val="345K€">
+                                <div class="segment legacy"
+                                    style="height: 48%; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.9); font-size: 0.6rem; font-weight: 800;"
+                                    title="Coste Heredado: 164K">164</div>
+                                <div class="segment"
+                                    style="height: 52%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.65rem; font-weight: 800;"
+                                    title="Licencias Nativas: 181K">181</div>
+                            </div>
+                            <div title="Workday Año 1 (Total: 665K)" class="bar workday" style="height: 100%;"
+                                data-val="665K€">
+                                <div class="segment legacy"
+                                    style="height: 25%; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.9); font-size: 0.6rem; font-weight: 800;"
+                                    title="Coste Heredado: 164K">164</div>
+                                <div class="segment"
+                                    style="height: 75%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.65rem; font-weight: 800;"
+                                    title="Licencias Nativas: 501K">501</div>
+                            </div>
+                        </div>
+                        <span
+                            style="font-size: 0.85rem; font-weight: 800; margin-top: 15px; color: var(--text-sec); text-transform: uppercase;">Año
+                            1</span>
+                    </div>
+
+                    <!-- Año 2 -->
+                    <div style="display: flex; flex-direction: column; align-items: center; width: 100px; z-index: 1;">
+                        <div
+                            style="display: flex; align-items: flex-end; justify-content: center; gap: 8px; height: 180px; width: 100%;">
+                            <div title="Oracle Año 2" class="bar oracle" style="height: 37%;" data-val="193K€"></div>
+                            <div title="SAP Año 2" class="bar sap" style="height: 46%;" data-val="243K€"></div>
+                            <div title="Workday Año 2" class="bar workday" style="height: 98%;" data-val="511K€">
+                            </div>
+                        </div>
+                        <span
+                            style="font-size: 0.85rem; font-weight: 800; margin-top: 15px; color: var(--text-sec); text-transform: uppercase;">Año
+                            2</span>
+                    </div>
+
+                    <!-- Año 3 -->
+                    <div style="display: flex; flex-direction: column; align-items: center; width: 100px; z-index: 1;">
+                        <div
+                            style="display: flex; align-items: flex-end; justify-content: center; gap: 8px; height: 180px; width: 100%;">
+                            <div title="Oracle Año 3" class="bar oracle" style="height: 52%;" data-val="269K€"></div>
+                            <div title="SAP Año 3" class="bar sap" style="height: 50%;" data-val="262K€"></div>
+                            <div title="Workday Año 3" class="bar workday" style="height: 100%;" data-val="521K€">
+                            </div>
+                        </div>
+                        <span
+                            style="font-size: 0.85rem; font-weight: 800; margin-top: 15px; color: var(--text-sec); text-transform: uppercase;">Año
+                            3</span>
+                    </div>
+                </div>
+                <div class="chart-controls">
+                    <button class="vendor-toggle active" onclick="filterVendor('oracle', this)">
+                        <span
+                            style="width: 12px; height: 12px; background: #3b82f6; border-radius: 50%; box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);"></span>
+                        Oracle
+                    </button>
+                    <button class="vendor-toggle active" onclick="filterVendor('sap', this)">
+                        <span
+                            style="width: 12px; height: 12px; background: #6b7280; border-radius: 50%; box-shadow: 0 0 8px rgba(107, 114, 128, 0.5);"></span>
+                        SAP SF
+                    </button>
+                    <button class="vendor-toggle active" onclick="filterVendor('workday', this)">
+                        <span
+                            style="width: 12px; height: 12px; background: #ef4444; border-radius: 50%; box-shadow: 0 0 8px rgba(239, 68, 68, 0.5);"></span>
+                        Workday
+                    </button>
+                </div>
+                <div
+                    style="margin-top: 5px; font-size: 0.7rem; color: var(--text-sec); font-style: italic; text-align: center; opacity: 0.7;">
+                    *Haz clic en los nombres del fabricante para filtrar la visualizaciÑn.
+                </div>
+            </div>
+
+            <!-- Breakdown Side -->
+            <div class="info-card">
+                <div style="font-weight: 800; margin-bottom: 20px;">Desglose Modular de SuscripciÑn</div>
+                <table style="width: 100%; font-size: 0.8rem; border-collapse: collapse;">
+                    <thead>
+                        <tr
+                            style="border-bottom: 2px solid var(--border-color); text-align: left; color: var(--text-sec);">
+                            <th style="padding: 10px 4px;">Fase / MÑdulos</th>
+                            <th style="padding: 10px 4px; text-align: right;">Oracle</th>
+                            <th style="padding: 10px 4px; text-align: right;">SAP SF</th>
+                            <th style="padding: 10px 4px; text-align: right;">Workday</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding: 12px 4px;">Año 1: Core HR & Talent</td>
+                            <td style="text-align: right;">112K€</td>
+                            <td style="text-align: right;">181K€</td>
+                            <td style="text-align: right;">501K€</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding: 12px 4px;">Año 2: Learning & Recruit</td>
+                            <td style="text-align: right;">193K€</td>
+                            <td style="text-align: right;">243K€</td>
+                            <td style="text-align: right;">511K€</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-color);">
+                            <td style="padding: 12px 4px;">Año 3: Comp. & Help Desk</td>
+                            <td style="text-align: right;">269K€</td>
+                            <td style="text-align: right;">262K€</td>
+                            <td style="text-align: right;">521K€</td>
+                        </tr>
+                        <tr style="background: rgba(16, 185, 129, 0.05); color: var(--hcm-green);">
+                            <td style="padding: 12px 4px; font-weight: 800;">TOTAL LICENCIAS</td>
+                            <td style="text-align: right; font-weight: 900;">574K€</td>
+                            <td style="text-align: right; font-weight: 900; color: #6b7280;">686K€</td>
+                            <td style="text-align: right; font-weight: 900; color: #ef4444;">1.534K€</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div
+                    style="margin-top: 25px; padding: 15px; background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 12px;">
+                    <div
+                        style="font-weight: 700; font-size: 0.9rem; color: var(--hcm-green); margin-bottom: 5px; display:flex; align-items:center; gap:6px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                        </svg>
+                        Ventaja Competitiva Integral
+                    </div>
+                    <p style="font-size: 0.8rem; color: var(--text-sec); margin: 0;">
+                        Su modelo modular permite activar solo lo necesario en cada fase, evitando pagar por
+                        características aún no desplegadas.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SIMULACIÓN AÑO 1: REDISEÑ‘O PREMIUM -->
+        <div
+            style="margin-top: 40px; background: var(--bg-card); border-radius: 20px; padding: 40px; border: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 30px; position: relative; overflow: hidden; box-shadow: 0 20px 40px var(--shadow-color);">
+            <div
+                style="position: absolute; top: -50px; right: -50px; width: 250px; height: 250px; background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%); border-radius: 50%;">
+            </div>
+
+            <div
+                style="display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; z-index: 1;">
+                <div>
+                    <h3
+                        style="font-size: 1.8rem; font-weight: 800; margin: 0; color: var(--text-main); letter-spacing: -0.5px;">
+                        Impacto Financiero Real (Caja)</h3>
+                    <div style="font-size: 0.9rem; color: var(--text-sec); margin-top: 5px;">Licencias Nativas + Lastres
+                        Heredados (Servidores y Satélites)</div>
+                </div>
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <div
+                        style="display:flex; align-items:center; gap:6px; font-size:0.75rem; color:var(--text-sec); margin-right: 15px;">
+                        <span
+                            style="width:12px;height:12px;background:repeating-linear-gradient(-45deg, rgba(100,100,100,0.2), rgba(100,100,100,0.2) 3px, rgba(100,100,100,0.1) 3px, rgba(100,100,100,0.1) 6px);border-radius:2px;"></span>
+                        Costes Heredados
+                    </div>
+                    <span
+                        style="font-size: 0.8rem; padding: 6px 14px; background: rgba(59,130,246,0.1); color: #3b82f6; border-radius: 20px; font-weight: 800; letter-spacing: 1px;">AÑO
+                        1 (TRANSICIÑ“N)</span>
+                </div>
+            </div>
+
+            <div class="grid-3" style="gap: 20px; z-index: 1;">
+
+                <!-- SAP SF -->
+                <div
+                    style="background: rgba(0,0,0,0.02); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; display: flex; flex-direction: column; gap: 15px; position:relative;">
+                    <div
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: #6b7280; border-radius: 12px 12px 0 0;">
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 0.9rem; font-weight: 800; color: var(--text-sec);">SAP SF</span>
+                        <span style="font-size: 2rem; font-weight: 900; color: var(--text-main);">345<span
+                                style="font-size: 1.2rem; color: var(--text-sec);">K</span></span>
+                    </div>
+
+                    <div
+                        style="height: 6px; width: 100%; display: flex; border-radius: 3px; overflow: hidden; margin-bottom: 10px;">
+                        <div style="width: 52%; background: #6b7280;" title="Licencias: 181K"></div>
+                        <div style="width: 48%; background: repeating-linear-gradient(-45deg, rgba(107, 114, 128, 0.4), rgba(107, 114, 128, 0.4) 4px, rgba(107, 114, 128, 0.2) 4px, rgba(107, 114, 128, 0.2) 8px);"
+                            title="Legacy: 164K"></div>
+                    </div>
+
+                    <div style="background: rgba(107, 114, 128, 0.05); border-radius: 8px; padding: 12px;">
+                        <div style="font-size: 0.7rem; color: #6b7280; font-weight: 800; margin-bottom: 8px;">Nuevas
+                            Licencias</div>
+                        <div style="display: flex; justify-content: space-between; font-size: 0.85rem;"><span
+                                style="color: var(--text-sec);">Success Factors</span><strong
+                                style="color: var(--text-main);">181 K€</strong></div>
+                    </div>
+
+                    <div
+                        style="background: rgba(239, 68, 68, 0.05); border-radius: 8px; padding: 12px; border-left: 2px solid #ef4444;">
+                        <div style="font-size: 0.7rem; color: #ef4444; font-weight: 800; margin-bottom: 8px;">Costes
+                            Heredados (164 K€)</div>
+                        <div
+                            style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 4px;">
+                            <span style="color: var(--text-sec);">PeopleSoft (Licencias)</span><strong
+                                style="color: var(--text-main);">90 K€</strong>
+                        </div>
+                        <div
+                            style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 4px;">
+                            <span style="color: var(--text-sec);">PeopleSoft (Infra)</span><strong
+                                style="color: var(--text-main);">30 K€</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 0.8rem;">
+                            <span style="color: var(--text-sec);">Satélites (OKN, etc)</span><strong
+                                style="color: var(--text-main);">44 K€</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Workday -->
+                <div
+                    style="background: rgba(0,0,0,0.02); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; display: flex; flex-direction: column; gap: 15px; position:relative;">
+                    <div
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: #ef4444; border-radius: 12px 12px 0 0;">
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 0.9rem; font-weight: 800; color: var(--text-sec);">WORKDAY</span>
+                        <span style="font-size: 2rem; font-weight: 900; color: var(--text-main);">665<span
+                                style="font-size: 1.2rem; color: var(--text-sec);">K</span></span>
+                    </div>
+
+                    <div
+                        style="height: 6px; width: 100%; display: flex; border-radius: 3px; overflow: hidden; margin-bottom: 10px;">
+                        <div style="width: 75%; background: #ef4444;" title="Licencias: 501K"></div>
+                        <div style="width: 25%; background: repeating-linear-gradient(-45deg, rgba(239, 68, 68, 0.4), rgba(239, 68, 68, 0.4) 4px, rgba(239, 68, 68, 0.2) 4px, rgba(239, 68, 68, 0.2) 8px);"
+                            title="Legacy: 164K"></div>
+                    </div>
+
+                    <div style="background: rgba(239, 68, 68, 0.05); border-radius: 8px; padding: 12px;">
+                        <div style="font-size: 0.7rem; color: #ef4444; font-weight: 800; margin-bottom: 8px;">Nuevas
+                            Licencias</div>
+                        <div style="display: flex; justify-content: space-between; font-size: 0.85rem;"><span
+                                style="color: var(--text-sec);">WD Cloud HCM</span><strong
+                                style="color: var(--text-main);">501 K€</strong></div>
+                    </div>
+
+                    <div
+                        style="background: rgba(239, 68, 68, 0.05); border-radius: 8px; padding: 12px; border-left: 2px solid #ef4444;">
+                        <div style="font-size: 0.7rem; color: #ef4444; font-weight: 800; margin-bottom: 8px;">Costes
+                            Heredados (164 K€)</div>
+                        <div
+                            style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 4px;">
+                            <span style="color: var(--text-sec);">PeopleSoft (Licencias)</span><strong
+                                style="color: var(--text-main);">90 K€</strong>
+                        </div>
+                        <div
+                            style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 4px;">
+                            <span style="color: var(--text-sec);">PeopleSoft (Infra)</span><strong
+                                style="color: var(--text-main);">30 K€</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 0.8rem;"><span
+                                style="color: var(--text-sec);">Satélites (OKN, etc)</span><strong
+                                style="color: var(--text-main);">44 K€</strong></div>
+                    </div>
+                </div>
+
+                <!-- Oracle -->
+                <div
+                    style="background: rgba(59,130,246,0.05); border: 1px solid rgba(59,130,246,0.3); border-radius: 12px; padding: 25px; display: flex; flex-direction: column; gap: 15px; position:relative; box-shadow: 0 5px 15px rgba(59,130,246,0.1);">
+                    <div
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: #3b82f6; border-radius: 12px 12px 0 0;">
+                    </div>
+                    <div
+                        style="position: absolute; top: -1px; left: 50%; transform: translateX(-50%); background: #3b82f6; color: white; font-size: 0.65rem; font-weight: 800; padding: 2px 10px; border-radius: 0 0 6px 6px;">
+                        MÑXIMA EFICIENCIA</div>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                        <span style="font-size: 0.9rem; font-weight: 800; color: #3b82f6;">ORACLE</span>
+                        <span style="font-size: 2rem; font-weight: 900; color: var(--text-main);">186<span
+                                style="font-size: 1.2rem; color: #3b82f6;">K</span></span>
+                    </div>
+
+                    <div
+                        style="height: 6px; width: 100%; display: flex; border-radius: 3px; overflow: hidden; margin-bottom: 10px;">
+                        <div style="width: 60%; background: #3b82f6;" title="Licencias: 112K"></div>
+                        <div style="width: 40%; background: repeating-linear-gradient(-45deg, rgba(59, 130, 246, 0.4), rgba(59, 130, 246, 0.4) 4px, rgba(59, 130, 246, 0.2) 4px, rgba(59, 130, 246, 0.2) 8px);"
+                            title="Legacy: 74K"></div>
+                    </div>
+
+                    <div style="background: rgba(59, 130, 246, 0.1); border-radius: 8px; padding: 12px;">
+                        <div style="font-size: 0.7rem; color: #3b82f6; font-weight: 800; margin-bottom: 8px;">Nuevas
+                            Licencias</div>
+                        <div style="display: flex; justify-content: space-between; font-size: 0.85rem;"><span
+                                style="color: var(--text-sec);">Fusion HCM Base</span><strong
+                                style="color: var(--text-main);">112 K€</strong></div>
+                    </div>
+
+                    <div
+                        style="background: rgba(239, 68, 68, 0.05); border-radius: 8px; padding: 12px; border-left: 2px solid #3b82f6;">
+                        <div style="font-size: 0.7rem; color: #3b82f6; font-weight: 800; margin-bottom: 8px;">Costes
+                            Heredados (74 K€)</div>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; margin-bottom: 2px;">
+                            <span style="color: var(--text-sec);">PeopleSoft (Licencias)</span>
+                            <div style="display: flex; flex-direction: column; align-items: flex-end;">
+                                <strong style="color: #ef4444; text-decoration: line-through;">90 K€</strong>
+                            </div>
+                        </div>
+                        <div
+                            style="font-size: 0.65rem; color: #ef4444; text-align: right; margin-bottom: 8px; font-style: italic;">
+                            Absorbido por Oracle</div>
+
+                        <div
+                            style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 4px;">
+                            <span style="color: var(--text-sec);">PeopleSoft (Infra)</span><strong
+                                style="color: var(--text-main);">30 K€</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 0.8rem;"><span
+                                style="color: var(--text-sec);">Satélites (OKN, etc)</span><strong
+                                style="color: var(--text-main);">44 K€</strong></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-2" style="margin-top: 20px;">
+            <div class="status-box yellow" style="padding: 24px;">
+                <div
+                    style="font-weight: 800; font-size: 1.1rem; margin-bottom: 8px; color: inherit; display:flex; align-items:center; gap:8px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.9 1.2 1.5 1.5 2.5" />
+                        <path d="M9 18h6" />
+                        <path d="M10 22h4" />
+                    </svg>
+                    Modelo de SuscripciÑn
+                </div>
+                <div style="font-size: 0.95rem; line-height: 1.5; opacity: 0.9;">
+                    Oracle garantiza un <strong>precio bloqueado durante 3 años</strong>, eliminando la incertidumbre de
+                    incrementos por CPI. Workday aplica revisiones anuales basadas en el crecimiento de la plantilla.
+                </div>
+            </div>
+            <div class="status-box blue" style="padding: 24px;">
+                <div
+                    style="font-weight: 800; font-size: 1.1rem; margin-bottom: 8px; color: inherit; display:flex; align-items:center; gap:8px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+                        <path
+                            d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+                    </svg>
+                    Sostenibilidad de Licencias
+                </div>
+                <div style="font-size: 0.95rem; line-height: 1.5; opacity: 0.9;">
+                    La estructura de Oracle permite escalar sin penalizaciones por métrica FSE (Workday), lo que supone
+                    una <strong>eficiencia operativa acumulada del 47%</strong> en el periodo analizado.
+                </div>
+            </div>
+        </div>
+
+        <!-- ANALISIS COMPARATIVO FODA -->
+        <header class="section-header" style="margin-top: 80px;">
+            <span class="section-badge">Análisis Comparativo</span>
+            <h2 class="section-title">Fortalezas y Debilidades por Plataforma</h2>
+        </header>
+
+        <div class="grid-2">
+            <!-- Fortalezas -->
+            <div style="background: var(--hcm-green); color: white; padding: 24px; border-radius: 12px;">
+                <div
+                    style="font-size: 1.2rem; font-weight: 800; margin-bottom: 20px; display: flex; align-items:center; gap: 8px;">
+                    <span
+                        style="background:white; color:var(--hcm-green); border-radius:50%; width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;font-size:1.2rem;">+</span>
+                    Fortalezas
+                </div>
+
+                <div
+                    style="background: rgba(255,255,255,0.15); border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+                    <div style="font-weight: 700; margin-bottom: 10px; display:flex; gap:8px; align-items:center;"><span
+                            style="background:#0b66c2; color:white; width:20px;height:20px; display:inline-flex; align-items:center; justify-content:center; border-radius:4px; font-size:0.7rem;">O</span>
+                        Oracle Cloud HCM</div>
+                    <div style="font-size: 0.9rem; line-height: 1.6;">
+                        <div style="display: flex; align-items: center; gap: 6px;"><svg width="14" height="14"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg> Garantiza <strong>continuidad funcional</strong></div>
+                        <div style="display: flex; align-items: center; gap: 6px;"><svg width="14" height="14"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg> <strong>Integridad del histÑrico</strong> asegurada</div>
+                        <div style="display: flex; align-items: center; gap: 6px;"><svg width="14" height="14"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg> <strong>98% cobertura</strong> sin extensiones</div>
+                    </div>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.15); border-radius: 8px; padding: 16px;">
+                    <div style="font-weight: 700; margin-bottom: 10px; display:flex; gap:8px; align-items:center;"><span
+                            style="background:#0087ce; color:white; width:20px;height:20px; display:inline-flex; align-items:center; justify-content:center; border-radius:4px; font-size:0.7rem;">W</span>
+                        Workday Cloud HCM</div>
+                    <div style="font-size: 0.9rem; line-height: 1.6;">
+                        <div style="display: flex; align-items: center; gap: 6px;"><svg width="14" height="14"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg> Modelo de datos unificado (Prism Analytics)</div>
+                        <div style="display: flex; align-items: center; gap: 6px;"><svg width="14" height="14"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg> Excelente <strong>experiencia nativa cloud</strong></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Debilidades -->
+            <div style="background: var(--lda-red); color: white; padding: 24px; border-radius: 12px;">
+                <div
+                    style="font-size: 1.2rem; font-weight: 800; margin-bottom: 20px; display: flex; align-items:center; gap: 8px;">
+                    <span
+                        style="background:white; color:var(--lda-red); border-radius:50%; width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;font-size:1.4rem; padding-bottom: 2px;">-</span>
+                    Debilidades
+                </div>
+
+                <div style="background: rgba(0,0,0,0.2); border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+                    <div style="font-weight: 700; margin-bottom: 10px; display:flex; gap:8px; align-items:center;"><span
+                            style="background:#0087ce; color:white; width:20px;height:20px; display:inline-flex; align-items:center; justify-content:center; border-radius:4px; font-size:0.7rem;">W</span>
+                        Workday Cloud HCM</div>
+                    <div style="font-size: 0.9rem; line-height: 1.6;">
+                        <div style="display: flex; align-items: center; gap: 6px;"><svg width="14" height="14"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18" />
+                                <line x1="6" y1="6" x2="18" y2="18" />
+                            </svg> Coste de licenciamiento <strong>sustancialmente superior</strong></div>
+                        <div style="display: flex; align-items: center; gap: 6px;"><svg width="14" height="14"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18" />
+                                <line x1="6" y1="6" x2="18" y2="18" />
+                            </svg> Cobertura estándar <strong>obliga a desarrollos paralelos</strong></div>
+                    </div>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.2); border-radius: 8px; padding: 16px;">
+                    <div style="font-weight: 700; margin-bottom: 10px; display:flex; gap:8px; align-items:center;"><span
+                            style="background:#6b7280; color:white; width:20px;height:20px; display:inline-flex; align-items:center; justify-content:center; border-radius:4px; font-size:0.7rem;">S</span>
+                        SAP SuccessFactors</div>
+                    <div style="font-size: 0.9rem; line-height: 1.6;">
+                        <div style="display: flex; align-items: center; gap: 6px;"><svg width="14" height="14"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18" />
+                                <line x1="6" y1="6" x2="18" y2="18" />
+                            </svg> Carece del <strong>encaje técnico</strong> exigido</div>
+                        <div style="display: flex; align-items: center; gap: 6px;"><svg width="14" height="14"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18" />
+                                <line x1="6" y1="6" x2="18" y2="18" />
+                            </svg> <strong>Madurez funcional insuficiente</strong> para la organizaciÑn</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-2" style="margin-top: 20px;">
+            <!-- Oportunidades -->
+            <div class="info-card" style="border-top: 4px solid #f59e0b;">
+                <div
+                    style="font-size: 1.1rem; font-weight: 800; margin-bottom: 15px; display:flex; align-items:center; gap:8px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--lda-red)"
+                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.9 1.2 1.5 1.5 2.5" />
+                        <path d="M9 18h6" />
+                        <path d="M10 22h4" />
+                    </svg>
+                    Oportunidades
+                </div>
+                <div style="display:flex; flex-direction: column; gap: 15px;">
+                    <div style="border-left: 3px solid var(--hcm-green); padding-left: 12px;">
+                        <div style="font-weight: 700; font-size: 0.95rem; margin-bottom: 4px;">ModernizaciÑn Faseada
+                        </div>
+                        <div style="font-size: 0.85rem; color: var(--text-sec);">El <strong>modelo modular de
+                                Oracle</strong> permite estructurar una modernizaciÑn tecnolÑgica progresiva sin romper
+                            la cuenta de resultados de 2026.</div>
+                    </div>
+                    <div style="border-left: 3px solid var(--hcm-green); padding-left: 12px;">
+                        <div style="font-weight: 700; font-size: 0.95rem; margin-bottom: 4px;">Control Presupuestario
+                        </div>
+                        <div style="font-size: 0.85rem; color: var(--text-sec);">Pagos graduales y activaciÑn por
+                            mÑdulos facilitan la <strong>planificaciÑn financiera</strong>.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Amenazas -->
+            <div class="info-card" style="border-top: 4px solid var(--lda-red);">
+                <div
+                    style="font-size: 1.1rem; font-weight: 800; margin-bottom: 15px; color: var(--lda-red); display:flex; align-items:center; gap:8px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                        <line x1="12" y1="9" x2="12" y2="13" />
+                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                    </svg>
+                    Amenazas
+                </div>
+                <div style="display:flex; flex-direction: column; gap: 15px;">
+                    <div class="status-box red">
+                        <div style="font-weight: 700; font-size: 0.95rem; margin-bottom: 4px;">Vacío de Datos HistÑricos
+                        </div>
+                        <div style="font-size: 0.85rem; opacity: 0.8;">Migrar a Workday expone a la
+                            organizaciÑn a un <strong>vacío en el acceso centralizado</strong> a datos histÑricos,
+                            fracturando la trazabilidad.</div>
+                    </div>
+                    <div class="status-box red">
+                        <div style="font-weight: 700; font-size: 0.95rem; margin-bottom: 4px;">Complejidad Operativa
+                        </div>
+                        <div style="font-size: 0.85rem; opacity: 0.8;">Mantenimiento de <strong>repositorios
+                                separados</strong> para histÑrico complica reporting y auditoría.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONCLUSION Y RECOMENDACION -->
+        <header class="section-header" style="margin-top: 80px;">
+            <span class="section-badge">ConclusiÑn</span>
+            <h2 class="section-title">RecomendaciÑn Estratégica</h2>
+        </header>
+
+        <div class="status-box green" style="padding: 30px; color: #065f46; border: none;">
+            <div style="display:flex; align-items:center; gap: 20px; color: inherit;">
+                <div style="color: #065f46; display:flex; align-items:center;">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+                        <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+                        <path d="M4 22h16" />
+                        <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+                        <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+                        <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
+                    </svg>
+                </div>
+                <div style="color: inherit;">
+                    <h3 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 8px; color: inherit;">Oracle Cloud
+                        HCM se impone como
+                        la decisiÑn más estratégica</h3>
+                    <p style="font-size: 1rem; opacity: 0.9; color: inherit;">Combina una <strong>cobertura funcional
+                            casi
+                            absoluta</strong>, <strong>control presupuestario real</strong> y el <strong>menor riesgo de
+                            disrupciÑn operativa</strong>.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-3" style="margin-top: 40px; margin-bottom: 20px;">
+            <div class="info-card">
+                <div
+                    style="font-size: 0.85rem; font-weight: 700; color: var(--text-sec); margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--hcm-green)"
+                        stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    Cobertura
+                </div>
+                <div style="font-size: 2.2rem; font-weight: 900; color: #3b82f6; line-height: 1;">98%</div>
+                <p style="font-size: 0.85rem; color: var(--text-sec); margin-top: 10px;">Cobertura funcional estándar
+                    sin necesidad de extensiones de terceros</p>
+                <div
+                    style="background: rgba(59,130,246,0.1); color: #2563eb; padding: 6px 12px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; margin-top: 15px; display:inline-flex; align-items: center; gap: 6px;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                        <polygon
+                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                    100% en mÑdulos core
+                </div>
+            </div>
+            <div class="info-card">
+                <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-sec); margin-bottom: 10px;">€
+                    Economía</div>
+                <div style="font-size: 2.2rem; font-weight: 900; color: var(--hcm-green); line-height: 1;">574K€</div>
+                <p style="font-size: 0.85rem; color: var(--text-sec); margin-top: 10px;">Coste total licencias a 3 años,
+                    <strong>960K€ menos</strong> que Workday
+                </p>
+                <div
+                    style="background: #f0fdf4; color: var(--hcm-green); padding: 6px 12px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; margin-top: 15px; display:inline-flex; align-items: center; gap: 6px;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    Modelo modular eficiente
+                </div>
+            </div>
+            <div class="info-card">
+                <div
+                    style="font-size: 0.85rem; font-weight: 700; color: var(--text-sec); margin-bottom: 10px; display:flex; align-items:center; gap:6px;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                    Riesgo
+                </div>
+                <div style="font-size: 2.2rem; font-weight: 900; color: #06b6d4; line-height: 1;">Bajo</div>
+                <p style="font-size: 0.85rem; color: var(--text-sec); margin-top: 10px;">Continuidad técnica con
+                    PeopleSoft, migraciÑn de histÑrico asegurada</p>
+                <div
+                    style="background: rgba(6,182,212,0.1); color: #0891b2; padding: 6px 12px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; margin-top: 15px; display:inline-block;">
+                    Herramientas nativas SOAR</div>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div class="status-box red" style="padding: 20px;">
+                <div
+                    style="font-weight: 800; font-size: 1.05rem; margin-bottom: 8px; color: inherit; display:flex; align-items:center; gap:6px;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" />
+                    </svg>
+                    SAP Descartado
+                </div>
+                <div style="font-size: 0.9rem; opacity: 0.9;"><strong style="color:inherit;">SAP queda
+                        oficialmente fuera del alcance</strong> por falta de rigor funcional y cobertura insuficiente
+                    (65%).</div>
+            </div>
+            <div class="status-box green" style="padding: 20px;">
+                <div
+                    style="font-weight: 800; font-size: 1.05rem; margin-bottom: 8px; color: inherit; display: flex; align-items: center; gap: 6px;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                    Siguiente Fase
+                </div>
+                <div style="font-size: 0.9rem; opacity: 0.9;">Avanzar a <strong>RFI técnica y de
+                        integradores</strong> exclusivamente con Oracle Cloud HCM y Workday para contrastar solvencia de
+                    implantación.</div>
+            </div>
+        </div>
+
+        <!-- PROXIMOS PASOS -->
+        <header class="section-header" style="margin-top: 80px;">
+            <div
+                style="background: var(--lda-red); color: white; display: inline-block; padding: 6px 20px; border-radius: 20px; font-size: 0.85rem; font-weight: 800; letter-spacing: 1px; margin-bottom: 15px;">
+                DECISIONES ESTRATEGICAS</div>
+            <h2 class="section-title">Próximos Pasos</h2>
+        </header>
+
+        <div class="grid-2" style="margin-bottom: 20px;">
+            <div class="step-card">
+                <div class="step-num">1</div>
+                <div>
+                    <div style="font-weight: 800; font-size: 1.1rem; margin-bottom: 8px; color: var(--text-main);">
+                        Validar Priorización</div>
+                    <p style="font-size: 0.9rem; color: var(--text-sec); line-height: 1.5;">Confirmar a Oracle como
+                        <strong>ecosistema principal</strong> y decidir inclusión de Workday en RFQ para contraste.
+                    </p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-num">2</div>
+                <div>
+                    <div style="font-weight: 800; font-size: 1.1rem; margin-bottom: 8px; color: var(--text-main);">
+                        Definir Enfoque Táctico</div>
+                    <p style="font-size: 0.9rem; color: var(--text-sec); line-height: 1.5;">Plan escalonado arrancando
+                        <strong>por el módulo Core HR</strong> como base del ecosistema.
+                    </p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-num">3</div>
+                <div>
+                    <div style="font-weight: 800; font-size: 1.1rem; margin-bottom: 8px; color: var(--text-main);">
+                        Establecer Criterios RFQ</div>
+                    <p style="font-size: 0.9rem; color: var(--text-sec); line-height: 1.5;">Definir <strong>criterios de
+                            evaluación</strong> para RFQ técnica e integradores: solvencia, adopción, costes.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-num">4</div>
+                <div>
+                    <div style="font-weight: 800; font-size: 1.1rem; margin-bottom: 8px; color: var(--text-main);">
+                        Timeline de Ejecución</div>
+                    <p style="font-size: 0.9rem; color: var(--text-sec); line-height: 1.5;">Establecer <strong>fechas
+                            concretas</strong> para lanzamiento RFQ, recepción propuestas y adjudicación.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Objetivo Final -->
+        <div class="alert-box"
+            style="padding: 24px 30px; display: flex; justify-content: space-between; align-items: center; gap: 20px;">
+            <div>
+                <div style="font-weight: 800; font-size: 1.1rem; margin-bottom: 6px;">Objetivo Final</div>
+                <div style="font-size: 0.95rem; opacity: 0.9;">Con estas decisiones, se lanzará RFI Técnica dirigida que
+                    permitirá la <strong>adjudicación final del proyecto de migración HCM</strong></div>
+            </div>
+            <div style="text-align: right; flex-shrink: 0;">
+                <div style="font-size: 0.8rem; opacity: 0.8;">Documento de trabajo</div>
+                <div style="font-weight: 800; font-size: 1.2rem;">Junio 2025</div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer
+        style="text-align: center; padding: 30px; border-top: 1px solid var(--border-color); color: var(--text-sec); font-size: 0.9rem; margin-top: 40px;">
+        <p>&copy; 2026 Portal de Gestión HCM Cloud | Memoria Corporativa Permanente</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const checkbox = document.getElementById('theme-checkbox');
+            const isDark = checkbox.checked;
+            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            const checkbox = document.getElementById('theme-checkbox');
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            if (checkbox) checkbox.checked = savedTheme === 'dark';
+        }
+
+        function filterVendor(vendor, btn) {
+            btn.classList.toggle('active');
+            const bars = document.querySelectorAll(`.bar.${vendor}`);
+            const isActive = btn.classList.contains('active');
+
+            bars.forEach(bar => {
+                if (isActive) {
+                    bar.classList.remove('hidden');
+                } else {
+                    bar.classList.add('hidden');
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', initTheme);
+    </script>
+    <script>
+
+        // BREADCRUMB MANAGER - SMART COLLAPSE
+        function initBreadcrumbLogic() {
+            const breadcrumb = document.querySelector('.nav-breadcrumb');
+            if (!breadcrumb) return;
+
+            const items = Array.from(breadcrumb.querySelectorAll('.nav-breadcrumb-item:not(.current)'));
+            const separators = Array.from(breadcrumb.querySelectorAll('.nav-breadcrumb-sep'));
+
+            if (items.length > 3) {
+                const toCollapse = items.slice(1, -1);
+
+                const trigger = document.createElement('span');
+                trigger.className = 'nav-breadcrumb-item collapsed-trigger';
+                trigger.innerHTML = '...';
+                trigger.title = 'Ver más niveles';
+
+                const dropdown = document.createElement('div');
+                dropdown.className = 'breadcrumb-dropdown';
+
+                toCollapse.forEach((item, index) => {
+                    const link = document.createElement('a');
+                    link.href = item.href || '#';
+                    link.className = 'breadcrumb-dropdown-item';
+                    link.textContent = item.textContent || item.title || 'Nivel ' + (index + 2);
+                    dropdown.appendChild(link);
+
+                    item.style.display = 'none';
+                    const sepIndex = items.indexOf(item);
+                    if (separators[sepIndex]) {
+                        separators[sepIndex].style.display = 'none';
+                    }
+                });
+
+                trigger.appendChild(dropdown);
+                items[0].insertAdjacentElement('afterend', trigger);
+
+                const newSep = document.createElement('span');
+                newSep.className = 'nav-breadcrumb-sep';
+                newSep.textContent = '';
+                trigger.insertAdjacentElement('afterend', newSep);
+
+                trigger.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    dropdown.classList.toggle('active');
+                });
+
+                document.addEventListener('click', () => {
+                    dropdown.classList.remove('active');
+                });
+            }
+        }
+        document.addEventListener('DOMContentLoaded', initBreadcrumbLogic);
+    </script>
+
+    <script>
+        // BREADCRUMB MANAGER - DYNAMIC ISLAND
+        function initDynamicBreadcrumb() {
+            const wrapper = document.querySelector('.global-nav-wrapper');
+            if (!wrapper) return;
+
+            // Check initial scroll position
+            if (window.scrollY > 50) wrapper.classList.add('compacted');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    wrapper.classList.add('compacted');
+                } else {
+                    wrapper.classList.remove('compacted');
+                }
+            });
+
+            // Handle touch devices to expand on tap if compacted
+            wrapper.addEventListener('click', (e) => {
+                if (wrapper.classList.contains('compacted') && window.innerWidth <= 768) {
+                    e.preventDefault();
+                    wrapper.classList.remove('compacted');
+                    // Give them time to click before it auto-compacts again
+                    setTimeout(() => {
+                        if (window.scrollY > 50) wrapper.classList.add('compacted');
+                    }, 3000);
+                }
+            });
+        }
+        document.addEventListener('DOMContentLoaded', initDynamicBreadcrumb);
+    </script>
+</body>
+
+</html>

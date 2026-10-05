@@ -1,0 +1,1061 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan de Acción M365 | Transformación y formas de trabajar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles_bitacora.css">
+    <style>
+        :root {
+            --m365-blue: #0078d4;
+            --m365-bg: rgba(0, 120, 212, 0.05);
+        }
+
+        .hero-m365 {
+            background: var(--m365-bg);
+            padding: 60px 40px;
+            border-radius: 32px;
+            border: 1px solid var(--border-color);
+            margin: 40px 0 60px 0;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero-icon-m365 {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            color: var(--m365-blue);
+        }
+
+        .phase-box {
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 40px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phase-number {
+            position: absolute;
+            right: -20px;
+            top: -20px;
+            font-size: 8rem;
+            font-weight: 900;
+            color: var(--m365-blue);
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        .pillar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .pillar-card {
+            background: var(--bg-page);
+            padding: 25px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .pillar-card:hover {
+            border-color: var(--m365-blue);
+            transform: translateY(-5px);
+        }
+
+        .pillar-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--m365-bg);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--m365-blue);
+        }
+
+        .status-badge {
+            background: var(--m365-blue);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .highlight-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .highlight-list li {
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .highlight-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--m365-blue);
+            font-weight: 900;
+        }
+
+        /* Modal Styles */
+        .q-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .q-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .q-modal-content {
+            background: var(--bg-page);
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            border-radius: 24px;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.9);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .q-modal.active .q-modal-content {
+            transform: scale(1);
+        }
+
+        .q-modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            color: var(--text-sec);
+            transition: all 0.2s ease;
+        }
+
+        .q-modal-close:hover {
+            background: #eee;
+            color: var(--lda-red);
+        }
+    </style>
+
+    <link rel="stylesheet" href="../local_styles.css">
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper">
+        <button class="nav-btn" onclick="javascript:history.back()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+        </button>
+        <div class="nav-divider"></div>
+        <div class="nav-breadcrumb">
+            <a href="index.html" class="nav-breadcrumb-item">Transformación y Eficiencia</a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <span class="nav-breadcrumb-item current">Plan M365</span>
+        </div>
+    </nav>
+
+    <div class="bg-mesh"></div>
+
+    <main class="container">
+        <div class="hero-m365">
+            <div class="hero-icon-m365">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="3" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="14" width="7" height="7"></rect>
+                    <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+            </div>
+            <div>
+                <span class="status-badge">Estrategia de Adopción</span>
+                <h1 style="margin-top: 10px;">Plan de Acción M365: <br>Elevando nuestra operativa</h1>
+                <p style="color: var(--text-sec); max-width: 600px;">Hoja de ruta estratégica para identificar ineficiencias y proponer mejoras en el uso de las herramientas de Microsoft 365.</p>
+            </div>
+        </div>
+
+        <!-- OBJETIVO DEL TRIMESTRE -->
+        <div style="margin-bottom: 40px; background: white; padding: 30px; border-radius: 20px; border: 1px solid var(--border-color); border-left: 5px solid var(--m365-blue); box-shadow: var(--shadow);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 15px; margin-bottom: 15px;">
+                <div>
+                    <h2 style="margin: 0; font-size: 1.6rem; color: var(--text-main); display: flex; align-items: center; gap: 10px;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--m365-blue)" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                        Objetivo del Segundo Trimestre (Q2)
+                    </h2>
+                    <!-- ETIQUETAS DE ESTADO -->
+                    <div style="display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap;">
+                        <span style="background: rgba(100, 116, 139, 0.1); color: #64748b; padding: 5px 12px; border-radius: 8px; font-size: 0.75rem; font-weight: 800; border: 1px solid rgba(100, 116, 139, 0.2); display: flex; align-items: center; gap: 6px; text-transform: uppercase; letter-spacing: 0.5px;">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                            Objetivo Propuesto
+                        </span>
+                        <span style="background: rgba(217, 119, 6, 0.1); color: #d97706; padding: 5px 12px; border-radius: 8px; font-size: 0.75rem; font-weight: 800; border: 1px solid rgba(217, 119, 6, 0.2); display: flex; align-items: center; gap: 6px; text-transform: uppercase; letter-spacing: 0.5px;">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                            No incluido en Plan Final
+                        </span>
+                    </div>
+                </div>
+                <div style="background: rgba(0, 120, 212, 0.1); color: var(--m365-blue); padding: 8px 16px; border-radius: 8px; font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; gap: 8px;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    Hito límite inicial: 30 de Junio de 2026
+                </div>
+            </div>
+            <p style="color: var(--text-sec); font-size: 1.05rem; line-height: 1.6; margin: 0 0 15px 0;">
+                Este plan constituye el detalle de la <strong>iniciativa propuesta para este trimestre</strong>. Aunque finalmente no ha sido incluido en el listado oficial de objetivos del Q2, mantenemos la hoja de ruta para su futura consideración:
+            </p>
+            <div style="background: rgba(0,0,0,0.02); padding: 20px; border-radius: 12px; border-left: 4px solid var(--m365-blue); font-size: 1.05rem; color: #1a202c; line-height: 1.6; opacity: 0.8;">
+                <strong>Propuesta de Proyecto de Transformación:</strong> Diagnóstico de las formas de relacionarnos en el área (correo, teams, documentación, chats), identificar puntos a eficientar y propuestas de mejora. Elaborar un decálogo de buenas prácticas que contempla usos de IA y actualizaciones periódicas.
+            </div>
+        </div>
+
+        <!-- FASE 1 -->
+        <section class="phase-box">
+            <div class="phase-number">1</div>
+            <h2 style="display: flex; align-items: center; gap: 12px; margin-bottom: 25px;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                Fase 1: Identificación de Puntos de Dolor
+            </h2>
+            <p style="color: var(--text-sec); line-height: 1.6;">Nuestro punto de partida es escuchar al área. Buscamos detectar aquellas fricciones que ralentizan el día a día en tres ejes fundamentales:</p>
+            
+            <div class="pillar-grid">
+                <div class="pillar-card">
+                    <div class="pillar-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                    <strong style="display: block; margin-bottom: 8px; font-size: 1.1rem;">Comunicación</strong>
+                    <p style="font-size: 0.9rem; color: var(--text-sec); margin: 0;">Flujos de información, gestión de Outlook y chat/reuniones en Teams.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                    </div>
+                    <strong style="display: block; margin-bottom: 8px; font-size: 1.1rem;">Herramientas M365</strong>
+                    <p style="font-size: 0.9rem; color: var(--text-sec); margin: 0;">Uso y aprovechamiento de Excel, Word, Teams y el resto de la suite.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <strong style="display: block; margin-bottom: 8px; font-size: 1.1rem;">Colaboración</strong>
+                    <p style="font-size: 0.9rem; color: var(--text-sec); margin: 0;">Gestión de proyectos y espacios compartidos en Teams y SharePoint.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; padding: 25px; background: #fff; border-radius: 16px; border-left: 4px solid var(--m365-blue); box-shadow: 0 4px 12px rgba(0,0,0,0.03); display: flex; justify-content: space-between; align-items: center; gap: 20px;">
+                <div style="flex: 1;">
+                    <strong style="color: var(--m365-blue); display: block; margin-bottom: 10px;">Metodología Inicial:</strong>
+                    <p style="margin: 0; font-size: 0.95rem;">Facilitaremos un <strong>cuestionario específico</strong> al área para que cada integrante identifique sus propios puntos de dolor. Este diagnóstico será la base de nuestra estrategia.</p>
+                </div>
+                <button onclick="toggleQModal(true)" style="background: var(--m365-blue); color: white; border: none; padding: 12px 24px; border-radius: 12px; font-weight: 700; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.2s ease; white-space: nowrap; box-shadow: 0 4px 12px rgba(0,120,212,0.2);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    Ver cuestionario
+                </button>
+            </div>
+        </section>
+
+        <!-- FASE 2 -->
+        <section class="phase-box">
+            <div class="phase-number" style="color: #64748b;">2</div>
+            <h2 style="display: flex; align-items: center; gap: 12px; margin-bottom: 25px;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+                Fase 2: Análisis de Situación
+            </h2>
+            <p style="color: var(--text-sec); line-height: 1.6;">Una vez recopilados los datos del cuestionario, pasaremos a una fase de análisis profundo para extraer conclusiones accionables:</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 25px;">
+                <div class="pillar-card" style="cursor: pointer; position: relative;" onclick="toggleModal('patterns-modal', true)">
+                    <div style="display: flex; align-items: flex-start; gap: 15px;">
+                        <div style="background: var(--m365-bg); color: var(--m365-blue); padding: 10px; border-radius: 10px;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                        </div>
+                        <div>
+                            <strong style="display: block; font-size: 0.95rem; margin-bottom: 5px;">Detección de Patrones</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-sec); margin: 0; line-height: 1.4;">Metodología para identificar síntomas comunes y brechas de conocimiento.</p>
+                        </div>
+                    </div>
+                    <span style="position: absolute; top: 15px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.05); padding: 2px 8px; border-radius: 4px; font-weight: bold; color: var(--m365-blue);">Ver método</span>
+                </div>
+
+                <div class="pillar-card" style="cursor: pointer; position: relative;" onclick="toggleModal('prioritization-modal', true)">
+                    <div style="display: flex; align-items: flex-start; gap: 15px;">
+                        <div style="background: var(--m365-bg); color: var(--m365-blue); padding: 10px; border-radius: 10px;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6l3 18h12l3-18H3z"></path><path d="M19 6V5a2 2 0 00-2-2H7a2 2 0 00-2 2v1"></path></svg>
+                        </div>
+                        <div>
+                            <strong style="display: block; font-size: 0.95rem; margin-bottom: 5px;">Priorización Estratégica</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-sec); margin: 0; line-height: 1.4;">Clasificación por impacto y complejidad para definir la hoja de ruta.</p>
+                        </div>
+                    </div>
+                    <span style="position: absolute; top: 15px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.05); padding: 2px 8px; border-radius: 4px; font-weight: bold; color: var(--m365-blue);">Ver matriz</span>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px; display: flex; align-items: center; gap: 15px; padding: 15px; background: rgba(0,120,212,0.03); border-radius: 12px; font-style: italic; color: var(--text-sec); font-size: 0.9rem;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                El análisis permitirá que las soluciones no sean parches aislados, sino mejoras estructurales para todo el equipo.
+            </div>
+        </section>
+
+        <!-- FASE 3 -->
+        <section class="phase-box">
+            <div class="phase-number" style="color: #10b981;">3</div>
+            <h2 style="display: flex; align-items: center; gap: 12px; margin-bottom: 25px;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                Fase 3: Propuesta de Soluciones
+            </h2>
+            <p style="color: var(--text-sec); line-height: 1.6;">Con el mapa de dolores priorizado, definiremos la hoja de ruta de implementación:</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 25px;">
+                <div class="pillar-card" style="cursor: pointer; position: relative; border-color: rgba(16, 185, 129, 0.3);" onclick="toggleModal('solutions-modal', true)">
+                    <div style="display: flex; align-items: flex-start; gap: 15px;">
+                        <div style="background: rgba(16, 185, 129, 0.1); color: #10b981; padding: 10px; border-radius: 10px;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <div>
+                            <strong style="display: block; font-size: 0.95rem; margin-bottom: 5px;">Catálogo de Mejoras</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-sec); margin: 0; line-height: 1.4;">Soluciones técnicas y cambios de proceso personalizados.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pillar-card" style="cursor: pointer; position: relative; border-color: rgba(16, 185, 129, 0.3);" onclick="toggleModal('training-modal', true)">
+                    <div style="display: flex; align-items: flex-start; gap: 15px;">
+                        <div style="background: rgba(16, 185, 129, 0.1); color: #10b981; padding: 10px; border-radius: 10px;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479L12 21l-6.825-3.943a12.084 12.084 0 01.665-6.479L12 14z"></path><path d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479L12 21l-6.825-3.943a12.084 12.084 0 01.665-6.479L12 14z"></path></svg>
+                        </div>
+                        <div>
+                            <strong style="display: block; font-size: 0.95rem; margin-bottom: 5px;">Plan de Capacitación</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-sec); margin: 0; line-height: 1.4;">Impulso de habilidades digitales según las brechas detectadas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pillar-card" style="cursor: pointer; position: relative; border-color: rgba(16, 185, 129, 0.3);" onclick="toggleModal('protocols-modal', true)">
+                    <div style="display: flex; align-items: flex-start; gap: 15px;">
+                        <div style="background: rgba(16, 185, 129, 0.1); color: #10b981; padding: 10px; border-radius: 10px;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <div>
+                            <strong style="display: block; font-size: 0.95rem; margin-bottom: 5px;">Protocolos de Trabajo</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-sec); margin: 0; line-height: 1.4;">Establecimiento de normas comunes de colaboración digital.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pillar-card" style="cursor: pointer; position: relative; border-color: rgba(16, 185, 129, 0.3);" onclick="toggleModal('decalogo-modal', true)">
+                    <div style="display: flex; align-items: flex-start; gap: 15px;">
+                        <div style="background: rgba(16, 185, 129, 0.1); color: #10b981; padding: 10px; border-radius: 10px;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        </div>
+                        <div>
+                            <strong style="display: block; font-size: 0.95rem; margin-bottom: 5px;">Decálogo de Buenas Prácticas</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-sec); margin: 0; line-height: 1.4;">Reglas de juego comunes para que todo el equipo sepa cómo operar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- FASE 4 -->
+        <section class="phase-box">
+            <div class="phase-number" style="color: #f59e0b;">4</div>
+            <h2 style="display: flex; align-items: center; gap: 12px; margin-bottom: 25px;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+                Fase 4: Seguimiento y Evolución
+            </h2>
+            <p style="color: var(--text-sec); line-height: 1.6;">Para cerrar el ciclo y asegurar el éxito a largo plazo, realizaremos una medición objetiva del impacto de las medidas adoptadas:</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 30px;">
+                <div style="background: var(--bg-page); padding: 25px; border-radius: 20px; border: 1px solid var(--border-color);">
+                    <div style="color: #f59e0b; margin-bottom: 15px;">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    </div>
+                    <strong style="display: block; margin-bottom: 10px; font-size: 1.1rem;">Re-evaluación</strong>
+                    <p style="font-size: 0.9rem; color: var(--text-sec); margin: 0;">Lanzamiento del cuestionario inicial para que el equipo vuelva a completar su diagnóstico tras la adopción de las nuevas formas de trabajar.</p>
+                </div>
+                <div style="background: var(--bg-page); padding: 25px; border-radius: 20px; border: 1px solid var(--border-color);">
+                    <div style="color: #f59e0b; margin-bottom: 15px;">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                    </div>
+                    <strong style="display: block; margin-bottom: 10px; font-size: 1.1rem;">Análisis del GAP</strong>
+                    <p style="font-size: 0.9rem; color: var(--text-sec); margin: 0;">Comparativa directa entre el punto de partida (primer cuestionario) y el resultado final para cuantificar la evolución y efectividad del plan.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px; padding: 20px; background: rgba(245, 158, 11, 0.05); border-radius: 12px; border-left: 4px solid #f59e0b;">
+                <p style="margin: 0; font-size: 0.95rem; font-weight: 600; color: #b45309;">Este cierre nos permite ver el "antes y después" real, consolidando el aprendizaje y detectando áreas de refuerzo continuo.</p>
+            </div>
+        </section>
+
+        <!-- FASE 5 -->
+        <section class="phase-box">
+            <div class="phase-number" style="color: #6366f1;">5</div>
+            <h2 style="display: flex; align-items: center; gap: 12px; margin-bottom: 25px;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #6366f1;"><path d="M4 4v16h16"></path><path d="M4 12h16"></path><path d="M12 4v16"></path></svg>
+                Fase 5: Actualizaciones y Evolución Continua
+            </h2>
+            <p style="color: var(--text-sec); line-height: 1.6;">Las herramientas y funcionalidades (especialmente con la IA) cambian casi cada semana. Estableceremos un sistema periódico de vigilancia para entregar valor y mantener nuestros procedimientos siempre al día:</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 30px;">
+                <div style="background: var(--bg-page); padding: 25px; border-radius: 20px; border: 1px solid var(--border-color);">
+                    <div style="color: #6366f1; margin-bottom: 15px;">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path><circle cx="12" cy="7" r="4"></circle><path d="M2 21v-2a4 4 0 0 1 4-4h4"></path></svg>
+                    </div>
+                    <strong style="display: block; margin-bottom: 10px; font-size: 1.1rem;">Comunicaciones y Boletines</strong>
+                    <p style="font-size: 0.9rem; color: var(--text-sec); margin: 0;">Lanzamiento activo de comunicaciones o newsletters al área detallando nuevas funcionalidades o mejoras puntuales, garantizando que todo el mundo sepa aprovechar los avances que impactan en su eficiencia.</p>
+                </div>
+                <div style="background: var(--bg-page); padding: 25px; border-radius: 20px; border: 1px solid var(--border-color);">
+                    <div style="color: #6366f1; margin-bottom: 15px;">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                    </div>
+                    <strong style="display: block; margin-bottom: 10px; font-size: 1.1rem;">Dinamismo Documental</strong>
+                    <p style="font-size: 0.9rem; color: var(--text-sec); margin: 0;">Revisión constante de nuestros manuales base. Si una actualización tecnológica cambia la forma óptima de operar, redocumentaremos tanto el Decálogo como los Protocolos de Trabajo para reflejar la nueva realidad operativa.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px; padding: 20px; background: rgba(99, 102, 241, 0.05); border-radius: 12px; border-left: 4px solid #6366f1;">
+                <p style="margin: 0; font-size: 0.95rem; font-weight: 600; color: #4338ca;">El ecosistema no es estático; nuestro objetivo es actuar como filtro de la innovación y asegurar que el equipo siempre juegue con ventaja competitiva de forma paulatina.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portal de Transformación y Eficiencia | Grupo Línea Directa</p>
+    </footer>
+
+    <!-- MODAL DE CUESTIONARIO -->
+    <div id="quest-modal" class="q-modal" onclick="if(event.target === this) toggleQModal(false)">
+        <div class="q-modal-content">
+            <button class="q-modal-close" onclick="toggleQModal(false)">×</button>
+            
+            <div style="background: var(--m365-bg); padding: 25px 40px; border-bottom: 1px solid var(--border-color);">
+                <h3 style="margin: 0; font-size: 1.3rem; color: var(--text-main); display: flex; align-items: center; gap: 12px;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--m365-blue);"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    Cuestionario Diagnóstico M365
+                </h3>
+                <p style="margin: 10px 0 0 0; color: var(--text-sec); font-size: 0.9rem;">Identificación de puntos de dolor y oportunidades de mejora.</p>
+            </div>
+
+            <div style="padding: 40px;">
+                <p style="font-size: 0.95rem; color: var(--text-sec); margin-bottom: 30px; line-height: 1.6;">Este cuestionario simula la herramienta de recogida de datos que enviaremos al área de Personas y Comunicación. Al tener foco en "robadores de tiempo", nos permite establecer una línea base medible para comparar antes y después de la adopción estructural. (Valora de 1: Nunca/Nada a 5: Siempre/Mucho).</p>
+
+                <!-- 1. Comunicación y Reuniones -->
+                <div style="margin-bottom: 40px;">
+                    <h4 style="color: var(--m365-blue); font-size: 1rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                        <span style="font-size: 0.7rem; background: var(--m365-blue); color: white; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border-radius: 6px;">1</span>
+                        Comunicación y Reuniones
+                    </h4>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <!-- Subsección 1.1: Canales Escritos -->
+                        <div>
+                            <h5 style="font-size: 0.9rem; color: var(--text-main); margin-bottom: 10px; font-weight: 600;">1.1 Canales Escritos y Notificaciones</h5>
+                            <div style="padding: 20px; background: var(--bg-card); border-radius: 12px; display: flex; flex-direction: column; gap: 15px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
+                                    <span style="font-size: 0.95rem; line-height: 1.4;"><strong>Uso de Para vs. CC:</strong> ¿Recibes correos en los que estás en "Para" cuando solo deberías estar informado (CC), o donde se copia innecesariamente a todo el departamento?</span>
+                                    <div style="display: grid; grid-template-columns: repeat(5, auto); gap: 4px 5px; align-items: center;">
+                                        <div style="grid-column: 1 / -1; display: flex; justify-content: space-between; font-size: 0.65rem; color: var(--text-sec); padding: 0; font-weight: bold; letter-spacing: 0.5px; text-transform: uppercase;"><span>Poco</span><span>Mucho</span></div>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">1</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">2</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">3</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; background: var(--m365-blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold;">4</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">5</span>
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
+                                    <span style="font-size: 0.95rem; line-height: 1.4;"><strong>Silos de información:</strong> ¿Inviertes tiempo cruzando múltiples correos electrónicos para tratar temas rápidos o resolver dudas breves que podrían despacharse de forma instantánea?</span>
+                                    <div style="display: grid; grid-template-columns: repeat(5, auto); gap: 4px 5px; align-items: center;">
+                                        <div style="grid-column: 1 / -1; display: flex; justify-content: space-between; font-size: 0.65rem; color: var(--text-sec); padding: 0; font-weight: bold; letter-spacing: 0.5px; text-transform: uppercase;"><span>Poco</span><span>Mucho</span></div>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">1</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">2</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; background: var(--m365-blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold;">3</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">4</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">5</span>
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
+                                    <span style="font-size: 0.95rem; line-height: 1.4;"><strong>Interrupciones constantes:</strong> ¿Sientes que las notificaciones simultáneas (correos, menciones, chats) rompen tu concentración impidiéndote terminar tareas críticas?</span>
+                                    <div style="display: grid; grid-template-columns: repeat(5, auto); gap: 4px 5px; align-items: center;">
+                                        <div style="grid-column: 1 / -1; display: flex; justify-content: space-between; font-size: 0.65rem; color: var(--text-sec); padding: 0; font-weight: bold; letter-spacing: 0.5px; text-transform: uppercase;"><span>Poco</span><span>Mucho</span></div>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">1</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">2</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; background: var(--m365-blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold;">3</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">4</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">5</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Subsección 1.2: Reuniones -->
+                        <div>
+                            <h5 style="font-size: 0.9rem; color: var(--text-main); margin-bottom: 10px; font-weight: 600;">1.2 Eficiencia en Reuniones</h5>
+                            <div style="padding: 20px; background: var(--bg-card); border-radius: 12px; display: flex; flex-direction: column; gap: 15px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
+                                    <span style="font-size: 0.95rem; line-height: 1.4;"><strong>Coordinación de agendas:</strong> ¿Inviertes tiempo intercambiando correos cruzados para intentar cuadrar el hueco libre de varias personas antes de convocar una sesión?</span>
+                                    <div style="display: grid; grid-template-columns: repeat(5, auto); gap: 4px 5px; align-items: center;">
+                                        <div style="grid-column: 1 / -1; display: flex; justify-content: space-between; font-size: 0.65rem; color: var(--text-sec); padding: 0; font-weight: bold; letter-spacing: 0.5px; text-transform: uppercase;"><span>Poco</span><span>Mucho</span></div>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">1</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">2</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">3</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; background: var(--m365-blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold;">4</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">5</span>
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
+                                    <span style="font-size: 0.95rem; line-height: 1.4;"><strong>Solapamiento de convocatorias:</strong> ¿Te encuentras frecuentemente convocado a varias sesiones que coinciden a la misma hora o se solapan con otros compromisos agendados?</span>
+                                    <div style="display: grid; grid-template-columns: repeat(5, auto); gap: 4px 5px; align-items: center;">
+                                        <div style="grid-column: 1 / -1; display: flex; justify-content: space-between; font-size: 0.65rem; color: var(--text-sec); padding: 0; font-weight: bold; letter-spacing: 0.5px; text-transform: uppercase;"><span>Poco</span><span>Mucho</span></div>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">1</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">2</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; background: var(--m365-blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold;">3</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">4</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">5</span>
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
+                                    <span style="font-size: 0.95rem; line-height: 1.4;"><strong>Preparación previa:</strong> ¿Sientes que algunas de las reuniones a las que asistes serían más estructuradas y eficaces si contaran previamente con un orden del día o material contexto adjunto?</span>
+                                    <div style="display: grid; grid-template-columns: repeat(5, auto); gap: 4px 5px; align-items: center;">
+                                        <div style="grid-column: 1 / -1; display: flex; justify-content: space-between; font-size: 0.65rem; color: var(--text-sec); padding: 0; font-weight: bold; letter-spacing: 0.5px; text-transform: uppercase;"><span>Poco</span><span>Mucho</span></div>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">1</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">2</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">3</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">4</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; background: var(--m365-blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold;">5</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Colaboración y Gestión de Solicitudes -->
+                <div style="margin-bottom: 40px;">
+                    <h4 style="color: var(--m365-blue); font-size: 1rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                        <span style="font-size: 0.7rem; background: var(--m365-blue); color: white; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border-radius: 6px;">2</span>
+                        Colaboración y Gestión de Solicitudes
+                    </h4>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <!-- Subsección 2.1: Gestión Documental -->
+                        <div>
+                            <h5 style="font-size: 0.9rem; color: var(--text-main); margin-bottom: 10px; font-weight: 600;">2.1 Gestión Documental</h5>
+                            <div style="padding: 20px; background: var(--bg-card); border-radius: 12px; display: flex; flex-direction: column; gap: 15px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
+                                    <span style="font-size: 0.95rem; line-height: 1.4;"><strong>Caos de ubicación:</strong> ¿Existe ambigüedad en el equipo sobre dónde guardar la información (unidad de red corporativa "X:\", disco local del portátil, OneDrive personal, chat de Teams o SharePoint)?</span>
+                                    <div style="display: grid; grid-template-columns: repeat(5, auto); gap: 4px 5px; align-items: center;">
+                                        <div style="grid-column: 1 / -1; display: flex; justify-content: space-between; font-size: 0.65rem; color: var(--text-sec); padding: 0; font-weight: bold; letter-spacing: 0.5px; text-transform: uppercase;"><span>Poco</span><span>Mucho</span></div>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">1</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">2</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">3</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; background: var(--m365-blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold;">4</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">5</span>
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
+                                    <span style="font-size: 0.95rem; line-height: 1.4;"><strong>Control de versiones:</strong> ¿Generas documentos duplicados ("V3_final"), ya sea por trabajar en ubicaciones (X:\) sin autoría simultánea, o por temor a perder información al carecer de un guardado histórico automático?</span>
+                                    <div style="display: grid; grid-template-columns: repeat(5, auto); gap: 4px 5px; align-items: center;">
+                                        <div style="grid-column: 1 / -1; display: flex; justify-content: space-between; font-size: 0.65rem; color: var(--text-sec); padding: 0; font-weight: bold; letter-spacing: 0.5px; text-transform: uppercase;"><span>Poco</span><span>Mucho</span></div>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">1</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">2</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">3</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; background: var(--m365-blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold;">4</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">5</span>
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
+                                    <span style="font-size: 0.95rem; line-height: 1.4;"><strong>Fricción de permisos:</strong> ¿Sufres retrasos al intentar acceder a archivos de otras áreas debido a problemas de permisos rotos, accesos caducados o el reenvío de enlaces aislados?</span>
+                                    <div style="display: grid; grid-template-columns: repeat(5, auto); gap: 4px 5px; align-items: center;">
+                                        <div style="grid-column: 1 / -1; display: flex; justify-content: space-between; font-size: 0.65rem; color: var(--text-sec); padding: 0; font-weight: bold; letter-spacing: 0.5px; text-transform: uppercase;"><span>Poco</span><span>Mucho</span></div>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">1</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">2</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">3</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; background: var(--m365-blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold;">4</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">5</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Subsección 2.2: Canales Informales -->
+                        <div>
+                            <h5 style="font-size: 0.9rem; color: var(--text-main); margin-bottom: 10px; font-weight: 600;">2.2 Canales Multivía y Tareas Ad-Hoc</h5>
+                            <div style="padding: 20px; background: var(--bg-card); border-radius: 12px; display: flex; flex-direction: column; gap: 15px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
+                                    <span style="font-size: 0.95rem; line-height: 1.4;"><strong>Trazabilidad de peticiones:</strong> ¿Sientes que la constante entrada de solicitudes y tareas a través de canales alternativos (llamadas, mensajería de móvil) dificulta estructurar y priorizar tu trabajo semanal?</span>
+                                    <div style="display: grid; grid-template-columns: repeat(5, auto); gap: 4px 5px; align-items: center;">
+                                        <div style="grid-column: 1 / -1; display: flex; justify-content: space-between; font-size: 0.65rem; color: var(--text-sec); padding: 0; font-weight: bold; letter-spacing: 0.5px; text-transform: uppercase;"><span>Poco</span><span>Mucho</span></div>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">1</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">2</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">3</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; background: var(--m365-blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold;">4</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">5</span>
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
+                                    <span style="font-size: 0.95rem; line-height: 1.4;"><strong>Duplicidad de esfuerzo:</strong> ¿Recreas desde cero documentos o informes que estructuralmente ya había elaborado otro compañero o departamento, simplemente debido a la falta de visibilidad del trabajo corporativo?</span>
+                                    <div style="display: grid; grid-template-columns: repeat(5, auto); gap: 4px 5px; align-items: center;">
+                                        <div style="grid-column: 1 / -1; display: flex; justify-content: space-between; font-size: 0.65rem; color: var(--text-sec); padding: 0; font-weight: bold; letter-spacing: 0.5px; text-transform: uppercase;"><span>Poco</span><span>Mucho</span></div>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">1</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">2</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">3</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; background: var(--m365-blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold;">4</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">5</span>
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
+                                    <span style="font-size: 0.95rem; line-height: 1.4;"><strong>Cuellos de botella en aprobaciones:</strong> ¿Quedan tus gestiones bloqueadas habitualmente a la espera de un correo formal de "visto bueno" de un responsable, retrasando tu capacidad de avanzar?</span>
+                                    <div style="display: grid; grid-template-columns: repeat(5, auto); gap: 4px 5px; align-items: center;">
+                                        <div style="grid-column: 1 / -1; display: flex; justify-content: space-between; font-size: 0.65rem; color: var(--text-sec); padding: 0; font-weight: bold; letter-spacing: 0.5px; text-transform: uppercase;"><span>Poco</span><span>Mucho</span></div>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">1</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">2</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">3</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">4</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; background: var(--m365-blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold;">5</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Planificación y Herramientas M365 -->
+                <div style="margin-bottom: 40px;">
+                    <h4 style="color: var(--m365-blue); font-size: 1rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                        <span style="font-size: 0.7rem; background: var(--m365-blue); color: white; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border-radius: 6px;">3</span>
+                        Planificación y Productividad M365
+                    </h4>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <!-- Subsección 3.1: Planificación y Seguimiento -->
+                        <div>
+                            <h5 style="font-size: 0.9rem; color: var(--text-main); margin-bottom: 10px; font-weight: 600;">3.1 Planificación y Seguimiento (Planner / To Do)</h5>
+                            <div style="padding: 20px; background: var(--bg-card); border-radius: 12px; display: flex; flex-direction: column; gap: 15px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
+                                    <span style="font-size: 0.95rem; line-height: 1.4;"><strong>Planificación de tareas y proyectos:</strong> ¿La planificación de tareas del equipo reside en listas o archivos individuales, dificultando que el resto de compañeros tenga visibilidad clara sobre el estado global del trabajo?</span>
+                                    <div style="display: grid; grid-template-columns: repeat(5, auto); gap: 4px 5px; align-items: center;">
+                                        <div style="grid-column: 1 / -1; display: flex; justify-content: space-between; font-size: 0.65rem; color: var(--text-sec); padding: 0; font-weight: bold; letter-spacing: 0.5px; text-transform: uppercase;"><span>Poco</span><span>Mucho</span></div>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">1</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">2</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">3</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; background: var(--m365-blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold;">4</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">5</span>
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
+                                    <span style="font-size: 0.95rem; line-height: 1.4;"><strong>Seguimiento de acuerdos:</strong> ¿Las acciones acordadas en sesiones de trabajo acaban diluyéndose porque dependen puramente de tu memoria, apuntes manuales o la insistencia de correos de seguimiento?</span>
+                                    <div style="display: grid; grid-template-columns: repeat(5, auto); gap: 4px 5px; align-items: center;">
+                                        <div style="grid-column: 1 / -1; display: flex; justify-content: space-between; font-size: 0.65rem; color: var(--text-sec); padding: 0; font-weight: bold; letter-spacing: 0.5px; text-transform: uppercase;"><span>Poco</span><span>Mucho</span></div>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">1</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">2</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; background: var(--m365-blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold;">3</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">4</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">5</span>
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
+                                    <span style="font-size: 0.95rem; line-height: 1.4;"><strong>Reporting y visibilidad de estado:</strong> ¿Inviertes horas preparando presentaciones o "pantallazos" de avance para que otros vean el estado de tus proyectos en lugar de que puedan consultarlo ellos mismos de forma dinámica?</span>
+                                    <div style="display: grid; grid-template-columns: repeat(5, auto); gap: 4px 5px; align-items: center;">
+                                        <div style="grid-column: 1 / -1; display: flex; justify-content: space-between; font-size: 0.65rem; color: var(--text-sec); padding: 0; font-weight: bold; letter-spacing: 0.5px; text-transform: uppercase;"><span>Poco</span><span>Mucho</span></div>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">1</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">2</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">3</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; background: var(--m365-blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold;">4</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">5</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Subsección 3.2: Eficiencia Ofimática -->
+                        <div>
+                            <h5 style="font-size: 0.9rem; color: var(--text-main); margin-bottom: 10px; font-weight: 600;">3.2 Eficiencia Ofimática (Excel, PPT, Automatización)</h5>
+                            <div style="padding: 20px; background: var(--bg-card); border-radius: 12px; display: flex; flex-direction: column; gap: 15px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
+                                    <span style="font-size: 0.95rem; line-height: 1.4;"><strong>Trabajo manual en informes:</strong> ¿Inviertes tiempo recurrente, semana a semana, cruzando datos mediante "copiar y pegar" u ordenando manualmente grandes tablones formales en lugar de tenerlos conectados estructuralmente?</span>
+                                    <div style="display: grid; grid-template-columns: repeat(5, auto); gap: 4px 5px; align-items: center;">
+                                        <div style="grid-column: 1 / -1; display: flex; justify-content: space-between; font-size: 0.65rem; color: var(--text-sec); padding: 0; font-weight: bold; letter-spacing: 0.5px; text-transform: uppercase;"><span>Poco</span><span>Mucho</span></div>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">1</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">2</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; background: var(--m365-blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold;">3</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">4</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">5</span>
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
+                                    <span style="font-size: 0.95rem; line-height: 1.4;"><strong>Recopilación de información fragmentada:</strong> ¿Solicitas información estandarizada al equipo a través de correos, obligándote posteriormente a destinar esfuerzo manual para tabular y consolidar cada respuesta en un único fichero?</span>
+                                    <div style="display: grid; grid-template-columns: repeat(5, auto); gap: 4px 5px; align-items: center;">
+                                        <div style="grid-column: 1 / -1; display: flex; justify-content: space-between; font-size: 0.65rem; color: var(--text-sec); padding: 0; font-weight: bold; letter-spacing: 0.5px; text-transform: uppercase;"><span>Poco</span><span>Mucho</span></div>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">1</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">2</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">3</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; background: var(--m365-blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold;">4</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">5</span>
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
+                                    <span style="font-size: 0.95rem; line-height: 1.4;"><strong>Impacto de la rutina y procesos:</strong> ¿Sientes que tareas mecánicas (como enviar recordatorios, aprobar secuencias o trasladar archivos periódicamente) te roban el poco tiempo que desearías destinar a aportar peso puramente analítico y de valor?</span>
+                                    <div style="display: grid; grid-template-columns: repeat(5, auto); gap: 4px 5px; align-items: center;">
+                                        <div style="grid-column: 1 / -1; display: flex; justify-content: space-between; font-size: 0.65rem; color: var(--text-sec); padding: 0; font-weight: bold; letter-spacing: 0.5px; text-transform: uppercase;"><span>Poco</span><span>Mucho</span></div>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">1</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">2</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">3</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; background: var(--m365-blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold;">4</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">5</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Inteligencia Artificial (Copilot) -->
+                <div style="margin-bottom: 40px;">
+                    <h4 style="color: #6a1b9a; font-size: 1rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                        <span style="font-size: 0.7rem; background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%); color: white; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border-radius: 6px;">4</span>
+                        Inteligencia Artificial (Copilot M365)
+                    </h4>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <div>
+                            <div style="padding: 20px; background: var(--bg-card); border-radius: 12px; display: flex; flex-direction: column; gap: 15px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
+                                    <span style="font-size: 0.95rem; line-height: 1.4;"><strong>Generación de Contenido:</strong> ¿Utilizas habitualmente asistentes de IA integrada (como Copilot) para romper el síndrome de la "hoja en blanco" al redactar correos, documentos o preparar presentaciones?</span>
+                                    <div style="display: grid; grid-template-columns: repeat(5, auto); gap: 4px 5px; align-items: center;">
+                                        <div style="grid-column: 1 / -1; display: flex; justify-content: space-between; font-size: 0.65rem; color: var(--text-sec); padding: 0; font-weight: bold; letter-spacing: 0.5px; text-transform: uppercase;"><span>Poco</span><span>Mucho</span></div>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">1</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">2</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">3</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold;">4</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">5</span>
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
+                                    <span style="font-size: 0.95rem; line-height: 1.4;"><strong>Análisis y Síntesis:</strong> ¿Delegas en la IA corporativa la tarea de resumir largas cadenas de correo, transcribir reuniones a las que no has podido asistir o extraer las conclusiones principales de documentos extensos?</span>
+                                    <div style="display: grid; grid-template-columns: repeat(5, auto); gap: 4px 5px; align-items: center;">
+                                        <div style="grid-column: 1 / -1; display: flex; justify-content: space-between; font-size: 0.65rem; color: var(--text-sec); padding: 0; font-weight: bold; letter-spacing: 0.5px; text-transform: uppercase;"><span>Poco</span><span>Mucho</span></div>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">1</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">2</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">3</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">4</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold;">5</span>
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
+                                    <span style="font-size: 0.95rem; line-height: 1.4;"><strong>Consulta inteligente de datos:</strong> ¿Empleas Copilot a modo de "buscador global" para localizar con un simple prompt políticas corporativas o información incrustada dentro de correos o archivos antiguos en lugar de usar el buscador tradicional?</span>
+                                    <div style="display: grid; grid-template-columns: repeat(5, auto); gap: 4px 5px; align-items: center;">
+                                        <div style="grid-column: 1 / -1; display: flex; justify-content: space-between; font-size: 0.65rem; color: var(--text-sec); padding: 0; font-weight: bold; letter-spacing: 0.5px; text-transform: uppercase;"><span>Poco</span><span>Mucho</span></div>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">1</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">2</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold;">3</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">4</span>
+                                        <span style="width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: var(--text-sec);">5</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Mapa de Herramientas -->
+                <div style="margin-bottom: 40px;">
+                    <h4 style="color: var(--m365-blue); font-size: 1rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                        <span style="font-size: 0.7rem; background: var(--m365-blue); color: white; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border-radius: 6px;">5</span>
+                        Mapa de Herramientas y Canales
+                    </h4>
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <div style="padding: 20px; background: var(--bg-card); border-radius: 12px; display: flex; flex-direction: column; gap: 15px;">
+                            <span style="font-size: 0.95rem; line-height: 1.4; font-weight: 600;">¿Por qué medios te suelen trasladar peticiones, dar seguimiento o consultar el estado de las tareas en tu departamento? (Selecciona todas las habituales)</span>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 10px;">
+                                <label style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--text-sec); cursor: pointer;">
+                                    <input type="checkbox" checked style="width: 16px; height: 16px; accent-color: var(--m365-blue);"> Correo Electrónico
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--text-sec); cursor: pointer;">
+                                    <input type="checkbox" checked style="width: 16px; height: 16px; accent-color: var(--m365-blue);"> Microsoft Teams (Chat)
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--text-sec); cursor: pointer;">
+                                    <input type="checkbox" checked style="width: 16px; height: 16px; accent-color: var(--m365-blue);"> WhatsApp (Personal / Corp)
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--text-sec); cursor: pointer;">
+                                    <input type="checkbox" style="width: 16px; height: 16px; accent-color: var(--m365-blue);"> Llamadas Telefónicas
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--text-sec); cursor: pointer;">
+                                    <input type="checkbox" style="width: 16px; height: 16px; accent-color: var(--m365-blue);"> Cara a cara / Pasillo
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--text-sec); cursor: pointer;">
+                                    <input type="checkbox" style="width: 16px; height: 16px; accent-color: var(--m365-blue);"> Archivos Excel compartidos
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--text-sec); cursor: pointer;">
+                                    <input type="checkbox" style="width: 16px; height: 16px; accent-color: var(--m365-blue);"> MS Planner / To-Do
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--text-sec); cursor: pointer;">
+                                    <input type="checkbox" style="width: 16px; height: 16px; accent-color: var(--m365-blue);"> Post-its o cuadernos físicos
+                                </label>
+                            </div>
+                        </div>
+
+                        <div style="padding: 20px; background: var(--bg-card); border-radius: 12px; display: flex; flex-direction: column; gap: 15px;">
+                            <span style="font-size: 0.95rem; line-height: 1.4; font-weight: 600;">¿Qué aplicaciones de Microsoft 365 conoces o utilizas en tu día a día?</span>
+                            <span style="font-size: 0.8rem; color: var(--text-sec); margin-top: -10px;">Enuméralas libremente a continuación:</span>
+                            <textarea placeholder="Ejemplo: Correo, Teams, Excel, etc." style="width: 100%; min-height: 80px; padding: 15px; border-radius: 8px; border: 1px solid var(--border-color); background: rgba(0,0,0,0.02); color: var(--text-main); font-family: inherit; font-size: 0.9rem; resize: vertical; outline: none;"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Abierto -->
+                <div>
+                    <h4 style="color: var(--m365-blue); font-size: 1rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                        <span style="font-size: 0.7rem; background: var(--m365-blue); color: white; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border-radius: 6px;">6</span>
+                        Otras ineficiencias y feedback libre
+                    </h4>
+                    <div style="padding: 20px; background: var(--bg-card); border-radius: 12px; border: 1px dashed var(--border-color);">
+                        <p style="margin: 0 0 10px 0; font-size: 0.95rem; font-weight: 600; color: var(--text-main);">Si tuvieras una "varita mágica" para Microsoft 365, ¿qué tarea rutinaria de tu departamento eliminarías hoy mismo?</p>
+                        <textarea style="width: 100%; border: none; background: transparent; resize: none; margin-top: 10px; color: var(--text-sec); font-family: inherit; font-size: 0.9rem;" rows="2" placeholder="Escribe aquí tu respuesta (ej. revisar informes semanales, recopilar datos orgánicos...)" disabled></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: var(--bg-card); padding: 25px 40px; border-top: 1px solid var(--border-color); text-align: right;">
+                <button onclick="toggleQModal(false)" style="background: var(--lda-red); color: white; border: none; padding: 12px 30px; border-radius: 12px; font-weight: 700; cursor: pointer;">Cerrar Vista Previa</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="breadcrumb_manager.js"></script>
+    <script>
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        }
+
+        function toggleModal(id, show) {
+            const modal = document.getElementById(id);
+            if(show) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            } else {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Keep compatibility with existing call if any
+        function toggleQModal(show) { toggleModal('quest-modal', show); }
+
+        document.addEventListener('DOMContentLoaded', initTheme);
+    </script>
+
+    <!-- MODAL DETECCIÓN DE PATRONES -->
+    <div id="patterns-modal" class="q-modal" onclick="if(event.target === this) toggleModal('patterns-modal', false)">
+        <div class="q-modal-content" style="max-width: 650px;">
+            <button class="q-modal-close" onclick="toggleModal('patterns-modal', false)">×</button>
+            <div style="padding: 40px;">
+                <h3 style="color: var(--m365-blue); margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    Metodología de Detección de Patrones
+                </h3>
+                <p style="color: var(--text-sec); line-height: 1.6; margin-bottom: 25px;">No analizaremos respuestas aisladas, sino comportamientos colectivos del área bajo cuatro dimensiones clave:</p>
+                
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div style="background: var(--bg-card); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color);">
+                        <strong style="display: block; color: var(--m365-blue); margin-bottom: 8px;">1. Análisis de Recurrencia</strong>
+                        <p style="font-size: 0.9rem; margin: 0; color: var(--text-sec);">Identificamos si un "dolor" es un mal hábito generalizado o un problema detectado por un perfil concreto del equipo.</p>
+                    </div>
+                    <div style="background: var(--bg-card); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color);">
+                        <strong style="display: block; color: var(--m365-blue); margin-bottom: 8px;">2. Gap de Conocimiento vs Proceso</strong>
+                        <p style="font-size: 0.9rem; margin: 0; color: var(--text-sec);">Cruzamos las respuestas de aplicaciones conocidas con las ineficiencias. ¿Nos duele porque el proceso es malo o porque no conocemos la herramienta que lo soluciona?</p>
+                    </div>
+                    <div style="background: var(--bg-card); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color);">
+                        <strong style="display: block; color: var(--m365-blue); margin-bottom: 8px;">3. Clúster de Ineficiencias</strong>
+                        <p style="font-size: 0.9rem; margin: 0; color: var(--text-sec);">Agrupamos síntomas (ej: duplicidad de archivos + caos de ubicación) para atacar la raíz del problema de una sola vez.</p>
+                    </div>
+                    <div style="background: var(--bg-card); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color);">
+                        <strong style="display: block; color: var(--m365-blue); margin-bottom: 8px;">4. Alertas Críticas (Varita Mágica)</strong>
+                        <p style="font-size: 0.9rem; margin: 0; color: var(--text-sec);">Análisis cualitativo del feedback abierto para detectar riesgos que no estaban contemplados en las escalas numéricas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL PRIORIZACIÓN -->
+    <div id="prioritization-modal" class="q-modal" onclick="if(event.target === this) toggleModal('prioritization-modal', false)">
+        <div class="q-modal-content" style="max-width: 650px;">
+            <button class="q-modal-close" onclick="toggleModal('prioritization-modal', false)">×</button>
+            <div style="padding: 40px;">
+                <h3 style="color: var(--m365-blue); margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6l3 18h12l3-18H3z"></path></svg>
+                    Matriz de Priorización Estratégica
+                </h3>
+                <p style="color: var(--text-sec); line-height: 1.6; margin-bottom: 25px;">Cada síntoma detectado se clasificará en una matriz de 4 cuadrantes para definir el orden de ejecución:</p>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div style="background: #ecfdf5; padding: 20px; border-radius: 12px; border: 1px solid #10b981;">
+                        <strong style="display: block; color: #065f46; margin-bottom: 8px; font-size: 0.85rem; text-transform: uppercase;">Prioridad 1: Quick Wins</strong>
+                        <p style="font-size: 0.85rem; margin: 0; color: #047857;">Alto impacto operativo y baja complejidad técnica. Mejoras inmediatas.</p>
+                    </div>
+                    <div style="background: #eff6ff; padding: 20px; border-radius: 12px; border: 1px solid #3b82f6;">
+                        <strong style="display: block; color: #1e3a8a; margin-bottom: 8px; font-size: 0.85rem; text-transform: uppercase;">Prioridad 2: Estratégicos</strong>
+                        <p style="font-size: 0.85rem; margin: 0; color: #1d4ed8;">Alto impacto, pero requieren cambios estructurales o sesiones profundas.</p>
+                    </div>
+                    <div style="background: #fffbeb; padding: 20px; border-radius: 12px; border: 1px solid #f59e0b;">
+                        <strong style="display: block; color: #92400e; margin-bottom: 8px; font-size: 0.85rem; text-transform: uppercase;">Prioridad 3: Acompañamiento</strong>
+                        <p style="font-size: 0.85rem; margin: 0; color: #b45309;">Bajo impacto. Se resuelven con guías de buenas prácticas y tips rápidos.</p>
+                    </div>
+                    <div style="background: #fef2f2; padding: 20px; border-radius: 12px; border: 1px solid #ef4444;">
+                        <strong style="display: block; color: #7f1d1d; margin-bottom: 8px; font-size: 0.85rem; text-transform: uppercase;">Prioridad 4: En Espera</strong>
+                        <p style="font-size: 0.85rem; margin: 0; color: #b91c1c;">Bajo impacto y alta complejidad. No se abordarán en esta fase del plan.</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px; padding: 15px; background: var(--bg-card); border-radius: 10px; font-size: 0.85rem; border: 1px dashed var(--border-color);">
+                    <strong>Criterio de Evaluación:</strong> El impacto se mide en <u>horas recuperadas/semana</u> y la complejidad en <u>esfuerzo de implementación/aprendizaje</u>.
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- MODAL CATÁLOGO DE MEJORAS -->
+    <div id="solutions-modal" class="q-modal" onclick="if(event.target === this) toggleModal('solutions-modal', false)">
+        <div class="q-modal-content" style="max-width: 650px;">
+            <button class="q-modal-close" onclick="toggleModal('solutions-modal', false)">×</button>
+            <div style="padding: 40px;">
+                <h3 style="color: #10b981; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Catálogo de Mejoras M365
+                </h3>
+                <div style="display: grid; grid-template-columns: 1fr; gap: 15px;">
+                    <div style="padding: 15px; background: var(--bg-card); border-radius: 10px; border-left: 4px solid #10b981;">
+                        <strong style="display: block; font-size: 0.9rem; margin-bottom: 5px;">Automatización Operativa</strong>
+                        <p style="font-size: 0.85rem; color: var(--text-sec); margin: 0;">Sustitución de aprobaciones por mail y tareas manuales por flujos automáticos en Power Automate.</p>
+                    </div>
+                    <div style="padding: 15px; background: var(--bg-card); border-radius: 10px; border-left: 4px solid #10b981;">
+                        <strong style="display: block; font-size: 0.9rem; margin-bottom: 5px;">Estructura de Colaboración</strong>
+                        <p style="font-size: 0.85rem; color: var(--text-sec); margin: 0;">Rediseño de canales de Teams y arquitectura de SharePoint para eliminar silos y duplicados.</p>
+                    </div>
+                    <div style="padding: 15px; background: var(--bg-card); border-radius: 10px; border-left: 4px solid #10b981;">
+                        <strong style="display: block; font-size: 0.9rem; margin-bottom: 5px;">Gestión de la Demanda</strong>
+                        <p style="font-size: 0.85rem; color: var(--text-sec); margin: 0;">Implementación de formularios de entrada (Lists/Forms) para canalizar las peticiones al área.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL PLAN DE CAPACITACIÓN -->
+    <div id="training-modal" class="q-modal" onclick="if(event.target === this) toggleModal('training-modal', false)">
+        <div class="q-modal-content" style="max-width: 650px;">
+            <button class="q-modal-close" onclick="toggleModal('training-modal', false)">×</button>
+            <div style="padding: 40px;">
+                <h3 style="color: #10b981; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 14l9-5-9-5-9 5 9 5z"></path></svg>
+                    Plan de Capacitación y Adopción
+                </h3>
+                <p style="color: var(--text-sec); line-height: 1.6; margin-bottom: 20px;">Sesiones orientadas a resolver los bloqueos detectados en el diagnóstico:</p>
+                <ul style="padding-left: 20px; color: var(--text-sec); font-size: 0.9rem; line-height: 1.8;">
+                    <li><strong>Talleres de Inmersión:</strong> Sesiones prácticas de 30-45 min sobre herramientas específicas (Planner, SharePoint, Lists).</li>
+                    <li><strong>Píldoras de Eficiencia:</strong> Vídeos cortos o guías visuales con "hacks" para el día a día en Outlook y Teams.</li>
+                    <li><strong>Mentoring IA:</strong> Acompañamiento en el uso de Copilot para optimizar el tiempo de redacción y análisis.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL PROTOCOLOS -->
+    <div id="protocols-modal" class="q-modal" onclick="if(event.target === this) toggleModal('protocols-modal', false)">
+        <div class="q-modal-content" style="max-width: 650px;">
+            <button class="q-modal-close" onclick="toggleModal('protocols-modal', false)">×</button>
+            <div style="padding: 40px;">
+                <h3 style="color: #10b981; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Protocolos de Trabajo (Netiqueta Digital)
+                </h3>
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                    <div style="padding: 15px; border: 1px dashed #10b981; border-radius: 12px;">
+                        <strong style="color: #065f46; display: block; margin-bottom: 5px;">📍 Matriz de Canales</strong>
+                        <p style="font-size: 0.85rem; margin: 0; color: #047857;">Definición oficial de "qué se habla por dónde" para reducir la fragmentación.</p>
+                    </div>
+                    <div style="padding: 15px; border: 1px dashed #10b981; border-radius: 12px;">
+                        <strong style="color: #065f46; display: block; margin-bottom: 5px;">📍 Gestión de Acuerdos</strong>
+                        <p style="font-size: 0.85rem; margin: 0; color: #047857;">Uso obligatorio de actas dinámicas y tareas compartidas tras cada reunión.</p>
+                    </div>
+                    <div style="padding: 15px; border: 1px dashed #10b981; border-radius: 12px;">
+                        <strong style="color: #065f46; display: block; margin-bottom: 5px;">📍 Cultura de Foco</strong>
+                        <p style="font-size: 0.85rem; margin: 0; color: #047857;">Acuerdos sobre tiempos de respuesta y respeto a los estados de "No molestar".</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DECÁLOGO -->
+    <div id="decalogo-modal" class="q-modal" onclick="if(event.target === this) toggleModal('decalogo-modal', false)">
+        <div class="q-modal-content" style="max-width: 650px;">
+            <button class="q-modal-close" onclick="toggleModal('decalogo-modal', false)">×</button>
+            <div style="padding: 40px;">
+                <h3 style="color: #10b981; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg>
+                    Decálogo de Buenas Prácticas
+                </h3>
+                <p style="color: var(--text-sec); line-height: 1.6; margin-bottom: 20px;">Creación del documento base que fijará las "reglas del juego" del área:</p>
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                    <div style="padding: 15px; border: 1px dashed #10b981; border-radius: 12px;">
+                        <strong style="color: #065f46; display: block; margin-bottom: 5px;">📍 Base unificada operativa</strong>
+                        <p style="font-size: 0.85rem; margin: 0; color: #047857;">Definición estandarizada para garantizar que todo el equipo trabaja e interacciona de la misma manera bajo Microsoft 365.</p>
+                    </div>
+                    <div style="padding: 15px; border: 1px dashed #10b981; border-radius: 12px;">
+                        <strong style="color: #065f46; display: block; margin-bottom: 5px;">📍 Expectativas claras</strong>
+                        <p style="font-size: 0.85rem; margin: 0; color: #047857;">Establecer los mínimos exigibles para que nadie invierta tiempo extra en procesos carentes de valor por no saber cómo proceder.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</html>

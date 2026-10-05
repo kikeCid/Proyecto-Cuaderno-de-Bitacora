@@ -1,0 +1,506 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrategia Tecnológica HR | Ecosistema Unificado vs Nichos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles_hcm.css">
+    <style>
+        .article-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .article-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .lead-text {
+            font-size: 1.25rem;
+            color: var(--text-sec);
+            line-height: 1.6;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        /* COMPARATIVE SPLIT */
+        .comparison-split {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 60px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--shadow-color);
+        }
+
+        .comparison-side {
+            flex: 1;
+            padding: 40px;
+            position: relative;
+        }
+
+        .comparison-side.unified {
+            background: linear-gradient(180deg, var(--hcm-green-soft) 0%, transparent 100%);
+        }
+
+        .comparison-side.niche {
+            background: linear-gradient(180deg, rgba(228, 0, 43, 0.05) 0%, transparent 100%);
+            border-left: 1px dashed var(--border-color);
+        }
+
+        .comparison-side h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .comparison-side.unified h3 {
+            color: var(--hcm-green);
+        }
+
+        .comparison-side.niche h3 {
+            color: #E4002B;
+        }
+
+        .comparison-list {
+            list-style: none;
+        }
+
+        .comparison-list li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 16px;
+            color: var(--text-sec);
+            line-height: 1.5;
+        }
+
+        .comparison-list li::before {
+            content: '\2022';
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .unified .comparison-list li::before {
+            color: var(--hcm-green);
+        }
+
+        .niche .comparison-list li::before {
+            color: #E4002B;
+        }
+
+        /* CONTENT BLOCKS */
+        .content-block {
+            margin-bottom: 60px;
+        }
+
+        .content-block h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .content-block h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--hcm-green);
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .info-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 20px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px 0 var(--shadow-color);
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--lda-red-glow) 0%, transparent 70%);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 0;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--hcm-green);
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.1);
+        }
+
+        .info-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .info-card>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        .info-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .info-card p {
+            color: var(--text-sec);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* ALERT WARNING (RIESGOS) */
+        .alert-box {
+            background: rgba(228, 0, 43, 0.05);
+            border: 1px solid rgba(228, 0, 43, 0.2);
+            border-left: 4px solid #E4002B;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .alert-box h4 {
+            color: #E4002B;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .alert-box p {
+            color: var(--text-sec);
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-split {
+                flex-direction: column;
+            }
+
+            .comparison-side.niche {
+                border-left: none;
+                border-top: 1px dashed var(--border-color);
+            }
+
+            .grid-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <link rel="stylesheet" href="../local_styles.css">
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper">
+        <button class="nav-btn" onclick="javascript:history.back()" title="Volver atrás">
+            <svg viewBox="0 0 24 24">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <div class="nav-divider"></div>
+        <div class="nav-breadcrumb">
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item" title="Inicio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span class="nav-breadcrumb-sep"></span>
+            <a href="index.html" class="nav-breadcrumb-item">HCM Cloud</a>
+            <span class="nav-breadcrumb-sep"></span>
+            <a href="universo_estrategico.html" class="nav-breadcrumb-item">Univ. Estratégico</a>
+            <span class="nav-breadcrumb-sep"></span>
+            <span class="nav-breadcrumb-item current">Ecosistema</span>
+        </div>
+    </nav>
+
+
+    <div class="bg-mesh"
+        style="background: radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);"></div>
+
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label">MODO OSCURO</span>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-checkbox" onchange="toggleTheme()">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <main class="container">
+        <div class="article-container">
+
+            <header class="article-header">
+                <span class="hero-badge" style="background: var(--text-main); color: var(--bg-page);">Arquitectura
+                    Tecnológica HR</span>
+                <h1>Dise&ntilde;o del Ecosistema: <br><span style="color: var(--hcm-green);">Global Unificado</span> vs
+                    Nichos
+                    Funcionales</h1>
+                <p class="lead-text">An&aacute;lisis del dilema arquitect&oacute;nico y estrat&eacute;gico previo a la
+                    evoluci&oacute;n de los
+                    sistemas Legacy. Un marco de decisi&oacute;n para el futuro de la gesti&oacute;n del talento.</p>
+            </header>
+
+            <!-- CONTEXTO Y DILEMA -->
+            <div class="content-block">
+                <p style="font-size: 1.1rem; color: var(--text-sec); line-height: 1.8; margin-bottom: 40px;">
+                    En el contexto de obsolescencia de plataformas legacy (como PeopleSoft), la organizaci&oacute;n
+                    enfrenta
+                    una decisi&oacute;n estructurante clave: &iquest;evolucionar hacia un ecosistema consolidado y
+                    global, o adoptar
+                    m&uacute;ltiples soluciones especializadas ("Best-of-Breed") para cada funci&oacute;n
+                    espec&iacute;fica de Recursos
+                    Humanos? Esta decisi&oacute;n marca el grado de complejidad tecnol&oacute;gica y la futura
+                    experiencia del
+                    empleado.
+                </p>
+
+                <div class="comparison-split">
+                    <div class="comparison-side unified">
+                        <h3>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                            Plataforma Global Unificada
+                        </h3>
+                        <p style="color: var(--text-sec); margin-bottom: 20px; font-size: 0.95rem;">Sistema único que
+                            gestiona centralmente todas las operaciones (Core HR, Talento, Formación).</p>
+                        <ul class="comparison-list">
+                            <li><strong>Visi&oacute;n Hol&iacute;stica:</strong> Todos los datos bajo un mismo modelo de
+                                datos
+                                ("Single Source of Truth").</li>
+                            <li><strong>Consistencia UX:</strong> Experiencia de empleado (autoservicios, m&oacute;vil)
+                                idéntica para todas las gestiones.</li>
+                            <li><strong>Agilidad de IT:</strong> Un único modelo de seguridad, infraestructura de TI
+                                simplificada y consolidación de proveedores.</li>
+                        </ul>
+                    </div>
+
+                    <div class="comparison-side niche">
+                        <h3>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="3" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="14" width="7" height="7"></rect>
+                                <rect x="3" y="14" width="7" height="7"></rect>
+                            </svg>
+                            Sistemas de Nicho Separados
+                        </h3>
+                        <p style="color: var(--text-sec); margin-bottom: 20px; font-size: 0.95rem;">Adopción de software
+                            hiper-especializado diseñado exclusivamente para funciones concretas.</p>
+                        <ul class="comparison-list">
+                            <li><strong>Mejor Funcionalidad (Best-of-Breed):</strong> Capacidades avanzadas (IA en
+                                reclutamiento, LMS profundos) por equipos dedicados 100% a un &aacute;rea.</li>
+                            <li><strong>Alta Personalizaci&oacute;n:</strong> Adaptaci&oacute;n extrema a procesos muy
+                                complejos o
+                                nicho.</li>
+                            <li><strong>Independencia de M&oacute;dulos:</strong> Capacidad de cambiar una pieza sin
+                                afectar al
+                                Core HR completo.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- POR QUÉ EL ENFOQUE UNIFICADO -->
+            <div class="content-block">
+                <h2>El Valor Estratégico de la Unificación</h2>
+                <div class="grid-cards">
+                    <div class="info-card">
+                        <h4>Gesti&oacute;n y Consistencia de Datos</h4>
+                        <p>Centralizar la informaci&oacute;n elimina riesgos de inconsistencias. Cuando los cambios
+                            operan
+                            sobre una <em>&Uacute;nica Fuente de Verdad</em> (Ej. un cambio organizacional impacta en
+                            n&oacute;mina,
+                            learning y acceso IT al instante), se fortalece la seguridad y se habilitan reportes de
+                            "People Analytics" cruzados sin ETL intermedios complejos.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Automatizaci&oacute;n Cross-Funcional</h4>
+                        <p>Flujos de trabajo nativamente entrelazados. El "Onboarding", por ejemplo, dispara
+                            l&oacute;gicas
+                            autom&aacute;ticas desde la requisici&oacute;n en Talento, activando la N&oacute;mina en HCM
+                            Core y asignando
+                            formaciones mandatorias en el Learning Management, todo bajo el mismo paraguas.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Experiencia del Empleado Optimizada</h4>
+                        <p>Reducir la fricci&oacute;n tecnol&oacute;gica. Fomentar el autoservicio implica usar un mismo
+                            portal,
+                            credenciales (Single Sign-On integrado nativo) y dise&ntilde;o. Evita el "fatiga de
+                            aplicaciones"
+                            (Application Fatigue) permitiendo al usuario autogestionarse fluidamente.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>TCO y Reducci&oacute;n de Complejidad TI</h4>
+                        <p>Un modelo unificado baja el Coste Total de Propiedad (TCO) consolidando licencias y,
+                            cr&iacute;ticamente, recortando horas de desarrollo dedicadas a mantener APIs e
+                            integraciones
+                            personalizadas fr&aacute;giles, reduciendo sustancialmente el soporte a incidencias.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIESGOS DE FRAGMENTACIÓN -->
+            <div class="content-block">
+                <h2>Riesgos de la Fragmentación (Modelo Nicho)</h2>
+
+                <div class="alert-box">
+                    <h4>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                            </path>
+                            <line x1="12" y1="9" x2="12" y2="13"></line>
+                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        </svg>
+                        Complejidad de Integraci&oacute;n y Silos de Datos
+                    </h4>
+                    <p>La necesidad de "middleware", interfaces ad-hoc y monitoreo constante de la comunicaci&oacute;n
+                        entre
+                        sistemas Best-of-Breed crea puntos de fallo cr&oacute;nicos. Si los datos maestros no
+                        sincronizan a la
+                        perfecci&oacute;n, los silos florecen, lastrando la anal&iacute;tica directiva y generando
+                        reprocesos
+                        administrativos.</p>
+                </div>
+
+                <div class="alert-box">
+                    <h4>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                        Multiplicaci&oacute;n del TCO
+                    </h4>
+                    <p>M&uacute;ltiples contratos SaaS, superposici&oacute;n funcional pagada por duplicado y el coste
+                        t&eacute;cnico
+                        "invisible" de mantener arquitectura distribuida encarecen sustancialmente los presupuestos de
+                        RR.HH. a largo plazo, desviando la inversi&oacute;n de procesos de valor a mantenimiento
+                        inform&aacute;tico.
+                    </p>
+                </div>
+            </div>
+
+            <!-- CONCLUSIÓN ESTRATÉGICA -->
+            <div class="content-block"
+                style="background: var(--bg-card); padding: 40px; border-radius: 20px; border-top: 5px solid var(--text-main); text-align: center;">
+                <h3 style="font-size: 1.6rem; margin-bottom: 20px;">Alineaci&oacute;n Estrat&eacute;gica para la
+                    Evoluci&oacute;n</h3>
+                <p
+                    style="color: var(--text-sec); font-size: 1.1rem; line-height: 1.6; max-width: 700px; margin: 0 auto;">
+                    Para sostener una transformaci&oacute;n digital cre&iacute;ble, el departamento de Recursos Humanos
+                    debe liderar
+                    con un sistema que provea datos unificados en tiempo real, fiabilidad y agilidad. <strong>Consolidar
+                        hacia una plataforma global no reniega de la especializaci&oacute;n, sino que prioriza la salud
+                        del
+                        dato corporativo, la sinergia organizativa y la sostenibilidad de la arquitectura
+                        tecnol&oacute;gica a
+                        largo plazo.</strong>
+                </p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portal de Gestión HCM Cloud | Documentación de Decisiones Arquitectónicas</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const checkbox = document.getElementById('theme-checkbox');
+            const isDark = checkbox.checked;
+            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            const checkbox = document.getElementById('theme-checkbox');
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            if (checkbox) checkbox.checked = savedTheme === 'dark';
+        }
+
+        document.addEventListener('DOMContentLoaded', initTheme);
+    </script>
+
+    <script>
+        // BREADCRUMB MANAGER - DYNAMIC ISLAND
+        function initDynamicBreadcrumb() {
+            const wrapper = document.querySelector('.global-nav-wrapper');
+            if (!wrapper) return;
+
+            // Check initial scroll position
+            if (window.scrollY > 50) wrapper.classList.add('compacted');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    wrapper.classList.add('compacted');
+                } else {
+                    wrapper.classList.remove('compacted');
+                }
+            });
+
+            // Handle touch devices to expand on tap if compacted
+            wrapper.addEventListener('click', (e) => {
+                if (wrapper.classList.contains('compacted') && window.innerWidth <= 768) {
+                    e.preventDefault();
+                    wrapper.classList.remove('compacted');
+                    // Give them time to click before it auto-compacts again
+                    setTimeout(() => {
+                        if (window.scrollY > 50) wrapper.classList.add('compacted');
+                    }, 3000);
+                }
+            });
+        }
+        document.addEventListener('DOMContentLoaded', initDynamicBreadcrumb);
+    </script>
+</body>
+
+</html>

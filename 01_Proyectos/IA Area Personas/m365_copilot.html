@@ -1,0 +1,335 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copilot M365 | Usuarios Licencia E3</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles_bitacora.css">
+    <style>
+        .feature-grid-main {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-bottom: 80px;
+        }
+
+        .portal-ui-preview {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 20px;
+            margin: 40px 0;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .portal-ui-preview img {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .ui-label {
+            display: block;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: var(--text-sec);
+            font-weight: 600;
+        }
+
+        .capability-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .capability-card:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
+        }
+
+        .capability-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .icon-office { background: linear-gradient(135deg, #185abd 0%, #107c41 100%); }
+        .icon-agents { background: linear-gradient(135deg, #6264a7 0%, #464eb8 100%); }
+        .icon-create { background: linear-gradient(135deg, #ff4b2b 0%, #ff416c 100%); }
+        .icon-chat { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+
+        .capability-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin: 0;
+        }
+
+        .model-list {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .model-tag {
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+            background: rgba(var(--text-sec-rgb), 0.1);
+            color: var(--text-main);
+            font-weight: 600;
+            border: 1px solid var(--border-color);
+        }
+
+        .agent-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .agent-item {
+            font-size: 0.8rem;
+            padding: 8px;
+            background: rgba(59, 130, 246, 0.05);
+            border-radius: 8px;
+            color: var(--text-sec);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .agent-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #3b82f6;
+        }
+
+        .highlight-number {
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: #3b82f6;
+            background: rgba(59, 130, 246, 0.1);
+            padding: 2px 8px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../local_styles.css">
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper" style="z-index: 1000;">
+        <button class="nav-btn" onclick="javascript:history.back()" title="Volver atrás">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <div class="nav-divider"></div>
+        <div class="nav-breadcrumb">
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item" title="Inicio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <a href="index.html" class="nav-breadcrumb-item">Transformación y Eficiencia</a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <span class="nav-breadcrumb-item current">Microsoft 365 Copilot</span>
+        </div>
+    </nav>
+
+    <div class="bg-mesh"></div>
+
+    <!-- CONTROLES SUPERIORES -->
+    <div class="top-controls-wrapper"
+        style="position: fixed; top: 30px; right: 30px; display: flex; align-items: center; gap: 15px; z-index: 100;">
+        <div class="theme-toggle-wrapper" style="position: static; margin: 0; box-shadow: var(--shadow);">
+            <span class="theme-label">MODO OSCURO</span>
+            <label class="theme-switch">
+                <input type="checkbox" id="theme-checkbox" onchange="toggleTheme()">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+
+    <main class="container">
+        <!-- HERO SEGMENT -->
+        <header class="hero">
+            <div class="hero-icon-wrapper" style="margin-bottom: 20px; color: #3b82f6;">
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                    <path d="M2 17l10 5 10-5"></path>
+                    <path d="M2 12l10 5 10-5"></path>
+                </svg>
+            </div>
+            <span class="hero-badge" style="background: #3b82f6; color: white; font-weight: 800;">LICENCIA ESTÁNDAR (E3)</span>
+            <h1>Copilot Chat (Basic)<br><span>Capacidades del Usuario</span></h1>
+                <span class="hero-badge-local" style="margin-top: 10px;">Recurso en Local</span>
+            <p>Guía detallada de las herramientas de IA generativa disponibles para el equipo con la licencia base de Microsoft 365.</p>
+        </header>
+
+        <!-- ALERTA CAMBIOS -->
+        <div style="background: rgba(234, 179, 8, 0.1); border: 1px solid rgba(234, 179, 8, 0.3); padding: 30px; border-radius: 20px; margin: 50px auto; display: flex; gap: 20px; align-items: flex-start; max-width: 1000px;">
+            <div style="color: #eab308; flex-shrink: 0; padding-top: 5px;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            </div>
+            <div>
+                <h4 style="margin: 0 0 8px 0; color: #854d0e; font-size: 1.1rem;">Aviso: Restricción In-App (Abril)</h4>
+                <p style="margin: 0; font-size: 0.95rem; color: #713f12; line-height: 1.6; opacity: 0.9;">A partir del **15 de abril de 2026**, los usuarios con licencia E3 no dispondrán de la integración nativa de Copilot dentro de Word, Excel y PowerPoint. Todas las capacidades se centralizarán en la interfaz de Chat y Outlook.</p>
+            </div>
+        </div>
+
+        <!-- SECCIÓN: CAPACIDADES DISPONIBLES -->
+        <div style="text-align: center; margin-top: 80px;">
+            <h2 style="font-size: 2.2rem; margin-bottom: 15px;">Funcionalidades Incluidas</h2>
+            <p style="color: var(--text-sec); max-width: 700px; margin: 0 auto; margin-bottom: 40px;">Capacidades de IA generativa seguras y conectadas con tu ecosistema de trabajo</p>
+        </div>
+        
+        <div class="feature-grid-main">
+            <!-- Chat Seguro -->
+            <div class="capability-card">
+                <div class="capability-icon icon-chat">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                </div>
+                <h3 class="capability-title">Copilot Chat (Web/Entorno LDG)</h3>
+                <p class="feature-desc">Entorno de IA generativa con protección de datos comerciales. Razonamiento, resumen de documentos y generación de ideas.</p>
+                <div class="model-list">
+                    <span class="model-tag">GPT-4o Ready</span>
+                    <span class="model-tag">Secure Browsing</span>
+                    <span class="model-tag">Sin Almacenamiento de Datos</span>
+                </div>
+            </div>
+
+            <!-- Creación Archivos -->
+            <div class="capability-card">
+                <div class="capability-icon" style="background: linear-gradient(135deg, #107c41 0%, #0c5e32 100%);">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
+                </div>
+                <h3 class="capability-title">Creación de Archivos Office</h3>
+                <p class="feature-desc">Capacidad para que Copilot genere y exporte documentos de Word o Excel directamente desde el chat.</p>
+                <div class="agent-list">
+                    <div class="agent-item"><div class="agent-dot"></div>Exportar a Word</div>
+                    <div class="agent-item"><div class="agent-dot"></div>Generar Excel</div>
+                    <div class="agent-item"><div class="agent-dot"></div>Resúmenes .docx</div>
+                </div>
+            </div>
+
+            <!-- Outlook -->
+            <div class="capability-card">
+                <div class="capability-icon" style="background: linear-gradient(135deg, #0078d4 0%, #005a9e 100%);">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </div>
+                <h3 class="capability-title">Asistente en Outlook</h3>
+                <p class="feature-desc">Resúmenes de hilos de correos y redacción asistida de borradores directamente en el cliente de correo.</p>
+                <div class="model-list">
+                    <span class="model-tag">Summary Search</span>
+                    <span class="model-tag">Draft Generator</span>
+                </div>
+            </div>
+
+            <!-- M365 App -->
+            <div class="capability-card">
+                <div class="capability-icon" style="background: linear-gradient(135deg, #e4002b 0%, #b30022 100%);">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+                </div>
+                <h3 class="capability-title">App Microsoft 365</h3>
+                <p class="feature-desc">Acceso unificado a Copilot desde la aplicación de Microsoft 365 en escritorio y móvil.</p>
+                <span style="font-size: 0.75rem; color: #e4002b; font-weight: 700;">CANAL RECOMENDADO POS-ABRIL</span>
+            </div>
+        </div>
+
+        <!-- ANEXO COMPARATIVA -->
+        <div style="background: #1e293b; color: white; padding: 40px; border-radius: 20px; margin: 60px auto; max-width: 1100px; display: flex; align-items: center; justify-content: space-between; gap: 30px;">
+            <div>
+                <h3 style="margin: 0; color: white;">¿Necesitas más potencia?</h3>
+                <p style="margin: 10px 0 0 0; opacity: 0.7;">Consulta las diferencias detalladas con la licencia Premium (Plus).</p>
+            </div>
+            <a href="copilot_comparativa.html" style="background: white; color: #1e293b; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 800; white-space: nowrap;">VER ANEXO COMPARATIVO</a>
+        </div>
+
+        <!-- INTERFAZ VISUAL -->
+        <div class="portal-ui-preview">
+            <img src="../../artifacts/media__1773935242809.png" alt="Copilot UI Preview">
+            <span class="ui-label">Nota: La selección de modelos avanzados y el panel de agentes nativos no están disponibles en la licencia Basic.</span>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portal de Gestión de Proyectos | IA Area Personas</p>
+    </footer>
+
+    <script src="breadcrumb_manager.js"></script>
+    <script>
+        function toggleTheme() {
+            const checkbox = document.getElementById('theme-checkbox');
+            const isDark = checkbox.checked;
+            if (isDark) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const checkbox = document.getElementById('theme-checkbox');
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                if (checkbox) checkbox.checked = true;
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                if (checkbox) checkbox.checked = false;
+            }
+        }
+        document.addEventListener('DOMContentLoaded', initTheme);
+
+        // BREADCRUMB MANAGER - DYNAMIC ISLAND
+        function initDynamicBreadcrumb() {
+            const wrapper = document.querySelector('.global-nav-wrapper');
+            if (!wrapper) return;
+            if (window.scrollY > 50) wrapper.classList.add('compacted');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) wrapper.classList.add('compacted');
+                else wrapper.classList.remove('compacted');
+            });
+        }
+        document.addEventListener('DOMContentLoaded', initDynamicBreadcrumb);
+    </script>
+    <script src="breadcrumb_manager.js"></script>
+</body>
+
+</html>
+
+

@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anexo: Comparativa de Licencias Copilot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles_bitacora.css">
+    <style>
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: var(--bg-card);
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            margin: 40px 0;
+            box-shadow: var(--shadow);
+        }
+
+        .comparison-table th {
+            text-align: left;
+            padding: 24px;
+            background: rgba(var(--text-sec-rgb), 0.03);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-sec);
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .comparison-table td {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            color: #10b981;
+            font-weight: 800;
+        }
+
+        .cross-icon {
+            color: #ef4444;
+            opacity: 0.4;
+        }
+
+        .license-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+        }
+
+        .badge-limited {
+            background: #fef3c7;
+            color: #92400e;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.65rem;
+            font-weight: 800;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../local_styles.css">
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper" style="z-index: 1000;">
+        <button class="nav-btn" onclick="javascript:history.back()" title="Volver atrás">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <div class="nav-divider"></div>
+        <div class="nav-breadcrumb">
+            <a href="index.html" class="nav-breadcrumb-item">Transformación y Eficiencia</a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <span class="nav-breadcrumb-item current">Anexo: Comparativa</span>
+        </div>
+    </nav>
+
+    <div class="bg-mesh"></div>
+
+    <main class="container">
+        <header class="hero" style="padding-top: 80px;">
+            <span class="hero-badge" style="background: #1e293b; color: white;">ANEXO TÉCNICO</span>
+            <h1>Comparativa de Licencias<br><span>Ecosistema Copilot LDG</span></h1>
+                <span class="hero-badge-local" style="margin-top: 10px;">Recurso en Local</span>
+            <p style="max-width: 700px; margin: 20px auto;">Desglose técnico y funcional para entender las diferencias entre el despliegue general y el piloto temprano en el área de Personas.</p>
+        </header>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th style="width: 40%;">Característica</th>
+                    <th style="width: 30%;">
+                        <div class="license-header" style="color: #3b82f6;">Copilot Chat (Basic)</div>
+                        <div style="font-size: 0.7rem; font-weight: 400; text-transform: none;">Licencia E3 Estándar</div>
+                    </th>
+                    <th style="width: 30%;">
+                        <div class="license-header" style="color: #1e3a8a;">M365 Copilot (Premium)</div>
+                        <div style="font-size: 0.7rem; font-weight: 400; text-transform: none;">Licencia Plus (Piloto)</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Protección de Datos Empresariales</strong></td>
+                    <td class="check-icon">✓ Incluido</td>
+                    <td class="check-icon">✓ Incluido</td>
+                </tr>
+                <tr>
+                    <td><strong>Chat Seguro (Web)</strong></td>
+                    <td class="check-icon">✓ Incluido</td>
+                    <td class="check-icon">✓ Incluido</td>
+                </tr>
+                <tr>
+                    <td><strong>Integración en Teams</strong></td>
+                    <td style="color: #92400e;">Solo Chat <span class="badge-limited">LIMITADO</span></td>
+                    <td class="check-icon">✓ 100% (Transcripción/Resumen)</td>
+                </tr>
+                <tr>
+                    <td><strong>Copilot In-App (Word, PPT, Excel)</strong></td>
+                    <td class="cross-icon">✗ No disponible* <br><small style="color: #ef4444; opacity: 1;">(Restringido desde 15 Abril)</small></td>
+                    <td class="check-icon">✓ Disponible</td>
+                </tr>
+                <tr>
+                    <td><strong>Exportación de Archivos Office desde Chat</strong></td>
+                    <td class="check-icon">✓ Disponible</td>
+                    <td class="check-icon">✓ Disponible</td>
+                </tr>
+                <tr>
+                    <td><strong>Rendimiento Prioritario (Peak hours)</strong></td>
+                    <td class="cross-icon">✗ Tiempo de respuesta Estándar</td>
+                    <td class="check-icon">✓ Acceso Prioritario</td>
+                </tr>
+                <tr>
+                    <td><strong>Razonamiento Avanzado (GPT-4o)</strong></td>
+                    <td>Estándar</td>
+                    <td>Ilimitado</td>
+                </tr>
+                <tr>
+                    <td><strong>Creación de Agentes Personalizados</strong></td>
+                    <td class="cross-icon">✗ No disponible</td>
+                    <td class="check-icon">✓ Disponible</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="background: #fff; padding: 30px; border-radius: 20px; border: 1px solid var(--border-color); margin-top: 40px;">
+            <h3 style="margin-top: 0;">¿Por qué hay versiones diferentes?</h3>
+            <p style="color: var(--text-sec); line-height: 1.6; font-size: 0.95rem;">
+                La licencia <strong>E3 (Basic)</strong> es la que tiene toda la compañía y proporciona un entorno de IA generativa seguro para búsqueda y generación de contenido. 
+                <br><br>
+                La licencia <strong>Plus (Premium)</strong> está en fase de despliegue controlado (Early Adopters) y requiere una inversión adicional. Está orientada a perfiles que necesitan integración profunda en Office y análisis masivo de datos en Excel o PowerBI.
+            </p>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portal de Gestión de Proyectos | IA Area Personas</p>
+    </footer>
+
+    <script src="breadcrumb_manager.js"></script>
+</body>
+
+</html>

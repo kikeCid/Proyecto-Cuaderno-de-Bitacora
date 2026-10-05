@@ -1,0 +1,278 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios | Hub Operativo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles_usuarios.css">
+
+    <link rel="stylesheet" href="../local_styles.css">
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper">
+        <button class="nav-btn" onclick="javascript:history.back()" title="Volver atrás">
+            <svg viewBox="0 0 24 24">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <div class="nav-divider"></div>
+        <div class="nav-breadcrumb">
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item" title="Inicio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span class="nav-breadcrumb-sep"></span>
+            <span class="nav-breadcrumb-item current">Gestión de Usuarios</span>
+        </div>
+    </nav>
+
+
+    <!-- THEME TOGGLE -->
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label">MODO OSCURO</span>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-checkbox" onchange="toggleTheme()">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="bg-mesh"></div>
+
+    <main class="container">
+        <!-- HERO SEGMENT -->
+        <header class="hero">
+            <span class="hero-badge">Servicios y Operativas</span>
+            <span class="hero-badge-local">Recurso en Local</span>
+            <h1>Hub de <br><span>Gestión de Usuarios</span></h1>
+            <p>Documentación centralizada para entender la arquitectura, flujos operativos y funcionamiento de los
+                servicios vinculados a la administración de accesos e identidades corporativas.</p>
+        </header>
+
+        <!-- CARDS GRID -->
+        <section class="cards-grid">
+            <div class="carousel-container">
+                <button class="carousel-btn left hidden" onclick="scrollCarousel(this, -340)"
+                    aria-label="Desplazar a la izquierda">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+                <div class="carousel-track" onscroll="updateCarouselButtons(this)">
+                    <!-- ARQUITECTURA -->
+                    <a href="arquitectura_gus.html" class="apple-card dark-card">
+                        <div class="kicker">ESTRUCTURA</div>
+                        <h3 class="title">Arquitectura del Servicio</h3>
+                        <p class="desc">Visión técnica de cómo se enlazan las distintas piezas de software, desde el
+                            Active Directory hasta los sistemas satélite.</p>
+                        <div class="card-visual">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <!-- FLUJOS OPERATIVOS -->
+                    <a href="sistema_contratacion_gus.html" class="apple-card blue-card">
+                        <div class="kicker">PROCESOS</div>
+                        <h3 class="title">Flujos Operativos</h3>
+                        <p class="desc">Guías paso a paso sobre altas, bajas, modificaciones y gestión de roles /
+                            permisos de usuarios dentro de la organización.</p>
+                        <div class="card-visual">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <!-- INTEGRACIONES -->
+                    <a href="integraciones_gus.html" class="apple-card dark-card">
+                        <div class="kicker">CONEXIONES</div>
+                        <h3 class="title">Integraciones & APIs</h3>
+                        <p class="desc">Catálogo de automatizaciones y envío de eventos estructurales entre PS, AD, GUS
+                            y OIM.</p>
+                        <div class="card-visual">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                                <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                                <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+                <button class="carousel-btn right hidden" onclick="scrollCarousel(this, 340)"
+                    aria-label="Desplazar a la derecha">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portal de Gestión de Proyectos | Sistema Portable de Información</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const checkbox = document.getElementById('theme-checkbox');
+            const isDark = checkbox.checked;
+
+            if (isDark) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const checkbox = document.getElementById('theme-checkbox');
+
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                if (checkbox) checkbox.checked = true;
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                if (checkbox) checkbox.checked = false;
+            }
+        }
+
+        // CAROUSEL FUNCTIONALITY
+        function scrollCarousel(btn, distance) {
+            const track = btn.parentElement.querySelector('.carousel-track');
+            track.scrollBy({ left: distance, behavior: 'smooth' });
+        }
+
+        function updateCarouselButtons(track) {
+            const container = track.parentElement;
+            const btnLeft = container.querySelector('.carousel-btn.left');
+            const btnRight = container.querySelector('.carousel-btn.right');
+
+            if (track.scrollLeft <= 10) {
+                btnLeft.classList.add('hidden');
+            } else {
+                btnLeft.classList.remove('hidden');
+            }
+
+            if (Math.ceil(track.scrollLeft + track.clientWidth) >= track.scrollWidth - 10) {
+                btnRight.classList.add('hidden');
+            } else {
+                btnRight.classList.remove('hidden');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+            const tracks = document.querySelectorAll('.carousel-track');
+            tracks.forEach(track => {
+                setTimeout(() => updateCarouselButtons(track), 100);
+            });
+        });
+    </script>
+    <script>
+
+        // BREADCRUMB MANAGER - SMART COLLAPSE
+        function initBreadcrumbLogic() {
+            const breadcrumb = document.querySelector('.nav-breadcrumb');
+            if (!breadcrumb) return;
+
+            const items = Array.from(breadcrumb.querySelectorAll('.nav-breadcrumb-item:not(.current)'));
+            const separators = Array.from(breadcrumb.querySelectorAll('.nav-breadcrumb-sep'));
+
+            if (items.length > 3) {
+                const toCollapse = items.slice(1, -1);
+
+                const trigger = document.createElement('span');
+                trigger.className = 'nav-breadcrumb-item collapsed-trigger';
+                trigger.innerHTML = '...';
+                trigger.title = 'Ver más niveles';
+
+                const dropdown = document.createElement('div');
+                dropdown.className = 'breadcrumb-dropdown';
+
+                toCollapse.forEach((item, index) => {
+                    const link = document.createElement('a');
+                    link.href = item.href || '#';
+                    link.className = 'breadcrumb-dropdown-item';
+                    link.textContent = item.textContent || item.title || 'Nivel ' + (index + 2);
+                    dropdown.appendChild(link);
+
+                    item.style.display = 'none';
+                    const sepIndex = items.indexOf(item);
+                    if (separators[sepIndex]) {
+                        separators[sepIndex].style.display = 'none';
+                    }
+                });
+
+                trigger.appendChild(dropdown);
+                items[0].insertAdjacentElement('afterend', trigger);
+
+                const newSep = document.createElement('span');
+                newSep.className = 'nav-breadcrumb-sep';
+                newSep.textContent = '›';
+                trigger.insertAdjacentElement('afterend', newSep);
+
+                trigger.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    dropdown.classList.toggle('active');
+                });
+
+                document.addEventListener('click', () => {
+                    dropdown.classList.remove('active');
+                });
+            }
+        }
+        document.addEventListener('DOMContentLoaded', initBreadcrumbLogic);
+    </script>
+
+    <script>
+        // BREADCRUMB MANAGER - DYNAMIC ISLAND
+        function initDynamicBreadcrumb() {
+            const wrapper = document.querySelector('.global-nav-wrapper');
+            if (!wrapper) return;
+
+            // Check initial scroll position
+            if (window.scrollY > 50) wrapper.classList.add('compacted');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    wrapper.classList.add('compacted');
+                } else {
+                    wrapper.classList.remove('compacted');
+                }
+            });
+
+            // Handle touch devices to expand on tap if compacted
+            wrapper.addEventListener('click', (e) => {
+                if (wrapper.classList.contains('compacted') && window.innerWidth <= 768) {
+                    e.preventDefault();
+                    wrapper.classList.remove('compacted');
+                    // Give them time to click before it auto-compacts again
+                    setTimeout(() => {
+                        if (window.scrollY > 50) wrapper.classList.add('compacted');
+                    }, 3000);
+                }
+            });
+        }
+        document.addEventListener('DOMContentLoaded', initDynamicBreadcrumb);
+    </script>
+</body>
+
+</html>

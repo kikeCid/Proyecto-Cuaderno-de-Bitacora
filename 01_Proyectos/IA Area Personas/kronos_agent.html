@@ -1,0 +1,212 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agente KRONOS | Ecosistema IA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles_bitacora.css">
+    <style>
+        :root {
+            --kronos-gold: #fbbf24;
+            --kronos-emerald: #10b981;
+            --kronos-blue: #3b82f6;
+            --kronos-purple: #8b5cf6;
+        }
+
+        .kronos-hero {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin: 60px 0;
+            padding: 40px;
+            background: rgba(var(--text-sec-rgb), 0.03);
+            border-radius: 32px;
+            border: 1px solid var(--border-color);
+        }
+
+        .kronos-logo-container {
+            width: 180px;
+            height: 180px;
+            flex-shrink: 0;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(var(--text-sec-rgb), 0.03);
+            border: 2px solid var(--lda-red);
+            color: var(--lda-red);
+        }
+
+        .kronos-logo-container svg {
+            width: 120px;
+            height: 120px;
+        }
+
+        .kronos-title-group h1 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin: 0 0 10px 0;
+            background: linear-gradient(135deg, var(--text-main) 0%, var(--lda-red) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+        }
+
+        .kronos-author {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background: rgba(228, 0, 43, 0.1);
+            color: var(--lda-red);
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../local_styles.css">
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper" style="z-index: 1000;">
+        <button class="nav-btn" onclick="javascript:history.back()" title="Volver atrás">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <div class="nav-divider"></div>
+        <div class="nav-breadcrumb">
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item" title="Inicio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <a href="index.html" class="nav-breadcrumb-item">Transformación y Eficiencia</a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <span class="nav-breadcrumb-item current">Ecosistema KRONOS</span>
+        </div>
+    </nav>
+
+    <div class="bg-mesh"></div>
+
+    <main class="container">
+        <!-- HERO SECTION -->
+        <div class="kronos-hero">
+            <div class="kronos-logo-container">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 2h14"></path>
+                    <path d="M5 22h14"></path>
+                    <path d="M17 2v4l-5 6 5 6v4"></path>
+                    <path d="M7 2v4l5 6-5 6v4"></path>
+                    <path d="M12 12v.01"></path>
+                </svg>
+            </div>
+            <div class="kronos-title-group">
+                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 12px;">
+                    <div class="kronos-author">By Kike Cid</div>
+                    <div style="padding: 4px 12px; background: rgba(228,0,43,0.06); border: 1px solid rgba(228,0,43,0.15); border-radius: 50px; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(228,0,43,0.05);">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--lda-red)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+                        <span style="font-size: 0.65rem; color: var(--lda-red); font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;">Handcrafted Internal Agent</span>
+                    </div>
+                </div>
+                <h1>ECOSISTEMA KRONOS</h1>
+                <span class="hero-badge-local" style="margin-top: 10px;">Recurso en Local</span>
+                <p style="font-size: 1.1rem; color: var(--text-sec); font-weight: 600; margin-bottom: 15px;">Guardián de Proyectos y Asistente Estratégico</p>
+                <p style="max-width: 700px; line-height: 1.6; font-size: 1rem;">
+                    Un ecosistema de IA autónomo diseñado para la extracción de datos, auditoría de proyectos y gestión de la productividad diaria de Kike Cid en Línea Directa.
+                </p>
+            </div>
+        </div>
+
+        <!-- SECCIÓN DE ACCESO DUAL -->
+        <section style="margin-top: 40px; margin-bottom: 60px;">
+            <div style="display: flex; flex-wrap: wrap; gap: 24px;">
+                
+                <!-- CARD 1: LA VISIÓN -->
+                <a href="kronos_vision.html" class="apple-card" style="border-color: var(--kronos-blue); flex: 1; min-width: 340px; height: 480px; background: linear-gradient(135deg, var(--bg-card) 0%, rgba(59, 130, 246, 0.05) 100%);">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+                        <div class="kicker" style="color: var(--kronos-blue); margin: 0;">EL CONCEPTO</div>
+                        <div style="width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--kronos-blue); display: flex; align-items: center; justify-content: center; color: var(--kronos-blue);">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="title" style="font-size: 2rem;">¿Qué es el <br>Agente de IA?</h3>
+                    <p class="desc" style="margin-bottom: 25px;">Explora la visión estratégica, el enfoque MVP y los beneficios directos de integrar a KRONOS en el día a día de RRHH.</p>
+                    <div class="card-visual" style="color: var(--kronos-blue); background: rgba(59, 130, 246, 0.08);">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 16v-4"></path>
+                            <path d="M12 8h.01"></path>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- CARD 2: ARQUITECTURA Y AGENTES -->
+                <a href="kronos_architecture.html" class="apple-card" style="border-color: var(--lda-red); flex: 1; min-width: 340px; height: 480px; background: linear-gradient(135deg, var(--bg-card) 0%, rgba(228, 0, 43, 0.05) 100%);">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+                        <div class="kicker" style="color: var(--lda-red); margin: 0;">LA INGENIERÍA</div>
+                        <div style="width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--lda-red); display: flex; align-items: center; justify-content: center; color: var(--lda-red);">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="title" style="font-size: 2rem;">Agentes y <br>Arquitectura</h3>
+                    <p class="desc" style="margin-bottom: 25px;">Descubre el Orquestador Maestro, los Agentes Especialistas (Manos de Kronos), el Engranaje y el Blueprint técnico.</p>
+                    <div class="card-visual" style="color: var(--lda-red); background: rgba(228, 0, 43, 0.08);">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v8"></path>
+                            <path d="m4.93 10.93 1.41 1.41"></path>
+                            <path d="M2 18h2"></path>
+                            <path d="M20 18h2"></path>
+                            <path d="m19.07 10.93-1.41 1.41"></path>
+                            <path d="M22 22H2"></path>
+                            <path d="m8 22 4-10 4 10"></path>
+                        </svg>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portal de Transformación y Eficiencia RRHH | Grupo Línea Directa</p>
+    </footer>
+
+    <script>
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        }
+        document.addEventListener('DOMContentLoaded', initTheme);
+
+        function initDynamicBreadcrumb() {
+            const wrapper = document.querySelector('.global-nav-wrapper');
+            if (!wrapper) return;
+            if (window.scrollY > 50) wrapper.classList.add('compacted');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) wrapper.classList.add('compacted');
+                else wrapper.classList.remove('compacted');
+            });
+        }
+        document.addEventListener('DOMContentLoaded', initDynamicBreadcrumb);
+    </script>
+</body>
+
+</html>

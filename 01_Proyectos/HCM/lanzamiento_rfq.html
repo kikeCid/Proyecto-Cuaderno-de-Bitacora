@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evolución HCM Cloud | Lanzamiento RFQ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles_hcm.css">
+    <style>
+        .section-title {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--text-main);
+            margin: 50px 0 30px;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title span {
+            color: var(--text-sec);
+            font-weight: 400;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .info-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 35px;
+            box-shadow: 0 8px 32px 0 var(--shadow-color);
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--hcm-green);
+        }
+
+        .info-card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .info-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(228, 0, 43, 0.1);
+            color: #E4002B;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .info-icon.blue {
+            background: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+        }
+
+        .info-icon.green {
+            background: rgba(34, 197, 94, 0.1);
+            color: #22c55e;
+        }
+
+        .info-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        .info-text {
+            color: var(--text-sec);
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .list-group {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .list-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .list-item:last-child {
+            border-bottom: none;
+        }
+
+        .list-bullet {
+            width: 24px;
+            height: 24px;
+            background: var(--hcm-green-soft);
+            color: var(--hcm-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .list-content h4 {
+            margin: 0 0 5px 0;
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        .list-content p {
+            margin: 0;
+            color: var(--text-sec);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .alert-box {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .alert-box h4 {
+            color: #d97706;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+        }
+
+        .alert-box p {
+            margin: 0;
+            color: var(--text-main);
+            font-size: 0.95rem;
+        }
+
+        /* TABS CSS */
+        .tabs-nav {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 35px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0;
+            overflow-x: auto;
+            scrollbar-width: none; /* Firefox */
+        }
+        
+        .tabs-nav::-webkit-scrollbar {
+            display: none; /* Safari and Chrome */
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            padding: 15px 25px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-sec);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            margin-bottom: -2px; /* Superpone sobre el borde inferior */
+        }
+
+        .tab-btn:hover {
+            color: var(--text-main);
+            background: rgba(0,0,0,0.02);
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .tab-btn.active {
+            color: var(--hcm-green);
+            border-bottom-color: var(--hcm-green);
+        }
+
+        [data-theme="dark"] .tab-btn:hover {
+            background: rgba(255,255,255,0.02);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .certezas-banner {
+            display: flex;
+            gap: 20px;
+            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(52, 199, 89, 0.05) 100%);
+            border: 1px solid var(--hcm-green-soft);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            align-items: center;
+        }
+
+        .certezas-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--hcm-green);
+            line-height: 1;
+            margin-right: 15px;
+        }
+        
+        .placeholder-content {
+            text-align: center;
+            padding: 80px 20px;
+            background: var(--bg-card);
+            border-radius: 24px;
+            border: 1px dashed var(--border-color);
+            color: var(--text-sec);
+        }
+
+        .placeholder-content svg {
+            color: var(--border-color);
+            margin-bottom: 20px;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../local_styles.css">
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper">
+        <button class="nav-btn" onclick="javascript:history.back()" title="Volver atrás">
+            <svg viewBox="0 0 24 24">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <div class="nav-divider"></div>
+        <div class="nav-breadcrumb">
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item" title="Inicio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span class="nav-breadcrumb-sep"></span>
+            <a href="index.html" class="nav-breadcrumb-item">HCM Cloud</a>
+            <span class="nav-breadcrumb-sep"></span>
+            <a href="universo_estrategico.html" class="nav-breadcrumb-item">Univ. Estratégico</a>
+            <span class="nav-breadcrumb-sep"></span>
+            <span class="nav-breadcrumb-item current">Lanzamiento RFQ</span>
+        </div>
+    </nav>
+
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label">MODO OSCURO</span>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-checkbox" onchange="toggleTheme()">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <main class="container">
+        <header class="hero" style="padding: 60px 40px; margin-bottom: 20px;">
+            <span class="hero-badge">Fase 9: En Curso</span>
+            <span class="hero-badge-local">Recurso en Local</span>
+            <h1>Lanzamiento <br><span>RFQ de Ofertas</span></h1>
+            <p style="max-width: 800px;">Preparación técnica y funcional del pliego de condiciones (Request For Quotation) para el mercado, capitalizando el conocimiento adquirido en la fase de RFI y definiendo el alcance definitivo y la estrategia de licitación.</p>
+        </header>
+
+        <!-- TABS NAV -->
+        <div class="tabs-nav">
+            <button class="tab-btn active" onclick="openTab(event, 'conclusiones')">Conclusiones RFI</button>
+            <button class="tab-btn" onclick="openTab(event, 'acuerdos')">Acuerdos Dpto. Compras</button>
+            <button class="tab-btn" onclick="openTab(event, 'rfq')">Información de la RFQ</button>
+        </div>
+
+        <!-- TAB 1: CONCLUSIONES RFI -->
+        <div id="conclusiones" class="tab-content active">
+            <h2 class="section-title" style="margin-top: 10px;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                Preparación del Pliego
+                <span>/ Diagnóstico</span>
+            </h2>
+
+            <div class="grid-2">
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <div class="info-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                        </div>
+                        <h3 class="info-title">Ejercicio de Diagnóstico</h3>
+                    </div>
+                    <p class="info-text">El proceso de RFI ha actuado como un diagnóstico interno que ha permitido identificar aspectos estructurales de nuestro entorno actual. <strong>Estos aspectos deben resolverse antes de lanzar el concurso definitivo.</strong></p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <div class="info-icon blue">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                        </div>
+                        <h3 class="info-title">Información de Proveedores</h3>
+                    </div>
+                    <p class="info-text">La información obtenida es muy útil, pero <strong>no debe interpretarse como conclusiones definitivas</strong> de elección ya que es consultiva. El proceso corresponde a una fase RFI, no a compras formal.</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <div class="info-icon green">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                        </div>
+                        <h3 class="info-title">Bases para la Fase de la RFQ</h3>
+                    </div>
+                    <p class="info-text">Las conclusiones reales sobre <strong>proveedores, costes finales, alcances y modelo de implantación</strong> deberán obtenerse en la fase RFQ (proceso de compras formal).</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-header">
+                        <div class="info-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        </div>
+                        <h3 class="info-title">Decisiones Internas</h3>
+                    </div>
+                    <p class="info-text">La RFI ha puesto sobre la mesa una serie de decisiones internas que debemos abordar previamente, ya que <strong>condicionan directamente el alcance del futuro concurso.</strong></p>
+                    <div class="alert-box">
+                        <h4>Imperativo de Negocio</h4>
+                        <p>Antes de lanzar el proceso de compras para saber cuánto cuesta implantar el nuevo HCM, <strong>debemos decidir cómo queremos que funcione realmente nuestro modelo operativo.</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
+                Tareas Previas al Proyecto
+            </h2>
+            <div class="grid-2">
+                <!-- Tareas Funcionales -->
+                <div class="info-card">
+                    <h3 class="info-title" style="margin-top: 0; margin-bottom: 25px; border-bottom: 1px solid var(--border-color); padding-bottom: 15px;">Operativa y Pliegos</h3>
+                    <ul class="list-group">
+                        <li class="list-item">
+                            <div class="list-bullet"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+                            <div class="list-content">
+                                <h4>Pliegos de Necesidades RFQ</h4>
+                                <p><strong>Completado (26/06/2026)</strong> - Elaboración del Pliego de Licencias, Pliego de Implantación y Pliego de Gestión del Cambio. <br><strong>Completado (07/07/2026)</strong> - Solicitudes de compra lanzadas a compras (Producto: RITM0038260, Implantación y GC: RITM0038261).</p>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-bullet"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+                            <div class="list-content">
+                                <h4>Integraciones</h4>
+                                <p>Definir arquitectura de conexiones con nuevas aplicaciones: Workforce, CRM, Telefonía.</p>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-bullet"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+                            <div class="list-content">
+                                <h4>Procesos Batch e Informes</h4>
+                                <p>Revisión para liberar alcance del proyecto técnico y determinar informes imprescindibles.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tareas de Servicios -->
+                <div class="info-card">
+                    <h3 class="info-title" style="margin-top: 0; margin-bottom: 25px; border-bottom: 1px solid var(--border-color); padding-bottom: 15px;">Revisión de Servicios / Módulos</h3>
+                    <ul class="list-group">
+                        <li class="list-item">
+                            <div class="list-bullet"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+                            <div class="list-content">
+                                <h4>Incentivos Mensuales</h4>
+                                <p>Valorar si pedir a Oracle módulo de incentivos o mantener en PeopleSoft.</p>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-bullet"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+                            <div class="list-content">
+                                <h4>Vacaciones por Cupo</h4>
+                                <p>Revisar estándar de Oracle para transformar y simplificar el proceso actual.</p>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-bullet"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+                            <div class="list-content">
+                                <h4>Gestión de Externos y Call Centers</h4>
+                                <p>Mantener árboles en HCM pero delimitar responsabilidades en cada área.</p>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <div class="list-bullet"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+                            <div class="list-content">
+                                <h4>Beneficios, Gastos y Taquillas</h4>
+                                <p>Aprovechar ventajas de empleado estándar; alinear gastos con Finanzas y taquillas con Gestión de Espacios.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2: ACUERDOS DEPTO COMPRAS -->
+        <div id="acuerdos" class="tab-content">
+            <h2 class="section-title" style="margin-top: 10px;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                Punto de Partida
+                <span>/ Certezas a día de hoy</span>
+            </h2>
+
+            <div class="certezas-banner">
+                <div class="certezas-number">3</div>
+                <div>
+                    <h3 style="margin:0 0 10px; font-size:1.4rem;">Certezas inamovibles para la planificación</h3>
+                    <p style="margin:0; color:var(--text-sec); font-size:1.05rem;">
+                        <strong>1. Inicio implantación en febrero 2027:</strong> El proyecto tiene fecha de arranque definida, lo que marca la planificación inversa.<br>
+                        <strong>2. Adjudicación en octubre 2026:</strong> Necesario para entrar en planificación presupuestaria de proyectos 2027.<br>
+                        <strong>3. Modelo de Pliego dividido:</strong> RFQ de licencias, RFQ de implantación y RFQ de Gestión del Cambio.
+                    </p>
+                </div>
+            </div>
+
+            <h2 class="section-title">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                Decisiones Clave Acordadas
+                <span>/ Reunión 22/04</span>
+            </h2>
+
+            <div class="grid-2">
+                <!-- TEMA 1 -->
+                <div class="info-card">
+                    <h3 class="info-title" style="margin-top: 0; color: #E4002B; display:flex; align-items:center; gap:10px;">
+                        <span style="background: rgba(228,0,43,0.1); padding: 4px 10px; border-radius:8px; font-size:0.9rem;">TEMA 1</span>
+                        RFQ de Licencias
+                    </h3>
+                    <p class="info-text"><strong>Riesgos de lanzar RFQ a mercado:</strong> Si la decisión ya está orientada, evaluar varias propuestas genera carga interna sin valor añadido y envía una señal negativa al mercado, deteriorando la posición negociadora.</p>
+                    <div class="alert-box" style="border-left-color: var(--hcm-green); background: rgba(34,197,94,0.05);">
+                        <h4 style="color: var(--hcm-green);">Propuesta Recomendada</h4>
+                        <p>Negociación directa con Oracle en paralelo a la RFQ de implantación, fijando condiciones de arranque con licencias activas desde inicio del proyecto en 2027.</p>
+                        <p style="margin-top:8px; font-size: 0.85rem; color: var(--text-sec);"><em>Nota: Si se mantiene RFQ de licencias, acotarla estrictamente como proceso económico.</em></p>
+                    </div>
+                </div>
+
+                <!-- TEMA 2 -->
+                <div class="info-card">
+                    <h3 class="info-title" style="margin-top: 0; color: #3b82f6; display:flex; align-items:center; gap:10px;">
+                        <span style="background: rgba(59,130,246,0.1); padding: 4px 10px; border-radius:8px; font-size:0.9rem;">TEMA 2</span>
+                        RFQ de Implantación: Modelo
+                    </h3>
+                    <p class="info-text">Dejar libertad total a los proveedores genera propuestas incomparables. Es necesario obligar a cotizar escenarios específicos:</p>
+                    <ul class="list-group" style="margin-top: 15px;">
+                        <li class="list-item">
+                            <div class="list-bullet" style="background:#3b82f6; color:white; width:20px; height:20px; font-size:0.8rem;">A</div>
+                            <div class="list-content">
+                                <h4 style="font-size: 1rem;">Escenario A obligatorio: Big Bang</h4>
+                                <p style="font-size:0.9rem;">Implantación completa en único despliegue con base exacta de integraciones.</p>
+                            </div>
+                        </li>
+                        <li class="list-item" style="padding-bottom:0; border:none;">
+                            <div class="list-bullet" style="background:#3b82f6; color:white; width:20px; height:20px; font-size:0.8rem;">B</div>
+                            <div class="list-content">
+                                <h4 style="font-size: 1rem;">Escenario B obligatorio: Faseado</h4>
+                                <p style="font-size:0.9rem;">Despliegue modular, mismo alcance total y supuestos de partida que el A.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- TEMA 3 -->
+                <div class="info-card">
+                    <h3 class="info-title" style="margin-top: 0; color: #f59e0b; display:flex; align-items:center; gap:10px;">
+                        <span style="background: rgba(245,158,11,0.1); padding: 4px 10px; border-radius:8px; font-size:0.9rem;">TEMA 3</span>
+                        Implantación y Gestión del Cambio
+                    </h3>
+                    <p class="info-text">Separar los lotes reduce la dependencia de grandes consultoras, pero el riesgo principal es la <strong>desalineación solución-adopción</strong> (trabajo en silos).</p>
+                    <div class="alert-box">
+                        <h4>Directrices para el Pliego</h4>
+                        <ul style="margin: 5px 0 0; padding-left: 20px; color: var(--text-main); font-size: 0.95rem; line-height: 1.5;">
+                            <li>Permitir que un proveedor cubra ambos lotes si acredita capacidad.</li>
+                            <li>Establecer modelo de coordinación obligatorio entre implantador y proveedor de cambio.</li>
+                            <li>Incluir KPIs de adopción como criterio de evaluación.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- EL OBJETIVO -->
+                <div class="info-card" style="background: var(--text-main); color: var(--bg-page); border: none;">
+                    <h3 class="info-title" style="margin-top: 0; color: var(--bg-page); font-size:1.8rem; line-height:1.2;">
+                        El objetivo no es lanzar la RFQ. Es lanzarla bien.
+                    </h3>
+                    <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem; line-height: 1.6; margin-top: 20px;">
+                        Si simplificamos donde no aporta valor (licencias) y reforzamos donde sí (implantación, alcance, comparabilidad), reducimos riesgo, evitamos retrabajo y tomamos una decisión sólida y sostenible.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: INFORMACIÓN RFQ -->
+        <div id="rfq" class="tab-content">
+            <h2 class="section-title" style="margin-top: 10px;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                Información de la RFQ
+                <span>/ Pliegos y Documentación</span>
+            </h2>
+
+            <div class="placeholder-content">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                <h3>Espacio reservado para la documentación competitiva</h3>
+                <p>En esta sección se consolidarán los anexos técnicos, el pliego definitivo y las condiciones publicadas oficialmente al mercado cuando se formalice el lanzamiento.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portal de Gestión HCM Cloud | Memoria Corporativa Permanente</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const checkbox = document.getElementById('theme-checkbox');
+            const isDark = checkbox.checked;
+            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            const checkbox = document.getElementById('theme-checkbox');
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            if (checkbox) checkbox.checked = savedTheme === 'dark';
+        }
+
+        // TABS LOGIC
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            
+            // Hide all tab content
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            
+            // Remove active class from all buttons
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            
+            // Show current tab and add active class to button
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+
+        document.addEventListener('DOMContentLoaded', initTheme);
+    </script>
+    <script>
+    // BREADCRUMB MANAGER - DYNAMIC ISLAND
+    function initDynamicBreadcrumb() {
+        const wrapper = document.querySelector('.global-nav-wrapper');
+        if (!wrapper) return;
+        
+        // Check initial scroll position
+        if (window.scrollY > 50) wrapper.classList.add('compacted');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                wrapper.classList.add('compacted');
+            } else {
+                wrapper.classList.remove('compacted');
+            }
+        });
+
+        // Handle touch devices to expand on tap if compacted
+        wrapper.addEventListener('click', (e) => {
+            if (wrapper.classList.contains('compacted') && window.innerWidth <= 768) {
+                e.preventDefault();
+                wrapper.classList.remove('compacted');
+                // Give them time to click before it auto-compacts again
+                setTimeout(() => {
+                    if (window.scrollY > 50) wrapper.classList.add('compacted');
+                }, 3000);
+            }
+        });
+    }
+    document.addEventListener('DOMContentLoaded', initDynamicBreadcrumb);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+# Sistema operativo y temporales
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.tmp
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+
+# Volcados y archivos temporales pesados de depuración
+strings.txt
+strings_utf8.txt
+tmp_*.txt
+*.zip
+extracted_docx/
+
+# Herramientas archivadas y scratch
+scratch/legacy_tools/
+scratch/backups/

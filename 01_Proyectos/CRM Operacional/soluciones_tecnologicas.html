@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnologías CRM | CRM Operacional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Cuaderno de Bitacora (Proyectos)/styles_bitacora.css">
+    <style>
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .info-card {
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .vendor-badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            align-self: flex-start;
+        }
+        
+        .vendor-badge.sf {
+            background: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+        }
+        
+        .vendor-badge.ms {
+            background: rgba(139, 92, 246, 0.1);
+            color: #8b5cf6;
+        }
+
+        .info-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            color: var(--text-sec);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .info-list li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .info-list li::before {
+            content: "•";
+            color: var(--lda-red);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            position: absolute;
+            left: 0;
+        }
+
+        .pros-cons {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .pros-cons strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pro { color: #10b981; }
+        .con { color: #ef4444; }
+    </style>
+
+    <link rel="stylesheet" href="../local_styles.css">
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper">
+        <div class="nav-breadcrumb">
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item" title="Inicio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <a href="index.html" class="nav-breadcrumb-item" title="Hub CRM Operacional">CRM Operacional</a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <span class="nav-breadcrumb-item current">Plataformas Tecnológicas</span>
+        </div>
+    </nav>
+
+    <!-- THEME TOGGLE -->
+    <div class="top-controls-wrapper" style="position: fixed; top: 30px; right: 30px; z-index: 100;">
+        <div class="theme-toggle-wrapper" style="box-shadow: var(--shadow);">
+            <span class="theme-label">MODO OSCURO</span>
+            <label class="theme-switch">
+                <input type="checkbox" id="theme-checkbox" onchange="toggleTheme()">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+
+    <main class="container">
+        <header class="hero" style="text-align: center; padding: 60px 0 40px;">
+            <span class="hero-badge">ARQUITECTURA DE ECOSISTEMAS</span>
+            <span class="hero-badge-local">Recurso en Local</span>
+            <h1>Plataformas <br><span>Tecnológicas Mapeadas</span></h1>
+            <p style="margin: 0 auto; max-width: 800px;">Comparativa técnica de las soluciones CRM que estamos evaluando en la licitación. Un análisis enfocado en desgranar las capacidades nativas de Microsoft y Salesforce, y la diferencia crítica en licenciamiento de este último.</p>
+        </header>
+
+        <!-- SECCIÓN 1: MICROSOFT -->
+        <div class="section-header" style="border-left: 4px solid #8b5cf6; margin-top: 20px;">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Ecosistema Microsoft</h2>
+                <p class="section-subtitle">Alternativa consolidada como suite transversal</p>
+            </div>
+        </div>
+
+        <div class="content-grid" style="grid-template-columns: 1fr;">
+            <div class="info-card" style="border-color: rgba(139, 92, 246, 0.3);">
+                <span class="vendor-badge ms">Microsoft Dynamics 365</span>
+                <h3 style="margin-bottom: 15px; font-size: 1.5rem;">Dynamics 365 (Sales & Customer Service)</h3>
+                <p style="color:var(--text-sec); font-size:1rem; margin-bottom: 20px;">
+                    La solución nativa de Microsoft se caracteriza por estar plenamente integrada con el stack de O365 y Teams. Orientada fuertemente a la productividad directa mediante su asistente de IA integrado, <strong>Copilot</strong>. Requiere adaptaciones (Customizations) para acoplar flujos específicos del sector seguros, pero su licenciamiento tiende a ser agresivamente competitivo a la baja cuando se agrupan los diferentes módulos.
+                </p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;" class="pros-cons">
+                    <div>
+                        <strong class="pro">✔ Fortalezas</strong>
+                        <ul class="info-list">
+                            <li><span style="color:var(--text-main)">Integración transparente y profunda</span> con Microsoft 365, Teams y SharePoint.</li>
+                            <li><span style="color:var(--text-main)">Copilot IA ubicuo:</span> Inteligencia artificial generativa embutida en todo el ecosistema de aplicaciones (redacción, resumen de casos).</li>
+                            <li><span style="color:var(--text-main)">Modelo de licenciamiento flexible</span> que a escala Enterprise permite altas optimizaciones de coste.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <strong class="con">✘ Debilidades</strong>
+                        <ul class="info-list">
+                            <li><span style="color:var(--text-main)">Poca profundidad "Out of the box" para el sector Seguros.</span> Hay que fabricar los objetos propios (pólizas, siniestros) desde cero mediante PowerApps o Custom Entities.</li>
+                            <li><span style="color:var(--text-main)">Curva de desarrollo más extensa</span> al carecer de un modelo de datos pre-empaquetado para finanzas.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 2: SALESFORCE -->
+        <div class="section-header" style="border-left: 4px solid #3b82f6; margin-top: 20px;">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Ecosistema Salesforce</h2>
+                <p class="section-subtitle">El gran dilema: ¿Suite Genérica o Suite de Industria?</p>
+            </div>
+        </div>
+        
+        <p style="color: var(--text-sec); font-size: 1.05rem; margin-bottom: 30px; text-align: center; max-width: 900px; margin-left: auto; margin-right: auto;">
+            Salesforce es líder indiscutible en procesos de relación 360 con el cliente. Para nosotros el reto es elegir la base del licenciamiento correcta. Contamos con dos "sabores" que dictaminan el esfuerzo técnico y la deuda futura:
+        </p>
+
+        <div class="content-grid">
+            <div class="info-card" style="border-color: rgba(59, 130, 246, 0.4); box-shadow: 0 0 15px rgba(59, 130, 246, 0.1);">
+                <span class="vendor-badge sf">Salesforce FSC (Vertical de Industria)</span>
+                <h3 style="margin-bottom: 15px; font-size: 1.3rem;">Financial Services Cloud (FSC)</h3>
+                <p style="color:var(--text-sec); font-size:0.95rem; margin-bottom: 20px; flex-grow: 1;">
+                    Es el producto <strong>empaquetado specifically para el sector Asegurador/Bancario</strong>. Trae pre-configurados los objetos, flujos y pantallas que habitualmente usa nuestro negocio (Fichas de Pólizas extendidas, unidad familiar (Household), siniestros, coberturas y reglas de compliance normativo pre-aprobadas).
+                </p>
+                <div class="pros-cons">
+                    <strong class="pro">✔ ¿Por qué nos interesa?</strong>
+                    <p style="color: var(--text-sec); font-size: 0.9rem; margin-bottom: 15px;">Acelera la implantación técnica reduciendo el número de "horas de picar código custom". Todo está resuelto con "clicks, no código".</p>
+                    <strong class="con">✘ El Coche Deportivo (Licencia Cara)</strong>
+                    <p style="color: var(--text-sec); font-size: 0.9rem; margin: 0;">El licenciamiento por usuario (Opex) es un Premium considerable frente a las licencias estándar anuales.</p>
+                </div>
+            </div>
+
+            <div class="info-card" style="border-color: rgba(107, 114, 128, 0.3);">
+                <span class="vendor-badge" style="background: rgba(107, 114, 128, 0.1); color: #4b5563;">Salesforce S&S (Genérico)</span>
+                <h3 style="margin-bottom: 15px; font-size: 1.3rem;">Sales & Service Cloud Base</h3>
+                <p style="color:var(--text-sec); font-size:0.95rem; margin-bottom: 20px; flex-grow: 1;">
+                    El pack tradicional. Te instalan las capacidades base para gestionar Ventas (Leads, Oportunidades) y Servicio al Cliente (Casos de soporte, omnichannel básico), pero <strong>es agnóstico de la industria</strong>. Si aquí queremos poner el concepto "Hogar" o "Póliza", un desarrollador tiene que crear la tabla (Objeto), configurar las relaciones y testarlo de cero.
+                </p>
+                <div class="pros-cons">
+                    <strong class="pro">✔ Licencias Controladas</strong>
+                    <p style="color: var(--text-sec); font-size: 0.9rem; margin-bottom: 15px;">Coste por uso anual significativamente más reducido para la parte corriente del Contact Center.</p>
+                    <strong class="con">✘ Implantación Intensiva de Código</strong>
+                    <p style="color: var(--text-sec); font-size: 0.9rem; margin: 0;">Dispara drásticamente las horas de los consultores construyendo un "vertical de seguros" casero que, a futuro, requiere mayor mantenimiento técnico por nuestra IT.</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        function toggleTheme() {
+            const checkbox = document.getElementById('theme-checkbox');
+            const isDark = checkbox.checked;
+            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const checkbox = document.getElementById('theme-checkbox');
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                if(checkbox) checkbox.checked = true;
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                if(checkbox) checkbox.checked = false;
+            }
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+        });
+    </script>
+</body>
+</html>

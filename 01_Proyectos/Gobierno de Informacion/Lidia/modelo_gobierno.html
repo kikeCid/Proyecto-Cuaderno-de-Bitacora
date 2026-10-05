@@ -1,0 +1,811 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de Gobierno | LidIA-MCP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles_infografia.css">
+    <style>
+        .view-section {
+            display: block !important;
+            opacity: 1 !important;
+            transform: none !important;
+        }
+
+        .carousel-tab {
+            background: transparent;
+            color: var(--text-sec);
+        }
+
+        .carousel-tab.active {
+            background: var(--lda-red);
+            color: white;
+            box-shadow: 0 4px 12px rgba(228, 0, 43, 0.3);
+        }
+
+        .carousel-tab:hover:not(.active) {
+            background: var(--bg-card-hover);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .nav-btn:hover {
+            background: var(--lda-pink-soft) !important;
+            color: var(--lda-red) !important;
+            border-color: var(--lda-red) !important;
+        }
+
+        .icon-line-red {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--lda-red);
+            margin: 0 auto 20px auto;
+            transition: all 0.4s ease;
+        }
+
+        .icon-line-red svg {
+            width: 50px;
+            height: 50px;
+            stroke: currentColor;
+            stroke-width: 1.5;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .carousel-nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 28px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            cursor: pointer;
+            color: var(--text-main);
+            font-size: 0.9rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 4px 15px var(--shadow-color);
+            width: auto !important;
+            height: auto !important;
+        }
+
+        .carousel-nav-btn:hover {
+            background: var(--lda-red);
+            color: white !important;
+            border-color: var(--lda-red);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(228, 0, 43, 0.3);
+        }
+
+        .carousel-nav-btn svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            stroke-width: 3;
+            fill: none;
+            transition: transform 0.3s ease;
+        }
+
+        .carousel-nav-btn.prev:hover svg {
+            transform: translateX(-5px);
+        }
+
+        .carousel-nav-btn.next:hover svg {
+            transform: translateX(5px);
+        }
+    </style>
+
+    <link rel="stylesheet" href="../../local_styles.css">
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper">
+        <button class="nav-btn" onclick="javascript:history.back()" title="Volver atrás">
+            <svg viewBox="0 0 24 24">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <div class="nav-divider"></div>
+        <div class="nav-breadcrumb">
+            <a href="../../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item" title="Inicio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span class="nav-breadcrumb-sep"></span>
+            <a href="../index.html" class="nav-breadcrumb-item">Gestión Info</a>
+            <span class="nav-breadcrumb-sep"></span>
+            <a href="hub_lidia.html" class="nav-breadcrumb-item">Universo LidIA</a>
+            <span class="nav-breadcrumb-sep"></span>
+            <a href="estrategia_2026.html" class="nav-breadcrumb-item">Estrategia 2026</a>
+            <span class="nav-breadcrumb-sep"></span>
+            <span class="nav-breadcrumb-item current">Modelo de Gobierno</span>
+        </div>
+    </nav>
+
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label">MODO OSCURO</span>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-checkbox" onchange="toggleTheme()">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div id="view-methodology" class="container view-section">
+        <!--=================HERO HEADER=================-->
+        <header class="hero">
+            <span class="hero-badge">Gestión de la información de Negocio</span>
+            <span class="hero-badge-local">Recurso en Local</span>
+            <h1>Modelo de <br><span>Gobierno</span></h1>
+            <p>Implementamos el marco normativo y organizativo que garantiza la integridad, calidad y trazabilidad del
+                conocimiento corporativo, asegurando que cada activo sea una fuente de verdad para la IA.</p>
+        </header>
+
+        <!--=================CONTEXTO Y OBJETIVOS=================-->
+        <div
+            style="margin: 40px auto 80px auto; padding: 50px 30px; background: var(--bg-card); border-radius: 24px; border: 1px solid var(--border-color); box-shadow: 0 10px 40px var(--shadow-color); position: relative; overflow: hidden; max-width: 1100px;">
+
+            <!-- Branding sutil -->
+            <div
+                style="position: absolute; top: -10%; right: -5%; width: 300px; height: 300px; background: radial-gradient(circle, var(--lda-red) 0%, transparent 70%); opacity: 0.03; border-radius: 50%; pointer-events: none;">
+            </div>
+
+            <!-- Título de Sección -->
+            <div style="text-align: center; margin-bottom: 50px;">
+                <span class="badge">CONTEXTO ESTRATÉGICO</span>
+                <h2 style="font-size: 2rem; font-weight: 800; color: var(--text-main); margin-top: 0;">Gobierno de la
+                    Información y Documentación</h2>
+                <p
+                    style="font-size: 1.1rem; color: var(--text-sec); max-width: 800px; margin: 0 auto; margin-top: 10px; line-height: 1.6;">
+                    Más allá de las herramientas, el <strong>Gobierno de Información</strong> es el marco
+                    normativo y operativo que erradica el caos documental. Su objetivo es garantizar que cada pieza de
+                    conocimiento sea <strong>Única, Actualizada y Trazable</strong>, convirtiéndose en la base de
+                    confianza para la toma de decisiones y el despliegue tecnológico.
+                </p>
+                <div style="margin-top: 15px; font-size: 0.95rem; color: var(--text-light); font-style: italic;">
+                    "Sin documentación ordenada, no existe Inteligencia Artificial fiable."
+                </div>
+            </div>
+
+            <!-- 1. DEFINICIÓN ESTRATÉGICA (Visualización Rápida) -->
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 60px;">
+                <!-- Único -->
+                <div
+                    style="padding: 20px; background: var(--bg-body); border-radius: 12px; border: 1px solid var(--border-color); text-align: center;">
+                    <strong
+                        style="color: var(--lda-red); display: block; margin-bottom: 8px; font-size: 1.1rem;">Única</strong>
+                    <span style="font-size: 0.9rem; color: var(--text-sec); line-height: 1.3;">Una sola fuente de verdad
+                        para toda la compañía.</span>
+                </div>
+                <!-- Actualizado -->
+                <div
+                    style="padding: 20px; background: var(--bg-body); border-radius: 12px; border: 1px solid var(--border-color); text-align: center;">
+                    <strong
+                        style="color: var(--lda-red); display: block; margin-bottom: 8px; font-size: 1.1rem;">Actualizada</strong>
+                    <span style="font-size: 0.9rem; color: var(--text-sec); line-height: 1.3;">Procesos vivos con
+                        responsables de mantenimiento.</span>
+                </div>
+                <!-- Trazable -->
+                <div
+                    style="padding: 20px; background: var(--bg-body); border-radius: 12px; border: 1px solid var(--border-color); text-align: center;">
+                    <strong
+                        style="color: var(--lda-red); display: block; margin-bottom: 8px; font-size: 1.1rem;">Trazable</strong>
+                    <span style="font-size: 0.9rem; color: var(--text-sec); line-height: 1.3;">Sabemos quién escribió
+                        qué, cuándo y por qué.</span>
+                </div>
+                <!-- Usable por IA -->
+                <div
+                    style="padding: 20px; background: var(--bg-body); border-radius: 12px; border: 1px solid var(--border-color); text-align: center;">
+                    <strong style="color: var(--lda-red); display: block; margin-bottom: 8px; font-size: 1.1rem;">Usable
+                        por IA</strong>
+                    <span style="font-size: 0.9rem; color: var(--text-sec); line-height: 1.3;">Estructura lógica que las
+                        máquinas entienden.</span>
+                </div>
+            </div>
+
+            <!-- 2. PROBLEMAS (EL POR QUÉ) - CARRUSEL INTERACTIVO -->
+            <div
+                style="display: flex; align-items: center; gap: 15px; margin-bottom: 30px; border-bottom: 1px dashed var(--border-color); padding-bottom: 15px;">
+                <div
+                    style="width: 32px; height: 32px; color: var(--lda-red); display: flex; align-items: center; justify-content: center;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                        stroke-linejoin="round" style="width: 24px; height: 24px;">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                    </svg>
+                </div>
+                <h3 style="margin: 0; font-size: 1.3rem; color: var(--text-main);">¿Por qué necesitamos esto? (Realidad
+                    Actual)</h3>
+            </div>
+
+            <!-- COMPONENTE CARRUSEL PERSONALIZADO -->
+            <div class="carousel-card"
+                style="position: relative; background: var(--bg-body); border-radius: 24px; padding: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); border: 1px solid var(--border-color); margin-bottom: 60px; overflow: hidden;">
+
+                <!-- Header del Carrusel -->
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <h3 style="font-size: 1.8rem; font-weight: 800; color: var(--text-main); margin-bottom: 10px;">La
+                        Realidad Documental Hoy</h3>
+                    <p style="color: var(--text-sec); font-size: 1.1rem;">La fragmentación y la falta de estandarización
+                        no son solo problemas de organización, sino barreras críticas que generan errores, fuga de
+                        conocimiento e impiden una IA fiable.</p>
+                </div>
+
+                <!-- Navegación por Pestañas (Tags) -->
+                <div class="carousel-tabs"
+                    style="display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap;">
+                    <button class="carousel-tab active" onclick="showSlide(0)"
+                        style="padding: 8px 16px; border-radius: 20px; border: none; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">Fragmentación</button>
+                    <button class="carousel-tab" onclick="showSlide(1)"
+                        style="padding: 8px 16px; border-radius: 20px; border: none; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">Invisibilidad</button>
+                    <button class="carousel-tab" onclick="showSlide(2)"
+                        style="padding: 8px 16px; border-radius: 20px; border: none; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">Obsolescencia</button>
+                    <button class="carousel-tab" onclick="showSlide(3)"
+                        style="padding: 8px 16px; border-radius: 20px; border: none; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">Duplicidad</button>
+                    <button class="carousel-tab" onclick="showSlide(4)"
+                        style="padding: 8px 16px; border-radius: 20px; border: none; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">Caos
+                        IA</button>
+                </div>
+
+                <!-- Contenido de las Diapositivas -->
+                <div class="carousel-content" style="min-height: 250px; position: relative;">
+
+                    <!-- Slide 1: Fragmentación -->
+                    <div class="carousel-slide active"
+                        style="display: flex; flex-direction: column; align-items: center; text-align: center; animation: fadeIn 0.5s;">
+                        <div class="icon-line-red">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                            </svg>
+                        </div>
+                        <h4 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 15px;">Documentación
+                            Fragmentada</h4>
+                        <p style="font-size: 1.1rem; color: var(--text-sec); max-width: 600px; line-height: 1.6;">
+                            La información crítica vive dispersa en silos desconectados: OneLake, SharePoint, correos
+                            electrónicos, PDFs locales y notas personales. No existe una visión unificada.
+                        </p>
+                    </div>
+
+                    <!-- Slide 2: Invisibilidad -->
+                    <div class="carousel-slide"
+                        style="display: none; flex-direction: column; align-items: center; text-align: center; animation: fadeIn 0.5s;">
+                        <div class="icon-line-red">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M9 10L9.01 10M15 10L15.01 10M12 2C7.03 2 3 6.03 3 11V22L5.67 19.33L8.33 22L11 19.33L13.67 22L16.33 19.33L19 22L21 20V11C21 6.03 16.97 2 12 2Z" />
+                            </svg>
+                        </div>
+                        <h4 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 15px;">Conocimiento Oculto
+                            (Tácito)</h4>
+                        <p style="font-size: 1.1rem; color: var(--text-sec); max-width: 600px; line-height: 1.6;">
+                            Gran parte del "saber hacer" de la compañía reside en la cabeza de las personas. Si no está
+                            escrito, es invisible tanto para los buscadores como para la Inteligencia Artificial.
+                        </p>
+                    </div>
+
+                    <!-- Slide 3: Obsolescencia -->
+                    <div class="carousel-slide"
+                        style="display: none; flex-direction: column; align-items: center; text-align: center; animation: fadeIn 0.5s;">
+                        <div class="icon-line-red">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg>
+                        </div>
+                        <h4 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 15px;">Obsolescencia
+                            Incontrolada</h4>
+                        <p style="font-size: 1.1rem; color: var(--text-sec); max-width: 600px; line-height: 1.6;">
+                            Documentos de 2018 conviven con los de 2026 sin distinción clara. Sin un ciclo de vida
+                            definido, el usuario nunca sabe si está leyendo la norma vigente o una versión antigua.
+                        </p>
+                    </div>
+
+                    <!-- Slide 4: Duplicidad -->
+                    <div class="carousel-slide"
+                        style="display: none; flex-direction: column; align-items: center; text-align: center; animation: fadeIn 0.5s;">
+                        <div class="icon-line-red">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg>
+                        </div>
+                        <h4 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 15px;">Duplicidad y
+                            Contradicción</h4>
+                        <p style="font-size: 1.1rem; color: var(--text-sec); max-width: 600px; line-height: 1.6;">
+                            Múltiples versiones del mismo documento guardadas en carpetas distintas. Cuando cambian,
+                            solo se actualiza una copia, generando inconsistencias y errores operativos.
+                        </p>
+                    </div>
+
+                    <!-- Slide 5: Caos IA -->
+                    <div class="carousel-slide"
+                        style="display: none; flex-direction: column; align-items: center; text-align: center; animation: fadeIn 0.5s;">
+                        <div class="icon-line-red">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="3" y="11" width="18" height="10" rx="2" />
+                                <circle cx="12" cy="5" r="2" />
+                                <path d="M12 7v4M8 16v2M16 16v2" />
+                            </svg>
+                        </div>
+                        <h4 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 15px;">Ilegible para la IA
+                        </h4>
+                        <p style="font-size: 1.1rem; color: var(--text-sec); max-width: 600px; line-height: 1.6;">
+                            La IA necesita estructura. Los documentos actuales (imágenes escaneadas, textos sin formato,
+                            excels complejos) son "ruido" para los modelos de lenguaje, provocando alucinaciones.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Footer de Navegación -->
+                <div
+                    style="display: flex; justify-content: space-between; align-items: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+                    <button class="carousel-nav-btn prev" onclick="changeSlide(-1)">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M15 18l-6-6 6-6" />
+                        </svg>
+                        Anterior
+                    </button>
+                    <div class="dots-indicator" style="display: flex; gap: 8px;">
+                        <span class="dot active"
+                            style="width: 10px; height: 10px; background: var(--lda-red); border-radius: 50%; display: inline-block;"></span>
+                        <span class="dot"
+                            style="width: 10px; height: 10px; background: var(--border-color); border-radius: 50%; display: inline-block;"></span>
+                        <span class="dot"
+                            style="width: 10px; height: 10px; background: var(--border-color); border-radius: 50%; display: inline-block;"></span>
+                        <span class="dot"
+                            style="width: 10px; height: 10px; background: var(--border-color); border-radius: 50%; display: inline-block;"></span>
+                        <span class="dot"
+                            style="width: 10px; height: 10px; background: var(--border-color); border-radius: 50%; display: inline-block;"></span>
+                    </div>
+                    <button class="carousel-nav-btn next" onclick="changeSlide(1)">
+                        Siguiente
+                        <svg viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Imagen decorativa de fondo (estilo card proporcionada) -->
+                <div
+                    style="position: absolute; bottom: 0; left: 0; right: 0; height: 150px; background: linear-gradient(to top, var(--bg-body) 0%, transparent 100%); pointer-events: none;">
+                </div>
+            </div>
+
+            <!-- 3. BENEFICIOS (EL PARA QUÉ) - CARRUSEL INTERACTIVO -->
+            <div
+                style="display: flex; align-items: center; gap: 15px; margin-bottom: 30px; border-bottom: 1px dashed var(--border-color); padding-bottom: 15px;">
+                <div
+                    style="width: 32px; height: 32px; color: var(--lda-red); display: flex; align-items: center; justify-content: center;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                        stroke-linejoin="round" style="width: 24px; height: 24px;">
+                        <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                </div>
+                <h3 style="margin: 0; font-size: 1.3rem; color: var(--text-main);">¿Para qué lo hacemos? (Valor del
+                    Gobierno)</h3>
+            </div>
+
+            <!-- COMPONENTE CARRUSEL VALUE (ID DIFERENTE) -->
+            <div id="carousel-value" class="carousel-card"
+                style="position: relative; background: var(--bg-body); border-radius: 24px; padding: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); border: 1px solid var(--border-color); margin-bottom: 60px; overflow: hidden;">
+
+                <!-- Header del Carrusel -->
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <h3 style="font-size: 1.8rem; font-weight: 800; color: var(--text-main); margin-bottom: 10px;">El
+                        Valor de la Información Ordenada</h3>
+                    <p style="color: var(--text-sec); font-size: 1.1rem;">Elevamos la información de archivos estáticos
+                        a una infraestructura de inteligencia viva, maximizando la eficiencia operativa y protegiendo el
+                        capital intelectual de la compañía.</p>
+                </div>
+
+                <!-- Navegación por Pestañas (Tags) -->
+                <div class="carousel-tabs value-tabs"
+                    style="display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap;">
+                    <button class="carousel-tab active" onclick="showSlideValue(0)"
+                        style="padding: 8px 16px; border-radius: 20px; border: none; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">Verdad
+                        Única</button>
+                    <button class="carousel-tab" onclick="showSlideValue(1)"
+                        style="padding: 8px 16px; border-radius: 20px; border: none; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">Motor
+                        IA</button>
+                    <button class="carousel-tab" onclick="showSlideValue(2)"
+                        style="padding: 8px 16px; border-radius: 20px; border: none; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">Capital
+                        Intelectual</button>
+                    <button class="carousel-tab" onclick="showSlideValue(3)"
+                        style="padding: 8px 16px; border-radius: 20px; border: none; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">Eficiencia</button>
+                </div>
+
+                <!-- Contenido de las Diapositivas -->
+                <div class="carousel-content value-content" style="min-height: 250px; position: relative;">
+
+                    <!-- Slide 1: Verdad Única -->
+                    <div class="carousel-slide-value active"
+                        style="display: flex; flex-direction: column; align-items: center; text-align: center; animation: fadeIn 0.5s;">
+                        <div class="icon-line-red">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                <polyline points="22 4 12 14.01 9 11.01" />
+                            </svg>
+                        </div>
+                        <h4 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 15px;">Fuente Única de
+                            Verdad</h4>
+                        <p style="font-size: 1.1rem; color: var(--text-sec); max-width: 600px; line-height: 1.6;">
+                            Eliminar la duda operativa. Si un dato está en LidIA, es la versión oficial, vigente y
+                            validada. Se acabó el "yo creía que..." o el "en mi archivo dice otra cosa".
+                        </p>
+                    </div>
+
+                    <!-- Slide 2: Motor IA -->
+                    <div class="carousel-slide-value"
+                        style="display: none; flex-direction: column; align-items: center; text-align: center; animation: fadeIn 0.5s;">
+                        <div class="icon-line-red">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z" />
+                                <path d="M12 15l-3.5 3.5" />
+                                <path d="M15 12l3.5-3.5" />
+                                <path d="M11.5 11.5l-2.5 2.5C4 19 2 22 2 22s3-2 8-7l2.5-2.5" />
+                                <path
+                                    d="M13 10l8.28-8.28a.5.5 0 01.7.7L13.7 10.7a2.12 2.12 0 01-3-.01V10.7a2.12 2.12 0 01-.01-3L13 10z" />
+                                <path d="M10 13a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                        </div>
+                        <h4 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 15px;">Habilitador de
+                            Inteligencia</h4>
+                        <p style="font-size: 1.1rem; color: var(--text-sec); max-width: 600px; line-height: 1.6;">
+                            Convertimos manuales pasivos en conocimiento activo. Al estructurar la información,
+                            permitimos que Copilot entienda el contexto y responda preguntas complejas con precisión
+                            quirúrgica.
+                        </p>
+                    </div>
+
+                    <!-- Slide 3: Capital Intelectual -->
+                    <div class="carousel-slide-value"
+                        style="display: none; flex-direction: column; align-items: center; text-align: center; animation: fadeIn 0.5s;">
+                        <div class="icon-line-red">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M9.5 2A2.5 2.5 0 0112 4.5v15a2.5 2.5 0 01-4.96.44 2.5 2.5 0 01-2.96-3.08 3 3 0 01-.34-5.58 2.5 2.5 0 011.32-4.24A2.5 2.5 0 019.5 2zM14.5 2A2.5 2.5 0 0012 4.5v15a2.5 2.5 0 004.96.44 2.5 2.5 0 002.96-3.08 3 3 0 00.34-5.58 2.5 2.5 0 00-1.32-4.24A2.5 2.5 0 0014.5 2z" />
+                            </svg>
+                        </div>
+                        <h4 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 15px;">Gestión del
+                            Conocimiento</h4>
+                        <p style="font-size: 1.1rem; color: var(--text-sec); max-width: 600px; line-height: 1.6;">
+                            Evitamos la fuga de talento. Capturamos el "saber hacer" de los expertos veteranos y lo
+                            democratizamos, asegurando que el conocimiento permanezca en la organización aunque las
+                            personas cambien.
+                        </p>
+                    </div>
+
+                    <!-- Slide 4: Eficiencia -->
+                    <div class="carousel-slide-value"
+                        style="display: none; flex-direction: column; align-items: center; text-align: center; animation: fadeIn 0.5s;">
+                        <div class="icon-line-red">
+                            <svg viewBox="0 0 24 24">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                            </svg>
+                        </div>
+                        <h4 style="font-size: 1.5rem; color: var(--text-main); margin-bottom: 15px;">Mantenimiento
+                            Sostenible</h4>
+                        <p style="font-size: 1.1rem; color: var(--text-sec); max-width: 600px; line-height: 1.6;">
+                            Actualizar una vez, propagar a todos. Un sistema ordenado reduce drásticamente el coste y el
+                            tiempo dedicado a mantener la normativa al día, liberando recursos para tareas de valor.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Footer de Navegación -->
+                <div
+                    style="display: flex; justify-content: space-between; align-items: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+                    <button class="carousel-nav-btn prev" onclick="changeSlideValue(-1)">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M15 18l-6-6 6-6" />
+                        </svg>
+                        Anterior
+                    </button>
+                    <div class="dots-indicator-value" style="display: flex; gap: 8px;">
+                        <span class="dot-value active"
+                            style="width: 10px; height: 10px; background: var(--lda-red); border-radius: 50%; display: inline-block;"></span>
+                        <span class="dot-value"
+                            style="width: 10px; height: 10px; background: var(--border-color); border-radius: 50%; display: inline-block;"></span>
+                        <span class="dot-value"
+                            style="width: 10px; height: 10px; background: var(--border-color); border-radius: 50%; display: inline-block;"></span>
+                        <span class="dot-value"
+                            style="width: 10px; height: 10px; background: var(--border-color); border-radius: 50%; display: inline-block;"></span>
+                    </div>
+                    <button class="carousel-nav-btn next" onclick="changeSlideValue(1)">
+                        Siguiente
+                        <svg viewBox="0 0 24 24">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </button>
+                </div>
+                <!-- Imagen decorativa de fondo (estilo card proporcionada) -->
+                <div
+                    style="position: absolute; bottom: 0; left: 0; right: 0; height: 150px; background: linear-gradient(to top, var(--bg-body) 0%, transparent 100%); pointer-events: none;">
+                </div>
+            </div>
+        </div>
+
+        <!--=================FASES DE LA METODOLOGÍA=================-->
+        <style>
+            .hub-grid-actions {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+                width: 100%;
+                max-width: 900px;
+                margin: 0 auto;
+                margin-bottom: 80px;
+            }
+
+            @media (max-width: 850px) {
+                .hub-grid-actions {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            .hub-card-premium {
+                background: var(--bg-card);
+                border: 1px solid var(--border-color);
+                border-radius: 32px;
+                padding: 60px 40px;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+                cursor: pointer;
+                box-shadow: 0 15px 35px -10px var(--shadow-color);
+                position: relative;
+                z-index: 1;
+                overflow: hidden;
+            }
+
+            .hub-card-premium::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                padding: 2px;
+                border-radius: 32px;
+                background: linear-gradient(135deg, var(--lda-red), transparent, var(--lda-red));
+                -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                -webkit-mask-composite: xor;
+                mask-composite: exclude;
+                opacity: 0;
+                transition: opacity 0.5s ease;
+            }
+
+            .hub-card-premium:hover::before {
+                opacity: 1;
+            }
+
+            .hub-card-premium:hover {
+                transform: translateY(-20px);
+                border-color: var(--lda-red);
+                box-shadow: 0 50px 100px -20px rgba(228, 0, 43, 0.25);
+            }
+
+            .hub-card-premium .hub-icon {
+                width: 90px;
+                height: 90px;
+                margin-bottom: 35px;
+                background: var(--lda-pink-soft);
+                border-radius: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--lda-red);
+                transition: all 0.4s ease;
+            }
+
+            .hub-card-premium:hover .hub-icon {
+                transform: scale(1.15) rotate(5deg);
+                background: var(--lda-red);
+                color: white;
+                box-shadow: 0 10px 25px rgba(228, 0, 43, 0.3);
+            }
+
+            .hub-card-premium .hub-icon svg {
+                width: 45px;
+                height: 45px;
+                stroke-width: 2;
+            }
+
+            .hub-card-premium .hub-title {
+                font-size: 1.8rem;
+                font-weight: 800;
+                color: var(--text-main);
+                margin-bottom: 15px;
+                letter-spacing: -0.5px;
+            }
+
+            .hub-card-premium .hub-desc {
+                font-size: 1.1rem;
+                color: var(--text-sec);
+                line-height: 1.5;
+            }
+
+            .hub-card-premium .hub-arrow {
+                position: absolute;
+                bottom: 30px;
+                right: 40px;
+                font-size: 1.5rem;
+                color: var(--lda-red);
+                opacity: 0;
+                transform: translateX(-10px);
+                transition: all 0.4s ease;
+            }
+
+            .hub-card-premium:hover .hub-arrow {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        </style>
+
+        <div style="margin-bottom: 40px; text-align: center; max-width: 900px; margin-left: auto; margin-right: auto;">
+            <span class="badge">RUTA DE IMPLEMENTACIÓN</span>
+            <h2
+                style="font-size: 2rem; font-weight: 800; color: var(--text-main); margin-top: 10px; margin-bottom: 20px;">
+                Del Diseño a la Acción: Un Flujo Secuencial</h2>
+            <p style="font-size: 1.1rem; color: var(--text-sec); line-height: 1.6; margin-bottom: 40px;">
+                Para que el gobierno de la información sea efectivo, operamos bajo una lógica de dependencia crítica. La
+                <strong>Fase Estratégica</strong> es el cimiento imprescindible: sin roles y reglas claras, no hay
+                orden. Solo una vez consolidada esta base, activamos la <strong>Fase Operativa</strong>, donde la
+                tecnología y los procesos hacen realidad la gobernanza de forma automatizada y escalable.
+            </p>
+        </div>
+
+        <div style="margin-bottom: 80px;">
+            <div class="carousel-container">
+                <button class="carousel-btn left hidden" onclick="scrollCarousel(this, -340)">â€¹</button>
+                <div class="carousel-track" onscroll="updateCarouselButtons(this)">
+                    <!-- Fase 1 -->
+                    <a href="fase1_gobierno_estrategia.html" class="apple-card dark-card">
+                        <div class="kicker">PREPARACIÓN</div>
+                        <h3 class="title">Fase 1: Estrategia de Gobierno</h3>
+                        <p class="desc">Definición de roles, funciones y modelo organizativo del gobierno de
+                            información.</p>
+                        <div class="card-visual">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <!-- Fase 2 -->
+                    <a href="fase2_operativa_tecnologia.html" class="apple-card blue-card">
+                        <div class="kicker">IMPLEMENTACIÓN</div>
+                        <h3 class="title">Fase 2: Operativa Tecnológica</h3>
+                        <p class="desc">Habilitadores tecnológicos, motores de conocimiento y flujo de integración.</p>
+                        <div class="card-visual">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+                <button class="carousel-btn right hidden" onclick="scrollCarousel(this, 340)"></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../scripts_infografia.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', initTheme);
+
+        let currentSlide = 0;
+        const totalSlides = 5;
+
+        function showSlide(index) {
+            if (index >= totalSlides) index = 0;
+            if (index < 0) index = totalSlides - 1;
+            currentSlide = index;
+            const slides = document.querySelectorAll('.carousel-slide');
+            slides.forEach(slide => slide.style.display = 'none');
+            if (slides[currentSlide]) slides[currentSlide].style.display = 'flex';
+            const tabs = document.querySelectorAll('.carousel-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            if (tabs[currentSlide]) tabs[currentSlide].classList.add('active');
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach(dot => dot.style.background = 'var(--border-color)');
+            if (dots[currentSlide]) dots[currentSlide].style.background = 'var(--lda-red)';
+        }
+
+        function changeSlide(direction) {
+            showSlide(currentSlide + direction);
+        }
+
+        let currentSlideValue = 0;
+        const totalSlidesValue = 4;
+
+        function showSlideValue(index) {
+            if (index >= totalSlidesValue) index = 0;
+            if (index < 0) index = totalSlidesValue - 1;
+            currentSlideValue = index;
+            const slides = document.querySelectorAll('.carousel-slide-value');
+            slides.forEach(slide => slide.style.display = 'none');
+            if (slides[currentSlideValue]) slides[currentSlideValue].style.display = 'flex';
+            const tabs = document.querySelectorAll('.value-tabs .carousel-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            if (tabs[currentSlideValue]) tabs[currentSlideValue].classList.add('active');
+            const dots = document.querySelectorAll('.dot-value');
+            dots.forEach(dot => dot.style.background = 'var(--border-color)');
+            if (dots[currentSlideValue]) dots[currentSlideValue].style.background = 'var(--lda-red)';
+        }
+
+        function changeSlideValue(direction) {
+            showSlideValue(currentSlideValue + direction);
+        }
+    </script>
+
+<script>
+// BREADCRUMB MANAGER - DYNAMIC ISLAND
+function initDynamicBreadcrumb() {
+    const wrapper = document.querySelector('.global-nav-wrapper');
+    if (!wrapper) return;
+    
+    // Check initial scroll position
+    if (window.scrollY > 50) wrapper.classList.add('compacted');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            wrapper.classList.add('compacted');
+        } else {
+            wrapper.classList.remove('compacted');
+        }
+    });
+
+    // Handle touch devices to expand on tap if compacted
+    wrapper.addEventListener('click', (e) => {
+        if (wrapper.classList.contains('compacted') && window.innerWidth <= 768) {
+            e.preventDefault();
+            wrapper.classList.remove('compacted');
+            // Give them time to click before it auto-compacts again
+            setTimeout(() => {
+                if (window.scrollY > 50) wrapper.classList.add('compacted');
+            }, 3000);
+        }
+    });
+}
+document.addEventListener('DOMContentLoaded', initDynamicBreadcrumb);
+</script>
+</body>
+
+</html>
+
+
+

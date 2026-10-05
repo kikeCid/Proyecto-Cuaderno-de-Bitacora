@@ -1,0 +1,270 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sincronización de Vóas de Trabajo | LidIA-MCP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles_infografia.css">
+    <style>
+        @keyframes pulse-red {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 4px 20px rgba(228, 0, 43, 0.3);
+            }
+
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 4px 30px rgba(228, 0, 43, 0.5);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 4px 20px rgba(228, 0, 43, 0.3);
+            }
+        }
+
+        @keyframes pulse-green {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+            }
+
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 4px 30px rgba(16, 185, 129, 0.5);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+            }
+        }
+
+        .vias-card:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: 0 15px 35px var(--shadow-color) !important;
+        }
+
+        .active-track:hover {
+            border-color: var(--lda-red) !important;
+            box-shadow: 0 25px 50px rgba(228, 0, 43, 0.15) !important;
+        }
+
+        .vias-card:hover .problem-icon {
+            background: var(--lda-red);
+            color: white;
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 20px rgba(228, 0, 43, 0.25);
+        }
+
+        .vias-card:hover .problem-icon svg {
+            stroke: white;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../../local_styles.css">
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper">
+        <button class="nav-btn" onclick="javascript:history.back()" title="Volver atrás">
+            <svg viewBox="0 0 24 24">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <div class="nav-divider"></div>
+        <div class="nav-breadcrumb">
+            <a href="../../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item" title="Inicio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <a href="../index.html" class="nav-breadcrumb-item">Gestión Info</a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <a href="hub_lidia.html" class="nav-breadcrumb-item">Universo LidIA</a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <a href="estrategia_2026.html" class="nav-breadcrumb-item">Estrategia 2026</a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <span class="nav-breadcrumb-item current">Estrategia de Trabajo</span>
+        </div>
+    </nav>
+
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label">MODO OSCURO</span>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-checkbox" onchange="toggleTheme()">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <div class="container view-section">
+        <header class="hero">
+            <span class="hero-badge">Modelo Operativo 2026</span>
+            <span class="hero-badge-local">Recurso en Local</span>
+            <h1>Sincronización de <br><span>Vóas de Trabajo</span></h1>
+            <p>Sincronizamos el rigor institucional del gobierno de información con la agilidad del despliegue
+                tecnológico para un crecimiento equilibrado.</p>
+        </header>
+        <div style="max-width: 850px; margin: 0 auto 40px auto; text-align: center;">
+            <p style="font-size: 1.1rem; color: var(--text-sec); line-height: 1.6;">
+                Nuestra estrategia evoluciona desde un enfoque operativo hacia uno institucional. El **Track LidIA
+                (Core)** representa nuestro origen: una ejecución "a la guerrilla" que permitió identificar la necesidad
+                de un marco estructural. Como respuesta, el **Track de Gobierno** formaliza esta necesidad
+                integrándola a nivel organizativo, estando actualmente en fase de aprobación para liderar el estándar
+                definitivo.
+            </p>
+        </div>
+        <!-- LAYOUT DE VÍAS PARALELAS -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 60px; position: relative;">
+            <!-- Decoración de conexión -->
+            <div
+                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2; color: var(--lda-red); opacity: 0.1; pointer-events: none;">
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M7 7l5 5-5 5M13 7l5 5-5 5"></path>
+                </svg>
+            </div>
+            <!-- TRACK A: LidIA (CORE) - ESTADO ACTIVO -->
+            <div class="vias-card active-track"
+                style="background: var(--bg-card); border-radius: 24px; padding: 40px; border: 2px solid var(--lda-red); border-bottom: 8px solid var(--lda-red); position: relative; box-shadow: 0 20px 45px rgba(228, 0, 43, 0.1); transition: all 0.4s ease; z-index: 5;">
+                <!-- Etiqueta de Estado Activo -->
+                <div
+                    style="position: absolute; top: -15px; right: 30px; background: #10B981; color: white; font-size: 0.7rem; font-weight: 800; padding: 6px 15px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; z-index: 10; box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3); animation: pulse-green 2s infinite;">
+                    EN MARCHA</div>
+                <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 25px;">
+                    <div style="display: flex; align-items: center; gap: 18px;">
+                        <div class="problem-icon" style="margin-bottom: 0;">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <circle cx="12" cy="12" r="3"></circle>
+                                <path
+                                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 style="margin: 0; font-size: 1.4rem; font-weight: 800; color: var(--text-main);">Track de
+                            LidIA (Core)</h3>
+                    </div>
+                </div>
+                <p style="font-size: 1rem; line-height: 1.6; color: var(--text-sec); margin-bottom: 25px;">
+                    <strong>Foco: Valor de Negocio y Casos de Uso.</strong> El track de aceleración que identifica y
+                    despliega el valor de la información en silos operativos (Cartera, Comercial, Prestaciones).
+                </p>
+                <ul
+                    style="list-style: none; padding: 0; font-size: 0.9rem; color: var(--text-sec); margin-bottom: 30px;">
+                    <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <span
+                            style="width: 8px; height: 8px; background: var(--lda-red); border-radius: 50%; box-shadow: 0 0 8px var(--lda-red);"></span>
+                        Priorización de Casos de Uso de Negocio.
+                    </li>
+                    <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <span
+                            style="width: 8px; height: 8px; background: var(--lda-red); border-radius: 50%; box-shadow: 0 0 8px var(--lda-red);"></span>
+                        Implementación en Silos Autónomos.
+                    </li>
+                    <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <span
+                            style="width: 8px; height: 8px; background: var(--lda-red); border-radius: 50%; box-shadow: 0 0 8px var(--lda-red);"></span>
+                        Generación de Impacto y Quick Wins.
+                    </li>
+                </ul>
+                <div style="text-align: center; margin-top: 40px; width: 100%;">
+                    <a href="../Lidia/track_lidia.html"
+                        style="display: inline-flex; align-items: center; justify-content: center; background: var(--lda-red); color: white; border: none; padding: 18px 36px; border-radius: 12px; font-weight: 800; font-size: 1rem; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(228, 0, 43, 0.4); border-bottom: 4px solid #900019; text-transform: uppercase; letter-spacing: 1px; white-space: nowrap; width: auto; min-width: max-content; margin: 0 auto;">
+                        VER DETALLE DEL TRACK
+                        <svg viewBox="0 0 24 24" width="20" height="20"
+                            style="margin-left: 12px; fill: none; stroke: white; stroke-width: 3; flex-shrink: 0;">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <!-- TRACK B: GOBIERNO - ESTADO INACTIVO -->
+            <div class="vias-card inactive-track"
+                style="background: var(--bg-card); border-radius: 24px; padding: 40px; border: 1px solid var(--border-color); border-bottom: 6px solid #8B5CF6; position: relative; opacity: 0.8; transition: all 0.4s ease;">
+                <!-- Etiqueta de Estado Pendiente -->
+                <div
+                    style="position: absolute; top: -15px; right: 30px; background: #8B5CF6; color: white; font-size: 0.7rem; font-weight: 800; padding: 6px 15px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; z-index: 10; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);">
+                    ASIGNADO A TRANSFORMACIÓN</div>
+                <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 25px;">
+                    <div style="display: flex; align-items: center; gap: 18px;">
+                        <div class="problem-icon" style="margin-bottom: 0;">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
+                        <h3 style="margin: 0; font-size: 1.4rem; font-weight: 800; color: var(--text-main);">Track de
+                            Gobierno</h3>
+                    </div>
+                </div>
+                <p style="font-size: 1rem; line-height: 1.6; color: var(--text-sec); margin-bottom: 25px;">
+                    <strong>Foco: Estandarización y Calidad.</strong> Tras la aprobación de la CEO, la ejecución y liderazgo de este track ha sido transferido al Área de Transformación. Desde nuestro equipo mantendremos un rol de apoyo estratégico, aportando todo el aprendizaje y conocimiento adquirido.
+                </p>
+                <ul style="list-style: none; padding: 0; font-size: 0.9rem; color: var(--text-sec);">
+                    <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <span style="width: 6px; height: 6px; background: #9CA3AF; border-radius: 50%;"></span>
+                        Documentación de Casos de Uso.
+                    </li>
+                    <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <span style="width: 6px; height: 6px; background: #9CA3AF; border-radius: 50%;"></span>
+                        Aplicación del Estándar Libro Blanco.
+                    </li>
+                    <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                        <span style="width: 6px; height: 6px; background: #9CA3AF; border-radius: 50%;"></span>
+                        Garantóa de la Fuente de la Verdad.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 50px; margin-bottom: 20px;">
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2026 Proyecto LidIA - Lónea Directa Aseguradora. Todos los derechos reservados.</p>
+    </footer>
+    <script src="../scripts_infografia.js"></script>
+
+<script>
+// BREADCRUMB MANAGER - DYNAMIC ISLAND
+function initDynamicBreadcrumb() {
+    const wrapper = document.querySelector('.global-nav-wrapper');
+    if (!wrapper) return;
+    
+    // Check initial scroll position
+    if (window.scrollY > 50) wrapper.classList.add('compacted');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            wrapper.classList.add('compacted');
+        } else {
+            wrapper.classList.remove('compacted');
+        }
+    });
+
+    // Handle touch devices to expand on tap if compacted
+    wrapper.addEventListener('click', (e) => {
+        if (wrapper.classList.contains('compacted') && window.innerWidth <= 768) {
+            e.preventDefault();
+            wrapper.classList.remove('compacted');
+            // Give them time to click before it auto-compacts again
+            setTimeout(() => {
+                if (window.scrollY > 50) wrapper.classList.add('compacted');
+            }, 3000);
+        }
+    });
+}
+document.addEventListener('DOMContentLoaded', initDynamicBreadcrumb);
+</script>
+</body>
+
+</html>
+
+
+

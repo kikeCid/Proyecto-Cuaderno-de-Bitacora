@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M365 Copilot Premium | Licencia Plus</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles_bitacora.css">
+    <style>
+        .feature-grid-main {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-bottom: 80px;
+        }
+
+        .portal-ui-preview {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 20px;
+            margin: 40px 0;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .portal-ui-preview img {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .ui-label {
+            display: block;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: var(--text-sec);
+            font-weight: 600;
+        }
+
+        .capability-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .capability-card:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
+        }
+
+        .capability-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .icon-office { background: linear-gradient(135deg, #185abd 0%, #107c41 100%); }
+        .icon-agents { background: linear-gradient(135deg, #6264a7 0%, #464eb8 100%); }
+        .icon-create { background: linear-gradient(135deg, #ff4b2b 0%, #ff416c 100%); }
+        .icon-chat { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+
+        .capability-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin: 0;
+        }
+
+        .agent-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .agent-item {
+            font-size: 0.8rem;
+            padding: 8px;
+            background: rgba(59, 130, 246, 0.05);
+            border-radius: 8px;
+            color: var(--text-sec);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .agent-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #3b82f6;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../local_styles.css">
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper" style="z-index: 1000;">
+        <button class="nav-btn" onclick="javascript:history.back()" title="Volver atrás">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <div class="nav-divider"></div>
+        <div class="nav-breadcrumb">
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item" title="Inicio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <a href="index.html" class="nav-breadcrumb-item">Transformación y Eficiencia</a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <span class="nav-breadcrumb-item current">Copilot Premium</span>
+        </div>
+    </nav>
+
+    <div class="bg-mesh"></div>
+
+    <main class="container">
+        <!-- HERO SEGMENT -->
+        <header class="hero">
+            <div class="hero-icon-wrapper" style="margin-bottom: 20px; color: #3b82f6;">
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+            </div>
+            <span class="hero-badge" style="background: rgba(59, 130, 246, 0.1); color: #3b82f6; font-weight: 800; border: 1px solid rgba(59, 130, 246, 0.2);">LICENCIA ADICIONAL (PLUS)</span>
+            <h1>M365 Copilot (Premium)<br><span>Experiencia Early Adopters</span></h1>
+                <span class="hero-badge-local" style="margin-top: 10px;">Recurso en Local</span>
+            <p>Guía de capacidades avanzadas para usuarios piloto del área de Personas. Integración nativa total y rendimiento sin límites.</p>
+        </header>
+
+        <!-- ALERTA PILOTO -->
+        <div style="background: rgba(59, 130, 246, 0.05); border: 1px solid rgba(59, 130, 246, 0.2); padding: 30px; border-radius: 20px; margin: 50px auto; display: flex; gap: 20px; align-items: flex-start; max-width: 1000px;">
+            <div style="color: #3b82f6; flex-shrink: 0; padding-top: 5px;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <div>
+                <h4 style="margin: 0 0 8px 0; color: #1e3a8a; font-size: 1.1rem;">Estatus: Licencia de Piloto</h4>
+                <p style="margin: 0; font-size: 0.95rem; color: #1e40af; line-height: 1.6; opacity: 0.9;">Esta licencia está asignada actualmente a los perfiles referentes del área de Personas involucrados en el piloto de adopción. Incluye todas las capacidades de la versión Basic más la integración nativa In-App.</p>
+            </div>
+        </div>
+
+        <!-- SECCIÓN: CAPACIDADES DETALLADAS -->
+        <div style="text-align: center; margin-top: 80px;">
+            <h2 style="font-size: 2.2rem; margin-bottom: 15px;">Funcionalidades Premium</h2>
+            <p style="color: var(--text-sec); max-width: 700px; margin: 0 auto; margin-bottom: 40px;">Potencia tu productividad con la suite completa de Microsoft Copilot</p>
+        </div>
+        
+        <div class="feature-grid-main">
+            <!-- In-App Experience -->
+            <div class="capability-card">
+                <div class="capability-icon icon-office">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                </div>
+                <h3 class="capability-title">In-App Experience</h3>
+                <p class="feature-desc">Copilot integrado nativamente en Word, Excel y PowerPoint. Redacta, resume y analiza datos sin salir del documento.</p>
+                <div class="agent-list">
+                    <div class="agent-item"><div class="agent-dot" style="background: #185abd;"></div> Word</div>
+                    <div class="agent-item"><div class="agent-dot" style="background: #107c41;"></div> Excel</div>
+                    <div class="agent-item"><div class="agent-dot" style="background: #c33920;"></div> PowerPoint</div>
+                    <div class="agent-item"><div class="agent-dot" style="background: #6264a7;"></div> OneNote</div>
+                </div>
+            </div>
+
+            <!-- Teams Advantage -->
+            <div class="capability-card">
+                <div class="capability-icon icon-agents">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                </div>
+                <h3 class="capability-title">Full Teams Advantage</h3>
+                <p class="feature-desc">Transcripciones y resúmenes inteligentes de reuniones en tiempo real. Extrae acuerdos y tareas pendientes automáticamente.</p>
+                <div class="agent-list">
+                    <div class="agent-item"><div class="agent-dot"></div>Resumen Chat</div>
+                    <div class="agent-item"><div class="agent-dot"></div>Actas Reunión</div>
+                    <div class="agent-item"><div class="agent-dot"></div>Acuerdos</div>
+                    <div class="agent-item"><div class="agent-dot"></div>Búsqueda</div>
+                </div>
+            </div>
+
+            <!-- Priority -->
+            <div class="capability-card">
+                <div class="capability-icon icon-chat">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+                </div>
+                <h3 class="capability-title">Priority Performance</h3>
+                <p class="feature-desc">Acceso prioritario a los modelos más avanzados de GPT-4o incluso durante picos de tráfico global.</p>
+                <div class="agent-list">
+                    <div class="agent-item"><div class="agent-dot" style="background: #eab308;"></div>Fast Reasoning</div>
+                    <div class="agent-item"><div class="agent-dot" style="background: #eab308;"></div>Unlimited Usage</div>
+                </div>
+            </div>
+
+            <!-- Agentes -->
+            <div class="capability-card">
+                <div class="capability-icon" style="background: var(--lda-red);">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v8"></path><path d="M8 12h8"></path></svg>
+                </div>
+                <h3 class="capability-title">Agentes Avanzados</h3>
+                <p class="feature-desc">Acceso y creación de agentes personalizados que pueden actuar sobre tus datos corporativos de forma segura.</p>
+                <div class="agent-list">
+                    <div class="agent-item"><div class="agent-dot"></div>Custom Agents</div>
+                    <div class="agent-item"><div class="agent-dot"></div>Data Connectors</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ANEXO COMPARATIVA -->
+        <div style="background: #1e293b; color: white; padding: 40px; border-radius: 20px; margin: 60px auto; max-width: 1100px; display: flex; align-items: center; justify-content: space-between; gap: 30px;">
+            <div>
+                <h3 style="margin: 0; color: white;">¿Quieres ver las diferencias?</h3>
+                <p style="margin: 10px 0 0 0; opacity: 0.7;">Consulta la comparativa detallada entre la licencia Basic y Premium.</p>
+            </div>
+            <a href="copilot_comparativa.html" style="background: white; color: #1e293b; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 800; white-space: nowrap;">VER ANEXO COMPARATIVO</a>
+        </div>
+
+        <!-- INTERFAZ VISUAL -->
+        <div class="portal-ui-preview">
+            <img src="../../artifacts/media__1773935242809.png" alt="Copilot UI Preview">
+            <span class="ui-label">Vista de la interfaz de Copilot Premium con panel lateral de Agentes.</span>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portal de Gestión de Proyectos | IA Area Personas</p>
+    </footer>
+
+    <script src="breadcrumb_manager.js"></script>
+</body>
+
+</html>
+

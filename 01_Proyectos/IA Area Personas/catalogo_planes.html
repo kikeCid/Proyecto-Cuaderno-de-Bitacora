@@ -1,0 +1,497 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Planes | Cuaderno de Bitácora</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles_bitacora.css">
+    <style>
+        /* TIMELINE & MODAL */
+        .timeline-trigger {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(100, 116, 139, 0.05);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-sec);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .timeline-trigger:hover {
+            background: var(--lda-red);
+            color: white;
+            border-color: var(--lda-red);
+            transform: scale(1.1);
+        }
+
+        .lda-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lda-modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            width: 90%;
+            max-width: 500px;
+            border-radius: 28px;
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.4);
+            border: 1px solid var(--border-color);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-sec);
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .modal-close:hover {
+            background: rgba(var(--text-sec-rgb), 0.1);
+        }
+
+        .timeline-list {
+            position: relative;
+            padding-left: 0;
+            margin-top: 20px;
+        }
+
+        .timeline-group {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 40px;
+        }
+
+        .timeline-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-group::before {
+            content: "";
+            position: absolute;
+            left: 4px;
+            top: 25px;
+            bottom: -40px;
+            width: 2px;
+            background: var(--border-color);
+        }
+
+        .timeline-group:last-child::before {
+            display: none;
+        }
+
+        .timeline-date-marker {
+            position: relative;
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--lda-red);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            padding-top: 2px;
+        }
+
+        .timeline-date-marker::before {
+            content: "";
+            position: absolute;
+            left: -30px;
+            top: 4px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--lda-red);
+            border: 3px solid var(--bg-card);
+            box-shadow: 0 0 0 1px var(--border-color);
+            z-index: 2;
+        }
+
+        .timeline-event-box {
+            margin-bottom: 20px;
+        }
+
+        .timeline-event-box:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-event {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--text-main);
+            line-height: 1.3;
+            margin-bottom: 6px;
+            position: relative;
+        }
+
+        .timeline-desc {
+            font-size: 0.9rem;
+            color: var(--text-sec);
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+
+        /* En caso de múltiples eventos, un pequeño guión o indicador */
+        .timeline-group .timeline-event-box + .timeline-event-box {
+            padding-top: 15px;
+            border-top: 1px dashed var(--border-color);
+        }
+
+        .timeline-note {
+            font-size: 0.8rem;
+            color: var(--text-sec);
+            line-height: 1.5;
+            margin-top: 6px;
+            padding-left: 12px;
+            border-left: 2px solid rgba(var(--text-sec-rgb), 0.2);
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        .timeline-note::before {
+            content: "Nota: ";
+            font-weight: 800;
+            font-style: normal;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        /* Prevent link behavior when clicking button */
+        .apple-card { position: relative; }
+    </style>
+
+    <link rel="stylesheet" href="../local_styles.css">
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper" style="z-index: 1000;">
+        <button class="nav-btn" onclick="javascript:history.back()" title="Volver atrás">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <div class="nav-divider"></div>
+        <div class="nav-breadcrumb">
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item" title="Inicio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <a href="index.html" class="nav-breadcrumb-item">Transformación y Eficiencia</a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <span class="nav-breadcrumb-item current">Planes de Acción</span>
+        </div>
+    </nav>
+
+    <div class="bg-mesh"></div>
+
+    <!-- CONTROLES SUPERIORES -->
+    <div class="top-controls-wrapper"
+        style="position: fixed; top: 30px; right: 30px; display: flex; align-items: center; gap: 15px; z-index: 100;">
+        <div class="theme-toggle-wrapper" style="position: static; margin: 0; box-shadow: var(--shadow);">
+            <span class="theme-label">MODO OSCURO</span>
+            <label class="theme-switch">
+                <input type="checkbox" id="theme-checkbox" onchange="toggleTheme()">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+
+    <main class="container">
+        <!-- HERO SEGMENT -->
+        <header class="hero">
+            <div class="hero-icon-wrapper" style="margin-bottom: 20px; color: #8b5cf6;">
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+            </div>
+            <span class="hero-badge" style="background: #8b5cf6; color: white;">ESTRATEGIA ACTIVA</span>
+            <h1>Catálogo de Planes <br><span>Estratégicos</span></h1>
+                <span class="hero-badge-local" style="margin-top: 10px;">Recurso en Local</span>
+            <p>Hojas de ruta e iniciativas para consolidar la evolución tecnológica en el área a corto y largo plazo.</p>
+        </header>
+
+
+        <div class="carousel-container">
+            <button class="carousel-btn left hidden" onclick="scrollCarousel(this, -340)" aria-label="Desplazar a la izquierda">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <div class="carousel-track" onscroll="updateCarouselButtons(this)">
+                <!-- Tarjeta Plan de Acción M365 -->
+                <div class="apple-card" style="border-color: var(--lda-red); position: relative;">
+                    <button class="timeline-trigger" onclick="event.preventDefault(); openTimeline('m365')" title="Ver histórico de cambios">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    </button>
+                    <a href="plan_accion_m365.html" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; flex-grow: 1;">
+                        <div class="kicker" style="color: var(--lda-red);">ESTRATEGIA / ADOPCIÓN</div>
+                        <h3 class="title">Plan de Acción M365</h3>
+                        <p class="desc">Proyecto de transformación del área para diagnosticar cómo interactuamos (correo, Teams, documentos) y establecer un decálogo y usos de IA.</p>
+                        <div class="card-visual" style="margin-top: auto;">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Tarjeta Plan de Acción IA -->
+                <div class="apple-card" style="border-color: var(--lda-red); position: relative;">
+                    <button class="timeline-trigger" onclick="event.preventDefault(); openTimeline('ia')" title="Ver histórico de cambios">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    </button>
+                    <a href="plan_accion_ia.html" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; flex-grow: 1;">
+                        <div class="kicker" style="color: var(--lda-red);">ESTRATEGIA / PILOTO</div>
+                        <h3 class="title">Plan de Acción IA</h3>
+                        <p class="desc">La propuesta ejecutiva del piloto de 3 meses en el área: objetivos, red de referentes y la narrativa de "La Pócima".</p>
+                        <div class="card-visual" style="margin-top: auto;">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="m5 3 1 2"/><path d="m19 19 1 2"/><path d="m5 21 1-2"/><path d="m19 3 1-2"/>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Tarjeta Plan de Acción HCM -->
+                <div class="apple-card" style="border-color: #3b82f6; position: relative;">
+                    <button class="timeline-trigger" onclick="event.preventDefault(); openTimeline('hcm')" title="Ver histórico de cambios">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    </button>
+                    <a href="plan_accion_hcm.html" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; flex-grow: 1;">
+                        <div class="kicker" style="color: #3b82f6;">ESTRATEGIA / HCM CLOUD</div>
+                        <h3 class="title">Plan de Acción HCM</h3>
+                        <p class="desc">Evolución de los procesos puros de RRHH hacia la nueva arquitectura Cloud. Foco en eficiencia y rediseño nativo.</p>
+                        <div class="card-visual" style="margin-top: auto;">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <button class="carousel-btn right hidden" onclick="scrollCarousel(this, 340)" aria-label="Desplazar a la derecha">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+        </div>
+
+
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portal de Gestión de Proyectos | Sistema Portable de Información</p>
+    </footer>
+
+    <script src="breadcrumb_manager.js"></script>
+    <script>
+        function updateCarouselButtons(track) {
+            const container = track.parentElement;
+            const btnLeft = container.querySelector('.carousel-btn.left');
+            const btnRight = container.querySelector('.carousel-btn.right');
+
+            if (btnLeft && btnRight) {
+                if (track.scrollLeft <= 5) {
+                    btnLeft.classList.add('hidden');
+                } else {
+                    btnLeft.classList.remove('hidden');
+                }
+
+                if (Math.ceil(track.scrollLeft) + track.clientWidth >= track.scrollWidth - 5) {
+                    btnRight.classList.add('hidden');
+                } else {
+                    btnRight.classList.remove('hidden');
+                }
+            }
+        }
+
+        function scrollCarousel(btn, amount) {
+            const container = btn.parentElement;
+            const track = container.querySelector('.carousel-track');
+            if (track) {
+                track.scrollBy({ left: amount, behavior: 'smooth' });
+            }
+        }
+
+        function initCarousels() {
+            document.querySelectorAll('.carousel-track').forEach(track => {
+                updateCarouselButtons(track);
+            });
+        }
+
+        window.addEventListener('resize', initCarousels);
+
+        function toggleTheme() {
+            const checkbox = document.getElementById('theme-checkbox');
+            const isDark = checkbox.checked;
+            if (isDark) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const checkbox = document.getElementById('theme-checkbox');
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                if (checkbox) checkbox.checked = true;
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                if (checkbox) checkbox.checked = false;
+            }
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+            setTimeout(initCarousels, 100);
+        });
+
+        // BREADCRUMB MANAGER - DYNAMIC ISLAND
+        function initDynamicBreadcrumb() {
+            const wrapper = document.querySelector('.global-nav-wrapper');
+            if (!wrapper) return;
+            if (window.scrollY > 50) wrapper.classList.add('compacted');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) wrapper.classList.add('compacted');
+                else wrapper.classList.remove('compacted');
+            });
+        }
+        document.addEventListener('DOMContentLoaded', initDynamicBreadcrumb);
+    </script>
+    <!-- MODAL TIMELINE -->
+    <div id="timelineModal" class="lda-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <h3 id="modalTitle" style="margin-top: 0; margin-bottom: 8px; font-size: 1.4rem; font-weight: 800; color: var(--text-main);">Bitácora de Evolución</h3>
+            <p id="modalSubtitle" style="margin: 0 0 30px 0; font-size: 0.85rem; color: var(--lda-red); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;"></p>
+            <div id="timelineContent" class="timeline-list">
+                <!-- Dinámico -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const projectTimelines = {
+            ia: [
+                { date: '24 Mar', event: 'Asignación de proyecto', desc: 'Solicitud para preparar la propuesta del Plan de Acción de IA para la Dirección de Personas y Comunicación.' },
+                { date: '25-31 Mar', event: 'Preparación de la propuesta', desc: 'Elaboración del borrador del Plan de Acción del proyecto de transformación antes de Semana Santa.' },
+                { date: '06 Abr', event: 'Planificación de reunión', desc: 'Se confirma la reunión con la Dirección de Área para exponer el plan el día 07/04.' },
+                { date: '07 Abr', event: 'Ajuste de alcance', desc: 'Inclusión de la investigación de puntos de dolor (Microsoft 365) dentro del proyecto de IA tras la reunión con la responsable.' }
+            ],
+            m365: [
+                { date: '07 Abr', event: 'Integración en Plan IA', desc: 'Se detecta la necesidad de reformular la adopción de M365 dentro del marco de la IA.' },
+                { date: '07 Abr', event: 'Preparación de propuesta', desc: 'Finalizada la propuesta del plan de acción para presentar a la Dirección de Personas y Comunicación.' },
+                { date: '08 Abr', event: 'Presentación a Dirección PersCom', desc: 'Cancelada. No se realiza.' },
+                { date: '09 Abr', event: 'Definición de objetivo trimestral del área para el Q2', desc: 'Objetivo de transformación y adopción M365.', note: 'Pendiente de aprobación por dirección' }
+            ],
+            hcm: [
+                { date: 'Q1 2026', event: 'Congelación PeopleSoft', desc: 'Decisión de no invertir en sistemas antiguos.' },
+                { date: 'Final 2026', event: 'Lanzamiento Pliego HCM', desc: 'Inicio de la transformación Cloud nativa.' }
+            ],
+            sesion_01: [{ date: 'TBD', event: 'Pendiente de Planificar', desc: 'La fecha de la sesión aún no ha sido fijada en el calendario del área.' }],
+            sesion_02: [{ date: 'TBD', event: 'Pendiente de Planificar', desc: 'La fecha de la sesión aún no ha sido fijada en el calendario del área.' }],
+            sesion_03: [{ date: 'TBD', event: 'Pendiente de Planificar', desc: 'La fecha de la sesión aún no ha sido fijada en el calendario del área.' }],
+            sesion_04: [{ date: 'TBD', event: 'Pendiente de Planificar', desc: 'La fecha de la sesión aún no ha sido fijada en el calendario del área.' }],
+            sesion_05: [{ date: 'TBD', event: 'Pendiente de Planificar', desc: 'La fecha de la sesión aún no ha sido fijada en el calendario del área.' }]
+        };
+
+        function openTimeline(projectId) {
+            const modal = document.getElementById('timelineModal');
+            const content = document.getElementById('timelineContent');
+            const subtitle = document.getElementById('modalSubtitle');
+            
+            const projectNames = {
+                ia: 'Plan de Acción IA',
+                m365: 'Plan de Acción M365',
+                hcm: 'Plan de Acción HCM',
+                sesion_01: 'Sesión 01 / Master Class',
+                sesion_02: 'Sesión 02 / Master Class',
+                sesion_03: 'Sesión 03 / Master Class',
+                sesion_04: 'Sesión 04 / Master Class',
+                sesion_05: 'Sesión 05 / Master Class'
+            };
+            
+            subtitle.innerText = projectNames[projectId] || '';
+            const data = projectTimelines[projectId];
+
+            const groups = {};
+            data.forEach(item => {
+                if (!groups[item.date]) groups[item.date] = [];
+                groups[item.date].push(item);
+            });
+
+            let html = '';
+            for (const date in groups) {
+                html += `
+                    <div class="timeline-group">
+                        <div class="timeline-date-marker">${date}</div>
+                        ${groups[date].map(item => `
+                            <div class="timeline-event-box">
+                                <div class="timeline-event">${item.event}</div>
+                                <div class="timeline-desc">${item.desc}</div>
+                                ${item.note ? `<div class="timeline-note">${item.note}</div>` : ''}
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            }
+            
+            content.innerHTML = html;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('timelineModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Cerrar al hacer clic fuera
+        window.onclick = function(event) {
+            const modal = document.getElementById('timelineModal');
+            if (event.target == modal) closeModal();
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,727 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformación y Eficiencia RRHH | Cuaderno de Bitácora</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles_bitacora.css">
+    <style>
+        /* TIMELINE & MODAL */
+        .timeline-trigger {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(100, 116, 139, 0.05);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-sec);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .timeline-trigger:hover {
+            background: var(--lda-red);
+            color: white;
+            border-color: var(--lda-red);
+            transform: scale(1.1);
+        }
+
+        .lda-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lda-modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            width: 90%;
+            max-width: 500px;
+            border-radius: 28px;
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.4);
+            border: 1px solid var(--border-color);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-sec);
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .modal-close:hover {
+            background: rgba(var(--text-sec-rgb), 0.1);
+        }
+
+        .timeline-list {
+            position: relative;
+            padding-left: 0;
+            margin-top: 20px;
+        }
+
+        .timeline-group {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 40px;
+        }
+
+        .timeline-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-group::before {
+            content: "";
+            position: absolute;
+            left: 4px;
+            top: 25px;
+            bottom: -40px;
+            width: 2px;
+            background: var(--border-color);
+        }
+
+        .timeline-group:last-child::before {
+            display: none;
+        }
+
+        .timeline-date-marker {
+            position: relative;
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--lda-red);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            padding-top: 2px;
+        }
+
+        .timeline-date-marker::before {
+            content: "";
+            position: absolute;
+            left: -30px;
+            top: 4px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--lda-red);
+            border: 3px solid var(--bg-card);
+            box-shadow: 0 0 0 1px var(--border-color);
+            z-index: 2;
+        }
+
+        .timeline-event-box {
+            margin-bottom: 20px;
+        }
+
+        .timeline-event-box:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-event {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--text-main);
+            line-height: 1.3;
+            margin-bottom: 6px;
+            position: relative;
+        }
+
+        .timeline-desc {
+            font-size: 0.9rem;
+            color: var(--text-sec);
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+
+        /* En caso de múltiples eventos, un pequeño guión o indicador */
+        .timeline-group .timeline-event-box + .timeline-event-box {
+            padding-top: 15px;
+            border-top: 1px dashed var(--border-color);
+        }
+
+        .timeline-note {
+            font-size: 0.8rem;
+            color: var(--text-sec);
+            line-height: 1.5;
+            margin-top: 6px;
+            padding-left: 12px;
+            border-left: 2px solid rgba(var(--text-sec-rgb), 0.2);
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        .timeline-note::before {
+            content: "Nota: ";
+            font-weight: 800;
+            font-style: normal;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        /* Prevent link behavior when clicking button */
+        .apple-card { position: relative; }
+    </style>
+
+    <link rel="stylesheet" href="../local_styles.css">
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper" style="z-index: 1000;">
+        <button class="nav-btn" onclick="javascript:history.back()" title="Volver atrás">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <div class="nav-divider"></div>
+        <div class="nav-breadcrumb">
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item" title="Inicio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <span class="nav-breadcrumb-item current">Transformación y Eficiencia RRHH</span>
+        </div>
+    </nav>
+
+    <div class="bg-mesh"></div>
+
+    <!-- CONTROLES SUPERIORES -->
+    <div class="top-controls-wrapper"
+        style="position: fixed; top: 30px; right: 30px; display: flex; align-items: center; gap: 15px; z-index: 100;">
+        <div class="theme-toggle-wrapper" style="position: static; margin: 0; box-shadow: var(--shadow);">
+            <span class="theme-label">MODO OSCURO</span>
+            <label class="theme-switch">
+                <input type="checkbox" id="theme-checkbox" onchange="toggleTheme()">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+
+    <main class="container">
+        <!-- HERO SEGMENT -->
+        <header class="hero">
+            <div class="hero-icon-wrapper" style="margin-bottom: 20px; color: var(--lda-red);">
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <circle cx="19" cy="11" r="3"></circle>
+                    <path d="M19 8v3"></path>
+                    <path d="M19 14v3"></path>
+                    <path d="M16 11h6"></path>
+                </svg>
+            </div>
+            <span class="hero-badge" style="background: var(--lda-red); color: white;">PENDIENTE DE APROBACIÓN</span>
+            <h1>Transformación y <br><span>Eficiencia RRHH</span></h1>
+                <span class="hero-badge-local" style="margin-top: 10px;">Recurso en Local</span>
+            <p>Espacio estratégico dedicado a la optimización de procesos, mejora de la productividad y evolución de las formas de trabajar mediante diversas líneas de acción.</p>
+        </header>
+
+        <!-- SECCIÓN: TRANSFORMACIÓN Y FORMAS DE TRABAJAR -->
+        <div class="section-header" style="border-left: 4px solid var(--lda-red);">
+            <div class="section-icon" style="color: var(--lda-red);">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+            </div>
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Transformación y formas de trabajar</h2>
+                <p class="section-subtitle">Impulsando el cambio cultural y técnico en Perscom</p>
+            </div>
+        </div>
+        <!-- CONTEXTO DEL PROYECTO DE TRANSFORMACIÓN -->
+        <div class="transformation-details" style="margin: 0 0 60px 0; padding: 40px; background: rgba(var(--text-sec-rgb), 0.02); border-radius: 32px; border: 1px dashed var(--glass-border);">
+            
+            <!-- Bloque 1: Contexto y Necesidad -->
+            <div class="info-block" style="margin-bottom: 60px;">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 25px;">
+                    <div style="width: 8px; height: 32px; background: var(--lda-red); border-radius: 4px;"></div>
+                    <h3 style="font-size: 2.2rem; font-weight: 900; color: var(--text-main); margin: 0; letter-spacing: -1px;">Contexto y Necesidad</h3>
+                </div>
+                <p style="font-size: 1.15rem; color: var(--text-sec); margin-bottom: 35px; line-height: 1.6; max-width: 900px;">
+                    El Área de Personas se encuentra en un punto de inflexión estructural. Enfrentamos más demanda, mayor complejidad operativa y la expectativa innegociable de aportar eficiencia sin perder nuestra calidad humana.
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+                    <div style="background: var(--bg-card); border-left: 5px solid var(--lda-red); padding: 30px; border-radius: 16px; box-shadow: var(--shadow); border: 1px solid var(--glass-border); border-left: 5px solid var(--lda-red); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <h4 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 12px; color: var(--text-main);">Presión Operativa Creciente</h4>
+                        <p style="font-size: 1rem; color: var(--text-sec); line-height: 1.5; opacity: 0.9;">Más volumen, más complejidad y mayores expectativas internas con los mismos recursos.</p>
+                    </div>
+                    <div style="background: var(--bg-card); border-left: 5px solid var(--lda-red); padding: 30px; border-radius: 16px; box-shadow: var(--shadow); border: 1px solid var(--glass-border); border-left: 5px solid var(--lda-red); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <h4 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 12px; color: var(--text-main);">La IA ya no es Opcional</h4>
+                        <p style="font-size: 1rem; color: var(--text-sec); line-height: 1.5; opacity: 0.9;">El despliegue de la Inteligencia Artificial es imparable. Necesitamos integrarla de forma útil y responsable en nuestra operativa.</p>
+                    </div>
+                    <div style="background: var(--bg-card); border-left: 5px solid var(--lda-red); padding: 30px; border-radius: 16px; box-shadow: var(--shadow); border: 1px solid var(--glass-border); border-left: 5px solid var(--lda-red); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <h4 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 12px; color: var(--text-main);">Proyecto Cimiento</h4>
+                        <p style="font-size: 1rem; color: var(--text-sec); line-height: 1.5; opacity: 0.9;">Consolidar ahora formas de trabajo más ágiles nos preparará para próximas transformaciones, como la evolución de nuestro sistema Core HCM.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bloque 2: Objetivo y Alcance -->
+            <div class="info-block" style="margin-bottom: 60px;">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 25px;">
+                    <div style="width: 8px; height: 32px; background: var(--lda-red); border-radius: 4px;"></div>
+                    <h3 style="font-size: 2.2rem; font-weight: 900; color: var(--text-main); margin: 0; letter-spacing: -1px;">Objetivo y Alcance del Proyecto</h3>
+                </div>
+                <p style="font-size: 1.15rem; color: var(--text-sec); margin-bottom: 35px; line-height: 1.6; max-width: 900px;">
+                    Diseñar e implantar un nuevo modelo de relación y trabajo interno en RRHH actuando sobre tres palancas principales en un entorno estrictamente interno.
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
+                    <div style="background: var(--lda-red); color: white; padding: 35px; border-radius: 24px; box-shadow: 0 15px 35px rgba(228, 0, 43, 0.25); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+                        <h4 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 15px;">Relación y Comunicación Interna</h4>
+                        <p style="font-size: 1rem; opacity: 0.9; line-height: 1.6;">Cómo nos pedimos información entre nosotros, cómo escalamos temas y cómo compartimos conocimiento entre equipos.</p>
+                    </div>
+                    <div style="background: var(--lda-red); color: white; padding: 35px; border-radius: 24px; box-shadow: 0 15px 35px rgba(228, 0, 43, 0.25); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+                        <h4 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 15px;">Forma de Trabajar</h4>
+                        <p style="font-size: 1rem; opacity: 0.9; line-height: 1.6;">Organización del trabajo, priorización y toma de decisiones dentro del Área. Eliminar silos entre Selección, Laboral, Desarrollo y otros.</p>
+                    </div>
+                    <div style="background: var(--lda-red); color: white; padding: 35px; border-radius: 24px; box-shadow: 0 15px 35px rgba(228, 0, 43, 0.25); position: relative; overflow: hidden; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+                        <h4 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 15px;">IA y Automatización</h4>
+                        <p style="font-size: 1rem; opacity: 0.9; line-height: 1.6;">Uso de IA generativa, IA agéntica y herramientas M365 como apoyo real y responsable a nuestro trabajo diario.</p>
+                        <div style="position: absolute; bottom: 20px; right: 25px; font-size: 0.65rem; font-weight: 900; text-transform: uppercase; opacity: 0.7; letter-spacing: 1px;">Plan Específico IA</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bloque 3: Las Tres Líneas de Acción -->
+            <div class="info-block">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 35px;">
+                    <div style="width: 8px; height: 32px; background: var(--lda-red); border-radius: 4px;"></div>
+                    <h3 style="font-size: 2.2rem; font-weight: 900; color: var(--text-main); margin: 0; letter-spacing: -1px;">Las Tres Líneas de Acción</h3>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
+                    <!-- Línea 1 -->
+                    <div style="background: var(--bg-card); border-radius: 24px; border: 1px solid var(--glass-border); overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column;">
+                        <div style="background: var(--lda-red); color: white; padding: 12px; text-align: center; font-weight: 900; font-size: 1.4rem;">1</div>
+                        <div style="padding: 30px; flex-grow: 1;">
+                            <h4 style="font-size: 1.35rem; font-weight: 800; margin-bottom: 18px; color: var(--text-main);">Nuevas Formas de Relación Interna</h4>
+                            <p style="font-size: 1rem; color: var(--text-sec); line-height: 1.6; margin-bottom: 20px;">
+                                Acuerdos de convivencia progresivos para simplificar la interacción entre equipos. Empezaremos ordenando el flujo más crítico y replicaremos el modelo.
+                            </p>
+                            <div style="background: rgba(228, 0, 43, 0.04); padding: 20px; border-radius: 16px; border-left: 4px solid var(--lda-red);">
+                                <span style="font-weight: 800; font-size: 0.75rem; text-transform: uppercase; color: var(--lda-red); display: block; margin-bottom: 8px; letter-spacing: 1px;">Resultado Esperado</span>
+                                <p style="font-size: 0.95rem; color: var(--text-main); margin: 0; line-height: 1.5; font-weight: 600;">Menos fricción y mayor certidumbre. El equipo sabrá exactamente qué esperar, cuándo y por dónde.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Línea 2 -->
+                    <div style="background: var(--bg-card); border-radius: 24px; border: 1px solid var(--glass-border); overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column;">
+                        <div style="background: var(--lda-red); color: white; padding: 12px; text-align: center; font-weight: 900; font-size: 1.4rem;">2</div>
+                        <div style="padding: 30px; flex-grow: 1;">
+                            <h4 style="font-size: 1.35rem; font-weight: 800; margin-bottom: 18px; color: var(--text-main);">Nuevas Formas de Trabajar</h4>
+                            <p style="font-size: 1rem; color: var(--text-sec); line-height: 1.6; margin-bottom: 20px;">
+                                Pilotos de eficiencia en equipos concretos: tableros visuales en Planner/Teams, reducción de reuniones informativas y cultura de desbloqueo rápido.
+                            </p>
+                            <div style="background: rgba(228, 0, 43, 0.04); padding: 20px; border-radius: 16px; border-left: 4px solid var(--lda-red);">
+                                <span style="font-weight: 800; font-size: 0.75rem; text-transform: uppercase; color: var(--lda-red); display: block; margin-bottom: 8px; letter-spacing: 1px;">Resultado Esperado</span>
+                                <p style="font-size: 0.95rem; color: var(--text-main); margin: 0; line-height: 1.5; font-weight: 600;">Menos horas en reuniones innecesarias, mayor autonomía y detección temprana de problemas.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Línea 3 -->
+                    <div style="background: var(--bg-card); border-radius: 24px; border: 1px solid var(--glass-border); overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column;">
+                        <div style="background: var(--lda-red); color: white; padding: 12px; text-align: center; font-weight: 900; font-size: 1.4rem;">3</div>
+                        <div style="padding: 30px; flex-grow: 1;">
+                            <h4 style="font-size: 1.35rem; font-weight: 800; margin-bottom: 18px; color: var(--text-main);">Integración Tecnológica Progresiva</h4>
+                            <p style="font-size: 1rem; color: var(--text-sec); line-height: 1.6; margin-bottom: 20px;">
+                                Filosofía de "Pilotos Rápidos y Victorias Tempranas". Probamos soluciones sencillas y, si funcionan, las convertimos en la nueva regla del Área.
+                            </p>
+                            <div style="background: rgba(228, 0, 43, 0.04); padding: 20px; border-radius: 16px; border-left: 4px solid var(--lda-red);">
+                                <span style="font-weight: 800; font-size: 0.75rem; text-transform: uppercase; color: var(--lda-red); display: block; margin-bottom: 8px; letter-spacing: 1px;">Resultado Esperado</span>
+                                <p style="font-size: 0.95rem; color: var(--text-main); margin: 0; line-height: 1.5; font-weight: 600;">Adopción tecnológica fluida y sin rechazo, con herramientas percibidas como útiles desde la primera semana.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- HERRAMIENTAS DE EJECUCIÓN Y SEGUIMIENTO -->
+        <div class="execution-modules" style="margin-top: 40px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 30px;">
+                <div style="width: 8px; height: 24px; background: var(--lda-red); border-radius: 4px;"></div>
+                <h3 style="font-size: 1.8rem; font-weight: 800; color: var(--text-main); margin: 0;">Implementación y Seguimiento</h3>
+            </div>
+            
+            <div style="display: flex; flex-wrap: wrap; gap: 24px; margin: 0 0 40px 0;">
+                
+                <!-- BLOQUE 1: PLANES DE ACCIÓN -->
+                <a href="catalogo_planes.html" class="apple-card" style="border-color: #8b5cf6; flex: 1; min-width: 300px; height: auto; padding: 40px; background: linear-gradient(135deg, var(--bg-card) 0%, rgba(139, 92, 246, 0.05) 100%);">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+                        <div class="kicker" style="color: #8b5cf6; margin: 0;">LA ESTRATEGIA</div>
+                        <div style="width: 32px; height: 32px; border-radius: 50%; border: 1px solid #8b5cf6; display: flex; align-items: center; justify-content: center; color: #8b5cf6;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="title" style="font-size: 1.8rem;">Planes de Acción <br>Estratégica</h3>
+                    <p class="desc" style="margin-bottom: 25px;">Consolidar nuestra evolución en HCM, M365 e IA desde la fase pilar hasta producción.</p>
+                    <div style="margin-top: auto; display: flex; align-items: center; gap: 8px; color: #8b5cf6; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
+                        <span>Acceder al catálogo</span>
+                    </div>
+                </a>
+
+                <!-- BLOQUE 2: CAPACITACIÓN -->
+                <a href="sesiones_transformacion.html" class="apple-card" style="border-color: var(--lda-red); flex: 1; min-width: 300px; height: auto; padding: 40px; background: linear-gradient(135deg, var(--bg-card) 0%, rgba(228, 0, 43, 0.05) 100%);">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+                        <div class="kicker" style="color: var(--lda-red); margin: 0;">EL CAMBIO CULTURAL</div>
+                        <div style="width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--lda-red); display: flex; align-items: center; justify-content: center; color: var(--lda-red);">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                        </div>
+                    </div>
+                    <h3 class="title" style="font-size: 1.8rem;">Capacitación y <br>Formas de Trabajar</h3>
+                    <p class="desc" style="margin-bottom: 25px;">Itinerarios de sesiones y workshops para impulsar el cambio cultural y la adopción de nuevas herramientas.</p>
+                    <div style="margin-top: auto; display: flex; align-items: center; gap: 8px; color: var(--lda-red); font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
+                        <span>Ver itinerarios</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- SECCIÓN: PROCESOS PERSCOM -->
+        <div class="section-header" style="border-left: 4px solid #10b981;">
+            <div class="section-icon" style="color: #10b981;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
+            </div>
+            <div class="section-title-wrapper">
+                <h2 class="section-title">IA en Procesos Internos</h2>
+                <p class="section-subtitle">Cómo trabajamos con la IA en los flujos de Perscom</p>
+            </div>
+            <div class="section-counter">2</div>
+        </div>
+        <div class="carousel-container">
+            <button class="carousel-btn left hidden" onclick="scrollCarousel(this, -340)" aria-label="Desplazar a la izquierda">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <div class="carousel-track" onscroll="updateCarouselButtons(this)">
+                <!-- Mapa Tecnológico RRHH -->
+                <a href="mapa_aplicaciones.html" class="apple-card" style="border-color: #10b981;">
+                    <div class="kicker" style="color: #10b981;">INVENTARIO</div>
+                    <h3 class="title">Mapa de Aplicaciones e IA</h3>
+                    <p class="desc">Visión gráfica y por departamento del software utilizado en RRHH y su nivel de Inteligencia Artificial nativa integrada (análisis de penetración).</p>
+                    <div class="card-visual">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                            <path d="M10 3v18"></path>
+                            <path d="M3 10h18"></path>
+                        </svg>
+                    </div>
+                </a>
+                <!-- Investigación IA Selección -->
+                <a href="investigacion_seleccion.html" class="apple-card" style="border-color: #10b981;">
+                    <div class="kicker" style="color: #10b981;">BENCHMARKING</div>
+                    <h3 class="title">Investigación IA Selección</h3>
+                    <p class="desc">Análisis comparativo de Viterbit, Orbio y Velora realizado por el equipo de procesos para identificar la mejor aplicación de reclutamiento con IA.</p>
+                    <div class="card-visual">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            <path d="M8 11h6"></path>
+                            <path d="M11 8v6"></path>
+                        </svg>
+                    </div>
+                </a>
+            </div>
+            <button class="carousel-btn right hidden" onclick="scrollCarousel(this, 340)" aria-label="Desplazar a la derecha">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+        </div>
+
+        <!-- SECCIÓN: IA PARA TU DÍA A DÍA -->
+        <div class="section-header" style="border-left: 4px solid #3b82f6;">
+            <div class="section-icon" style="color: #3b82f6;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+            </div>
+            <div class="section-title-wrapper">
+                <h2 class="section-title">IA para tu día a día</h2>
+                <p class="section-subtitle">Catálogo de herramientas disponibles para toda la plantilla</p>
+            </div>
+            <div class="section-counter">3</div>
+        </div>
+        <div class="carousel-container">
+            <button class="carousel-btn left hidden" onclick="scrollCarousel(this, -340)" aria-label="Desplazar a la izquierda">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <div class="carousel-track" onscroll="updateCarouselButtons(this)">
+                <!-- Tarjeta Copilot E3 -->
+                <a href="m365_copilot.html" class="apple-card blue-card">
+                    <div class="kicker">LICENCIA ESTÁNDAR (E3)</div>
+                    <h3 class="title">Copilot Chat (Basic)</h3>
+                    <p class="desc">Chat seguro y creación de archivos desde el chat. El acceso nativo en Word/Excel/PPT se verá restringido a partir de abril.</p>
+                    <div class="card-visual">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                            <path d="M8 9h8"></path>
+                            <path d="M8 13h6"></path>
+                        </svg>
+                    </div>
+                </a>
+                <!-- Tarjeta Copilot Empresa -->
+                <a href="premium_copilot.html" class="apple-card" style="border-color: #3b82f6; position: relative; background: linear-gradient(135deg, var(--bg-card) 0%, rgba(59, 130, 246, 0.03) 100%);">
+                    <div style="position: absolute; top: 20px; right: 20px; background: rgba(59, 130, 246, 0.1); color: #3b82f6; padding: 4px 10px; border-radius: 8px; font-size: 0.6rem; font-weight: 900; border: 1px solid rgba(59, 130, 246, 0.2); backdrop-filter: blur(4px);">
+                        PREMIUM
+                    </div>
+                    <div class="kicker" style="color: #3b82f6;">LICENCIA ADICIONAL (PLUS)</div>
+                    <h3 class="title">M365 Copilot (Premium)</h3>
+                    <p class="desc">Experiencia completa e integrada con IA en Office y Teams. Rendimiento prioritario sin limitaciones de acceso.</p>
+                    <div class="card-visual" style="color: #3b82f6;">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path>
+                            <path d="m5 3 1 2"></path>
+                            <path d="m19 19 1 2"></path>
+                        </svg>
+                    </div>
+                </a>
+                <!-- Agente Kronos -->
+                <a href="kronos_agent.html" class="apple-card" style="border-color: var(--lda-red); position: relative;">
+                    <div style="position: absolute; top: 20px; right: 20px; background: rgba(228, 0, 43, 0.08); color: var(--lda-red); padding: 4px 10px; border-radius: 8px; font-size: 0.65rem; font-weight: 900; border: 1px solid rgba(228, 0, 43, 0.2); display: flex; align-items: center; gap: 5px; backdrop-filter: blur(4px);">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        CUSTOM BUILT
+                    </div>
+                    <div class="kicker" style="color: var(--lda-red);">ASISTENTE PERSONAL</div>
+                    <h3 class="title">Agente KRONOS</h3>
+                    <p class="desc">Asistente de orquestación central (Copilot Studio) para gestión de Outlook, Planner y búsqueda RAG en SharePoint.</p>
+                    <div class="card-visual" style="color: var(--lda-red);">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 2h14"></path>
+                            <path d="M5 22h14"></path>
+                            <path d="M6 2v1c0 3.3 2.7 6 6 6s6-2.7 6-6V2"></path>
+                            <path d="M6 22v-1c0-3.3 2.7-6 6-6s6 2.7 6 6v1"></path>
+                        </svg>
+                    </div>
+                </a>
+            </div>
+            <button class="carousel-btn right hidden" onclick="scrollCarousel(this, 340)" aria-label="Desplazar a la derecha">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portal de Transformación y Eficiencia RRHH | Grupo Línea Directa</p>
+    </footer>
+
+    <script src="breadcrumb_manager.js"></script>
+    <script>
+        function updateCarouselButtons(track) {
+            const container = track.parentElement;
+            const btnLeft = container.querySelector('.carousel-btn.left');
+            const btnRight = container.querySelector('.carousel-btn.right');
+
+            if (btnLeft && btnRight) {
+                if (track.scrollLeft <= 5) {
+                    btnLeft.classList.add('hidden');
+                } else {
+                    btnLeft.classList.remove('hidden');
+                }
+
+                if (Math.ceil(track.scrollLeft) + track.clientWidth >= track.scrollWidth - 5) {
+                    btnRight.classList.add('hidden');
+                } else {
+                    btnRight.classList.remove('hidden');
+                }
+            }
+        }
+
+        function scrollCarousel(btn, amount) {
+            const container = btn.parentElement;
+            const track = container.querySelector('.carousel-track');
+            if (track) {
+                track.scrollBy({ left: amount, behavior: 'smooth' });
+            }
+        }
+
+        function initCarousels() {
+            document.querySelectorAll('.carousel-track').forEach(track => {
+                updateCarouselButtons(track);
+            });
+        }
+
+        window.addEventListener('resize', initCarousels);
+
+        function toggleTheme() {
+            const checkbox = document.getElementById('theme-checkbox');
+            const isDark = checkbox.checked;
+            if (isDark) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const checkbox = document.getElementById('theme-checkbox');
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                if (checkbox) checkbox.checked = true;
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                if (checkbox) checkbox.checked = false;
+            }
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+            setTimeout(initCarousels, 100);
+        });
+
+        // BREADCRUMB MANAGER - DYNAMIC ISLAND
+        function initDynamicBreadcrumb() {
+            const wrapper = document.querySelector('.global-nav-wrapper');
+            if (!wrapper) return;
+            if (window.scrollY > 50) wrapper.classList.add('compacted');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) wrapper.classList.add('compacted');
+                else wrapper.classList.remove('compacted');
+            });
+        }
+        document.addEventListener('DOMContentLoaded', initDynamicBreadcrumb);
+    </script>
+    <!-- MODAL TIMELINE -->
+    <div id="timelineModal" class="lda-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <h3 id="modalTitle" style="margin-top: 0; margin-bottom: 8px; font-size: 1.4rem; font-weight: 800; color: var(--text-main);">Bitácora de Evolución</h3>
+            <p id="modalSubtitle" style="margin: 0 0 30px 0; font-size: 0.85rem; color: var(--lda-red); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;"></p>
+            <div id="timelineContent" class="timeline-list">
+                <!-- Dinámico -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const projectTimelines = {
+            ia: [
+                { date: '24 Mar', event: 'Asignación de proyecto', desc: 'Solicitud para preparar la propuesta del Plan de Acción de IA para la Dirección de Personas y Comunicación.' },
+                { date: '25-31 Mar', event: 'Preparación de la propuesta', desc: 'Elaboración del borrador del Plan de Acción del proyecto de transformación antes de Semana Santa.' },
+                { date: '06 Abr', event: 'Planificación de reunión', desc: 'Se confirma la reunión con la Dirección de Área para exponer el plan el día 07/04.' },
+                { date: '07 Abr', event: 'Ajuste de alcance', desc: 'Inclusión de la investigación de puntos de dolor (Microsoft 365) dentro del proyecto de IA tras la reunión con la responsable.' }
+            ],
+            m365: [
+                { date: '07 Abr', event: 'Integración en Plan IA', desc: 'Se detecta la necesidad de reformular la adopción de M365 dentro del marco de la IA.' },
+                { date: '07 Abr', event: 'Preparación de propuesta', desc: 'Finalizada la propuesta del plan de acción para presentar a la Dirección de Personas y Comunicación.' },
+                { date: '08 Abr', event: 'Presentación a Dirección PersCom', desc: 'Cancelada. No se realiza.' },
+                { date: '09 Abr', event: 'Definición de objetivo trimestral del área para el Q2', desc: 'Objetivo de transformación y adopción M365.', note: 'Pendiente de aprobación por dirección' }
+            ],
+            hcm: [
+                { date: 'Q1 2026', event: 'Congelación PeopleSoft', desc: 'Decisión de no invertir en sistemas antiguos.' },
+                { date: 'Final 2026', event: 'Lanzamiento Pliego HCM', desc: 'Inicio de la transformación Cloud nativa.' }
+            ],
+            sesion_01: [{ date: 'TBD', event: 'Pendiente de Planificar', desc: 'La fecha de la sesión aún no ha sido fijada en el calendario del área.' }],
+            sesion_02: [{ date: 'TBD', event: 'Pendiente de Planificar', desc: 'La fecha de la sesión aún no ha sido fijada en el calendario del área.' }],
+            sesion_03: [{ date: 'TBD', event: 'Pendiente de Planificar', desc: 'La fecha de la sesión aún no ha sido fijada en el calendario del área.' }],
+            sesion_04: [{ date: 'TBD', event: 'Pendiente de Planificar', desc: 'La fecha de la sesión aún no ha sido fijada en el calendario del área.' }],
+            sesion_05: [{ date: 'TBD', event: 'Pendiente de Planificar', desc: 'La fecha de la sesión aún no ha sido fijada en el calendario del área.' }]
+        };
+
+        function openTimeline(projectId) {
+            const modal = document.getElementById('timelineModal');
+            const content = document.getElementById('timelineContent');
+            const subtitle = document.getElementById('modalSubtitle');
+            
+            const projectNames = {
+                ia: 'Plan de Acción IA',
+                m365: 'Plan de Acción M365',
+                hcm: 'Plan de Acción HCM',
+                sesion_01: 'Sesión 01 / Master Class',
+                sesion_02: 'Sesión 02 / Master Class',
+                sesion_03: 'Sesión 03 / Master Class',
+                sesion_04: 'Sesión 04 / Master Class',
+                sesion_05: 'Sesión 05 / Master Class'
+            };
+            
+            subtitle.innerText = projectNames[projectId] || '';
+            const data = projectTimelines[projectId];
+
+            const groups = {};
+            data.forEach(item => {
+                if (!groups[item.date]) groups[item.date] = [];
+                groups[item.date].push(item);
+            });
+
+            let html = '';
+            for (const date in groups) {
+                html += `
+                    <div class="timeline-group">
+                        <div class="timeline-date-marker">${date}</div>
+                        ${groups[date].map(item => `
+                            <div class="timeline-event-box">
+                                <div class="timeline-event">${item.event}</div>
+                                <div class="timeline-desc">${item.desc}</div>
+                                ${item.note ? `<div class="timeline-note">${item.note}</div>` : ''}
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            }
+            
+            content.innerHTML = html;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('timelineModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Cerrar al hacer clic fuera
+        window.onclick = function(event) {
+            const modal = document.getElementById('timelineModal');
+            if (event.target == modal) closeModal();
+        }
+    </script>
+</body>
+</html>
+

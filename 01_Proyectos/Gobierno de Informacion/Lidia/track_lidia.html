@@ -1,0 +1,498 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitácora Track LidIA | Estado y Tareas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles_infografia.css">
+    <style>
+        /* Estilos especóficos para la Bitácora del Track */
+        .logbook-header {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--lda-red);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-sec);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .activity-log {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 40px;
+            margin-top: 60px;
+            box-shadow: 0 10px 30px var(--shadow-color);
+        }
+
+        .log-timeline {
+            position: relative;
+            padding-left: 30px;
+            border-left: 2px solid var(--border-color);
+            margin-top: 30px;
+        }
+
+        .log-entry {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .log-entry::before {
+            content: '';
+            position: absolute;
+            left: -41px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            background: var(--bg-page);
+            border: 3px solid var(--lda-red);
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .log-date {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--lda-red);
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .log-content {
+            background: var(--bg-card-hover);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+        }
+
+        .log-title {
+            font-weight: 800;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .log-desc {
+            font-size: 0.95rem;
+            color: var(--text-sec);
+        }
+
+        .status-pill {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .pill-active {
+            background: rgba(16, 185, 129, 0.1);
+            color: #10B981;
+        }
+
+        .pill-blocked {
+            background: rgba(228, 0, 43, 0.1);
+            color: var(--lda-red);
+        }
+
+        .pill-pending {
+            background: rgba(245, 158, 11, 0.1);
+            color: #F59E0B;
+        }
+
+        .silo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .silo-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .silo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px var(--shadow-color);
+            border-color: var(--lda-red);
+        }
+
+        .task-list-minimal {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .task-item-minimal {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--border-color);
+            font-size: 0.9rem;
+            color: var(--text-sec);
+        }
+
+        .task-item-minimal:last-child {
+            border-bottom: none;
+        }
+
+        .check-box {
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--border-color);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .check-box.done {
+            background: #10B981;
+            border-color: #10B981;
+            color: white;
+        }
+
+        .check-box.done::after {
+            content: '✓';
+            font-size: 12px;
+            font-weight: bold;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../../local_styles.css">
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper">
+        <button class="nav-btn" onclick="javascript:history.back()" title="Volver atrás">
+            <svg viewBox="0 0 24 24">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <div class="nav-divider"></div>
+        <div class="nav-breadcrumb">
+            <a href="../../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item" title="Inicio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <a href="../index.html" class="nav-breadcrumb-item">Gestión Info</a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <a href="hub_lidia.html" class="nav-breadcrumb-item">Universo LidIA</a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <a href="estrategia_2026.html" class="nav-breadcrumb-item">Estrategia 2026</a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <a href="vias_trabajo.html" class="nav-breadcrumb-item">Estrategia de Trabajo</a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <span class="nav-breadcrumb-item current">Track LidIA</span>
+        </div>
+    </nav>
+
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label">MODO OSCURO</span>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-checkbox" onchange="toggleTheme()">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="container">
+        <header class="hero">
+            <span class="hero-badge">Bitácora de Ejecución</span>
+            <span class="hero-badge-local">Recurso en Local</span>
+            <h1>Track LidIA <span>Core</span></h1>
+            <p>Seguimiento detallado de estados, tareas y avances en la lónea de aceleración operativa.
+            </p>
+        </header>
+
+        <!-- RESUMEN DE ESTADO -->
+        <div class="logbook-header">
+            <div class="stat-card">
+                <span class="stat-label">Silos Activos</span>
+                <span class="stat-value">2</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Tareas Completadas</span>
+                <span class="stat-value">14</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Bloqueos Cróticos</span>
+                <span class="stat-value" style="color: #6B7280;">1</span>
+            </div>
+            <div class="stat-card" style="border-top: 5px solid #10B981;">
+                <span class="stat-label">Estado General</span>
+                <span class="stat-value" style="color: #10B981; font-size: 1.5rem;">EN MARCHA</span>
+            </div>
+        </div>
+
+        <!-- VISTA POR SILOS -->
+        <h2 class="section-title">Estado por Silos de Negocio</h2>
+        <div class="silo-grid">
+            <!-- CARTERA -->
+            <div class="silo-card">
+                <span class="status-pill pill-active">Activo</span>
+                <h3 class="log-title">Cartera</h3>
+                <p class="log-desc">Atención & Cross-selling. Foco en resolución de dudas y venta
+                    cruzada.</p>
+                <div class="task-list-minimal">
+                    <div class="task-item-minimal">
+                        <div class="check-box done"></div> Reunión presentación mandos
+                    </div>
+                    <div class="task-item-minimal">
+                        <div class="check-box done"></div> Listado casos de uso
+                    </div>
+                    <div class="task-item-minimal">
+                        <div class="check-box"></div> Priorización final Negocio
+                    </div>
+                </div>
+            </div>
+
+            <!-- COMERCIAL -->
+            <div class="silo-card">
+                <span class="status-pill pill-active">Activo</span>
+                <h3 class="log-title">Comercial</h3>
+                <p class="log-desc">Venta Pura y captación. Gestión de leads y nueva contratación.</p>
+                <div class="task-list-minimal">
+                    <div class="task-item-minimal">
+                        <div class="check-box done"></div> Reunión calidad área
+                    </div>
+                    <div class="task-item-minimal">
+                        <div class="check-box done"></div> Identificación quick wins
+                    </div>
+                    <div class="task-item-minimal">
+                        <div class="check-box"></div> Definición arquitectura datos
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRESTACIONES -->
+            <div class="silo-card" style="border-top: 5px solid var(--lda-red);">
+                <span class="status-pill pill-blocked">Bloqueado</span>
+                <h3 class="log-title">Servicios y Prestaciones</h3>
+                <p class="log-desc">Atención Cliente & Siniestros. Soporte técnico y tramitación.</p>
+                <div class="task-list-minimal">
+                    <div class="task-item-minimal">
+                        <div class="check-box done"></div> Reunión Elena Vicente
+                    </div>
+                    <div class="task-item-minimal" style="color: var(--lda-red); font-weight: 700;">⚠
+                        Bloqueo por uso
+                        paralelo Copilot</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- REGISTRO DE ACTIVIDAD -->
+        <div class="activity-log">
+            <h2 style="margin-bottom: 10px;">Registro de Actividad Reciente</h2>
+            <p class="log-desc">Cronologóa de acciones realizadas en el Track LidIA.</p>
+
+            <div class="log-timeline">
+                <!-- Entrada: CARTERA -->
+                <div class="log-entry">
+                    <span class="log-date">27 ENE 2026</span>
+                    <div class="log-content">
+                        <div class="status-pill pill-active">Cartera</div>
+                        <div class="log-title">Reunión de Presentación con mandos del área</div>
+                        <p class="log-desc">Presentación de LidIA a responsables de Cartera.</p>
+                        <div
+                            style="margin-top: 10px; padding: 10px; background: rgba(228, 0, 43, 0.05); border-left: 3px solid var(--lda-red); font-size: 0.85rem;">
+                            <strong>TAREA PENDIENTE (NEGOCIO):</strong> Listar los casos de uso con la
+                            priorización para
+                            avanzar a la siguiente fase.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Entrada: PRESTACIONES (Ventanilla) -->
+                <div class="log-entry">
+                    <span class="log-date">09 FEB 2026</span>
+                    <div class="log-content">
+                        <div class="status-pill pill-pending">Prestaciones</div>
+                        <div class="log-title">Reunión de Presentación Responsable de Calidad</div>
+                        <p class="log-desc">Derivación estratégica del área para priorización.</p>
+                        <div
+                            style="margin-top: 10px; padding: 10px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; font-size: 0.85rem; display: flex; gap: 10px; align-items: center;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M15 10l5 5-5 5M4 4v7a4 4 0 004 4h12" />
+                            </svg>
+                            <span><strong>Remisión (Ventanilla):</strong> Dirigidos a responsable de
+                                Tramitación
+                                Material.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Entrada: PRESTACIONES (BLOQUEO) -->
+                <div class="log-entry">
+                    <span class="log-date">17 FEB 2026</span>
+                    <div class="log-content">
+                        <div class="status-pill pill-blocked">Prestaciones</div>
+                        <div class="log-title" style="color: var(--lda-red);">Reunión Elena Vicente -
+                            BLOQUEO CRÍTICO
+                        </div>
+                        <p class="log-desc">Reunión con Responsable de Tramitación Material.</p>
+                        <div
+                            style="margin-top: 10px; padding: 15px; background: rgba(245, 101, 101, 0.05); border-left: 4px solid #F56565; border-radius: 0 10px 10px 0; font-size: 0.85rem;">
+                            <strong style="color: #C53030; display: block; margin-bottom: 5px;">RIESGO
+                                DETECTADO:</strong>
+                            "El área está subiendo información a Copilot de forma paralela. LidIA es
+                            desconocido/ignorado. Esto potencia el problema de información dispersa."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Entrada: COMERCIAL -->
+                <div class="log-entry">
+                    <span class="log-date">18 FEB 2026</span>
+                    <div class="log-content">
+                        <div class="status-pill pill-active">Comercial</div>
+                        <div class="log-title">Reunión de Presentación Responsable Calidad</div>
+                        <p class="log-desc">Presentación operativa del track de aceleración.</p>
+                        <div
+                            style="margin-top: 10px; padding: 10px; background: rgba(228, 0, 43, 0.05); border-left: 3px solid var(--lda-red); font-size: 0.85rem;">
+                            <strong>TAREA PENDIENTE (NEGOCIO):</strong> Listar los casos de uso con la
+                            priorización para
+                            avanzar a la siguiente fase.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Proyecto LidIA | Sistema de Gestión Operativa</p>
+    </footer>
+
+    <script src="../scripts_infografia.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', initTheme);</script>
+    <script>
+
+        // BREADCRUMB MANAGER - SMART COLLAPSE
+        function initBreadcrumbLogic() {
+            const breadcrumb = document.querySelector('.nav-breadcrumb');
+            if (!breadcrumb) return;
+
+            const items = Array.from(breadcrumb.querySelectorAll('.nav-breadcrumb-item:not(.current)'));
+            const separators = Array.from(breadcrumb.querySelectorAll('.nav-breadcrumb-sep'));
+
+            if (items.length > 3) {
+                const toCollapse = items.slice(1, -1);
+
+                const trigger = document.createElement('span');
+                trigger.className = 'nav-breadcrumb-item collapsed-trigger';
+                trigger.innerHTML = '...';
+                trigger.title = 'Ver más niveles';
+
+                const dropdown = document.createElement('div');
+                dropdown.className = 'breadcrumb-dropdown';
+
+                toCollapse.forEach((item, index) => {
+                    const link = document.createElement('a');
+                    link.href = item.href || '#';
+                    link.className = 'breadcrumb-dropdown-item';
+                    link.textContent = item.textContent || item.title || 'Nivel ' + (index + 2);
+                    dropdown.appendChild(link);
+
+                    item.style.display = 'none';
+                    const sepIndex = items.indexOf(item);
+                    if (separators[sepIndex]) {
+                        separators[sepIndex].style.display = 'none';
+                    }
+                });
+
+                trigger.appendChild(dropdown);
+                items[0].insertAdjacentElement('afterend', trigger);
+
+                const newSep = document.createElement('span');
+                newSep.className = 'nav-breadcrumb-sep';
+                newSep.textContent = '›';
+                trigger.insertAdjacentElement('afterend', newSep);
+
+                trigger.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    dropdown.classList.toggle('active');
+                });
+
+                document.addEventListener('click', () => {
+                    dropdown.classList.remove('active');
+                });
+            }
+        }
+        document.addEventListener('DOMContentLoaded', initBreadcrumbLogic);
+    </script>
+
+<script>
+// BREADCRUMB MANAGER - DYNAMIC ISLAND
+function initDynamicBreadcrumb() {
+    const wrapper = document.querySelector('.global-nav-wrapper');
+    if (!wrapper) return;
+    
+    // Check initial scroll position
+    if (window.scrollY > 50) wrapper.classList.add('compacted');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            wrapper.classList.add('compacted');
+        } else {
+            wrapper.classList.remove('compacted');
+        }
+    });
+
+    // Handle touch devices to expand on tap if compacted
+    wrapper.addEventListener('click', (e) => {
+        if (wrapper.classList.contains('compacted') && window.innerWidth <= 768) {
+            e.preventDefault();
+            wrapper.classList.remove('compacted');
+            // Give them time to click before it auto-compacts again
+            setTimeout(() => {
+                if (window.scrollY > 50) wrapper.classList.add('compacted');
+            }, 3000);
+        }
+    });
+}
+document.addEventListener('DOMContentLoaded', initDynamicBreadcrumb);
+</script>
+</body>
+
+</html>
+
+

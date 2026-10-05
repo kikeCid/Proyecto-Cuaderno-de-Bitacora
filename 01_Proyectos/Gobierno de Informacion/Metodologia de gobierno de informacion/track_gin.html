@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Universo GIN | Registro de Acciones</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles_infografia.css">
+    <style>
+        .page-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .timeline-modern-container {
+            position: relative;
+            padding: 40px 0;
+            margin: 20px 0;
+        }
+
+        .timeline-modern-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 30px;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--lda-red) 0%, rgba(220, 53, 69, 0.1) 100%);
+        }
+
+        .timeline-modern-item {
+            position: relative;
+            padding-left: 80px;
+            margin-bottom: 50px;
+            opacity: 0;
+            animation: fadeInSlideUp 0.6s ease-out forwards;
+        }
+
+        .timeline-modern-item:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .timeline-modern-item:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+
+        .timeline-modern-item:nth-child(3) {
+            animation-delay: 0.5s;
+        }
+
+        @keyframes fadeInSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .timeline-modern-icon {
+            position: absolute;
+            left: 11px;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 2px solid var(--lda-red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(220, 53, 69, 0.3);
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-modern-item:hover .timeline-modern-icon {
+            transform: scale(1.1);
+            background: var(--lda-red);
+            color: white;
+            box-shadow: 0 0 20px rgba(220, 53, 69, 0.6);
+        }
+
+        .timeline-modern-icon svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--lda-red);
+        }
+
+        .timeline-modern-item:hover .timeline-modern-icon svg {
+            stroke: white;
+        }
+
+        .timeline-modern-content {
+            background: var(--bg-card);
+            border-left: 4px solid var(--lda-red);
+            border-radius: 0 12px 12px 0;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dark-theme .timeline-modern-content {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--lda-red);
+        }
+
+        .timeline-modern-content:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 35px rgba(220, 53, 69, 0.15);
+        }
+
+        .timeline-modern-date {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--lda-red);
+            margin-bottom: 15px;
+            background: rgba(220, 53, 69, 0.1);
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+
+        .timeline-modern-content h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .timeline-modern-content p {
+            color: var(--text-muted);
+            margin-bottom: 0;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        .timeline-proposal-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 25px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, var(--lda-red) 0%, #a00000 100%);
+            color: white !important;
+            text-decoration: none !important;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(220, 53, 69, 0.4);
+        }
+
+        .timeline-proposal-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(220, 53, 69, 0.6);
+        }
+
+        .timeline-proposal-btn svg {
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-proposal-btn:hover svg {
+            transform: translateX(5px);
+        }
+    </style>
+
+    <link rel="stylesheet" href="../../local_styles.css">
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper">
+        <button class="nav-btn" onclick="javascript:history.back()" title="Volver atrás">
+            <svg viewBox="0 0 24 24">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <div class="nav-divider"></div>
+        <div class="nav-breadcrumb">
+            <a href="../../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item" title="Inicio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span class="nav-breadcrumb-sep"></span>
+            <a href="../index.html" class="nav-breadcrumb-item">Gestión Info</a>
+            <span class="nav-breadcrumb-sep"></span>
+            <a href="hub_gin.html" class="nav-breadcrumb-item">Universo GIN</a>
+            <span class="nav-breadcrumb-sep"></span>
+            <span class="nav-breadcrumb-item current">Cronograma GIN</span>
+        </div>
+    </nav>
+
+
+
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label">MODO OSCURO</span>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-checkbox" onchange="toggleTheme()">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="page-container">
+
+
+        <header class="hero" style="margin-bottom: 0;">
+            <span class="hero-badge">Track Operativo</span>
+            <span class="hero-badge-local">Recurso en Local</span>
+            <h1>Cronograma GIN</h1>
+            <p>Registro de acciones operativas y evolución del Modelo de Gobierno de la Información de Negocio (GIN).
+            </p>
+        </header>
+
+        <!-- Cronograma -->
+        <section class="proposal-section" style="border: none; background: transparent; box-shadow: none; padding: 0;">
+            <h2 style="font-size: 2rem; margin-bottom: 30px;">Registro de Acciones (Timeline)</h2>
+            <div class="timeline-modern-container">
+                <!-- Acción 1 -->
+                <div class="timeline-modern-item">
+                    <div class="timeline-modern-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <div class="timeline-modern-content">
+                        <span class="timeline-modern-date">16 de Febrero 2026</span>
+                        <h3>Reunión Estratégica con CEO</h3>
+                        <p>Presentación del estatus del proyecto LidIA a la CEO de la compañía. Se evidencia la
+                            necesidad estratégica de montar un Gobierno de la Información de manera formal como el
+                            <strong>cimiento operativo</strong> crítico para el futuro ecosistema de datos e
+                            inteligencia artificial.
+                        </p>
+                        <div
+                            style="margin-top: 15px; padding: 12px; background: rgba(16, 185, 129, 0.05); border-left: 3px solid #10B981; border-radius: 0 8px 8px 0; font-size: 0.9rem;">
+                            <strong style="color: #10B981;">âœ… ACUERDO FINALIZADO:</strong> Entregar una propuesta
+                            organizativa completa del Modelo de Gobierno de la Información (presentada y aprobada el 26
+                            de febrero).
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Acción 2 -->
+                <div class="timeline-modern-item">
+                    <div class="timeline-modern-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="3" y1="9" x2="21" y2="9"></line>
+                            <line x1="9" y1="21" x2="9" y2="9"></line>
+                        </svg>
+                    </div>
+                    <div class="timeline-modern-content">
+                        <span class="timeline-modern-date">17 de Febrero 2026</span>
+                        <h3>Sesión de Trabajo Interna (Dirección RRHH)</h3>
+                        <p>Sesión intensiva para preparar la <strong>propuesta organizativa y transversal</strong> del
+                            modelo de gobierno, estableciendo las líneas principales de trabajo, los roles clave, la
+                            estructura de responsabilidad y los requerimientos elementales.</p>
+                    </div>
+                 </div>
+                </div>
+
+                <!-- Acción 3 -->
+                <div class="timeline-modern-item">
+                    <div class="timeline-modern-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <div class="timeline-modern-content">
+                        <span class="timeline-modern-date">26 de Febrero 2026</span>
+                        <h3>Presentación y Aprobación de la CEO</h3>
+                        <p>Se presenta oficialmente el Modelo de Gobierno de Información de Negocio. <strong>Se obtiene
+                                el OK corporativo por parte de Patricia (CEO)</strong> para montar este modelo. Se
+                            concluye que este nuevo vector funcional se gestionará en adelante desde la Dirección de
+                            Transformación.</p>
+                        <div
+                            style="margin-top: 15px; padding: 15px; background: rgba(16, 185, 129, 0.05); border-left: 4px solid #10B981; border-radius: 0 10px 10px 0; font-size: 0.9rem; margin-bottom: 25px;">
+                            <strong style="color: #10B981; display: block; margin-bottom: 5px;">✅ REUNIÓN COMPLETADA:</strong>
+                            Se realizó el traslado de contexto a la <strong>Dirección de Transformación Digital</strong>, formalizando la decisión organizativa.
+                        </div>
+
+                        <a href="propuesta_gin.html" class="timeline-proposal-btn">
+                            Ver Documento de la Propuesta GIN
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Acción 4 -->
+                <div class="timeline-modern-item">
+                    <div class="timeline-modern-icon" style="border-color: #8B5CF6; box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
+                        </svg>
+                    </div>
+                    <div class="timeline-modern-content" style="border-left: 4px solid #8B5CF6;">
+                        <span class="timeline-modern-date" style="color: #8B5CF6; background: rgba(139, 92, 246, 0.1);">Junio 2026</span>
+                        <h3>Asignación y Handover al Área de Transformación</h3>
+                        <p>Se materializa el traspaso oficial del proyecto (tanto Universo LidIA como Universo GIN) a un <strong>responsable designado dentro del equipo de Transformación</strong>, quien tomará el control y liderazgo operativo a partir de ahora.</p>
+                        <div
+                            style="margin-top: 15px; padding: 12px; background: rgba(139, 92, 246, 0.05); border-left: 3px solid #8B5CF6; border-radius: 0 8px 8px 0; font-size: 0.9rem;">
+                            <strong style="color: #8B5CF6;">🤝 ROL DE APOYO ACTIVO:</strong> Aunque el proyecto sale formalmente de nuestra área, mantendremos un acompañamiento continuo para facilitar todo lo abordado en este largo proyecto, compartiendo aprendizajes y asegurando una transición exitosa.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="../scripts_infografia.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', initTheme);
+    </script>
+<script>
+
+// BREADCRUMB MANAGER - SMART COLLAPSE
+function initBreadcrumbLogic() {
+    const breadcrumb = document.querySelector('.nav-breadcrumb');
+    if (!breadcrumb) return;
+
+    const items = Array.from(breadcrumb.querySelectorAll('.nav-breadcrumb-item:not(.current)'));
+    const separators = Array.from(breadcrumb.querySelectorAll('.nav-breadcrumb-sep'));
+    
+    if (items.length > 3) {
+        const toCollapse = items.slice(1, -1);
+        
+        const trigger = document.createElement('span');
+        trigger.className = 'nav-breadcrumb-item collapsed-trigger';
+        trigger.innerHTML = '...';
+        trigger.title = 'Ver más niveles';
+
+        const dropdown = document.createElement('div');
+        dropdown.className = 'breadcrumb-dropdown';
+
+        toCollapse.forEach((item, index) => {
+            const link = document.createElement('a');
+            link.href = item.href || '#';
+            link.className = 'breadcrumb-dropdown-item';
+            link.textContent = item.textContent || item.title || 'Nivel ' + (index + 2);
+            dropdown.appendChild(link);
+            
+            item.style.display = 'none';
+            const sepIndex = items.indexOf(item);
+            if (separators[sepIndex]) {
+                separators[sepIndex].style.display = 'none';
+            }
+        });
+
+        trigger.appendChild(dropdown);
+        items[0].insertAdjacentElement('afterend', trigger);
+        
+        const newSep = document.createElement('span');
+        newSep.className = 'nav-breadcrumb-sep';
+        newSep.textContent = '›';
+        trigger.insertAdjacentElement('afterend', newSep);
+
+        trigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle('active');
+        });
+
+        document.addEventListener('click', () => {
+            dropdown.classList.remove('active');
+        });
+    }
+}
+document.addEventListener('DOMContentLoaded', initBreadcrumbLogic);
+</script>
+
+<script>
+// BREADCRUMB MANAGER - DYNAMIC ISLAND
+function initDynamicBreadcrumb() {
+    const wrapper = document.querySelector('.global-nav-wrapper');
+    if (!wrapper) return;
+    
+    // Check initial scroll position
+    if (window.scrollY > 50) wrapper.classList.add('compacted');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            wrapper.classList.add('compacted');
+        } else {
+            wrapper.classList.remove('compacted');
+        }
+    });
+
+    // Handle touch devices to expand on tap if compacted
+    wrapper.addEventListener('click', (e) => {
+        if (wrapper.classList.contains('compacted') && window.innerWidth <= 768) {
+            e.preventDefault();
+            wrapper.classList.remove('compacted');
+            // Give them time to click before it auto-compacts again
+            setTimeout(() => {
+                if (window.scrollY > 50) wrapper.classList.add('compacted');
+            }, 3000);
+        }
+    });
+}
+document.addEventListener('DOMContentLoaded', initDynamicBreadcrumb);
+</script>
+</body>
+
+</html>
+
+

@@ -1,0 +1,515 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integraciones & APIs GUS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles_usuarios.css">
+    <style>
+        .view-section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px 100px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 30px;
+            letter-spacing: -0.03em;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: #0066cc;
+            border-radius: 2px;
+        }
+
+        /* ---- INTEGRATIONS GRID ---- */
+        .api-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .api-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px var(--shadow-color);
+        }
+
+        .api-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: #0066cc;
+        }
+
+        .api-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 102, 204, 0.15);
+            border-color: #0066cc;
+        }
+
+        .api-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .api-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0;
+        }
+
+        .api-title svg {
+            width: 24px;
+            height: 24px;
+            stroke: #0066cc;
+            fill: none;
+            stroke-width: 2;
+            flex-shrink: 0;
+        }
+
+        .api-status {
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            background: rgba(52, 199, 89, 0.15);
+            color: #28a745;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
+        .api-desc {
+            font-size: 0.9rem;
+            color: var(--text-sec);
+            line-height: 1.6;
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        .api-tech-box {
+            background: var(--bg-mesh);
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 5px;
+            border: 1px solid var(--border-color);
+        }
+
+        .api-tech-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .api-tech-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .api-tech-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-sec);
+            letter-spacing: 0.05em;
+        }
+
+        .api-tech-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #0066cc;
+            background: rgba(0, 102, 204, 0.1);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        /* ---- INFOGRAPHIC HEADER ---- */
+        .sync-hero {
+            background: linear-gradient(135deg, rgba(0, 102, 204, 0.05) 0%, rgba(0, 102, 204, 0.15) 100%);
+            border: 1px solid rgba(0, 102, 204, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .sync-hero-icon {
+            width: 80px;
+            height: 80px;
+            background: #0066cc;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+            box-shadow: 0 10px 30px rgba(0, 102, 204, 0.3);
+        }
+
+        .sync-hero-text h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .sync-hero-text p {
+            font-size: 1rem;
+            color: var(--text-sec);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .sync-hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+            }
+        }
+    </style>
+
+    <link rel="stylesheet" href="../local_styles.css">
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper">
+        <button class="nav-btn" onclick="javascript:history.back()" title="Volver atrás">
+            <svg viewBox="0 0 24 24">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <div class="nav-divider"></div>
+        <div class="nav-breadcrumb">
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item" title="Inicio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span class="nav-breadcrumb-sep"></span>
+            <a href="index.html" class="nav-breadcrumb-item">Gestión de Usuarios</a>
+            <span class="nav-breadcrumb-sep"></span>
+            <span class="nav-breadcrumb-item current">Integraciones & APIs</span>
+        </div>
+    </nav>
+
+    <!-- THEME TOGGLE -->
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label">MODO OSCURO</span>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-checkbox" onchange="toggleTheme()">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="bg-mesh"></div>
+
+    <main class="container view-section">
+        <!-- HERO SEGMENT -->
+        <header class="hero" style="text-align: left; padding-top: 0;">
+            <span class="hero-badge">Conexiones</span>
+            <span class="hero-badge-local">Recurso en Local</span>
+            <h1 style="font-size: 3.5rem; line-height: 1.1;">Integraciones <br><span>y Sincronización</span></h1>
+            <p style="max-width: 800px; margin: 20px 0 0 0; text-align: left;">
+                Catálogo de servicios de aprovisionamiento, APIs de identidad y automatizaciones que mantienen la
+                coherencia en tiempo real en todo el ecosistema de Línea Directa.
+            </p>
+        </header>
+
+        <div class="sync-hero">
+            <div class="sync-hero-icon">
+                <svg viewBox="0 0 24 24" width="40" height="40" stroke="currentColor" stroke-width="2" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                        d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                    </path>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                </svg>
+            </div>
+            <div class="sync-hero-text">
+                <h2>El Tejido Conectivo</h2>
+                <p>El sistema GUS actúa como el sistema circulatorio de las identidades. No almacena datos maestros,
+                    sino que escucha eventos procedentes de RRHH (PeopleSoft) y orquesta órdenes técnicas (AD, OIM,
+                    Plantillas) de forma síncrona y asíncrona para que cada empleado comience a trabajar el Día 1 con
+                    todo lo necesario.</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Mapa de Enlaces y Servicios</h2>
+        <div class="api-grid">
+
+            <!-- INT 1: TalentLink -> PeopleSoft -->
+            <div class="api-card">
+                <div class="api-card-header">
+                    <h3 class="api-title">
+                        <svg viewBox="0 0 24 24">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                        TalentLink ➔ PS
+                    </h3>
+                    <span class="api-status">Activa</span>
+                </div>
+                <p class="api-desc">El equipo de Selección marca a un candidato en TalentLink como "Contratado". Esto lo
+                    inyecta en una cola de contratación (Queue). Un servicio interno de IT monitorea esta cola y
+                    sincroniza automáticamente los datos estructurales del futuro empleado en la base de datos de
+                    PeopleSoft.</p>
+
+                <div class="api-tech-box">
+                    <div class="api-tech-row">
+                        <span class="api-tech-label">Tipo</span>
+                        <span class="api-tech-value">Job Queue sync</span>
+                    </div>
+                    <div class="api-tech-row">
+                        <span class="api-tech-label">Payload</span>
+                        <span class="api-tech-value">Datos Personales + Dept</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INT 2: PeopleSoft -> GUS IT -->
+            <div class="api-card">
+                <div class="api-card-header">
+                    <h3 class="api-title">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2v20"></path>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                        PS Maestro ➔ GUS
+                    </h3>
+                    <span class="api-status">Activa</span>
+                </div>
+                <p class="api-desc">Cada alta estructural ejecutada y finalizada en PeopleSoft (ya sea manual o vía
+                    integración con TalentLink) emite una señal que arranca el desarrollo a medida IT (GUS). A partir de
+                    aquí, IT abandona la capa de RRHH e inicia la capa puramente técnica del aprovisionamiento.</p>
+
+                <div class="api-tech-box">
+                    <div class="api-tech-row">
+                        <span class="api-tech-label">Tipo</span>
+                        <span class="api-tech-value">Event Trigger (Push)</span>
+                    </div>
+                    <div class="api-tech-row">
+                        <span class="api-tech-label">Responsabilidad</span>
+                        <span class="api-tech-value">Disparador de Ciclo Técnico</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INT 3: GUS -> Active Directory -->
+            <div class="api-card">
+                <div class="api-card-header">
+                    <h3 class="api-title">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                        GUS ➔ Dir. Activo (AD)
+                    </h3>
+                    <span class="api-status">Core Sec</span>
+                </div>
+                <p class="api-desc">GUS orquesta la creación técnica del usuario en el Active Directory de Microsoft.
+                    Calcula la nomenclatura de red (LDA + iniciales + secuencial si hay duplicados), asigna las
+                    políticas de seguridad base y deja la identidad lista para hacer Login en los sistemas.</p>
+
+                <div class="api-tech-box">
+                    <div class="api-tech-row">
+                        <span class="api-tech-label">Tipo</span>
+                        <span class="api-tech-value">LDAP Create Object</span>
+                    </div>
+                    <div class="api-tech-row">
+                        <span class="api-tech-label">Entorno</span>
+                        <span class="api-tech-value">Microsoft DC Domain</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INT 4: PeopleSoft -> OIM -->
+            <div class="api-card">
+                <div class="api-card-header">
+                    <h3 class="api-title">
+                        <svg viewBox="0 0 24 24">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                            <polyline points="2 17 12 22 22 17"></polyline>
+                            <polyline points="2 12 12 17 22 12"></polyline>
+                        </svg>
+                        PS ➔ Oracle IAM (OIM)
+                    </h3>
+                    <span class="api-status">Activa</span>
+                </div>
+                <p class="api-desc">Para agilizar la entrega de herramientas, un servicio específico de PeopleSoft avisa
+                    a la plataforma OIM (Oracle Identity Manager). OIM cruza la posición y área del usuario con sus
+                    matrices, y si existe una plantilla definida, aprovisiona automáticamente licencias, grupos de
+                    correo y CRM.</p>
+
+                <div class="api-tech-box">
+                    <div class="api-tech-row">
+                        <span class="api-tech-label">Tipo</span>
+                        <span class="api-tech-value">SOAP/REST Auth Event</span>
+                    </div>
+                    <div class="api-tech-row">
+                        <span class="api-tech-label">Resultado </span>
+                        <span class="api-tech-value">Role & Tool Provisioning</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portal de Gestión de Proyectos | Sistema Portable de Información</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const checkbox = document.getElementById('theme-checkbox');
+            const isDark = checkbox.checked;
+
+            if (isDark) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const checkbox = document.getElementById('theme-checkbox');
+
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                if (checkbox) checkbox.checked = true;
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                if (checkbox) checkbox.checked = false;
+            }
+        }
+
+        // BREADCRUMB MANAGER - SMART COLLAPSE
+        function initBreadcrumbLogic() {
+            const breadcrumb = document.querySelector('.nav-breadcrumb');
+            if (!breadcrumb) return;
+
+            const items = Array.from(breadcrumb.querySelectorAll('.nav-breadcrumb-item:not(.current)'));
+            const separators = Array.from(breadcrumb.querySelectorAll('.nav-breadcrumb-sep'));
+
+            if (items.length > 3) {
+                const toCollapse = items.slice(1, -1);
+
+                const trigger = document.createElement('span');
+                trigger.className = 'nav-breadcrumb-item collapsed-trigger';
+                trigger.innerHTML = '...';
+                trigger.title = 'Ver más niveles';
+
+                const dropdown = document.createElement('div');
+                dropdown.className = 'breadcrumb-dropdown';
+
+                toCollapse.forEach((item, index) => {
+                    const link = document.createElement('a');
+                    link.href = item.href || '#';
+                    link.className = 'breadcrumb-dropdown-item';
+                    link.textContent = item.textContent || item.title || 'Nivel ' + (index + 2);
+                    dropdown.appendChild(link);
+
+                    item.style.display = 'none';
+                    const sepIndex = items.indexOf(item);
+                    if (separators[sepIndex]) {
+                        separators[sepIndex].style.display = 'none';
+                    }
+                });
+
+                trigger.appendChild(dropdown);
+                items[0].insertAdjacentElement('afterend', trigger);
+
+                const newSep = document.createElement('span');
+                newSep.className = 'nav-breadcrumb-sep';
+                newSep.textContent = '›';
+                trigger.insertAdjacentElement('afterend', newSep);
+
+                trigger.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    dropdown.classList.toggle('active');
+                });
+
+                document.addEventListener('click', () => {
+                    dropdown.classList.remove('active');
+                });
+            }
+        }
+
+        // BREADCRUMB MANAGER - DYNAMIC ISLAND
+        function initDynamicBreadcrumb() {
+            const wrapper = document.querySelector('.global-nav-wrapper');
+            if (!wrapper) return;
+
+            if (window.scrollY > 50) wrapper.classList.add('compacted');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    wrapper.classList.add('compacted');
+                } else {
+                    wrapper.classList.remove('compacted');
+                }
+            });
+
+            wrapper.addEventListener('click', (e) => {
+                if (wrapper.classList.contains('compacted') && window.innerWidth <= 768) {
+                    e.preventDefault();
+                    wrapper.classList.remove('compacted');
+                    setTimeout(() => {
+                        if (window.scrollY > 50) wrapper.classList.add('compacted');
+                    }, 3000);
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+            initBreadcrumbLogic();
+            initDynamicBreadcrumb();
+        });
+    </script>
+</body>
+
+</html>

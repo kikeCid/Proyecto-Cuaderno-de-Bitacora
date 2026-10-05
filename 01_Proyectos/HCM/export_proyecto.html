@@ -1,0 +1,1152 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exportar Proyecto | Evolución HCM Cloud</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ─── VARIABLES CORPORATIVAS ─────────────────────────────── */
+        :root {
+            --lda-red: #E4002B;
+            --hcm-green: #10B981;
+            --hcm-green-soft: #ECFDF5;
+            --text-main: #111827;
+            --text-sec: #4B5563;
+            --border: #E5E7EB;
+            --bg: #F9FAFB;
+            --white: #FFFFFF;
+        }
+
+        /* ─── PANTALLA DE CARGA (UI normal) ─────────────────────── */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text-main);
+            min-height: 100vh;
+        }
+
+        /* LOADING SCREEN */
+        #loading-screen {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(135deg, #0a0a0b 0%, #1a1a2e 50%, #16213e 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease;
+        }
+
+        #loading-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loading-logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--lda-red), #ff4444);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 32px;
+            box-shadow: 0 0 60px rgba(228, 0, 43, 0.4);
+            animation: pulse-logo 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-logo {
+
+            0%,
+            100% {
+                box-shadow: 0 0 40px rgba(228, 0, 43, 0.4);
+                transform: scale(1);
+            }
+
+            50% {
+                box-shadow: 0 0 80px rgba(228, 0, 43, 0.7);
+                transform: scale(1.05);
+            }
+        }
+
+        .loading-logo svg {
+            width: 44px;
+            height: 44px;
+            color: white;
+        }
+
+        .loading-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .loading-subtitle {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 40px;
+        }
+
+        .loading-progress-bar {
+            width: 300px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+
+        .loading-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--hcm-green), #34d399);
+            border-radius: 4px;
+            width: 0%;
+            transition: width 0.4s ease;
+        }
+
+        .loading-status {
+            font-size: 0.78rem;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            min-height: 20px;
+        }
+
+        /* ERROR STATE */
+        .loading-error {
+            color: #ff6b6b;
+            font-size: 0.85rem;
+            margin-top: 20px;
+            text-align: center;
+            max-width: 400px;
+            display: none;
+        }
+
+        /* ─── DOCUMENTO PDF (contenido real) ─────────────────────── */
+        #pdf-document {
+            display: none;
+            background: white;
+        }
+
+        /* PDF CONTROLS BAR */
+        .pdf-controls {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 64px;
+            background: #1a1a2e;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 32px;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .pdf-controls-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .pdf-controls-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pdf-controls-brand-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--lda-red);
+            border-radius: 50%;
+        }
+
+        .pdf-controls-title {
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .pdf-controls-subtitle {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.75rem;
+        }
+
+        .pdf-divider {
+            width: 1px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .pdf-info-badge {
+            padding: 5px 14px;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 50px;
+            color: var(--hcm-green);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .pdf-controls-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-print {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            background: var(--lda-red);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .btn-print:hover {
+            background: #c2001f;
+            transform: scale(1.03);
+        }
+
+        .btn-print svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .btn-close {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-close:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+        }
+
+        /* PDF PAGES WRAPPER */
+        .pdf-wrapper {
+            padding: 80px 0 40px;
+            background: #D1D5DB;
+            min-height: 100vh;
+        }
+
+        /* CADA PÁGINA A4 LANDSCAPE */
+        .pdf-page {
+            width: 297mm;
+            min-height: 210mm;
+            background: white;
+            margin: 0 auto 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+            page-break-after: always;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* PORTADA */
+        .page-cover {
+            background: linear-gradient(135deg, #0a0a0b 0%, #1a1a2e 50%, #0f3460 100%);
+            min-height: 210mm;
+            justify-content: space-between;
+            padding: 50px 60px;
+        }
+
+        .cover-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .cover-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .cover-logo-dot {
+            width: 14px;
+            height: 14px;
+            background: var(--lda-red);
+            border-radius: 50%;
+        }
+
+        .cover-logo-text {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .cover-date {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .cover-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 30px 0;
+        }
+
+        .cover-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            border-radius: 50px;
+            color: var(--hcm-green);
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+            width: fit-content;
+        }
+
+        .cover-title {
+            font-size: 4rem;
+            font-weight: 900;
+            color: white;
+            line-height: 1.05;
+            letter-spacing: -2px;
+            margin-bottom: 24px;
+        }
+
+        .cover-title span {
+            color: var(--hcm-green);
+        }
+
+        .cover-description {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 580px;
+            line-height: 1.7;
+        }
+
+        .cover-meta-bar {
+            display: flex;
+            gap: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cover-meta-item {}
+
+        .cover-meta-label {
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.3);
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .cover-meta-value {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 600;
+        }
+
+        /* PÁGINAS DE ÍNDICE */
+        .page-index {
+            padding: 50px 60px;
+        }
+
+        .page-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .page-section-label {
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--hcm-green);
+        }
+
+        .page-section-title {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--text-main);
+            letter-spacing: -1px;
+            margin-top: 6px;
+        }
+
+        .page-number {
+            font-size: 0.75rem;
+            color: var(--text-sec);
+            font-weight: 600;
+        }
+
+        /* INDEX TABLE */
+        .index-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .index-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 24px;
+            background: var(--bg);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .index-num {
+            width: 36px;
+            height: 36px;
+            background: var(--hcm-green);
+            border-radius: 50%;
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .index-info {}
+
+        .index-name {
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 2px;
+        }
+
+        .index-desc {
+            font-size: 0.75rem;
+            color: var(--text-sec);
+        }
+
+        /* PÁGINAS DE CONTENIDO DE SECCIONES */
+        .page-content {
+            padding: 40px 60px;
+            flex: 1;
+        }
+
+        /* FOOTER DE PÁGINA */
+        .page-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 60px;
+            border-top: 1px solid var(--border);
+            background: #FAFAFA;
+            flex-shrink: 0;
+        }
+
+        .page-footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.7rem;
+            color: var(--text-sec);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .page-footer-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--lda-red);
+            border-radius: 50%;
+        }
+
+        .page-footer-right {
+            font-size: 0.7rem;
+            color: var(--text-sec);
+        }
+
+        /* CONTENIDO EXTRAÍDO — estilos de normalización */
+        .extracted-content {
+            font-size: 0.85rem;
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .extracted-content h1,
+        .extracted-content h2,
+        .extracted-content h3 {
+            margin-bottom: 12px;
+            margin-top: 20px;
+            line-height: 1.2;
+            color: var(--text-main);
+        }
+
+        .extracted-content h1 {
+            font-size: 1.6rem;
+            font-weight: 900;
+        }
+
+        .extracted-content h2 {
+            font-size: 1.2rem;
+            font-weight: 800;
+        }
+
+        .extracted-content h3 {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .extracted-content h1:first-child,
+        .extracted-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .extracted-content p {
+            margin-bottom: 10px;
+            color: var(--text-sec);
+        }
+
+        .extracted-content nav,
+        .extracted-content .global-nav-wrapper,
+        .extracted-content .theme-toggle-wrapper,
+        .extracted-content .nav-breadcrumb,
+        .extracted-content .bg-mesh,
+        .extracted-content footer,
+        .extracted-content .carousel-btn,
+        .extracted-content script {
+            display: none !important;
+        }
+
+        .extracted-content .hero {
+            padding: 30px !important;
+            margin-bottom: 24px !important;
+            border-radius: 16px !important;
+            border: 1px solid var(--border) !important;
+            box-shadow: none !important;
+            background: var(--hcm-green-soft) !important;
+        }
+
+        .extracted-content .hero h1 {
+            font-size: 1.8rem !important;
+            background: linear-gradient(135deg, var(--text-main) 0%, var(--hcm-green) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px !important;
+        }
+
+        .extracted-content .hero p {
+            font-size: 0.9rem !important;
+            color: var(--text-sec) !important;
+            margin: 0 !important;
+        }
+
+        .extracted-content .hero-badge {
+            font-size: 0.68rem !important;
+            padding: 4px 12px !important;
+            margin-bottom: 12px !important;
+        }
+
+        .extracted-content .container {
+            padding: 0 !important;
+            max-width: 100% !important;
+        }
+
+        .extracted-content .carousel-container {
+            overflow: visible !important;
+        }
+
+        .extracted-content .carousel-track {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            overflow: visible !important;
+            gap: 12px !important;
+        }
+
+        .extracted-content .apple-card {
+            flex: 0 0 auto !important;
+            width: 160px !important;
+            height: auto !important;
+            min-height: 160px !important;
+            padding: 16px !important;
+            border-radius: 12px !important;
+            font-size: 0.78rem !important;
+        }
+
+        .extracted-content .apple-card .card-visual {
+            display: none !important;
+        }
+
+        .extracted-content .apple-card .title {
+            font-size: 0.92rem !important;
+        }
+
+        .extracted-content .apple-card .desc {
+            font-size: 0.75rem !important;
+        }
+
+        .extracted-content .milestone {
+            padding-left: 60px !important;
+            margin-bottom: 16px !important;
+        }
+
+        .extracted-content .milestone-node {
+            width: 28px !important;
+            height: 28px !important;
+            font-size: 0.72rem !important;
+            left: 14px !important;
+        }
+
+        .extracted-content .milestone-content {
+            padding: 14px 18px !important;
+            border-radius: 10px !important;
+        }
+
+        .extracted-content .milestone-title {
+            font-size: 0.88rem !important;
+        }
+
+        .extracted-content .milestone-desc {
+            font-size: 0.75rem !important;
+        }
+
+        .extracted-content .action-icon {
+            width: 28px !important;
+            height: 28px !important;
+        }
+
+        .extracted-content .status-badge {
+            font-size: 0.65rem !important;
+            padding: 4px 8px !important;
+        }
+
+        .extracted-content table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.78rem;
+            margin: 12px 0;
+        }
+
+        .extracted-content th,
+        .extracted-content td {
+            border: 1px solid var(--border);
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        .extracted-content th {
+            background: var(--hcm-green-soft);
+            font-weight: 700;
+        }
+
+        /* COLLAPSE LARGE TABLES FOR PRINT */
+        .extracted-content .rfi-table-wrapper {
+            overflow: hidden !important;
+        }
+
+        /* SECTION TITLE */
+        .pdf-section-divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .pdf-section-num {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--hcm-green), #34d399);
+            border-radius: 50%;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .pdf-section-info {}
+
+        .pdf-section-kicker {
+            font-size: 0.65rem;
+            font-weight: 800;
+            color: var(--hcm-green);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .pdf-section-name {
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+        }
+
+        /* ─── PRINT STYLES ─────────────────────────────────────── */
+        @media print {
+            @page {
+                size: A4 landscape;
+                margin: 0;
+            }
+
+            body {
+                background: white !important;
+            }
+
+            #loading-screen {
+                display: none !important;
+            }
+
+            .pdf-controls {
+                display: none !important;
+            }
+
+            .pdf-wrapper {
+                padding: 0 !important;
+                background: white !important;
+            }
+
+            .pdf-page {
+                width: 100% !important;
+                min-height: 100vh !important;
+                margin: 0 !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                page-break-after: always !important;
+                break-after: page !important;
+            }
+
+            .pdf-page:last-child {
+                page-break-after: avoid !important;
+                break-after: avoid !important;
+            }
+        }
+    </style>
+
+    <link rel="stylesheet" href="../local_styles.css">
+</head>
+
+<body>
+
+    <!-- ═══ PANTALLA DE CARGA ═══════════════════════════════════ -->
+    <div id="loading-screen">
+        <div class="loading-logo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+        </div>
+        <div class="loading-title">Preparando Exportación</div>
+        <div class="loading-subtitle">Evolución HCM Cloud — Documento Completo</div>
+        <div class="loading-progress-bar">
+            <div class="loading-progress-fill" id="progress-fill"></div>
+        </div>
+        <div class="loading-status" id="loading-status">Iniciando...</div>
+        <div class="loading-error" id="loading-error"></div>
+    </div>
+
+    <!-- ═══ DOCUMENTO PDF ════════════════════════════════════════ -->
+    <div id="pdf-document">
+
+        <!-- BARRA DE CONTROLES -->
+        <div class="pdf-controls">
+            <div class="pdf-controls-left">
+                <div class="pdf-controls-brand">
+                    <div class="pdf-controls-brand-dot"></div>
+                    <div>
+                        <div class="pdf-controls-title">Evolución HCM Cloud</div>
+                        <div class="pdf-controls-subtitle">Documento Completo del Proyecto</div>
+                    </div>
+                </div>
+                <div class="pdf-divider"></div>
+                <div class="pdf-info-badge" id="pages-badge">8 secciones · 2026</div>
+            </div>
+            <div class="pdf-controls-right">
+                <button class="btn-close" onclick="window.close()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                    </svg>
+                    Cerrar
+                </button>
+                <button class="btn-print" onclick="window.print()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                        <rect x="6" y="14" width="12" height="8"></rect>
+                    </svg>
+                    Imprimir / Guardar PDF
+                </button>
+            </div>
+        </div>
+
+        <!-- CONTENIDO DEL PDF -->
+        <div class="pdf-wrapper" id="pdf-wrapper">
+            <!-- Las páginas se generan dinámicamente por JS -->
+        </div>
+
+    </div>
+
+    <script>
+        // ═══════════════════════════════════════════════════════════════
+        //  CONFIGURACIÓN DEL PROYECTO HCM
+        //  Define aquí las páginas a exportar en orden
+        // ═══════════════════════════════════════════════════════════════
+        const PROJECT_CONFIG = {
+            nombre: 'Evolución HCM Cloud',
+            subtitulo: 'Migración estratégica de PeopleSoft RR.HH. a arquitectura Cloud',
+            estado: 'ROADMAP 2026',
+            responsable: 'Gestión de Personas & Tecnología',
+            area: 'Recursos Humanos / IT',
+            fecha: new Date().toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' }),
+            color: '#10B981',
+            paginas: [
+                {
+                    archivo: 'universo_estrategico.html',
+                    titulo: 'Universo Estratégico',
+                    descripcion: 'Roadmap cronológico del proyecto evolutivo. Nueve fases desde la obsolescencia hasta la licitación.',
+                    seccion: 'Fase 1 — Estrategia'
+                },
+                {
+                    archivo: 'levantamiento_necesidad.html',
+                    titulo: 'Levantamiento de Necesidad',
+                    descripcion: 'Identificación de obsolescencia en sistemas Legacy (PeopleSoft) y evaluación de riesgos.',
+                    seccion: 'Fase 1 — Análisis'
+                },
+                {
+                    archivo: 'estrategia_ecosistema.html',
+                    titulo: 'Decisión de Ecosistema',
+                    descripcion: 'Análisis macro: Arquitectura Global Unificada vs Best-of-Breed funcionales.',
+                    seccion: 'Fase 1 — Arquitectura'
+                },
+                {
+                    archivo: 'evaluacion_mercado.html',
+                    titulo: 'Evaluación del Mercado HCM',
+                    descripcion: 'Estudio de las principales plataformas Cloud HCM del mercado.',
+                    seccion: 'Fase 2 — Mercado'
+                },
+                {
+                    archivo: 'vision_general.html',
+                    titulo: 'Business Case & Viabilidad',
+                    descripcion: 'Análisis financiero, comparativa Oracle vs Workday y justificación del retorno (TCO).',
+                    seccion: 'Fase 2 — Financiero'
+                },
+                {
+                    archivo: 'rfi_productos.html',
+                    titulo: 'RFI Productos — Funciones y Licencias',
+                    descripcion: 'Petición formal de información a fabricantes sobre alcance funcional y licenciamiento.',
+                    seccion: 'Fase 3 — RFI'
+                },
+                {
+                    archivo: 'rfi_implantacion.html',
+                    titulo: 'RFI Implantación de Producto',
+                    descripcion: 'Información a integradores sobre tiempos, modelo y estrategia de despliegue.',
+                    seccion: 'Fase 3 — RFI'
+                }
+            ]
+        };
+
+        // ═══════════════════════════════════════════════════════════════
+        //  MOTOR DE EXPORTACIÓN
+        // ═══════════════════════════════════════════════════════════════
+        const $ = id => document.getElementById(id);
+        const fill = $('progress-fill');
+        const status = $('loading-status');
+        const errorBox = $('loading-error');
+
+        function setProgress(pct, msg) {
+            fill.style.width = pct + '%';
+            status.textContent = msg;
+        }
+
+        function showError(msg) {
+            errorBox.style.display = 'block';
+            errorBox.textContent = '⚠ ' + msg;
+        }
+
+        // Extrae el contenido útil de un documento HTML parseado
+        function extractContent(htmlDoc) {
+            // Eliminamos todo lo que no queremos en el PDF
+            const toRemove = [
+                'script', 'style', 'nav', '.global-nav-wrapper',
+                '.theme-toggle-wrapper', '.bg-mesh', 'footer',
+                '.carousel-btn', '.nav-breadcrumb', '#loading-screen',
+                '.pdf-controls', '.export-fab'
+            ];
+
+            toRemove.forEach(sel => {
+                try {
+                    htmlDoc.querySelectorAll(sel).forEach(el => el.remove());
+                } catch (e) { }
+            });
+
+            // Preferimos el <main> o el .container
+            const main = htmlDoc.querySelector('main') || htmlDoc.querySelector('.container') || htmlDoc.body;
+            if (!main) return '<p><em>Sin contenido extraíble</em></p>';
+
+            // Expandir carruseles: convertir flex-track a flex-wrap
+            main.querySelectorAll('.carousel-track').forEach(track => {
+                track.style.flexWrap = 'wrap';
+                track.style.overflow = 'visible';
+            });
+
+            return main.innerHTML;
+        }
+
+        // Crea una "página" PDF con header, contenido y footer
+        function buildPage(numero, totalPaginas, kicker, titulo, htmlContent, isIndex = false) {
+            const page = document.createElement('div');
+            page.className = 'pdf-page' + (isIndex ? ' page-index' : ' page-content');
+
+            page.innerHTML = `
+            <div class="page-header">
+                <div>
+                    <div class="page-section-label">${kicker}</div>
+                    <div class="page-section-title">${titulo}</div>
+                </div>
+                <div class="page-number">Pág. ${numero} / ${totalPaginas}</div>
+            </div>
+            <div class="extracted-content pdf-body-content">
+                ${htmlContent}
+            </div>
+            <div class="page-footer">
+                <div class="page-footer-brand">
+                    <div class="page-footer-dot"></div>
+                    Evolución HCM Cloud · Cuaderno de Bitácora
+                </div>
+                <div class="page-footer-right">${PROJECT_CONFIG.fecha} · Documento Confidencial</div>
+            </div>
+        `;
+
+            return page;
+        }
+
+        // Construye la PORTADA
+        function buildCover() {
+            const page = document.createElement('div');
+            page.className = 'pdf-page page-cover';
+
+            page.innerHTML = `
+            <div class="cover-header">
+                <div class="cover-logo">
+                    <div class="cover-logo-dot"></div>
+                    <div class="cover-logo-text">Cuaderno de Bitácora · Portal de Proyectos</div>
+                </div>
+                <div class="cover-date">${PROJECT_CONFIG.fecha}</div>
+            </div>
+
+            <div class="cover-body">
+                <div class="cover-badge">${PROJECT_CONFIG.estado}</div>
+                <div class="cover-title">Evolución<br><span>HCM Cloud</span></div>
+                <div class="cover-description">${PROJECT_CONFIG.subtitulo}. Documento completo del proyecto con todas las fases, análisis y evidencias generadas.</div>
+            </div>
+
+            <div class="cover-meta-bar">
+                <div class="cover-meta-item">
+                    <div class="cover-meta-label">Área</div>
+                    <div class="cover-meta-value">${PROJECT_CONFIG.area}</div>
+                </div>
+                <div class="cover-meta-item">
+                    <div class="cover-meta-label">Responsable</div>
+                    <div class="cover-meta-value">${PROJECT_CONFIG.responsable}</div>
+                </div>
+                <div class="cover-meta-item">
+                    <div class="cover-meta-label">Secciones</div>
+                    <div class="cover-meta-value">${PROJECT_CONFIG.paginas.length} documentos</div>
+                </div>
+                <div class="cover-meta-item">
+                    <div class="cover-meta-label">Estado</div>
+                    <div class="cover-meta-value" style="color: var(--hcm-green);">● Activo · En Progreso</div>
+                </div>
+            </div>
+        `;
+
+            return page;
+        }
+
+        // Construye la página de ÍNDICE
+        function buildIndexPage(totalPages) {
+            const page = document.createElement('div');
+            page.className = 'pdf-page page-index';
+
+            const itemsHtml = PROJECT_CONFIG.paginas.map((p, i) => `
+            <div class="index-item">
+                <div class="index-num">${i + 1}</div>
+                <div class="index-info">
+                    <div class="index-name">${p.titulo}</div>
+                    <div class="index-desc">${p.descripcion}</div>
+                </div>
+            </div>
+        `).join('');
+
+            page.innerHTML = `
+            <div class="page-header">
+                <div>
+                    <div class="page-section-label">Índice del Documento</div>
+                    <div class="page-section-title">Contenido del Proyecto</div>
+                </div>
+                <div class="page-number">Pág. 2 / ${totalPages}</div>
+            </div>
+            <div class="index-grid">
+                ${itemsHtml}
+            </div>
+            <div class="page-footer" style="margin-top: auto;">
+                <div class="page-footer-brand">
+                    <div class="page-footer-dot"></div>
+                    Evolución HCM Cloud · Cuaderno de Bitácora
+                </div>
+                <div class="page-footer-right">${PROJECT_CONFIG.fecha} · Documento Confidencial</div>
+            </div>
+        `;
+
+            return page;
+        }
+
+        // FUNCIÓN PRINCIPAL
+        async function generarExportacion() {
+            const wrapper = $('pdf-wrapper');
+            const totalPaginas = PROJECT_CONFIG.paginas.length + 2; // portada + índice + contenido
+
+            setProgress(5, 'Construyendo portada...');
+            await new Promise(r => setTimeout(r, 300));
+
+            // 1. PORTADA
+            wrapper.appendChild(buildCover());
+            setProgress(10, 'Portada lista');
+
+            // 2. ÍNDICE
+            wrapper.appendChild(buildIndexPage(totalPaginas));
+            setProgress(15, 'Índice generado');
+
+            // 3. CARGAR CADA PÁGINA
+            const total = PROJECT_CONFIG.paginas.length;
+            for (let i = 0; i < total; i++) {
+                const conf = PROJECT_CONFIG.paginas[i];
+                const pct = 15 + Math.round(((i + 1) / total) * 80);
+
+                setProgress(pct, `Cargando: ${conf.titulo}...`);
+
+                try {
+                    const response = await fetch(conf.archivo);
+                    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+                    const html = await response.text();
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+
+                    const contenido = extractContent(doc);
+                    const nPagina = i + 3; // portada=1, índice=2
+
+                    const page = buildPage(
+                        nPagina,
+                        totalPaginas,
+                        conf.seccion,
+                        conf.titulo,
+                        contenido
+                    );
+
+                    wrapper.appendChild(page);
+
+                } catch (err) {
+                    console.error('Error cargando', conf.archivo, err);
+                    // Página de error amigable en lugar de romper todo
+                    const errPage = document.createElement('div');
+                    errPage.className = 'pdf-page page-content';
+                    errPage.innerHTML = `
+                    <div class="page-header">
+                        <div>
+                            <div class="page-section-label">${conf.seccion}</div>
+                            <div class="page-section-title">${conf.titulo}</div>
+                        </div>
+                        <div class="page-number">Pág. ${i + 3} / ${totalPaginas}</div>
+                    </div>
+                    <div style="display:flex;align-items:center;justify-content:center;flex:1;padding:40px;">
+                        <div style="text-align:center;padding:40px;background:#FEF2F2;border-radius:16px;border:1px solid #FECACA;max-width:400px;">
+                            <div style="font-size:2rem;margin-bottom:16px;">⚠️</div>
+                            <h3 style="color:#DC2626;margin-bottom:8px;">Página no disponible</h3>
+                            <p style="color:#6B7280;font-size:0.85rem;">No se pudo cargar <strong>${conf.archivo}</strong>. Esto puede ocurrir si el archivo no existe o si el navegador bloquea las peticiones locales. Prueba a abrir este archivo desde un servidor local.</p>
+                        </div>
+                    </div>
+                    <div class="page-footer">
+                        <div class="page-footer-brand">
+                            <div class="page-footer-dot"></div>
+                            Evolución HCM Cloud · Cuaderno de Bitácora
+                        </div>
+                        <div class="page-footer-right">${PROJECT_CONFIG.fecha} · Documento Confidencial</div>
+                    </div>
+                `;
+                    wrapper.appendChild(errPage);
+                }
+
+                await new Promise(r => setTimeout(r, 50));
+            }
+
+            setProgress(100, '¡Listo! Mostrando documento...');
+            await new Promise(r => setTimeout(r, 500));
+
+            // MOSTRAR DOCUMENTO
+            $('loading-screen').classList.add('hidden');
+            $('pdf-document').style.display = 'block';
+
+            setTimeout(() => {
+                $('loading-screen').style.display = 'none';
+            }, 700);
+        }
+
+        // INICIO
+        document.addEventListener('DOMContentLoaded', () => {
+            generarExportacion().catch(err => {
+                showError('Error inesperado: ' + err.message);
+                setProgress(0, 'Error al generar el documento');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

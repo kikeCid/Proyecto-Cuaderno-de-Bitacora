@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronograma del Proyecto | Universo LidIA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../Cuaderno de Bitacora (Proyectos)/styles_bitacora.css">
+    <link rel="stylesheet" href="../../local_styles.css">
+    <style>
+        .timeline-vertical {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            padding-left: 40px;
+        }
+        .timeline-vertical::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 11px;
+            height: 100%;
+            width: 4px;
+            background: rgba(227, 0, 27, 0.2);
+            border-radius: 2px;
+        }
+        .quarter-block {
+            position: relative;
+            margin-bottom: 60px;
+        }
+        .quarter-dot {
+            position: absolute;
+            left: -40px;
+            top: 0;
+            width: 26px;
+            height: 26px;
+            background: var(--bg-main);
+            border: 4px solid var(--lda-red);
+            border-radius: 50%;
+            z-index: 2;
+        }
+        .quarter-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin: 0 0 30px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .quarter-title span {
+            font-size: 0.9rem;
+            padding: 4px 12px;
+            background: var(--lda-red);
+            color: white;
+            border-radius: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .plazo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+        
+        .plazo-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+        }
+        .plazo-header {
+            background: #d32f2f;
+            color: white;
+            padding: 16px;
+            text-align: center;
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+        .plazo-body { padding: 24px; flex-grow: 1;}
+        
+        .task-item { display: flex; gap: 12px; margin-bottom: 16px; align-items: flex-start;}
+        .task-item:last-child { margin-bottom: 0; }
+        .task-icon { color: var(--lda-red); margin-top: 2px; }
+        .task-text { color: var(--text-sec); font-size: 0.95rem; line-height: 1.5; }
+        .task-text strong { color: var(--text-main); font-weight: 800; }
+        .task-text strike { opacity: 0.5; }
+
+        .roadmap-2025-block {
+            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(227, 0, 27, 0.03) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 40px;
+            margin-top: 60px;
+        }
+        .roadmap-list { margin: 0; padding-left: 20px; }
+        .roadmap-list > li { margin-bottom: 24px; font-weight: 800; color: var(--text-main); font-size: 1.1rem; }
+        .roadmap-list ul { margin-top: 10px; padding-left: 20px; font-weight: 400;}
+        .roadmap-list ul li { margin-bottom: 8px; font-size: 0.95rem; color: var(--text-sec); line-height: 1.5; list-style-type: circle;}
+        
+    </style>
+</head>
+<body>
+    <nav class="global-nav-wrapper">
+        <button class="nav-btn" onclick="javascript:history.back()" title="Volver atrás">
+            <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+        </button>
+        <div class="nav-divider"></div>
+        <div class="nav-breadcrumb">
+            <a href="../../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            </a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <a href="../index.html" class="nav-breadcrumb-item">Gestión Info</a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <a href="hub_lidia.html" class="nav-breadcrumb-item">Universo LidIA</a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <span class="nav-breadcrumb-item current">Cronograma</span>
+        </div>
+    </nav>
+    
+    <div class="top-controls-wrapper" style="position: fixed; top: 30px; right: 30px; z-index: 100;">
+        <div class="theme-toggle-wrapper" style="box-shadow: var(--shadow);">
+            <span class="theme-label">MODO OSCURO</span>
+            <label class="theme-switch"><input type="checkbox" id="theme-checkbox" onchange="toggleTheme()"><span class="slider"></span></label>
+        </div>
+    </div>
+
+    <main class="container">
+        <header class="hero" style="text-align: center; padding: 60px 0 40px;">
+            <span class="hero-badge" style="background:var(--lda-red);">PLAN DE EJECUCIÓN</span>
+            <h1>Cronograma de Tareas <br><span>Proyecto LidIA</span></h1>
+            <p style="margin: 0 auto; max-width: 800px;">Desglose operativo de entregables y avances tecnológicos planificados a corto, medio y largo plazo durante la vida del proyecto.</p>
+        </header>
+
+        <div class="timeline-vertical">
+            
+            <!-- 1Q 2024 -->
+            <div class="quarter-block">
+                <div class="quarter-dot"></div>
+                <h2 class="quarter-title">Tareas 1Q <span>2024</span></h2>
+                
+                <div class="plazo-grid">
+                    <div class="plazo-card">
+                        <div class="plazo-header">Corto Plazo</div>
+                        <div class="plazo-body">
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg></div>
+                                <div class="task-text"><strong>06/03</strong> - RUS enviado IT - Fase 1</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg></div>
+                                <div class="task-text"><strong>15/03</strong> - RUS enviado IT - Fase 2</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg></div>
+                                <div class="task-text"><strong>21/03</strong> - ACA entregado - Fase 1</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg></div>
+                                <div class="task-text"><strong>26/03</strong> - ACA Aceptado por PersCom - Fase 1</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg></div>
+                                <div class="task-text"><strong>27/03</strong> - Inicio Desarrollo IT - Fase 1</div>
+                            </div>
+                            <div class="task-item" style="margin-top: 24px;">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg></div>
+                                <div class="task-text"><strong>20/03</strong> - Información, Análisis, Conclusiones y Borrador Guide Line contenido Antiokupación y Especialistas</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="plazo-card">
+                        <div class="plazo-header">Medio Plazo</div>
+                        <div class="plazo-body">
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg></div>
+                                <div class="task-text"><strong>10/04</strong> - Plan de Comunicación - Fase 2</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+                                <div class="task-text"><strong>11/04</strong> - Definición KPI's - Fase 2</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+                                <div class="task-text"><strong>12/04</strong> - Aprobación Guide Line "Antiokupacion" & "Especialistas"</div>
+                            </div>
+                            <div class="task-item" style="margin-top: 24px;">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+                                <div class="task-text"><strong>09/04</strong> - Preparación pruebas entregable 1 Info Organigrama - Fase 1</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+                                <div class="task-text"><strong>15/04</strong> - ACA en revisión - Fase 2</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="plazo-card">
+                        <div class="plazo-header">Largo Plazo <span style="font-size: 0.8rem; opacity: 0.8; font-weight: 400;">(2Q)</span></div>
+                        <div class="plazo-body">
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+                                <div class="task-text"><strong>10/05</strong> - PaT Entregable - Fase 1</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+                                <div class="task-text"><strong>20/05</strong> - OK al PaP - Fase 1</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+                                <div class="task-text"><strong>30/05</strong> - PaP Entregable - Fase 1</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2Q 2024 -->
+            <div class="quarter-block">
+                <div class="quarter-dot"></div>
+                <h2 class="quarter-title">Tareas 2Q <span>2024</span></h2>
+                
+                <div class="plazo-grid">
+                    <div class="plazo-card">
+                        <div class="plazo-header">Corto Plazo</div>
+                        <div class="plazo-body">
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg></div>
+                                <div class="task-text"><strong>09/04</strong> - Preparación entregable 1- Info Organigrama – Fase 1</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+                                <div class="task-text"><strong>16/04</strong> - Entregado ACA por IT – Fase 2</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+                                <div class="task-text"><strong>17/04</strong> - Aceptación ACA áreas afectadas – Fase 2</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+                                <div class="task-text"><strong>19/04</strong> - Aceptación RUS 3 áreas afectadas – Fase 3</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="plazo-card">
+                        <div class="plazo-header">Medio Plazo</div>
+                        <div class="plazo-body">
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg></div>
+                                <div class="task-text"><strong>28/06</strong> - OK PaP - Fase 1 y 2</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+                                <div class="task-text"><strong>05/07</strong> - PaP Lidia Generativa - Early adopter Contenido RRHH</div>
+                            </div>
+                            <div class="task-item" style="margin-top: 24px;">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+                                <div class="task-text">
+                                    <strong>11/07</strong> - Entregable ACA por IT Fase 3
+                                    <ul style="margin-top: 4px; padding-left: 20px; font-size: 0.9rem;">
+                                        <li>Planificado 31/05/2024</li>
+                                        <li>Replanificado por IT a 30/06</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="plazo-card">
+                        <div class="plazo-header">Largo Plazo <span style="font-size: 0.8rem; opacity: 0.8; font-weight: 400;">(3Q)</span></div>
+                        <div class="plazo-body">
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+                                <div class="task-text"><strong>30/09</strong> - PaP Fase 3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3Q 2024 -->
+            <div class="quarter-block">
+                <div class="quarter-dot"></div>
+                <h2 class="quarter-title">Tareas 3Q <span>2024</span></h2>
+                
+                <div class="plazo-grid">
+                    <div class="plazo-card">
+                        <div class="plazo-header">Corto Plazo</div>
+                        <div class="plazo-body">
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg></div>
+                                <div class="task-text"><strong>04/07</strong> - PaP Controlado LidIA Grupos Early Adopter RRHH</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+                                <div class="task-text"><strong>08/07</strong> - Nuevo Sistema Ágil actualización contenidos en la Base de conocimiento de la IA (IT)</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+                                <div class="task-text"><strong>10/07</strong> - PaP Controlado LidIA Grupos Early Adopter Conocimiento</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+                                <div class="task-text"><strong>15/07</strong> - Definición de RUS MVP - Repositorio Información y UX interface</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+                                <div class="task-text"><strong>08/08</strong> - OK ACA Fase 3 RRHH (Identificación usuario)</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+                                <div class="task-text"><strong>30/09</strong> - Cambio enrutador Lidia (CLU)</div>
+                            </div>
+                            <div class="task-item" style="margin-top: 16px;">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></div>
+                                <div class="task-text"><strike><strong>30/09</strong> - Grupos de Control de Negocio Nuevos Productos</strike></div>
+                            </div>
+                            <div class="task-item" style="margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--border-color);">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg></div>
+                                <div class="task-text"><span style="color:var(--lda-red); font-weight:800;">Bloqueado - CRITICO:</span> <strong>08/07</strong> - Entrenamiento IA Contenido CAU</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="plazo-card">
+                        <div class="plazo-header">Medio Plazo</div>
+                        <div class="plazo-body">
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+                                <div class="task-text">Despliegue en producción de "Lidia RRHH" + "Lidia Conocimiento": documentos de Antiokupación , Especialistas y Mascotas tras test en julio/Agosto early adopters.</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+                                <div class="task-text">PaP Identificación Usuario <strike>& Información BI</strike></div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+                                <div class="task-text">ACA MVP Biblioteca Conocimiento</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+                                <div class="task-text">ACA MVP Interface y UX LidIA</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+                                <div class="task-text">Cierre protocolo de Gobierno de Lidia</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="plazo-card">
+                        <div class="plazo-header">Largo Plazo <span style="font-size: 0.8rem; opacity: 0.8; font-weight: 400;">(4Q)</span></div>
+                        <div class="plazo-body">
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+                                <div class="task-text">Despliegue en producción MVP de “LidIA” conocimiento. (Biblioteca e Interface UX)</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+                                <div class="task-text">Subida de contenidos críticos del catálogo de las áreas front. (Comercial, Cartera, SyP)</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+                                <div class="task-text">Cierre y subida contenido del nuevo producto “Multirriesgo” (en función del PaP de este proyecto)</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+                                <div class="task-text">Inicio análisis para cerrar roadmap de “LidIA” Conocimiento y back office (proyecto plan 2025)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4Q 2024 -->
+            <div class="quarter-block">
+                <div class="quarter-dot"></div>
+                <h2 class="quarter-title">Tareas 4Q <span>2024</span></h2>
+                
+                <div class="plazo-grid">
+                    <div class="plazo-card">
+                        <div class="plazo-header">Corto Plazo</div>
+                        <div class="plazo-body">
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg></div>
+                                <div class="task-text"><strong>31/10</strong> - PaP Controlado LidIA Grupo Supervisores y Colaboradores Formacion Cartera y Comercial y a todos los usuarios del Back.</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg></div>
+                                <div class="task-text"><strong>04/11</strong> - PaP Controlado LidIA Grupo Chat Cartera</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg></div>
+                                <div class="task-text"><strong>06/11</strong> - PaP Controlado LidIA 2 Grupos Retención Cartera</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg></div>
+                                <div class="task-text"><strike>Definir siguientes grupos con acceso controlado a LidIA</strike></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="plazo-card">
+                        <div class="plazo-header">Medio Plazo</div>
+                        <div class="plazo-body">
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg></div>
+                                <div class="task-text"><strong>23/12</strong> - OK PaP MVP Biblioteca Conocimiento</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg></div>
+                                <div class="task-text">
+                                    <strong>18/12</strong> - Subida contenidos a Conocimiento Negocio alto uso
+                                    <ul style="margin-top: 4px; padding-left: 20px; font-size: 0.9rem;">
+                                        <li>Contenidos priorizados por grupo de Chat Cartera</li>
+                                        <li>Contenidos priorizados por Área Cartera</li>
+                                        <li>Contenidos priorizados por Área Comercial</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg></div>
+                                <div class="task-text"><strong>23/12</strong> - Inicio análisis para cerrar roadmap de “LidIA” Conocimiento y back office (proyecto plan 2025)</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg></div>
+                                <div class="task-text"><strong>31/12</strong> - Acceso a Lidia IA a toda Cartera y Comercial (contenidos priorizados indicados)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="plazo-card">
+                        <div class="plazo-header">Largo Plazo <span style="font-size: 0.8rem; opacity: 0.8; font-weight: 400;">(2025)</span></div>
+                        <div class="plazo-body">
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+                                <div class="task-text">OK PaP MVP Interface y UX LidIA</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+                                <div class="task-text">Subida de contenidos uso medio catálogo de las áreas front. (Comercial, Cartera, SyP)</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+                                <div class="task-text">Cierre y subida contenido del nuevo producto “Multirriesgo” (en función del PaP de este proyecto)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ROADMAP 2025 (Propuesta original) -->
+            <div class="quarter-block" style="margin-top: 100px;">
+                <div class="quarter-dot"></div>
+                <h2 class="quarter-title">Roadmap Original <span>2025</span></h2>
+                
+                <div class="roadmap-2025-block">
+                    <ul class="roadmap-list">
+                        <li>
+                            Gobierno de Información
+                            <ul>
+                                <li>Montar un grupo de trabajo para organizar y estructurar la información y documentación de la compañía. Cerrar los responsables del conocimiento.</li>
+                                <li>Identificar Conocimiento por bloques completos, uniformes y sin incongruencias.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Consolidar el Conocimiento Corporativo
+                            <ul>
+                                <li>Crear un entorno del conocimiento Único, centralizado y organizado.</li>
+                                <li>Actualizar la base de conocimiento para la IA de manera constante.</li>
+                                <li>Estructura de información enfocada en producto.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Enfocar en la Experiencia del Usuario
+                            <ul>
+                                <li>Mejorar la interfaz y las interacciones.</li>
+                                <li>Simplificar y acelerar el trabajo del operador.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Evolucionar Tecnológicamente
+                            <ul>
+                                <li>Implementar una arquitectura modular y escalable para estabilizar la arquitectura.</li>
+                                <li>Soportar el crecimiento futuro.</li>
+                            </ul>
+                        </li>
+                        <li>Plan de Adopción y Comunicación</li>
+                    </ul>
+                </div>
+
+                <!-- NOTA DE REENFOQUE GIN 2026 -->
+                <div class="note-reenfoque" style="background: rgba(227, 0, 27, 0.05); border-left: 4px solid var(--lda-red); padding: 24px 32px; border-radius: 0 16px 16px 0; margin: 40px auto 20px; display: flex; gap: 20px; align-items: flex-start;">
+                    <div style="color: var(--lda-red); flex-shrink: 0; padding-top: 4px;">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--lda-red); font-weight: 800; font-size: 1.2rem; margin: 0 0 8px 0;">De Roadmap 2025 al Reenfoque 2026</h3>
+                        <p style="color: var(--text-sec); font-size: 1rem; line-height: 1.6; margin: 0; padding-bottom: 16px;">Este listado refleja la propuesta inicial diseñada para estructurar las tareas durante 2025. Sin embargo, debido al punto de inflexión estratégico alcanzado tras el 1Q de 2025, estos objetivos conceptuales maduraron y se transformaron en el <strong>Reenfoque de 2026</strong>. Toda la arquitectura, gobierno y experiencia reflejada en este borrador inicial se ha expandido en el nuevo marco operativo liderado por el Dominio GIN, el cual se documenta exhaustivamente en el pilar estratégico del Universo LidIA.</p>
+                        <a href="estrategia_2026.html" style="display: inline-flex; align-items: center; gap: 8px; background: var(--lda-red); color: white; text-decoration: none; padding: 10px 20px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+                            Ver Reenfoque Proyecto 2026
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <script>
+        function toggleTheme() {
+            const isDark = document.getElementById('theme-checkbox').checked;
+            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            const cb = document.getElementById('theme-checkbox');
+            if (cb) cb.checked = savedTheme === 'dark';
+        });
+    </script>
+</body>
+</html>

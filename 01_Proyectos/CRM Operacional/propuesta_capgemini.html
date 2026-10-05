@@ -1,0 +1,306 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta Capgemini | CRM Operacional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Cuaderno de Bitacora (Proyectos)/styles_bitacora.css">
+    <style>
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .info-card {
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .price-tag {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--lda-red);
+            margin: 15px 0;
+            display: block;
+        }
+
+        .vendor-badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        
+        .vendor-badge.sf {
+            background: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+        }
+
+        .vendor-badge.ms {
+            background: rgba(139, 92, 246, 0.1);
+            color: #8b5cf6;
+        }
+
+        .info-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            color: var(--text-sec);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .info-list li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .price-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .info-list li::before {
+            content: "•";
+            color: var(--lda-red);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            position: absolute;
+            left: 0;
+        }
+
+        .price-val {
+            font-weight: 600;
+            color: var(--text-main);
+            margin-left: 10px;
+        }
+        
+        .total-row {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 2px dashed var(--border-color);
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .eje-section { margin-top: 20px; }
+    </style>
+
+    <link rel="stylesheet" href="../local_styles.css">
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper">
+        <div class="nav-breadcrumb">
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item" title="Inicio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <a href="index.html" class="nav-breadcrumb-item" title="Hub CRM Operacional">CRM Operacional</a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <a href="hub_licitacion.html" class="nav-breadcrumb-item">Hub Licitación</a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <span class="nav-breadcrumb-item current">Propuesta Capgemini</span>
+        </div>
+    </nav>
+
+    <!-- THEME TOGGLE -->
+    <div class="top-controls-wrapper" style="position: fixed; top: 30px; right: 30px; z-index: 100;">
+        <div class="theme-toggle-wrapper" style="box-shadow: var(--shadow);">
+            <span class="theme-label">MODO OSCURO</span>
+            <label class="theme-switch">
+                <input type="checkbox" id="theme-checkbox" onchange="toggleTheme()">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+
+    <main class="container">
+        <header class="hero" style="text-align: center; padding: 60px 0 40px;">
+            <span class="hero-badge">PROVEEDOR LICITANTE</span>
+            <span class="hero-badge-local">Recurso en Local</span>
+            <h1>Oferta Integral <br><span>Capgemini</span></h1>
+            <p style="margin: 0 auto; max-width: 800px; margin-bottom: 20px;">Análisis de la propuesta de Capgemini, dividida en los 4 ejes de control del proyecto CRM. Su oferta se desdobla compitiendo con los dos principales fabricantes de software del mercado bajo una metodología marcadamente de factoría software (Sprints continuos).</p>
+            
+            <div style="display: flex; justify-content: center; gap: 15px; margin-top: 20px; flex-wrap: wrap;">
+                <span style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6; padding: 8px 16px; border-radius: 50px; font-weight: 800; font-size: 0.85rem; border: 1px solid rgba(139, 92, 246, 0.2);">📦 OPCIÓN 1: MICROSOFT DYNAMICS 365</span>
+                <span style="background: rgba(239, 68, 68, 0.1); color: #ef4444; padding: 8px 16px; border-radius: 50px; font-weight: 800; font-size: 0.85rem; border: 1px solid rgba(239, 68, 68, 0.2);">⚠️ OPCIÓN 2: SALESFORCE (Producto no especificado: S&S o FSC)</span>
+            </div>
+        </header>
+
+        <!-- EJE 1: IMPLANTACIÓN TÉCNICA -->
+        <div class="section-header eje-section" style="border-left: 4px solid var(--lda-red);">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">EJE 1: Implantación Técnica</h2>
+                <p class="section-subtitle">Diferencias y estrategias de la aproximación tecnológica de Capgemini</p>
+            </div>
+        </div>
+
+        <div class="content-grid">
+            <div class="info-card" style="border-color: rgba(139, 92, 246, 0.3);">
+                <span class="vendor-badge ms">Microsoft Dynamics 365</span>
+                <h3 style="margin-bottom: 10px;">Enfoque Despliegue Microsoft</h3>
+                <p style="color:var(--text-sec); font-size:0.9rem; margin-bottom: 20px;">Independientemente de la tecnología analizada, Capgemini plantea una <strong>metodología de factoría de software continua</strong> de 24 meses totales de duración.</p>
+                <ul class="info-list" style="display: block;">
+                    <li><strong>Inception (3 Meses):</strong> Fase estratégica fundacional, dividida en Kickoff y 4 Sprints iniciales de diseño y definición profunda de UX.</li>
+                    <li><strong>Implantación Continua (21 Meses):</strong> Ejecución pura en formato Agile conformando un total de <strong>31 Sprints</strong> consecutivos sin empaquetamiento comercial en Releases gigantescas.</li>
+                </ul>
+            </div>
+
+            <div class="info-card" style="border-color: rgba(59, 130, 246, 0.3);">
+                <span class="vendor-badge sf">Salesforce</span>
+                <h3 style="margin-bottom: 10px;">Enfoque Despliegue Salesforce</h3>
+                <p style="color:var(--text-sec); font-size:0.9rem; margin-bottom: 20px;">Metodología calcada a la de Microsoft. El cambio recae en que el esfuerzo en herramientas Salesforce asume un sobrecoste inicial pero minimiza integraciones futuras.</p>
+                <ul class="info-list" style="display: block;">
+                    <li><strong>Modelo de Entrega:</strong> Flujo idéntico: 3 meses de 'Inception' seguidos de cadena ininterrumpida de 31 Sprints de desarrollo Salesforce.</li>
+                    <li>Las capacidades "Out-Of-The-Box" de Salesforce no reducen el tiempo que Capgemini prevé para el contrato (24 meses fijos), sino que absorben la complejidad de la integración aseguradora.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- EJE 2: GESTIÓN DEL CAMBIO -->
+        <div class="section-header eje-section" style="border-left: 4px solid #f59e0b;">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">EJE 2: Gestión del Cambio</h2>
+                <p class="section-subtitle">Acompañamiento a operadores y plan de adopción funcional</p>
+            </div>
+        </div>
+
+        <div class="content-grid">
+            <div class="info-card" style="grid-column: 1 / -1;">
+                <h3 style="margin-bottom: 5px;">Formación e Inmersión Cultural</h3>
+                <p style="color:var(--text-sec); font-size:0.9rem; margin-bottom: 10px;">Capgemini no aísla la gestión del cambio como algo post-proyecto, sino que está embebida de forma orgánica a lo largo del "Journey" de las entregas de Sprints.</p>
+                <ul class="info-list" style="margin-top: 15px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <li><span style="display:inline;">Enfoque de <em>Partnership</em> en el acompañamiento a las capas operativas.</span></li>
+                    <li><span style="display:inline;">Generación de valor continuo sprint a sprint en Contact Center.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- EJE 3: MODELO OPERATIVO Y SOPORTE -->
+        <div class="section-header eje-section" style="border-left: 4px solid #8b5cf6;">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">EJE 3: Modelo Operativo y Soporte</h2>
+                <p class="section-subtitle">Gobernanza del proyecto, equipo propuesto, SLAs y garantías</p>
+            </div>
+        </div>
+
+        <div class="content-grid">
+            <div class="info-card">
+                <h3 style="margin-bottom: 5px;">Delivery y Sprints</h3>
+                <p style="color:var(--text-sec); font-size:0.9rem; margin-bottom: 10px;">El equipo propuesto cuenta con una estructura consolidada para desarrollo ágil a escala, probablemente apoyado en modelos <em>rightshore</em> de sus factorías para asumir las largas cadenas de Sprints ininterrumpidos (Mantenimiento de cadencia para 31 Sprints).</p>
+                <ul class="info-list" style="margin-top: 15px;">
+                    <li><span style="display:inline;">Control férreo de plazos mediante metodologías ágiles consolidadas.</span></li>
+                </ul>
+            </div>
+            
+            <div class="info-card">
+                <h3 style="margin-bottom: 5px;">Garantías y Escalados (SLAs)</h3>
+                <p style="color:var(--text-sec); font-size:0.9rem; margin-bottom: 10px;">Proponen un compromiso formal y asumido de ANS (Acuerdos de Nivel de Servicio). Contemplan dos periodos clave para el asentamiento productivo al cierre del proyecto.</p>
+                <ul class="info-list" style="margin-top: 15px;">
+                    <li><span style="display:inline;">Hypercare (HC1 y HC2) dedicados en exclusiva antes del fin.</span></li>
+                    <li><span style="display:inline;">Penalizaciones (límite del 5% facturación) estipuladas por demoras imputables directas al proveedor.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- EJE 4: VALORACIÓN ECONÓMICA -->
+        <div class="section-header eje-section" style="border-left: 4px solid #10b981;">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">EJE 4: Valoración Económica</h2>
+                <p class="section-subtitle">Estimación del esfuerzo y desglose (Inception vs Implantación)</p>
+            </div>
+        </div>
+
+        <div class="content-grid">
+            
+            <!-- TARJETA DYNAMICS -->
+            <div class="info-card" style="border-color: rgba(139, 92, 246, 0.3);">
+                <span class="vendor-badge ms">Microsoft Dynamics 365</span>
+                <h3 style="margin-bottom: 5px;">Opción Dynamics 365</h3>
+                <p style="color:var(--text-sec); font-size:0.85rem; margin-bottom: 20px;">Coste de la factoría de desarrollo distribuida en el total de los 24 meses previstos.</p>
+                <span class="price-tag">4.196.442 €</span>
+                <ul class="info-list price-list">
+                    <li><span><strong>Inception (MES 1-3)</strong></span> <span class="price-val">236.454 €</span></li>
+                    <li><span><strong>Implantación (MES 4-24)</strong></span> <span class="price-val">3.959.988 €</span></li>
+                </ul>
+                <div class="total-row" style="font-size: 0.8rem; font-weight: normal; margin-top: 10px; padding-top: 10px;">*Precio facturado contra Sprints quincenales, sin contemplar impuestos indirectos.</div>
+            </div>
+
+            <!-- TARJETA SALESFORCE -->
+            <div class="info-card" style="border-color: rgba(59, 130, 246, 0.3);">
+                <span class="vendor-badge sf">Salesforce</span>
+                <h3 style="margin-bottom: 5px;">Opción Salesforce</h3>
+                <p style="color:var(--text-sec); font-size:0.85rem; margin-bottom: 20px;">Sufraga el mismo esquema pero valorizando a un rango superior los Sprints técnicos en SF.</p>
+                <span class="price-tag" style="color: #3b82f6;">4.582.909 €</span>
+                <ul class="info-list price-list">
+                    <li><span><strong>Inception (MES 1-3)</strong></span> <span class="price-val">244.287 €</span></li>
+                    <li><span><strong>Implantación (MES 4-24)</strong></span> <span class="price-val">4.338.622 €</span></li>
+                </ul>
+                <div class="total-row" style="font-size: 0.8rem; font-weight: normal; margin-top: 10px; padding-top: 10px;">*Precio facturado contra Sprints quincenales (Aprox. 112k/Sprint), sin contemplar impuestos indirectos.</div>
+            </div>
+            
+        </div>
+
+        <div class="content-grid" style="margin-top: -20px;">
+            <div class="info-card" style="grid-column: 1 / -1; padding: 25px 32px; border-left: 4px solid #ef4444;">
+                <h3 style="font-size: 1.1rem; margin-bottom: 10px; color: #ef4444;">⚠️ Importante: Presupuesto Exclusivo de Servicios Profesionales</h3>
+                <p style="color: var(--text-sec); font-size: 0.95rem; margin:0;">El presupuesto de Capgemini se alza como el más prolongado en tiempo pero más ininterrumpido en su forma de entrega por Sprints. Se recuerda que los importes presentados <strong style="color: #ef4444;">NO INCLUYEN el canon recurrente por la adquisición de las licencias</strong> nativas propias del software empresarial (Microsoft o Salesforce), siendo un coste operativo externo para Línea Directa.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        function toggleTheme() {
+            const checkbox = document.getElementById('theme-checkbox');
+            const isDark = checkbox.checked;
+            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const checkbox = document.getElementById('theme-checkbox');
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                if(checkbox) checkbox.checked = true;
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                if(checkbox) checkbox.checked = false;
+            }
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+        });
+    </script>
+</body>
+</html>

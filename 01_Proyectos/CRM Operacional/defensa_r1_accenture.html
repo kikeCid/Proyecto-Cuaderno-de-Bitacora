@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Defensa Fase 2: Accenture | CRM Operacional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Cuaderno de Bitacora (Proyectos)/styles_bitacora.css">
+    <style>
+        .defense-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .highlight-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--lda-red);
+        }
+
+        .point-list {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0 0;
+        }
+
+        .point-list li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.95rem;
+            color: var(--text-sec);
+        }
+
+        .point-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--lda-red);
+            font-weight: 800;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../local_styles.css">
+</head>
+
+<body>
+    <nav class="global-nav-wrapper">
+        <div class="nav-breadcrumb">
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item">Inicio</a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <a href="index.html" class="nav-breadcrumb-item">CRM Operacional</a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <a href="hub_licitacion.html" class="nav-breadcrumb-item">Hub Licitación</a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <span class="nav-breadcrumb-item current">Defensa R1: Accenture</span>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="hero" style="text-align: center; padding: 60px 0 40px;">
+            <span class="hero-badge" style="background: rgba(59, 130, 246, 0.1); color: #3b82f6; border: 1px solid rgba(59, 130, 246, 0.2);">⬤ FASE 2: SESIÓN DE DEFENSA TÉCNICA</span>
+            <h1>Análisis de Sesión <br><span>Accenture</span></h1>
+                <span class="hero-badge-local" style="margin-top: 10px;">Recurso en Local</span>
+            <p style="margin: 0 auto; max-width: 800px;">Consolidado de los puntos clave defendidos durante la sesión presencial del 11 de marzo de 2026. Foco en la aceleración mediante IA y el modelo de adopción progresiva.</p>
+        </header>
+
+        <!-- SESIÓN INICIAL: ESTRATEGIA Y DEMO (R1) -->
+        <div class="section-header" style="border-left: 4px solid #3b82f6; margin-top: 20px;">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Sesión Inicial: Estrategia y Demo (R1)</h2>
+                <p class="section-subtitle">Capacidades base presentadas en el pliego inicial (11 de Marzo)</p>
+            </div>
+        </div>
+
+        <div class="defense-grid">
+            <!-- DIFERENCIAL TECNOLÓGICO -->
+            <div class="highlight-card">
+                <span class="tag" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6;">Ecosistema AI</span>
+                <h3>Diferencial IAGen</h3>
+                <p style="font-size: 0.85rem; color: var(--text-sec); margin-bottom: 12px;">Foco en la automatización de tareas del Contact Center:</p>
+                <ul class="point-list">
+                    <li><strong>Agentforce:</strong> Despliegue de asistentes digitales para la resolución autónoma de gestiones administrativas simples (maestro de terceros).</li>
+                    <li><strong>Synthesia Integration:</strong> Uso de avatares de video para una comunicación de cambio más empática y personalizada durante el onboarding.</li>
+                    <li><strong>GenAI Reinvention Console:</strong> Framework propio para acelerar el desarrollo de componentes Lightning personalizados.</li>
+                </ul>
+            </div>
+
+            <!-- IMPLANTACIÓN -->
+            <div class="highlight-card" style="border-top-color: #f59e0b;">
+                <span class="tag" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;">Implementación</span>
+                <h3>Modelo de Despliegue</h3>
+                <p style="font-size: 0.85rem; color: var(--text-sec); margin-bottom: 12px;">Estrategia de mitigación de riesgos operativos:</p>
+                <ul class="point-list">
+                    <li><strong>Faseado Seguro:</strong> Inicio con un grupo "Friends & Family" en Motor para validar el modelo antes del despliegue masivo en Hogar.</li>
+                    <li><strong>Arquitectura Dual:</strong> Salesforce como capa de engagement mantiendo a Galgo como sistema transaccional de registro.</li>
+                    <li><strong>MuleSoft + Kafka:</strong> Patrones híbridos para desacoplar el CRM del Core Asegurador de forma resiliente.</li>
+                </ul>
+            </div>
+
+            <!-- GAC -->
+            <div class="highlight-card" style="border-top-color: #10b981;">
+                <span class="tag" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">Gestión del Cambio</span>
+                <h3>Adopción y Soporte</h3>
+                <p style="font-size: 0.85rem; color: var(--text-sec); margin-bottom: 12px;">Compromiso con la autonomía técnica de LDA:</p>
+                <ul class="point-list">
+                    <li><strong>Shadowing Técnico:</strong> Formación "on-the-job" para el CoE de LDA desde la primera iteración de diseño.</li>
+                    <li><strong>Capilaridad:</strong> Plan de comunicación multinivel que cubre desde la operativa hasta la capa directiva.</li>
+                    <li><strong>Hipercare Reforzado:</strong> 4 semanas de presencia física intensiva tras cada Go-Live maestro para estabilización.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="info-card" style="border-left: 4px solid #3b82f6; padding: 30px; margin-top: 20px; margin-bottom: 40px; background: rgba(59,130,246,0.02);">
+            <h3>Conclusión Sesión Inicial (R1: Marzo 2026)</h3>
+            <p style="color: var(--text-main); line-height: 1.6; margin-top: 10px; font-weight: 500;">Accenture presentó una propuesta técnicamente solvente y arquitectónicamente robusta, destacando su capacidad para desacoplar el CRM del Core Maestro Galgo mediante patrones MuleSoft/Kafka. Su enfoque de faseado seguro fue bien valorado por la mesa, aunque la sesión cerró con incertidumbres críticas sobre el TCO final del licenciamiento Salesforce FSC y la resolución de la latencia en procesos síncronos de alta criticidad.</p>
+        </div>
+
+        <!-- AMPLIACIÓN Y REFINAMIENTO (PETICIÓN LDA) -->
+        <div id="refinamiento" class="section-header" style="border-left: 4px solid var(--lda-red); margin-top: 50px;">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Anexo de Rectificación y Aclaraciones (R2)</h2>
+                <p class="section-subtitle">Respuesta detallada a las dudas técnicas y económicas planteadas por LDA (Abril)</p>
+            </div>
+        </div>
+
+        <div class="info-card" style="margin-bottom: 40px; padding: 0; overflow: hidden; border-top: 4px solid var(--lda-red);">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+                <thead>
+                    <tr style="background: rgba(228,0,43,0.05); text-align: left;">
+                        <th style="padding: 15px; border-bottom: 2px solid var(--border-color);">Plica Técnica / Duda LDA</th>
+                        <th style="padding: 15px; border-bottom: 2px solid var(--border-color);">Posición Original R1</th>
+                        <th style="padding: 15px; border-bottom: 2px solid var(--border-color); color: var(--lda-red);">Compromiso Final R2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <td style="padding: 15px; font-weight: 800;">Estrategia Plataforma</td>
+                        <td style="padding: 15px; color: var(--text-sec);">Dual: Dynamics vs Salesforce</td>
+                        <td style="padding: 15px; font-weight: 600;"><strong>Cierre Dynamics:</strong> Apuesta del 100% por Salesforce FSC alineada con IT de LDA.</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <td style="padding: 15px; font-weight: 800;">Integración Core</td>
+                        <td style="padding: 15px; color: var(--text-sec);">Arquitectura asíncrona genérica</td>
+                        <td style="padding: 15px; font-weight: 600;"><strong>Patrón Callback:</strong> Integración síncrona vía MuleSoft para transaccionalidad crítica en DB2.</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <td style="padding: 15px; font-weight: 800;">Modelo de Equipo</td>
+                        <td style="padding: 15px; color: var(--text-sec);">Modelo híbrido Nearshore</td>
+                        <td style="padding: 15px; font-weight: 600;"><strong>Presencialidad Total:</strong> Líderes de SQUAD ubicados físicamente en Tres Cantos (Madrid).</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 15px; font-weight: 800;">Gobierno</td>
+                        <td style="padding: 15px; color: var(--text-sec);">Shadowing genérico</td>
+                        <td style="padding: 15px; font-weight: 600;"><strong>Matriz CoE:</strong> Definición exacta de roles y responsabilidades para la transferencia SQUAD.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="defense-grid">
+            <!-- DETALLE RFA TÉCNICO -->
+            <div class="highlight-card" style="border-top-color: #3b82f6;">
+                <span class="tag" style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Deep Dive Arq.</span>
+                <h3>Integración Síncrona</h3>
+                <p style="font-size: 0.85rem; color: var(--text-sec); margin-top: 10px;">Compromiso técnico para procesos de suscripción:</p>
+                <ul class="point-list">
+                    <li><strong>Transaccionalidad:</strong> Garantía de sincronización tiempo real para el alta de pólizas entre SF y Mainframe mediante el patrón Callback.</li>
+                    <li><strong>Offline SDK:</strong> Uso de Salesforce Mobile para operativa presencial de peritaje con sincronización garantizada al recuperar cobertura.</li>
+                    <li><strong>MuleSoft Resilience:</strong> Políticas de reintento "Circuit Breaker" para proteger el Core de sobrecargas durante picos de demanda.</li>
+                </ul>
+            </div>
+
+            <!-- DETALLE ECONOMICO -->
+            <div class="highlight-card" style="border-top-color: #10b981;">
+                <span class="tag" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">Refinamiento Económico R2</span>
+                <h3>Optimización TCO</h3>
+                <p style="font-size: 0.85rem; color: var(--text-sec); margin-top: 10px;">Mejoras en el modelo de inversión:</p>
+                <ul class="point-list">
+                    <li><strong>Perfilado de Licencias:</strong> Identificación de 150 usuarios de consulta con licencias "Read-Only" para optimizar el gasto anual (OPEX).</li>
+                    <li><strong>Ahorro en GAC:</strong> Descuento del 15% en formación mediante el uso de aceleradores de contenido GenAI propios.</li>
+                    <li><strong>Mantenimiento:</strong> Congelación de tarifas de soporte post-proyecto por un periodo de 24 meses tras el cierre del hito final.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="info-card" style="border-left: 4px solid var(--lda-red); padding: 30px; margin-top: 40px; margin-bottom: 60px; background: rgba(228,0,43,0.02);">
+            <h3>Conclusión Análisis de Rectificación (R2: Abril 2026)</h3>
+            <p style="color: var(--text-main); line-height: 1.6; margin-top: 10px; font-weight: 500;">La respuesta R2 de Accenture ha resuelto con madurez las incertidumbres de su oferta inicial. El compromiso de presencialidad de los líderes de SQUAD en Tres Cantos y la clarificación del patrón de integración síncrono dotan de una seguridad operativa crítica al proyecto. Su rectificación técnico-económica es sólida y reduce significativamente el riesgo de desviación del RFQ.</p>
+        </div>
+    </main>
+
+    <script>
+        function toggleTheme() {
+            const checkbox = document.getElementById('theme-checkbox');
+            const isDark = checkbox.checked;
+            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        }
+        initTheme();
+    </script>
+</body>
+</html>

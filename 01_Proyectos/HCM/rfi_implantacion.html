@@ -1,0 +1,1590 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFI Implantación | Proyecto Evolutivo HCM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles_hcm.css">
+    <style>
+        :root {
+            --lda-red: #E4002B;
+        }
+
+        .section-header {
+            margin-top: 60px;
+            margin-bottom: 30px;
+        }
+
+        .section-badge {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 800;
+            color: var(--lda-red);
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+        }
+
+        .flex-col {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 900px) {
+
+            .grid-3,
+            .grid-2,
+            .grid-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .info-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 8px 32px 0 var(--shadow-color);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .info-card.red-border-left {
+            border-left: 4px solid var(--lda-red);
+        }
+
+        .info-card.green-border-left {
+            border-left: 4px solid var(--hcm-green);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--text-main);
+        }
+
+        .card-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--lda-red);
+            background: transparent;
+        }
+
+        .card-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: currentColor;
+            stroke-width: 1.5;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .alert-box {
+            background: var(--lda-red);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px var(--shadow-color);
+            border: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .comparison-table th {
+            font-weight: 800;
+            color: var(--text-main);
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        .comparison-table th:first-child,
+        .comparison-table td:first-child {
+            text-align: left;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .comparison-table td {
+            color: var(--text-sec);
+        }
+
+        .number-badge {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            color: white;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+
+        .number-badge.green {
+            background: var(--hcm-green);
+        }
+
+        .number-badge.blue {
+            background: #3b82f6;
+        }
+
+        .number-badge.orange {
+            background: #f97316;
+        }
+
+        .number-badge.gray {
+            background: #6b7280;
+        }
+
+        .check-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .check-list li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: start;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: var(--text-sec);
+        }
+
+        .check-list li::before {
+            content: '';
+            width: 14px;
+            height: 14px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2310b981' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .cross-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .cross-list li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: start;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: var(--text-sec);
+        }
+
+        .cross-list li::before {
+            content: '';
+            width: 14px;
+            height: 14px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E4002B' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'/%3E%3Cline x1='6' y1='6' x2='18' y2='18'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .box {
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .box-red {
+            background: #fdf2f2;
+            border-color: #fca5a5;
+        }
+
+        .box-green {
+            background: #e6f9f0;
+            border-color: #8be4b8;
+        }
+
+        .box-blue {
+            background: #eef2fa;
+            border-color: #b6ccf0;
+        }
+
+        .box-gray {
+            background: #f9fafb;
+            border-color: #e5e7eb;
+        }
+
+        .bar-container {
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            margin-top: 8px;
+            position: relative;
+        }
+
+        .bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../local_styles.css">
+</head>
+
+<body>
+    <nav class="global-nav-wrapper">
+        <button class="nav-btn" onclick="javascript:history.back()" title="Volver atrás">
+            <svg viewBox="0 0 24 24">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <div class="nav-divider"></div>
+        <div class="nav-breadcrumb">
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item" title="Inicio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span class="nav-breadcrumb-sep"></span>
+            <a href="index.html" class="nav-breadcrumb-item">HCM Cloud</a>
+            <span class="nav-breadcrumb-sep"></span>
+            <a href="universo_estrategico.html" class="nav-breadcrumb-item">Univ. Estratégico</a>
+            <span class="nav-breadcrumb-sep"></span>
+            <span class="nav-breadcrumb-item current">RFI Implantación</span>
+        </div>
+    </nav>
+
+
+    <main class="container" style="padding-bottom: 80px;">
+        <header class="section-header">
+            <span class="section-badge">RESUMEN EJECUTIVO</span>
+            <h1 class="section-title">Análisis Ofertas</h1>
+        </header>
+        <div class="grid-2">
+            <div class="flex-col">
+                <div class="info-card red-border-left">
+                    <div class="card-header">
+                        <div class="card-icon"><svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" />
+                                <circle cx="12" cy="12" r="6" />
+                                <circle cx="12" cy="12" r="2" />
+                            </svg></div> Objetivo del Análisis
+                    </div>
+                    <p style="color: var(--text-sec); font-size: 0.95rem;">Evaluar 6 propuestas de implantaciÑn sobre
+                        <strong>Oracle HCM Cloud</strong> y <strong>Workday</strong> para definir criterios de la fase
+                        RFQ.
+                    </p>
+                </div>
+                <div class="info-card">
+                    <div class="card-header">
+                        <div class="card-icon"><svg viewBox="0 0 24 24">
+                                <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+                            </svg></div>
+                        Dimensiones Analizadas
+                    </div>
+                    <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;">
+                        <span
+                            style="background:var(--bg-page); border:1px solid var(--border-color); color:var(--text-sec); padding:4px 12px; border-radius:20px; font-size:0.85rem; font-weight:600;">Técnica</span>
+                        <span
+                            style="background:var(--bg-page); border:1px solid var(--border-color); color:var(--text-sec); padding:4px 12px; border-radius:20px; font-size:0.85rem; font-weight:600;">GestiÑn
+                            del Cambio</span>
+                        <span
+                            style="background:var(--bg-page); border:1px solid var(--border-color); color:var(--text-sec); padding:4px 12px; border-radius:20px; font-size:0.85rem; font-weight:600;">MetodolÑgica</span>
+                        <span
+                            style="background:var(--bg-page); border:1px solid var(--border-color); color:var(--text-sec); padding:4px 12px; border-radius:20px; font-size:0.85rem; font-weight:600;">EconÑmica</span>
+                    </div>
+                </div>
+                <div class="alert-box">
+                    <span style="display:flex; align-items:center; color:white;"><svg width="28" height="28"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                            <line x1="12" y1="9" x2="12" y2="13" />
+                            <line x1="12" y1="17" x2="12.01" y2="17" />
+                        </svg></span>
+                    <div>
+                        <div style="font-size: 1.1rem;">Hallazgo Crítico</div>
+                        <div style="font-weight: 400; font-size: 0.95rem;">Ningún integrador asume la gestión del cambio
+                            sin trasladar coste significativo o alta carga a Línea Directa.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="info-card">
+                <h3 style="margin-top:0; font-weight:800; font-size:1.1rem; display:flex; align-items:center; gap:8px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" style="color:var(--lda-red);">
+                        <path d="M12 2v20"></path>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                    Comparativa Ecosistemas Escenario a 1 año
+                </h3>
+                <table class="comparison-table" style="margin-top: 20px;">
+                    <tr>
+                        <th>Criterio</th>
+                        <th style="color:var(--lda-red);">Oracle</th>
+                        <th style="color:#3b82f6;">Workday</th>
+                    </tr>
+                    <tr>
+                        <td>Continuidad técnica</td>
+                        <td>Alta</td>
+                        <td>Baja</td>
+                    </tr>
+                    <tr>
+                        <td>Coste Licencias</td>
+                        <td><strong>259K€</strong></td>
+                        <td><strong>501K€</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Coste Proyecto Implantación</td>
+                        <td><strong>808K€ - 1.229K€</strong></td>
+                        <td><strong>864K€ - 1.100K€</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Cobertura funcional</td>
+                        <td>98%</td>
+                        <td>74%</td>
+                    </tr>
+                    <tr>
+                        <td>Riesgo migraciÑn</td>
+                        <td>Medio</td>
+                        <td>Alto</td>
+                    </tr>
+                    <tr>
+                        <td>GestiÑn cambio</td>
+                        <td><strong>65K€ - 172K€</strong></td>
+                        <td><strong>65K€ - 301K€</strong></td>
+                    </tr>
+                    <tr>
+                        <td>DuraciÑn</td>
+                        <td><strong>11-20 meses</strong></td>
+                        <td><strong>14-20 meses</strong></td>
+                    </tr>
+                </table>
+                <div style="margin-top:16px; font-size:0.85rem; color:var(--text-sec); display:flex; gap:8px;">
+                    <span style="color:var(--lda-red); font-weight:800;">â„¹ï¸ ConclusiÑn:</span> Oracle minimiza
+                    riesgo
+                    técnico por continuidad con PeopleSoft, los costes de licencias son inferiores y mayor porcentaje de
+                    Cobertura funcional.
+                </div>
+            </div>
+        </div>
+
+        <header class="section-header">
+            <span class="section-badge">EVALUACIÑN GLOBAL</span>
+            <h2 class="section-title">Ranking de Propuestas</h2>
+            <p style="color:var(--text-sec);">PuntuaciÑn ponderada sobre escala 0-5. <br><span
+                    style="font-size:0.8rem; color:var(--lda-red);">âœª La evaluación se ha realizado sobre los
+                    criterios
+                    definidos en la RFI técnica y las defensas de la propuesta de los integradores.</span></p>
+        </header>
+
+        <div class="grid-2">
+            <div class="info-card">
+                <!-- Bars -->
+                <div style="display:flex; align-items:center; gap:16px; margin-bottom:12px;">
+                    <div style="width:100px; font-size:0.8rem; font-weight:700; text-align:right;">Motiva & KPMG
+                        <br><span style="font-weight:400; color:var(--text-sec);">(Oracle)</span>
+                    </div>
+                    <div style="flex:1; background:#e5e7eb; height:24px; border-radius:4px; position:relative;">
+                        <div style="width:83%; background:var(--hcm-green); height:100%; border-radius:4px;"></div>
+                    </div>
+                    <div style="width:30px; font-weight:800; font-size:0.9rem;">4.15</div>
+                </div>
+                <div style="display:flex; align-items:center; gap:16px; margin-bottom:12px;">
+                    <div style="width:100px; font-size:0.8rem; font-weight:700; text-align:right;">Oracle Consulting
+                    </div>
+                    <div style="flex:1; background:#e5e7eb; height:24px; border-radius:4px; position:relative;">
+                        <div style="width:76%; background:#3b82f6; height:100%; border-radius:4px;"></div>
+                    </div>
+                    <div style="width:30px; font-weight:800; font-size:0.9rem;">3.80</div>
+                </div>
+                <div style="display:flex; align-items:center; gap:16px; margin-bottom:12px;">
+                    <div style="width:100px; font-size:0.8rem; font-weight:700; text-align:right;">BNB <br><span
+                            style="font-weight:400; color:var(--text-sec);">(Workday)</span></div>
+                    <div style="flex:1; background:#e5e7eb; height:24px; border-radius:4px; position:relative;">
+                        <div style="width:69%; background:#9ca3af; height:100%; border-radius:4px;"></div>
+                    </div>
+                    <div style="width:30px; font-weight:800; font-size:0.9rem;">3.45</div>
+                </div>
+                <div style="display:flex; align-items:center; gap:16px; margin-bottom:12px;">
+                    <div style="width:100px; font-size:0.8rem; font-weight:700; text-align:right;">Deloitte <br><span
+                            style="font-weight:400; color:var(--text-sec);">(Workday)</span></div>
+                    <div style="flex:1; background:#e5e7eb; height:24px; border-radius:4px; position:relative;">
+                        <div style="width:67%; background:#9ca3af; height:100%; border-radius:4px;"></div>
+                    </div>
+                    <div style="width:30px; font-weight:800; font-size:0.9rem;">3.35</div>
+                </div>
+                <div style="display:flex; align-items:center; gap:16px; margin-bottom:12px;">
+                    <div style="width:100px; font-size:0.8rem; font-weight:700; text-align:right;">Deloitte <br><span
+                            style="font-weight:400; color:var(--text-sec);">(Oracle)</span></div>
+                    <div style="flex:1; background:#e5e7eb; height:24px; border-radius:4px; position:relative;">
+                        <div style="width:64%; background:#9ca3af; height:100%; border-radius:4px;"></div>
+                    </div>
+                    <div style="width:30px; font-weight:800; font-size:0.9rem;">3.20</div>
+                </div>
+                <div style="display:flex; align-items:center; gap:16px; margin-bottom:12px;">
+                    <div style="width:100px; font-size:0.8rem; font-weight:700; text-align:right;">KPMG <br><span
+                            style="font-weight:400; color:var(--text-sec);">(Workday)</span></div>
+                    <div style="flex:1; background:#e5e7eb; height:24px; border-radius:4px; position:relative;">
+                        <div style="width:59%; background:#9ca3af; height:100%; border-radius:4px;"></div>
+                    </div>
+                    <div style="width:30px; font-weight:800; font-size:0.9rem;">2.95</div>
+                </div>
+                <div
+                    style="display:flex; justify-content:space-between; margin-left:116px; margin-right:46px; border-top:1px solid #e5e7eb; padding-top:4px; font-size:0.75rem; color:var(--text-sec);">
+                    <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                </div>
+            </div>
+            <div class="flex-col">
+                <div class="box box-green" style="display:flex; gap:16px; align-items:center;">
+                    <div class="number-badge green">1</div>
+                    <div>
+                        <div style="font-weight:800; font-size:1.1rem; color:var(--text-main);">Motiva & KPMG</div>
+                        <div style="font-size:0.85rem; color:var(--text-sec);">Oracle HCM Cloud</div>
+                        <div
+                            style="font-size:2rem; font-weight:900; color:var(--hcm-green); line-height:1; padding:8px 0;">
+                            4.15<span style="font-size:1rem;color:var(--text-sec);font-weight:600;">/5.0</span></div>
+                        <div style="font-size:0.9rem; color:var(--text-sec);"><strong>Mejor valorada.</strong>
+                            Transferencia de conocimiento real, enfoque iterativo de 20 meses en 3 fases.</div>
+                    </div>
+                </div>
+                <div class="box box-blue" style="display:flex; gap:16px; align-items:center;">
+                    <div class="number-badge blue">2</div>
+                    <div>
+                        <div style="font-weight:800; font-size:1.1rem; color:var(--text-main);">Oracle Consulting</div>
+                        <div style="font-size:0.85rem; color:var(--text-sec);">Oracle HCM Cloud</div>
+                        <div style="font-size:2rem; font-weight:900; color:#3b82f6; line-height:1; padding:8px 0;">
+                            3.80<span style="font-size:1rem;color:var(--text-sec);font-weight:600;">/5.0</span></div>
+                        <div style="font-size:0.9rem; color:var(--text-sec);">Modelo "Big Bang" en 11 meses. Excluye
+                            gestión del cambio del alcance base.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <header class="section-header">
+            <span class="section-badge">ANÑLISIS TÉCNICO</span>
+            <h2 class="section-title">Integraciones y Migración de Datos</h2>
+        </header>
+
+        <div class="grid-2">
+            <div class="box box-red" style="background:#fff; border-color:var(--lda-red);">
+                <h3 style="margin-top:0; font-weight:800; display:flex; align-items:center; gap:8px;">
+                    <div
+                        style="width:32px; height:32px; display:flex; align-items:center; justify-content:center; color:var(--lda-red); background:transparent;">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <ellipse cx="12" cy="5" rx="9" ry="3" />
+                            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+                        </svg>
+                    </div>
+                    Ecosistema Oracle
+                </h3>
+                <ul class="check-list" style="margin-top:20px;">
+                    <li>
+                        <div><strong>Herramientas nativas</strong><br>HCM Data Loader (HDL) y Oracle Integration Cloud
+                            (OIC)</div>
+                    </li>
+                    <li>
+                        <div><strong>Menor riesgo</strong><br>Continuidad técnica con PeopleSoft, modelo datos
+                            compatible</div>
+                    </li>
+                    <li>
+                        <div><strong>Migración completa</strong><br>Traspaso de histÑrico con validaciones iterativas
+                        </div>
+                    </li>
+                </ul>
+                <div
+                    style="display:flex; gap:8px; align-items:start; margin-top:16px; padding:12px; background:#fff7ed; border-radius:8px; font-size:0.9rem; color:var(--text-sec);">
+                    <span style="color:#f97316; font-weight:800;">!</span>
+                    <div><strong>Requiere capa Middleware</strong><br>Requiere construcciÑn de una capa intermedia por
+                        Línea Directa</div>
+                </div>
+            </div>
+
+            <div class="box box-gray" style="background:#fff;">
+                <h3 style="margin-top:0; font-weight:800; display:flex; align-items:center; gap:8px;">
+                    <div
+                        style="width:32px; height:32px; display:flex; align-items:center; justify-content:center; color:var(--lda-red); background:transparent;">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
+                        </svg>
+                    </div>
+                    Ecosistema Workday
+                </h3>
+                <ul class="cross-list" style="margin-top:20px;">
+                    <li>
+                        <div><strong>TransformaciÑn significativa</strong><br>ReestructuraciÑn completa del modelo de
+                            datos</div>
+                    </li>
+                    <li>
+                        <div><strong>Migración parcial</strong><br>Migrar solo datos activos, histÑrico en PeopleSoft
+                        </div>
+                    </li>
+                </ul>
+                <div
+                    style="display:flex; gap:8px; align-items:start; margin-top:16px; padding:12px; background:#fff7ed; border-radius:8px; font-size:0.9rem; color:var(--text-sec);">
+                    <span style="color:#f97316; font-weight:800;">!</span>
+                    <div><strong>Requiere capa Middleware</strong><br>Requiere construcciÑn de una capa intermedia por
+                        Línea Directa</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-2" style="margin-top:20px;">
+            <div class="alert-box"
+                style="margin-top:0; flex-direction:column; align-items:flex-start; height:100%; justify-content:center;">
+                <div
+                    style="font-size:1.2rem; font-weight:800; margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.9 1.2 1.5 1.5 2.5" />
+                        <path d="M9 18h6" />
+                        <path d="M10 22h4" />
+                    </svg>
+                    Insight Clave
+                </div>
+                <div style="font-weight:400; font-size:1rem; margin-bottom:12px;">La <strong>migraciÑn de datos es un
+                        punto crítico</strong> por nuestro volumen de histÑrico en PeopleSoft.</div>
+                <div style="background:rgba(255,255,255,0.1); padding:12px; border-radius:8px; font-size:0.9rem;">Las
+                    propuestas Oracle juegan con <strong>ventaja competitiva</strong>: herramientas nativas del
+                    fabricante reducen riesgo de pérdida de trazabilidad.</div>
+            </div>
+            <div class="info-card">
+                <h4 style="margin-top:0; font-size:1rem; margin-bottom:16px;">Comparativa de Riesgos</h4>
+                <div style="margin-bottom:16px;">
+                    <div
+                        style="display:flex; justify-content:space-between; font-size:0.85rem; font-weight:700; margin-bottom:4px;">
+                        <span>Riesgo Migración Datos</span>
+                    </div>
+                    <div style="display:flex; gap:16px; align-items:center; font-size:0.8rem;">
+                        <span style="width:60px;">Oracle</span>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="background:var(--hcm-green); width:20%;"></div>
+                        </div>
+                        <span style="color:var(--hcm-green); font-weight:700;">Bajo</span>
+                    </div>
+                    <div style="display:flex; gap:16px; align-items:center; font-size:0.8rem; margin-top:8px;">
+                        <span style="width:60px;">Workday</span>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="background:var(--lda-red); width:90%;"></div>
+                        </div>
+                        <span style="color:var(--lda-red); font-weight:700;">Alto</span>
+                    </div>
+                </div>
+                <div class="status-box yellow">
+                    <div style="color:var(--lda-red); display:flex; align-items:center;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="16" x2="12" y2="12" />
+                            <line x1="12" y1="8" x2="12.01" y2="8" />
+                        </svg>
+                    </div>
+                    <div>
+                        <strong style="color:var(--text-main); font-weight:800;">Nota:</strong> El
+                        <strong>análisis de Workday</strong> se ha centrado en las propuestas de <strong>BNB, KPMG y
+                            Deloitte</strong>.
+                    </div>
+                </div>
+                <div style="margin-bottom:16px;">
+                    <div
+                        style="display:flex; justify-content:space-between; font-size:0.85rem; font-weight:700; margin-bottom:4px;">
+                        <span>Complejidad Integraciones</span>
+                    </div>
+                    <div style="display:flex; gap:16px; align-items:center; font-size:0.8rem;">
+                        <span style="width:60px;">Oracle</span>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="background:var(--hcm-green); width:30%;"></div>
+                        </div>
+                        <span style="color:var(--hcm-green); font-weight:700;">Baja</span>
+                    </div>
+                    <div style="display:flex; gap:16px; align-items:center; font-size:0.8rem; margin-top:8px;">
+                        <span style="width:60px;">Workday</span>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="background:var(--lda-red); width:80%;"></div>
+                        </div>
+                        <span style="color:var(--lda-red); font-weight:700;">Alta</span>
+                    </div>
+                </div>
+                <div
+                    style="font-size:0.8rem; color:var(--text-sec); border-top:1px solid var(--border-color); padding-top:12px;">
+                    <span style="color:#f59e0b; font-weight:800;">âš ï¸ Nota:</span> Se requiere que Línea Directa
+                    construya capas intermedias, añadiendo coste y complejidad fuera del alcance del implantador.
+                </div>
+            </div>
+        </div>
+        <header class="section-header">
+            <span class="section-badge">MODELOS DE IMPLANTACIÑN</span>
+            <h2 class="section-title">Big Bang vs Enfoque Faseado</h2>
+        </header>
+
+        <div class="grid-2">
+            <div class="info-card">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                    <div>
+                        <h3
+                            style="margin:0; font-size:1.5rem; font-weight:800; display:flex; align-items:center; gap:8px;">
+                            <div
+                                style="width:40px; height:40px; display:flex; align-items:center; justify-content:center; color:var(--lda-red); background:transparent;">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+                                    <path
+                                        d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+                                    <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+                                    <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                                </svg>
+                            </div>
+                            Big Bang
+                        </h3>
+                        <div
+                            style="color:#3b82f6; font-weight:700; font-size:0.9rem; margin-top:4px; margin-left:48px;">
+                            Oracle Consulting</div>
+                    </div>
+                </div>
+                <div style="font-size:3rem; font-weight:900; color:#3b82f6; margin:20px 0 10px; line-height:1;">11 <span
+                        style="font-size:1.2rem; font-weight:600; color:var(--text-sec);">meses</span></div>
+
+                <div class="box box-green" style="margin-bottom:16px;">
+                    <div
+                        style="font-weight:800; color:var(--hcm-green); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+                        + Ventajas</div>
+                    <ul class="check-list">
+                        <li>Ruptura limpia con PeopleSoft</li>
+                        <li>Sin convivencia de sistemas</li>
+                        <li>Acelera retorno de inversiÑn</li>
+                        <li>Elimina el gasto de licenciamiento de PeopleSoft</li>
+                    </ul>
+                </div>
+
+                <div class="box box-red">
+                    <div
+                        style="font-weight:800; color:var(--lda-red); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+                        - Desventajas</div>
+                    <ul class="cross-list">
+                        <li>Riesgo técnico concentrado</li>
+                        <li>Sin pruebas en producciÑn reales</li>
+                        <li>Alta tensiÑn operativa en puesta en producciÑn</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-card green-border-left">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                    <div>
+                        <h3
+                            style="margin:0; font-size:1.5rem; font-weight:800; display:flex; align-items:center; gap:8px;">
+                            <div
+                                style="width:40px; height:40px; display:flex; align-items:center; justify-content:center; color:var(--lda-red); background:transparent;">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                                    <polyline points="2 12 12 17 22 12" />
+                                    <polyline points="2 17 12 22 22 17" />
+                                </svg>
+                            </div>
+                            Faseado
+                        </h3>
+                        <div
+                            style="color:var(--hcm-green); font-weight:700; font-size:0.9rem; margin-top:4px; margin-left:48px;">
+                            Resto de integradores</div>
+                    </div>
+                </div>
+                <div
+                    style="font-size:3rem; font-weight:900; color:var(--hcm-green); margin:20px 0 10px; line-height:1;">
+                    14-20 <span style="font-size:1.2rem; font-weight:600; color:var(--text-sec);">meses</span></div>
+
+                <div class="box box-green" style="margin-bottom:16px;">
+                    <div
+                        style="font-weight:800; color:var(--hcm-green); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+                        + Ventajas</div>
+                    <ul class="check-list">
+                        <li>Menor riesgo de colapso</li>
+                        <li>Entregas tempranas de valor</li>
+                        <li>Estabiliza núcleo antes de añadir complejidad</li>
+                        <li>Permite correcciones tempranas</li>
+                    </ul>
+                </div>
+
+                <div class="box box-red">
+                    <div
+                        style="font-weight:800; color:var(--lda-red); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+                        - Desventajas</div>
+                    <ul class="cross-list">
+                        <li>Alarga cronograma</li>
+                        <li>Mayor TCO (mantener PeopleSoft)</li>
+                        <li>Doble esfuerzo administrativo</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div
+            style="background:#f9fafb; border:1px solid #e5e7eb; padding:16px 24px; border-radius:12px; margin-top:20px; display:flex; align-items:center; gap:12px; font-size:0.9rem;">
+            <span style="color:var(--lda-red); display:flex; align-items:center;"><svg width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path
+                        d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.9 1.2 1.5 1.5 2.5" />
+                    <path d="M9 18h6" />
+                    <path d="M10 22h4" />
+                </svg></span>
+            <div><strong style="color:var(--text-main);">DecisiÑn estratégica:</strong> El modelo determina la
+                exposiciÑn al riesgo técnico y el esfuerzo de coexistencia durante la transiciÑn.</div>
+        </div>
+
+        <header class="section-header">
+            <span class="section-badge">GESTIÑN DEL CAMBIO</span>
+            <h2 class="section-title">El TalÑn de Aquiles del Proyecto</h2>
+        </header>
+
+        <div class="grid-2">
+            <div class="flex-col">
+                <div class="alert-box">
+                    <span style="display:flex; align-items:center; color:white;"><svg width="28" height="28"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                            <line x1="12" y1="9" x2="12" y2="13" />
+                            <line x1="12" y1="17" x2="12.01" y2="17" />
+                        </svg></span>
+                    <div>
+                        <div style="font-size: 1.1rem; margin-bottom:8px;">Punto Crítico</div>
+                        <div style="font-weight: 400; font-size: 0.95rem; margin-bottom:12px;"><strong>Ningún integrador
+                                asume la gestión del cambio organizativo</strong> sin trasladar coste significativo o
+                            carga de dedicaciÑn alta a Línea Directa.</div>
+                        <div style="background:rgba(0,0,0,0.1); padding:12px; border-radius:8px; font-size:0.85rem;">
+                            Esto representa un <strong>riesgo de adopciÑn</strong> que debe considerarse explícitamente
+                            en la RFQ.</div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h4
+                        style="margin-top:0; border-bottom:1px solid var(--border-color); padding-bottom:12px; margin-bottom:16px;">
+                        Análisis por Proveedor</h4>
+
+                    <div
+                        style="border-left:3px solid var(--lda-red); padding-left:12px; margin-bottom:16px; background:#fdf2f2; padding:12px; border-radius:0 8px 8px 0;">
+                        <strong style="display:block; font-size:0.9rem; margin-bottom:4px;">Oracle Consulting</strong>
+                        <span style="font-size:0.85rem; color:var(--text-sec);">Excluye gestión del cambio del alcance
+                            base. Delega 100% del riesgo de adopciÑn a Línea Directa.</span>
+                    </div>
+
+                    <div
+                        style="border-left:3px solid #facc15; padding-left:12px; margin-bottom:16px; background:#fefce8; padding:12px; border-radius:0 8px 8px 0;">
+                        <strong style="display:block; font-size:0.9rem; margin-bottom:4px;">Motiva & KPMG</strong>
+                        <span style="font-size:0.85rem; color:var(--text-sec);">Sugiere integraciÑn de <strong>3 FTEs de
+                                Línea Directa</strong> en el proyecto para transferencia de conocimiento real
+                            técnico.</span>
+                    </div>
+
+                    <div
+                        style="border-left:3px solid #3b82f6; padding-left:12px; margin-bottom:16px; background:#eff6ff; padding:12px; border-radius:0 8px 8px 0;">
+                        <strong style="display:block; font-size:0.9rem; margin-bottom:4px;">Deloitte</strong>
+                        <span style="font-size:0.85rem; color:var(--text-sec);">Ofrece marco más estructurado ("Change
+                            Lab") pero como <strong>alcance opcional con sobrecoste</strong>.</span>
+                    </div>
+
+                    <div
+                        style="border-left:3px solid #9ca3af; padding-left:12px; background:#f9fafb; padding:12px; border-radius:0 8px 8px 0;">
+                        <strong style="display:block; font-size:0.9rem; margin-bottom:4px;">BNB y KPMG
+                            (Workday)</strong>
+                        <span style="font-size:0.85rem; color:var(--text-sec);">Foco en marketing interno pero delegan
+                            peso de adopciÑn en agentes internos.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-col">
+                <div class="info-card"
+                    style="display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;">
+                    <h4 style="margin-top:0; width:100%; text-align:left; margin-bottom:20px;">Impacto en la AdopciÑn
+                    </h4>
+
+                    <div
+                        style="position:relative; width:200px; height:200px; border-radius:50%; background:conic-gradient(var(--lda-red) 0% 35%, #f59e0b 35% 80%, var(--hcm-green) 80% 100%); display:flex; align-items:center; justify-content:center; margin-bottom:30px;">
+                        <div style="width:120px; height:120px; border-radius:50%; background:var(--bg-card);"></div>
+
+                        <div
+                            style="position:absolute; top:20px; right:-60px; font-size:0.75rem; font-weight:700; color:var(--text-sec); text-align:left;">
+                            Riesgo Proveedor <br><span style="color:var(--text-main);">35%</span>
+                        </div>
+                        <div
+                            style="position:absolute; bottom:20px; left:-60px; font-size:0.75rem; font-weight:700; color:var(--text-sec); text-align:right;">
+                            Carga Línea Directa <br><span style="color:var(--text-main);">45%</span>
+                        </div>
+                        <div
+                            style="position:absolute; top:20px; left:-50px; font-size:0.75rem; font-weight:700; color:var(--text-sec); text-align:right;">
+                            Cobertura Real <br><span style="color:var(--text-main);">20%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box box-gray">
+                    <h4 style="margin-top:0; display:flex; align-items:center; gap:8px; margin-bottom:20px;">
+                        <span style="color:var(--lda-red); display:flex; align-items:center;"><svg width="24"
+                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 11 12 14 22 4" />
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                            </svg></span>
+                        RecomendaciÑn RFQ
+                    </h4>
+
+                    <div style="display:flex; align-items:flex-start; gap:12px; margin-bottom:16px;">
+                        <div class="number-badge red" style="width:24px; height:24px; font-size:0.8rem;">1</div>
+                        <div style="font-size:0.9rem; color:var(--text-sec); margin-top:2px;">Definir gestión del cambio
+                            como <strong>criterio obligatorio</strong> vs valorable</div>
+                    </div>
+
+                    <div style="display:flex; align-items:flex-start; gap:12px; margin-bottom:16px;">
+                        <div class="number-badge red" style="width:24px; height:24px; font-size:0.8rem;">2</div>
+                        <div style="font-size:0.9rem; color:var(--text-sec); margin-top:2px;">Solicitar desglose
+                            econÑmico detallado de actividades de adopciÑn</div>
+                    </div>
+
+                    <div style="display:flex; align-items:flex-start; gap:12px;">
+                        <div class="number-badge red" style="width:24px; height:24px; font-size:0.8rem;">3</div>
+                        <div style="font-size:0.9rem; color:var(--text-sec); margin-top:2px;">Establecer métricas de
+                            éxito de adopciÑn (KPIs)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <header class="section-header">
+            <span class="section-badge">ANÑLISIS ECONÑMICO</span>
+            <h2 class="section-title">Comparativa Implantación</h2>
+        </header>
+
+        <div class="grid-2">
+            <div class="info-card" style="display:flex; flex-direction:column; justify-content:center;">
+                <!-- Concept of the chart with simple bars/lines -->
+                <div
+                    style="font-size:0.8rem; font-weight:700; color:var(--text-sec); display:flex; justify-content:space-between; margin-bottom:20px;">
+                    <span>Coste (€)</span>
+                    <span style="color:var(--lda-red);">Meses</span>
+                </div>
+
+                <div
+                    style="height:250px; display:flex; align-items:flex-end; justify-content:space-around; border-bottom:1px solid var(--border-color); padding-bottom:10px; position:relative;">
+
+                    <div
+                        style="display:flex; flex-direction:column; align-items:center; width:40px; position:relative;">
+                        <span style="font-size:0.75rem; font-weight:700; margin-bottom:4px;">808K€</span>
+                        <div style="width:30px; height:150px; background:var(--hcm-green); border-radius:4px 4px 0 0;">
+                        </div>
+                        <span
+                            style="position:absolute; bottom:-25px; font-size:0.7rem; font-weight:700; text-align:center; width:60px;">Motiva
+                            & KPMG</span>
+                        <!-- Line point -->
+                        <div
+                            style="position:absolute; top:20px; width:8px; height:8px; background:var(--lda-red); border-radius:50%; z-index:10;">
+                        </div>
+                        <span
+                            style="position:absolute; top:5px; font-size:0.7rem; color:var(--lda-red); font-weight:800;">20m</span>
+                    </div>
+
+                    <div
+                        style="display:flex; flex-direction:column; align-items:center; width:40px; position:relative;">
+                        <span
+                            style="font-size:0.75rem; font-weight:700; margin-bottom:4px; color:#3b82f6;">1.047K€</span>
+                        <div style="width:30px; height:200px; background:#3b82f6; border-radius:4px 4px 0 0;"></div>
+                        <span
+                            style="position:absolute; bottom:-25px; font-size:0.7rem; font-weight:700; text-align:center; width:60px;">Oracle
+                            Consulting</span>
+                        <div
+                            style="position:absolute; top:80px; width:8px; height:8px; background:var(--lda-red); border-radius:50%; z-index:10;">
+                        </div>
+                        <span
+                            style="position:absolute; top:95px; font-size:0.7rem; color:var(--lda-red); font-weight:800;">11m</span>
+                    </div>
+
+                    <div
+                        style="display:flex; flex-direction:column; align-items:center; width:40px; position:relative;">
+                        <span
+                            style="font-size:0.75rem; font-weight:700; margin-bottom:4px; color:var(--text-sec);">863K€</span>
+                        <div style="width:30px; height:160px; background:#9ca3af; border-radius:4px 4px 0 0;"></div>
+                        <span
+                            style="position:absolute; bottom:-25px; font-size:0.7rem; font-weight:700; text-align:center; width:50px;">BNB</span>
+                        <div
+                            style="position:absolute; top:40px; width:8px; height:8px; background:var(--lda-red); border-radius:50%; z-index:10;">
+                        </div>
+                        <span
+                            style="position:absolute; top:25px; font-size:0.7rem; color:var(--lda-red); font-weight:800;">15m</span>
+                    </div>
+
+                    <div
+                        style="display:flex; flex-direction:column; align-items:center; width:40px; position:relative;">
+                        <span
+                            style="font-size:0.75rem; font-weight:700; margin-bottom:4px; color:var(--text-sec);">968K€</span>
+                        <div style="width:30px; height:180px; background:#9ca3af; border-radius:4px 4px 0 0;"></div>
+                        <span
+                            style="position:absolute; bottom:-35px; font-size:0.7rem; font-weight:700; text-align:center; width:60px;">Deloitte
+                            (Workday)</span>
+                        <div
+                            style="position:absolute; top:50px; width:8px; height:8px; background:var(--lda-red); border-radius:50%; z-index:10;">
+                        </div>
+                        <span
+                            style="position:absolute; top:35px; font-size:0.7rem; color:var(--lda-red); font-weight:800;">14m</span>
+                    </div>
+
+                    <div
+                        style="display:flex; flex-direction:column; align-items:center; width:40px; position:relative;">
+                        <span
+                            style="font-size:0.75rem; font-weight:700; margin-bottom:4px; color:var(--text-sec);">1.229K€</span>
+                        <div style="width:30px; height:240px; background:#9ca3af; border-radius:4px 4px 0 0;"></div>
+                        <span
+                            style="position:absolute; bottom:-35px; font-size:0.7rem; font-weight:700; text-align:center; width:60px;">Deloitte
+                            (Oracle)</span>
+                        <div
+                            style="position:absolute; top:50px; width:8px; height:8px; background:var(--lda-red); border-radius:50%; z-index:10;">
+                        </div>
+                        <span
+                            style="position:absolute; top:35px; font-size:0.7rem; color:var(--lda-red); font-weight:800;">14m</span>
+                    </div>
+
+                    <div
+                        style="display:flex; flex-direction:column; align-items:center; width:40px; position:relative;">
+                        <span
+                            style="font-size:0.75rem; font-weight:700; margin-bottom:4px; color:var(--text-sec);">1.100K€</span>
+                        <div style="width:30px; height:210px; background:#9ca3af; border-radius:4px 4px 0 0;"></div>
+                        <span
+                            style="position:absolute; bottom:-35px; font-size:0.7rem; font-weight:700; text-align:center; width:60px;">KPMG
+                            (Workday)</span>
+                        <div
+                            style="position:absolute; top:-10px; width:8px; height:8px; background:var(--lda-red); border-radius:50%; z-index:10;">
+                        </div>
+                        <span
+                            style="position:absolute; top:-25px; font-size:0.7rem; color:var(--lda-red); font-weight:800;">23m</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-col">
+                <div class="info-card" style="border:2px solid var(--hcm-green); border-radius:12px; padding:24px;">
+                    <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+                        <div
+                            style="width:32px; height:32px; display:flex; align-items:center; justify-content:center; color:var(--lda-red); background:transparent;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                                <path d="M4 22h16"></path>
+                                <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
+                                <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
+                                <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+                            </svg>
+                        </div>
+                        <span style="font-weight:800; font-size:1.1rem;">Mejor RelaciÑn Coste-Cobertura</span>
+                    </div>
+                    <div style="font-size:1.5rem; font-weight:900; color:var(--hcm-green); margin-bottom:4px;">KPMG &
+                        Motiva</div>
+                    <div style="font-size:0.9rem; color:var(--text-sec); margin-bottom:16px;">Oracle HCM Cloud</div>
+                    <div
+                        style="font-size:2.5rem; font-weight:900; color:var(--text-main); margin-bottom:12px; line-height:1;">
+                        808.667€</div>
+                    <div style="font-size:0.9rem; color:var(--text-sec);">20 meses | 3 fases | Transferencia
+                        conocimiento técnico</div>
+                </div>
+
+                <div class="info-card">
+                    <h4 style="margin-top:0; margin-bottom:16px;">Rangos de InversiÑn</h4>
+
+                    <div style="margin-bottom:16px;">
+                        <div
+                            style="display:flex; justify-content:space-between; font-size:0.9rem; font-weight:700; margin-bottom:4px;">
+                            <span>Oracle HCM Cloud</span>
+                            <span style="color:var(--lda-red);">808k€ - 1.229k€</span>
+                        </div>
+                        <div class="bar-container" style="height:12px;">
+                            <div class="bar-fill" style="background:var(--hcm-green); width:50%;"></div>
+                            <div class="bar-fill" style="background:#fce7f3; left:50%; width:30%;"></div>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom:20px;">
+                        <div
+                            style="display:flex; justify-content:space-between; font-size:0.9rem; font-weight:700; margin-bottom:4px;">
+                            <span>Workday</span>
+                            <span style="color:var(--lda-red);">863k€ - 1.100k€</span>
+                        </div>
+                        <div class="bar-container" style="height:12px;">
+                            <div class="bar-fill" style="background:var(--hcm-green); width:60%;"></div>
+                            <div class="bar-fill" style="background:#fce7f3; left:60%; width:25%;"></div>
+                        </div>
+                    </div>
+
+                    <div
+                        style="background:#fff7ed; border-radius:8px; padding:12px; font-size:0.85rem; color:var(--text-sec);">
+                        <strong
+                            style="color:var(--lda-red); display:flex; align-items:center; gap:6px; margin-bottom:8px;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                                <line x1="12" y1="9" x2="12" y2="13" />
+                                <line x1="12" y1="17" x2="12.01" y2="17" />
+                            </svg>
+                            Costes adicionales no explicitados:</strong>
+                        <ul style="margin:0; padding-left:20px;">
+                            <li>Middleware (Coste interno adicional)</li>
+                            <li>GestiÑn del cambio (Coste interno adicional)</li>
+                            <li>Licencias cloud OCI (Ecosistema Oracle)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <header class="section-header">
+            <span class="section-badge">ANÑLISIS COMPARATIVO</span>
+            <h2 class="section-title">Fortalezas y Debilidades por Proveedor</h2>
+        </header>
+
+        <div class="grid-3">
+            <div class="info-card green-border-left">
+                <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+                    <div class="number-badge green">1</div>
+                    <div>
+                        <div style="font-weight:800; font-size:1.1rem;">Motiva & KPMG</div>
+                        <div style="font-size:0.85rem; color:var(--text-sec);">Oracle HCM Cloud</div>
+                    </div>
+                </div>
+                <div class="box box-green" style="margin-bottom:12px; padding:12px;">
+                    <div
+                        style="font-weight:800; color:var(--hcm-green); margin-bottom:8px; font-size:0.9rem; display:flex; align-items:center; gap:8px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        Fortalezas
+                    </div>
+                    <ul class="check-list" style="font-size:0.85rem;">
+                        <li>Transferencia conocimiento real</li>
+                        <li>Enfoque iterativo 3 fases</li>
+                        <li>Mejor relaciÑn coste-cobertura</li>
+                    </ul>
+                </div>
+                <div class="box box-red" style="padding:12px;">
+                    <div
+                        style="font-weight:800; color:var(--lda-red); margin-bottom:8px; font-size:0.9rem; display:flex; align-items:center; gap:8px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                        Debilidades
+                    </div>
+                    <ul class="cross-list" style="font-size:0.85rem;">
+                        <li>Esfuerzo interno</li>
+                        <li>Sobrecarga operativa</li>
+                        <li>Requiere middleware</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-card" style="border-left:4px solid #3b82f6;">
+                <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+                    <div class="number-badge blue">2</div>
+                    <div>
+                        <div style="font-weight:800; font-size:1.1rem;">Oracle Consulting</div>
+                        <div style="font-size:0.85rem; color:var(--text-sec);">Oracle HCM Cloud</div>
+                    </div>
+                </div>
+                <div class="box box-green" style="margin-bottom:12px; padding:12px;">
+                    <div
+                        style="font-weight:800; color:var(--hcm-green); margin-bottom:8px; font-size:0.9rem; display:flex; align-items:center; gap:8px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        Fortalezas
+                    </div>
+                    <ul class="check-list" style="font-size:0.85rem;">
+                        <li>Fabricante e implantador</li>
+                        <li>Big Bang: ruptura limpia</li>
+                        <li>Solo 11 meses</li>
+                    </ul>
+                </div>
+                <div class="box box-red" style="padding:12px;">
+                    <div
+                        style="font-weight:800; color:var(--lda-red); margin-bottom:8px; font-size:0.9rem; display:flex; align-items:center; gap:8px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                        Debilidades
+                    </div>
+                    <ul class="cross-list" style="font-size:0.85rem;">
+                        <li>Excluye gestión del cambio</li>
+                        <li>Riesgo concentrado (Big Bang)</li>
+                        <li>Requiere middleware</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-card" style="border-left:4px solid #a855f7;">
+                <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+                    <div class="number-badge" style="background:#a855f7;">3</div>
+                    <div>
+                        <div style="font-weight:800; font-size:1.1rem;">Deloitte</div>
+                        <div style="font-size:0.85rem; color:var(--text-sec);">Oracle / Workday</div>
+                    </div>
+                </div>
+                <div class="box box-green" style="margin-bottom:12px; padding:12px;">
+                    <div
+                        style="font-weight:800; color:var(--hcm-green); margin-bottom:8px; font-size:0.9rem; display:flex; align-items:center; gap:8px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        Fortalezas
+                    </div>
+                    <ul class="check-list" style="font-size:0.85rem;">
+                        <li>Marco gobierno "Ascend"</li>
+                        <li>Change Lab estructurado</li>
+                        <li>Experiencia banca/seguros</li>
+                    </ul>
+                </div>
+                <div class="box box-red" style="padding:12px;">
+                    <div
+                        style="font-weight:800; color:var(--lda-red); margin-bottom:8px; font-size:0.9rem; display:flex; align-items:center; gap:8px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                        Debilidades
+                    </div>
+                    <ul class="cross-list" style="font-size:0.85rem;">
+                        <li>Coste más elevado (1.278k€)</li>
+                        <li>Change Lab opcional</li>
+                        <li>Requiere middleware</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-card" style="border-left:4px solid #f97316;">
+                <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+                    <div class="number-badge orange">4</div>
+                    <div>
+                        <div style="font-weight:800; font-size:1.1rem;">BNB</div>
+                        <div style="font-size:0.85rem; color:var(--text-sec);">Workday</div>
+                    </div>
+                </div>
+                <div class="box box-green" style="margin-bottom:12px; padding:12px;">
+                    <div
+                        style="font-weight:800; color:var(--hcm-green); margin-bottom:8px; font-size:0.9rem; display:flex; align-items:center; gap:8px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        Fortalezas
+                    </div>
+                    <ul class="check-list" style="font-size:0.85rem;">
+                        <li>"Change as Experience"</li>
+                        <li>Marketing interno</li>
+                        <li>UX y campañas visuales</li>
+                    </ul>
+                </div>
+                <div class="box box-red" style="padding:12px;">
+                    <div
+                        style="font-weight:800; color:var(--lda-red); margin-bottom:8px; font-size:0.9rem; display:flex; align-items:center; gap:8px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                        Debilidades
+                    </div>
+                    <ul class="cross-list" style="font-size:0.85rem;">
+                        <li>Requiere middleware</li>
+                        <li>Soporte post-go-live opcional</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-card" style="border-left:4px solid #6b7280;">
+                <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+                    <div class="number-badge gray">5</div>
+                    <div>
+                        <div style="font-weight:800; font-size:1.1rem;">KPMG (Workday)</div>
+                        <div style="font-size:0.85rem; color:var(--text-sec);">Workday</div>
+                    </div>
+                </div>
+                <div class="box box-green" style="margin-bottom:12px; padding:12px;">
+                    <div
+                        style="font-weight:800; color:var(--hcm-green); margin-bottom:8px; font-size:0.9rem; display:flex; align-items:center; gap:8px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        Fortalezas
+                    </div>
+                    <ul class="check-list" style="font-size:0.85rem;">
+                        <li>Enfoque APIs y data lakes</li>
+                        <li>OrientaciÑn analítica</li>
+                        <li>Modelo iterativo 23 meses</li>
+                    </ul>
+                </div>
+                <div class="box box-red" style="padding:12px;">
+                    <div
+                        style="font-weight:800; color:var(--lda-red); margin-bottom:8px; font-size:0.9rem; display:flex; align-items:center; gap:8px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                        Debilidades
+                    </div>
+                    <ul class="cross-list" style="font-size:0.85rem;">
+                        <li>Migración solo datos activos</li>
+                        <li>Depende de tracciÑn interna</li>
+                        <li>Requiere middleware</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="alert-box"
+                style="margin-top:0; flex-direction:column; align-items:flex-start; justify-content:center;">
+                <div
+                    style="font-size:1.2rem; font-weight:800; margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--lda-red)"
+                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                        style="background:white; border-radius:50%; padding:2px;">
+                        <path
+                            d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.9 1.2 1.5 1.5 2.5" />
+                        <path d="M9 18h6" />
+                        <path d="M10 22h4" />
+                    </svg>
+                    Insight Estratégico
+                </div>
+                <div style="font-weight:400; font-size:1rem;">Todas las propuestas presentan <strong>Balance de
+                        decisiones significativos</strong>. La decisiÑn debe priorizar el equilibrio entre riesgo
+                    técnico, inversiÑn y capacidad de adopciÑn organizativa.</div>
+            </div>
+        </div>
+
+        <header class="section-header">
+            <span class="section-badge">ESCENARIOS DE DECISIÑN</span>
+            <h2 class="section-title">Opciones para la Fase RFQ</h2>
+        </header>
+
+        <div class="grid-2">
+            <div class="info-card" style="border:2px solid var(--hcm-green);">
+                <div style="display:flex; align-items:flex-start; gap:16px; margin-bottom:20px;">
+                    <div class="number-badge green"
+                        style="width:48px; height:48px; font-size:1.5rem; border-radius:12px;">1</div>
+                    <div>
+                        <div style="font-weight:900; font-size:1.5rem; color:var(--text-main); line-height:1.2;">RFQ
+                            Solo Oracle</div>
+                        <div style="color:var(--hcm-green); font-weight:700; font-size:1rem; margin-top:4px;">Estrategia
+                            Conservadora</div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom:20px;">
+                    <div
+                        style="font-weight:800; color:var(--hcm-green); display:flex; align-items:center; gap:8px; margin-bottom:12px; font-size:0.9rem;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--lda-red)"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg> Proveedores a incluir
+                    </div>
+                    <div style="display:flex; flex-wrap:wrap; gap:8px;">
+                        <span
+                            style="background:#fff; border:1px solid var(--border-color); padding:4px 12px; border-radius:20px; font-size:0.85rem; font-weight:600;">KPMG</span>
+                        <span
+                            style="background:#fff; border:1px solid var(--border-color); padding:4px 12px; border-radius:20px; font-size:0.85rem; font-weight:600;">Motiva</span>
+                        <span
+                            style="background:#fff; border:1px solid var(--border-color); padding:4px 12px; border-radius:20px; font-size:0.85rem; font-weight:600;">Oracle
+                            Consulting</span>
+                        <span
+                            style="background:#fff; border:1px solid var(--border-color); padding:4px 12px; border-radius:20px; font-size:0.85rem; font-weight:600;">Deloitte</span>
+                    </div>
+                </div>
+
+                <div class="box box-green" style="margin-bottom:16px;">
+                    <div
+                        style="font-weight:800; color:var(--hcm-green); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19" />
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg>
+                        Ventajas
+                    </div>
+                    <ul class="check-list">
+                        <li><strong>Minimiza riesgo técnico</strong></li>
+                        <li><strong>Acelera proceso decisiÑn</strong></li>
+                        <li>Mayor <strong>continuidad con PeopleSoft</strong></li>
+                    </ul>
+                </div>
+
+                <div class="box box-red">
+                    <div
+                        style="font-weight:800; color:var(--lda-red); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg>
+                        Desventajas
+                    </div>
+                    <ul class="cross-list">
+                        <li><strong>No contrasta</strong> enfoque transformacional Workday</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-card" style="border:2px solid #3b82f6;">
+                <div style="display:flex; align-items:flex-start; gap:16px; margin-bottom:20px;">
+                    <div class="number-badge blue"
+                        style="width:48px; height:48px; font-size:1.5rem; border-radius:12px;">2</div>
+                    <div>
+                        <div style="font-weight:900; font-size:1.5rem; color:var(--text-main); line-height:1.2;">RFQ
+                            Oracle + Workday</div>
+                        <div style="color:#3b82f6; font-weight:700; font-size:1rem; margin-top:4px;">Estrategia
+                            Comparativa</div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom:20px;">
+                    <div
+                        style="font-weight:800; color:#3b82f6; display:flex; align-items:center; gap:8px; margin-bottom:12px; font-size:0.9rem;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--lda-red)"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg> Proveedores a incluir
+                    </div>
+                    <div style="display:flex; flex-wrap:wrap; gap:8px;">
+                        <span
+                            style="background:#fff; border:1px solid var(--border-color); padding:4px 12px; border-radius:20px; font-size:0.85rem; font-weight:600;">Todos
+                            los evaluados</span>
+                        <span
+                            style="background:#fff; border:1px solid var(--border-color); padding:4px 12px; border-radius:20px; font-size:0.85rem; font-weight:600;">KPMG
+                            (ambos)</span>
+                        <span
+                            style="background:#fff; border:1px solid var(--border-color); padding:4px 12px; border-radius:20px; font-size:0.85rem; font-weight:600;">Deloitte
+                            (ambos)</span>
+                        <span
+                            style="background:#fff; border:1px solid var(--border-color); padding:4px 12px; border-radius:20px; font-size:0.85rem; font-weight:600;">BNB</span>
+                        <span
+                            style="background:#fff; border:1px solid var(--border-color); padding:4px 12px; border-radius:20px; font-size:0.85rem; font-weight:600;">Oracle
+                            Consulting</span>
+                        <span
+                            style="background:#fff; border:1px solid var(--border-color); padding:4px 12px; border-radius:20px; font-size:0.85rem; font-weight:600;">Motiva</span>
+                    </div>
+                </div>
+
+                <div class="box box-green" style="margin-bottom:16px;">
+                    <div
+                        style="font-weight:800; color:var(--hcm-green); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19" />
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg>
+                        Ventajas
+                    </div>
+                    <ul class="check-list">
+                        <li>Permite <strong>contrastar enfoques</strong></li>
+                        <li><strong>Mayor visibilidad</strong> de opciones</li>
+                        <li>Evalúa <strong>continuidad vs transformaciÑn</strong></li>
+                    </ul>
+                </div>
+
+                <div class="box box-red">
+                    <div
+                        style="font-weight:800; color:var(--lda-red); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg>
+                        Desventajas
+                    </div>
+                    <ul class="cross-list">
+                        <li><strong>Alarga proceso</strong> decisiÑn</li>
+                        <li><strong>Mayor complejidad</strong> análisis</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <header class="section-header">
+            <span class="section-badge">PRÑXIMOS PASOS</span>
+            <h2 class="section-title">Decisiones Estratégicas para la DirecciÑn</h2>
+        </header>
+
+        <div class="grid-2">
+            <div class="info-card" style="display:flex; align-items:center; gap:20px;">
+                <div class="number-badge red" style="width:48px; height:48px; font-size:1.5rem;">1</div>
+                <div>
+                    <h3 style="margin:0 0 8px; font-weight:800; font-size:1.1rem;">¿Qué ecosistema priorizar en RFQ?
+                    </h3>
+                    <div style="font-size:0.9rem; color:var(--text-sec); margin-bottom:4px;"><strong>OpciÑn A:</strong>
+                        Solo Oracle (menor riesgo técnico)</div>
+                    <div style="font-size:0.9rem; color:var(--text-sec);"><strong>OpciÑn B:</strong> Oracle + Workday
+                        (mayor contraste)</div>
+                </div>
+            </div>
+
+            <div class="info-card" style="display:flex; align-items:center; gap:20px;">
+                <div class="number-badge red" style="width:48px; height:48px; font-size:1.5rem;">2</div>
+                <div>
+                    <h3 style="margin:0 0 8px; font-weight:800; font-size:1.1rem;">¿Qué modelo de implantaciÑn preferir?
+                    </h3>
+                    <div style="font-size:0.9rem; color:var(--text-sec); margin-bottom:4px;"><strong>Big Bang:</strong>
+                        11 meses, ruptura limpia, riesgo concentrado</div>
+                    <div style="font-size:0.9rem; color:var(--text-sec);"><strong>Faseado:</strong> 14-20 meses, menor
+                        riesgo, mayor coste coexistencia</div>
+                </div>
+            </div>
+
+            <div class="info-card" style="display:flex; align-items:center; gap:20px;">
+                <div class="number-badge red" style="width:48px; height:48px; font-size:1.5rem;">3</div>
+                <div>
+                    <h3 style="margin:0 0 8px; font-weight:800; font-size:1.1rem;">¿Qué peso dar a gestión del cambio?
+                    </h3>
+                    <div style="font-size:0.9rem; color:var(--text-sec); margin-bottom:4px;"><strong>Criterio
+                            eliminatorio:</strong> Obligatorio en alcance base</div>
+                    <div style="font-size:0.9rem; color:var(--text-sec);"><strong>Criterio valorable:</strong> Opcional
+                        con sobrecoste</div>
+                </div>
+            </div>
+
+            <div class="info-card" style="display:flex; align-items:center; gap:20px;">
+                <div class="number-badge red" style="width:48px; height:48px; font-size:1.5rem;">4</div>
+                <div>
+                    <h3 style="margin:0 0 8px; font-weight:800; font-size:1.1rem;">¿Qué plazos marcar para lanzar RFQ y
+                        adjudicar?</h3>
+                    <div style="font-size:0.9rem; color:var(--text-sec);">Establecer <strong>timeline concreto</strong>
+                        para lanzamiento RFQ, recepción propuestas, evaluación y adjudicación</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="alert-box" style="margin-top:20px; justify-content:space-between; flex-wrap:wrap;">
+            <div style="font-size:1.1rem; font-weight:700;">Con estas decisiones, se lanzará RFQ dirigida <br><span
+                    style="font-weight:400; font-size:0.95rem;">que permitirá la adjudicación final del proyecto de
+                    migraciÑn HCM</span></div>
+            <div style="text-align:right;">
+                <div style="font-size:0.85rem; font-weight:400;">Documento de trabajo</div>
+                <div style="font-size:1.2rem; font-weight:900;">Marzo 2026</div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // BREADCRUMB MANAGER - DYNAMIC ISLAND
+        function initDynamicBreadcrumb() {
+            const wrapper = document.querySelector('.global-nav-wrapper');
+            if (!wrapper) return;
+
+            // Check initial scroll position
+            if (window.scrollY > 50) wrapper.classList.add('compacted');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    wrapper.classList.add('compacted');
+                } else {
+                    wrapper.classList.remove('compacted');
+                }
+            });
+
+            // Handle touch devices to expand on tap if compacted
+            wrapper.addEventListener('click', (e) => {
+                if (wrapper.classList.contains('compacted') && window.innerWidth <= 768) {
+                    e.preventDefault();
+                    wrapper.classList.remove('compacted');
+                    // Give them time to click before it auto-compacts again
+                    setTimeout(() => {
+                        if (window.scrollY > 50) wrapper.classList.add('compacted');
+                    }, 3000);
+                }
+            });
+        }
+        document.addEventListener('DOMContentLoaded', initDynamicBreadcrumb);
+    </script>
+</body>
+
+</html>

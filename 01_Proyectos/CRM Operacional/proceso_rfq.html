@@ -1,0 +1,269 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proceso RFQ | CRM Operacional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Cuaderno de Bitacora (Proyectos)/styles_bitacora.css">
+    <style>
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .info-card {
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-card h3 {
+            color: var(--text-main);
+            font-size: 1.25rem;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .info-card h3 svg {
+            color: var(--lda-red);
+        }
+
+        .info-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            color: var(--text-sec);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .info-list li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .info-list li::before {
+            content: "•";
+            color: var(--lda-red);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            position: absolute;
+            left: 0;
+        }
+
+        .timeline-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item {
+            background: var(--bg-card);
+            padding: 20px 24px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 4px solid var(--text-sec);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            transition: border-color 0.3s;
+        }
+
+        .timeline-item:hover {
+            border-left-color: var(--lda-red);
+        }
+
+        .timeline-date {
+            font-weight: 800;
+            color: var(--lda-red);
+            font-size: 1rem;
+            white-space: nowrap;
+        }
+
+        .timeline-desc {
+            flex: 1;
+            margin-left: 20px;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../local_styles.css">
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper">
+        <div class="nav-breadcrumb">
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item" title="Inicio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <a href="index.html" class="nav-breadcrumb-item" title="Hub CRM Operacional">CRM Operacional</a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <span class="nav-breadcrumb-item current">Proceso RFQ</span>
+        </div>
+    </nav>
+
+    <!-- THEME TOGGLE -->
+    <div class="top-controls-wrapper" style="position: fixed; top: 30px; right: 30px; z-index: 100;">
+        <div class="theme-toggle-wrapper" style="box-shadow: var(--shadow);">
+            <span class="theme-label">MODO OSCURO</span>
+            <label class="theme-switch">
+                <input type="checkbox" id="theme-checkbox" onchange="toggleTheme()">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+
+    <main class="container">
+        <header class="hero" style="text-align: center; padding: 60px 0 40px;">
+            <span class="hero-badge">LICITACIÓN EN CURSO</span>
+            <span class="hero-badge-local">Recurso en Local</span>
+            <h1>Proceso <br><span>RFQ y Proveedores</span></h1>
+            <p style="margin: 0 auto; max-width: 800px;">Análisis sobre el pliego de petición de oferta (RFQ 2026-039). Descubre la necesidad operativa de Línea Directa y los requerimientos formativos y técnicos que exigimos a nuestros proveedores.</p>
+        </header>
+
+        <!-- SECCIÓN 1: QUÉ NECESITAMOS -->
+        <div class="section-header" style="border-left: 4px solid var(--lda-red); margin-top: 20px;">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Nuestra Necesidad Operativa</h2>
+                <p class="section-subtitle">¿Qué le hemos solicitado a los proveedores?</p>
+            </div>
+        </div>
+
+        <div class="content-grid">
+            <div class="info-card">
+                <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M12 20V10M18 20V4M6 20v-4"/></svg> Objetivo del Concurso</h3>
+                <p style="color: var(--text-sec); font-size: 0.95rem; margin-bottom: 12px;">Implantación de un CRM de mercado (MS Dynamics 365 o Salesforce) que permita a Grupo Línea Directa hacer una gestión más eficiente, global e integrada de sus clientes.</p>
+                <ul class="info-list">
+                    <li>Solución basada en la nube (Pública o Privada).</li>
+                    <li>Soporte de Arquitectura Híbrida (Event-Driven mediante Kafka e Invocación síncrona de APIs).</li>
+                    <li>Pleno cumplimiento con reglamentación DORA, Ciberseguridad y LOPD.</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg> Alcance Solicitado</h3>
+                <ul class="info-list">
+                    <li><strong>Discovery + UX:</strong> Aterrizaje de los requisitos a historias de usuario, evaluando la mejor experiencia (UX).</li>
+                    <li><strong>Implementación CRM:</strong> Despliegue de capacidades, modelo de datos, seguridad y auditoría en 9 Fases propuestas.</li>
+                    <li><strong>Gestión del Cambio:</strong> Planes de formación dirigidos a los operadores Contact Center y Stakeholders.</li>
+                    <li><strong>Soporte y Transferencia:</strong> Estabilización Post-Arranque (GO) y soporte extendido para el CoE CRM interno de Línea Directa.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 2: CALENDARIO -->
+        <div class="section-header" style="border-left: 4px solid #3b82f6;">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Calendario de Negociación</h2>
+                <p class="section-subtitle">Hitos cronológicos del proceso de RFQ 2026-039</p>
+            </div>
+        </div>
+
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-date">16 / 02 / 2026</div>
+                <div class="timeline-desc">Envío del pliego de petición de oferta a los proveedores invitados.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">20 / 02 / 2026</div>
+                <div class="timeline-desc">Plazo límite para la presentación de dudas (12 h).</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">27 / 02 / 2026</div>
+                <div class="timeline-desc">Plazo límite para resolución y respuesta de dudas técnica-funcionales.</div>
+            </div>
+            <div class="timeline-item" style="border-left-color: var(--lda-red);">
+                <div class="timeline-date">06 / 03 / 2026</div>
+                <div class="timeline-desc"><strong>Plazo límite definitivo</strong> para la presentación de Ofertas (12:00 PM).</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">TBD</div>
+                <div class="timeline-desc">Análisis de ofertas, reuniones de defensa, resolución y adjudicación del contrato de servicios.</div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 3: ESTRUCTURA DE RESPUESTA & EVALUACIÓN -->
+        <div class="section-header" style="border-left: 4px solid #10b981;">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Estructura y Evaluación de Propuestas</h2>
+                <p class="section-subtitle">Lo que los proveedores deben entregar y cómo los evaluaremos</p>
+            </div>
+        </div>
+
+        <div class="content-grid">
+            <div class="info-card">
+                <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/><path d="M14 3v5h5"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg> Estructura Requerida de la Oferta</h3>
+                <ul class="info-list">
+                    <li><strong>Resumen Ejecutivo:</strong> Visión general y puntos diferenciales.</li>
+                    <li><strong>Propuesta Técnica y de Cobertura:</strong> Mapeo detallado de cómo cubren los requisitos (solución Core + Ecosistema + Genesys Cloud).</li>
+                    <li><strong>Plan de Trabajo & Gobierno:</strong> Cronograma detallado con fases, Metodología de gestión y Roles exactos de ambas partes.</li>
+                    <li><strong>Gestión de Cambio:</strong> Acciones puntuales para la adopción total del nuevo entorno.</li>
+                    <li><strong>Propuesta Económica:</strong> Oferta completamente detallada desvinculada de la funcional.</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg> Criterios Críticos de Valoración</h3>
+                <ul class="info-list">
+                    <li><strong>Experiencia y Trayectoria:</strong> Demostrar expertise en CRMs de Ventas y Customer Service, preferiblemente en el Sector Asegurador español.</li>
+                    <li><strong>Equipos Técnicos Adecuados:</strong> Consultores Senior Discovery, Diseñadores UX con experiencia en CRM, y Desarrolladores certificados en la tecnología planteada.</li>
+                    <li><strong>Penalizaciones & SLA:</strong> Asunción clara de SLA en tiempos de respuesta (L1, L2, L3) y penalizaciones por retraso en hitos críticos.</li>
+                    <li><strong>Aceleradores de Industria:</strong> Valoración positiva si utilizan procesos pre-montados acordes al dominio Seguros.</li>
+                </ul>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        function toggleTheme() {
+            const checkbox = document.getElementById('theme-checkbox');
+            const isDark = checkbox.checked;
+            if (isDark) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const checkbox = document.getElementById('theme-checkbox');
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                if(checkbox) checkbox.checked = true;
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                if(checkbox) checkbox.checked = false;
+            }
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+        });
+    </script>
+</body>
+</html>

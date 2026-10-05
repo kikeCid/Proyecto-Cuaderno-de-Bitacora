@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub de Gestión de la Información | LDA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles_infografia.css">
+    <style>
+        .hidden {
+            display: none !important;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../local_styles.css">
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper">
+        <div class="nav-breadcrumb">
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item" title="Inicio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <span class="nav-breadcrumb-item current">Gestión Info</span>
+        </div>
+    </nav>
+
+
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label">MODO OSCURO</span>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-checkbox" onchange="toggleTheme()">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="container hub-container" id="view-root">
+        <header class="hero">
+            <span class="hero-badge">Estructura de Información del Proyecto</span>
+            <span class="hero-badge-local">Recurso en Local</span>
+            <h1>Hub de Gestión de la <br><span>Información</span></h1>
+            <p>El centro neurálgico que orquesta el conocimiento corporativo, transformando la información estática en
+                activos dinámicos de inteligencia para Línea Directa.</p>
+        </header>
+
+        <!-- SELECCIÓN DE UNIVERSO -->
+        <div class="hub-grid-intro">
+            <h2 style="text-align: center; margin-bottom: 40px; color: var(--text-main);">Selecciona tu Entorno</h2>
+            <div class="carousel-container">
+                <button class="carousel-btn left hidden" onclick="scrollCarousel(this, -340)"
+                    aria-label="Desplazar a la izquierda">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+                <div class="carousel-track" onscroll="updateCarouselButtons(this)">
+                    <!-- UNIVERSO LIDIA -->
+                    <a href="Lidia/hub_lidia.html" class="apple-card dark-card">
+                        <div class="kicker">ENTORNO CORE</div>
+                        <h3 class="title">Universo Lid<span style="color: var(--lda-red);">IA</span></h3>
+                        <p class="desc">Cimientos del proyecto: desde el ADN histórico hasta la arquitectura del
+                            orquestador técnico y la visión hacia 2026.</p>
+                        <div class="card-visual">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z">
+                                </path>
+                                <path d="M2 12h20"></path>
+                                <path d="M12 2v20"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <!-- UNIVERSO GOBIERNO (GIN) -->
+                    <a href="Metodologia de gobierno de informacion/hub_gin.html" class="apple-card blue-card">
+                        <div class="kicker">MARCO NORMATIVO</div>
+                        <h3 class="title">Universo GIN</h3>
+                        <p class="desc">Marco normativo y operativo: establecemos las reglas del juego para un
+                            conocimiento único, trazable y potenciado por IA.</p>
+                        <div class="card-visual">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+                <button class="carousel-btn right hidden" onclick="scrollCarousel(this, 340)"
+                    aria-label="Desplazar a la derecha">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts_infografia.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', initTheme);
+    </script>
+
+    <script>
+        // BREADCRUMB MANAGER - DYNAMIC ISLAND
+        function initDynamicBreadcrumb() {
+            const wrapper = document.querySelector('.global-nav-wrapper');
+            if (!wrapper) return;
+
+            // Check initial scroll position
+            if (window.scrollY > 50) wrapper.classList.add('compacted');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    wrapper.classList.add('compacted');
+                } else {
+                    wrapper.classList.remove('compacted');
+                }
+            });
+
+            // Handle touch devices to expand on tap if compacted
+            wrapper.addEventListener('click', (e) => {
+                if (wrapper.classList.contains('compacted') && window.innerWidth <= 768) {
+                    e.preventDefault();
+                    wrapper.classList.remove('compacted');
+                    // Give them time to click before it auto-compacts again
+                    setTimeout(() => {
+                        if (window.scrollY > 50) wrapper.classList.add('compacted');
+                    }, 3000);
+                }
+            });
+        }
+        document.addEventListener('DOMContentLoaded', initDynamicBreadcrumb);
+    </script>
+</body>
+
+</html>

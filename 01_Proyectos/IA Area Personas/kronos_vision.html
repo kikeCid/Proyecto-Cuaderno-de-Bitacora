@@ -1,0 +1,285 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visión KRONOS | ¿Qué es el Agente?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles_bitacora.css">
+    <style>
+        .kronos-hero {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin: 60px 0;
+            padding: 40px;
+            background: rgba(var(--text-sec-rgb), 0.03);
+            border-radius: 32px;
+            border: 1px solid var(--border-color);
+        }
+
+        .kronos-logo-container {
+            width: 180px;
+            height: 180px;
+            flex-shrink: 0;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(var(--text-sec-rgb), 0.03);
+            border: 2px solid var(--lda-red);
+            color: var(--lda-red);
+        }
+
+        .kronos-logo-container svg {
+            width: 120px;
+            height: 120px;
+        }
+
+        .kronos-title-group h1 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin: 0 0 10px 0;
+            background: linear-gradient(135deg, var(--text-main) 0%, var(--lda-red) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+        }
+
+        .kronos-author {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background: rgba(228, 0, 43, 0.1);
+            color: var(--lda-red);
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .section-box {
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 40px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-box h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        :root {
+            --kronos-gold: #fbbf24;
+            --kronos-emerald: #10b981;
+            --kronos-blue: #3b82f6;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../local_styles.css">
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper" style="z-index: 1000;">
+        <button class="nav-btn" onclick="javascript:history.back()" title="Volver atrás">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <div class="nav-divider"></div>
+        <div class="nav-breadcrumb">
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item" title="Inicio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <a href="index.html" class="nav-breadcrumb-item">Transformación y Eficiencia</a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <a href="kronos_agent.html" class="nav-breadcrumb-item">Ecosistema KRONOS</a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <span class="nav-breadcrumb-item current">Visión y Concepto</span>
+        </div>
+    </nav>
+
+    <div class="bg-mesh"></div>
+
+    <main class="container">
+        <!-- HERO SECTION -->
+        <div class="kronos-hero">
+            <div class="kronos-logo-container">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 2h14"></path>
+                    <path d="M5 22h14"></path>
+                    <path d="M17 2v4l-5 6 5 6v4"></path>
+                    <path d="M7 2v4l5 6-5 6v4"></path>
+                    <path d="M12 12v.01"></path>
+                </svg>
+            </div>
+            <div class="kronos-title-group">
+                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 12px;">
+                    <div class="kronos-author">By Kike Cid</div>
+                </div>
+                <h1>¿QUÉ ES KRONOS?</h1>
+                <span class="hero-badge-local" style="margin-top: 10px;">Recurso en Local</span>
+                <p style="font-size: 1.1rem; color: var(--text-sec); font-weight: 600; margin-bottom: 15px;">La Visión y el Propósito del Agente</p>
+            </div>
+        </div>
+
+        <!-- CONTEXTO Y VISIÓN DE NEGOCIO -->
+        <section class="section-box" style="border-left: 6px solid var(--kronos-blue);">
+            <h2>🤖 La Visión: ¿Qué es este agente de IA?</h2>
+            <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-sec); margin-bottom: 20px;">
+                En esencia, este agente de IA es como un asistente virtual inteligente diseñado para el entorno de nuestro dia a dia. No es un simple chatbot: comprende preguntas en lenguaje natural, consulta datos relevantes y puede realizar acciones básicas para ayudar en la gestión diaria. 
+                <strong style="color: var(--text-main);">Importante:</strong> no reemplaza la labor humana ni la toma de decisiones, sino que actúa como un colaborador digital que aligera la carga administrativa y multiplica la eficiencia de la persona permitiendo focalizarse en tareas de mayor valor añadido.
+            </p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 30px;">
+                <!-- Card 1 -->
+                <div style="background: rgba(var(--text-sec-rgb), 0.03); padding: 25px; border-radius: 20px; border: 1px solid var(--border-color);">
+                    <h3 style="font-size: 1.15rem; color: var(--text-main); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        Contexto Controlado y Fiable
+                    </h3>
+                    <p style="font-size: 0.9rem; color: var(--text-sec); line-height: 1.6;">
+                        El agente no "alucina" porque sólo accede a un conocimiento <strong>curado y gobernado</strong> en un SharePoint exclusivo. No busca en todo el entorno M365, garantizando que sus respuestas se basan estrictamente en fuentes internas validadas, seguras y confidenciales.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div style="background: rgba(var(--text-sec-rgb), 0.03); padding: 25px; border-radius: 20px; border: 1px solid var(--border-color);">
+                    <h3 style="font-size: 1.15rem; color: var(--text-main); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        Integración Nativa vía "Skills"
+                    </h3>
+                    <p style="font-size: 0.9rem; color: var(--text-sec); line-height: 1.6;">
+                        Conectado a nivel corporativo a través de Copilot Studio. Ejecuta "Skills" controladas que le permiten consultar un Excel de seguimiento, interactuar con Planner o procesar correos. Un ejemplo claro: extrae de forma autónoma el contenido de correos rutinarios y los convierte en "conocimiento consultable".
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div style="background: rgba(var(--text-sec-rgb), 0.03); padding: 25px; border-radius: 20px; border: 1px solid var(--border-color);">
+                    <h3 style="font-size: 1.15rem; color: var(--text-main); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20v-6M6 20V10M18 20V4"></path></svg>
+                        Enfoque MVP: Empezando en pequeño
+                    </h3>
+                    <p style="font-size: 0.9rem; color: var(--text-sec); line-height: 1.6;">
+                        Diseñado "de menos a más". Comenzamos con requisitos super concretos (ej. monitorizar tareas y FAQs) validándolos antes de escalar. Esto garantiza victorias tempranas, aporta valor desde el día uno y facilita que el equipo pierda el miedo a la IA.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div style="background: rgba(var(--text-sec-rgb), 0.03); padding: 25px; border-radius: 20px; border: 1px solid var(--border-color);">
+                    <h3 style="font-size: 1.15rem; color: var(--text-main); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                        Disponibilidad Transparente en Teams
+                    </h3>
+                    <p style="font-size: 0.9rem; color: var(--text-sec); line-height: 1.6;">
+                        El "super asistente" vive dentro de Microsoft Teams como una app independiente. No hay plataformas nuevas ni fricciones de adopción: basta con iniciar un chat ordinario, manteniéndose todo dentro del ecosistema seguro de Office 365.
+                    </p>
+                </div>
+            </div>
+
+            <!-- BENEFICIOS -->
+            <h3 style="margin-top: 40px; margin-bottom: 20px; font-weight: 800; display: flex; align-items: center; gap: 10px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--kronos-emerald)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                El Impacto Directo
+            </h3>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div style="display: flex; gap: 15px; padding: 15px; background: rgba(16, 185, 129, 0.05); border-radius: 12px; border-left: 3px solid var(--kronos-emerald);">
+                    <div style="font-weight: 900; color: var(--kronos-emerald);">✓</div>
+                    <div>
+                        <strong style="color: var(--text-main); display: block; margin-bottom: 4px;">Reducción Radical de Tareas Repetitivas</strong>
+                        <span style="font-size: 0.9rem; color: var(--text-sec);">Búsquedas automatizadas de información, resúmenes instantáneos y organización autónoma. Lo que llevaba horas ahora es inmediato.</span>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 15px; padding: 15px; background: rgba(16, 185, 129, 0.05); border-radius: 12px; border-left: 3px solid var(--kronos-emerald);">
+                    <div style="font-weight: 900; color: var(--kronos-emerald);">✓</div>
+                    <div>
+                        <strong style="color: var(--text-main); display: block; margin-bottom: 4px;">Transición de "Administrativo" a "Gestor de Valor"</strong>
+                        <span style="font-size: 0.9rem; color: var(--text-sec);">Al liberar carga operativa, el equipo recobra el tiempo crítico para enfocarlo en la estrategia, el análisis y el trato directo con las personas.</span>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 15px; padding: 15px; background: rgba(16, 185, 129, 0.05); border-radius: 12px; border-left: 3px solid var(--kronos-emerald);">
+                    <div style="font-weight: 900; color: var(--kronos-emerald);">✓</div>
+                    <div>
+                        <strong style="color: var(--text-main); display: block; margin-bottom: 4px;">Single Source of Truth (Fuente Única Verdadera)</strong>
+                        <span style="font-size: 0.9rem; color: var(--text-sec);">Una base de conocimiento consolidada asegura que el asistente maneja la misma version documental oficial.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EXECUTIVE SUMMARY SLIDE -->
+            <div style="margin-top: 50px; padding: 40px; background: linear-gradient(135deg, var(--text-main) 0%, #1e293b 100%); border-radius: 24px; color: white; position: relative; overflow: hidden;">
+                <!-- Decorative element -->
+                <div style="position: absolute; right: -20px; top: -20px; opacity: 0.05;">
+                    <svg width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle></svg>
+                </div>
+
+                <div style="position: relative; z-index: 1;">
+                    <span style="font-size: 0.75rem; font-weight: 800; color: var(--kronos-gold); letter-spacing: 2px; text-transform: uppercase;">Resumen Ejecutivo</span>
+                    <h3 style="font-size: 2rem; margin: 10px 0 30px 0; color: white;">Un asistente de IA para ti:<br><span style="color: var(--kronos-gold);">Del chat a la acción</span></h3>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                        <div>
+                            <h4 style="color: var(--kronos-gold); margin-bottom: 12px; font-weight: 800; font-size: 1rem;">QUÉ ES</h4>
+                            <p style="font-size: 0.9rem; line-height: 1.6; opacity: 0.9; margin-bottom: 25px;">
+                                Es automatizar el día a día con inteligencia y propósito. <strong>No es tecnología compleja a los ojos del usuario</strong>; es un asistente que ayuda a ejecutar, quitando carga operativa real mediante comandos en español llano.
+                            </p>
+                            
+                            <h4 style="color: var(--kronos-gold); margin-bottom: 12px; font-weight: 800; font-size: 1rem;">EJEMPLO 🪄</h4>
+                            <p style="font-size: 0.9rem; line-height: 1.6; opacity: 0.9; margin: 0;">
+                                Flujos transforman correos de reporte a texto, extraen KPIs y arman conocimiento de fondo. En segundos le dices por Teams: <strong><i>"¿Qué me falta del proyecto X según el email de Luis?"</i></strong> y te presenta el resumen.
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <h4 style="color: var(--kronos-gold); margin-bottom: 12px; font-weight: 800; font-size: 1rem;">LA MAGIA ES EL CONTEXTO</h4>
+                            <ul style="padding-left: 20px; font-size: 0.9rem; line-height: 1.6; opacity: 0.9; margin: 0;">
+                                <li style="margin-bottom: 8px;"><strong>Cercado:</strong> Solo busca en repositorios designados, NO en internet.</li>
+                                <li style="margin-bottom: 8px;"><strong>Controlado:</strong> Habilidades con permisos restrictivos.</li>
+                                <li style="margin-bottom: 8px;"><strong>Integrado:</strong> Convive fluidamente en M365 (Teams/Outlook).</li>
+                            </ul>
+
+                            <div style="margin-top: 25px; padding: 20px; border: 1px dashed rgba(255,255,255,0.2); border-radius: 16px; background: rgba(0,0,0,0.2);">
+                                <span style="display: block; font-size: 0.75rem; color: #cbd5e1; text-transform: uppercase; font-weight: 800; margin-bottom: 5px;">Conclusión Final</span>
+                                <span style="font-weight: 600; font-size: 1.1rem; color: var(--kronos-emerald);">Bienvenidos al futuro.</span>
+                                <p style="font-size: 0.8rem; opacity: 0.8; margin: 5px 0 0 0;">Una herramienta pragmática, funcional hoy con resultados demostrables.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portal de Transformación y Eficiencia RRHH | Grupo Línea Directa</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+        }
+    </script>
+</body>
+</html>

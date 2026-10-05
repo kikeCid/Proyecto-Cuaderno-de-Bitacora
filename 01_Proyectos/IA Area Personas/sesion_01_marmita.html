@@ -1,0 +1,252 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Marmita: Ventanas IA | Transformación y formas de trabajar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles_bitacora.css">
+    <style>
+        :root {
+            --lda-red: #E4002B;
+            --lda-red-soft: rgba(228, 0, 43, 0.05);
+            --lda-border: #e2e8f0;
+        }
+
+        .hero-marmita {
+            background: #f8fafc;
+            padding: 80px 40px;
+            border-radius: 32px;
+            border: 1px solid var(--lda-border);
+            margin: 40px 0 80px 0;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-marmita::after {
+            content: "{}";
+            position: absolute;
+            right: -20px;
+            bottom: -40px;
+            font-size: 15rem;
+            font-weight: 900;
+            color: var(--lda-red);
+            opacity: 0.03;
+            pointer-events: none;
+        }
+
+        .marmita-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .marmita-app-card {
+            background: white;
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid var(--lda-border);
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .marmita-app-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--lda-red);
+        }
+
+        .app-icon-large {
+            width: 70px;
+            height: 70px;
+            background: #f1f5f9;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            color: var(--lda-red);
+        }
+
+        .app-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            background: var(--lda-red-soft);
+            color: var(--lda-red);
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .section-title-marmita {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .box-highlight {
+            background: #1e293b;
+            color: white;
+            padding: 60px;
+            border-radius: 32px;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../local_styles.css">
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper">
+        <button class="nav-btn" onclick="javascript:history.back()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+        </button>
+        <div class="nav-divider"></div>
+        <div class="nav-breadcrumb">
+            <a href="index.html" class="nav-breadcrumb-item">Transformación y Eficiencia</a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <a href="sesiones_transformacion.html" class="nav-breadcrumb-item">Sesiones</a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <a href="sesion_01_radar.html" class="nav-breadcrumb-item">Sesión 1: Radar</a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <span class="nav-breadcrumb-item current">La Marmita</span>
+        </div>
+    </nav>
+
+    <div class="bg-mesh"></div>
+
+    <main class="container">
+        <!-- HERO SECTION -->
+        <header class="hero-marmita">
+            <div style="flex-grow: 1;">
+                <span class="app-tag">Conceptos Clave</span>
+                <h1>La Marmita: <br>Nuestras Ventanas IA</h1>
+                <span class="hero-badge-local" style="margin-top: 10px;">Recurso en Local</span>
+                <p style="color: var(--text-sec); max-width: 600px; font-size: 1.1rem; margin-top: 15px;">Entendiendo que no importa dónde escribas, sino qué "potencia" hay detrás. Estas son las formas más comunes de interactuar con el cerebro (pócima) de la IA en el día a día.</p>
+            </div>
+            <div style="width: 140px; height: 140px; background: white; border-radius: 30px; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow);">
+                 <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--lda-red)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3h.01M17 6h.01M7 6h.01M5 11h14M7 11V7a5 5 0 0 1 10 0v4M4 11v2a8 8 0 0 0 16 0v-2" />
+                </svg>
+            </div>
+        </header>
+
+        <h2 class="section-title-marmita">¿Dónde usamos la IA?</h2>
+
+        <div class="marmita-grid">
+            <!-- COPILOT -->
+            <div class="marmita-app-card">
+                <span class="app-tag">Marmita Corporativa</span>
+                <div class="app-icon-large" style="background: #0078d4;">
+                    <svg width="36" height="36" viewBox="0 0 23 23"><path fill="#fff" d="M0 0h11v11H0zM12 0h11v11H12zM0 12h11v11H0zM12 12h11v11H12z"/></svg>
+                </div>
+                <h3>Microsoft Copilot</h3>
+                <p>Nuestra ventana principal. Segura, integrada en Office y lista para el trabajo diario con datos de la empresa.</p>
+            </div>
+
+            <!-- CHATGPT -->
+            <div class="marmita-app-card">
+                <span class="app-tag">Marmita Pionera</span>
+                <div class="app-icon-large" style="background: #000;">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="white"><path d="M22.28 7.53c-.52-1.99-1.73-3.61-3.41-4.56-1.68-.95-3.65-1.12-5.49-.49L12 3.19l-1.38-.71C8.78 1.85 6.81 2.02 5.13 2.97 3.45 3.92 2.24 5.54 1.72 7.53c-.52 1.99-.21 4.1.88 5.86l1.17 1.89-1.17 1.89c-1.09 1.76-1.4 3.87-.88 5.86.52 1.99 1.73 3.61 3.41 4.56 1.68-.95 3.65 1.12 5.49.49l1.38-.71 1.38.71c1.84.63 3.81.46 5.49-.49 1.68-.95 2.89-2.57 3.41-4.56.52-1.99.21-4.1-.88-5.86l-1.17-1.89 1.17-1.89c1.09-1.76 1.4-3.87.88-5.86zM12 15.11l-2.47-1.42L7 12.27l2.53-1.42 2.47-1.42 2.47 1.42L17 12.27l-2.53 1.42L12 15.11z"/></svg>
+                </div>
+                <h3>OpenAI / ChatGPT</h3>
+                <p>La interfaz más conocida. Ideal para generación creativa, desbloqueo de ideas y tareas generales fuera del entorno Office.</p>
+            </div>
+
+            <!-- CLAUDE -->
+            <div class="marmita-app-card">
+                <span class="app-tag">Marmita de Análisis</span>
+                <div class="app-icon-large" style="background: #fdf6f0; border: 1px solid #e2e8f0;">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="#191919"><path d="M16.5 3h-9L2 21h4.5l1.5-4.5h8l1.5 4.5H22L16.5 3zm-7.6 12L12 6.5l3.1 8.5H8.9z"/></svg>
+                </div>
+                <h3>Anthropic / Claude</h3>
+                <p>Perfecta para trabajar con textos muy largos y análisis que requieren un tono más humano y menos "robótico".</p>
+            </div>
+
+            <!-- GEMINI -->
+            <div class="marmita-app-card">
+                <span class="app-tag">Marmita Google</span>
+                <div class="app-icon-large" style="background: linear-gradient(135deg, #1e3a8a, #3b82f6);">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="white"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71L12 2z"/></svg>
+                </div>
+                <h3>Google Gemini</h3>
+                <p>La puerta a las herramientas de Google. Destaca por su capacidad para entender vídeo y archivos de Drive de forma nativa.</p>
+            </div>
+
+            <!-- PERPLEXITY -->
+            <div class="marmita-app-card">
+                <span class="app-tag">Marmita de Investigación</span>
+                <div class="app-icon-large" style="background: #fff; border: 1px solid #e2e8f0;">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="#202124"><path d="M12 1L9 9l-8.5.5L7 13.5l-2.5 8.5 7.5-5 7.5 5-2.5-8.5 6.5-4h-8.5L12 1z" /></svg>
+                </div>
+                <h3>Perplexity</h3>
+                <p>Tu buscador evolucionado. Cita fuentes de Internet en tiempo real y organiza la información de forma brillante.</p>
+            </div>
+
+            <!-- GROK -->
+            <div class="marmita-app-card">
+                <span class="app-tag">Marmita de Actualidad</span>
+                <div class="app-icon-large" style="background: #000;">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </div>
+                <h3>xAI / Grok</h3>
+                <p>Conectada a la red social X. Ideal para saber qué está pasando en el mundo en este preciso instante.</p>
+            </div>
+        </div>
+
+        <!-- ORQUESTADORES VS MODELOS NATIVOS -->
+        <div class="box-highlight" style="text-align: left; background: #0f172a;">
+            <h2 style="color: white; margin-bottom: 25px;">Misma Marmita, Distintos Cerebros (pócimas)</h2>
+            <p style="font-size: 1.1rem; opacity: 0.9; line-height: 1.7; margin-bottom: 25px;">No todas las ventanas funcionan igual. Hay una gran diferencia entre los "jugadores puros" y los "orquestadores":</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                <div style="padding: 25px; background: rgba(255,255,255,0.05); border-radius: 20px; border: 1px solid rgba(255,255,255,0.1);">
+                    <h3 style="color: var(--lda-red); margin-bottom: 15px;">Orquestadores (Copilot / Perplexity)</h3>
+                    <p style="font-size: 0.95rem; opacity: 0.8; margin-bottom: 12px;">Son "marmitas inteligentes" que usan modelos de otros jugadores. Tienen un <strong>Modo Automático</strong>: si detectan que tu prompt es una investigación, ellos mismos eligen la pócima más potente.</p>
+                    <p style="font-size: 0.9rem; color: var(--lda-red); font-weight: 700;">💡 Control Total: Como usuario, también puedes elegir manualmente el Cerebro (pócima) que prefieras para cada consulta específica.</p>
+                </div>
+                <div style="padding: 25px; background: rgba(255,255,255,0.05); border-radius: 20px; border: 1px solid rgba(255,255,255,0.1);">
+                    <h3 style="color: #60a5fa; margin-bottom: 15px;">Modelos Nativos (ChatGPT / Claude / Gemini)</h3>
+                    <p style="font-size: 0.95rem; opacity: 0.8;">Estas marmitas están diseñadas específicamente para usar su propia familia de pócimas. Son especialistas: si entras en Claude, usarás los cerebros de Anthropic; si entras en ChatGPT, los de OpenAI. Están optimizadas para exprimir su propia tecnología al máximo.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SELECCIÓN POR FUNCIÓN -->
+        <div class="box-highlight" style="background: white; color: #1e293b; border: 1px solid var(--lda-border); text-align: left;">
+            <h2 style="margin-bottom: 25px; color: #0f172a;">Elegimos la Función, no el Nombre</h2>
+            <p style="font-size: 1.1rem; color: var(--text-sec); line-height: 1.7; margin-bottom: 30px;">Muchas veces no verás el nombre técnico de la pócima (GPT 5.3 o Claude 4.5). En su lugar, la marmita te pide que elijas la <strong>función</strong> que quieres realizar, y ella pone el Cerebro (pócima) adecuado detrás.</p>
+            
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+                <div style="display: flex; align-items: center; gap: 20px; padding: 20px; background: #f8fafc; border-radius: 16px; border-left: 5px solid #000;">
+                    <div style="font-weight: 800; min-width: 140px;">Ejemplo ChatGPT</div>
+                    <div style="font-size: 0.95rem;">
+                        ¿Quieres una imagen? Pulsa <strong>"Crear una imagen"</strong>. <br>
+                        ¿Necesitas lógica compleja? Pulsa <strong>"Pensar" (Think)</strong>. <br>
+                        ¿Buscas datos reales? Pulsa <strong>"Investigación avanzada"</strong>.
+                    </div>
+                </div>
+                <div style="padding: 15px; border-radius: 12px; background: rgba(0,0,0,0.02); font-size: 0.9rem; font-style: italic; color: #64748b;">
+                    Las marmitas están diseñadas para ser muy explicativas. No hace falta ser un experto en modelos; solo hay que saber qué queremos conseguir.
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portal de Transformación y Eficiencia | Grupo Línea Directa</p>
+    </footer>
+
+    <script src="breadcrumb_manager.js"></script>
+</body>
+
+</html>

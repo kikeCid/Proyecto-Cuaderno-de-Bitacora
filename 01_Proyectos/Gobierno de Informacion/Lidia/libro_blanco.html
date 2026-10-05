@@ -1,0 +1,950 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libro Blanco | LidIA-MCP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles_infografia.css">
+    <style>
+        .view-section {
+            display: block !important;
+            opacity: 1 !important;
+            transform: none !important;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../../local_styles.css">
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper">
+        <div class="nav-breadcrumb">
+            <a href="../../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item" title="Inicio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <a href="../index.html" class="nav-breadcrumb-item">Gestión Info</a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <a href="hub_lidia.html" class="nav-breadcrumb-item">Universo LidIA</a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <a href="estrategia_2026.html" class="nav-breadcrumb-item">Estrategia 2026</a>
+            <span class="nav-breadcrumb-sep">›</span>
+            <span class="nav-breadcrumb-item current">Libro Blanco</span>
+        </div>
+    </nav>
+
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label">MODO OSCURO</span>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-checkbox" onchange="toggleTheme()">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="container view-section" id="view-manual">
+
+        <header class="hero">
+            <span class="hero-badge">LidIA-MCP v1.2</span>
+            <span class="hero-badge-local">Recurso en Local</span>
+            <h1>Libro Blanco: <br><span>Reglas de Juego</span></h1>
+            <p>Consolidamos el marco normativo definitivo: una guóa técnica y estratégica para la estandarización del
+                activo intelectual, garantizando la consistencia absoluta en el ecosistema LidIA.</p>
+        </header>
+
+        <!-- 1. INTRODUCCIÓN -->
+        <div style="max-width: 900px; margin: 0 auto 60px auto; text-align: center;">
+            <h2
+                style="font-size: 2.2rem; font-weight: 800; color: var(--lda-red); margin-bottom: 25px; letter-spacing: -1px;">
+                Introducción</h2>
+            <p
+                style="font-size: 1.25rem; line-height: 1.8; color: var(--text-sec); font-style: italic; font-family: 'Inter', sans-serif; font-weight: 300;">
+                Lid<span style="color: var(--lda-red);">IA</span> no es solo tecnologóa; es una infraestructura de
+                conocimiento diseñada para unificar el capital intelectual de la compañóa, transformando datos aislados
+                en activos estratégicos al servicio del cliente y la eficiencia operativa.
+            </p>
+            <p
+                style="font-size: 1.15rem; line-height: 1.7; color: var(--text-sec); margin-top: 20px; font-weight: 400;">
+                Para garantizar respuestas precisas, trazables y libres de ambigüedad, establecemos un marco operativo
+                basado en la **Estandarización de Casos de Uso** y un **Modelo de Gobierno** estricto. Esta guóa
+                constituye el manual de referencia para todas las áreas que contribuyen a la construcción del cerebro
+                colectivo de Lónea Directa.
+            </p>
+        </div>
+
+        <!-- 2. OBJETIVO & 3. ALCANCE -->
+        <div class="manual-grid"
+            style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); margin-bottom: 60px;">
+            <div class="rule-card"
+                style="border-top: 1px solid var(--border-color); border-left: 4px solid var(--lda-red);">
+                <h3>Objetivo de la guóa</h3>
+                <p>Establecer una forma de trabajo sencilla, práctica y común que permita:</p>
+                <ul class="process-list" style="margin-top: 15px;">
+                    <li><span class="process-check">✓</span> Organizar y estandarizar la información.
+                    </li>
+                    <li><span class="process-check">✓</span> Asegurar información actualizada y
+                        alineado.</li>
+                    <li><span class="process-check">✓</span> Evitar duplicidades y contradicciones.</li>
+                    <li><span class="process-check">✓</span> Facilitar procesos rápidos y fiables.</li>
+                    <li><span class="process-check">✓</span> Impulsar la adopción de la IA.</li>
+                </ul>
+            </div>
+            <div class="rule-card"
+                style="border-top: 1px solid var(--border-color); border-left: 4px solid var(--lda-red);">
+                <h3>Alcance</h3>
+                <p>Esta metodologóa aplica a todas las áreas que aportan información a Lid<span
+                        style="color: var(--lda-red);">IA</span>,
+                    incluyendo:</p>
+                <ul class="process-list" style="margin-top: 15px;">
+                    <li><span class="process-check">✓</span> Comercial y Cartera.</li>
+                    <li><span class="process-check">✓</span> Siniestros y Prestaciones (SYP).</li>
+                    <li><span class="process-check">✓</span> Cualquier área que cree, modifique o valide
+                        contenidos.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- PRINCIPIOS BÁSICOS -->
+        <h2
+            style="font-size: 2.2rem; font-weight: 800; color: var(--lda-red); margin: 60px 0 40px 0; text-align: center; letter-spacing: -1px;">
+            Principios básicos de trabajo</h2>
+
+        <div class="manual-alert" style="text-align: center; margin-bottom: 50px;">
+            <div class="icon-box-red"
+                style="background: white; border: 1px solid var(--lda-pink-soft); margin: 0 auto 15px auto;">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z">
+                    </path>
+                </svg>
+            </div>
+            <h3 style="justify-content: center; font-size: 1.5rem; margin-bottom: 15px;">El Principio de
+                Oro</h3>
+            <p style="font-size: 1.35rem; line-height: 1.5; margin: 0;"><strong>"Si no está escrito, la
+                    IA no lo
+                    sabe".</strong><br>
+                A diferencia de un humano, la IA no sobreentiende nada. No resumas. No asumas. Tu misión
+                es explicar
+                el
+                proceso completo, como si el operador no supiera nada del negocio.</p>
+        </div>
+
+        <!-- LOS 4 PRINCIPIOS FUNDAMENTALES -->
+        <!-- LOS 4 PRINCIPIOS FUNDAMENTALES -->
+        <h3 id="section-principles"
+            style="font-size: 1.6rem; color: var(--lda-red); text-align: center; margin-bottom: 30px; font-weight: 700;">
+            Principios Fundamentales</h3>
+        <div class="problems-grid" style="grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 60px;">
+            <div class="problem-card">
+                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
+                    <span class="problem-icon" style="margin-bottom: 0; width: 45px; height: 45px;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </span>
+                    <div class="problem-title" style="margin-bottom: 0;">Calidad</div>
+                </div>
+                <p style="font-size: 0.9rem;">Información correcta, alineada con normativa, clara y
+                    coherente.</p>
+            </div>
+            <div class="problem-card">
+                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
+                    <span class="problem-icon" style="margin-bottom: 0; width: 45px; height: 45px;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            <circle cx="11" cy="11" r="8"></circle>
+                        </svg>
+                    </span>
+                    <div class="problem-title" style="margin-bottom: 0;">Orden</div>
+                </div>
+                <p style="font-size: 0.9rem;">Ubicada en repositorios oficiales y organizada por temas.
+                </p>
+            </div>
+            <div class="problem-card">
+                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
+                    <span class="problem-icon" style="margin-bottom: 0; width: 45px; height: 45px;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </span>
+                    <div class="problem-title" style="margin-bottom: 0;">Contexto</div>
+                </div>
+                <p style="font-size: 0.9rem;">Indicar para qué proceso, producto y situaciones aplica.
+                </p>
+            </div>
+            <div class="problem-card">
+                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
+                    <span class="problem-icon" style="margin-bottom: 0; width: 45px; height: 45px;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </span>
+                    <div class="problem-title" style="margin-bottom: 0;">Responsable</div>
+                </div>
+                <p style="font-size: 0.9rem;">Cada contenido debe tener un titular claro que asuma su
+                    gestión.</p>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <!-- LOS 3 MOTORES DE LA METODOLOGÍA (FOCO EN PRODUCCIÓN) -->
+        <h2 class="section-title">Contexto Metodológico: El Motor de Producción</h2>
+        <p
+            style="text-align: center; color: var(--text-sec); margin-bottom: 50px; max-width: 800px; margin-left: auto; margin-right: auto;">
+            El Libro Blanco profundiza exclusivamente en el <strong>Motor 2 (Sistema de Producción)</strong>, donde
+            ocurre la magia de la estandarización.
+        </p>
+
+        <div style="display: flex; gap: 20px; justify-content: center; margin-bottom: 80px; opacity: 1;">
+
+            <!-- MOTOR 1: ARRANQUE (Dimmed) -->
+            <div
+                style="flex: 1; border: 1px dashed var(--border-color); border-radius: 16px; padding: 20px; opacity: 0.4; filter: grayscale(100%); transform: scale(0.95);">
+                <span style="font-size: 0.65rem; font-weight: 800; color: #6B7280; text-transform: uppercase;">Motor
+                    1</span>
+                <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 5px;">Sistema de Arranque</h3>
+                <p style="font-size: 0.8rem; color: var(--text-sec);">Identificación y Priorización.</p>
+            </div>
+
+            <!-- MOTOR 2: PRODUCCIÓN (Active & Highlighted) -->
+            <div
+                style="flex: 1.2; background: var(--bg-card); border: 2px solid var(--lda-red); border-radius: 20px; padding: 25px; box-shadow: 0 10px 30px rgba(228, 0, 43, 0.15); transform: scale(1.05); position: relative; z-index: 2;">
+                <div
+                    style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--lda-red); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 800; letter-spacing: 1px;">
+                    FOCO DE ESTA GUÍA</div>
+                <span
+                    style="font-size: 0.75rem; font-weight: 800; color: var(--lda-red); text-transform: uppercase; letter-spacing: 1px;">Motor
+                    2</span>
+                <h3 style="font-size: 1.4rem; color: var(--text-main); margin-bottom: 10px; font-weight: 800;">
+                    Sistema
+                    de Producción</h3>
+                <p style="font-size: 0.9rem; color: var(--text-sec);">Ingesta, <strong>Estandarización</strong> y
+                    Validación.</p>
+            </div>
+
+            <!-- MOTOR 3: MANTENIMIENTO (Dimmed) -->
+            <div
+                style="flex: 1; border: 1px dashed var(--border-color); border-radius: 16px; padding: 20px; opacity: 0.4; filter: grayscale(100%); transform: scale(0.95);">
+                <span style="font-size: 0.65rem; font-weight: 800; color: #6B7280; text-transform: uppercase;">Motor
+                    3</span>
+                <h3 style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 5px;">Sistema de Mtto.</h3>
+                <p style="font-size: 0.8rem; color: var(--text-sec);">Publicación y Monitorización.</p>
+            </div>
+
+        </div>
+
+
+        <!-- 1. REDACCIÓN LidIA -->
+        <div id="seccion-redaccion" style="margin-bottom: 80px; position: relative;">
+            <h3
+                style="color: var(--lda-red); border-bottom: 2px solid var(--lda-pink-soft); padding-bottom: 15px; margin-bottom: 50px; font-size: 1.8rem; font-weight: 800; display: flex; align-items: center; gap: 15px;">
+                <span
+                    style="background: var(--lda-red); color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">1</span>
+                Redacción Estratégica Lid IA
+            </h3>
+
+            <!-- STAMP SEAL (POSICIONADO SEGÚN IMAGEN) -->
+            <div class="stamp-seal"
+                style="position: absolute; top: 10px; left: 120px; width: 80px; height: 80px; border: 2px dashed var(--lda-red); border-radius: 50%; display: flex; align-items: center; justify-content: center; transform: rotate(-15deg); background: white; z-index: 5;">
+                <div class="stamp-text"
+                    style="color: var(--lda-red); font-family: 'Courier New', Courier, monospace; font-weight: 900; font-size: 0.6rem; text-align: center; line-height: 1.1;">
+                    POTENCIADO<br>CON IA</div>
+            </div>
+
+            <div class="manual-grid" style="grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 50px;">
+                <!-- Card 1 -->
+                <div class="rule-card"
+                    style="background: white; border: 1px solid var(--border-color); border-radius: 20px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                    <div class="icon-box-red" style="background: #FFF5F5; border: none; margin-bottom: 20px;"><svg
+                            viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 3h5v5M4 20L21 3M21 16v5h-5M9 21H4v-5"></path>
+                        </svg></div>
+                    <h4 style="font-weight: 800; margin-bottom: 10px; color: var(--text-main);">Descomposición</h4>
+                    <p style="color: var(--text-sec); font-size: 0.95rem; line-height: 1.5;">Divide procesos largos en
+                        pasos atómicos: <br><strong>Situación → Comprobación → Acción</strong></p>
+                </div>
+                <!-- Card 2 -->
+                <div class="rule-card"
+                    style="background: white; border: 1px solid var(--border-color); border-radius: 20px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                    <div class="icon-box-red" style="background: #FFF5F5; border: none; margin-bottom: 20px;"><svg
+                            viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg></div>
+                    <h4 style="font-weight: 800; margin-bottom: 10px; color: var(--text-main);">Cero Ambigüedad</h4>
+                    <p style="color: var(--text-sec); font-size: 0.95rem; line-height: 1.5;">Evita interpretaciones. Usa
+                        reglas directas: <br><strong>"Si sucede A, aplica B".</strong></p>
+                </div>
+                <!-- Card 3 -->
+                <div class="rule-card"
+                    style="background: white; border: 1px solid var(--border-color); border-radius: 20px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                    <div class="icon-box-red" style="background: #FFF5F5; border: none; margin-bottom: 20px;"><svg
+                            viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
+                            </path>
+                        </svg></div>
+                    <h4 style="font-weight: 800; margin-bottom: 10px; color: var(--text-main);">Contexto es Rey</h4>
+                    <p style="color: var(--text-sec); font-size: 0.95rem; line-height: 1.5;">Explica el <strong>POR
+                            QUÉ</strong>. Ayuda a la IA a entender la intención detrás de la norma.</p>
+                </div>
+            </div>
+
+            <!-- CONTENEDOR CASOS REALES (ESTILO IMAGEN) -->
+            <div
+                style="background: white; padding: 50px; border-radius: 30px; border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
+                <h4
+                    style="text-align: center; margin-bottom: 40px; color: #4A5568; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; font-size: 0.8rem;">
+                    CASOS REALES: EL IMPACTO DE LA METODOLOGÍA</h4>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                    <!-- Caso 1 Mal -->
+                    <div style="border: 2px solid #FEB2B2; background: white; border-radius: 12px; padding: 25px;">
+                        <div
+                            style="color: #C53030; font-weight: 800; font-size: 0.8rem; display: flex; align-items: center; gap: 8px; margin-bottom: 15px;">
+                            <span style="font-size: 1.2rem;">✕</span> ACTUAL (DIFUSO)
+                        </div>
+                        <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main);"><em>"Antes de
+                                transferir a Cross-selling por técnica, es obligatorio consultar con el
+                                supervisor."</em></p>
+                    </div>
+                    <!-- Caso 1 LidIA -->
+                    <div style="border: 2px solid #2D3748; background: white; border-radius: 12px; padding: 25px;">
+                        <div
+                            style="color: #2F855A; font-weight: 800; font-size: 0.8rem; display: flex; align-items: center; gap: 8px; margin-bottom: 15px;">
+                            <span style="font-size: 1rem;">✓</span> <span style="color: var(--lda-red);">LidIA</span>
+                            (PRECISO)
+                        </div>
+                        <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main);"><em>"Llamar al
+                                supervisor por lónea interna para validar contraoferta. Si autoriza, transferir marcando
+                                <strong>'Técnica Autorizada'</strong>."</em></p>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <!-- Caso 2 Mal -->
+                    <div style="border: 2px solid #FEB2B2; background: white; border-radius: 12px; padding: 25px;">
+                        <div
+                            style="color: #C53030; font-weight: 800; font-size: 0.8rem; display: flex; align-items: center; gap: 8px; margin-bottom: 15px;">
+                            <span style="font-size: 1.2rem;">✕</span> ACTUAL (DIFUSO)
+                        </div>
+                        <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main);"><em>"En pólizas con
+                                aviso de impago, validar con supervisor si se puede borrar la marca."</em></p>
+                    </div>
+                    <!-- Caso 2 LidIA -->
+                    <div style="border: 2px solid #2D3748; background: white; border-radius: 12px; padding: 25px;">
+                        <div
+                            style="color: #2F855A; font-weight: 800; font-size: 0.8rem; display: flex; align-items: center; gap: 8px; margin-bottom: 15px;">
+                            <span style="font-size: 1rem;">✓</span> <span style="color: var(--lda-red);">LidIA</span>
+                            (PRECISO)
+                        </div>
+                        <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-main);"><em>"Si aparece el
+                                <strong>aviso rojo de 'IMPAGO'</strong>, no transferir. Verificar abono del recibo y
+                                solicitar borrado manual al supervisor."</em></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. EL BIBLIOTECARIO -->
+        <div id="seccion-etiquetado">
+            <h3
+                style="color: var(--lda-red); border-bottom: 2px solid var(--lda-pink-soft); padding-bottom: 15px; margin-bottom: 40px; font-size: 1.8rem; font-weight: 800; display: flex; align-items: center; gap: 15px;">
+                <span
+                    style="background: var(--lda-red); color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">2</span>
+                El Bibliotecario (Etiquetado Maestro)
+            </h3>
+
+            <div class="manual-alert"
+                style="background: var(--bg-card); text-align: center; margin-bottom: 40px; border: 1px solid var(--border-color); padding: 40px; border-radius: 20px; box-shadow: 0 4px 20px var(--shadow-color);">
+                <div class="icon-box-red" style="margin: 0 auto 15px auto; width: 60px; height: 60px;"><svg
+                        viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z">
+                        </path>
+                    </svg></div>
+                <h4 style="font-size: 1.6rem; margin-bottom: 15px; color: var(--text-main); font-weight: 800;">
+                    La Analogóa del Bibliotecario</h4>
+                <p
+                    style="font-size: 1.1rem; color: var(--text-sec); line-height: 1.6; max-width: 800px; margin: 0 auto;">
+                    Imagina una biblioteca infinita. El bibliotecario no lee cada libro para
+                    ayudarte; busca en el <strong>fichero de metadatos</strong>. Si no etiquetas correctamente estos 15
+                    campos, tu información será invisible para la IA.
+                </p>
+            </div>
+
+            <div class="manual-grid"
+                style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; text-align: center;">
+                <!-- 1. Doc ID -->
+                <div class="rule-card"
+                    style="padding: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                    <div class="icon-line-red"
+                        style="margin-bottom: 15px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; color: var(--lda-red); margin-left: auto; margin-right: auto;">
+                        <svg viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none"
+                            style="width: 40px; height: 40px;">
+                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2">
+                            </path>
+                            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                        </svg>
+                    </div>
+                    <h5 style="font-weight: 800; margin-bottom: 8px; color: var(--text-main);">Doc ID</h5>
+                    <p style="font-size: 0.85rem; line-height: 1.4; color: var(--text-sec);">Identificador único.<br><em
+                            style="color: var(--text-light);">Ej: "DOC-2026-001"</em></p>
+                </div>
+                <!-- 2. Caso de Uso -->
+                <div class="rule-card"
+                    style="padding: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                    <div class="icon-line-red"
+                        style="margin-bottom: 15px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; color: var(--lda-red); margin-left: auto; margin-right: auto;">
+                        <svg viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none"
+                            style="width: 40px; height: 40px;">
+                            <path d="M4 9h16M4 15h16M10 3L8 21M16 3l-2 18"></path>
+                        </svg>
+                    </div>
+                    <h5 style="font-weight: 800; margin-bottom: 8px; color: var(--text-main);">Caso de Uso</h5>
+                    <p style="font-size: 0.85rem; line-height: 1.4; color: var(--text-sec);">Proceso macro.<br><em
+                            style="color: var(--text-light);">Ej: "Gestión de Bajas"</em></p>
+                </div>
+                <!-- 3. Nombre Operativa -->
+                <div class="rule-card"
+                    style="padding: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                    <div class="icon-line-red"
+                        style="margin-bottom: 15px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; color: var(--lda-red); margin-left: auto; margin-right: auto;">
+                        <svg viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none"
+                            style="width: 40px; height: 40px;">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z">
+                            </path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                        </svg>
+                    </div>
+                    <h5 style="font-weight: 800; margin-bottom: 8px; color: var(--text-main);">Nombre</h5>
+                    <p style="font-size: 0.85rem; line-height: 1.4; color: var(--text-sec);">Tótulo especófico.<br><em
+                            style="color: var(--text-light);">Ej: "Devolución Prima"</em></p>
+                </div>
+                <!-- 4. Tipo Documento -->
+                <div class="rule-card"
+                    style="padding: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                    <div class="icon-line-red"
+                        style="margin-bottom: 15px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; color: var(--lda-red); margin-left: auto; margin-right: auto;">
+                        <svg viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none"
+                            style="width: 40px; height: 40px;">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h5 style="font-weight: 800; margin-bottom: 8px; color: var(--text-main);">Tipo</h5>
+                    <p style="font-size: 0.85rem; line-height: 1.4; color: var(--text-sec);">Naturaleza.<br><em
+                            style="color: var(--text-light);">Ej: "Normativa"</em></p>
+                </div>
+                <!-- 5. Ramo / Producto -->
+                <div class="rule-card"
+                    style="padding: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                    <div class="icon-line-red"
+                        style="margin-bottom: 15px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; color: var(--lda-red); margin-left: auto; margin-right: auto;">
+                        <svg viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none"
+                            style="width: 40px; height: 40px;">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <h5 style="font-weight: 800; margin-bottom: 8px; color: var(--text-main);">Ramo</h5>
+                    <p style="font-size: 0.85rem; line-height: 1.4; color: var(--text-sec);">Alcance.<br><em
+                            style="color: var(--text-light);">Ej: "Hogar", "Motor"</em></p>
+                </div>
+                <!-- 6. Estado -->
+                <div class="rule-card"
+                    style="padding: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                    <div class="icon-line-red"
+                        style="margin-bottom: 15px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; color: var(--lda-red); margin-left: auto; margin-right: auto;">
+                        <svg viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none"
+                            style="width: 40px; height: 40px;">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                        </svg>
+                    </div>
+                    <h5 style="font-weight: 800; margin-bottom: 8px; color: var(--text-main);">Estado</h5>
+                    <p style="font-size: 0.85rem; line-height: 1.4; color: var(--text-sec);">Confianza.<br><em
+                            style="color: var(--text-light);">Ej: "Vigente"</em></p>
+                </div>
+                <!-- 7. Vigencia -->
+                <div class="rule-card"
+                    style="padding: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                    <div class="icon-line-red"
+                        style="margin-bottom: 15px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; color: var(--lda-red); margin-left: auto; margin-right: auto;">
+                        <svg viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none"
+                            style="width: 40px; height: 40px;">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                        </svg>
+                    </div>
+                    <h5 style="font-weight: 800; margin-bottom: 8px; color: var(--text-main);">Vigencia</h5>
+                    <p style="font-size: 0.85rem; line-height: 1.4; color: var(--text-sec);">Tempo.<br><em
+                            style="color: var(--text-light);">Ej: "Desde 01/2026"</em></p>
+                </div>
+                <!-- 8. Etiquetas -->
+                <div class="rule-card"
+                    style="padding: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                    <div class="icon-line-red"
+                        style="margin-bottom: 15px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; color: var(--lda-red); margin-left: auto; margin-right: auto;">
+                        <svg viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none"
+                            style="width: 40px; height: 40px;">
+                            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z">
+                            </path>
+                            <line x1="7" y1="7" x2="7.01" y2="7"></line>
+                        </svg>
+                    </div>
+                    <h5 style="font-weight: 800; margin-bottom: 8px; color: var(--text-main);">Etiquetas</h5>
+                    <p style="font-size: 0.85rem; line-height: 1.4; color: var(--text-sec);">Anzuelos.<br><em
+                            style="color: var(--text-light);">Ej: "baja, anulación"</em></p>
+                </div>
+                <!-- 9. Autor -->
+                <div class="rule-card"
+                    style="padding: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                    <div class="icon-line-red"
+                        style="margin-bottom: 15px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; color: var(--lda-red); margin-left: auto; margin-right: auto;">
+                        <svg viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none"
+                            style="width: 40px; height: 40px;">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <h5 style="font-weight: 800; margin-bottom: 8px; color: var(--text-main);">Autor</h5>
+                    <p style="font-size: 0.85rem; line-height: 1.4; color: var(--text-sec);">Dueño.<br><em
+                            style="color: var(--text-light);">Ej: "Calidad Operativa"</em></p>
+                </div>
+                <!-- 10. Resumen -->
+                <div class="rule-card"
+                    style="padding: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                    <div class="icon-line-red"
+                        style="margin-bottom: 15px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; color: var(--lda-red); margin-left: auto; margin-right: auto;">
+                        <svg viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none"
+                            style="width: 40px; height: 40px;">
+                            <line x1="21" y1="6" x2="3" y2="6"></line>
+                            <line x1="21" y1="14" x2="3" y2="14"></line>
+                            <line x1="17" y1="18" x2="3" y2="18"></line>
+                        </svg>
+                    </div>
+                    <h5 style="font-weight: 800; margin-bottom: 8px; color: var(--text-main);">Resumen</h5>
+                    <p style="font-size: 0.85rem; line-height: 1.4; color: var(--text-sec);">Sóntesis.<br><em
+                            style="color: var(--text-light);">Ej: "Pauta extornos"</em></p>
+                </div>
+                <!-- 11. Relaciones -->
+                <div class="rule-card"
+                    style="padding: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                    <div class="icon-line-red"
+                        style="margin-bottom: 15px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; color: var(--lda-red); margin-left: auto; margin-right: auto;">
+                        <svg viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none"
+                            style="width: 40px; height: 40px;">
+                            <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3">
+                            </path>
+                            <line x1="8" y1="12" x2="16" y2="12"></line>
+                        </svg>
+                    </div>
+                    <h5 style="font-weight: 800; margin-bottom: 8px; color: var(--text-main);">Relaciones</h5>
+                    <p style="font-size: 0.85rem; line-height: 1.4; color: var(--text-sec);">Vónculos.<br><em
+                            style="color: var(--text-light);">Ej: "[[Condicionado]]"</em>
+                    </p>
+                </div>
+                <!-- 12. Tipo de Origen -->
+                <div class="rule-card"
+                    style="padding: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                    <div class="icon-line-red"
+                        style="margin-bottom: 15px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; color: var(--lda-red); margin-left: auto; margin-right: auto;">
+                        <svg viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none"
+                            style="width: 40px; height: 40px;">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                            <path d="M2 17l10 5 10-5"></path>
+                            <path d="M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
+                    <h5 style="font-weight: 800; margin-bottom: 8px; color: var(--text-main);">Tipo de Origen</h5>
+                    <p style="font-size: 0.85rem; line-height: 1.4; color: var(--text-sec);">Procedencia.<br><em
+                            style="color: var(--text-light);">Ej: "Primaria Externa"</em>
+                    </p>
+                </div>
+                <!-- 13. Fuente Origen -->
+                <div class="rule-card"
+                    style="padding: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                    <div class="icon-line-red"
+                        style="margin-bottom: 15px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; color: var(--lda-red); margin-left: auto; margin-right: auto;">
+                        <svg viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none"
+                            style="width: 40px; height: 40px;">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path
+                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h5 style="font-weight: 800; margin-bottom: 8px; color: var(--text-main);">Fuente Origen</h5>
+                    <p style="font-size: 0.85rem; line-height: 1.4; color: var(--text-sec);">Ubicación.<br><em
+                            style="color: var(--text-light);">Ej: "https://hub.lda..."</em>
+                    </p>
+                </div>
+                <!-- 14. Última revisión -->
+                <div class="rule-card"
+                    style="padding: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                    <div class="icon-line-red"
+                        style="margin-bottom: 15px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; color: var(--lda-red); margin-left: auto; margin-right: auto;">
+                        <svg viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none"
+                            style="width: 40px; height: 40px;">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="m9 12 2 2 4-4"></path>
+                        </svg>
+                    </div>
+                    <h5 style="font-weight: 800; margin-bottom: 8px; color: var(--text-main);">Última revisión</h5>
+                    <p style="font-size: 0.85rem; line-height: 1.4; color: var(--text-sec);">Validación.<br><em
+                            style="color: var(--text-light);">Ej: "12/02/2026"</em></p>
+                </div>
+                <!-- 15. Privacidad -->
+                <div class="rule-card"
+                    style="padding: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                    <div class="icon-line-red"
+                        style="margin-bottom: 15px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; color: var(--lda-red); margin-left: auto; margin-right: auto;">
+                        <svg viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none"
+                            style="width: 40px; height: 40px;">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                    </div>
+                    <h5 style="font-weight: 800; margin-bottom: 8px; color: var(--text-main);">Privacidad</h5>
+                    <p style="font-size: 0.85rem; line-height: 1.4; color: var(--text-sec);">Seguridad.<br><em
+                            style="color: var(--text-light);">Ej: "Confidencial"</em></p>
+                </div>
+            </div>
+        </div>
+
+        <!--=================SECCIÓN: EL RESULTADO (EJEMPLOS)=================-->
+        <h2 class="section-title">El Resultado: Casos Reales (Ficha Maestra)</h2>
+        <div class="ficha-maestra-section" style="margin-bottom: 60px;">
+            <p
+                style="text-align: center; margin-bottom: 40px; color: var(--text-sec); max-width: 800px; margin-left: auto; margin-right: auto;">
+                Nuestro estándar de calidad obligatorio en acción. A continuación se muestran dos casos reales que
+                ilustran cómo la información se etiqueta y estructura para ser localizable por la IA.
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 30px;">
+                <!-- EJEMPLO 1: BAJAS -->
+                <div class="ficha-container"
+                    style="border: 1px solid var(--border-color); border-radius: 16px; padding: 25px; background: var(--bg-card); position: relative; box-shadow: 0 10px 25px var(--shadow-color); display: flex; flex-direction: column;">
+                    <span class="badge" style="position: absolute; top: -12px; right: 20px;">EJEMPLO: CARTERA</span>
+                    <div class="meta-grid"
+                        style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; border-bottom: 1px dashed var(--border-color); padding-bottom: 20px;">
+                        <div class="meta-item"><label
+                                style="display: block; font-size: 0.6rem; color: var(--lda-red); font-weight: 800; text-transform: uppercase;">DOC
+                                ID</label><strong style="font-size: 0.85rem;">CAR-2026-042</strong></div>
+                        <div class="meta-item"><label
+                                style="display: block; font-size: 0.6rem; color: var(--lda-red); font-weight: 800; text-transform: uppercase;">CASO
+                                DE USO</label><strong style="font-size: 0.85rem;">Gestión de Bajas</strong></div>
+                        <div class="meta-item"><label
+                                style="display: block; font-size: 0.6rem; color: var(--lda-red); font-weight: 800; text-transform: uppercase;">NOMBRE</label><strong
+                                style="font-size: 0.85rem;">Devolución Prima</strong></div>
+
+                        <div class="meta-item"><label
+                                style="display: block; font-size: 0.6rem; color: var(--lda-red); font-weight: 800; text-transform: uppercase;">TIPO</label><strong
+                                style="font-size: 0.85rem;">Operativa</strong></div>
+                        <div class="meta-item"><label
+                                style="display: block; font-size: 0.6rem; color: var(--lda-red); font-weight: 800; text-transform: uppercase;">RAMO</label><strong
+                                style="font-size: 0.85rem;">Motor / Hogar</strong></div>
+                        <div class="meta-item"><label
+                                style="display: block; font-size: 0.6rem; color: var(--lda-red); font-weight: 800; text-transform: uppercase;">ESTADO</label><strong
+                                style="color: green; font-size: 0.85rem;">✓ Vigente</strong></div>
+
+                        <div class="meta-item"><label
+                                style="display: block; font-size: 0.6rem; color: var(--lda-red); font-weight: 800; text-transform: uppercase;">VIGENCIA</label><strong
+                                style="font-size: 0.85rem;">Permanente</strong></div>
+                        <div class="meta-item"><label
+                                style="display: block; font-size: 0.6rem; color: var(--lda-red); font-weight: 800; text-transform: uppercase;">AUTOR</label><strong
+                                style="font-size: 0.85rem;">Carptera Oper.</strong></div>
+                        <div class="meta-item"><label
+                                style="display: block; font-size: 0.6rem; color: var(--lda-red); font-weight: 800; text-transform: uppercase;">PRIVACIDAD</label><strong
+                                style="font-size: 0.85rem;">Interno</strong></div>
+
+                        <div class="meta-item"
+                            style="grid-column: span 3; border-top: 1px solid var(--bg-card-hover); padding-top: 8px;">
+                            <label
+                                style="display: block; font-size: 0.6rem; color: var(--lda-red); font-weight: 800; text-transform: uppercase;">RESUMEN</label><strong
+                                style="font-size: 0.8rem; font-weight: 500;">Protocolo de extorno por cancelación
+                                anticipada con justificación de venta.</strong>
+                        </div>
+
+                        <div class="meta-item" style="grid-column: span 2;"><label
+                                style="display: block; font-size: 0.6rem; color: var(--lda-red); font-weight: 800; text-transform: uppercase;">ETIQUETAS</label><span
+                                style="font-size: 0.75rem; color: var(--text-sec);">extorno, prima, cancelación,
+                                venta</span></div>
+                        <div class="meta-item"><label
+                                style="display: block; font-size: 0.6rem; color: var(--lda-red); font-weight: 800; text-transform: uppercase;">ÚLT.
+                                REVISIÓN</label><strong style="font-size: 0.8rem;">12/02/2026</strong></div>
+
+                        <div class="meta-item" style="grid-column: span 2;"><label
+                                style="display: block; font-size: 0.6rem; color: var(--lda-red); font-weight: 800; text-transform: uppercase;">ORIGEN</label><strong
+                                style="font-size: 0.75rem;">Canónico Único (Repositorio)</strong></div>
+                        <div class="meta-item"><label
+                                style="display: block; font-size: 0.6rem; color: var(--lda-red); font-weight: 800; text-transform: uppercase;">FUENTE</label><strong
+                                style="font-size: 0.75rem;">N/A</strong></div>
+
+                        <div class="meta-item" style="grid-column: span 3;"><label
+                                style="display: block; font-size: 0.6rem; color: var(--lda-red); font-weight: 800; text-transform: uppercase;">RELACIONES</label><span
+                                style="font-size: 0.75rem; color: #3B82F6;">[[Condicionado General]], [[Tabla
+                                Coeficientes]]</span></div>
+                    </div>
+                    <div class="content-preview"
+                        style="background: var(--bg-card-hover); padding: 15px; border-radius: 10px; border-left: 3px solid var(--lda-red); flex-grow: 1;">
+                        <h4 style="font-size: 0.9rem; margin-bottom: 8px; color: var(--lda-red);">Norma de
+                            Devolución
+                        </h4>
+                        <p style="font-size: 0.85rem; margin-bottom: 5px;"><strong>1. Regla:</strong> El extorno se
+                            genera como saldo a favor (12 meses).</p>
+                        <p style="font-size: 0.85rem; margin-bottom: 0;"><strong>2. Pago:</strong> Solo ante
+                            justificante oficial de venta del vehóculo.</p>
+                    </div>
+                </div>
+
+                <!-- EJEMPLO 2: SINIESTROS -->
+                <div class="ficha-container"
+                    style="border: 1px solid var(--border-color); border-radius: 16px; padding: 25px; background: var(--bg-card); position: relative; box-shadow: 0 10px 25px var(--shadow-color); display: flex; flex-direction: column;">
+                    <span class="badge" style="position: absolute; top: -12px; right: 20px; background: #444;">EJEMPLO:
+                        SYP</span>
+                    <div class="meta-grid"
+                        style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; border-bottom: 1px dashed var(--border-color); padding-bottom: 20px;">
+                        <div class="meta-item"><label
+                                style="display: block; font-size: 0.6rem; color: var(--lda-red); font-weight: 800; text-transform: uppercase;">DOC
+                                ID</label><strong style="font-size: 0.85rem;">SYP-2026-118</strong></div>
+                        <div class="meta-item"><label
+                                style="display: block; font-size: 0.6rem; color: var(--lda-red); font-weight: 800; text-transform: uppercase;">CASO
+                                DE USO</label><strong style="font-size: 0.85rem;">Siniestros Hogar</strong></div>
+                        <div class="meta-item"><label
+                                style="display: block; font-size: 0.6rem; color: var(--lda-red); font-weight: 800; text-transform: uppercase;">NOMBRE</label><strong
+                                style="font-size: 0.85rem;">Daños Eléctricos</strong></div>
+
+                        <div class="meta-item"><label
+                                style="display: block; font-size: 0.6rem; color: var(--lda-red); font-weight: 800; text-transform: uppercase;">TIPO</label><strong
+                                style="font-size: 0.85rem;">Cr. Técnico</strong></div>
+                        <div class="meta-item"><label
+                                style="display: block; font-size: 0.6rem; color: var(--lda-red); font-weight: 800; text-transform: uppercase;">RAMO</label><strong
+                                style="font-size: 0.85rem;">Mult. Hogar</strong></div>
+                        <div class="meta-item"><label
+                                style="display: block; font-size: 0.6rem; color: var(--lda-red); font-weight: 800; text-transform: uppercase;">ESTADO</label><strong
+                                style="color: green; font-size: 0.85rem;">✓ Vigente</strong></div>
+
+                        <div class="meta-item"><label
+                                style="display: block; font-size: 0.6rem; color: var(--lda-red); font-weight: 800; text-transform: uppercase;">VIGENCIA</label><strong
+                                style="font-size: 0.85rem;">Anual 2026</strong></div>
+                        <div class="meta-item"><label
+                                style="display: block; font-size: 0.6rem; color: var(--lda-red); font-weight: 800; text-transform: uppercase;">AUTOR</label><strong
+                                style="font-size: 0.85rem;">Dir. Técnica</strong></div>
+                        <div class="meta-item"><label
+                                style="display: block; font-size: 0.6rem; color: var(--lda-red); font-weight: 800; text-transform: uppercase;">PRIVACIDAD</label><strong
+                                style="font-size: 0.85rem;">Confidencial</strong></div>
+
+                        <div class="meta-item"
+                            style="grid-column: span 3; border-top: 1px solid var(--bg-card-hover); padding-top: 8px;">
+                            <label
+                                style="display: block; font-size: 0.6rem; color: var(--lda-red); font-weight: 800; text-transform: uppercase;">RESUMEN</label><strong
+                                style="font-size: 0.8rem; font-weight: 500;">Criterio de exclusión para aparatos de
+                                más
+                                de 10 años sin factura de reparación.</strong>
+                        </div>
+
+                        <div class="meta-item" style="grid-column: span 2;"><label
+                                style="display: block; font-size: 0.6rem; color: var(--lda-red); font-weight: 800; text-transform: uppercase;">ETIQUETAS</label><span
+                                style="font-size: 0.75rem; color: var(--text-sec);">eléctrico, exclusión,
+                                antigüedad,
+                                factura</span></div>
+                        <div class="meta-item"><label
+                                style="display: block; font-size: 0.6rem; color: var(--lda-red); font-weight: 800; text-transform: uppercase;">ÚLT.
+                                REVISIÓN</label><strong style="font-size: 0.8rem;">10/02/2026</strong></div>
+
+                        <div class="meta-item" style="grid-column: span 2;"><label
+                                style="display: block; font-size: 0.6rem; color: var(--lda-red); font-weight: 800; text-transform: uppercase;">ORIGEN</label><strong
+                                style="font-size: 0.75rem;">Primaria Ext. (Base Técnica)</strong></div>
+                        <div class="meta-item"><label
+                                style="display: block; font-size: 0.6rem; color: var(--lda-red); font-weight: 800; text-transform: uppercase;">FUENTE</label><strong
+                                style="font-size: 0.7rem; color: #3B82F6;">normativa.lda.es/...</strong></div>
+
+                        <div class="meta-item" style="grid-column: span 3;"><label
+                                style="display: block; font-size: 0.6rem; color: var(--lda-red); font-weight: 800; text-transform: uppercase;">RELACIONES</label><span
+                                style="font-size: 0.75rem; color: #3B82F6;">[[Manual Criterios]], [[Anexo
+                                Maquinaria]]</span></div>
+                    </div>
+                    <div class="content-preview"
+                        style="background: var(--bg-card-hover); padding: 15px; border-radius: 10px; border-left: 3px solid #444; flex-grow: 1;">
+                        <h4 style="font-size: 0.9rem; margin-bottom: 8px; color: #444;">Protocolo de Exclusión</h4>
+                        <p style="font-size: 0.85rem; margin-bottom: 5px;"><strong>Si</strong> el aparato tiene >10
+                            años
+                            y no hay informe técnico de reparación favorable:</p>
+                        <p style="font-size: 0.85rem; margin-bottom: 0;"><strong>Entonces</strong> rechazar por
+                            falta de
+                            mantenimiento o desgaste natural.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- CONCLUSIONES -->
+        <div class="manual-alert"
+            style="background: var(--bg-card); border-left: 6px solid var(--lda-red); margin-bottom: 80px; box-shadow: 0 10px 30px var(--shadow-color);">
+            <h3
+                style="color: var(--lda-red); justify-content: center; font-size: 2rem; margin-bottom: 25px; font-weight: 800;">
+                Conclusiones</h3>
+            <p
+                style="font-size: 1.2rem; line-height: 1.8; color: var(--text-main); text-align: center; max-width: 800px; margin: 0 auto;">
+                Esta metodologóa permite ordenar la información y convertirla en información útil para
+                Lid<span style="color: var(--lda-red);">IA</span> y para
+                cualquier IA de la empresa,
+                asegurando respuestas homogéneas y facilitando la adopción de la IA como apoyo natural
+                en el trabajo
+                diario.
+                <br><br>
+                <strong style="color: var(--lda-red);">El éxito depende de la implicación activa de
+                    todas las
+                    áreas.</strong>
+            </p>
+        </div>
+
+        <!-- CHECK-LIST DE VALIDACIÓN REDISEÑADO -->
+        <div class="ficha-maestra-section"
+            style="margin-top: 50px; background: var(--bg-card); border: 2px solid var(--lda-pink-soft); position: relative; overflow: hidden;">
+            <!-- Decoración de fondo -->
+            <div style="position: absolute; top: -20px; right: -20px; opacity: 0.05; transform: rotate(15deg);">
+                <svg width="200" height="200" viewBox="0 0 24 24" fill="var(--lda-red)">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                </svg>
+            </div>
+
+            <h3
+                style="text-align:center; margin-bottom:40px; color: var(--text-main); font-size: 2.2rem; font-weight: 800; letter-spacing: -1px;">
+                <span style="color: var(--lda-red);">Check-list</span> de validación rápida
+            </h3>
+
+            <div id="checklist-container"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto;">
+                <!-- Item 1 -->
+                <div class="validation-item">
+                    <div class="validation-check-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <span>¿Está claro para alguien externo?</span>
+                </div>
+                <!-- Item 2 -->
+                <div class="validation-item">
+                    <div class="validation-check-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <span>¿Indica cuándo aplica (y cuándo no)?</span>
+                </div>
+                <!-- Item 3 -->
+                <div class="validation-item">
+                    <div class="validation-check-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <span>¿Coherente con otras polóticas?</span>
+                </div>
+                <!-- Item 4 -->
+                <div class="validation-item">
+                    <div class="validation-check-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <span>¿Contenido 100% actualizado?</span>
+                </div>
+                <!-- Item 5 -->
+                <div class="validation-item">
+                    <div class="validation-check-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <span>¿Tiene responsable y fecha?</span>
+                </div>
+                <!-- Item 6 -->
+                <div class="validation-item">
+                    <div class="validation-check-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <span>¿Ubicación oficial correcta?</span>
+                </div>
+            </div>
+
+            <p
+                style="text-align: center; margin-top: 40px; font-weight: 700; color: var(--lda-red); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">
+                Certificación de Calidad Lid<span style="color: var(--lda-red);">IA</span>
+            </p>
+        </div>
+
+    </div>
+
+    <script src="../scripts_infografia.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', initTheme);
+    </script>
+
+<script>
+// BREADCRUMB MANAGER - DYNAMIC ISLAND
+function initDynamicBreadcrumb() {
+    const wrapper = document.querySelector('.global-nav-wrapper');
+    if (!wrapper) return;
+    
+    // Check initial scroll position
+    if (window.scrollY > 50) wrapper.classList.add('compacted');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            wrapper.classList.add('compacted');
+        } else {
+            wrapper.classList.remove('compacted');
+        }
+    });
+
+    // Handle touch devices to expand on tap if compacted
+    wrapper.addEventListener('click', (e) => {
+        if (wrapper.classList.contains('compacted') && window.innerWidth <= 768) {
+            e.preventDefault();
+            wrapper.classList.remove('compacted');
+            // Give them time to click before it auto-compacts again
+            setTimeout(() => {
+                if (window.scrollY > 50) wrapper.classList.add('compacted');
+            }, 3000);
+        }
+    });
+}
+document.addEventListener('DOMContentLoaded', initDynamicBreadcrumb);
+</script>
+</body>
+
+</html>
+
+
+

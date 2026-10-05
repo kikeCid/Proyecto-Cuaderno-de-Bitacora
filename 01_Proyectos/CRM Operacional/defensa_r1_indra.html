@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Defensa Fase 2: Minsait | CRM Operacional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Cuaderno de Bitacora (Proyectos)/styles_bitacora.css">
+    <style>
+        .defense-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .highlight-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--lda-red);
+        }
+
+        .point-list {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0 0;
+        }
+
+        .point-list li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.95rem;
+            color: var(--text-sec);
+        }
+
+        .point-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--lda-red);
+            font-weight: 800;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../local_styles.css">
+</head>
+
+<body>
+    <nav class="global-nav-wrapper">
+        <div class="nav-breadcrumb">
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item">Inicio</a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <a href="index.html" class="nav-breadcrumb-item">CRM Operacional</a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <a href="hub_licitacion.html" class="nav-breadcrumb-item">Hub Licitación</a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <span class="nav-breadcrumb-item current">Defensa R1: Minsait</span>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="hero" style="text-align: center; padding: 60px 0 40px;">
+            <span class="hero-badge" style="background: rgba(59, 130, 246, 0.1); color: #3b82f6; border: 1px solid rgba(59, 130, 246, 0.2);">⬤ FASE 2: SESIÓN DE DEFENSA TÉCNICA</span>
+            <h1>Análisis de Sesión <br><span>Minsait (Indra Group)</span></h1>
+                <span class="hero-badge-local" style="margin-top: 10px;">Recurso en Local</span>
+            <p style="margin: 0 auto; max-width: 800px;">Resumen de la defensa técnica realizada por la alianza Minsait + Nespon Solutions. Enfoque "Customer First" con hiper-especialización en la vertical Salesforce FSC.</p>
+        </header>
+
+        <!-- SESIÓN INICIAL: ESTRATEGIA Y DEMO (R1) -->
+        <div class="section-header" style="border-left: 4px solid #3b82f6; margin-top: 20px;">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Sesión Inicial: Estrategia y Demo (R1)</h2>
+                <p class="section-subtitle">Capacidades base presentadas por la alianza Minsait+Nespon (12 de Marzo)</p>
+            </div>
+        </div>
+
+        <div class="defense-grid">
+            <!-- DIFERENCIAL TECNOLÓGICO -->
+            <div class="highlight-card">
+                <span class="tag" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6;">Alianza Experta</span>
+                <h3>Especialización FSC</h3>
+                <p style="font-size: 0.85rem; color: var(--text-sec); margin-bottom: 12px;">Sinergia focalizada en el sector financiero:</p>
+                <ul class="point-list">
+                    <li><strong>Nespon Ecosystem:</strong> Aportación de aceleradores nativos para Salesforce Financial Services Cloud (mapeo de siniestros y pólizas).</li>
+                    <li><strong>MuleSoft + Kafka:</strong> Capa de integración inteligente de 4 niveles diseñada para soportar volúmenes críticos de transaccionalidad.</li>
+                    <li><strong>IA Operativa:</strong> Casos de uso de Agentforce pre-configurados para el autoservicio de clientes en ramos de Motor.</li>
+                </ul>
+            </div>
+
+            <!-- IMPLANTACIÓN -->
+            <div class="highlight-card" style="border-top-color: #f59e0b;">
+                <span class="tag" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;">Metodología</span>
+                <h3>Velocidad de Negocio</h3>
+                <p style="font-size: 0.85rem; color: var(--text-sec); margin-bottom: 12px;">Foco en el retorno de inversión temprano:</p>
+                <ul class="point-list">
+                    <li><strong>6 Go-Lives Maestros:</strong> Compresión del roadmap tradicional de LDA mediante el despliegue de hitos funcionales completos cada 3 meses.</li>
+                    <li><strong>Ficha 360 Agente:</strong> Priorización de la consola del gestor para reducir el AHT (Average Handle Time) desde el primer semestre.</li>
+                    <li><strong>Fit-to-standard 90%:</strong> Uso extensivo del estándar de Salesforce para garantizar actualizaciones automáticas sin roturas.</li>
+                </ul>
+            </div>
+
+            <!-- GAC -->
+            <div class="highlight-card" style="border-top-color: #10b981;">
+                <span class="tag" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">Gobernanza</span>
+                <h3>Modelo Inteligente</h3>
+                <p style="font-size: 0.85rem; color: var(--text-sec); margin-bottom: 12px;">Estrategia de estabilidad y transferencia:</p>
+                <ul class="point-list">
+                    <li><strong>Soporte Predictivo:</strong> Uso de herramientas de monitorización (Splunk/ELK) para detectar errores antes que el usuario del Contact Center.</li>
+                    <li><strong>Shadow Sprints:</strong> Integración gradual de los desarrolladores de LDA en los flujos de trabajo de Minsait para autonomía total.</li>
+                    <li><strong>Adopción Data-Driven:</strong> Dashboard de seguimiento de uso real para identificar departamentos con baja tasa de adopción.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="info-card" style="border-left: 4px solid #3b82f6; padding: 30px; margin-top: 20px; margin-bottom: 40px; background: rgba(59,130,246,0.02);">
+            <h3>Conclusión Sesión Inicial (R1: Marzo 2026)</h3>
+            <p style="color: var(--text-main); line-height: 1.6; margin-top: 10px; font-weight: 500;">Minsait presentó una de las ofertas más focalizadas en el vertical de seguros (Financial Services Cloud), demostrando un conocimiento profundo de los procesos de negocio de LDA. Sin embargo, la complejidad de su esquema de gobierno (alianza con Nespon) y la ambición de su plan de 6 Go-Lives maestros generaron inquietudes sobre la gestión de crisis y el cumplimiento regulatorio DORA, que quedaron pendientes para la siguiente ronda.</p>
+        </div>
+
+        <!-- AMPLIACIÓN Y REFINAMIENTO (PETICIÓN LDA) -->
+        <div id="refinamiento" class="section-header" style="border-left: 4px solid var(--lda-red); margin-top: 50px;">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Anexo de Rectificación y Aclaraciones (R2)</h2>
+                <p class="section-subtitle">Compromisos de Minsait para el blindaje normativo y la gobernanza (Abril)</p>
+            </div>
+        </div>
+
+        <div class="info-card" style="margin-bottom: 40px; padding: 0; overflow: hidden; border-top: 4px solid var(--lda-red);">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+                <thead>
+                    <tr style="background: rgba(228,0,43,0.05); text-align: left;">
+                        <th style="padding: 15px; border-bottom: 2px solid var(--border-color);">Plica Técnica / Duda LDA</th>
+                        <th style="padding: 15px; border-bottom: 2px solid var(--border-color);">Posición Original R1</th>
+                        <th style="padding: 15px; border-bottom: 2px solid var(--border-color); color: var(--lda-red);">Compromiso Final R2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <td style="padding: 15px; font-weight: 800;">Gobierno Alianza</td>
+                        <td style="padding: 15px; color: var(--text-sec);">Gestión compartida Minsait+Nespon</td>
+                        <td style="padding: 15px; font-weight: 600;"><strong>Modelo SPOC:</strong> Un solo responsable contractual y operativo (Single Point of Contact).</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <td style="padding: 15px; font-weight: 800;">Cumplimiento Normativo</td>
+                        <td style="padding: 15px; color: var(--text-sec);">Seguridad estándar Cloud</td>
+                        <td style="padding: 15px; font-weight: 600;"><strong>Certificación DORA:</strong> Blindaje de ciberseguridad y protocolo de resiliencia operativa para seguros.</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <td style="padding: 15px; font-weight: 800;">Estabilidad Entrega</td>
+                        <td style="padding: 15px; color: var(--text-sec);">Plan 6 Go-Lives (Agresivo)</td>
+                        <td style="padding: 15px; font-weight: 600;"><strong>Back-to-Green:</strong> Plan de contingencia detallado con buffers de estabilización tras cada release.</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 15px; font-weight: 800;">Licenciamiento</td>
+                        <td style="padding: 15px; color: var(--text-sec);">SF S&S con opción a FSC</td>
+                        <td style="padding: 15px; font-weight: 600;"><strong>FSC por Defecto:</strong> Bloqueo de precios finales sobre el vertical Financial Services Cloud.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="defense-grid">
+            <!-- DETALLE RIESGOS -->
+            <div class="highlight-card" style="border-top-color: #3b82f6;">
+                <span class="tag" style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Seguridad Operativa</span>
+                <h3>Protocolo DORA</h3>
+                <p style="font-size: 0.85rem; color: var(--text-sec); margin-top: 10px;">Minsait ha clarificado su postura ante la nueva normativa europea:</p>
+                <ul class="point-list">
+                    <li><strong>Resiliencia de Datos:</strong> Capacidad de recuperación de desastres (DR) integrada en la capa de integración de MuleSoft.</li>
+                    <li><strong>Auditoría Continua:</strong> Mapeo de riesgos IT alineado con las exigencias de regulación de seguros.</li>
+                </ul>
+            </div>
+
+            <!-- DETALLE ECONOMICO -->
+            <div class="highlight-card" style="border-top-color: #10b981;">
+                <span class="tag" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">Consolidación Económica</span>
+                <h3>Blindaje de Inversión</h3>
+                <p style="font-size: 0.85rem; color: var(--text-sec); margin-top: 10px;">Garantías financieras en el anexo R2:</p>
+                <ul class="point-list">
+                    <li><strong>Todo Incluido:</strong> El presupuesto R2 absorbe los costes de licenciamiento de terceros para herramientas de despliegue (DevOps).</li>
+                    <li><strong>Escalado Predecible:</strong> Tarifas planas para el crecimiento de usuarios en los años 2 y 3 de operación.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="info-card" style="border-left: 4px solid var(--lda-red); padding: 30px; margin-top: 40px; margin-bottom: 60px; background: rgba(228,0,43,0.02);">
+            <h3>Conclusión Análisis de Rectificación (R2: Abril 2026)</h3>
+            <p style="color: var(--text-main); line-height: 1.6; margin-top: 10px; font-weight: 500;">Minsait ha fortalecido significativamente su propuesta al simplificar su modelo de gobierno bajo un único SPOC ejecutivo y blindar el cumplimiento normativo DORA mediante un plan de ciberseguridad específico. Su enfoque de 6 Go-Lives maestros, ahora respaldado por un plan de contingencia "Back-to-Green" sólido, les posiciona como un proveedor industrial de máxima fiabilidad operativa.</p>
+        </div>
+    </main>
+
+    <script>
+        function toggleTheme() {
+            const checkbox = document.getElementById('theme-checkbox');
+            const isDark = checkbox.checked;
+            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        }
+        initTheme();
+    </script>
+</body>
+</html>

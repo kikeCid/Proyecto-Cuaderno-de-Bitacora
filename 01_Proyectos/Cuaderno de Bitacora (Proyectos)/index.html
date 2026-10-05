@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuaderno de Bitácora | Hub de Proyectos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles_bitacora.css">
+    <link rel="stylesheet" href="../local_styles.css">
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper">
+        <div class="nav-breadcrumb">
+            <span class="nav-breadcrumb-item current" title="Inicio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </span>
+        </div>
+    </nav>
+
+
+    <div class="bg-mesh"></div>
+
+    <!-- CONTROLES SUPERIORES (AVATAR + TEMA) -->
+    <div class="top-controls-wrapper"
+        style="position: fixed; top: 30px; right: 30px; display: flex; align-items: center; gap: 15px; z-index: 100;">
+        <a href="perfil.html" class="avatar-link" title="Mi CV / Portfolio"
+            style="width: 48px; height: 48px; border-radius: 50%; background: var(--bg-card); border: 2px solid var(--lda-red); padding: 2px; box-shadow: var(--shadow); transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; overflow: hidden; text-decoration: none; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);"
+            onmouseover="this.style.transform='scale(1.1) rotate(5deg)'; this.style.borderColor='var(--text-main)';"
+            onmouseout="this.style.transform='scale(1) rotate(0deg)'; this.style.borderColor='var(--lda-red)';">
+            <img src="avatar.png" alt="Mi Avatar"
+                style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"
+                onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'%23e4002b\'><path d=\'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z\'/></svg>'">
+        </a>
+        <div class="theme-toggle-wrapper" style="position: static; margin: 0; box-shadow: var(--shadow);">
+            <span class="theme-label">MODO OSCURO</span>
+            <label class="theme-switch">
+                <input type="checkbox" id="theme-checkbox" onchange="toggleTheme()">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+
+    <main class="container">
+        <!-- HERO SEGMENT -->
+        <header class="hero">
+            <span class="hero-badge">Command Center v1.0</span>
+            <span class="hero-badge-local">Recurso en Local</span>
+            <h1>Cuaderno de <br><span>Bitácora</span></h1>
+            <p>Ecosistema centralizado para la gestión de proyectos, información y
+                desarrollo estratégico de todos los proyectos abordados.</p>
+        </header>
+
+
+        <!-- SECCIÓN: GESTIÓN DIRECTA (PO / PM) -->
+        <div class="section-header" style="border-left: 4px solid var(--lda-red);">
+            <div class="section-icon" style="color: var(--lda-red);">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+            </div>
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Gestión Directa (PO / PM)</h2>
+                <p class="section-subtitle">Proyectos liderados por el área de Personas</p>
+            </div>
+            <div class="section-counter">3</div>
+        </div>
+        <div class="carousel-container">
+            <button class="carousel-btn left hidden" onclick="scrollCarousel(this, -340)"
+                aria-label="Desplazar a la izquierda">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+            <div class="carousel-track" id="track-direct" onscroll="updateCarouselButtons(this)">
+
+                <!-- Gestión de la Información -->
+                <a href="../Gobierno de Informacion/index.html" class="apple-card" style="border-color: rgba(139, 92, 246, 0.3); background: linear-gradient(135deg, var(--bg-card) 0%, rgba(139, 92, 246, 0.02) 100%);">
+                    <div class="kicker" style="color: #8B5CF6;">TRASPASADO (APOYO)</div>
+                    <h3 class="title">Gestión de la Información</h3>
+                    <p class="desc">Proyecto de <strong>Inteligencia LidIA</strong> y <strong>GIN</strong> transferido al Área de Transformación. Mantenemos un rol activo de apoyo y transferencia de conocimiento.</p>
+                    <div class="card-visual">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Evolución HCM Cloud -->
+                <a href="../HCM/index.html" class="apple-card">
+                    <div class="kicker" style="color: var(--lda-red);">LICITACIÓN (ARRANQUE 2027)</div>
+                    <h3 class="title">Evolución HCM Cloud</h3>
+                    <p class="desc">Migración estratégica de PeopleSoft RR.HH. a arquitectura Cloud para digitalizar
+                        procesos y habilitar capacidades de IA y analítica avanzada.</p>
+                    <div class="card-visual">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Transformación y Eficiencia RRHH -->
+                <a href="../IA Area Personas/index.html" class="apple-card">
+                    <div class="kicker" style="color: var(--lda-red);">PENDIENTE DE APROBACIÓN</div>
+                    <h3 class="title">Transformación y Eficiencia RRHH</h3>
+                    <p class="desc">Proyecto en fase de definición, pendiente de presentar para aprobación. Iniciativa estratégica para optimizar procesos y elevar la eficiencia operativa.</p>
+                    <div class="card-visual">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <circle cx="19" cy="11" r="3"></circle>
+                            <path d="M19 8v3"></path>
+                            <path d="M19 14v3"></path>
+                            <path d="M16 11h6"></path>
+                        </svg>
+                    </div>
+                </a>
+
+            </div>
+            <button class="carousel-btn right hidden" onclick="scrollCarousel(this, 340)"
+                aria-label="Desplazar a la derecha">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+        </div>
+
+        <!-- SECCIÓN: FACILITADORES / AFECTADOS -->
+        <div class="section-header" style="border-left: 4px solid #f59e0b; margin-top: 50px;">
+            <div class="section-icon" style="color: #f59e0b;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+            </div>
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Facilitadores / Afectados</h2>
+                <p class="section-subtitle">Colaboración estratégica en proyectos transversales</p>
+            </div>
+            <div class="section-counter">3</div>
+        </div>
+        <div class="carousel-container">
+            <button class="carousel-btn left hidden" onclick="scrollCarousel(this, -340)"
+                aria-label="Desplazar a la izquierda">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+            <div class="carousel-track" id="track-facilitator" onscroll="updateCarouselButtons(this)">
+
+                <!-- Perseo -->
+                <a href="../Perseo/index.html" class="apple-card" style="border: 2px solid #8b5cf6; background: rgba(139, 92, 246, 0.05);">
+                    <div class="kicker" style="color: #8b5cf6; font-weight:800;">IMPLANTACIÓN HASTA JUNIO 2026</div>
+                    <h3 class="title">Proyecto Perseo</h3>
+                    <p class="desc">Auditoría inteligente masiva impulsada por <strong>IA Generativa</strong> para extraer "Dark Data" y transformarlo en insights para coaching y negocio.</p>
+                    <div class="card-visual">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2a10 10 0 1 0 10 10H12V2z"></path>
+                            <path d="M12 12 2.1 7.1"></path>
+                            <path d="M12 12l9.9 4.9"></path>
+                            <path d="M12 12v10"></path>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- CRM Operacional -->
+                <a href="../CRM Operacional/index.html" class="apple-card" style="border: 2px solid #10b981; background: rgba(16, 185, 129, 0.05);">
+                    <div class="kicker" style="color: #10b981; font-weight:800;">ADJUDICADO Y EN MARCHA</div>
+                    <h3 class="title">CRM Operacional</h3>
+                    <p class="desc">Proyecto adjudicado a <strong>OMEGA (Salesforce)</strong>. Plataforma integral de gestión de operaciones en despliegue.</p>
+                    <div style="margin-top: 12px; margin-bottom: 8px; display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 6px; background: rgba(139, 92, 246, 0.08); border: 1px dashed rgba(139, 92, 246, 0.4); color: #7c3aed; font-size: 0.75rem; font-weight: 700;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                        Relacionado con: Telefonía CX
+                    </div>
+                    <div class="card-visual">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Telefonia CX -->
+                <a href="../Telefonia - Genesis CX/index.html" class="apple-card blue-card">
+                    <div class="kicker" style="color: var(--lda-red);">PROYECTO ACTIVO - GENESYS CX</div>
+                    <h3 class="title">Telefonía CX</h3>
+                    <p class="desc">Evolución de los canales de contacto corporativos hacia el modelo omnicanal basado en Genesys Cloud CX.</p>
+                    <div style="margin-top: 12px; margin-bottom: 8px; display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 6px; background: rgba(139, 92, 246, 0.08); border: 1px dashed rgba(139, 92, 246, 0.4); color: #7c3aed; font-size: 0.75rem; font-weight: 700;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                        Relacionado con: CRM Operacional
+                    </div>
+                    <div class="card-visual">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Reingeniería Siniestros Motor -->
+                <a href="../Reingenieria Siniestros/index.html" class="apple-card" style="border: 2px solid #10b981; background: rgba(16, 185, 129, 0.05);">
+                    <div class="kicker" style="color: #10b981; font-weight:800;">ADJUDICADO Y EN MARCHA</div>
+                    <h3 class="title">Reingeniería Siniestros</h3>
+                    <p class="desc">Proyecto adjudicado a <strong>Bip Consulting</strong>. Transformación integral del modelo operativo y tecnológico con IA.</p>
+                    <div class="card-visual">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.5C2.1 11.1 2 11.5 2 12v4c0 .6.4 1 1 1h2"></path>
+                            <circle cx="7" cy="17" r="2"></circle>
+                            <path d="M9 17h6"></path>
+                            <circle cx="17" cy="17" r="2"></circle>
+                        </svg>
+                    </div>
+                </a>
+
+            </div>
+            <button class="carousel-btn right hidden" onclick="scrollCarousel(this, 340)"
+                aria-label="Desplazar a la derecha">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+        </div>
+
+        <!-- NOTA RRHH: GESTIÓN DEL CAMBIO -->
+        <div style="background: rgba(16, 185, 129, 0.05); border-left: 4px solid #10b981; border-radius: 8px; padding: 20px; margin-top: 15px; margin-bottom: 50px;">
+            <h4 style="color: #059669; margin: 0 0 10px 0; font-size: 1.1rem; display: flex; align-items: center; gap: 8px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                El Rol de RRHH: Gestión del Cambio y Acompañamiento
+            </h4>
+            <p style="margin: 0 0 10px 0; color: var(--text-main); font-size: 0.95rem; line-height: 1.6;">
+                Como área de Personas, nuestro papel estratégico en estos proyectos transversales es <strong>asegurar el éxito en la adopción por parte de los equipos</strong>. Estos despliegues tecnológicos conllevan un profundo impacto organizativo que requiere una fuerte Gestión del Cambio.
+            </p>
+            <p style="margin: 0; color: var(--text-main); font-size: 0.95rem; line-height: 1.6;">
+                Nuestro foco está siempre en las <strong>personas afectadas</strong>: facilitamos el acompañamiento humano durante la transición, lideramos los programas de <em>reskilling</em> (reciclaje profesional) ante la evolución de funciones, y diseñamos la creación de los nuevos puestos de trabajo que emergen a raíz del cambio.
+            </p>
+        </div>
+
+
+        <!-- SECCIÓN: SERVICIOS Y OPERATIVAS -->
+        <div class="section-header" style="border-left: 4px solid #3b82f6;">
+            <div class="section-icon" style="color: #3b82f6;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+            </div>
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Servicios y Operativas</h2>
+                <p class="section-subtitle">Catálogo de servicios transversales y documentación funcional</p>
+            </div>
+            <div class="section-counter">1</div>
+        </div>
+        <div class="carousel-container">
+            <button class="carousel-btn left hidden" onclick="scrollCarousel(this, -340)"
+                aria-label="Desplazar a la izquierda">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+            <div class="carousel-track" onscroll="updateCarouselButtons(this)">
+
+                <!-- Gestión de Usuarios -->
+                <a href="../Gestion de Usuarios/index.html" class="apple-card blue-card">
+                    <div class="kicker" style="color: var(--lda-red);">ACTIVO</div>
+                    <h3 class="title">Gestión de Usuarios</h3>
+                    <p class="desc">Documentación sobre el funcionamiento, arquitectura operativa y servicios vinculados
+                        al sistema de Gestión de Usuarios y sus integraciones.</p>
+                    <div class="card-visual">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Demo Card 3 -->
+                <div class="apple-card disabled-card">
+                    <div class="kicker">PRÓXIMA OPERATIVA</div>
+                    <h3 class="title">Nuevo Servicio</h3>
+                    <p class="desc">Espacio reservado para documentar futuras operativas transversales del sistema.</p>
+                    <div class="card-visual" style="opacity: 0.5;">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Demo Card 4 -->
+                <div class="apple-card disabled-card">
+                    <div class="kicker">EN DISEÑO</div>
+                    <h3 class="title">Nueva Operativa</h3>
+                    <p class="desc">Tarjetón genérico preparado para alojar servicios organizacionales futuros.</p>
+                    <div class="card-visual" style="opacity: 0.5;">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Demo Card 5 -->
+                <div class="apple-card disabled-card">
+                    <div class="kicker">PENDIENTE</div>
+                    <h3 class="title">Próxima Operativa</h3>
+                    <p class="desc">Módulo no definido, espacio visual concebido para balancear el carrusel de
+                        servicios.</p>
+                    <div class="card-visual" style="opacity: 0.5;">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+                            <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+                        </svg>
+                    </div>
+                </div>
+
+            </div>
+            <button class="carousel-btn right hidden" onclick="scrollCarousel(this, 340)"
+                aria-label="Desplazar a la derecha">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+        </div>
+
+        <!-- SECCIÓN: PROYECTOS CERRADOS -->
+        <div class="section-header" style="border-left: 4px solid var(--text-sec);">
+            <div class="section-icon" style="color: var(--text-sec);">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="21 8 21 21 3 21 3 8"></polyline>
+                    <rect x="1" y="3" width="22" height="5"></rect>
+                    <line x1="10" y1="12" x2="14" y2="12"></line>
+                </svg>
+            </div>
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Proyectos Cerrados</h2>
+                <p class="section-subtitle">Histórico de proyectos finalizados y archivados</p>
+            </div>
+            <div class="section-counter">0</div>
+        </div>
+        <div class="carousel-container">
+            <button class="carousel-btn left hidden" onclick="scrollCarousel(this, -340)"
+                aria-label="Desplazar a la izquierda">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+            <div class="carousel-track" onscroll="updateCarouselButtons(this)">
+
+                <!-- ESPACIO VACÍO PARA HISTÓRICO -->
+                <div class="apple-card disabled-card" style="opacity: 0.3;">
+                    <div class="kicker" style="color: var(--text-sec);">SIN REGISTROS</div>
+                    <h3 class="title">Histórico Vacío</h3>
+                    <p class="desc">Actualmente no existen proyectos cerrados ni archivados en este portal.</p>
+                    <div class="card-visual">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Histórico Placeholder 2 -->
+                <div class="apple-card disabled-card" style="opacity: 0.3;">
+                    <div class="kicker" style="color: var(--text-sec);">ESPACIO RESERVADO</div>
+                    <h3 class="title">Puesto de Cierre</h3>
+                    <p class="desc">Aquí figurarán los proyectos y despliegues clasificados en archivo por conclusión.
+                    </p>
+                    <div class="card-visual">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Histórico Placeholder 3 -->
+                <div class="apple-card disabled-card" style="opacity: 0.3;">
+                    <div class="kicker" style="color: var(--text-sec);">ESPACIO RESERVADO</div>
+                    <h3 class="title">Puesto de Cierre</h3>
+                    <p class="desc">Aquí figurarán los proyectos y despliegues clasificados en archivo por conclusión.
+                    </p>
+                    <div class="card-visual">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Histórico Placeholder 4 -->
+                <div class="apple-card disabled-card" style="opacity: 0.3;">
+                    <div class="kicker" style="color: var(--text-sec);">ESPACIO RESERVADO</div>
+                    <h3 class="title">Puesto de Cierre</h3>
+                    <p class="desc">Aquí figurarán los proyectos y despliegues clasificados en archivo por conclusión.
+                    </p>
+                    <div class="card-visual">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                    </div>
+                </div>
+
+            </div>
+            <button class="carousel-btn right hidden" onclick="scrollCarousel(this, 340)"
+                aria-label="Desplazar a la derecha">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portal de Gestión de Proyectos | Sistema Portable de Información</p>
+    </footer>
+
+    <script>
+        function updateCarouselButtons(track) {
+            const container = track.parentElement;
+            const btnLeft = container.querySelector('.carousel-btn.left');
+            const btnRight = container.querySelector('.carousel-btn.right');
+
+            if (btnLeft && btnRight) {
+                if (track.scrollLeft <= 5) {
+                    btnLeft.classList.add('hidden');
+                } else {
+                    btnLeft.classList.remove('hidden');
+                }
+
+                if (Math.ceil(track.scrollLeft) + track.clientWidth >= track.scrollWidth - 5) {
+                    btnRight.classList.add('hidden');
+                } else {
+                    btnRight.classList.remove('hidden');
+                }
+            }
+        }
+
+        function scrollCarousel(btn, amount) {
+            const container = btn.parentElement;
+            const track = container.querySelector('.carousel-track');
+            if (track) {
+                track.scrollBy({ left: amount, behavior: 'smooth' });
+            }
+        }
+
+        function initCarousels() {
+            document.querySelectorAll('.carousel-track').forEach(track => {
+                updateCarouselButtons(track);
+            });
+        }
+
+        window.addEventListener('resize', initCarousels);
+
+        function toggleTheme() {
+            const checkbox = document.getElementById('theme-checkbox');
+            const isDark = checkbox.checked;
+
+            if (isDark) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const checkbox = document.getElementById('theme-checkbox');
+
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                if (checkbox) checkbox.checked = true;
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                if (checkbox) checkbox.checked = false;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+            setTimeout(initCarousels, 100);
+        });
+    </script>
+
+    <script>
+        // BREADCRUMB MANAGER - DYNAMIC ISLAND
+        function initDynamicBreadcrumb() {
+            const wrapper = document.querySelector('.global-nav-wrapper');
+            if (!wrapper) return;
+
+            // Check initial scroll position
+            if (window.scrollY > 50) wrapper.classList.add('compacted');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    wrapper.classList.add('compacted');
+                } else {
+                    wrapper.classList.remove('compacted');
+                }
+            });
+
+            // Handle touch devices to expand on tap if compacted
+            wrapper.addEventListener('click', (e) => {
+                if (wrapper.classList.contains('compacted') && window.innerWidth <= 768) {
+                    e.preventDefault();
+                    wrapper.classList.remove('compacted');
+                    // Give them time to click before it auto-compacts again
+                    setTimeout(() => {
+                        if (window.scrollY > 50) wrapper.classList.add('compacted');
+                    }, 3000);
+                }
+            });
+        }
+        document.addEventListener('DOMContentLoaded', initDynamicBreadcrumb);
+    </script>
+    <script>
+        // SYNC PROJECTS FROM ROADMAP DATA (LOCALSTORAGE)
+        function syncDynamicProjects() {
+            const dataRaw = localStorage.getItem('roadmapData');
+            if (!dataRaw) return;
+            
+            const data = JSON.parse(dataRaw);
+            // We consider "dynamic" projects those with ID > 10 (or not in the static set)
+            // But better: check if title already exists in the DOM to avoid duplicates
+            const existingTitles = Array.from(document.querySelectorAll('.apple-card .title')).map(el => el.textContent.trim());
+
+            data.projects.forEach(p => {
+                if (!existingTitles.includes(p.name)) {
+                    const trackId = p.role === 'direct' ? 'track-direct' : 'track-facilitator';
+                    const track = document.getElementById(trackId);
+                    if (track) {
+                        const card = document.createElement('a');
+                        card.href = "#"; // New projects don't have a page yet
+                        card.className = "apple-card";
+                        if (p.color) card.style.borderColor = p.color;
+                        
+                        card.innerHTML = `
+                            <div class="kicker" style="color: ${p.color || 'var(--lda-red)'}">${p.status.toUpperCase()}</div>
+                            <h3 class="title">${p.name}</h3>
+                            <p class="desc">${p.desc || 'Nueva iniciativa estratégica incorporada desde el Gobierno de Porfolio.'}</p>
+                            <div class="card-visual">
+                                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                                </svg>
+                            </div>
+                        `;
+                        track.appendChild(card);
+                    }
+                }
+            });
+            
+            // Re-init carousels after adding elements
+            if (typeof initCarousels === 'function') initCarousels();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            syncDynamicProjects();
+            // Listen for storage changes in case the user has both tabs open
+            window.addEventListener('storage', (e) => {
+                if (e.key === 'roadmapData') syncDynamicProjects();
+            });
+        });
+    </script>
+</body>
+
+</html>
+
