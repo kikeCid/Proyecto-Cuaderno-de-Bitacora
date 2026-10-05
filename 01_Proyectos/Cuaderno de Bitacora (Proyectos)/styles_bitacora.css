@@ -3188,3 +3188,191 @@ body::before {
 .footer-brand-block {
     padding-bottom: 18px !important;
 }
+
+
+
+/* ==========================================================================
+   ESTILO CORPORATIVO OFICIAL LÍNEA DIRECTA (BRANDBOOK & MARKETING coches.lineadirecta.com)
+   ========================================================================== */
+
+/* Variables Corporativas Oficiales */
+:root {
+    --ld-primary-high: #CC3333;
+    --ld-primary-active: #CC3333;
+    --ld-primary-hover: #B52B2B;
+    --ld-primary-low: #F8E3E3;
+    --ld-surface-high: #1A1A1A;
+    --ld-surface-mid: rgba(26, 26, 26, 0.12);
+    --ld-surface-low: rgba(26, 26, 26, 0.04);
+    --ld-background-alt: #F7F7F7;
+    
+    --lda-red: #CC3333;
+    --lda-red-hover: #B52B2B;
+    --lda-red-glow: rgba(204, 51, 51, 0.18);
+    --bg-page: #F7F7F7;
+    --bg-card: #FFFFFF;
+    --bg-header: #FFFFFF;
+    --text-main: #1A1A1A;
+    --text-sec: #595959;
+    --glass-border: rgba(26, 26, 26, 0.08);
+    --shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    
+    --font-family-primary: 'CircularXX', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+[data-theme="dark"] {
+    --bg-page: #121214;
+    --bg-card: rgba(26, 26, 30, 0.88);
+    --bg-header: rgba(20, 20, 24, 0.88);
+    --text-main: #F5F5F7;
+    --text-sec: #A1A1A6;
+    --ld-primary-high: #E04848;
+    --lda-red: #E04848;
+    --lda-red-hover: #F05555;
+    --lda-red-glow: rgba(224, 72, 72, 0.3);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --shadow: 0 10px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* Tipografía global de Línea Directa */
+body, button, input, select, textarea, .title, h1, h2, h3, h4 {
+    font-family: var(--font-family-primary) !important;
+}
+
+/* Identidad en la cabecera (Island Navbar) */
+.island-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.island-logo-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    padding: 4px 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.island-logo-img {
+    height: 24px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.island-title {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.island-portal-name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.01em;
+}
+
+.island-badge {
+    font-size: 0.68rem;
+    color: var(--lda-red);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+/* Breadcrumb global en páginas secundarias (Perseo, HCM, etc.) */
+.global-nav-wrapper {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--glass-border) !important;
+    border-radius: 999px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+}
+
+.nav-breadcrumb-item {
+    font-size: 0.88rem !important;
+    font-weight: 600 !important;
+    color: var(--text-sec) !important;
+    text-decoration: none !important;
+}
+
+.nav-breadcrumb-item.current {
+    color: var(--lda-red) !important;
+    font-weight: 700 !important;
+}
+
+/* Tarjetas Oficiales estilo Marketing Línea Directa */
+.apple-card {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--glass-border) !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03) !important;
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.28s ease !important;
+}
+
+.apple-card:hover {
+    transform: translateY(-4px) !important;
+    border-color: rgba(204, 51, 51, 0.35) !important;
+    box-shadow: 0 12px 28px rgba(204, 51, 51, 0.08), 0 4px 10px rgba(0, 0, 0, 0.03) !important;
+}
+
+/* Caja de icono (.card-visual) con fondo sutil y halo corporativo */
+.card-visual {
+    background: rgba(204, 51, 51, 0.02) !important;
+    border: 1px solid rgba(204, 51, 51, 0.06) !important;
+    border-radius: 14px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: background 0.3s ease, border-color 0.3s ease !important;
+}
+
+.apple-card:hover .card-visual {
+    background: rgba(204, 51, 51, 0.05) !important;
+    border-color: rgba(204, 51, 51, 0.16) !important;
+}
+
+.card-visual svg {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    filter: drop-shadow(0 2px 5px rgba(204, 51, 51, 0.08)) !important;
+}
+
+.apple-card:hover .card-visual svg {
+    transform: scale(1.08) !important;
+}
+
+/* Badges y Tags estilo Línea Directa */
+.tech-tag {
+    background: var(--ld-primary-low) !important;
+    color: var(--ld-primary-high) !important;
+    border: 1px solid rgba(204, 51, 51, 0.15) !important;
+    font-size: 0.72rem !important;
+    font-weight: 600 !important;
+    padding: 3px 8px !important;
+    border-radius: 6px !important;
+    letter-spacing: 0.02em !important;
+}
+
+[data-theme="dark"] .tech-tag {
+    background: rgba(224, 72, 72, 0.15) !important;
+    color: #FF8585 !important;
+    border-color: rgba(224, 72, 72, 0.25) !important;
+}
+
+.hero-badge {
+    background: var(--ld-primary-high) !important;
+    color: #FFFFFF !important;
+    border-radius: 999px !important;
+    font-weight: 700 !important;
+    font-size: 0.74rem !important;
+    padding: 5px 14px !important;
+    letter-spacing: 0.04em !important;
+}
