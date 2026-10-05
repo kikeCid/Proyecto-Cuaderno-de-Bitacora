@@ -2141,6 +2141,165 @@ clean_addons_css = """
 .apple-card:hover .card-visual svg {
     transform: scale(1.05);
 }
+
+/* ==========================================================================
+   FOOTER CORPORATIVO OFICIAL LÍNEA DIRECTA
+   ========================================================================== */
+.app-footer {
+    margin-top: 80px;
+    background: var(--bg-card);
+    border-top: 1px solid var(--glass-border);
+    padding: 60px 20px 40px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    position: relative;
+    z-index: 10;
+}
+
+.footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.footer-brand-block {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.footer-logo-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    padding: 10px 22px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.footer-logo {
+    height: 38px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.footer-brand-desc {
+    font-size: 0.92rem;
+    color: var(--text-sec);
+    line-height: 1.5;
+    margin: 0;
+    max-width: 650px;
+}
+
+.footer-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.footer-col h4 {
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--lda-red);
+    margin-bottom: 14px;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-col a {
+    color: var(--text-sec);
+    text-decoration: none;
+    font-size: 0.88rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-block;
+}
+
+.footer-col a:hover {
+    color: var(--lda-red);
+    transform: translateX(3px);
+}
+
+.footer-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(16, 185, 129, 0.1);
+    color: #10B981;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.footer-status-pill .dot-online {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #10B981;
+    box-shadow: 0 0 6px #10B981;
+}
+
+.footer-meta-item {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-top: 20px;
+    border-top: 1px solid var(--glass-border);
+    font-size: 0.82rem;
+    color: var(--text-sec);
+}
+
+.footer-bottom-badges {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.badge-lda-red {
+    background: var(--lda-red);
+    color: #FFFFFF;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 8px;
+}
+
+.badge-lda-outline {
+    border: 1px solid var(--glass-border);
+    color: var(--text-sec);
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 8px;
+}
+
 """
 
 full_core_css = base_css.strip() + "\n\n" + addons.strip() + "\n\n" + clean_addons_css.strip() + "\n"
