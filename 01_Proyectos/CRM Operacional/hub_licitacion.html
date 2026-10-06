@@ -36,16 +36,6 @@
     </div>
 
     <style>
-        /* ESTANDARIZACIÓN DE TARJETAS PARA SIMETRÍA PERFECTA */
-        .apple-card {
-            width: 320px !important;
-            height: 420px !important;
-            flex-shrink: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
         .fase-zero-container {
             display: flex; 
             gap: 25px; 
@@ -75,13 +65,16 @@
         <div class="fase-zero-container">
             <!-- DOCUMENTO RFQ -->
             <a href="proceso_rfq.html" class="apple-card" data-accent="red">
-                <div>
-                    <div class="kicker">PLIEGO BASE</div>
-                    <h3 class="title">Documento central <span>RFQ</span></h3>
-                    <p class="desc">Aterrizaje de nuestras necesidades, objetivos de Transformación y requerimientos organizativos detallados para el ecosistema CRM.</p>
+                <div class="kicker">PLIEGO BASE</div>
+                <h3 class="title">Documento central <span>RFQ</span></h3>
+                <p class="desc">Aterrizaje de nuestras necesidades, objetivos de Transformación y requerimientos organizativos detallados para el ecosistema CRM.</p>
+                <div class="card-tags">
+                    <span class="tag">Pliego RFQ</span>
+                    <span class="tag">Requerimientos</span>
+                    <span class="tag">Ecosistema CRM</span>
                 </div>
                 <div class="card-visual">
-                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                         <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                     </svg>
@@ -90,13 +83,16 @@
 
             <!-- CRONOGRAMA PLANIFICADO -->
             <a href="cronograma_licitacion.html" class="apple-card" style="border: 2px solid var(--lda-red); background: var(--bg-card);">
-                <div>
-                    <div class="kicker" style="color: var(--lda-red);">SEGUIMIENTO TEMPORAL</div>
-                    <h3 class="title">Cronograma <span>Planificado</span></h3>
-                    <p class="desc">Calendario detallado de hitos del pliego: seguimiento exhaustivo desde el lanzamiento hasta el cierre de adjudicación técnica.</p>
+                <div class="kicker" style="color: var(--lda-red);">SEGUIMIENTO TEMPORAL</div>
+                <h3 class="title">Cronograma <span>Planificado</span></h3>
+                <p class="desc">Calendario detallado de hitos del pliego: seguimiento exhaustivo desde el lanzamiento hasta el cierre de adjudicación técnica.</p>
+                <div class="card-tags">
+                    <span class="tag">Hitos Pliego</span>
+                    <span class="tag">Calendario</span>
+                    <span class="tag">Adjudicación</span>
                 </div>
                 <div class="card-visual" style="color: var(--lda-red);">
-                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                         <line x1="16" y1="2" x2="16" y2="6"></line>
                         <line x1="8" y1="2" x2="8" y2="6"></line>
@@ -129,8 +125,13 @@
                     <div class="kicker">PROVEEDOR LICITANTE</div>
                     <h3 class="title">Propuesta <span>Accenture</span></h3>
                     <p class="desc">Análisis competitivo económico con dos vías de plataforma opcionales: Microsoft Dynamics 365 y Salesforce CRM.</p>
+                    <div class="card-tags">
+                        <span class="tag">Dynamics 365</span>
+                        <span class="tag">Salesforce</span>
+                        <span class="tag">Competitividad</span>
+                    </div>
                     <div class="card-visual">
-                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
                         </svg>
                     </div>
@@ -141,8 +142,13 @@
                     <div class="kicker">PROVEEDOR LICITANTE</div>
                     <h3 class="title">Propuesta <span>Ayesa</span></h3>
                     <p class="desc">Ofrecimiento orientado a Salesforce, apostando por dos vertientes analizadas: Financial Services Cloud vs Sales & Service Cloud.</p>
+                    <div class="card-tags">
+                        <span class="tag">Salesforce FSC</span>
+                        <span class="tag">Sales & Service</span>
+                        <span class="tag">Oferta Dual</span>
+                    </div>
                     <div class="card-visual" style="color: var(--lda-red);">
-                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="12" y1="5" x2="12" y2="19"></line>
                             <line x1="5" y1="12" x2="19" y2="12"></line>
                         </svg>
@@ -154,11 +160,15 @@
                     <div class="kicker">PROVEEDOR LICITANTE</div>
                     <h3 class="title">Propuesta <span>Capgemini</span></h3>
                     <p class="desc">Planteamiento dual (Salesforce y MS Dynamics 365) basado en metodología de factoría ágil a través de 24 meses continuos.</p>
+                    <div class="card-tags">
+                        <span class="tag">Factoría Ágil</span>
+                        <span class="tag">24 Meses</span>
+                        <span class="tag">Multi-plataforma</span>
+                    </div>
                     <div class="card-visual">
-                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
                             <path d="M2 17l10 5 10-5"></path>
-                            <path d="M2 12l10 5 10-5"></path>
                         </svg>
                     </div>
                 </a>
@@ -168,8 +178,13 @@
                     <div class="kicker">PROVEEDOR LICITANTE</div>
                     <h3 class="title">Propuesta <span>Minsait</span></h3>
                     <p class="desc">Oferta agresiva unificada exclusivament en Salesforce FSC. Destaca por agrupar las 9 fases solicitadas en solo 6 Go-Lives.</p>
+                    <div class="card-tags">
+                        <span class="tag">Salesforce FSC</span>
+                        <span class="tag">6 Go-Lives</span>
+                        <span class="tag">Agrupación</span>
+                    </div>
                     <div class="card-visual" style="color: var(--lda-red);">
-                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
                             <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
                         </svg>
@@ -180,9 +195,14 @@
                 <a href="propuesta_ntt_data.html" class="apple-card">
                     <div class="kicker">PROVEEDOR LICITANTE</div>
                     <h3 class="title">Propuesta <span>NTT DATA</span></h3>
-                    <p class="desc">Aproximación basada en"Olas de Negocio" sobre Salesforce FSC. Foco en la convivencia con sistemas legacy y estabilidad del CC.</p>
+                    <p class="desc">Aproximación basada en "Olas de Negocio" sobre Salesforce FSC. Foco en la convivencia con sistemas legacy y estabilidad del CC.</p>
+                    <div class="card-tags">
+                        <span class="tag">Olas de Negocio</span>
+                        <span class="tag">Legacy</span>
+                        <span class="tag">Contact Center</span>
+                    </div>
                     <div class="card-visual" style="color: var(--lda-red);">
-                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="12" cy="12" r="10"></circle>
                             <circle cx="12" cy="12" r="4"></circle>
                             <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line>
@@ -194,9 +214,14 @@
                 <a href="propuesta_omega.html" class="apple-card" data-accent="red">
                     <div class="kicker">PROVEEDOR LICITANTE</div>
                     <h3 class="title">Propuesta <span>OMEGA</span></h3>
-                    <p class="desc">Enfoque"The Bridge" para mitigar riesgos técnicos sobre Salesforce FSC. Metodología destacada en Adopción y Change Management.</p>
+                    <p class="desc">Enfoque "The Bridge" para mitigar riesgos técnicos sobre Salesforce FSC. Metodología destacada en Adopción y Change Management.</p>
+                    <div class="card-tags">
+                        <span class="tag">The Bridge</span>
+                        <span class="tag">Adopción</span>
+                        <span class="tag">Change Mgt</span>
+                    </div>
                     <div class="card-visual">
-                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
                             <path d="M2 17l10 5 10-5"></path>
                             <path d="M2 12l10 5 10-5"></path>
@@ -233,13 +258,18 @@
                 <!-- DEFENSA ACCENTURE -->
                 <a href="defensa_r2_accenture.html" class="apple-card" style="border: 1px solid var(--border-color); background: var(--bg-card);">
                     <div class="kicker" style="display: flex; justify-content: space-between;">
-                        <span style="color: #8b5cf6; font-weight: 900;">SESIÓN R2 DISPONIBLE</span>
+                        <span style="color: var(--lda-red); font-weight: 900;">SESIÓN R2 DISPONIBLE</span>
                         <span style="color: var(--lda-red);">NUEVO</span>
                     </div>
                     <h3 class="title">Defensa <span>Accenture</span></h3>
-                    <p class="desc">Enfoque"Standard First", clarificación de licenciamiento Salesforce y priorización integral del cambio cultural.</p>
+                    <p class="desc">Enfoque "Standard First", clarificación de licenciamiento Salesforce y priorización integral del cambio cultural.</p>
+                    <div class="card-tags">
+                        <span class="tag">Standard First</span>
+                        <span class="tag">Licencias SF</span>
+                        <span class="tag">Cultura</span>
+                    </div>
                     <div class="card-visual" style="color: var(--lda-red);">
-                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 20h9"></path>
                             <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
                         </svg>
@@ -254,8 +284,13 @@
                     </div>
                     <h3 class="title">Defensa <span>Ayesa</span></h3>
                     <p class="desc">Aterrizaje técnico: Arquitectura SF+Genesys, retos de integración y gaps operativos de servicios.</p>
+                    <div class="card-tags">
+                        <span class="tag">SF + Genesys</span>
+                        <span class="tag">Integración</span>
+                        <span class="tag">Gaps Operativos</span>
+                    </div>
                     <div class="card-visual" style="color: var(--lda-red);">
-                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 20h9"></path>
                             <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
                         </svg>
@@ -270,8 +305,13 @@
                     </div>
                     <h3 class="title">Defensa <span>Capgemini</span></h3>
                     <p class="desc">Aterrizaje técnico: Arquitectura API-Led con MS Dynamics 365, modelo de convivencia Galgo y plan de adopción.</p>
+                    <div class="card-tags">
+                        <span class="tag">API-Led</span>
+                        <span class="tag">Dynamics 365</span>
+                        <span class="tag">Plan Adopción</span>
+                    </div>
                     <div class="card-visual" style="color: var(--lda-red);">
-                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 20h9"></path>
                             <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
                         </svg>
@@ -286,8 +326,13 @@
                     </div>
                     <h3 class="title">Defensa <span>Minsait</span></h3>
                     <p class="desc">Visión unificada CRM + Contact Center. Arquitectura event-driven (Kafka) y roadmap de 19 meses.</p>
+                    <div class="card-tags">
+                        <span class="tag">Kafka</span>
+                        <span class="tag">Contact Center</span>
+                        <span class="tag">19 Meses</span>
+                    </div>
                     <div class="card-visual" style="color: var(--lda-red);">
-                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 20h9"></path>
                             <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
                         </svg>
@@ -302,8 +347,13 @@
                     </div>
                     <h3 class="title">Defensa <span>NTT Data</span></h3>
                     <p class="desc">Postura pragmática: Apuesta por Salesforce S&S, despliegue por olas y gestión de riesgos críticos.</p>
+                    <div class="card-tags">
+                        <span class="tag">Salesforce S&S</span>
+                        <span class="tag">Despliegue Olas</span>
+                        <span class="tag">Riesgos</span>
+                    </div>
                     <div class="card-visual" style="color: var(--lda-red);">
-                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 20h9"></path>
                             <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
                         </svg>
@@ -318,8 +368,13 @@
                     </div>
                     <h3 class="title">Defensa <span>Omega CRM</span></h3>
                     <p class="desc">Consolidación técnica: Arquitectura MuleSoft, Mapeo funcional FSC y Plan de Adopción Táctico.</p>
+                    <div class="card-tags">
+                        <span class="tag">MuleSoft</span>
+                        <span class="tag">Mapeo FSC</span>
+                        <span class="tag">Plan Táctico</span>
+                    </div>
                     <div class="card-visual" style="color: var(--lda-red);">
-                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 20h9"></path>
                             <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
                         </svg>

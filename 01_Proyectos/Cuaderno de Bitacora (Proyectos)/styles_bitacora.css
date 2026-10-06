@@ -1917,8 +1917,9 @@ body::before {
 .view-mode-grid .apple-card {
     width: 100% !important;
     max-width: 100% !important;
-    height: auto !important;
-    min-height: 440px !important;
+    height: 380px !important;
+    min-height: 380px !important;
+    max-height: 380px !important;
 }
 
 /* Filtrado Dinámico de Secciones */
@@ -3086,11 +3087,22 @@ body, button, input, select, textarea, .title, h1, h2, h3, h4 {
 /* Tarjetas Oficiales estilo Marketing Línea Directa */
 .apple-card {
     background: var(--bg-card) !important;
-    border: 1px solid var(--glass-border) !important;
+    border: 1px solid var(--border-color) !important;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03) !important;
-    padding: 24px !important;
+    flex: 0 0 auto !important;
+    width: 335px !important;
+    height: 380px !important;
+    min-height: 380px !important;
+    max-height: 380px !important;
+    padding: 24px 22px 20px 22px !important;
     display: flex !important;
     flex-direction: column !important;
+    justify-content: flex-start !important;
+    box-sizing: border-box !important;
+    border-radius: 20px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    text-decoration: none !important;
     transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
                 box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
                 border-color 0.28s ease !important;
@@ -3102,69 +3114,109 @@ body, button, input, select, textarea, .title, h1, h2, h3, h4 {
     box-shadow: 0 12px 28px rgba(204, 51, 51, 0.08), 0 4px 10px rgba(0, 0, 0, 0.03) !important;
 }
 
+[data-theme="dark"] .apple-card {
+    background: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme="dark"] .apple-card:hover {
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6) !important;
+    border-color: rgba(224, 72, 72, 0.3) !important;
+}
+
 .apple-card .kicker {
     margin-bottom: 6px !important;
     font-size: 0.72rem !important;
+    font-weight: 800 !important;
+    color: var(--lda-red) !important;
+    text-transform: uppercase !important;
     letter-spacing: 0.05em !important;
+    flex-shrink: 0 !important;
 }
 
 .apple-card .title {
-    font-size: 1.4rem !important;
-    font-weight: 700 !important;
+    font-size: 1.35rem !important;
+    font-weight: 800 !important;
+    color: var(--text-main) !important;
     margin: 0 0 8px 0 !important;
     line-height: 1.25 !important;
     letter-spacing: -0.01em !important;
+    flex-shrink: 0 !important;
 }
 
 .apple-card .desc {
-    font-size: 0.865rem !important;
+    font-size: 0.88rem !important;
     line-height: 1.45 !important;
     color: var(--text-sec) !important;
-    margin: 0 0 12px 0 !important;
+    margin: 0 0 10px 0 !important;
     flex-grow: 0 !important;
+    flex-shrink: 0 !important;
 }
 
-.apple-card .card-tags {
+.apple-card .card-tags,
+.card-tags {
     display: flex !important;
     flex-wrap: wrap !important;
     gap: 6px !important;
-    margin-bottom: auto !important;
+    margin: 0 0 10px 0 !important;
+    flex-shrink: 0 !important;
 }
 
-/* Caja de icono (.card-visual) con proporciones finas y armónicas estilo Línea Directa */
-.card-visual {
-    flex: 0 0 68px !important;
-    height: 68px !important;
+/* Caja de icono (.card-visual) ALINEADA EXACTAMENTE A LA PARTE INFERIOR */
+.card-visual,
+.apple-card .card-visual,
+[data-theme="dark"] .card-visual {
+    flex: 0 0 88px !important;
+    height: 88px !important;
     width: 100% !important;
-    margin-top: 14px !important;
-    border-radius: 12px !important;
-    background: rgba(204, 51, 51, 0.02) !important;
+    margin-top: auto !important; /* EMPUJA SIEMPRE EL ICONO A LA PARTE INFERIOR */
+    margin-bottom: 0 !important;
+    border-radius: 14px !important;
+    background: rgba(204, 51, 51, 0.03) !important;
     border: 1px solid rgba(204, 51, 51, 0.08) !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     position: relative !important;
     overflow: hidden !important;
+    box-sizing: border-box !important;
+    color: var(--lda-red) !important;
     transition: background 0.25s ease, border-color 0.25s ease !important;
 }
 
-.apple-card:hover .card-visual {
-    background: rgba(204, 51, 51, 0.04) !important;
-    border-color: rgba(204, 51, 51, 0.2) !important;
+[data-theme="dark"] .card-visual,
+[data-theme="dark"] .apple-card .card-visual {
+    background: rgba(224, 72, 72, 0.05) !important;
+    border-color: rgba(224, 72, 72, 0.15) !important;
+    color: #FF8585 !important;
 }
 
-.card-visual svg {
-    width: 38px !important;
-    height: 38px !important;
-    max-width: 38px !important;
-    max-height: 38px !important;
+.apple-card:hover .card-visual,
+[data-theme="dark"] .apple-card:hover .card-visual {
+    background: rgba(204, 51, 51, 0.06) !important;
+    border-color: rgba(204, 51, 51, 0.22) !important;
+}
+
+.card-visual svg,
+[data-theme="dark"] .card-visual svg {
+    width: 42px !important;
+    height: 42px !important;
+    max-width: 42px !important;
+    max-height: 42px !important;
     display: block !important;
     margin: auto !important;
     filter: none !important;
-    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    color: var(--lda-red) !important;
+    transition: transform 0.25s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
 }
 
-.apple-card:hover .card-visual svg {
+[data-theme="dark"] .card-visual svg {
+    color: #FF8585 !important;
+}
+
+.apple-card:hover .card-visual svg,
+[data-theme="dark"] .apple-card:hover .card-visual svg {
     transform: scale(1.06) !important;
 }
 
