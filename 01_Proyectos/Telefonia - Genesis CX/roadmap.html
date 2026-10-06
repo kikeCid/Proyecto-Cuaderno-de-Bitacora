@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es" data-theme="light">
 <head>
     <meta charset="UTF-8">
@@ -227,6 +227,75 @@
         }
         .alert-box p { margin: 0; color: var(--text-main); font-size: 0.85rem; }
 
+        /* Estilos específicos para la tabla y fases de Comercial */
+        .comercial-schedule-card {
+            background: var(--bg-main);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 22px;
+            margin-top: 24px;
+        }
+        .comercial-schedule-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 14px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .comercial-schedule-title {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .comercial-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+        }
+        .comercial-table th {
+            text-align: left;
+            padding: 10px 12px;
+            background: rgba(228, 0, 43, 0.05);
+            color: var(--text-main);
+            font-weight: 800;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid var(--border-color);
+        }
+        .comercial-table td {
+            padding: 12px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-main);
+            vertical-align: middle;
+        }
+        .comercial-table tr:last-child td {
+            border-bottom: none;
+        }
+        .comercial-table tr:hover td {
+            background: rgba(0,0,0,0.02);
+        }
+        [data-theme="dark"] .comercial-table tr:hover td {
+            background: rgba(255,255,255,0.02);
+        }
+        .tag-pill {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+        .tag-inbound { background: rgba(37, 99, 235, 0.1); color: #2563eb; }
+        .tag-outbound { background: rgba(217, 119, 6, 0.1); color: #d97706; }
+        .tag-external { background: rgba(147, 51, 234, 0.1); color: #9333ea; }
+        .tag-internal { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+        .tag-training { background: rgba(234, 88, 12, 0.1); color: #ea580c; }
     </style>
 </head>
 <body>
@@ -347,30 +416,124 @@
             </div>
 
             <!-- FASE 4 -->
-            <div class="timeline-block status-pending">
+            <div class="timeline-block status-current">
                 <div class="timeline-marker"></div>
-                <div class="timeline-content">
+                <div class="timeline-content" style="border-color: var(--lda-red);">
                     <div class="timeline-header">
-                        <span class="timeline-phase"><span class="badge badge-pending">Próximo</span> Fase 4</span>
-                        <span class="timeline-date">Q2 2026 - Q1 2027</span>
+                        <span class="timeline-phase"><span class="badge badge-current">En Curso · Replanificado</span> Fase 4</span>
+                        <span class="timeline-date">Q3 2026 - Q1 2027</span>
                     </div>
                     <h3 class="timeline-title">Despliegue Escalonado de Servicios</h3>
-                    <p class="timeline-desc">Migración paulatina de servicios operativos a la nueva plataforma acompañados por el plan de Gestión del Cambio (RRHH).</p>
+                    <p class="timeline-desc">Migración progresiva de las salas operativas a Genesys Cloud CX. Coordinado estrechamente entre PMO PersCom, la Dirección de Comercial, Formación y los Contact Centers externos colaboradores.</p>
 
-                    <!-- MICRO GRID -->
+                    <!-- BLOQUE DESTACADO: REPLANIFICACIÓN CONSENSUADA CON COMERCIAL -->
+                    <div class="comercial-schedule-card">
+                        <div class="comercial-schedule-header">
+                            <div class="comercial-schedule-title">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--lda-red);">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                Despliegue Consensuado Comercial (INB & OUT)
+                            </div>
+                            <span class="badge badge-current" style="margin: 0;">Calendario Oficial · Nov 2026 - Ene 2027</span>
+                        </div>
+                        <p style="font-size: 0.9rem; color: var(--text-sec); margin: 0 0 16px 0; line-height: 1.5;">
+                            Implantaciones consensuadas con el Área Comercial para el paso a producción progresivo de <strong>Recepción (Inbound)</strong> y <strong>Emisión (Outbound)</strong>, coordinando centros internos y contact centers externos (<strong>Salesland</strong> y <strong>Marktel</strong>).
+                        </p>
+
+                        <div style="overflow-x: auto;">
+                            <table class="comercial-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 130px;">Fecha / Ventana</th>
+                                        <th>Hito / Grupo de Despliegue</th>
+                                        <th style="width: 140px;">Modalidad</th>
+                                        <th style="width: 150px;">Ámbito</th>
+                                        <th style="width: 230px;">Dependencias / Observaciones</th>
+                                        <th style="width: 120px;">Estado</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>16/11/2026</strong></td>
+                                        <td><strong>Grupo 1 Recepción</strong></td>
+                                        <td><span class="tag-pill tag-inbound">Inbound (INB)</span></td>
+                                        <td><span class="tag-pill tag-internal">Interno</span></td>
+                                        <td style="font-size: 0.85rem; color: var(--text-sec);">Primer contingente interno de agentes de recepción.</td>
+                                        <td><span class="badge badge-completed">Consensuado</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>23/11/2026</strong></td>
+                                        <td><strong>Grupo 1 Emisión</strong></td>
+                                        <td><span class="tag-pill tag-outbound">Outbound (OUT)</span></td>
+                                        <td><span class="tag-pill tag-internal">Interno</span></td>
+                                        <td style="font-size: 0.85rem; color: var(--text-sec);">Primer contingente interno de agentes de emisión/campañas.</td>
+                                        <td><span class="badge badge-completed">Consensuado</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>14/12/2026</strong></td>
+                                        <td><strong>Grupo 2 Recepción</strong></td>
+                                        <td><span class="tag-pill tag-inbound">Inbound (INB)</span></td>
+                                        <td><span class="tag-pill tag-internal">Interno</span></td>
+                                        <td style="font-size: 0.85rem; color: var(--text-sec);">Ampliación de capacidad receptora interna previo a cierre de año.</td>
+                                        <td><span class="badge badge-completed">Consensuado</span></td>
+                                    </tr>
+                                    <tr style="background: rgba(245, 158, 11, 0.04);">
+                                        <td><strong>07-11/01/2027</strong></td>
+                                        <td><strong>Formación Emisión / OUT</strong></td>
+                                        <td><span class="tag-pill tag-outbound">Outbound (OUT)</span></td>
+                                        <td><span class="tag-pill tag-training">Formación</span></td>
+                                        <td style="font-size: 0.85rem; color: #d97706;"><strong>Pendiente de revisión</strong> por el Departamento de Formación.</td>
+                                        <td><span class="badge badge-current" style="background: rgba(245, 158, 11, 0.15); color: #d97706;">En Revisión</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>12/01/2027</strong></td>
+                                        <td><strong>Implantación Resto Emisión</strong></td>
+                                        <td><span class="tag-pill tag-outbound">Outbound (OUT)</span></td>
+                                        <td><span class="tag-pill tag-internal">Interno</span> + <span class="tag-pill tag-external">Externo</span></td>
+                                        <td style="font-size: 0.85rem; color: var(--text-sec);">Despliegue total OUT. Requiere soporte de 2 CC externos: <strong>Salesland</strong> y <strong>Marktel</strong>.</td>
+                                        <td><span class="badge badge-completed">Consensuado</span></td>
+                                    </tr>
+                                    <tr style="background: rgba(245, 158, 11, 0.04);">
+                                        <td><strong>Mediados Ene 2027</strong><br><span style="font-size: 0.75rem; color: var(--text-sec);">(YY-XX/01/2027)</span></td>
+                                        <td><strong>Formación Recepción / INB</strong></td>
+                                        <td><span class="tag-pill tag-inbound">Inbound (INB)</span></td>
+                                        <td><span class="tag-pill tag-training">Formación</span></td>
+                                        <td style="font-size: 0.85rem; color: #d97706;"><strong>Pendiente de fijación de fechas</strong> por el Departamento de Formación.</td>
+                                        <td><span class="badge badge-current" style="background: rgba(245, 158, 11, 0.15); color: #d97706;">En Revisión</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>18-20/01/2027</strong></td>
+                                        <td><strong>Implantación Resto Recepción</strong></td>
+                                        <td><span class="tag-pill tag-inbound">Inbound (INB)</span></td>
+                                        <td><span class="tag-pill tag-external">Externo</span></td>
+                                        <td style="font-size: 0.85rem; color: var(--text-sec);">Despliegue en centros externos colaboradores (requiere soporte CC externos).</td>
+                                        <td><span class="badge badge-completed">Consensuado</span></td>
+                                    </tr>
+                                    <tr style="background: rgba(16, 185, 129, 0.05);">
+                                        <td><strong>25/01/2027</strong></td>
+                                        <td><strong>✅ Cierre Implantación Recepción</strong></td>
+                                        <td><span class="tag-pill tag-inbound">Inbound (INB)</span></td>
+                                        <td><span class="tag-pill tag-internal">Interno</span></td>
+                                        <td style="font-size: 0.85rem; color: #10b981; font-weight: 700;">Hito de cierre: 100% Comercial Inbound interno migrado a Genesys Cloud.</td>
+                                        <td><span class="badge badge-completed" style="background: rgba(16, 185, 129, 0.2); color: #10b981;">Hito Clave</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- MICRO GRID DE OTROS SERVICIOS -->
+                    <div style="margin-top: 24px; font-weight: 800; font-size: 0.9rem; color: var(--text-main);">
+                        Otros Servicios en Despliegue:
+                    </div>
                     <div class="roadmap-grid">
                         <div class="roadmap-item">
-                            <div class="item-header" style="margin-bottom: 5px;"><span class="item-title">Quejas (Experiencia cliente)</span></div>
+                            <div class="item-header" style="margin-bottom: 5px;"><span class="item-title">Quejas (Experiencia Cliente)</span></div>
                             <div style="display: flex; flex-direction: column; gap: 4px; font-size: 0.8rem; color: var(--text-sec); background: rgba(0,0,0,0.02); padding: 8px; border-radius: 6px;">
                                 <div style="display: flex; justify-content: space-between;"><strong>Inicio:</strong> <span>Q2 2026</span></div>
                                 <div style="display: flex; justify-content: space-between;"><strong>Go-Live:</strong> <span>Q3 2026</span></div>
-                            </div>
-                        </div>
-                        <div class="roadmap-item">
-                            <div class="item-header" style="margin-bottom: 5px;"><span class="item-title">Comerciales (1 a 4)</span></div>
-                            <div style="display: flex; flex-direction: column; gap: 4px; font-size: 0.8rem; color: var(--text-sec); background: rgba(0,0,0,0.02); padding: 8px; border-radius: 6px;">
-                                <div style="display: flex; justify-content: space-between;"><strong>Inicio:</strong> <span>Q3 2026</span></div>
-                                <div style="display: flex; justify-content: space-between;"><strong>Go-Live:</strong> <span>Q4 2026</span></div>
                             </div>
                         </div>
                         <div class="roadmap-item">
@@ -385,6 +548,13 @@
                             <div style="display: flex; flex-direction: column; gap: 4px; font-size: 0.8rem; color: var(--text-sec); background: rgba(0,0,0,0.02); padding: 8px; border-radius: 6px;">
                                 <div style="display: flex; justify-content: space-between;"><strong>Inicio:</strong> <span>Q4 2026</span></div>
                                 <div style="display: flex; justify-content: space-between;"><strong>Go-Live:</strong> <span>Q1 2027</span></div>
+                            </div>
+                        </div>
+                        <div class="roadmap-item">
+                            <div class="item-header" style="margin-bottom: 5px;"><span class="item-title">Empresas & Expats</span></div>
+                            <div style="display: flex; flex-direction: column; gap: 4px; font-size: 0.8rem; color: var(--text-sec); background: rgba(0,0,0,0.02); padding: 8px; border-radius: 6px;">
+                                <div style="display: flex; justify-content: space-between;"><strong>Inicio:</strong> <span>Q3 2026</span></div>
+                                <div style="display: flex; justify-content: space-between; color: #10b981;"><strong>Go-Live:</strong> <span>En Despliegue</span></div>
                             </div>
                         </div>
                     </div>
