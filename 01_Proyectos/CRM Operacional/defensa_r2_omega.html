@@ -33,7 +33,7 @@
         .highlight-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-            border-color: var(--omega-blue);
+            border-color: var(--lda-red);
         }
 
         .highlight-card::before {
@@ -43,7 +43,7 @@
             left: 0;
             width: 4px;
             height: 100%;
-            background: var(--omega-blue);
+            background: var(--lda-red);
             opacity: 0.5;
         }
 
@@ -66,7 +66,7 @@
             content:"✓";
             position: absolute;
             left: 0;
-            color: var(--omega-blue);
+            color: var(--lda-red);
             font-weight: 900;
         }
 
@@ -98,14 +98,14 @@
         }
 
         .comparison-table th {
-            background: rgba(14, 165, 233, 0.05);
+            background: var(--bg-card);
             font-weight: 800;
             color: var(--text-main);
         }
 
         .kpi-accent {
             font-weight: 700;
-            color: var(--omega-blue);
+            color: var(--lda-red);
         }
 
         .roadmap-container {
@@ -128,7 +128,7 @@
         .step-number {
             width: 40px;
             height: 40px;
-            background: var(--omega-blue);
+            background: var(--lda-red);
             color: white;
             border-radius: 50%;
             display: flex;
@@ -149,7 +149,7 @@
         }
 
         .conclusion-banner h3 {
-            color: var(--omega-blue);
+            color: var(--lda-red);
             margin-bottom: 15px;
         }
 
@@ -162,8 +162,8 @@
         .icon-box {
             width: 48px;
             height: 48px;
-            background: rgba(14, 165, 233, 0.1);
-            color: var(--omega-blue);
+            background: var(--bg-card);
+            color: var(--lda-red);
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -196,14 +196,14 @@
 
     <main class="container">
         <header class="hero" style="text-align: center; padding: 60px 0 40px;">
-            <span class="hero-badge" style="background: rgba(14, 165, 233, 0.1); color: var(--omega-blue); border: 1px solid rgba(14, 165, 233, 0.2);">⬤ DEFENSA TÉCNICA: SESIÓN DE CIERRE</span>
+            <span class="hero-badge" style="background: var(--bg-card); color: var(--lda-red); border: 1px solid rgba(14, 165, 233, 0.2);">⬤ DEFENSA TÉCNICA: SESIÓN DE CIERRE</span>
             <h1>Segunda Defensa <br><span>Propuesta Omega</span></h1>
                 <span class="hero-badge-local" style="margin-top: 10px;">Recurso en Local</span>
             <p style="margin: 0 auto; max-width: 800px;">Consolidación de la propuesta técnica y operativa. Aclaración de arquitectura MuleSoft, modelo de licenciamiento y plan de adopción táctico.</p>
         </header>
 
         <!-- OBJETIVO -->
-        <div class="info-card" style="margin-bottom: 40px; background: rgba(14, 165, 233, 0.02); border-left: 4px solid var(--omega-blue);">
+        <div class="info-card" style="margin-bottom: 40px; background: var(--bg-card); border-left: 4px solid var(--lda-red);">
             <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
                 <div class="icon-box" style="margin-bottom: 0;">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
@@ -216,7 +216,7 @@
         <div class="defense-grid">
             <!-- ARQUITECTURA -->
             <div class="highlight-card">
-                <span class="tag" style="background: rgba(14, 165, 233, 0.1); color: var(--omega-blue);">Arquitectura</span>
+                <span class="tag" style="background: var(--bg-card); color: var(--lda-red);">Arquitectura</span>
                 <div class="icon-box">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
                 </div>
@@ -244,7 +244,7 @@
 
             <!-- COLABORADORES -->
             <div class="highlight-card">
-                <span class="tag" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6;">Ecosistema</span>
+                <span class="tag" style="background: var(--bg-card); color: #8b5cf6;">Ecosistema</span>
                 <div class="icon-box">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                 </div>
@@ -258,7 +258,7 @@
         </div>
 
         <!-- COMPARACIÓN PRODUCTO -->
-        <div class="section-header" style="border-left: 4px solid var(--omega-blue);">
+        <div class="section-header" style="border-left: 4px solid var(--lda-red);">
             <div class="section-title-wrapper">
                 <h2 class="section-title">Análisis de Plataforma: FSC vs Standard</h2>
                 <p class="section-subtitle">Posicionamiento de Omega sobre la elección de nube de Salesforce</p>
@@ -270,7 +270,7 @@
                 <tr>
                     <th>Dimensión</th>
                     <th>Sales & Service Cloud (Standard)</th>
-                    <th style="background: rgba(14, 165, 233, 0.1); color: var(--omega-blue);">Financial Services Cloud (FSC)</th>
+                    <th style="background: var(--bg-card); color: var(--lda-red);">Financial Services Cloud (FSC)</th>
                 </tr>
             </thead>
             <tbody>
@@ -293,7 +293,7 @@
         </table>
 
         <!-- PLAN DE IMPLANTACIÓN -->
-        <div class="section-header" style="border-left: 4px solid #f59e0b; margin-top: 50px;">
+        <div class="section-header" style="border-left: 4px solid var(--lda-red); margin-top: 50px;">
             <div class="section-title-wrapper">
                 <h2 class="section-title">Plan de Implantación por Bloques</h2>
                 <p class="section-subtitle">Secuencia lógica de construcción y despliegue de valor</p>
@@ -372,7 +372,7 @@
             <p>Omega ha mostrado un enfoque transparente y realista, despejando dependencias críticas y alineando su propuesta con la estrategia de Línea Directa: <strong>adaptación al estándar para controlar la deuda técnica.</strong> Su solvencia en la gestión del cambio y el dominio de la arquitectura MuleSoft consolidan su posición como un licitador de alta fiabilidad operativa.</p>
             
             <div style="margin-top: 30px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: center; gap: 20px;">
-                <a href="defensa_r1_omega.html" style="color: var(--omega-blue); text-decoration: none; font-weight: 800; font-size: 0.9rem; display: flex; align-items: center; gap: 8px;">
+                <a href="defensa_r1_omega.html" style="color: var(--lda-red); text-decoration: none; font-weight: 800; font-size: 0.9rem; display: flex; align-items: center; gap: 8px;">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
                     VER SESIÓN 1 (ESTRATEGIA INICIAL)
                 </a>

@@ -155,7 +155,7 @@
             display: block;
             font-size: 1rem;
             font-weight: 900;
-            color: var(--omega-brand);
+            color: var(--lda-red);
         }
 
         .kpi-label {
@@ -179,8 +179,8 @@
         }
 
         .info-trigger:hover {
-            color: var(--omega-brand);
-            border-color: var(--omega-brand);
+            color: var(--lda-red);
+            border-color: var(--lda-red);
         }
 
         /* MODAL SYSTEM */
@@ -288,8 +288,8 @@
     <main class="container">
         <header class="hero" style="text-align: center; padding: 60px 0 40px;">
             <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 20px;">
-                <span class="hero-badge" style="background: rgba(59, 130, 246, 0.1); color: #3b82f6; border: 1px solid rgba(59, 130, 246, 0.2);">⬤ FASE 3: ANÁLISIS DE DECISIÓN</span>
-                <span class="hero-badge" style="background: rgba(14, 165, 233, 0.1); color: #0ea5e9; border: 1px solid rgba(14, 165, 233, 0.2); font-weight: 900;">ESTADO ACTUAL: EN DECISIÓN</span>
+                <span class="hero-badge" style="background: rgba(204, 51, 51, 0.08); color: var(--lda-red); border: 1px solid rgba(204, 51, 51, 0.2);">⬤ FASE 3: ANÁLISIS DE DECISIÓN</span>
+                <span class="hero-badge" style="background: var(--bg-card); color: var(--lda-red); border: 1px solid rgba(14, 165, 233, 0.2); font-weight: 900;">ESTADO ACTUAL: EN DECISIÓN</span>
             </div>
             <h1>Matriz de Valoración y <br><span>Análisis de Adjudicación</span></h1>
                 <span class="hero-badge-local" style="margin-top: 10px;">Recurso en Local</span>
@@ -299,7 +299,7 @@
             
             <!-- COLUMNA IZQUIERDA: MATRIX LDA -->
             <div class="matrix-column">
-                <div class="column-header" style="border-left: 4px solid var(--omega-brand); padding-left: 15px;">
+                <div class="column-header" style="border-left: 4px solid var(--lda-red); padding-left: 15px;">
                     <h2>Consolidado Matriz LDA (Cuantitativo)</h2>
                 </div>
 
@@ -329,10 +329,10 @@
                             <div class="info-trigger" onclick="openModal('criteria-project')">Pesos</div>
                         </div>
                         <div class="ranking-chart">
-                            <div class="ranking-item"><div class="ranking-label">OMEGA (FSC)</div><div class="ranking-bar-wrapper"><div class="ranking-bar" style="width: 96%; background: var(--omega-brand);" data-percent="96"></div></div><div class="ranking-value">4.80</div></div>
+                            <div class="ranking-item"><div class="ranking-label">OMEGA (FSC)</div><div class="ranking-bar-wrapper"><div class="ranking-bar" style="width: 96%; background: var(--lda-red);" data-percent="96"></div></div><div class="ranking-value">4.80</div></div>
                             <div class="ranking-item"><div class="ranking-label">OMEGA (S&S)</div><div class="ranking-bar-wrapper"><div class="ranking-bar" style="width: 94%; background: #7dd3fc;" data-percent="94"></div></div><div class="ranking-value">4.70</div></div>
                             <div class="ranking-item"><div class="ranking-label">ACCENTURE (FSC)</div><div class="ranking-bar-wrapper"><div class="ranking-bar" style="width: 81%; background: #8b5cf6;" data-percent="81"></div></div><div class="ranking-value">4.05</div></div>
-                            <div class="ranking-item"><div class="ranking-label">MINSAIT (FSC)</div><div class="ranking-bar-wrapper"><div class="ranking-bar" style="width: 77.8%; background: #3b82f6;" data-percent="77.8"></div></div><div class="ranking-value">3.89</div></div>
+                            <div class="ranking-item"><div class="ranking-label">MINSAIT (FSC)</div><div class="ranking-bar-wrapper"><div class="ranking-bar" style="width: 77.8%; background: var(--lda-red);" data-percent="77.8"></div></div><div class="ranking-value">3.89</div></div>
                             <div class="ranking-item"><div class="ranking-label">ACCENTURE (S&S)</div><div class="ranking-bar-wrapper"><div class="ranking-bar" style="width: 73%; background: #ddd;" data-percent="73"></div></div><div class="ranking-value">3.65</div></div>
                             <div class="ranking-item"><div class="ranking-label">NTT DATA (S&S)</div><div class="ranking-bar-wrapper"><div class="ranking-bar" style="width: 72.4%; background: #ccc;" data-percent="72.4"></div></div><div class="ranking-value">3.62</div></div>
                             <div class="ranking-item"><div class="ranking-label">CAPGEMINI (FSC)</div><div class="ranking-bar-wrapper"><div class="ranking-bar" style="width: 69.4%; background: #bbb;" data-percent="69.4"></div></div><div class="ranking-value">3.47</div></div>
@@ -351,9 +351,9 @@
                             <div class="info-trigger" onclick="openModal('criteria-gdc')">Pesos</div>
                         </div>
                         <div class="ranking-chart">
-                            <div class="ranking-item"><div class="ranking-label">OMEGA</div><div class="ranking-bar-wrapper"><div class="ranking-bar" style="width: 87%; background: var(--omega-brand);" data-percent="87"></div></div><div class="ranking-value">4.35</div></div>
+                            <div class="ranking-item"><div class="ranking-label">OMEGA</div><div class="ranking-bar-wrapper"><div class="ranking-bar" style="width: 87%; background: var(--lda-red);" data-percent="87"></div></div><div class="ranking-value">4.35</div></div>
                             <div class="ranking-item"><div class="ranking-label">ACCENTURE</div><div class="ranking-bar-wrapper"><div class="ranking-bar" style="width: 85%; background: #8b5cf6;" data-percent="85"></div></div><div class="ranking-value">4.25</div></div>
-                            <div class="ranking-item"><div class="ranking-label">NTT DATA</div><div class="ranking-bar-wrapper"><div class="ranking-bar" style="width: 70%; background: #3b82f6;" data-percent="70"></div></div><div class="ranking-value">3.50</div></div>
+                            <div class="ranking-item"><div class="ranking-label">NTT DATA</div><div class="ranking-bar-wrapper"><div class="ranking-bar" style="width: 70%; background: var(--lda-red);" data-percent="70"></div></div><div class="ranking-value">3.50</div></div>
                             <div class="ranking-item"><div class="ranking-label">MINSAIT</div><div class="ranking-bar-wrapper"><div class="ranking-bar" style="width: 67%; background: #ddd;" data-percent="67"></div></div><div class="ranking-value">3.35</div></div>
                             <div class="ranking-item"><div class="ranking-label">CAPGEMINI</div><div class="ranking-bar-wrapper"><div class="ranking-bar" style="width: 64%; background: #ccc;" data-percent="64"></div></div><div class="ranking-value">3.20</div></div>
                         </div>
@@ -368,15 +368,15 @@
 
             <!-- COLUMNA DERECHA: ANÁLISIS Y VALORACIÓN -->
             <div class="opinion-column">
-                <div class="column-header" style="border-left: 4px solid #8b5cf6; padding-left: 15px;">
+                <div class="column-header" style="border-left: 4px solid var(--lda-red); padding-left: 15px;">
                     <h2>Análisis y valoración de propuestas proveedores</h2>
                 </div>
 
                 <!-- OMEGA -->
-                <div class="opinion-card" style="border-left-color: var(--omega-brand);">
+                <div class="opinion-card" style="border-left-color: var(--lda-red);">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                        <h3 style="color: var(--omega-brand);">OMEGA</h3>
-                        <span style="font-size: 0.65rem; font-weight: 900; background: rgba(14, 165, 233, 0.1); color: var(--omega-brand); padding: 4px 10px; border-radius: 50px;">RECOMENDADO</span>
+                        <h3 style="color: var(--lda-red);">OMEGA</h3>
+                        <span style="font-size: 0.65rem; font-weight: 900; background: var(--bg-card); color: var(--lda-red); padding: 4px 10px; border-radius: 50px;">RECOMENDADO</span>
                     </div>
                     <p><strong>Mejor equilibrio entre visión, ejecución y riesgo.</strong> Entendimiento profundo del contexto LDA y enfoque en estándares FSC para minimizar deuda técnica.</p>
                 </div>
@@ -388,12 +388,12 @@
                 </div>
 
                 <!-- MINSAIT -->
-                <div class="opinion-card" style="border-left-color: #3b82f6;">
-                    <h3 style="color: #3b82f6;">MINSAIT</h3>
+                <div class="opinion-card" style="border-left-color: var(--lda-red);">
+                    <h3 style="color: var(--lda-red);">MINSAIT</h3>
                     <p><strong>Sinergia técnica CRM + Contact Center.</strong> Gran ventaja en integración con Genesys Cloud, aunque con un roadmap de ejecución muy ambicioso.</p>
                 </div>
 
-                <div class="column-header" style="border-left: 4px solid #f59e0b; padding-left: 15px; margin-top: 20px;">
+                <div class="column-header" style="border-left: 4px solid var(--lda-red); padding-left: 15px; margin-top: 20px;">
                     <h2>Análisis y valoración de soluciones</h2>
                 </div>
 
@@ -410,10 +410,10 @@
                 </div>
 
                 <!-- SALESFORCE FSC -->
-                <div class="opinion-card" style="border: 2px solid var(--omega-brand); background: rgba(14, 165, 233, 0.03); border-left-width: 4px;">
+                <div class="opinion-card" style="border: 2px solid var(--lda-red); background: var(--bg-card); border-left-width: 4px;">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                        <h3 style="color: var(--omega-brand);">SALESFORCE FSC</h3>
-                        <span style="font-size: 0.65rem; font-weight: 900; background: var(--omega-brand); color: white; padding: 4px 10px; border-radius: 50px;">APUESTA GANADORA</span>
+                        <h3 style="color: var(--lda-red);">SALESFORCE FSC</h3>
+                        <span style="font-size: 0.65rem; font-weight: 900; background: var(--lda-red); color: white; padding: 4px 10px; border-radius: 50px;">APUESTA GANADORA</span>
                     </div>
                     <p><strong>Vertical financiero que reduce el riesgo técnico.</strong> Acelera la implantación con objetos nativos banca/seguros y asegura la evolución sectorial.</p>
                 </div>
@@ -498,7 +498,7 @@
             data.items.sort((a, b) => parseFloat(b.weight) - parseFloat(a.weight)).forEach(item => {
                 const div = document.createElement('div');
                 div.className = 'criteria-item';
-                div.innerHTML = `<div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;"><span class="criteria-name">${item.name}</span><span style="font-size: 0.7rem; font-weight: 800; color: var(--omega-brand); background: rgba(14, 165, 233, 0.1); padding: 2px 6px; border-radius: 4px;">${item.weight}</span></div><p class="criteria-desc">${item.desc}</p>`;
+                div.innerHTML = `<div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;"><span class="criteria-name">${item.name}</span><span style="font-size: 0.7rem; font-weight: 800; color: var(--lda-red); background: var(--bg-card); padding: 2px 6px; border-radius: 4px;">${item.weight}</span></div><p class="criteria-desc">${item.desc}</p>`;
                 body.appendChild(div);
             });
             document.getElementById('modal-overlay').classList.add('active');

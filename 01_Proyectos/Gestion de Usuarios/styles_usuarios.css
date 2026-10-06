@@ -8,10 +8,13 @@
     --bg-header: #ffffff;
     --text-main: #1a1a1a;
     --text-sec: #4a4a4a;
-    --lda-blue: #2563eb;
-    --lda-blue-hover: #1d4ed8;
-    --lda-blue-glow: rgba(37, 99, 235, 0.3);
-    --glass-border: rgba(37, 99, 235, 0.1);
+    --lda-red: #CC3333;
+    --lda-blue: #CC3333;
+    --lda-red-hover: #b30022;
+    --lda-blue-hover: #b30022;
+    --lda-red-glow: rgba(204, 51, 51, 0.25);
+    --lda-blue-glow: rgba(204, 51, 51, 0.25);
+    --glass-border: rgba(204, 51, 51, 0.1);
     --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
     --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     --lda-dark: #2c2c2e;
@@ -52,7 +55,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
-    background: radial-gradient(circle at 50% 50%, var(--lda-blue-glow) 0%, transparent 50%);
+    background: radial-gradient(circle at 50% 50%, var(--lda-red-glow) 0%, transparent 50%);
     opacity: 0.5;
     pointer-events: none;
 }
@@ -95,8 +98,8 @@ body {
 }
 
 .nav-btn:hover {
-    color: var(--lda-blue);
-    background: rgba(37, 99, 235, 0.05);
+    color: var(--lda-red);
+    background: rgba(204, 51, 51, 0.05);
     border-radius: 50%;
 }
 
@@ -166,7 +169,7 @@ body {
 }
 
 .nav-breadcrumb-item:hover {
-    color: var(--lda-blue);
+    color: var(--lda-red);
     opacity: 1;
 }
 
@@ -279,7 +282,7 @@ body {
 }
 
 input:checked+.slider {
-    background-color: var(--lda-blue);
+    background-color: var(--lda-red);
 }
 
 input:checked+.slider:before {
@@ -321,8 +324,8 @@ input:checked+.slider:before {
 }
 
 .breadcrumb-dropdown-item:hover {
-    background: rgba(37, 99, 235, 0.1);
-    color: var(--lda-blue);
+    background: rgba(204, 51, 51, 0.1);
+    color: var(--lda-red);
 }
 
 .collapsed-trigger {
@@ -365,7 +368,7 @@ input:checked+.slider:before {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, var(--lda-blue-glow) 0%, transparent 60%);
+    background: radial-gradient(circle, var(--lda-red-glow) 0%, transparent 60%);
     opacity: 0.1;
     z-index: 0;
     pointer-events: none;
@@ -374,7 +377,7 @@ input:checked+.slider:before {
 .hero-badge {
     display: inline-block;
     padding: 6px 16px;
-    background: var(--lda-blue);
+    background: var(--lda-red);
     color: white;
     border-radius: 20px;
     font-size: 0.75rem;
@@ -391,7 +394,7 @@ input:checked+.slider:before {
     font-weight: 900;
     line-height: 1.1;
     margin-bottom: 20px;
-    background: linear-gradient(135deg, var(--text-main) 0%, var(--lda-blue) 100%);
+    background: linear-gradient(135deg, var(--text-main) 0%, var(--lda-red) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -459,7 +462,7 @@ input:checked+.slider:before {
 .apple-card:hover {
     transform: scale(1.02);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-    border-color: var(--lda-blue);
+    border-color: var(--lda-red);
 }
 
 [data-theme="dark"] .apple-card:hover {
@@ -492,7 +495,7 @@ input:checked+.slider:before {
 .kicker {
     font-size: 0.75rem;
     font-weight: 700;
-    color: var(--lda-blue);
+    color: var(--lda-red);
     text-transform: uppercase;
     margin-bottom: 8px;
     letter-spacing: 0.5px;

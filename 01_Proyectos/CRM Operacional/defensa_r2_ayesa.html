@@ -33,7 +33,7 @@
         .highlight-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-            border-color: var(--ayesa-blue);
+            border-color: var(--lda-red);
         }
 
         .highlight-card::before {
@@ -43,7 +43,7 @@
             left: 0;
             width: 4px;
             height: 100%;
-            background: var(--ayesa-blue);
+            background: var(--lda-red);
             opacity: 0.5;
         }
 
@@ -66,7 +66,7 @@
             content:"✓";
             position: absolute;
             left: 0;
-            color: var(--ayesa-blue);
+            color: var(--lda-red);
             font-weight: 900;
         }
 
@@ -98,14 +98,14 @@
         }
 
         .comparison-table th {
-            background: rgba(0, 173, 220, 0.05);
+            background: var(--bg-card);
             font-weight: 800;
             color: var(--text-main);
         }
 
         .kpi-accent {
             font-weight: 700;
-            color: var(--ayesa-blue);
+            color: var(--lda-red);
         }
 
         .roadmap-container {
@@ -120,7 +120,7 @@
             background: var(--bg-card);
             border-radius: 20px;
             border: 1px solid var(--border-color);
-            border-top: 4px solid var(--ayesa-blue);
+            border-top: 4px solid var(--lda-red);
         }
 
         .conclusion-banner {
@@ -134,7 +134,7 @@
         }
 
         .conclusion-banner h3 {
-            color: var(--ayesa-blue);
+            color: var(--lda-red);
             margin-bottom: 15px;
         }
 
@@ -147,8 +147,8 @@
         .icon-box {
             width: 48px;
             height: 48px;
-            background: rgba(0, 173, 220, 0.1);
-            color: var(--ayesa-blue);
+            background: var(--bg-card);
+            color: var(--lda-red);
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -189,14 +189,14 @@
 
     <main class="container">
         <header class="hero" style="text-align: center; padding: 60px 0 40px;">
-            <span class="hero-badge" style="background: rgba(0, 173, 220, 0.1); color: var(--ayesa-blue); border: 1px solid rgba(0, 173, 220, 0.2);">⬤ DEFENSA TÉCNICA: SESIÓN DE CONTROL</span>
+            <span class="hero-badge" style="background: var(--bg-card); color: var(--lda-red); border: 1px solid rgba(0, 173, 220, 0.2);">⬤ DEFENSA TÉCNICA: SESIÓN DE CONTROL</span>
             <h1>Segunda Defensa <br><span>Propuesta Ayesa</span></h1>
                 <span class="hero-badge-local" style="margin-top: 10px;">Recurso en Local</span>
             <p style="margin: 0 auto; max-width: 800px;">Aterrizaje técnico y resolución de retos de integración. Foco en el ecosistema Salesforce+Genesys y la estrategia de convivencia CRM-Galgo.</p>
         </header>
 
         <!-- INFO SESIÓN -->
-        <div class="info-card" style="margin-bottom: 40px; background: rgba(0, 173, 220, 0.02); border-left: 4px solid var(--ayesa-blue);">
+        <div class="info-card" style="margin-bottom: 40px; background: var(--bg-card); border-left: 4px solid var(--lda-red);">
             <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
                 <div class="icon-box" style="margin-bottom: 0;">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
@@ -209,7 +209,7 @@
         <div class="defense-grid">
             <!-- MENSAJE PRINCIPAL -->
             <div class="highlight-card">
-                <span class="tag" style="background: rgba(0, 173, 220, 0.1); color: var(--ayesa-blue);">Estrategia</span>
+                <span class="tag" style="background: var(--bg-card); color: var(--lda-red);">Estrategia</span>
                 <div class="icon-box">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
                 </div>
@@ -252,7 +252,7 @@
         </div>
 
         <!-- ANÁLISIS PRODUCTO -->
-        <div class="section-header" style="border-left: 4px solid var(--ayesa-blue);">
+        <div class="section-header" style="border-left: 4px solid var(--lda-red);">
             <div class="section-title-wrapper">
                 <h2 class="section-title">Posicionamiento Salesforce FSC</h2>
                 <p class="section-subtitle">Defensa de la vertical financiera frente al modelo estándar</p>
@@ -287,7 +287,7 @@
         </table>
 
         <!-- CONVIVENCIA CRM-GALGO -->
-        <div class="section-header" style="border-left: 4px solid #f59e0b; margin-top: 50px;">
+        <div class="section-header" style="border-left: 4px solid var(--lda-red); margin-top: 50px;">
             <div class="section-title-wrapper">
                 <h2 class="section-title">Estrategia de Convivencia CRM-Galgo</h2>
                 <p class="section-subtitle">Escenarios evaluados para minimizar el impacto en el agente</p>
@@ -296,15 +296,15 @@
 
         <div class="roadmap-container">
             <div class="roadmap-step">
-                <h4 style="margin: 0; color: var(--ayesa-blue);">Tab-Switching</h4>
+                <h4 style="margin: 0; color: var(--lda-red);">Tab-Switching</h4>
                 <p style="margin: 10px 0 0; font-size: 0.9rem; color: var(--text-sec);">Dos aplicaciones independientes. Rápido despliegue pero alta fricción y AHT degradado.</p>
             </div>
             <div class="roadmap-step">
-                <h4 style="margin: 0; color: var(--ayesa-blue);">Galgo Embedded (iframe)</h4>
+                <h4 style="margin: 0; color: var(--lda-red);">Galgo Embedded (iframe)</h4>
                 <p style="margin: 10px 0 0; font-size: 0.9rem; color: var(--text-sec);">Ventana única CRM con Galgo embebido. Exige compatibilidad técnica elevada.</p>
             </div>
             <div class="roadmap-step">
-                <h4 style="margin: 0; color: var(--ayesa-blue);">Deep-linking</h4>
+                <h4 style="margin: 0; color: var(--lda-red);">Deep-linking</h4>
                 <p style="margin: 10px 0 0; font-size: 0.9rem; color: var(--text-sec);">Salto bidireccional con contexto. Mayor complejidad técnica de orquestación.</p>
             </div>
         </div>
@@ -315,7 +315,7 @@
         </div>
 
         <!-- PENDIENTES -->
-        <div class="section-header" style="border-left: 4px solid #10b981; margin-top: 50px;">
+        <div class="section-header" style="border-left: 4px solid var(--lda-red); margin-top: 50px;">
             <div class="section-title-wrapper">
                 <h2 class="section-title">Gaps y Pendientes de Resolución</h2>
                 <p class="section-subtitle">Acciones requeridas por escrito para cerrar la defensa técnica</p>
@@ -357,7 +357,7 @@
             <p>Ayesa presenta una propuesta de arquitectura coherente y bien documentada, con una narrativa metodológica madura. No obstante, se muestra **floja en el detalle operativo real** (inventario de APIs, encaje de Digital Engagement y pesos Batch vs Real-time). Su mayor ventaja es el alineamiento con un modelo de bajo riesgo (Salesforce+Genesys), pero deben despejar las dudas sobre duplicidades de herramientas internas de LDA.</p>
             
             <div style="margin-top: 30px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: center; gap: 20px;">
-                <a href="defensa_r1_ayesa.html" style="color: var(--ayesa-blue); text-decoration: none; font-weight: 800; font-size: 0.9rem; display: flex; align-items: center; gap: 8px;">
+                <a href="defensa_r1_ayesa.html" style="color: var(--lda-red); text-decoration: none; font-weight: 800; font-size: 0.9rem; display: flex; align-items: center; gap: 8px;">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
                     VER SESIÓN 1 (ESTRATEGIA INICIAL)
                 </a>
