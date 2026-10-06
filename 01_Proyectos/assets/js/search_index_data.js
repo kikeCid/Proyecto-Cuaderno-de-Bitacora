@@ -142,9 +142,9 @@ window.BITACORA_SEARCH_INDEX = [
   },
   {
     "id": "CRM Operacional/index.html",
-    "title": "Hub de CRM Operacional",
+    "title": "Hub de CRM Operacional | Proyectos Estratégicos LDA",
     "h1": "Hub de Gestión CRM Operacional",
-    "kicker": "Centro de Operaciones CRM",
+    "kicker": "Iniciativa Estratégica Corporativa",
     "desc": "Diagnóstico de situación, objetivos y análisis comparativo de plataformas (Dynamics vs Salesforce) junto al roadmap de despliegue.",
     "project": "CRM Operacional",
     "category": "Estratégicos",
@@ -1062,10 +1062,10 @@ window.BITACORA_SEARCH_INDEX = [
   },
   {
     "id": "Reingenieria Siniestros/index.html",
-    "title": "Contexto y Propuestas | Reingeniería Siniestros",
+    "title": "Hub de Reingeniería de Siniestros Motor | Proyectos Estratégicos LDA",
     "h1": "Reingeniería de Siniestros Motor",
-    "kicker": "ADJUDICADO Y EN MARCHA (BIP CONSULTING)",
-    "desc": "Transformación estructural del modelo de gestión operativa y tecnológica para optimización de costes y eficiencia.",
+    "kicker": "Iniciativa Estratégica Corporativa",
+    "desc": "Transformación estructural del proceso de siniestros de motor de Línea Directa. Más de 400.000 expedientes anuales y 600 millones de euros de coste técnico g...",
     "project": "Reingenieria Siniestros",
     "category": "Estratégicos",
     "url": "../Reingenieria Siniestros/index.html"
@@ -1082,10 +1082,10 @@ window.BITACORA_SEARCH_INDEX = [
   },
   {
     "id": "Telefonia - Genesis CX/index.html",
-    "title": "Hub de Telefonía CX | Proyectos",
-    "h1": "Hub de Telefonía Genesys CX",
-    "kicker": "Centro de Operaciones",
-    "desc": "Información consolidada a partir del informe de Estado de Áreas (Abril 2026), incluyendo objetivos y situación actual de la implantación de Genesys.",
+    "title": "Hub de Telefonía CX: Genesys Cloud | Proyectos Estratégicos LDA",
+    "h1": "Hub de Telefonía Genesys Cloud CX",
+    "kicker": "Iniciativa Estratégica Corporativa",
+    "desc": "Información consolidada a partir del informe de Estado de Áreas, incluyendo objetivos de negocio y situación actual de la implantación.",
     "project": "Telefonia - Genesis CX",
     "category": "Estratégicos",
     "url": "../Telefonia - Genesis CX/index.html"
