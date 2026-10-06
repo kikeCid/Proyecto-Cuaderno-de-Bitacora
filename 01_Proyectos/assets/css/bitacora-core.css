@@ -3144,10 +3144,10 @@ body, button, input, select, textarea, .title, h1, h2, h3, h4 {
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03) !important;
     flex: 0 0 auto !important;
     width: 335px !important;
-    height: 380px !important;
-    min-height: 380px !important;
-    max-height: 380px !important;
-    padding: 24px 22px 20px 22px !important;
+    height: 350px !important;
+    min-height: 350px !important;
+    max-height: 350px !important;
+    padding: 22px 20px 18px 20px !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-start !important;
@@ -3181,9 +3181,9 @@ body, button, input, select, textarea, .title, h1, h2, h3, h4 {
 .view-mode-grid .apple-card {
     width: 100% !important;
     max-width: 100% !important;
-    height: 380px !important;
-    min-height: 380px !important;
-    max-height: 380px !important;
+    height: 350px !important;
+    min-height: 350px !important;
+    max-height: 350px !important;
 }
 
 .apple-card .kicker {
@@ -3207,29 +3207,39 @@ body, button, input, select, textarea, .title, h1, h2, h3, h4 {
 }
 
 .apple-card .desc {
-    font-size: 0.88rem !important;
-    line-height: 1.45 !important;
+    font-size: 0.86rem !important;
+    line-height: 1.42 !important;
     color: var(--text-sec) !important;
     margin: 0 0 10px 0 !important;
     flex-grow: 0 !important;
     flex-shrink: 0 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-height: 4.4em !important;
 }
 
 .apple-card .card-tags,
 .card-tags {
     display: flex !important;
     flex-wrap: wrap !important;
-    gap: 6px !important;
+    gap: 5px !important;
     margin: 0 0 10px 0 !important;
     flex-shrink: 0 !important;
+    max-height: 54px !important;
+    overflow: hidden !important;
 }
 
 /* Caja de icono (.card-visual) ALINEADA EXACTAMENTE A LA PARTE INFERIOR */
 .card-visual,
 .apple-card .card-visual,
 [data-theme="dark"] .card-visual {
-    flex: 0 0 88px !important;
-    height: 88px !important;
+    flex: 0 0 82px !important;
+    height: 82px !important;
+    min-height: 82px !important;
+    max-height: 82px !important;
     width: 100% !important;
     margin-top: auto !important; /* EMPUJA SIEMPRE EL ICONO A LA PARTE INFERIOR */
     margin-bottom: 0 !important;
@@ -3282,18 +3292,23 @@ body, button, input, select, textarea, .title, h1, h2, h3, h4 {
 }
 
 /* Badges y Tags estilo Línea Directa */
-.tech-tag {
+.tech-tag,
+.tag {
     background: var(--ld-primary-low) !important;
     color: var(--ld-primary-high) !important;
     border: 1px solid rgba(204, 51, 51, 0.15) !important;
-    font-size: 0.72rem !important;
+    font-size: 0.69rem !important;
     font-weight: 600 !important;
-    padding: 3px 8px !important;
+    padding: 2px 7px !important;
     border-radius: 6px !important;
     letter-spacing: 0.02em !important;
+    line-height: 1.35 !important;
+    white-space: nowrap !important;
+    display: inline-block !important;
 }
 
-[data-theme="dark"] .tech-tag {
+[data-theme="dark"] .tech-tag,
+[data-theme="dark"] .tag {
     background: rgba(224, 72, 72, 0.15) !important;
     color: #FF8585 !important;
     border-color: rgba(224, 72, 72, 0.25) !important;
