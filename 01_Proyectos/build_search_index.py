@@ -21,6 +21,11 @@ PROJECT_CATEGORIES = {
     "CRM Operacional": "Estratégicos",
     "Telefonia - Genesis CX": "Estratégicos",
     "Reingenieria Siniestros": "Estratégicos",
+    "Gobierno del Dato": "Estratégicos",
+    "IA Voz y Chat": "Estratégicos",
+    "Transformacion Agile": "Estratégicos",
+    "Transformacion Hogar": "Estratégicos",
+    "Transformacion Salud": "Estratégicos",
     "Gestion de Usuarios": "Servicios",
     "Cuaderno de Bitacora (Proyectos)": "Portal Central"
 }

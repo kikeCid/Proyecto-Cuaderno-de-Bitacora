@@ -590,6 +590,16 @@
     "url": "../Gobierno de Informacion/Lidia/hub_lidia.html"
   },
   {
+    "id": "Gobierno del Dato/index.html",
+    "title": "Gobierno del Dato & Plataforma Analítica | Proyectos Estratégicos LDA",
+    "h1": "Gobierno del Dato & Plataforma Analítica",
+    "kicker": "Iniciativa Estratégica Corporativa",
+    "desc": "Una sola verdad, una sola plataforma y analistas preparados. Transformación del ciclo completo del dato en Línea Directa: gobernanza por dominios de negocio,...",
+    "project": "Gobierno del Dato",
+    "category": "Estratégicos",
+    "url": "../Gobierno del Dato/index.html"
+  },
+  {
     "id": "HCM/analisis_procesos.html",
     "title": "Análisis Interno de Procesos (AS-IS) | HCM Evo",
     "h1": "Análisis Interno de Procesos",
@@ -920,6 +930,16 @@
     "url": "../IA Area Personas/kronos_vision.html"
   },
   {
+    "id": "IA Voz y Chat/index.html",
+    "title": "IA en Voz & Chat Digital | Proyectos Estratégicos LDA",
+    "h1": "IA en Voz & Chat Digital",
+    "kicker": "Iniciativa Estratégica Corporativa",
+    "desc": "Agentes conversacionales inteligentes no deterministas en voz y chat. Reducción a cero del abandono en picos telefónicos y resolución desasistida de más del ...",
+    "project": "IA Voz y Chat",
+    "category": "Estratégicos",
+    "url": "../IA Voz y Chat/index.html"
+  },
+  {
     "id": "PMO Perscom/coordinador_proyecto.html",
     "title": "Coordinador de Proyecto y Artefactos | PMO PersCom",
     "h1": "Coordinador de Proyecto & Artefactos del Modelo",
@@ -1078,5 +1098,35 @@
     "project": "Telefonia - Genesis CX",
     "category": "Estratégicos",
     "url": "../Telefonia - Genesis CX/roadmap.html"
+  },
+  {
+    "id": "Transformacion Agile/index.html",
+    "title": "Transformación Organizacional: Nuevas Formas de Trabajar | Proyectos Estratégicos LDA",
+    "h1": "Transformación Organizacional Nuevas Formas de Trabajar",
+    "kicker": "Iniciativa Estratégica Corporativa",
+    "desc": "Multiplicar por dos la capacidad de entrega de valor de Línea Directa. Alineamiento integral de Tecnología, Transformación y Negocio mediante equipos multidi...",
+    "project": "Transformacion Agile",
+    "category": "Estratégicos",
+    "url": "../Transformacion Agile/index.html"
+  },
+  {
+    "id": "Transformacion Hogar/index.html",
+    "title": "Transformación Hogar: Calidad de Servicio | Proyectos Estratégicos LDA",
+    "h1": "Transformación de Seguros de Hogar",
+    "kicker": "Iniciativa Estratégica Corporativa",
+    "desc": "Convertir a Línea Directa en el referente del mercado español en calidad de servicio de Hogar. Erradicación de las causas históricas de insatisfacción, migra...",
+    "project": "Transformacion Hogar",
+    "category": "Estratégicos",
+    "url": "../Transformacion Hogar/index.html"
+  },
+  {
+    "id": "Transformacion Salud/index.html",
+    "title": "Relanzamiento del Negocio de Salud | Proyectos Estratégicos LDA",
+    "h1": "Relanzamiento del Negocio de Salud",
+    "kicker": "Iniciativa Estratégica Corporativa",
+    "desc": "Salto cualitativo para 75.000 asegurados de la mano de HNA. Nuevo cuadro médico de primer nivel, medicina online integrada con la presencial, autorizaciones ...",
+    "project": "Transformacion Salud",
+    "category": "Estratégicos",
+    "url": "../Transformacion Salud/index.html"
   }
 ]
