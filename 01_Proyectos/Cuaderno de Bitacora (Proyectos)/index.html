@@ -84,17 +84,22 @@
             <div class="filter-segments">
                 <button class="filter-chip active" onclick="filterPortfolio('all', this)">
                     <span>Todos</span>
-                    <span class="filter-count">11</span>
+                    <span class="filter-count">12</span>
                 </button>
                 <button class="filter-chip" onclick="filterPortfolio('direct', this)">
                     <span class="filter-dot dot-red"></span>
                     <span>Gestión Directa</span>
-                    <span class="filter-count">2</span>
+                    <span class="filter-count">3</span>
+                </button>
+                <button class="filter-chip" onclick="filterPortfolio('strategic', this)">
+                    <span class="filter-dot dot-red"></span>
+                    <span>Estratégicos</span>
+                    <span class="filter-count">3</span>
                 </button>
                 <button class="filter-chip" onclick="filterPortfolio('facilitator', this)">
                     <span class="filter-dot dot-red"></span>
                     <span>Facilitadores</span>
-                    <span class="filter-count">4</span>
+                    <span class="filter-count">1</span>
                 </button>
                 <button class="filter-chip" onclick="filterPortfolio('services', this)">
                     <span class="filter-dot dot-red"></span>
@@ -237,7 +242,95 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 2: FACILITADORES / AFECTADOS -->
+        <!-- SECCIÓN 2: PROYECTOS ESTRATÉGICOS -->
+        <section id="seccion-estrategicos" class="portfolio-section" data-category="strategic">
+            <div class="section-header" style="border-left: 4px solid var(--lda-red);">
+                <div class="section-icon" style="color: var(--lda-red);">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                </div>
+                <div class="section-title-wrapper">
+                    <h2 class="section-title">Proyectos Estratégicos (8 Proyectos)</h2>
+                    <p class="section-subtitle">Grandes iniciativas transversales de transformación estratégica de Línea Directa</p>
+                </div>
+                <div class="section-counter">3</div>
+            </div>
+            <div class="carousel-container">
+                <button class="carousel-btn left hidden" onclick="scrollCarousel(this, -340)"
+                    aria-label="Desplazar a la izquierda">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+                <div class="carousel-track" id="track-strategic" onscroll="updateCarouselButtons(this)">
+                    <!-- CRM Operacional -->
+                    <a href="../CRM Operacional/index.html" class="apple-card" data-accent="red">
+                        <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> PROYECTO ESTRATÉGICO</div>
+                        <h3 class="title">CRM Operacional</h3>
+                        <p class="desc">Ecosistema integral de gestión comercial y atención omnicanal a asegurados con visión 360°, automatización y trazabilidad total.</p>
+                        <div class="card-tags">
+                            <span class="tech-tag">Gestión Asegurados</span>
+                            <span class="tech-tag">Omnicanalidad</span>
+                            <span class="tech-tag">Expediente 360°</span>
+                        </div>
+                        <div class="card-visual" style="color: var(--lda-red);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Expediente y Gestión Oficial Línea Directa -->
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.6 2.5C4.54477 2.5 4.5 2.54477 4.5 2.6V21.4C4.5 21.4552 4.54477 21.5 4.6 21.5H11C11.2761 21.5 11.5 21.7239 11.5 22C11.5 22.2761 11.2761 22.5 11 22.5H4.6C3.99249 22.5 3.5 22.0075 3.5 21.4V2.6C3.5 1.99249 3.99249 1.5 4.6 1.5H16.2515C16.5432 1.5 16.823 1.61589 17.0293 1.82218L20.1778 4.97071C20.3841 5.177 20.5 5.45679 20.5 5.74853V10C20.5 10.2761 20.2761 10.5 20 10.5C19.7239 10.5 19.5 10.2761 19.5 10V6.5H16.6C15.9925 6.5 15.5 6.00751 15.5 5.4V2.5H4.6ZM16.5 2.70711V5.4C16.5 5.45523 16.5448 5.5 16.6 5.5H19.2929L16.5 2.70711ZM7.5 7C7.5 6.72386 7.72386 6.5 8 6.5H12C12.2761 6.5 12.5 6.72386 12.5 7C12.5 7.27614 12.2761 7.5 12 7.5H8C7.72386 7.5 7.5 7.27614 7.5 7ZM7.5 11C7.5 10.7239 7.72386 10.5 8 10.5H16C16.2761 10.5 16.5 10.7239 16.5 11C16.5 11.2761 16.2761 11.5 16 11.5H8C7.72386 11.5 7.5 11.2761 7.5 11ZM7.5 15C7.5 14.7239 7.72386 14.5 8 14.5H11C11.2761 14.5 11.5 14.7239 11.5 15C11.5 15.2761 11.2761 15.5 11 15.5H8C7.72386 15.5 7.5 15.2761 7.5 15ZM20.6464 14.6464C20.8417 14.4512 21.1583 14.4512 21.3536 14.6464C21.5488 14.8417 21.5488 15.1583 21.3536 15.3536L16.3585 20.3486L16.3577 20.3494L16.3558 20.3513L16.3548 20.3523L16.3539 20.3532C16.1586 20.5485 15.8417 20.5488 15.6464 20.3536L13.6464 18.3536C13.4512 18.1583 13.4512 17.8417 13.6464 17.6464C13.8417 17.4512 14.1583 17.4512 14.3536 17.6464L16 19.2929L20.6464 14.6464Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <!-- Telefonía - Genesys Cloud CX -->
+                    <a href="../Telefonia - Genesis CX/index.html" class="apple-card" data-accent="red">
+                        <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> PROYECTO ESTRATÉGICO</div>
+                        <h3 class="title">Telefonía Genesys CX</h3>
+                        <p class="desc">Transformación de la infraestructura de Contact Center a la nube pública de Genesys. Enrutamiento inteligente y analítica en tiempo real.</p>
+                        <div class="card-tags">
+                            <span class="tech-tag">Genesys Cloud</span>
+                            <span class="tech-tag">Contact Center</span>
+                            <span class="tech-tag">Telefonía IP</span>
+                        </div>
+                        <div class="card-visual" style="color: var(--lda-red);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Auricular Telefónico Oficial Línea Directa -->
+                                <path d="M19.988 22.5C19.8876 22.5 19.7871 22.5 19.7871 22.5C16.6722 22.1986 13.5574 21.0933 10.8445 19.3852C8.33254 17.7775 6.22249 15.6675 4.71531 13.1555C2.9067 10.5431 1.90191 7.42823 1.5 4.21292C1.5 3.61005 1.70096 2.9067 2.10287 2.40431C2.50479 1.90191 3.10765 1.60048 3.811 1.5C3.91148 1.5 3.91148 1.5 4.01196 1.5H7.02632C8.23206 1.5 9.33732 2.40431 9.53828 3.71053C9.63876 4.61483 9.83971 5.51914 10.2416 6.42345C10.5431 7.32775 10.3421 8.33254 9.63876 9.03589L8.63397 10.0407C9.94019 12.2512 11.7488 14.0598 13.9593 15.366L14.9641 14.3612C15.6675 13.6579 16.6722 13.4569 17.5766 13.7584C18.4809 14.0598 19.3852 14.3612 20.2895 14.4617C21.5957 14.6627 22.5 15.7679 22.5 16.9737V19.988C22.5 20.6914 22.1986 21.2943 21.7966 21.7967C21.2943 22.299 20.6914 22.5 19.988 22.5ZM7.02632 2.50478H4.01196H3.91148C3.50957 2.50478 3.10766 2.70574 2.9067 3.00718C2.60526 3.30861 2.50478 3.71053 2.50478 4.11244C2.80622 7.12679 3.91148 10.0407 5.51914 12.5526C7.02632 14.8636 9.03588 16.9737 11.3469 18.4809C13.8589 20.0885 16.7727 21.1938 19.7871 21.4952H19.8876C20.2895 21.4952 20.6914 21.2943 20.9928 21.0933C21.2943 20.7919 21.3947 20.39 21.3947 19.988V16.9737C21.3947 16.1699 20.8923 15.567 20.0885 15.4665C19.0837 15.366 18.0789 15.0646 17.1746 14.7632C16.6722 14.5622 15.9689 14.6627 15.567 15.0646L14.2608 16.3708C14.0598 16.5718 13.8589 16.5718 13.6579 16.4713C11.0455 14.9641 8.93541 12.8541 7.42823 10.2416C7.42823 10.0407 7.52871 9.73923 7.62919 9.63876L8.93541 8.33254C9.33732 7.93062 9.4378 7.32775 9.23684 6.72488C8.93541 5.82057 8.63397 4.81579 8.53349 3.81101C8.43301 3.10766 7.83014 2.50478 7.02632 2.50478Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <!-- Reingeniería de Siniestros (Talleres, Reparaciones y Peritación) -->
+                    <a href="../Reingenieria Siniestros/index.html" class="apple-card" data-accent="red">
+                        <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> PROYECTO ESTRATÉGICO</div>
+                        <h3 class="title">Reingeniería Siniestros</h3>
+                        <p class="desc">Modernización integral del ciclo de vida del siniestro: red de talleres colaboradores, peritación digital, detección de fraude y agilización del pago.</p>
+                        <div class="card-tags">
+                            <span class="tech-tag">Gestión Siniestros</span>
+                            <span class="tech-tag">Talleres y Red</span>
+                            <span class="tech-tag">Peritación Digital</span>
+                        </div>
+                        <div class="card-visual" style="color: var(--lda-red);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Llave de Reparación y Taller Oficial Línea Directa -->
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5257 3.21912C10.0457 1.73837 7.98611 1.2216 6.09131 1.64016L6.07779 1.64315L6.07783 1.64334C5.45913 1.7981 5.27829 2.5687 5.7102 3.00085L8.43236 5.72455L8.10143 8.10508L5.7228 8.43612L3.0008 5.71258C2.56837 5.2799 1.79788 5.46173 1.64335 6.08022L1.63999 6.09365L1.64018 6.09369C1.22192 7.98923 1.73827 10.0498 3.21814 11.5305C3.23966 11.5521 3.26295 11.5714 3.28765 11.5885C4.54142 12.8188 6.23891 13.366 7.84194 13.2323C9.15172 13.1231 10.4687 13.7193 11.4498 14.7009L18.5623 21.8174C18.5628 21.8179 18.5633 21.8184 18.5638 21.8189C19.46 22.7285 20.9157 22.7244 21.8195 21.8217C22.7271 20.9263 22.7243 19.375 21.8263 18.4702L20.5457 17.1115C20.3563 16.9106 20.0398 16.9012 19.8389 17.0906C19.6379 17.28 19.6286 17.5965 19.818 17.7974L21.1033 19.1611L21.1135 19.1716C21.6304 19.6887 21.6263 20.6085 21.1164 21.1106L21.1136 21.1134C20.5969 21.6304 19.7769 21.6263 19.2753 21.1162L19.2725 21.1134L19.2724 21.1134L12.1571 13.994C11.0183 12.8545 9.42601 12.0968 7.75885 12.2358C6.41064 12.3482 4.97954 11.8772 3.93845 10.8253C3.91755 10.8042 3.89497 10.7852 3.87102 10.7683C2.77896 9.64112 2.34267 8.12508 2.55003 6.67617L5.19149 9.31912C5.30233 9.43002 5.45877 9.48251 5.61407 9.4609L8.61355 9.04344C8.83501 9.01262 9.00908 8.83852 9.03987 8.61706L9.45709 5.61588C9.47866 5.4607 9.42625 5.30439 9.31551 5.19358L6.67341 2.54999C8.14515 2.33902 9.68633 2.79337 10.8183 3.92602C11.871 4.97926 12.3321 6.37971 12.2295 7.75509C12.1038 9.44091 12.8465 11.01 13.987 12.1511L13.9972 12.161L16.4185 14.449C16.6192 14.6387 16.9357 14.6297 17.1253 14.429C17.315 14.2283 17.306 13.9118 17.1053 13.7222L14.6893 11.4392C13.7128 10.4598 13.1271 9.16514 13.2267 7.82946C13.3497 6.18109 12.7959 4.4901 11.5257 3.21912Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+                <button class="carousel-btn right hidden" onclick="scrollCarousel(this, 340)"
+                    aria-label="Desplazar a la derecha">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: FACILITADORES / AFECTADOS -->
         <section id="seccion-facilitadores" class="portfolio-section" data-category="facilitator">
             <div class="section-header" style="border-left: 4px solid var(--lda-red);">
                 <div class="section-icon" style="color: var(--lda-red);">
@@ -253,7 +346,7 @@
                     <h2 class="section-title">Facilitadores / Afectados</h2>
                     <p class="section-subtitle">Iniciativas transversales de compañía donde RRHH actúa como palanca</p>
                 </div>
-                <div class="section-counter">4</div>
+                <div class="section-counter">1</div>
             </div>
             <div class="carousel-container">
                 <button class="carousel-btn left hidden" onclick="scrollCarousel(this, -340)"
@@ -293,60 +386,6 @@
                             </svg>
                         </div>
                     </a>
-
-                    <!-- CRM Operacional -->
-                    <a href="../CRM Operacional/index.html" class="apple-card" data-accent="red">
-                        <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> FACILITADOR</div>
-                        <h3 class="title">CRM Operacional</h3>
-                        <p class="desc">Ecosistema integral de gestión comercial y atención omnicanal a asegurados con visión 360°, automatización y trazabilidad total.</p>
-                        <div class="card-tags">
-                            <span class="tech-tag">Gestión Asegurados</span>
-                            <span class="tech-tag">Omnicanalidad</span>
-                            <span class="tech-tag">Expediente 360°</span>
-                        </div>
-                        <div class="card-visual" style="color: var(--lda-red);">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <!-- Expediente y Gestión Oficial Línea Directa -->
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.6 2.5C4.54477 2.5 4.5 2.54477 4.5 2.6V21.4C4.5 21.4552 4.54477 21.5 4.6 21.5H11C11.2761 21.5 11.5 21.7239 11.5 22C11.5 22.2761 11.2761 22.5 11 22.5H4.6C3.99249 22.5 3.5 22.0075 3.5 21.4V2.6C3.5 1.99249 3.99249 1.5 4.6 1.5H16.2515C16.5432 1.5 16.823 1.61589 17.0293 1.82218L20.1778 4.97071C20.3841 5.177 20.5 5.45679 20.5 5.74853V10C20.5 10.2761 20.2761 10.5 20 10.5C19.7239 10.5 19.5 10.2761 19.5 10V6.5H16.6C15.9925 6.5 15.5 6.00751 15.5 5.4V2.5H4.6ZM16.5 2.70711V5.4C16.5 5.45523 16.5448 5.5 16.6 5.5H19.2929L16.5 2.70711ZM7.5 7C7.5 6.72386 7.72386 6.5 8 6.5H12C12.2761 6.5 12.5 6.72386 12.5 7C12.5 7.27614 12.2761 7.5 12 7.5H8C7.72386 7.5 7.5 7.27614 7.5 7ZM7.5 11C7.5 10.7239 7.72386 10.5 8 10.5H16C16.2761 10.5 16.5 10.7239 16.5 11C16.5 11.2761 16.2761 11.5 16 11.5H8C7.72386 11.5 7.5 11.2761 7.5 11ZM7.5 15C7.5 14.7239 7.72386 14.5 8 14.5H11C11.2761 14.5 11.5 14.7239 11.5 15C11.5 15.2761 11.2761 15.5 11 15.5H8C7.72386 15.5 7.5 15.2761 7.5 15ZM20.6464 14.6464C20.8417 14.4512 21.1583 14.4512 21.3536 14.6464C21.5488 14.8417 21.5488 15.1583 21.3536 15.3536L16.3585 20.3486L16.3577 20.3494L16.3558 20.3513L16.3548 20.3523L16.3539 20.3532C16.1586 20.5485 15.8417 20.5488 15.6464 20.3536L13.6464 18.3536C13.4512 18.1583 13.4512 17.8417 13.6464 17.6464C13.8417 17.4512 14.1583 17.4512 14.3536 17.6464L16 19.2929L20.6464 14.6464Z" fill="currentColor"/>
-                            </svg>
-                        </div>
-                    </a>
-
-                    <!-- Telefonía - Genesys Cloud CX -->
-                    <a href="../Telefonia - Genesis CX/index.html" class="apple-card" data-accent="red">
-                        <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> FACILITADOR</div>
-                        <h3 class="title">Telefonía Genesys CX</h3>
-                        <p class="desc">Transformación de la infraestructura de Contact Center a la nube pública de Genesys. Enrutamiento inteligente y analítica en tiempo real.</p>
-                        <div class="card-tags">
-                            <span class="tech-tag">Genesys Cloud</span>
-                            <span class="tech-tag">Contact Center</span>
-                            <span class="tech-tag">Telefonía IP</span>
-                        </div>
-                        <div class="card-visual" style="color: var(--lda-red);">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <!-- Auricular Telefónico Oficial Línea Directa -->
-                                <path d="M19.988 22.5C19.8876 22.5 19.7871 22.5 19.7871 22.5C16.6722 22.1986 13.5574 21.0933 10.8445 19.3852C8.33254 17.7775 6.22249 15.6675 4.71531 13.1555C2.9067 10.5431 1.90191 7.42823 1.5 4.21292C1.5 3.61005 1.70096 2.9067 2.10287 2.40431C2.50479 1.90191 3.10765 1.60048 3.811 1.5C3.91148 1.5 3.91148 1.5 4.01196 1.5H7.02632C8.23206 1.5 9.33732 2.40431 9.53828 3.71053C9.63876 4.61483 9.83971 5.51914 10.2416 6.42345C10.5431 7.32775 10.3421 8.33254 9.63876 9.03589L8.63397 10.0407C9.94019 12.2512 11.7488 14.0598 13.9593 15.366L14.9641 14.3612C15.6675 13.6579 16.6722 13.4569 17.5766 13.7584C18.4809 14.0598 19.3852 14.3612 20.2895 14.4617C21.5957 14.6627 22.5 15.7679 22.5 16.9737V19.988C22.5 20.6914 22.1986 21.2943 21.7966 21.7967C21.2943 22.299 20.6914 22.5 19.988 22.5ZM7.02632 2.50478H4.01196H3.91148C3.50957 2.50478 3.10766 2.70574 2.9067 3.00718C2.60526 3.30861 2.50478 3.71053 2.50478 4.11244C2.80622 7.12679 3.91148 10.0407 5.51914 12.5526C7.02632 14.8636 9.03588 16.9737 11.3469 18.4809C13.8589 20.0885 16.7727 21.1938 19.7871 21.4952H19.8876C20.2895 21.4952 20.6914 21.2943 20.9928 21.0933C21.2943 20.7919 21.3947 20.39 21.3947 19.988V16.9737C21.3947 16.1699 20.8923 15.567 20.0885 15.4665C19.0837 15.366 18.0789 15.0646 17.1746 14.7632C16.6722 14.5622 15.9689 14.6627 15.567 15.0646L14.2608 16.3708C14.0598 16.5718 13.8589 16.5718 13.6579 16.4713C11.0455 14.9641 8.93541 12.8541 7.42823 10.2416C7.42823 10.0407 7.52871 9.73923 7.62919 9.63876L8.93541 8.33254C9.33732 7.93062 9.4378 7.32775 9.23684 6.72488C8.93541 5.82057 8.63397 4.81579 8.53349 3.81101C8.43301 3.10766 7.83014 2.50478 7.02632 2.50478Z" fill="currentColor"/>
-                            </svg>
-                        </div>
-                    </a>
-
-                    <!-- Reingeniería de Siniestros (Talleres, Reparaciones y Peritación) -->
-                    <a href="../Reingenieria Siniestros/index.html" class="apple-card" data-accent="red">
-                        <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> FACILITADOR</div>
-                        <h3 class="title">Reingeniería Siniestros</h3>
-                        <p class="desc">Modernización integral del ciclo de vida del siniestro: red de talleres colaboradores, peritación digital, detección de fraude y agilización del pago.</p>
-                        <div class="card-tags">
-                            <span class="tech-tag">Gestión Siniestros</span>
-                            <span class="tech-tag">Talleres y Red</span>
-                            <span class="tech-tag">Peritación Digital</span>
-                        </div>
-                        <div class="card-visual" style="color: var(--lda-red);">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <!-- Llave de Reparación y Taller Oficial Línea Directa -->
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5257 3.21912C10.0457 1.73837 7.98611 1.2216 6.09131 1.64016L6.07779 1.64315L6.07783 1.64334C5.45913 1.7981 5.27829 2.5687 5.7102 3.00085L8.43236 5.72455L8.10143 8.10508L5.7228 8.43612L3.0008 5.71258C2.56837 5.2799 1.79788 5.46173 1.64335 6.08022L1.63999 6.09365L1.64018 6.09369C1.22192 7.98923 1.73827 10.0498 3.21814 11.5305C3.23966 11.5521 3.26295 11.5714 3.28765 11.5885C4.54142 12.8188 6.23891 13.366 7.84194 13.2323C9.15172 13.1231 10.4687 13.7193 11.4498 14.7009L18.5623 21.8174C18.5628 21.8179 18.5633 21.8184 18.5638 21.8189C19.46 22.7285 20.9157 22.7244 21.8195 21.8217C22.7271 20.9263 22.7243 19.375 21.8263 18.4702L20.5457 17.1115C20.3563 16.9106 20.0398 16.9012 19.8389 17.0906C19.6379 17.28 19.6286 17.5965 19.818 17.7974L21.1033 19.1611L21.1135 19.1716C21.6304 19.6887 21.6263 20.6085 21.1164 21.1106L21.1136 21.1134C20.5969 21.6304 19.7769 21.6263 19.2753 21.1162L19.2725 21.1134L19.2724 21.1134L12.1571 13.994C11.0183 12.8545 9.42601 12.0968 7.75885 12.2358C6.41064 12.3482 4.97954 11.8772 3.93845 10.8253C3.91755 10.8042 3.89497 10.7852 3.87102 10.7683C2.77896 9.64112 2.34267 8.12508 2.55003 6.67617L5.19149 9.31912C5.30233 9.43002 5.45877 9.48251 5.61407 9.4609L8.61355 9.04344C8.83501 9.01262 9.00908 8.83852 9.03987 8.61706L9.45709 5.61588C9.47866 5.4607 9.42625 5.30439 9.31551 5.19358L6.67341 2.54999C8.14515 2.33902 9.68633 2.79337 10.8183 3.92602C11.871 4.97926 12.3321 6.37971 12.2295 7.75509C12.1038 9.44091 12.8465 11.01 13.987 12.1511L13.9972 12.161L16.4185 14.449C16.6192 14.6387 16.9357 14.6297 17.1253 14.429C17.315 14.2283 17.306 13.9118 17.1053 13.7222L14.6893 11.4392C13.7128 10.4598 13.1271 9.16514 13.2267 7.82946C13.3497 6.18109 12.7959 4.4901 11.5257 3.21912Z" fill="currentColor"/>
-                            </svg>
-                        </div>
-                    </a>
                 </div>
                 <button class="carousel-btn right hidden" onclick="scrollCarousel(this, 340)"
                     aria-label="Desplazar a la derecha">
@@ -377,7 +416,7 @@
             </p>
         </div>
 
-        <!-- SECCIÓN 3: SERVICIOS Y OPERATIVAS -->
+        <!-- SECCIÓN 4: SERVICIOS Y OPERATIVAS -->
         <section id="seccion-servicios" class="portfolio-section" data-category="services">
             <div class="section-header" style="border-left: 4px solid var(--lda-red);">
                 <div class="section-icon" style="color: var(--lda-red);">
@@ -491,7 +530,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 4: PROYECTOS CERRADOS (HISTÓRICO) -->
+        <!-- SECCIÓN 5: PROYECTOS CERRADOS (HISTÓRICO) -->
         <section id="seccion-cerrados" class="portfolio-section" data-category="closed">
             <div class="section-header" style="border-left: 4px solid var(--lda-red);">
                 <div class="section-icon" style="color: var(--lda-red);">

@@ -5,9 +5,9 @@ window.BITACORA_SEARCH_INDEX = [
     "title": "Contexto del Proyecto | CRM Operacional",
     "h1": "Contexto del Proyecto",
     "kicker": "MATERIAL APOYO",
-    "desc": "Punto de partida, objetivos fundacionales y roadmap de implementación para el nuevo CRM operativo, destinado a reemplazar el portal interno \"Galgo\".",
+    "desc": "Punto de partida, objetivos fundacionales y roadmap de implementación para el nuevo CRM operativo, destinado a reemplazar el portal interno\"Galgo\".",
     "project": "CRM Operacional",
-    "category": "Facilitadores",
+    "category": "Estratégicos",
     "url": "../CRM Operacional/contexto_proyecto.html"
   },
   {
@@ -15,9 +15,9 @@ window.BITACORA_SEARCH_INDEX = [
     "title": "Defensa Fase 2 - Sesión 2: Accenture | CRM Operacional",
     "h1": "Segunda Defensa Propuesta Accenture",
     "kicker": "⬤ DEFENSA TÉCNICA: SESIÓN DE CIERRE",
-    "desc": "Profundización en el enfoque operativo bajo el paradigma \"Standard First\" utilizando el ecosistema Salesforce, aclarando arquitectura técnica y la importanci...",
+    "desc": "Profundización en el enfoque operativo bajo el paradigma\"Standard First\" utilizando el ecosistema Salesforce, aclarando arquitectura técnica y la importancia...",
     "project": "CRM Operacional",
-    "category": "Facilitadores",
+    "category": "Estratégicos",
     "url": "../CRM Operacional/defensa_r2_accenture.html"
   },
   {
@@ -27,7 +27,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "⬤ DEFENSA TÉCNICA: SESIÓN DE CONTROL",
     "desc": "Aterrizaje técnico y resolución de retos de integración. Foco en el ecosistema Salesforce+Genesys y la estrategia de convivencia CRM-Galgo.",
     "project": "CRM Operacional",
-    "category": "Facilitadores",
+    "category": "Estratégicos",
     "url": "../CRM Operacional/defensa_r2_ayesa.html"
   },
   {
@@ -37,7 +37,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "⬤ DEFENSA TÉCNICA: SESIÓN DE CIERRE",
     "desc": "Profundización en el enfoque metodológico, arquitectura de integración, modelo de convivencia con sistema Galgo y estrategias en la gestión de personas para ...",
     "project": "CRM Operacional",
-    "category": "Facilitadores",
+    "category": "Estratégicos",
     "url": "../CRM Operacional/defensa_r2_capgemini.html"
   },
   {
@@ -47,7 +47,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "⬤ DEFENSA TÉCNICA: SESIÓN DE ALIANZA",
     "desc": "Propuesta de integración única CRM + Contact Center. Foco en la arquitectura event-driven con Kafka y el modelo nativo FSC con OmniStudio.",
     "project": "CRM Operacional",
-    "category": "Facilitadores",
+    "category": "Estratégicos",
     "url": "../CRM Operacional/defensa_r2_indra.html"
   },
   {
@@ -57,7 +57,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "⬤ DEFENSA TÉCNICA: MODELO POR OLAS",
     "desc": "Propuesta pragmática centrada en Salesforce S&S. Foco en la orquestación vía MuleSoft y la explotación de datos conversacionales mediante Digital Engagement.",
     "project": "CRM Operacional",
-    "category": "Facilitadores",
+    "category": "Estratégicos",
     "url": "../CRM Operacional/defensa_r2_ntt_data.html"
   },
   {
@@ -67,7 +67,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "⬤ DEFENSA TÉCNICA: SESIÓN DE CIERRE",
     "desc": "Consolidación de la propuesta técnica y operativa. Aclaración de arquitectura MuleSoft, modelo de licenciamiento y plan de adopción táctico.",
     "project": "CRM Operacional",
-    "category": "Facilitadores",
+    "category": "Estratégicos",
     "url": "../CRM Operacional/defensa_r2_omega.html"
   },
   {
@@ -77,7 +77,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "⬤ FASE 2: SESIÓN DE DEFENSA TÉCNICA",
     "desc": "Consolidado de los puntos clave defendidos durante la sesión presencial del 11 de marzo de 2026. Foco en la aceleración mediante IA y el modelo de adopción p...",
     "project": "CRM Operacional",
-    "category": "Facilitadores",
+    "category": "Estratégicos",
     "url": "../CRM Operacional/defensa_r1_accenture.html"
   },
   {
@@ -87,7 +87,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "⬤ FASE 2: SESIÓN DE DEFENSA TÉCNICA",
     "desc": "Consolidado de los puntos clave defendidos durante la sesión presencial del 16 de marzo de 2026. Foco en la adopción operativa (\"Fit-to-standard\") y cercanía...",
     "project": "CRM Operacional",
-    "category": "Facilitadores",
+    "category": "Estratégicos",
     "url": "../CRM Operacional/defensa_r1_ayesa.html"
   },
   {
@@ -95,9 +95,9 @@ window.BITACORA_SEARCH_INDEX = [
     "title": "Defensa Fase 2: Capgemini | CRM Operacional",
     "h1": "Análisis de Sesión Capgemini",
     "kicker": "⬤ FASE 2: SESIÓN DE DEFENSA TÉCNICA",
-    "desc": "Consolidado de los puntos clave defendidos durante la sesión de defensa. Énfasis en el modelo mixto \"Right-shore\" y su avanzado stack de aceleradores IA.",
+    "desc": "Consolidado de los puntos clave defendidos durante la sesión de defensa. Énfasis en el modelo mixto\"Right-shore\" y su avanzado stack de aceleradores IA.",
     "project": "CRM Operacional",
-    "category": "Facilitadores",
+    "category": "Estratégicos",
     "url": "../CRM Operacional/defensa_r1_capgemini.html"
   },
   {
@@ -105,9 +105,9 @@ window.BITACORA_SEARCH_INDEX = [
     "title": "Defensa Fase 2: Minsait | CRM Operacional",
     "h1": "Análisis de Sesión Minsait (Indra Group)",
     "kicker": "⬤ FASE 2: SESIÓN DE DEFENSA TÉCNICA",
-    "desc": "Resumen de la defensa técnica realizada por la alianza Minsait + Nespon Solutions. Enfoque \"Customer First\" con hiper-especialización en la vertical Salesfor...",
+    "desc": "Resumen de la defensa técnica realizada por la alianza Minsait + Nespon Solutions. Enfoque\"Customer First\" con hiper-especialización en la vertical Salesforc...",
     "project": "CRM Operacional",
-    "category": "Facilitadores",
+    "category": "Estratégicos",
     "url": "../CRM Operacional/defensa_r1_indra.html"
   },
   {
@@ -117,7 +117,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "⬤ FASE 2: SESIÓN DE DEFENSA TÉCNICA",
     "desc": "Consolidado de los pilares de defensa presentados. Enfoque centrado en la coexistencia sin riesgos con Galgo y la transformación operativa profunda.",
     "project": "CRM Operacional",
-    "category": "Facilitadores",
+    "category": "Estratégicos",
     "url": "../CRM Operacional/defensa_r1_ntt_data.html"
   },
   {
@@ -127,7 +127,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "⬤ FASE 2: SESIÓN DE DEFENSA TÉCNICA",
     "desc": "Puntos clave de la sesión de defensa estratégica. Foco absoluto en la excelencia operativa mediante el binomio IA + Personas sobre Salesforce FSC.",
     "project": "CRM Operacional",
-    "category": "Facilitadores",
+    "category": "Estratégicos",
     "url": "../CRM Operacional/defensa_r1_omega.html"
   },
   {
@@ -137,7 +137,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "⬤ FASE 3: ANÁLISIS DE DECISIÓN",
     "desc": "Mejor equilibrio entre visión, ejecución y riesgo. Entendimiento profundo del contexto LDA y enfoque en estándares FSC para minimizar deuda técnica.",
     "project": "CRM Operacional",
-    "category": "Facilitadores",
+    "category": "Estratégicos",
     "url": "../CRM Operacional/adjudicacion_final.html"
   },
   {
@@ -147,7 +147,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "Centro de Operaciones CRM",
     "desc": "Diagnóstico de situación, objetivos y análisis comparativo de plataformas (Dynamics vs Salesforce) junto al roadmap de despliegue.",
     "project": "CRM Operacional",
-    "category": "Facilitadores",
+    "category": "Estratégicos",
     "url": "../CRM Operacional/index.html"
   },
   {
@@ -157,7 +157,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "ADQUISICIONES TÉCNICAS",
     "desc": "Aterrizaje de nuestras necesidades, objetivos de Transformación y requerimientos organizativos detallados para el ecosistema CRM.",
     "project": "CRM Operacional",
-    "category": "Facilitadores",
+    "category": "Estratégicos",
     "url": "../CRM Operacional/hub_licitacion.html"
   },
   {
@@ -167,7 +167,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "FECHA ACTUAL: ABRIL 2026",
     "desc": "Cronología actualizada de hitos y decisiones estratégicas del proceso RFQ.",
     "project": "CRM Operacional",
-    "category": "Facilitadores",
+    "category": "Estratégicos",
     "url": "../CRM Operacional/cronograma_licitacion.html"
   },
   {
@@ -177,7 +177,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "LICITACIÓN EN CURSO",
     "desc": "Análisis sobre el pliego de petición de oferta (RFQ 2026-039). Descubre la necesidad operativa de Línea Directa y los requerimientos formativos y técnicos qu...",
     "project": "CRM Operacional",
-    "category": "Facilitadores",
+    "category": "Estratégicos",
     "url": "../CRM Operacional/proceso_rfq.html"
   },
   {
@@ -187,7 +187,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "PROVEEDOR LICITANTE",
     "desc": "Valoración estructurada de la propuesta de Accenture, orientada bajo una misma metodología de trabajo en 3 ejes principales de control.",
     "project": "CRM Operacional",
-    "category": "Facilitadores",
+    "category": "Estratégicos",
     "url": "../CRM Operacional/propuesta_accenture.html"
   },
   {
@@ -197,7 +197,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "PROVEEDOR LICITANTE",
     "desc": "Análisis comprensivo de la propuesta de Ayesa, estructurada en base a 4 ejes fundamentales de control. El proveedor apuesta como tecnología exclusiva de desp...",
     "project": "CRM Operacional",
-    "category": "Facilitadores",
+    "category": "Estratégicos",
     "url": "../CRM Operacional/propuesta_ayesa.html"
   },
   {
@@ -207,7 +207,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "PROVEEDOR LICITANTE",
     "desc": "Análisis de la propuesta de Capgemini, dividida en los 4 ejes de control del proyecto CRM. Su oferta se desdobla compitiendo con los dos principales fabrican...",
     "project": "CRM Operacional",
-    "category": "Facilitadores",
+    "category": "Estratégicos",
     "url": "../CRM Operacional/propuesta_capgemini.html"
   },
   {
@@ -217,7 +217,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "PROVEEDOR LICITANTE",
     "desc": "Análisis de la propuesta económica y operativa de Minsait. Con un enfoque dirigido exclusivamente hacia Salesforce FSC y una planificación agresiva que compa...",
     "project": "CRM Operacional",
-    "category": "Facilitadores",
+    "category": "Estratégicos",
     "url": "../CRM Operacional/propuesta_indra.html"
   },
   {
@@ -227,7 +227,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "PROVEEDOR LICITANTE",
     "desc": "Análisis de la propuesta de NTT DATA para la transformación del modelo asegurador de Línea Directa. Presentan un enfoque basado en 'Olas de Negocio' sobre Sa...",
     "project": "CRM Operacional",
-    "category": "Facilitadores",
+    "category": "Estratégicos",
     "url": "../CRM Operacional/propuesta_ntt_data.html"
   },
   {
@@ -235,9 +235,9 @@ window.BITACORA_SEARCH_INDEX = [
     "title": "Propuesta OMEGA | CRM Operacional",
     "h1": "Oferta Integral OMEGA CRM",
     "kicker": "PROVEEDOR LICITANTE",
-    "desc": "Análisis de la propuesta de OMEGA CRM (Merkle Company). Enfoque premium centrado en la metodología \"The Bridge\" sobre Salesforce FSC, destacando por su fuert...",
+    "desc": "Análisis de la propuesta de OMEGA CRM (Merkle Company). Enfoque premium centrado en la metodología\"The Bridge\" sobre Salesforce FSC, destacando por su fuerte...",
     "project": "CRM Operacional",
-    "category": "Facilitadores",
+    "category": "Estratégicos",
     "url": "../CRM Operacional/propuesta_omega.html"
   },
   {
@@ -247,7 +247,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "ARQUITECTURA DE ECOSISTEMAS",
     "desc": "Comparativa técnica de las soluciones CRM que estamos evaluando en la licitación. Un análisis enfocado en desgranar las capacidades nativas de Microsoft y Sa...",
     "project": "CRM Operacional",
-    "category": "Facilitadores",
+    "category": "Estratégicos",
     "url": "../CRM Operacional/soluciones_tecnologicas.html"
   },
   {
@@ -815,7 +815,7 @@ window.BITACORA_SEARCH_INDEX = [
     "title": "La Marmita: Ventanas IA | Transformación y formas de trabajar",
     "h1": "La Marmita: Nuestras Ventanas IA",
     "kicker": "",
-    "desc": "Entendiendo que no importa dónde escribas, sino qué \"potencia\" hay detrás. Estas son las formas más comunes de interactuar con el cerebro (pócima) de la IA e...",
+    "desc": "Entendiendo que no importa dónde escribas, sino qué\"potencia\" hay detrás. Estas son las formas más comunes de interactuar con el cerebro (pócima) de la IA en...",
     "project": "IA Area Personas",
     "category": "Gestión Directa",
     "url": "../IA Area Personas/sesion_01_marmita.html"
@@ -825,7 +825,7 @@ window.BITACORA_SEARCH_INDEX = [
     "title": "La Poción Mágica: Tipos de Cerebros (pócimas) | Transformación y formas de trabajar",
     "h1": "La Poción Mágica: Eligiendo el Cerebro (pócima) Adecuado",
     "kicker": "",
-    "desc": "No todas las pociones sirven para lo mismo. Aprender a elegir el tipo de modelo (LLM) es clave para obtener el mejor resultado al menor \"coste\" de tiempo.",
+    "desc": "No todas las pociones sirven para lo mismo. Aprender a elegir el tipo de modelo (LLM) es clave para obtener el mejor resultado al menor\"coste\" de tiempo.",
     "project": "IA Area Personas",
     "category": "Gestión Directa",
     "url": "../IA Area Personas/sesion_01_pociones.html"
@@ -921,11 +921,71 @@ window.BITACORA_SEARCH_INDEX = [
     "url": "../IA Area Personas/kronos_vision.html"
   },
   {
+    "id": "PMO Perscom/coordinador_proyecto.html",
+    "title": "Coordinador de Proyecto y Artefactos | PMO PersCom",
+    "h1": "Coordinador de Proyecto & Artefactos del Modelo",
+    "kicker": "BLOQUE 03 · ROL Y ARTEFACTOS",
+    "desc": "El Coordinador conecta al Líder del proyecto con PersCom: anticipa impactos organizativos, activa a las funciones expertas y mantiene la información al día. ...",
+    "project": "PMO Perscom",
+    "category": "Gestión Directa",
+    "url": "../PMO Perscom/coordinador_proyecto.html"
+  },
+  {
+    "id": "PMO Perscom/escucha_ex_herramientas.html",
+    "title": "Escucha EX y Herramientas | PMO PersCom",
+    "h1": "Escucha EX & Herramientas del Modelo",
+    "kicker": "BLOQUES 05 · 06 · 09 · INNOVACIÓN Y MEJORA",
+    "desc": "Cómo viven las personas los proyectos: detectamos a tiempo necesidades de información, claridad de rol y resistencias para convertirlas en mejoras. Arquitect...",
+    "project": "PMO Perscom",
+    "category": "Gestión Directa",
+    "url": "../PMO Perscom/escucha_ex_herramientas.html"
+  },
+  {
+    "id": "PMO Perscom/index.html",
+    "title": "Hub de Oficina de Proyectos PersCom (PMO)",
+    "h1": "Oficina de Proyectos PMO PERSCOM",
+    "kicker": "Oficina de Gestión de Proyectos · PersCom",
+    "desc": "Recorrido del proyecto: Entrada (criterios y niveles), Coordinación, Seguimiento, Decisión, Resultado y Aprendizaje continuo.",
+    "project": "PMO Perscom",
+    "category": "Gestión Directa",
+    "url": "../PMO Perscom/index.html"
+  },
+  {
+    "id": "PMO Perscom/impactos_formativos.html",
+    "title": "Impactos Formativos y Capacidad | PMO PersCom",
+    "h1": "Seguimiento de Impactos Formativos",
+    "kicker": "MANUAL OPERATIVO 01 · FORMACIÓN",
+    "desc": "Que cada formación esté apuntada a tiempo, sepamos a qué colectivos impacta, si hay capacidad para impartirla y qué hacer cuando dos formaciones chocan. Regi...",
+    "project": "PMO Perscom",
+    "category": "Gestión Directa",
+    "url": "../PMO Perscom/impactos_formativos.html"
+  },
+  {
+    "id": "PMO Perscom/modelo_trabajo.html",
+    "title": "Modelo de Trabajo y 6 Etapas | PMO PersCom",
+    "h1": "Modelo de Trabajo & Recorrido del Proyecto",
+    "kicker": "BLOQUE 01 · MODELO OPERATIVO",
+    "desc": "Cómo trabajamos en la gestión de proyectos desde Personas y Comunicación. Un marco metodológico vivo para anticipar impactos, gobernar los roles y transforma...",
+    "project": "PMO Perscom",
+    "category": "Gestión Directa",
+    "url": "../PMO Perscom/modelo_trabajo.html"
+  },
+  {
+    "id": "PMO Perscom/sincronizacion_pmos.html",
+    "title": "Sincronización entre PMOs | PMO PersCom",
+    "h1": "Tres PMOs. Una Lectura Completa",
+    "kicker": "BLOQUE 02 · GOBERNANZA CONJUNTA",
+    "desc": "Participamos en los foros de Transformación y Tecnología para situar la mirada de Personas donde se anticipan los riesgos y se preparan las decisiones ejecut...",
+    "project": "PMO Perscom",
+    "category": "Gestión Directa",
+    "url": "../PMO Perscom/sincronizacion_pmos.html"
+  },
+  {
     "id": "Perseo/casos_uso.html",
     "title": "Casos de Uso | Proyecto Perseo",
     "h1": "Casos de Uso Analíticos",
     "kicker": "APLICACIONES ESTRATÉGICAS",
-    "desc": "Cómo Perseo transforma el \"Dark Data\" en aplicaciones reales: desde la inteligencia comercial decodificando la venta, hasta el radar preventivo de fraude y f...",
+    "desc": "Cómo Perseo transforma el\"Dark Data\" en aplicaciones reales: desde la inteligencia comercial decodificando la venta, hasta el radar preventivo de fraude y fuga.",
     "project": "Perseo",
     "category": "Facilitadores",
     "url": "../Perseo/casos_uso.html"
@@ -934,8 +994,8 @@ window.BITACORA_SEARCH_INDEX = [
     "id": "Perseo/index.html",
     "title": "Hub de Proyecto Perseo",
     "h1": "Proyecto PERSEO",
-    "kicker": "IA Generativa (Voice-to-Value)",
-    "desc": "Evolución de auditoría manual (500 llamadas) a masiva (>15.000). Objetivos: Eficiencia, Riesgos y Coaching con garantía \"Man-in-the-loop\".",
+    "kicker": "Speech Analytics & IA",
+    "desc": "Analítica con IA para supervisar calidad y operativas en llamadas de agentes y clientes en Comercial, Atención y Siniestros.",
     "project": "Perseo",
     "category": "Facilitadores",
     "url": "../Perseo/index.html"
@@ -955,7 +1015,7 @@ window.BITACORA_SEARCH_INDEX = [
     "title": "RRLL y Bienestar | Proyecto Perseo",
     "h1": "Gestión de RRLL y Bienestar",
     "kicker": "IMPACTO ORGANIZATIVO",
-    "desc": "Abordaje normativo y preventivo para casos de uso de IA catalogados de \"alto riesgo\" respecto al impacto en empleados.",
+    "desc": "Abordaje normativo y preventivo para casos de uso de IA catalogados de\"alto riesgo\" respecto al impacto en empleados.",
     "project": "Perseo",
     "category": "Facilitadores",
     "url": "../Perseo/gestion_rrll.html"
@@ -987,7 +1047,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "ADJUDICADO Y EN MARCHA (BIP CONSULTING)",
     "desc": "Transformación estructural del modelo de gestión operativa y tecnológica para optimización de costes y eficiencia.",
     "project": "Reingenieria Siniestros",
-    "category": "Facilitadores",
+    "category": "Estratégicos",
     "url": "../Reingenieria Siniestros/index.html"
   },
   {
@@ -997,7 +1057,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "",
     "desc": "",
     "project": "Telefonia - Genesis CX",
-    "category": "Facilitadores",
+    "category": "Estratégicos",
     "url": "../Telefonia - Genesis CX/contexto_proyecto.html"
   },
   {
@@ -1007,7 +1067,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "Centro de Operaciones",
     "desc": "Información consolidada a partir del informe de Estado de Áreas (Abril 2026), incluyendo objetivos y situación actual de la implantación de Genesys.",
     "project": "Telefonia - Genesis CX",
-    "category": "Facilitadores",
+    "category": "Estratégicos",
     "url": "../Telefonia - Genesis CX/index.html"
   },
   {
@@ -1017,67 +1077,7 @@ window.BITACORA_SEARCH_INDEX = [
     "kicker": "Estándar Seguimiento Hitos",
     "desc": "Trazabilidad del ecosistema Genesys CX. Detalle macro por fases y desglose de módulos (Fechas de Inicio vs Go-Live).",
     "project": "Telefonia - Genesis CX",
-    "category": "Facilitadores",
+    "category": "Estratégicos",
     "url": "../Telefonia - Genesis CX/roadmap.html"
-  },
-  {
-    "id": "PMO Perscom/index.html",
-    "title": "Hub de Oficina de Proyectos PersCom (PMO) | Proyectos LDAP",
-    "h1": "Oficina de Proyectos PMO PERSCOM",
-    "kicker": "Gestión Directa · Modelo 360°",
-    "desc": "Marco metodológico y operativo de gestión de proyectos desde Personas y Comunicación. Anticipación de impactos, sincronización entre PMOs y toma de decisiones.",
-    "project": "PMO PersCom",
-    "category": "Gestión Directa",
-    "url": "../PMO Perscom/index.html"
-  },
-  {
-    "id": "PMO Perscom/modelo_trabajo.html",
-    "title": "Modelo de Trabajo y 6 Etapas | PMO PersCom",
-    "h1": "Modelo de Trabajo & Recorrido del Proyecto",
-    "kicker": "BLOQUE 01 · MODELO OPERATIVO",
-    "desc": "Recorrido de 6 etapas: Entrada, Coordinación, Seguimiento, Decisión, Resultado y Aprendizaje continuo. Las 9 dimensiones de impacto y funciones expertas.",
-    "project": "PMO PersCom",
-    "category": "Gestión Directa",
-    "url": "../PMO Perscom/modelo_trabajo.html"
-  },
-  {
-    "id": "PMO Perscom/sincronizacion_pmos.html",
-    "title": "Sincronización entre PMOs | PMO PersCom",
-    "h1": "Tres PMOs. Una Lectura Completa",
-    "kicker": "BLOQUE 02 · GOBERNANZA CONJUNTA",
-    "desc": "Negocio (Transformación), Tecnología y Personas (PersCom). Base de hechos compartidos, foros mensuales de sincronización y lectura coherente sin forzar semáforo único.",
-    "project": "PMO PersCom",
-    "category": "Gestión Directa",
-    "url": "../PMO Perscom/sincronizacion_pmos.html"
-  },
-  {
-    "id": "PMO Perscom/coordinador_proyecto.html",
-    "title": "Coordinador de Proyecto y Artefactos | PMO PersCom",
-    "h1": "Coordinador de Proyecto & Artefactos del Modelo",
-    "kicker": "BLOQUE 03 · ROL Y ARTEFACTOS",
-    "desc": "Conectar, anticipar y activar. Seis movimientos en el ciclo, calendario de trabajo, la ficha del proyecto, paquete mínimo de 5 piezas y semáforos de salud.",
-    "project": "PMO PersCom",
-    "category": "Gestión Directa",
-    "url": "../PMO Perscom/coordinador_proyecto.html"
-  },
-  {
-    "id": "PMO Perscom/impactos_formativos.html",
-    "title": "Impactos Formativos y Capacidad | PMO PersCom",
-    "h1": "Seguimiento de Impactos Formativos",
-    "kicker": "MANUAL OPERATIVO 01 · FORMACIÓN",
-    "desc": "Circuito en 5 pasos, regla de antelación 6-4-2 semanas, dos medidas objetivas de capacidad (impactos simultáneos y dedicación retirada) y 4 salidas de ajuste.",
-    "project": "PMO PersCom",
-    "category": "Gestión Directa",
-    "url": "../PMO Perscom/impactos_formativos.html"
-  },
-  {
-    "id": "PMO Perscom/escucha_ex_herramientas.html",
-    "title": "Escucha EX y Herramientas | PMO PersCom",
-    "h1": "Escucha EX & Herramientas del Modelo",
-    "kicker": "BLOQUES 05 · 06 · 09 · INNOVACIÓN Y MEJORA",
-    "desc": "Medición de experiencia de empleado en 3 colectivos, 3 niveles de medición, glosario unificado, agente de IA de consulta y kit del coordinador.",
-    "project": "PMO PersCom",
-    "category": "Gestión Directa",
-    "url": "../PMO Perscom/escucha_ex_herramientas.html"
   }
 ];

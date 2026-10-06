@@ -16,10 +16,11 @@ PROJECT_CATEGORIES = {
     "Gobierno de Informacion": "Proyectos Cerrados",
     "HCM": "Gestión Directa",
     "IA Area Personas": "Gestión Directa",
+    "PMO Perscom": "Gestión Directa",
     "Perseo": "Facilitadores",
-    "CRM Operacional": "Facilitadores",
-    "Telefonia - Genesis CX": "Facilitadores",
-    "Reingenieria Siniestros": "Facilitadores",
+    "CRM Operacional": "Estratégicos",
+    "Telefonia - Genesis CX": "Estratégicos",
+    "Reingenieria Siniestros": "Estratégicos",
     "Gestion de Usuarios": "Servicios",
     "Cuaderno de Bitacora (Proyectos)": "Portal Central"
 }
