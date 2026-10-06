@@ -1019,5 +1019,65 @@ window.BITACORA_SEARCH_INDEX = [
     "project": "Telefonia - Genesis CX",
     "category": "Facilitadores",
     "url": "../Telefonia - Genesis CX/roadmap.html"
+  },
+  {
+    "id": "PMO Perscom/index.html",
+    "title": "Hub de Oficina de Proyectos PersCom (PMO) | Proyectos LDAP",
+    "h1": "Oficina de Proyectos PMO PERSCOM",
+    "kicker": "Gestión Directa · Modelo 360°",
+    "desc": "Marco metodológico y operativo de gestión de proyectos desde Personas y Comunicación. Anticipación de impactos, sincronización entre PMOs y toma de decisiones.",
+    "project": "PMO PersCom",
+    "category": "Gestión Directa",
+    "url": "../PMO Perscom/index.html"
+  },
+  {
+    "id": "PMO Perscom/modelo_trabajo.html",
+    "title": "Modelo de Trabajo y 6 Etapas | PMO PersCom",
+    "h1": "Modelo de Trabajo & Recorrido del Proyecto",
+    "kicker": "BLOQUE 01 · MODELO OPERATIVO",
+    "desc": "Recorrido de 6 etapas: Entrada, Coordinación, Seguimiento, Decisión, Resultado y Aprendizaje continuo. Las 9 dimensiones de impacto y funciones expertas.",
+    "project": "PMO PersCom",
+    "category": "Gestión Directa",
+    "url": "../PMO Perscom/modelo_trabajo.html"
+  },
+  {
+    "id": "PMO Perscom/sincronizacion_pmos.html",
+    "title": "Sincronización entre PMOs | PMO PersCom",
+    "h1": "Tres PMOs. Una Lectura Completa",
+    "kicker": "BLOQUE 02 · GOBERNANZA CONJUNTA",
+    "desc": "Negocio (Transformación), Tecnología y Personas (PersCom). Base de hechos compartidos, foros mensuales de sincronización y lectura coherente sin forzar semáforo único.",
+    "project": "PMO PersCom",
+    "category": "Gestión Directa",
+    "url": "../PMO Perscom/sincronizacion_pmos.html"
+  },
+  {
+    "id": "PMO Perscom/coordinador_proyecto.html",
+    "title": "Coordinador de Proyecto y Artefactos | PMO PersCom",
+    "h1": "Coordinador de Proyecto & Artefactos del Modelo",
+    "kicker": "BLOQUE 03 · ROL Y ARTEFACTOS",
+    "desc": "Conectar, anticipar y activar. Seis movimientos en el ciclo, calendario de trabajo, la ficha del proyecto, paquete mínimo de 5 piezas y semáforos de salud.",
+    "project": "PMO PersCom",
+    "category": "Gestión Directa",
+    "url": "../PMO Perscom/coordinador_proyecto.html"
+  },
+  {
+    "id": "PMO Perscom/impactos_formativos.html",
+    "title": "Impactos Formativos y Capacidad | PMO PersCom",
+    "h1": "Seguimiento de Impactos Formativos",
+    "kicker": "MANUAL OPERATIVO 01 · FORMACIÓN",
+    "desc": "Circuito en 5 pasos, regla de antelación 6-4-2 semanas, dos medidas objetivas de capacidad (impactos simultáneos y dedicación retirada) y 4 salidas de ajuste.",
+    "project": "PMO PersCom",
+    "category": "Gestión Directa",
+    "url": "../PMO Perscom/impactos_formativos.html"
+  },
+  {
+    "id": "PMO Perscom/escucha_ex_herramientas.html",
+    "title": "Escucha EX y Herramientas | PMO PersCom",
+    "h1": "Escucha EX & Herramientas del Modelo",
+    "kicker": "BLOQUES 05 · 06 · 09 · INNOVACIÓN Y MEJORA",
+    "desc": "Medición de experiencia de empleado en 3 colectivos, 3 niveles de medición, glosario unificado, agente de IA de consulta y kit del coordinador.",
+    "project": "PMO PersCom",
+    "category": "Gestión Directa",
+    "url": "../PMO Perscom/escucha_ex_herramientas.html"
   }
 ];

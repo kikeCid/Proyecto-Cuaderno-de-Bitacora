@@ -1,5 +1,5 @@
 ---
-updated: 2026-10-05
+updated: 2026-10-06
 tags: [index, moc, vault]
 type: doc-índice
 status: en-curso
@@ -15,6 +15,7 @@ Bienvenido a la Base de Conocimiento de **LidIA-MCP**. Este es el mapa central q
 ## 🚀 Proyectos Activos
 
 - [[01_Proyectos/Cuaderno de Bitacora (Proyectos)/Cuaderno_de_Bitacora|Cuaderno de Bitácora]] - Portal central de gestión de proyectos.
+- [[01_Proyectos/PMO Perscom/index.html|Oficina de Proyectos PersCom (PMO)]] - Marco metodológico y operativo de gestión de proyectos desde Personas.
 - [[01_Proyectos/Reingenieria Siniestros/Reingenieria_Siniestros|Reingeniería Siniestros Motor]] - Transformación operativa y analítica del proceso core de siniestros.
 - [[01_Proyectos/HCM/index.html|Evolución HCM Cloud]] - Licitación y modernización tecnológica de Personas.
 - [[01_Proyectos/CRM Operacional/index.html|CRM Operacional]] - Plataforma integral de clientes (Salesforce/Omega).

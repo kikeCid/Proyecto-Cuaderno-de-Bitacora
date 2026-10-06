@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub de Oficina de Proyectos PersCom (PMO) | Proyectos LDAP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/bitacora-core.css">
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper">
+        <div class="nav-breadcrumb">
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item" title="Inicio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <span class="nav-breadcrumb-item current">Oficina de Proyectos PersCom (PMO)</span>
+        </div>
+    </nav>
+
+    <!-- THEME TOGGLE -->
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label">MODO OSCURO</span>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-checkbox" onchange="toggleTheme()">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <main class="container">
+        <!-- HERO SECTION -->
+        <header class="hero">
+            <span class="hero-badge">Oficina de Gestión de Proyectos · PersCom</span>
+            <span class="hero-badge-local">Gestión Directa · Modelo 360°</span>
+            <h1>Oficina de Proyectos <br><span>PMO PERSCOM</span></h1>
+            <p>Marco metodológico y operativo de gestión de proyectos desde Personas y Comunicación. Un modelo compartido, vivo y en evolución para anticipar impactos, sincronizar con Negocio y Tecnología y facilitar la toma de decisiones.</p>
+        </header>
+
+        <!-- SELECCIÓN DE METODOLOGÍA / TARJETAS HUB -->
+        <div class="carousel-container">
+            <button class="carousel-btn left hidden" onclick="scrollCarousel(this, -340)" aria-label="Desplazar a la izquierda">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+            
+            <div class="carousel-track" onscroll="updateCarouselButtons(this)">
+
+                <!-- 01. MODELO DE TRABAJO & RECORRIDO -->
+                <a href="modelo_trabajo.html" class="apple-card" data-accent="red">
+                    <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> MARCO OPERATIVO</div>
+                    <h3 class="title">Modelo de Trabajo & <span>6 Etapas</span></h3>
+                    <p class="desc">Recorrido del proyecto: Entrada (criterios y niveles), Coordinación, Seguimiento, Decisión, Resultado y Aprendizaje continuo.</p>
+                    <div class="card-tags">
+                        <span class="tech-tag">6 Etapas</span>
+                        <span class="tech-tag">Niveles 0-1-2</span>
+                        <span class="tech-tag">9 Dimensiones</span>
+                    </div>
+                    <div class="card-visual" style="color: var(--lda-red);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Recorrido de Etapas y Flujo de Gestión Fino -->
+                            <circle cx="4" cy="12" r="2.2" stroke="currentColor" stroke-width="1.1"/>
+                            <circle cx="12" cy="12" r="2.2" stroke="currentColor" stroke-width="1.1"/>
+                            <circle cx="20" cy="12" r="2.2" stroke="currentColor" stroke-width="1.1"/>
+                            <path d="M6.2 12H9.8M14.2 12H17.8" stroke="currentColor" stroke-width="1.0" stroke-linecap="round"/>
+                            <path d="M12 4.5C7.8 4.5 4 8 4 12" stroke="currentColor" stroke-width="1.0" stroke-linecap="round" stroke-dasharray="2 1.5"/>
+                            <path d="M12 19.5C16.2 19.5 20 16 20 12" stroke="currentColor" stroke-width="1.0" stroke-linecap="round" stroke-dasharray="2 1.5"/>
+                            <polyline points="10 3 12 4.5 10 6" stroke="currentColor" stroke-width="1.0" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- 02. SINCRONIZACIÓN ENTRE PMOS -->
+                <a href="sincronizacion_pmos.html" class="apple-card" data-accent="red">
+                    <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> GOBERNANZA COMPARTIDA</div>
+                    <h3 class="title">Sincronización <span>entre PMOs</span></h3>
+                    <p class="desc">Negocio (Transformación), Tecnología y Personas (PersCom): una sola base de hechos con tres lecturas y foros periódicos de gobierno.</p>
+                    <div class="card-tags">
+                        <span class="tech-tag">3 PMOs</span>
+                        <span class="tech-tag">Foros Conjuntos</span>
+                        <span class="tech-tag">Semáforos Propios</span>
+                    </div>
+                    <div class="card-visual" style="color: var(--lda-red);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Triángulo de Sincronización 3 PMOs Fino -->
+                            <circle cx="12" cy="4.5" r="2.5" stroke="currentColor" stroke-width="1.1"/>
+                            <circle cx="5" cy="18" r="2.5" stroke="currentColor" stroke-width="1.1"/>
+                            <circle cx="19" cy="18" r="2.5" stroke="currentColor" stroke-width="1.1"/>
+                            <path d="M10.2 6.5L6.5 15.5M13.8 6.5L17.5 15.5M7.5 18H16.5" stroke="currentColor" stroke-width="1.0" stroke-linecap="round"/>
+                            <circle cx="12" cy="13.5" r="1.2" fill="currentColor"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- 03. COORDINADOR DE PROYECTO & ARTEFACTOS -->
+                <a href="coordinador_proyecto.html" class="apple-card" data-accent="red">
+                    <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> ROLES Y GESTIÓN</div>
+                    <h3 class="title">Coordinador de <span>Proyecto</span></h3>
+                    <p class="desc">Conectar, anticipar y activar. Artefactos de seguimiento: Ficha común, Fuente compartida, Informe semanal y semáforo de salud.</p>
+                    <div class="card-tags">
+                        <span class="tech-tag">Rol Coordinador</span>
+                        <span class="tech-tag">Ficha & Artefactos</span>
+                        <span class="tech-tag">Ciclo Semanal</span>
+                    </div>
+                    <div class="card-visual" style="color: var(--lda-red);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Ficha de Coordinación y Check Fino -->
+                            <rect x="4" y="3" width="16" height="18" rx="2.5" stroke="currentColor" stroke-width="1.1"/>
+                            <line x1="8" y1="7.5" x2="16" y2="7.5" stroke="currentColor" stroke-width="1.0"/>
+                            <line x1="8" y1="11.5" x2="14" y2="11.5" stroke="currentColor" stroke-width="1.0"/>
+                            <circle cx="9" cy="16" r="1.5" stroke="currentColor" stroke-width="1.0"/>
+                            <polyline points="12.5 16 14 17.5 17 14.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- 04. IMPACTOS FORMATIVOS Y CAPACIDAD -->
+                <a href="impactos_formativos.html" class="apple-card" data-accent="red">
+                    <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> MANUAL OPERATIVO 01</div>
+                    <h3 class="title">Impactos Formativos <span>& Capacidad</span></h3>
+                    <p class="desc">Anticipación a 6, 4 y 2 semanas. Medición de impactos simultáneos en colectivos y capacidad retirada a la operación. 4 salidas ante avisos.</p>
+                    <div class="card-tags">
+                        <span class="tech-tag">Regla 6-4-2</span>
+                        <span class="tech-tag">Gestión Cruces</span>
+                        <span class="tech-tag">4 Salidas Ajuste</span>
+                    </div>
+                    <div class="card-visual" style="color: var(--lda-red);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Birrete Formativo y Medidor de Capacidad Fino -->
+                            <path d="M12 3.5L2.5 8L12 12.5L21.5 8L12 3.5Z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>
+                            <path d="M6 10V15.5C6 17.5 8.7 19.5 12 19.5C15.3 19.5 18 17.5 18 15.5V10" stroke="currentColor" stroke-width="1.0"/>
+                            <line x1="21.5" y1="8" x2="21.5" y2="15" stroke="currentColor" stroke-width="1.0"/>
+                            <circle cx="21.5" cy="16.5" r="1" fill="currentColor"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- 05. ESCUCHA EX Y HERRAMIENTAS -->
+                <a href="escucha_ex_herramientas.html" class="apple-card" data-accent="red">
+                    <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> EXPERIENCIA Y MEJORA</div>
+                    <h3 class="title">Escucha EX <span>& Herramientas</span></h3>
+                    <p class="desc">Medición de la experiencia de empleado en 3 colectivos, glosario unificado, agente de IA de consulta y kit del coordinador.</p>
+                    <div class="card-tags">
+                        <span class="tech-tag">Escucha EX</span>
+                        <span class="tech-tag">Agente IA</span>
+                        <span class="tech-tag">Mejora Continua</span>
+                    </div>
+                    <div class="card-visual" style="color: var(--lda-red);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Escucha Activa, Diálogo y Chispa IA Fino -->
+                            <path d="M4 14.5C3.2 13.5 2.5 12 2.5 10C2.5 5.8 6.5 2.5 11.5 2.5C16.5 2.5 20.5 5.8 20.5 10C20.5 14.2 16.5 17.5 11.5 17.5C10 17.5 8.8 17.2 7.5 16.6L3.5 18L4.5 14.5" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>
+                            <!-- Chispa IA en el interior -->
+                            <path d="M11.5 6.5C11.5 7.8 12.5 8.5 12.5 8.5C12.5 8.5 11.5 9.2 11.5 10.5C11.5 9.2 10.5 8.5 10.5 8.5C10.5 8.5 11.5 7.8 11.5 6.5Z" fill="currentColor"/>
+                            <line x1="8" y1="12.5" x2="15" y2="12.5" stroke="currentColor" stroke-width="1.0" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                </a>
+
+            </div>
+
+            <button class="carousel-btn right hidden" onclick="scrollCarousel(this, 340)" aria-label="Desplazar a la derecha">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+        </div>
+    </main>
+
+    <!-- FOOTER EJECUTIVO OFICIAL LÍNEA DIRECTA -->
+    <footer class="lda-hub-footer" style="margin-top: 60px; padding: 30px 24px; border-top: 1px solid var(--border-color); background: var(--bg-card); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; max-width: 1200px; margin-left: auto; margin-right: auto; border-radius: 20px 20px 0 0; box-shadow: var(--shadow);">
+        <div style="display: flex; align-items: center; gap: 16px;">
+            <img src="../assets/img/logo_header_lda.png" alt="Línea Directa Aseguradora" style="height: 32px; width: auto; object-fit: contain;">
+            <div style="border-left: 2px solid var(--lda-red); padding-left: 12px;">
+                <div style="font-weight: 800; font-size: 0.95rem; color: var(--text-main); letter-spacing: -0.2px;">Cuaderno de Bitácora · PMO PersCom</div>
+                <div style="font-size: 0.8rem; color: var(--text-sec);">Línea Directa Aseguradora, S.A. &bull; Gestión Directa del Área de Personas</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 20px; font-size: 0.85rem;">
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html" style="color: var(--lda-red); text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Inicio Portfolio
+            </a>
+            <span style="color: var(--border-color);">|</span>
+            <span style="color: var(--text-sec);">&copy; 2026 Línea Directa Aseguradora</span>
+        </div>
+    </footer>
+
+    <!-- MOTOR DE BÚSQUEDA Y NÚCLEO TRANSVERSAL -->
+    <script src="../assets/js/search_index_data.js"></script>
+    <script src="../assets/js/bitacora-core.js"></script>
+</body>
+</html>

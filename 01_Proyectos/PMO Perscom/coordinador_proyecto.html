@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coordinador de Proyecto y Artefactos | PMO PersCom</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/bitacora-core.css">
+    <style>
+        .content-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 40px; }
+        .info-card { background: var(--bg-card); border-radius: 24px; padding: 32px; box-shadow: var(--shadow); border: 1px solid var(--border-color); }
+        .info-card h3 { color: var(--text-main); font-size: 1.25rem; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+        .info-card h3 svg { color: var(--lda-red); }
+        .info-list { list-style: none; padding: 0; margin: 0; color: var(--text-sec); font-size: 0.95rem; line-height: 1.6; }
+        .info-list li { margin-bottom: 12px; position: relative; padding-left: 20px; }
+        .info-list li::before { content:"•"; color: var(--lda-red); font-weight: bold; position: absolute; left: 0; }
+        
+        .roles-split { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 24px 0 35px 0; }
+        .role-col { background: var(--bg-card); border-radius: 20px; padding: 24px; border: 1px solid var(--border-color); }
+        
+        .artifacts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin: 24px 0 35px 0; }
+        .artifact-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 18px; padding: 22px; border-left: 4px solid var(--lda-red); }
+
+        .package-five { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin: 20px 0 30px 0; }
+        .package-item { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 14px; padding: 18px; }
+        .package-num { font-size: 0.75rem; font-weight: 800; color: var(--lda-red); margin-bottom: 4px; }
+        .package-name { font-size: 0.95rem; font-weight: 800; color: var(--text-main); margin-bottom: 6px; }
+        .package-desc { font-size: 0.82rem; color: var(--text-sec); line-height: 1.4; }
+    </style>
+</head>
+<body>
+    <nav class="global-nav-wrapper">
+        <div class="nav-breadcrumb">
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <a href="index.html" class="nav-breadcrumb-item">PMO PersCom</a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <span class="nav-breadcrumb-item current">Coordinador de Proyecto</span>
+        </div>
+    </nav>
+    <div class="top-controls-wrapper" style="position: fixed; top: 30px; right: 30px; z-index: 100;">
+        <div class="theme-toggle-wrapper" style="box-shadow: var(--shadow);">
+            <span class="theme-label">MODO OSCURO</span>
+            <label class="theme-switch"><input type="checkbox" id="theme-checkbox" onchange="toggleTheme()"><span class="slider"></span></label>
+        </div>
+    </div>
+
+    <main class="container">
+        <header class="hero" style="text-align: center; padding: 60px 0 30px;">
+            <span class="hero-badge" style="background: var(--lda-red);">BLOQUE 03 · ROL Y ARTEFACTOS</span>
+            <h1>Coordinador de Proyecto & <br><span>Artefactos del Modelo</span></h1>
+            <p style="margin: 0 auto; max-width: 820px;">El Coordinador conecta al Líder del proyecto con PersCom: anticipa impactos organizativos, activa a las funciones expertas y mantiene la información al día. No dirige el proyecto ni administra burocracia.</p>
+        </header>
+
+        <!-- TU APORTACIÓN VS NO TE CORRESPONDE -->
+        <h2 style="font-size: 1.4rem; font-weight: 800; color: var(--text-main); margin-bottom: 8px;">Conectar, Anticipar y Activar</h2>
+        <div class="roles-split">
+            <div class="role-col" style="border-top: 4px solid var(--lda-red);">
+                <h4 style="color: var(--lda-red); font-weight: 800; font-size: 1rem; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    Tu Aportación Real
+                </h4>
+                <ul class="info-list">
+                    <li><strong>Facilitar la atención de impactos:</strong> Que los impactos en Personas estén analizados y trabajados a tiempo.</li>
+                    <li><strong>Anticipación proactiva:</strong> Ver los riesgos antes de que se conviertan en bloqueos urgentes.</li>
+                    <li><strong>Activar especialistas:</strong> Conectar con Formación, RRLL, Compensación o Selección en el momento idóneo.</li>
+                    <li><strong>Convertir conversaciones en datos:</strong> Trasladar acuerdos a compromisos con dueño y fecha.</li>
+                    <li><strong>Alertar temprano:</strong> Detectar discrepancias antes de que lleguen a los comités de dirección.</li>
+                </ul>
+            </div>
+
+            <div class="role-col" style="border-top: 4px solid var(--text-sec); opacity: 0.95;">
+                <h4 style="color: var(--text-sec); font-weight: 800; font-size: 1rem; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                    No Te Corresponde
+                </h4>
+                <ul class="info-list">
+                    <li><strong>No diriges el proyecto:</strong> El Líder del proyecto responde de la entrega técnica y del cierre de negocio.</li>
+                    <li><strong>No supervisas al Líder:</strong> Eres su socio estratégico en el ámbito de Personas, no su auditor.</li>
+                    <li><strong>No sustituyes a las funciones:</strong> Formación diseña el plan formativo, RRLL negocia con la representación social.</li>
+                    <li><strong>No eres mero administrativo:</strong> Tu valor no es rellenar fichas por compromiso, sino aportar criterio y contexto.</li>
+                    <li><strong>No filtras información sin valor:</strong> Los datos se registran para habilitar decisiones, no para acumular papel.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SEIS MOVIMIENTOS A LO LARGO DEL PROYECTO -->
+        <div class="info-card" style="margin-bottom: 40px;">
+            <h3>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Seis Movimientos del Coordinador en el Ciclo
+            </h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 16px;">
+                <div style="padding: 16px; border-left: 3px solid var(--lda-red); background: rgba(204, 51, 51, 0.02); border-radius: 12px;">
+                    <strong style="color: var(--lda-red); font-size: 0.85rem; text-transform: uppercase;">FASE INICIO</strong>
+                    <div style="font-weight: 800; font-size: 1.05rem; margin: 4px 0; color: var(--text-main);">01. Entender & 02. Conectar</div>
+                    <p style="font-size: 0.86rem; color: var(--text-sec); margin: 0; line-height: 1.45;">Comprende el propósito, alcance y gobernanza; conecta al Líder con la PMO PersCom y activa a las funciones que deben intervenir.</p>
+                </div>
+                <div style="padding: 16px; border-left: 3px solid var(--lda-red); background: rgba(204, 51, 51, 0.02); border-radius: 12px;">
+                    <strong style="color: var(--lda-red); font-size: 0.85rem; text-transform: uppercase;">FASE DURANTE</strong>
+                    <div style="font-weight: 800; font-size: 1.05rem; margin: 4px 0; color: var(--text-main);">03. Anticipar & 04. Coordinar</div>
+                    <p style="font-size: 0.86rem; color: var(--text-sec); margin: 0; line-height: 1.45;">Relaciona los próximos hitos con Personas. Mantiene los impactos, tareas y dependencias visibles semana a semana en la ficha común.</p>
+                </div>
+                <div style="padding: 16px; border-left: 3px solid var(--lda-red); background: rgba(204, 51, 51, 0.02); border-radius: 12px;">
+                    <strong style="color: var(--lda-red); font-size: 0.85rem; text-transform: uppercase;">FASE CIERRE</strong>
+                    <div style="font-weight: 800; font-size: 1.05rem; margin: 4px 0; color: var(--text-main);">05. Escalar & 06. Preparar Cierre</div>
+                    <p style="font-size: 0.86rem; color: var(--text-sec); margin: 0; line-height: 1.45;">Escala los bloqueos con propuestas listas; asegura que los flecos queden con dueño y fecha, y extrae aprendizajes en la retrospectiva.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TRES ARTEFACTOS Y PAQUETE MÍNIMO -->
+        <h2 style="font-size: 1.4rem; font-weight: 800; color: var(--text-main); margin-bottom: 8px;">Los 3 Artefactos de Seguimiento</h2>
+        <div style="background: rgba(204, 51, 51, 0.08); border-left: 4px solid var(--lda-red); padding: 12px 18px; border-radius: 10px; margin-bottom: 20px; font-weight: 700; color: var(--text-main);">
+            "Si no está en la ficha, no existe para el seguimiento." Un riesgo comentado de palabra o un acuerdo en pasillo no llega al informe.
+        </div>
+
+        <div class="artifacts-grid">
+            <div class="artifact-card">
+                <div style="font-size: 0.75rem; font-weight: 800; color: var(--lda-red); text-transform: uppercase; margin-bottom: 4px;">Artefacto 01</div>
+                <div style="font-size: 1.1rem; font-weight: 800; color: var(--text-main); margin-bottom: 6px;">La Ficha del Proyecto</div>
+                <p style="font-size: 0.86rem; color: var(--text-sec); line-height: 1.45; margin: 0;">Creada y mantenida por la PMO al alta. Contiene alcance, nivel, impactos, acciones, riesgos, decisiones y dependencias. El Coordinador aporta el dato vivo.</p>
+            </div>
+            <div class="artifact-card">
+                <div style="font-size: 0.75rem; font-weight: 800; color: var(--lda-red); text-transform: uppercase; margin-bottom: 4px;">Artefacto 02</div>
+                <div style="font-size: 1.1rem; font-weight: 800; color: var(--text-main); margin-bottom: 6px;">Fuente de Información Única</div>
+                <p style="font-size: 0.86rem; color: var(--text-sec); line-height: 1.45; margin: 0;">Un único repositorio en Teams compartido. Todas las fichas viven con el mismo vocabulario y estructura. Cada dato se registra una vez y no se vuelve a pedir.</p>
+            </div>
+            <div class="artifact-card">
+                <div style="font-size: 0.75rem; font-weight: 800; color: var(--lda-red); text-transform: uppercase; margin-bottom: 4px;">Artefacto 03</div>
+                <div style="font-size: 1.1rem; font-weight: 800; color: var(--text-main); margin-bottom: 6px;">Informe Semanal (Viernes)</div>
+                <p style="font-size: 0.86rem; color: var(--text-sec); line-height: 1.45; margin: 0;">La PMO consolida la información los viernes: resumen ejecutivo para Dirección y detalle operativo por proyecto. Lo urgente se avisa el mismo día.</p>
+            </div>
+        </div>
+
+        <!-- EL PAQUETE MÍNIMO DE CINCO PIEZAS -->
+        <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin: 30px 0 12px 0;">El Paquete Mínimo: 5 Piezas Conectadas</h3>
+        <div class="package-five">
+            <div class="package-item">
+                <div class="package-num">01</div>
+                <div class="package-name">Ficha Proyecto</div>
+                <div class="package-desc">Objetivo, Sponsor, Líder, Coordinador, nivel, estado, salud y próximo hito.</div>
+            </div>
+            <div class="package-item">
+                <div class="package-num">02</div>
+                <div class="package-name">Mapa Impactos</div>
+                <div class="package-desc">Dimensiones afectadas y funciones expertas que deben responder.</div>
+            </div>
+            <div class="package-item">
+                <div class="package-num">03</div>
+                <div class="package-name">Registro Gestión</div>
+                <div class="package-desc">Acciones, riesgos, bloqueos y dependencias con dueño y fecha.</div>
+            </div>
+            <div class="package-item">
+                <div class="package-num">04</div>
+                <div class="package-name">Indicadores</div>
+                <div class="package-desc">Contribución PersCom, impacto en personas y resultado del proyecto.</div>
+            </div>
+            <div class="package-item">
+                <div class="package-num">05</div>
+                <div class="package-name">Cierre & Aprendizaje</div>
+                <div class="package-desc">Resultado contrastado, flecos transferidos y mejora reutilizable.</div>
+            </div>
+        </div>
+
+        <!-- ESTADO DEL CICLO VS SALUD -->
+        <div class="content-grid" style="margin-top: 35px;">
+            <div class="info-card">
+                <h3><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg> Estado del Ciclo (¿Dónde está?)</h3>
+                <ul class="info-list">
+                    <li><strong>En Evaluación:</strong> Pendiente de alta; aún no hay compromiso operativo.</li>
+                    <li><strong>Activo:</strong> Con responsable asignado, seguimiento acordado y siguiente paso definido.</li>
+                    <li><strong>En Pausa:</strong> Decisión explícita con motivo, dueño y fecha de revisión.</li>
+                    <li><strong>En Cierre:</strong> Se contrasta objetivo vs resultado y se transfieren flecos vivos.</li>
+                    <li><strong>Cerrado:</strong> Resultado registrado; no queda seguimiento sin dueño.</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Semáforo de Salud (¿Puede avanzar?)</h3>
+                <ul class="info-list">
+                    <li><strong style="color: #10b981;">Verde:</strong> Impactos identificados, funciones activadas y sin bloqueos relevantes.</li>
+                    <li><strong style="color: #eab308;">Ámbar:</strong> Necesidades pendientes de resolución, retrasos o un hito en riesgo.</li>
+                    <li><strong style="color: #ef4444;">Rojo:</strong> Impacto inminente no atendido, conflicto crítico o cambio organizativo sin gestionar.</li>
+                    <li style="margin-top: 14px; font-size: 0.85rem; font-style: italic;">"Bloqueado es una condición roja, no un estado: el proyecto sigue activo con responsable y fecha de desbloqueo."</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="lda-hub-footer" style="margin-top: 60px; padding: 30px 24px; border-top: 1px solid var(--border-color); background: var(--bg-card); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; max-width: 1200px; margin-left: auto; margin-right: auto; border-radius: 20px 20px 0 0; box-shadow: var(--shadow);">
+        <div style="display: flex; align-items: center; gap: 16px;">
+            <img src="../assets/img/logo_header_lda.png" alt="Línea Directa Aseguradora" style="height: 32px; width: auto; object-fit: contain;">
+            <div style="border-left: 2px solid var(--lda-red); padding-left: 12px;">
+                <div style="font-weight: 800; font-size: 0.95rem; color: var(--text-main); letter-spacing: -0.2px;">PMO PersCom · Metodología Oficial</div>
+                <div style="font-size: 0.8rem; color: var(--text-sec);">Línea Directa Aseguradora &bull; Rol del Coordinador</div>
+            </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 20px; font-size: 0.85rem;">
+            <a href="index.html" style="color: var(--lda-red); text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Hub PMO PersCom
+            </a>
+            <span style="color: var(--border-color);">|</span>
+            <span style="color: var(--text-sec);">&copy; 2026 Línea Directa</span>
+        </div>
+    </footer>
+
+    <script src="../assets/js/search_index_data.js"></script>
+    <script src="../assets/js/bitacora-core.js"></script>
+</body>
+</html>
