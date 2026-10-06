@@ -854,167 +854,44 @@ footer {
 }
 
 /* ==========================================================================
-   ILUMINACIÓN CROMÁTICA REACTIVA DE ICONOS (.card-visual) EN MODO CLARO
+   ILUMINACIÓN Y DIMENSIONES SUTILES DE ICONOS (.card-visual)
    ========================================================================== */
 .card-visual {
-    flex: 0 0 135px !important;
-    height: 135px !important;
+    flex: 0 0 68px !important;
+    height: 68px !important;
     width: 100% !important;
     margin-top: auto !important;
-    border-radius: 16px !important;
-    background: rgba(0, 0, 0, 0.02) !important;
-    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    border-radius: 12px !important;
+    background: rgba(204, 51, 51, 0.02) !important;
+    border: 1px solid rgba(204, 51, 51, 0.08) !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     position: relative !important;
     overflow: hidden !important;
-    transition: all 0.3s ease !important;
+    transition: all 0.25s ease !important;
     z-index: 2 !important;
 }
 
-/* Hover de tarjeta roja (Gestión Directa / HCM / Eficiencia RRHH) */
-#track-direct .apple-card .card-visual {
-    flex: 0 0 135px !important;
-    height: 135px !important;
-    width: 100% !important;
-    margin-top: auto !important;
-    border-radius: 16px !important;
-    background: rgba(0, 0, 0, 0.02) !important;
-    border: 1px solid rgba(0, 0, 0, 0.05) !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    position: relative !important;
-    overflow: hidden !important;
-    transition: all 0.3s ease !important;
-    z-index: 2 !important;
+.apple-card:hover .card-visual {
+    background: rgba(204, 51, 51, 0.04) !important;
+    border-color: rgba(204, 51, 51, 0.2) !important;
 }
 
-#track-direct .apple-card:hover .card-visual {
-    flex: 0 0 135px !important;
-    height: 135px !important;
-    width: 100% !important;
-    margin-top: auto !important;
-    border-radius: 16px !important;
-    background: rgba(0, 0, 0, 0.02) !important;
-    border: 1px solid rgba(0, 0, 0, 0.05) !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    position: relative !important;
-    overflow: hidden !important;
-    transition: all 0.3s ease !important;
-    z-index: 2 !important;
-}
-
-/* Hover de tarjetas ámbar (Facilitadores / Perseo, CRM, Telefonía, Siniestros) */
-#track-facilitator .apple-card .card-visual {
-    flex: 0 0 135px !important;
-    height: 135px !important;
-    width: 100% !important;
-    margin-top: auto !important;
-    border-radius: 16px !important;
-    background: rgba(0, 0, 0, 0.02) !important;
-    border: 1px solid rgba(0, 0, 0, 0.05) !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    position: relative !important;
-    overflow: hidden !important;
-    transition: all 0.3s ease !important;
-    z-index: 2 !important;
-}
-
-#track-facilitator .apple-card:hover .card-visual {
-    flex: 0 0 135px !important;
-    height: 135px !important;
-    width: 100% !important;
-    margin-top: auto !important;
-    border-radius: 16px !important;
-    background: rgba(0, 0, 0, 0.02) !important;
-    border: 1px solid rgba(0, 0, 0, 0.05) !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    position: relative !important;
-    overflow: hidden !important;
-    transition: all 0.3s ease !important;
-    z-index: 2 !important;
-}
-
-/* Hover de tarjetas azules (Servicios y Operativas / Gestión de Usuarios) */
-
-
-
-
-/* Hover de tarjetas púrpuras (Proyectos Cerrados / Gestión de la Información) */
-#track-closed .apple-card[style*="139, 92, 246"] .card-visual {
-    flex: 0 0 135px !important;
-    height: 135px !important;
-    width: 100% !important;
-    margin-top: auto !important;
-    border-radius: 16px !important;
-    background: rgba(0, 0, 0, 0.02) !important;
-    border: 1px solid rgba(0, 0, 0, 0.05) !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    position: relative !important;
-    overflow: hidden !important;
-    transition: all 0.3s ease !important;
-    z-index: 2 !important;
-}
-
-#track-closed .apple-card[style*="139, 92, 246"]:hover .card-visual {
-    flex: 0 0 135px !important;
-    height: 135px !important;
-    width: 100% !important;
-    margin-top: auto !important;
-    border-radius: 16px !important;
-    background: rgba(0, 0, 0, 0.02) !important;
-    border: 1px solid rgba(0, 0, 0, 0.05) !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    position: relative !important;
-    overflow: hidden !important;
-    transition: all 0.3s ease !important;
-    z-index: 2 !important;
-}
-
-/* Hover de tarjetas disabled en modo claro */
-.apple-card.disabled-card .card-visual {
-    flex: 0 0 135px !important;
-    height: 135px !important;
-    width: 100% !important;
-    margin-top: auto !important;
-    border-radius: 16px !important;
-    background: rgba(0, 0, 0, 0.02) !important;
-    border: 1px solid rgba(0, 0, 0, 0.05) !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    position: relative !important;
-    overflow: hidden !important;
-    transition: all 0.3s ease !important;
-    z-index: 2 !important;
-}
-
-/* Transición suave para SVGs en card-visual - Tamaño Proporcional y Simétrico */
 .card-visual svg {
-    width: 96px;
-    height: 96px;
-    max-width: 100px;
-    max-height: 100px;
-    display: block;
-    margin: auto;
-    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.4s ease;
+    width: 38px !important;
+    height: 38px !important;
+    max-width: 38px !important;
+    max-height: 38px !important;
+    display: block !important;
+    margin: auto !important;
+    filter: none !important;
+    transition: transform 0.25s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
 }
 
 .apple-card:hover .card-visual svg {
-    transform: scale(1.06);
-    filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.14));
+    transform: scale(1.06) !important;
+    filter: none !important;
 }
 
 /* BREADCRUMB - Smart Collapse Dropdown */
@@ -1382,25 +1259,27 @@ footer {
 }
 
 [data-theme="dark"] .card-visual {
-    flex: 0 0 135px !important;
-    height: 135px !important;
+    flex: 0 0 68px !important;
+    height: 68px !important;
     width: 100% !important;
-    margin-top: auto !important;
-    border-radius: 16px !important;
-    background: rgba(0, 0, 0, 0.02) !important;
-    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    margin-top: 14px !important;
+    border-radius: 12px !important;
+    background: rgba(224, 72, 72, 0.04) !important;
+    border: 1px solid rgba(224, 72, 72, 0.15) !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     position: relative !important;
     overflow: hidden !important;
-    transition: all 0.3s ease !important;
+    transition: all 0.25s ease !important;
     z-index: 2 !important;
 }
 
 [data-theme="dark"] .card-visual svg {
-    width: 96px !important;
-    height: 96px !important;
+    width: 38px !important;
+    height: 38px !important;
+    max-width: 38px !important;
+    max-height: 38px !important;
 }
 
 [data-theme="dark"] .apple-card:hover .card-visual {
@@ -3209,6 +3088,9 @@ body, button, input, select, textarea, .title, h1, h2, h3, h4 {
     background: var(--bg-card) !important;
     border: 1px solid var(--glass-border) !important;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03) !important;
+    padding: 24px !important;
+    display: flex !important;
+    flex-direction: column !important;
     transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
                 box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
                 border-color 0.28s ease !important;
@@ -3220,29 +3102,70 @@ body, button, input, select, textarea, .title, h1, h2, h3, h4 {
     box-shadow: 0 12px 28px rgba(204, 51, 51, 0.08), 0 4px 10px rgba(0, 0, 0, 0.03) !important;
 }
 
-/* Caja de icono (.card-visual) con fondo sutil y halo corporativo */
+.apple-card .kicker {
+    margin-bottom: 6px !important;
+    font-size: 0.72rem !important;
+    letter-spacing: 0.05em !important;
+}
+
+.apple-card .title {
+    font-size: 1.4rem !important;
+    font-weight: 700 !important;
+    margin: 0 0 8px 0 !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.01em !important;
+}
+
+.apple-card .desc {
+    font-size: 0.865rem !important;
+    line-height: 1.45 !important;
+    color: var(--text-sec) !important;
+    margin: 0 0 12px 0 !important;
+    flex-grow: 0 !important;
+}
+
+.apple-card .card-tags {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    margin-bottom: auto !important;
+}
+
+/* Caja de icono (.card-visual) con proporciones finas y armónicas estilo Línea Directa */
 .card-visual {
+    flex: 0 0 68px !important;
+    height: 68px !important;
+    width: 100% !important;
+    margin-top: 14px !important;
+    border-radius: 12px !important;
     background: rgba(204, 51, 51, 0.02) !important;
-    border: 1px solid rgba(204, 51, 51, 0.06) !important;
-    border-radius: 14px !important;
+    border: 1px solid rgba(204, 51, 51, 0.08) !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    transition: background 0.3s ease, border-color 0.3s ease !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: background 0.25s ease, border-color 0.25s ease !important;
 }
 
 .apple-card:hover .card-visual {
-    background: rgba(204, 51, 51, 0.05) !important;
-    border-color: rgba(204, 51, 51, 0.16) !important;
+    background: rgba(204, 51, 51, 0.04) !important;
+    border-color: rgba(204, 51, 51, 0.2) !important;
 }
 
 .card-visual svg {
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
-    filter: drop-shadow(0 2px 5px rgba(204, 51, 51, 0.08)) !important;
+    width: 38px !important;
+    height: 38px !important;
+    max-width: 38px !important;
+    max-height: 38px !important;
+    display: block !important;
+    margin: auto !important;
+    filter: none !important;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .apple-card:hover .card-visual svg {
-    transform: scale(1.08) !important;
+    transform: scale(1.06) !important;
 }
 
 /* Badges y Tags estilo Línea Directa */
@@ -3331,27 +3254,13 @@ html, body, button, input, select, textarea, .title, h1, h2, h3, h4, h5, h6, p, 
     color: var(--lda-red) !important;
 }
 
-.card-visual svg path[fill]:not([fill="none"]),
-.card-visual svg circle[fill]:not([fill="none"]),
-.card-visual svg rect[fill]:not([fill="none"]) {
-    fill: currentColor !important;
-}
-
-.card-visual svg path[stroke],
-.card-visual svg circle[stroke],
-.card-visual svg rect[stroke],
-.card-visual svg line[stroke] {
-    stroke: currentColor !important;
-}
-
-/* Halos de iconos 100% Línea Directa (Cero amarillo/azul/morado) */
+/* Halos limpios y sutiles (sin manchas borrosas) */
 .card-visual::after,
 [data-accent="red"] .card-visual::after,
 [data-accent="amber"] .card-visual::after,
 [data-accent="blue"] .card-visual::after,
 [data-accent="purple"] .card-visual::after {
-    background: var(--lda-red) !important;
-    opacity: 0.08 !important;
+    display: none !important;
 }
 
 /* Spotlights de tarjeta 100% Línea Directa */
