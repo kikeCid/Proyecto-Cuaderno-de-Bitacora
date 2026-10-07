@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha Ejecutiva: Reingeniería Siniestros | Proyectos Estratégicos LDA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/bitacora-core.css">
+    <style>
+        .strategic-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 28px;
+            margin: 32px 0 48px;
+        }
+
+        @media (max-width: 1024px) {
+            .strategic-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .executive-panel {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 32px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+        }
+
+        .panel-header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--lda-red);
+            background: rgba(228, 0, 43, 0.08);
+            padding: 6px 14px;
+            border-radius: 50px;
+            margin-bottom: 16px;
+        }
+
+        .panel-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin: 0 0 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .panel-lead {
+            font-size: 1.05rem;
+            line-height: 1.65;
+            color: var(--text-main);
+            margin-bottom: 24px;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+            margin-top: 24px;
+        }
+
+        .pillar-card {
+            background: var(--bg-app);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 20px;
+            border-left: 3px solid var(--lda-red);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-2px);
+            border-left-color: var(--lda-red);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+        }
+
+        .pillar-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pillar-desc {
+            font-size: 0.88rem;
+            line-height: 1.55;
+            color: var(--text-sec);
+            margin: 0;
+        }
+
+        .kpi-stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin: 20px 0;
+        }
+
+        .kpi-stat-card {
+            background: var(--bg-app);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .kpi-value {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--lda-red);
+            line-height: 1.1;
+        }
+
+        .kpi-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-sec);
+            margin-top: 6px;
+        }
+
+        .meta-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .meta-item {
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .meta-item:last-child {
+            border-bottom: none;
+        }
+
+        .meta-kicker {
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-sec);
+        }
+
+        .meta-val {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .subnav-bridge {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+            padding: 14px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+        }
+
+        .subnav-bridge-link {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--lda-red);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .subnav-bridge-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper">
+        <div class="nav-breadcrumb">
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item" title="Inicio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html#seccion-estrategicos" class="nav-breadcrumb-item">Proyectos Estratégicos</a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <a href="index.html" class="nav-breadcrumb-item">Reingeniería Siniestros</a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <span class="nav-breadcrumb-item current">Ficha Ejecutiva</span>
+        </div>
+    </nav>
+
+    <!-- THEME TOGGLE -->
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label">MODO OSCURO</span>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-checkbox" onchange="toggleTheme()">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <main class="container">
+        <!-- HERO SECTION -->
+        <header class="hero">
+            <div class="hero-top-badges">
+                <span class="hero-badge">Marco Estratégico & Operativo</span>
+                <span class="hero-badge-local">Gobernanza PMO</span>
+            </div>
+            <h1>Ficha Ejecutiva <br><span>Reingeniería Siniestros</span></h1>
+            <p>Revisión integral del proceso de motor, triaje inteligente STP, red de talleres y transparencia pericial.</p>
+
+            <div class="subnav-bridge">
+                <a href="index.html" class="subnav-bridge-link">
+                    &larr; Volver al Hub Principal del Proyecto
+                </a>
+                <a href="press_release.html" class="subnav-bridge-link">
+                    📄 Ver Comunicado Oficial y Visión &rarr;
+                </a>
+            </div>
+        </header>
+
+        <!-- LAYOUT ESTRATÉGICO: FICHA EJECUTIVA & GOBERNANZA PMO -->
+<div class="strategic-grid">
+            <!-- PANEL PRINCIPAL: FICHA TÉCNICA Y MARCO OPERATIVO -->
+            <section class="executive-panel">
+                <div class="panel-header-badge">
+                    <span class="kicker-dot" style="width: 7px; height: 7px; background: var(--lda-red); border-radius: 50%;"></span>
+                    Ficha Ejecutiva · Marco Estratégico y Operativo
+                </div>
+                <h2 class="panel-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color: var(--lda-red);">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                    </svg>
+                    El Momento de la Verdad: Generar Confianza en el Siniestro
+                </h2>
+                <p class="panel-lead">
+                    Motor es el corazón del negocio de Línea Directa. Históricamente, cuando un cliente abría un parte entraba en un proceso opaco: no sabía si el expediente avanzaba, quién lo gestionaba ni cuándo vendría el perito, viéndose obligado a llamar repetidamente a la sala para averiguar el estado de su vehículo.
+                </p>
+                <p style="color: var(--text-sec); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;">
+                    El nuevo modelo clasifica automáticamente cada expediente desde el segundo cero: los siniestros sencillos fluyen por <strong>vía ágil STP (Straight-Through Processing)</strong> con intervención mínima; los de complejidad media cuentan con copilotos de asistencia en tiempo real al tramitador; y los complejos (lesiones graves, fraude o disputas complejas) van directamente al especialista con la información ya estructurada.
+                </p>
+
+                <!-- ENLACE AL COMUNICADO OFICIAL -->
+                <div style="margin: 20px 0 28px; padding: 16px 20px; background: var(--bg-app); border-left: 4px solid var(--lda-red); border-radius: 8px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+                    <div>
+                        <strong style="color: var(--text-main); font-size: 0.92rem;">¿Deseas consultar el anuncio institucional completo y las preguntas frecuentes?</strong>
+                        <p style="margin: 3px 0 0; color: var(--text-sec); font-size: 0.85rem;">Accede al comunicado oficial de lanzamiento con declaraciones de dirección y resolución de dudas habituales.</p>
+                    </div>
+                    <a href="press_release.html" style="font-size: 0.88rem; font-weight: 700; color: var(--lda-red); text-decoration: none; padding: 6px 14px; border: 1px solid var(--lda-red); border-radius: 6px; white-space: nowrap;">Ver Comunicado Oficial &rarr;</a>
+                </div>
+
+                <!-- PILARES DE TRANSFORMACIÓN -->
+                <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin: 30px 0 16px;">
+                    Cuatro Ejes de Transformación del Ciclo del Siniestro
+                </h3>
+                <div class="pillars-grid">
+                    <div class="pillar-card">
+                        <div class="pillar-title">
+                            <span style="color: var(--lda-red); font-weight: 900;">01</span>
+                            Triaje STP Inteligente
+                        </div>
+                        <p class="pillar-desc">
+                            Clasificación instantánea en la apertura (FNOL): circuitos rápidos desasistidos vs tramitación asistida vs especialista en sala.
+                        </p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-title">
+                            <span style="color: var(--lda-red); font-weight: 900;">02</span>
+                            Peritación Digital Ágil
+                        </div>
+                        <p class="pillar-desc">
+                            Teleperitación fotográfica, video-peritación y valoración automatizada de daños para acelerar la entrada del vehículo en taller.
+                        </p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-title">
+                            <span style="color: var(--lda-red); font-weight: 900;">03</span>
+                            Red de Talleres Colaboradores
+                        </div>
+                        <p class="pillar-desc">
+                            Acuerdos estratégicos de calidad con talleres concertados, canalización preferente, coche de sustitución y garantía de reparación.
+                        </p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-title">
+                            <span style="color: var(--lda-red); font-weight: 900;">04</span>
+                            Información Proactiva
+                        </div>
+                        <p class="pillar-desc">
+                            El cliente sabe en todo momento lo que va a pasar y cuándo a través de la App y WhatsApp, erradicando llamadas de seguimiento.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- GESTIÓN DEL CAMBIO Y PERSONAS -->
+                <div style="margin-top: 32px; padding: 22px; background: rgba(228,0,43,0.03); border-radius: 14px; border: 1px solid rgba(228,0,43,0.15);">
+                    <h4 style="margin: 0 0 10px; color: var(--lda-red); font-weight: 800; font-size: 1rem; display: flex; align-items: center; gap: 8px;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        Impacto en Tramitadores & Conexión con Perseo IA
+                    </h4>
+                    <p style="margin: 0; font-size: 0.92rem; line-height: 1.6; color: var(--text-main);">
+                        La PMO PersCom monitoriza el impacto del modelo To-Be en las salas de tramitación. La integración con <strong>Perseo</strong> permite auditar motivos de llamada y transferencias de IVR, eliminando tareas manuales repetitivas y permitiendo al tramitador enfocarse en la resolución de calidad.
+                    </p>
+                </div>
+            </section>
+
+            <!-- PANEL LATERAL: FICHA EJECUTIVA PMO -->
+            <aside class="executive-panel">
+                <div class="panel-header-badge" style="color: var(--text-sec); background: var(--bg-app);">
+                    Gobernanza PMO
+                </div>
+                <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin-bottom: 20px;">
+                    Ficha de Proyecto
+                </h3>
+
+                <ul class="meta-list">
+                    <li class="meta-item">
+                        <span class="meta-kicker">Coordinación PMO PersCom</span>
+                        <span class="meta-val">Arancha Fernández (Backup: Eduardo Castro)</span>
+                    </li>
+                    <li class="meta-item">
+                        <span class="meta-kicker">Consultora Estratégica</span>
+                        <span class="meta-val">BIP Consulting (Adjudicatario Concurso)</span>
+                    </li>
+                    <li class="meta-item">
+                        <span class="meta-kicker">Herramientas Analíticas</span>
+                        <span class="meta-val">Process Mining (Celonis) & BIP CLAIRE</span>
+                    </li>
+                    <li class="meta-item">
+                        <span class="meta-kicker">Estado en Portfolio</span>
+                        <span class="meta-val" style="color: #10b981; display: flex; align-items: center; gap: 6px;">
+                            <span style="width: 8px; height: 8px; background: #10b981; border-radius: 50%;"></span>
+                            En Curso · Semáforo Verde
+                        </span>
+                    </li>
+                    <li class="meta-item">
+                        <span class="meta-kicker">Quick Wins Desplegados</span>
+                        <span class="meta-val">Alertas CICOS, expedientes SDM, clasificación</span>
+                    </li>
+                </ul>
+
+                <h4 style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; color: var(--text-sec); margin: 28px 0 12px;">
+                    Volumetría de Impacto
+                </h4>
+                <div class="kpi-stat-grid">
+                    <div class="kpi-stat-card">
+                        <div class="kpi-value">>400K</div>
+                        <div class="kpi-label">Siniestros / Año</div>
+                    </div>
+                    <div class="kpi-stat-card">
+                        <div class="kpi-value">>600M€</div>
+                        <div class="kpi-label">Coste Técnico</div>
+                    </div>
+                    <div class="kpi-stat-card">
+                        <div class="kpi-value">STP</div>
+                        <div class="kpi-label">Triaje Automático</div>
+                    </div>
+                    <div class="kpi-stat-card">
+                        <div class="kpi-value">Top NPS</div>
+                        <div class="kpi-label">Satisfacción Cliente</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 28px; text-align: center; display: flex; flex-direction: column; gap: 10px;">
+                    <a href="press_release.html" class="hero-badge" style="text-decoration: none; display: block; padding: 12px; background: var(--lda-red); color: #fff;">
+                        📄 Ver Comunicado Oficial
+                    </a>
+                    <a href="../Cuaderno de Bitacora (Proyectos)/index.html#seccion-estrategicos" class="hero-badge" style="text-decoration: none; display: block; padding: 12px; background: var(--bg-app); color: var(--text-main); border: 1px solid var(--border-color);">
+                        ← Volver a Proyectos Estratégicos
+                    </a>
+                </div>
+            </aside>
+        </div>
+
+        <!-- SECCIÓN DE ANTECEDENTES Y PROPUESTAS DE LICITACIÓN -->
+        <div style="margin: 40px 0 20px;">
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--lda-red);">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+                Antecedentes de Licitación & Propuestas de Consultoría
+            </h3>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 48px;">
+            <div class="history-box">
+                <div style="font-weight: 800; color: var(--lda-red); margin-bottom: 8px; font-size: 1.05rem;">BIP Consulting (Propuesta Seleccionada)</div>
+                <p style="font-size: 0.9rem; line-height: 1.6; color: var(--text-sec); margin: 0 0 12px;">
+                    Propuesta focalizada en minería de procesos (Celonis) para diagnóstico operativo objetivo, acompañada de IA generativa aplicada al reporting y cuadro de mando operativo (BIP CLAIRE).
+                </p>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <span class="tech-tag">BIP CLAIRE</span>
+                    <span class="tech-tag">Process Mining</span>
+                    <span class="tech-tag">Close File Review</span>
+                </div>
+            </div>
+
+            <div class="history-box">
+                <div style="font-weight: 800; color: var(--text-main); margin-bottom: 8px; font-size: 1.05rem;">McKinsey & Company (Propuesta Alternativa)</div>
+                <p style="font-size: 0.9rem; line-height: 1.6; color: var(--text-sec); margin: 0 0 12px;">
+                    Enfoque de alto impacto financiero con potencial de 20-25M€ de ahorro siniestral, apalancado en activos propietarios como InsureX, benchmark Finalta y metodología L-Gate.
+                </p>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <span class="tech-tag">InsureX</span>
+                    <span class="tech-tag">Finalta Benchmark</span>
+                    <span class="tech-tag">Metodología L-Gate</span>
+                </div>
+            </div>
+        </div>
+    
+    </main>
+
+    <!-- FOOTER OFICIAL -->
+    <footer class="app-footer">
+        <div class="footer-bottom">
+            <span>&copy; 2026 Línea Directa Aseguradora S.A. &mdash; Oficina de Transformación & Gestión del Cambio</span>
+        </div>
+    </footer>
+
+    <script src="../assets/js/search_index_data.js"></script>
+    <script src="../assets/js/bitacora-core.js"></script>
+    <script>
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            localStorage.setItem('bitacora-theme', newTheme);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,6 +1,16 @@
 /** ÍNDICE DE BÚSQUEDA AUTOGENERADO - Cuaderno de Bitácora **/
 window.BITACORA_SEARCH_INDEX = [
   {
+    "id": "CRM Operacional/press_release.html",
+    "title": "Comunicado Oficial: CRM Operacional | Proyectos Estratégicos LDA",
+    "h1": "CRM Operacional & Modelo 360° Omnicanal",
+    "kicker": "Iniciativa Estratégica Corporativa",
+    "desc": "Línea Directa lanza un nuevo modelo de atención diseñado para que cada asegurado se sienta tratado como el cliente más importante de la compañía. Cualquier a...",
+    "project": "CRM Operacional",
+    "category": "Estratégicos",
+    "url": "../CRM Operacional/press_release.html"
+  },
+  {
     "id": "CRM Operacional/contexto_proyecto.html",
     "title": "Contexto del Proyecto | CRM Operacional",
     "h1": "Contexto del Proyecto",
@@ -141,11 +151,21 @@ window.BITACORA_SEARCH_INDEX = [
     "url": "../CRM Operacional/adjudicacion_final.html"
   },
   {
+    "id": "CRM Operacional/ficha_ejecutiva.html",
+    "title": "Ficha Ejecutiva: CRM Operacional | Proyectos Estratégicos LDA",
+    "h1": "Ficha Ejecutiva CRM Operacional",
+    "kicker": "Marco Estratégico & Operativo",
+    "desc": "Diagnóstico de situación, los 4 pilares de arquitectura FSC, impacto en personas y gobernanza PMO.",
+    "project": "CRM Operacional",
+    "category": "Estratégicos",
+    "url": "../CRM Operacional/ficha_ejecutiva.html"
+  },
+  {
     "id": "CRM Operacional/index.html",
     "title": "Hub de CRM Operacional | Proyectos Estratégicos LDA",
     "h1": "Hub de Gestión CRM Operacional",
     "kicker": "Iniciativa Estratégica Corporativa",
-    "desc": "Diagnóstico de situación, objetivos y análisis comparativo de plataformas (Dynamics vs Salesforce) junto al roadmap de despliegue.",
+    "desc": "Declaración institucional y visión estratégica: el asegurado en el centro, atención resolutiva en primer contacto y fin de los silos comerciales.",
     "project": "CRM Operacional",
     "category": "Estratégicos",
     "url": "../CRM Operacional/index.html"
@@ -591,11 +611,31 @@ window.BITACORA_SEARCH_INDEX = [
     "url": "../Gobierno de Informacion/Lidia/hub_lidia.html"
   },
   {
+    "id": "Gobierno del Dato/press_release.html",
+    "title": "Comunicado Oficial: Gobierno del Dato & Plataforma Analítica | Proyectos Estratégicos LDA",
+    "h1": "Gobierno del Dato & Plataforma Analítica",
+    "kicker": "Iniciativa Estratégica Corporativa",
+    "desc": "Una sola verdad, una sola plataforma y analistas preparados. Transformación del ciclo completo del dato en Línea Directa: gobernanza por dominios de negocio,...",
+    "project": "Gobierno del Dato",
+    "category": "Estratégicos",
+    "url": "../Gobierno del Dato/press_release.html"
+  },
+  {
+    "id": "Gobierno del Dato/ficha_ejecutiva.html",
+    "title": "Ficha Ejecutiva: Gobierno del Dato | Proyectos Estratégicos LDA",
+    "h1": "Ficha Ejecutiva Gobierno del Dato",
+    "kicker": "Marco Estratégico & Operativo",
+    "desc": "Democratización del dato, gobierno federado, calidad corporativa y casos de uso de IA analítica.",
+    "project": "Gobierno del Dato",
+    "category": "Estratégicos",
+    "url": "../Gobierno del Dato/ficha_ejecutiva.html"
+  },
+  {
     "id": "Gobierno del Dato/index.html",
     "title": "Gobierno del Dato & Plataforma Analítica | Proyectos Estratégicos LDA",
     "h1": "Gobierno del Dato & Plataforma Analítica",
     "kicker": "Iniciativa Estratégica Corporativa",
-    "desc": "Una sola verdad, una sola plataforma y analistas preparados. Transformación del ciclo completo del dato en Línea Directa: gobernanza por dominios de negocio,...",
+    "desc": "Declaración institucional y visión estratégica: una sola verdad, una sola plataforma analítica unificada y gobernanza formal por dominios certificados.",
     "project": "Gobierno del Dato",
     "category": "Estratégicos",
     "url": "../Gobierno del Dato/index.html"
@@ -931,11 +971,31 @@ window.BITACORA_SEARCH_INDEX = [
     "url": "../IA Area Personas/kronos_vision.html"
   },
   {
+    "id": "IA Voz y Chat/press_release.html",
+    "title": "Comunicado Oficial: IA en Voz & Chat Digital | Proyectos Estratégicos LDA",
+    "h1": "IA en Voz & Chat Digital",
+    "kicker": "Iniciativa Estratégica Corporativa",
+    "desc": "Agentes conversacionales inteligentes no deterministas en voz y chat. Reducción a cero del abandono en picos telefónicos y resolución desasistida de más del ...",
+    "project": "IA Voz y Chat",
+    "category": "Estratégicos",
+    "url": "../IA Voz y Chat/press_release.html"
+  },
+  {
+    "id": "IA Voz y Chat/ficha_ejecutiva.html",
+    "title": "Ficha Ejecutiva: IA en Voz y Chat | Proyectos Estratégicos LDA",
+    "h1": "Ficha Ejecutiva IA en Voz y Chat",
+    "kicker": "Marco Estratégico & Operativo",
+    "desc": "Automatización conversacional de primer contacto, copiloto de operadores y modelos lingüísticos especializados.",
+    "project": "IA Voz y Chat",
+    "category": "Estratégicos",
+    "url": "../IA Voz y Chat/ficha_ejecutiva.html"
+  },
+  {
     "id": "IA Voz y Chat/index.html",
     "title": "IA en Voz & Chat Digital | Proyectos Estratégicos LDA",
     "h1": "IA en Voz & Chat Digital",
     "kicker": "Iniciativa Estratégica Corporativa",
-    "desc": "Agentes conversacionales inteligentes no deterministas en voz y chat. Reducción a cero del abandono en picos telefónicos y resolución desasistida de más del ...",
+    "desc": "Declaración institucional y visión estratégica: agentes conversacionales inteligentes en voz y chat, cero abandono y resolución desasistida.",
     "project": "IA Voz y Chat",
     "category": "Estratégicos",
     "url": "../IA Voz y Chat/index.html"
@@ -1061,14 +1121,44 @@ window.BITACORA_SEARCH_INDEX = [
     "url": "../Perseo/vision_objetivos.html"
   },
   {
+    "id": "Reingenieria Siniestros/press_release.html",
+    "title": "Comunicado Oficial: Reingeniería Siniestros Motor | Proyectos Estratégicos LDA",
+    "h1": "Reingeniería Operativa Siniestros Motor",
+    "kicker": "Iniciativa Estratégica Corporativa",
+    "desc": "Línea Directa ofrece el mejor servicio de siniestros del mercado tras transformar su operación de motor: más de 400.000 siniestros al año gestionados con más...",
+    "project": "Reingenieria Siniestros",
+    "category": "Estratégicos",
+    "url": "../Reingenieria Siniestros/press_release.html"
+  },
+  {
+    "id": "Reingenieria Siniestros/ficha_ejecutiva.html",
+    "title": "Ficha Ejecutiva: Reingeniería Siniestros | Proyectos Estratégicos LDA",
+    "h1": "Ficha Ejecutiva Reingeniería Siniestros",
+    "kicker": "Marco Estratégico & Operativo",
+    "desc": "Revisión integral del proceso de motor, triaje inteligente STP, red de talleres y transparencia pericial.",
+    "project": "Reingenieria Siniestros",
+    "category": "Estratégicos",
+    "url": "../Reingenieria Siniestros/ficha_ejecutiva.html"
+  },
+  {
     "id": "Reingenieria Siniestros/index.html",
     "title": "Hub de Reingeniería de Siniestros Motor | Proyectos Estratégicos LDA",
     "h1": "Reingeniería de Siniestros Motor",
     "kicker": "Iniciativa Estratégica Corporativa",
-    "desc": "Transformación estructural del proceso de siniestros de motor de Línea Directa. Más de 400.000 expedientes anuales y 600 millones de euros de coste técnico g...",
+    "desc": "Declaración institucional y visión estratégica: más de 400.000 siniestros anuales con triaje inteligente STP, peritación digital y transparencia total.",
     "project": "Reingenieria Siniestros",
     "category": "Estratégicos",
     "url": "../Reingenieria Siniestros/index.html"
+  },
+  {
+    "id": "Telefonia - Genesis CX/press_release.html",
+    "title": "Comunicado Oficial: Telefonía Genesys CX | Proyectos Estratégicos LDA",
+    "h1": "Telefonía Cloud CX & Plataforma Genesys",
+    "kicker": "Iniciativa Estratégica Corporativa",
+    "desc": "Línea Directa reemplaza 30 años de telefonía on-premise por una plataforma en la nube que permite escuchar y entender las necesidades del cliente, tal y como...",
+    "project": "Telefonia - Genesis CX",
+    "category": "Estratégicos",
+    "url": "../Telefonia - Genesis CX/press_release.html"
   },
   {
     "id": "Telefonia - Genesis CX/contexto_proyecto.html",
@@ -1081,11 +1171,21 @@ window.BITACORA_SEARCH_INDEX = [
     "url": "../Telefonia - Genesis CX/contexto_proyecto.html"
   },
   {
+    "id": "Telefonia - Genesis CX/ficha_ejecutiva.html",
+    "title": "Ficha Ejecutiva: Telefonía Genesys CX | Proyectos Estratégicos LDA",
+    "h1": "Ficha Ejecutiva Telefonía Genesys CX",
+    "kicker": "Marco Estratégico & Operativo",
+    "desc": "Migración de 30 años de telefonía a la nube, 15M de llamadas, IVR conversacional y gestión del cambio.",
+    "project": "Telefonia - Genesis CX",
+    "category": "Estratégicos",
+    "url": "../Telefonia - Genesis CX/ficha_ejecutiva.html"
+  },
+  {
     "id": "Telefonia - Genesis CX/index.html",
     "title": "Hub de Telefonía CX: Genesys Cloud | Proyectos Estratégicos LDA",
     "h1": "Hub de Telefonía Genesys Cloud CX",
     "kicker": "Iniciativa Estratégica Corporativa",
-    "desc": "Información consolidada a partir del informe de Estado de Áreas, incluyendo objetivos de negocio y situación actual de la implantación.",
+    "desc": "Declaración institucional y visión estratégica: 30 años de telefonía evolucionados a Genesys Cloud sobre AWS, 15M llamadas y 2.000 operadores.",
     "project": "Telefonia - Genesis CX",
     "category": "Estratégicos",
     "url": "../Telefonia - Genesis CX/index.html"
@@ -1101,31 +1201,91 @@ window.BITACORA_SEARCH_INDEX = [
     "url": "../Telefonia - Genesis CX/roadmap.html"
   },
   {
-    "id": "Transformacion Agile/index.html",
-    "title": "Transformación Organizacional: Nuevas Formas de Trabajar | Proyectos Estratégicos LDA",
+    "id": "Transformacion Agile/press_release.html",
+    "title": "Comunicado Oficial: Transformación Organizacional (Agile) | Proyectos Estratégicos LDA",
     "h1": "Transformación Organizacional Nuevas Formas de Trabajar",
     "kicker": "Iniciativa Estratégica Corporativa",
     "desc": "Multiplicar por dos la capacidad de entrega de valor de Línea Directa. Alineamiento integral de Tecnología, Transformación y Negocio mediante equipos multidi...",
     "project": "Transformacion Agile",
     "category": "Estratégicos",
+    "url": "../Transformacion Agile/press_release.html"
+  },
+  {
+    "id": "Transformacion Agile/ficha_ejecutiva.html",
+    "title": "Ficha Ejecutiva: Transformación Agile | Proyectos Estratégicos LDA",
+    "h1": "Ficha Ejecutiva Transformación Agile",
+    "kicker": "Marco Estratégico & Operativo",
+    "desc": "Evolución organizativa, autonomía de squads, cadencia trimestral de valor y gestión cultural del cambio.",
+    "project": "Transformacion Agile",
+    "category": "Estratégicos",
+    "url": "../Transformacion Agile/ficha_ejecutiva.html"
+  },
+  {
+    "id": "Transformacion Agile/index.html",
+    "title": "Transformación Organizacional: Nuevas Formas de Trabajar | Proyectos Estratégicos LDA",
+    "h1": "Transformación Organizacional Nuevas Formas de Trabajar",
+    "kicker": "Iniciativa Estratégica Corporativa",
+    "desc": "Declaración institucional y visión estratégica: nuevas formas de trabajar para duplicar la capacidad de entrega de valor mediante equipos multidisciplinares ...",
+    "project": "Transformacion Agile",
+    "category": "Estratégicos",
     "url": "../Transformacion Agile/index.html"
+  },
+  {
+    "id": "Transformacion Hogar/press_release.html",
+    "title": "Comunicado Oficial: Transformación Hogar | Proyectos Estratégicos LDA",
+    "h1": "Transformación de Seguros de Hogar",
+    "kicker": "Iniciativa Estratégica Corporativa",
+    "desc": "Convertir a Línea Directa en el referente número 1 en calidad de servicio del ramo de Hogar en España: el cliente sabe en todo momento qué cubre su seguro, q...",
+    "project": "Transformacion Hogar",
+    "category": "Estratégicos",
+    "url": "../Transformacion Hogar/press_release.html"
+  },
+  {
+    "id": "Transformacion Hogar/ficha_ejecutiva.html",
+    "title": "Ficha Ejecutiva: Transformación Hogar | Proyectos Estratégicos LDA",
+    "h1": "Ficha Ejecutiva Transformación Hogar",
+    "kicker": "Marco Estratégico & Operativo",
+    "desc": "Redefinición del servicio de siniestros hogar, acuerdos de nivel de servicio (SLA) y satisfacción del cliente.",
+    "project": "Transformacion Hogar",
+    "category": "Estratégicos",
+    "url": "../Transformacion Hogar/ficha_ejecutiva.html"
   },
   {
     "id": "Transformacion Hogar/index.html",
     "title": "Transformación Hogar: Calidad de Servicio | Proyectos Estratégicos LDA",
     "h1": "Transformación de Seguros de Hogar",
     "kicker": "Iniciativa Estratégica Corporativa",
-    "desc": "Convertir a Línea Directa en el referente del mercado español en calidad de servicio de Hogar. Erradicación de las causas históricas de insatisfacción, migra...",
+    "desc": "Declaración institucional y visión estratégica: N.º 1 en calidad de servicio en Seguros de Hogar, erradicación de causas de insatisfacción y trazabilidad con...",
     "project": "Transformacion Hogar",
     "category": "Estratégicos",
     "url": "../Transformacion Hogar/index.html"
+  },
+  {
+    "id": "Transformacion Salud/press_release.html",
+    "title": "Comunicado Oficial: Relanzamiento del Negocio de Salud | Proyectos Estratégicos LDA",
+    "h1": "Relanzamiento del Negocio de Salud",
+    "kicker": "Iniciativa Estratégica Corporativa",
+    "desc": "Salto cualitativo para los 75.000 asegurados de Línea Directa de la mano de HNA: cuadro médico de primer nivel, medicina online integrada, autorizaciones ins...",
+    "project": "Transformacion Salud",
+    "category": "Estratégicos",
+    "url": "../Transformacion Salud/press_release.html"
+  },
+  {
+    "id": "Transformacion Salud/ficha_ejecutiva.html",
+    "title": "Ficha Ejecutiva: Transformación Salud | Proyectos Estratégicos LDA",
+    "h1": "Ficha Ejecutiva Transformación Salud",
+    "kicker": "Marco Estratégico & Operativo",
+    "desc": "Relanzamiento de la propuesta de salud, nuevo modelo de gestión con HNA y optimización de cuadros médicos.",
+    "project": "Transformacion Salud",
+    "category": "Estratégicos",
+    "url": "../Transformacion Salud/ficha_ejecutiva.html"
   },
   {
     "id": "Transformacion Salud/index.html",
     "title": "Relanzamiento del Negocio de Salud | Proyectos Estratégicos LDA",
     "h1": "Relanzamiento del Negocio de Salud",
     "kicker": "Iniciativa Estratégica Corporativa",
-    "desc": "Salto cualitativo para 75.000 asegurados de la mano de HNA. Nuevo cuadro médico de primer nivel, medicina online integrada con la presencial, autorizaciones ...",
+    "desc": "Declaración institucional y visión estratégica: relanzamiento de Salud con HNA para 75.000 asegurados, cuadro médico ampliado, telemedicina y autorizaciones ...",
     "project": "Transformacion Salud",
     "category": "Estratégicos",
     "url": "../Transformacion Salud/index.html"

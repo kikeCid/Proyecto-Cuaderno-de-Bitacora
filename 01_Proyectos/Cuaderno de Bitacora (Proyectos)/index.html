@@ -27,8 +27,14 @@
                 <img src="../assets/img/logo_header_lda.png" alt="Línea Directa Aseguradora" class="island-logo-img">
             </div>
             <div class="island-title">
-                <span class="island-portal-name">Cuaderno de Bitácora</span>
-                <span class="island-badge">Command Center v2.4</span>
+                <div class="island-title-row">
+                    <span class="island-portal-name">Cuaderno de Bitácora</span>
+                    <span class="island-title-separator">/</span>
+                    <span class="island-control-pill">
+                        <span class="island-control-dot"></span>
+                        Centro de Control
+                    </span>
+                </div>
             </div>
         </a>
 
@@ -41,6 +47,14 @@
                 </svg>
                 <span>Buscar</span>
                 <span class="kbd-hint">Ctrl K</span>
+            </button>
+
+            <button class="island-admin-btn" id="btn-admin-drawer" onclick="BitacoraAdmin.openDrawer()" title="Centro de Gestión y Estados del Portfolio (G)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                </svg>
+                <span>Gestión Estados</span>
             </button>
 
             <button class="island-theme-btn" id="theme-toggle-btn" onclick="toggleTheme()" title="Alternar Modo Oscuro (D)">
@@ -78,13 +92,49 @@
             <p>Ecosistema centralizado de documentación técnica, wikis funcionales y seguimiento de proyectos de Línea Directa Aseguradora.</p>
         </header>
 
+        <!-- FRANJA EJECUTIVA DE INDICADORES (HOME BITÁCORA) -->
+        <div class="executive-stats-strip">
+            <div class="kpi-clean-card">
+                <span class="kpi-clean-label">Total Proyectos</span>
+                <div class="kpi-clean-value" data-count="14">14</div>
+                <span class="kpi-clean-sub">Iniciativas activas</span>
+            </div>
+
+            <div class="kpi-clean-card">
+                <span class="kpi-clean-label">Estratégicos</span>
+                <div class="kpi-clean-value value-accent-red" data-count="8">8</div>
+                <span class="kpi-clean-sub">Prioridad corporativa</span>
+            </div>
+
+            <div class="kpi-clean-card">
+                <span class="kpi-clean-label">Gestión Directa</span>
+                <div class="kpi-clean-value" data-count="3">3</div>
+                <span class="kpi-clean-sub">Área de Personas</span>
+            </div>
+
+            <div class="kpi-clean-card kpi-card-clickable" onclick="openLicitacionesModal()" title="Pulsar para ver los proyectos en licitación">
+                <div class="kpi-clean-header-interactive">
+                    <span class="kpi-clean-label">En Licitación</span>
+                    <span class="kpi-clean-action">
+                        Ver proyectos
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </span>
+                </div>
+                <div class="kpi-clean-value value-accent-amber" data-count="1">1</div>
+                <span class="kpi-clean-sub">Concurso y pliegos abiertos</span>
+            </div>
+        </div>
+
         <!-- CENTRO DE CONTROL DE FILTRADO Y VISTAS (SEGMENTED CONTROL) -->
         <div class="view-controls-bar">
             <!-- Segmented Control de Filtrado por Carril -->
             <div class="filter-segments">
                 <button class="filter-chip active" onclick="filterPortfolio('all', this)">
                     <span>Todos</span>
-                    <span class="filter-count">17</span>
+                    <span class="filter-count">14</span>
                 </button>
                 <button class="filter-chip" onclick="filterPortfolio('direct', this)">
                     <span class="filter-dot dot-red"></span>
@@ -113,7 +163,7 @@
                 </button>
             </div>
 
-            <!-- Switcher de Vistas (Carrusel vs Bento Grid) -->
+            <!-- Switcher de Vistas (Carrusel vs Mosaico) -->
             <div class="view-mode-toggle">
                 <button class="view-btn active" id="btn-view-carousel" onclick="setViewMode('carousel')" title="Vista Carrusel Showcase">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -123,14 +173,14 @@
                     </svg>
                     <span>Carrusel</span>
                 </button>
-                <button class="view-btn" id="btn-view-grid" onclick="setViewMode('grid')" title="Vista Bento Grid Matriz (B)">
+                <button class="view-btn" id="btn-view-grid" onclick="setViewMode('grid')" title="Vista Mosaico Cuadrícula (B)">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="3" y="3" width="7" height="7"></rect>
                         <rect x="14" y="3" width="7" height="7"></rect>
                         <rect x="14" y="14" width="7" height="7"></rect>
                         <rect x="3" y="14" width="7" height="7"></rect>
                     </svg>
-                    <span>Bento Grid</span>
+                    <span>Mosaico</span>
                     <span class="kbd-hint">B</span>
                 </button>
             </div>
@@ -161,11 +211,12 @@
                 </button>
                 <div class="carousel-track" id="track-direct" onscroll="updateCarouselButtons(this)">
                     <!-- Evolución HCM Cloud -->
-                    <a href="../HCM/index.html" class="apple-card" data-accent="red">
+                    <a href="../HCM/index.html" id="card-hcm" class="apple-card" data-accent="red" data-licitacion="true">
                         <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> GESTIÓN DIRECTA</div>
                         <h3 class="title">Evolución HCM Cloud</h3>
                         <p class="desc">Núcleo integral de RR.HH. Migración estratégica de PeopleSoft a Oracle Cloud Fusion, optimizando la gestión del talento, nóminas y estructura organizativa.</p>
                         <div class="card-tags">
+                            <span class="tech-tag" style="background: rgba(245, 158, 11, 0.12); color: #b45309; border-color: rgba(245, 158, 11, 0.3);">Licitación</span>
                             <span class="tech-tag">Oracle Cloud HCM</span>
                             <span class="tech-tag">Gestión Talento</span>
                             <span class="tech-tag">Nóminas</span>
@@ -189,7 +240,7 @@
                     </a>
 
                     <!-- Transformación y Eficiencia RRHH -->
-                    <a href="../IA Area Personas/index.html" class="apple-card" data-accent="red">
+                    <a href="../IA Area Personas/index.html" id="card-ia-personas" class="apple-card" data-accent="red">
                         <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> PENDIENTE APROBACIÓN</div>
                         <h3 class="title">Eficiencia RRHH & IA</h3>
                         <p class="desc">Iniciativa estratégica para automatización de consultas internas, asistentes cognitivos con LidIA y optimización operativa en gestión de personas.</p>
@@ -208,7 +259,7 @@
                     </a>
 
                     <!-- Oficina de Proyectos Perscom (PMO) -->
-                    <a href="../PMO Perscom/index.html" class="apple-card" data-accent="red">
+                    <a href="../PMO Perscom/index.html" id="card-pmo-perscom" class="apple-card" data-accent="red">
                         <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> GESTIÓN DIRECTA</div>
                         <h3 class="title">PMO PersCom</h3>
                         <p class="desc">Oficina de Gestión de Proyectos desde Personas: anticipación de impactos organizativos, sincronización entre PMOs y modelo 360°.</p>
@@ -267,7 +318,7 @@
                 </button>
                 <div class="carousel-track" id="track-strategic" onscroll="updateCarouselButtons(this)">
                     <!-- 1. CRM Operacional -->
-                    <a href="../CRM Operacional/index.html" class="apple-card" data-accent="red">
+                    <a href="../CRM Operacional/index.html" id="card-crm-operacional" class="apple-card" data-accent="red">
                         <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> PROYECTO ESTRATÉGICO</div>
                         <h3 class="title">CRM Operacional</h3>
                         <p class="desc">Nuevo modelo de atención 360° omnicanal en Salesforce FSC. Elimina silos y repeticiones con contexto en tiempo real e IA integrada.</p>
@@ -285,7 +336,7 @@
                     </a>
 
                     <!-- 2. Telefonía - Genesys Cloud CX -->
-                    <a href="../Telefonia - Genesis CX/index.html" class="apple-card" data-accent="red">
+                    <a href="../Telefonia - Genesis CX/index.html" id="card-telefonia-genesys" class="apple-card" data-accent="red">
                         <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> PROYECTO ESTRATÉGICO</div>
                         <h3 class="title">Telefonía Genesys CX</h3>
                         <p class="desc">Transformación de 30 años de telefonía a Genesys Cloud sobre AWS. 15M llamadas y 2.000 operadores con IVR conversacional con IA.</p>
@@ -303,7 +354,7 @@
                     </a>
 
                     <!-- 3. Reingeniería de Siniestros Motor -->
-                    <a href="../Reingenieria Siniestros/index.html" class="apple-card" data-accent="red">
+                    <a href="../Reingenieria Siniestros/index.html" id="card-reingenieria-siniestros" class="apple-card" data-accent="red">
                         <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> PROYECTO ESTRATÉGICO</div>
                         <h3 class="title">Reingeniería Siniestros</h3>
                         <p class="desc">Transformación del proceso core de motor (>400K partes/año): triaje inteligente STP, peritación digital, red de talleres y transparencia proactiva.</p>
@@ -321,7 +372,7 @@
                     </a>
 
                     <!-- 4. Gobierno del Dato & Plataforma Analítica -->
-                    <a href="../Gobierno del Dato/index.html" class="apple-card" data-accent="red">
+                    <a href="../Gobierno del Dato/index.html" id="card-gobierno-dato" class="apple-card" data-accent="red">
                         <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> PROYECTO ESTRATÉGICO</div>
                         <h3 class="title">Gobierno del Dato</h3>
                         <p class="desc">Una sola verdad y una sola plataforma. Gobernanza por dominios con Data Owners certificados, eliminación de silos SAS y Lakehouse Databricks.</p>
@@ -343,7 +394,7 @@
                     </a>
 
                     <!-- 5. IA en Voz & Chat Digital -->
-                    <a href="../IA Voz y Chat/index.html" class="apple-card" data-accent="red">
+                    <a href="../IA Voz y Chat/index.html" id="card-ia-voz-chat" class="apple-card" data-accent="red">
                         <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> PROYECTO ESTRATÉGICO</div>
                         <h3 class="title">IA en Voz & Chat</h3>
                         <p class="desc">Agentes conversacionales con IA en voz y chat Lupe. Reducción a 0 del abandono telefónico y >70% de resolución desasistida bajo el «Cerebro de LDA».</p>
@@ -366,7 +417,7 @@
                     </a>
 
                     <!-- 6. Transformación Organizacional (Agile) -->
-                    <a href="../Transformacion Agile/index.html" class="apple-card" data-accent="red">
+                    <a href="../Transformacion Agile/index.html" id="card-transformacion-agile" class="apple-card" data-accent="red">
                         <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> PROYECTO ESTRATÉGICO</div>
                         <h3 class="title">Transformación Agile</h3>
                         <p class="desc">Duplicar (x2) la capacidad de entrega de valor uniendo Tecnología, Transformación y Negocio en squads multidisciplinares con autoridad real y ciclos cortos.</p>
@@ -387,7 +438,7 @@
                     </a>
 
                     <!-- 7. Transformación Hogar -->
-                    <a href="../Transformacion Hogar/index.html" class="apple-card" data-accent="red">
+                    <a href="../Transformacion Hogar/index.html" id="card-transformacion-hogar" class="apple-card" data-accent="red">
                         <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> PROYECTO ESTRATÉGICO</div>
                         <h3 class="title">Transformación Hogar</h3>
                         <p class="desc">N.º 1 en calidad de servicio en Seguros de Hogar. Migración al nuevo producto, integración de reparadores con HomeServe, apertura delegada y trazabilidad total.</p>
@@ -407,7 +458,7 @@
                     </a>
 
                     <!-- 8. Relanzamiento Salud (HNA) -->
-                    <a href="../Transformacion Salud/index.html" class="apple-card" data-accent="red">
+                    <a href="../Transformacion Salud/index.html" id="card-transformacion-salud" class="apple-card" data-accent="red">
                         <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> PROYECTO ESTRATÉGICO</div>
                         <h3 class="title">Relanzamiento Salud</h3>
                         <p class="desc">Salto cualitativo para 75.000 asegurados con HNA: cuadro médico superior, medicina online integrada, autorizaciones instantáneas con IA y reembolsos en el día.</p>
@@ -463,7 +514,7 @@
                 </button>
                 <div class="carousel-track" id="track-facilitator" onscroll="updateCarouselButtons(this)">
                     <!-- Perseo (Analítica con IA & Supervisión de Calidad) -->
-                    <a href="../Perseo/index.html" class="apple-card" data-accent="red">
+                    <a href="../Perseo/index.html" id="card-perseo" class="apple-card" data-accent="red">
                         <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> FACILITADOR</div>
                         <h3 class="title">Perseo</h3>
                         <p class="desc">Analítica con IA para supervisar calidad y operativas en Comercial, Clientes y Siniestros, analizando llamadas de agentes y clientes.</p>
@@ -549,7 +600,7 @@
                 <div class="carousel-track" onscroll="updateCarouselButtons(this)">
 
                     <!-- Gestión de Usuarios -->
-                    <a href="../Gestion de Usuarios/index.html" class="apple-card" data-accent="red">
+                    <a href="../Gestion de Usuarios/index.html" id="card-gestion-usuarios" class="apple-card" data-accent="red">
                         <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> SERVICIO ACTIVO</div>
                         <h3 class="title">Gestión de Usuarios</h3>
                         <p class="desc">Documentación sobre el funcionamiento, arquitectura operativa y servicios vinculados al sistema de Gestión de Usuarios y sus integraciones.</p>
@@ -663,7 +714,7 @@
                 </button>
                 <div class="carousel-track" id="track-closed" onscroll="updateCarouselButtons(this)">
                     <!-- Gestión de la Información (Traspasado a Transformación) -->
-                    <a href="../Gobierno de Informacion/index.html" class="apple-card" data-accent="red">
+                    <a href="../Gobierno de Informacion/index.html" id="card-gobierno-informacion" class="apple-card" data-accent="red">
                         <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> HISTÓRICO TRASPASADO</div>
                         <h3 class="title">Gestión de la Información</h3>
                         <p class="desc">Proyecto de Inteligencia LidIA y metodología GIN transferido al Área de Transformación. Conserva aquí todo el contexto, historial y wiki funcional.</p>
@@ -773,11 +824,135 @@
                 <p>&copy; 2026 Línea Directa Aseguradora, S.A. Todos los derechos reservados. Información confidencial para uso interno.</p>
                 <div class="footer-bottom-badges">
                     <span class="badge-lda-red">Brandbook Línea Directa</span>
-                    <span class="badge-lda-outline">v2.4 Command Center</span>
+                    <span class="badge-lda-outline">Centro de Control de Proyectos</span>
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- MODAL POPUP: PROYECTOS EN LICITACIÓN -->
+    <div class="licitaciones-modal-backdrop" id="modal-licitaciones" onclick="handleLicitacionesBackdropClick(event)" role="dialog" aria-modal="true" aria-labelledby="modal-licitaciones-title">
+        <div class="licitaciones-modal-dialog">
+            <div class="licitaciones-modal-header">
+                <div class="licitaciones-modal-header-info">
+                    <div class="licitaciones-modal-icon">
+                        ⚖️
+                    </div>
+                    <div>
+                        <span class="licitaciones-modal-kicker">Gobernanza & Concursos</span>
+                        <h3 class="licitaciones-modal-title" id="modal-licitaciones-title">Proyectos en Proceso de Licitación</h3>
+                    </div>
+                </div>
+                <button class="licitaciones-modal-close" onclick="closeLicitacionesModal()" title="Cerrar ventana (ESC)" aria-label="Cerrar ventana">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="licitaciones-modal-body">
+                <p class="licitaciones-modal-intro">
+                    Las siguientes <strong>4 iniciativas del portfolio</strong> se encuentran en curso de pliego técnico, concurso competitivo de integradores o fase de adjudicación contractual:
+                </p>
+
+                <div class="licitaciones-modal-grid">
+                    <!-- 1. Evolución HCM Cloud -->
+                    <div class="licitacion-project-item">
+                        <div>
+                            <div class="licitacion-item-header">
+                                <span class="licitacion-item-carril">Gestión Directa · RR.HH.</span>
+                                <span class="licitacion-item-badge">Concurso de Integrador</span>
+                            </div>
+                            <h4 class="licitacion-item-title">Evolución HCM Cloud</h4>
+                            <p class="licitacion-item-desc">
+                                Migración estratégica del núcleo de gestión de personas desde PeopleSoft hacia Oracle Cloud HCM Fusion. Modernización de nóminas, estructura y autoservicio.
+                            </p>
+                        </div>
+                        <div class="licitacion-item-footer">
+                            <div class="licitacion-item-tags">
+                                <span class="licitacion-item-tag">Oracle HCM</span>
+                                <span class="licitacion-item-tag">Nóminas</span>
+                                <span class="licitacion-item-tag">Fase 0</span>
+                            </div>
+                            <a href="../HCM/index.html" class="licitacion-item-btn">Ver Proyecto &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- 2. CRM Operacional -->
+                    <div class="licitacion-project-item">
+                        <div>
+                            <div class="licitacion-item-header">
+                                <span class="licitacion-item-carril">Proyecto Estratégico</span>
+                                <span class="licitacion-item-badge">Pliego de Plataforma & Servicios</span>
+                            </div>
+                            <h4 class="licitacion-item-title">CRM Operacional</h4>
+                            <p class="licitacion-item-desc">
+                                Nuevo modelo de atención omnicanal 360° en Salesforce Financial Services Cloud. Homogeneización de procesos comerciales y erradicación de silos de información.
+                            </p>
+                        </div>
+                        <div class="licitacion-item-footer">
+                            <div class="licitacion-item-tags">
+                                <span class="licitacion-item-tag">Salesforce FSC</span>
+                                <span class="licitacion-item-tag">Omnicanalidad</span>
+                                <span class="licitacion-item-tag">Visión 360°</span>
+                            </div>
+                            <a href="../CRM Operacional/index.html" class="licitacion-item-btn">Ver Proyecto &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- 3. Telefonía - Genesys CX -->
+                    <div class="licitacion-project-item">
+                        <div>
+                            <div class="licitacion-item-header">
+                                <span class="licitacion-item-carril">Proyecto Estratégico</span>
+                                <span class="licitacion-item-badge">Adjudicación & Despliegue AWS</span>
+                            </div>
+                            <h4 class="licitacion-item-title">Telefonía Genesys CX</h4>
+                            <p class="licitacion-item-desc">
+                                Transición de 30 años de telefonía local hacia Genesys Cloud sobre AWS. 15 millones de llamadas anuales, 2.000 operadores y enrutamiento inteligente con IA.
+                            </p>
+                        </div>
+                        <div class="licitacion-item-footer">
+                            <div class="licitacion-item-tags">
+                                <span class="licitacion-item-tag">Genesys Cloud</span>
+                                <span class="licitacion-item-tag">AWS Cloud</span>
+                                <span class="licitacion-item-tag">IVR Conversacional</span>
+                            </div>
+                            <a href="../Telefonia - Genesis CX/index.html" class="licitacion-item-btn">Ver Proyecto &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- 4. Reingeniería Siniestros -->
+                    <div class="licitacion-project-item">
+                        <div>
+                            <div class="licitacion-item-header">
+                                <span class="licitacion-item-carril">Proyecto Estratégico</span>
+                                <span class="licitacion-item-badge">Consultoría & Arquitectura</span>
+                            </div>
+                            <h4 class="licitacion-item-title">Reingeniería Siniestros</h4>
+                            <p class="licitacion-item-desc">
+                                Transformación de punta a punta del proceso neurálgico de autos y hogar (>400K partes/año): triaje inteligente STP, red de talleres y peritación digital.
+                            </p>
+                        </div>
+                        <div class="licitacion-item-footer">
+                            <div class="licitacion-item-tags">
+                                <span class="licitacion-item-tag">Triaje STP</span>
+                                <span class="licitacion-item-tag">Peritación Digital</span>
+                                <span class="licitacion-item-tag">Core Autos</span>
+                            </div>
+                            <a href="../Reingenieria Siniestros/index.html" class="licitacion-item-btn">Ver Proyecto &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="licitaciones-modal-footer">
+                <span class="licitaciones-modal-footer-note">Seguimiento corporativo coordinado con Compras, Tecnología y Dirección.</span>
+                <button class="licitaciones-modal-footer-btn" onclick="closeLicitacionesModal()">Cerrar</button>
+            </div>
+        </div>
+    </div>
 
     <!-- MODAL DE BÚSQUEDA GLOBAL -->
     <div class="search-modal-backdrop" id="search-modal">
@@ -798,21 +973,12 @@
 
     <!-- Scripts Esenciales -->
     <script src="../assets/js/search_index_data.js"></script>
+    <script src="../assets/js/projects_data.js"></script>
     <script src="../assets/js/bitacora-core.js"></script>
+    <script src="../assets/js/bitacora-admin.js"></script>
     <script>
         // ==========================================
-        // 1. TEMA CLARO / OSCURO (CON ATRIBUTOS Y PERSISTENCIA)
-        // ==========================================
-        function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            localStorage.setItem('bitacora-theme', newTheme);
-        }
-
-        // ==========================================
-        // 2. SWITCHER DE VISTAS (CARRUSEL VS BENTO GRID)
+        // SWITCHER DE VISTAS (CARRUSEL VS MOSAICO)
         // ==========================================
         function setViewMode(mode) {
             const container = document.getElementById('main-content');
@@ -832,15 +998,15 @@
                 btnGrid.classList.remove('active');
                 localStorage.setItem('bitacora-view-mode', 'carousel');
                 // Re-inicializar botones de carrusel
-                initIslandLiquidGlass();
-            document.querySelectorAll('.carousel-track').forEach(track => {
+                if (typeof initIslandLiquidGlass === 'function') initIslandLiquidGlass();
+                document.querySelectorAll('.carousel-track').forEach(track => {
                     updateCarouselButtons(track);
                 });
             }
         }
 
-                // ==========================================
-        // 3. SEGMENTED CONTROL: FILTRADO POR CARRILES (SIN SALTOS BRUSCOS)
+        // ==========================================
+        // FILTRADO POR CARRILES DEL PORTFOLIO
         // ==========================================
         function filterPortfolio(category, btn) {
             // Actualizar botones de filtro
@@ -857,31 +1023,50 @@
                 }
             });
 
-            // NO forzamos scrollIntoView de la sección para evitar que la barra de filtros se corte
-            // Si el usuario está scrolleado muy abajo, acomodamos suavemente la barra de filtros
-            const filterBar = document.querySelector('.view-controls-bar');
-            if (filterBar) {
-                const barRect = filterBar.getBoundingClientRect();
-                if (barRect.top < 70) {
-                    filterBar.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            }
+            // Asegurar que todas las tarjetas individuales estén visibles
+            document.querySelectorAll('.portfolio-section .apple-card').forEach(card => {
+                card.style.display = '';
+            });
+
+            // Resetear scroll de carruseles visibles y actualizar flechas
+            document.querySelectorAll('.portfolio-section:not(.section-hidden) .carousel-track').forEach(track => {
+                track.scrollLeft = 0;
+                updateCarouselButtons(track);
+            });
         }
 
         // ==========================================
-        // 4. ATAJOS DE TECLADO DE ÉLITE (B para Grid, D para Dark, etc.)
+        // GESTIÓN DEL POPUP MODAL DE LICITACIONES
         // ==========================================
-        document.addEventListener('keydown', (e) => {
-            // Si el foco está en un input o el modal está abierto, ignorar
-            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+        function openLicitacionesModal() {
+            const modal = document.getElementById('modal-licitaciones');
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
 
-            if (e.key === 'b' || e.key === 'B') {
-                e.preventDefault();
-                const isGrid = document.getElementById('main-content').classList.contains('view-mode-grid');
-                setViewMode(isGrid ? 'carousel' : 'grid');
-            } else if (e.key === 'd' || e.key === 'D') {
-                e.preventDefault();
-                toggleTheme();
+        function closeLicitacionesModal() {
+            const modal = document.getElementById('modal-licitaciones');
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        function handleLicitacionesBackdropClick(event) {
+            if (event.target && event.target.id === 'modal-licitaciones') {
+                closeLicitacionesModal();
+            }
+        }
+
+        // Atajo teclado ESC para cerrar modal de licitaciones
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('modal-licitaciones');
+                if (modal && modal.classList.contains('active')) {
+                    closeLicitacionesModal();
+                }
             }
         });
 
@@ -889,12 +1074,12 @@
         // 5. INICIALIZACIÓN COMPLETA DOM
         // ==========================================
         document.addEventListener('DOMContentLoaded', () => {
-            // Restaurar modo de vista (Carrusel o Bento Grid)
+            // Restaurar modo de vista (Carrusel o Mosaico)
             const savedView = localStorage.getItem('bitacora-view-mode') || 'carousel';
             setViewMode(savedView);
 
             // Inicializar botones de todos los carruseles
-            initIslandLiquidGlass();
+            if (typeof initIslandLiquidGlass === 'function') initIslandLiquidGlass();
             document.querySelectorAll('.carousel-track').forEach(track => {
                 updateCarouselButtons(track);
             });
@@ -930,26 +1115,6 @@
                 rightBtn.classList.remove('hidden');
             }
         }
-
-                        // ==========================================
-        // SPOTLIGHT INTERACTIVO SUAVE EN TARJETAS
-        // ==========================================
-        function initCardSpotlights() {
-            document.querySelectorAll('.apple-card').forEach(card => {
-                card.addEventListener('mousemove', (e) => {
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    card.style.setProperty('--mouse-x', `${x}px`);
-                    card.style.setProperty('--mouse-y', `${y}px`);
-                });
-            });
-        }
-
-        // Inicialización
-        document.addEventListener('DOMContentLoaded', () => {
-            initCardSpotlights();
-        });
 
         // Inicializar Lucide si hay iconos dinámicos
         if (window.lucide) {

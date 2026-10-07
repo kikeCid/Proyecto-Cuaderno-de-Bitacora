@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunicado Oficial: CRM Operacional | Proyectos Estratégicos LDA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/bitacora-core.css">
+    <style>
+        .strategic-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 28px;
+            margin: 32px 0 48px;
+        }
+
+        @media (max-width: 1024px) {
+            .strategic-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .executive-panel {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 32px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+        }
+
+        .panel-header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--lda-red);
+            background: rgba(228, 0, 43, 0.08);
+            padding: 6px 14px;
+            border-radius: 50px;
+            margin-bottom: 16px;
+        }
+
+        .panel-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin: 0 0 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .panel-lead {
+            font-size: 1.05rem;
+            line-height: 1.65;
+            color: var(--text-main);
+            margin-bottom: 24px;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+            margin-top: 24px;
+        }
+
+        .pillar-card {
+            background: var(--bg-app);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 20px;
+            border-left: 3px solid var(--lda-red);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-2px);
+            border-left-color: var(--lda-red);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+        }
+
+        .pillar-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pillar-desc {
+            font-size: 0.88rem;
+            line-height: 1.55;
+            color: var(--text-sec);
+            margin: 0;
+        }
+
+        .press-quote-box {
+            background: rgba(228, 0, 43, 0.03);
+            border-left: 4px solid var(--lda-red);
+            border-radius: 0 14px 14px 0;
+            padding: 20px 24px;
+            margin: 24px 0;
+            font-style: italic;
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .press-quote-author {
+            font-style: normal;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--lda-red);
+            margin-top: 8px;
+            display: block;
+        }
+
+        .faq-item {
+            background: var(--bg-app);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+        }
+
+        .faq-question {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .faq-answer {
+            font-size: 0.88rem;
+            line-height: 1.55;
+            color: var(--text-sec);
+            margin: 0;
+        }
+
+        .kpi-stat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        .kpi-stat-card {
+            background: var(--bg-app);
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .kpi-value {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--lda-red);
+            line-height: 1.2;
+        }
+
+        .kpi-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-sec);
+            margin-top: 4px;
+        }
+
+        .meta-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .meta-item {
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .meta-item:last-child {
+            border-bottom: none;
+        }
+
+        .meta-kicker {
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-sec);
+        }
+
+        .meta-val {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper">
+        <div class="nav-breadcrumb">
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item" title="Inicio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html#seccion-estrategicos" class="nav-breadcrumb-item">Proyectos Estratégicos</a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <a href="index.html" class="nav-breadcrumb-item">CRM Operacional</a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <span class="nav-breadcrumb-item current">Comunicado Oficial y Visión</span>
+        </div>
+    </nav>
+
+    <!-- THEME TOGGLE -->
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label">MODO OSCURO</span>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-checkbox" onchange="toggleTheme()">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <main class="container">
+        <!-- HERO SECTION -->
+        <header class="hero">
+            <span class="hero-badge">Iniciativa Estratégica Corporativa</span>
+            <span class="hero-badge-local">Plataforma Omnicanal & Clientes</span>
+            <h1>CRM Operacional & <br><span>Modelo 360° Omnicanal</span></h1>
+            <p>Línea Directa lanza un nuevo modelo de atención diseñado para que cada asegurado se sienta tratado como el cliente más importante de la compañía. Cualquier asegurado percibirá desde el primer momento que habla con alguien que conoce su trayectoria, entiende su situación y tiene la capacidad de resolverla en el acto.</p>
+        </header>
+
+        <!-- LAYOUT ESTRATÉGICO -->
+        <div class="strategic-grid">
+            <!-- PANEL PRINCIPAL: CONTEXTO Y PILARES -->
+            <section class="executive-panel">
+                <div class="panel-header-badge">
+                    <span class="kicker-dot" style="width: 7px; height: 7px; background: var(--lda-red); border-radius: 50%;"></span>
+                    Documento Oficial · Comunicado de Lanzamiento y Visión
+                </div>
+                <h2 class="panel-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color: var(--lda-red);">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    El Asegurado como Centro: No un Call Center, una Compañía que te Conoce
+                </h2>
+                <p class="panel-lead">
+                    <em>Madrid, 2026 — Para distribución interna inmediata.</em> Línea Directa Aseguradora anuncia el despliegue de un nuevo modelo de relación con el cliente construido sobre una premisa tan sencilla como ambiciosa: que cada persona que contacte con la compañía sienta que está siendo atendida por un equipo cercano y plenamente comprometido con resolver su caso. No un call center. Una compañía que te conoce.
+                </p>
+                <p style="color: var(--text-sec); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;">
+                    El nuevo modelo, apoyado en <strong>Salesforce Financial Services Cloud (FSC)</strong> e integrado con capacidades de inteligencia artificial, elimina para siempre el problema más frustrante del sector asegurador: el cliente que tiene que repetir su historia cada vez que llama, esperar sin saber cuándo le van a contactar o quedarse sin respuesta en un momento difícil. A partir de ahora, quien atiende a un asegurado tiene en pantalla, en tiempo real, todo lo que necesita saber: póliza, historial, siniestros y contexto íntegro.
+                </p>
+
+                <!-- CITA DEL CLIENTE -->
+                <div class="press-quote-box">
+                    «Llevaba años llamando a mi seguro cuando tenía un siniestro y siempre me tocaba explicar desde cero quién era, qué coche tenía y qué había pasado. La primera vez que llamé después del cambio, la persona que me atendió ya sabía todo. Me dijo el nombre de mi coche, me recordó que el año pasado había tenido una incidencia parecida y me ofreció exactamente lo que necesitaba. Fue como llamar a mi gestor personal, alguien de confianza.»
+                    <span class="press-quote-author">— Testimonio Cliente de Línea Directa, Segmento Motor (Madrid)</span>
+                </div>
+
+                <p style="color: var(--text-sec); font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
+                    La transformación redefine los procesos bajo el <strong>principio de resolución en el primer contacto</strong>: quien atiende tiene autoridad, información y herramientas para cerrar el caso. Y si se requiere más tiempo, el propio equipo retoma el contacto de forma proactiva sin que el asegurado se pierda en transferencias o laberintos administrativos.
+                </p>
+
+                <!-- PILARES DE TRANSFORMACIÓN -->
+                <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin: 30px 0 16px;">
+                    Cinco Pilares de la Transformación CRM
+                </h3>
+                <div class="pillars-grid">
+                    <div class="pillar-card">
+                        <div class="pillar-title">
+                            <span style="color: var(--lda-red); font-weight: 900;">01</span>
+                            Ficha Cliente 360° Unificada
+                        </div>
+                        <p class="pillar-desc">
+                            Visión omnicanal única y compartida entre Comercial, Cartera y Siniestros, eliminando silos departamentales y pantallas dispersas.
+                        </p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-title">
+                            <span style="color: var(--lda-red); font-weight: 900;">02</span>
+                            Integración Nativa con Telefonía
+                        </div>
+                        <p class="pillar-desc">
+                            Sincronización en tiempo real con <strong>Genesys Cloud</strong>: la llamada entrante despliega de inmediato el perfil del asegurado antes de descolgar.
+                        </p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-title">
+                            <span style="color: var(--lda-red); font-weight: 900;">03</span>
+                            Anticipación y Next Best Action
+                        </div>
+                        <p class="pillar-desc">
+                            Modelos analíticos de propensión que sugieren al agente en tiempo real la siguiente mejor acción (NBO), ofertas personalizadas y detección de riesgo de fuga.
+                        </p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-title">
+                            <span style="color: var(--lda-red); font-weight: 900;">04</span>
+                            Resolución en Primer Contacto
+                        </div>
+                        <p class="pillar-desc">
+                            Automatización de flujos de trabajo de suscripción y facultades operativas delegadas para cerrar expedientes y gestiones sin transferir la llamada.
+                        </p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-title">
+                            <span style="color: var(--lda-red); font-weight: 900;">05</span>
+                            Sustitución Gradual de Galgo
+                        </div>
+                        <p class="pillar-desc">
+                            Migración y desacoplamiento controlado del histórico de 20 años en aplicativos legados, garantizando continuidad absoluta del negocio.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- CITA DIRECTORA DE CLIENTES -->
+                <div class="press-quote-box" style="margin-top: 28px;">
+                    «Antes teníamos agentes muy preparados a los que les faltaba contexto. Ahora tienen todo lo que necesitan en la pantalla antes de que el cliente termine la primera frase. Eso cambia completamente la conversación: pasan de gestionar una llamada a resolver un problema.»
+                    <span class="press-quote-author">— Directora de Clientes, Línea Directa Aseguradora</span>
+                </div>
+
+                <!-- GESTIÓN DEL CAMBIO Y CINCO DIMENSIONES -->
+                <div style="margin-top: 32px; padding: 22px; background: rgba(228,0,43,0.03); border-radius: 14px; border: 1px solid rgba(228,0,43,0.15);">
+                    <h4 style="margin: 0 0 10px; color: var(--lda-red); font-weight: 800; font-size: 1rem; display: flex; align-items: center; gap: 8px;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        Impacto en Personas & Las Cinco Dimensiones del Proyecto
+                    </h4>
+                    <p style="margin: 0 0 12px; font-size: 0.92rem; line-height: 1.6; color: var(--text-main);">
+                        Los equipos de atención llevan cerca de 20 años trabajando con las mismas herramientas. El proyecto aborda de forma simultánea cinco dimensiones: <strong>Tecnológica</strong> (Salesforce FSC integrado con core y telefonía), <strong>Operacional</strong> (pantalla como cuadro de mando resolutivo), <strong>Personas</strong> (Focus Groups, certificación técnica y gestión de hábitos diarios), <strong>Analítica</strong> (modelos de propensión y machine learning) y <strong>Modelo de Negocio</strong> (fidelización por servicio superior).
+                    </p>
+                </div>
+
+                <!-- PREGUNTAS CLAVE INTERNAS (FAQ DEL PROYECTO) -->
+                <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin: 34px 0 16px;">
+                    Preguntas y Respuestas Clave (FAQ del Proyecto)
+                </h3>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span style="color: var(--lda-red);">Q:</span> ¿Por qué ahora? ¿Qué ha cambiado en Línea Directa?
+                    </div>
+                    <p class="faq-answer">
+                        La tecnología ha alcanzado el punto de madurez que permite unificar los datos operacionales de 30 años sin fricciones. En un mercado altamente competitivo, donde el precio ya no es la única palanca diferencial, ofrecer la mejor experiencia de servicio convierte a la relación con el asegurado en un activo imposible de copiar.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span style="color: var(--lda-red);">Q:</span> ¿Cuál es el impacto económico previsto en negocio?
+                    </div>
+                    <p class="faq-answer">
+                        El business case proyecta la captación y fidelización de <strong>108.737 pólizas adicionales</strong> entre 2027 y 2030 (con crecimientos en Motor, Hogar, Mascotas y Salud), sumado a un ahorro directo en costes de retención de <strong>1,39 millones de euros</strong>.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span style="color: var(--lda-red);">Q:</span> ¿Cómo coordina el CRM con la Telefonía Genesys Cloud?
+                    </div>
+                    <p class="faq-answer">
+                        Es una interdependencia de máxima prioridad: Genesys Cloud provee el evento de llamada y transcripción en tiempo real, mientras Salesforce despliega de forma instantánea el expediente del cliente con su contexto completo antes de que el agente comience la conversación.
+                    </p>
+                </div>
+            </section>
+
+            <!-- PANEL LATERAL: FICHA EJECUTIVA PMO -->
+            <aside class="executive-panel">
+                <div class="panel-header-badge" style="color: var(--text-sec); background: var(--bg-app);">
+                    Gobernanza PMO
+                </div>
+                <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin-bottom: 20px;">
+                    Ficha de Proyecto
+                </h3>
+
+                <ul class="meta-list">
+                    <li class="meta-item">
+                        <span class="meta-kicker">Coordinación PMO PersCom</span>
+                        <span class="meta-val">Jesús Ortega (Backup: Belén Ayala)</span>
+                    </li>
+                    <li class="meta-item">
+                        <span class="meta-kicker">Integrador Adjudicatario</span>
+                        <span class="meta-val">OMEGA (Salesforce Partner)</span>
+                    </li>
+                    <li class="meta-item">
+                        <span class="meta-kicker">Plataforma Tecnológica</span>
+                        <span class="meta-val">Salesforce Financial Services Cloud (FSC)</span>
+                    </li>
+                    <li class="meta-item">
+                        <span class="meta-kicker">Estado en Portfolio</span>
+                        <span class="meta-val" style="color: #10b981; display: flex; align-items: center; gap: 6px;">
+                            <span style="width: 8px; height: 8px; background: #10b981; border-radius: 50%;"></span>
+                            En Curso · Semáforo Verde
+                        </span>
+                    </li>
+                    <li class="meta-item">
+                        <span class="meta-kicker">Hito Crítico Go-Live</span>
+                        <span class="meta-val">18 Enero 2027 (Pase a Producción)</span>
+                    </li>
+                    <li class="meta-item">
+                        <span class="meta-kicker">Dependencias Principales</span>
+                        <span class="meta-val">Telefonía Genesys, Normalización, Gobierno del Dato</span>
+                    </li>
+                </ul>
+
+                <h4 style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; color: var(--text-sec); margin: 28px 0 12px;">
+                    Métricas e Impacto Previsto
+                </h4>
+                <div class="kpi-stat-grid">
+                    <div class="kpi-stat-card">
+                        <div class="kpi-value">360°</div>
+                        <div class="kpi-label">Visión Cliente</div>
+                    </div>
+                    <div class="kpi-stat-card">
+                        <div class="kpi-value">+108K</div>
+                        <div class="kpi-label">Pólizas Nuevas</div>
+                    </div>
+                    <div class="kpi-stat-card">
+                        <div class="kpi-value">1,39M€</div>
+                        <div class="kpi-label">Ahorro Retención</div>
+                    </div>
+                    <div class="kpi-stat-card">
+                        <div class="kpi-value">18/01</div>
+                        <div class="kpi-label">Go-Live 2027</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 28px; display: flex; flex-direction: column; gap: 10px;">
+                    <a href="index.html" class="hero-badge" style="text-decoration: none; display: block; text-align: center; padding: 12px; background: var(--lda-red); color: #fff;">
+                        ← Volver al Hub CRM Operacional
+                    </a>
+                    <a href="../Cuaderno de Bitacora (Proyectos)/index.html#seccion-estrategicos" class="hero-badge" style="text-decoration: none; display: block; text-align: center; padding: 12px; background: var(--bg-app); color: var(--text-main); border: 1px solid var(--border-color);">
+                        Volver a Proyectos Estratégicos
+                    </a>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- FOOTER OFICIAL -->
+    <footer class="app-footer">
+        <div class="footer-bottom">
+            <span>© 2026 Línea Directa Aseguradora S.A. — Transformación & Gestión del Cambio</span>
+        </div>
+    </footer>
+
+    <script src="../assets/js/search_index_data.js"></script>
+    <script src="../assets/js/bitacora-core.js"></script>
+    <script>
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            localStorage.setItem('bitacora-theme', newTheme);
+        }
+    </script>
+</body>
+
+</html>

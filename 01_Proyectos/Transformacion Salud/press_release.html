@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunicado Oficial: Relanzamiento del Negocio de Salud | Proyectos Estratégicos LDA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/bitacora-core.css">
+    <style>
+        .strategic-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 28px;
+            margin: 32px 0 48px;
+        }
+
+        @media (max-width: 1024px) {
+            .strategic-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .executive-panel {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 32px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+        }
+
+        .panel-header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--lda-red);
+            background: rgba(228, 0, 43, 0.08);
+            padding: 6px 14px;
+            border-radius: 50px;
+            margin-bottom: 16px;
+        }
+
+        .panel-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin: 0 0 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .panel-lead {
+            font-size: 1.05rem;
+            line-height: 1.65;
+            color: var(--text-main);
+            margin-bottom: 20px;
+        }
+
+        .press-quote-box {
+            background: rgba(228, 0, 43, 0.04);
+            border-left: 4px solid var(--lda-red);
+            border-radius: 0 14px 14px 0;
+            padding: 20px 24px;
+            margin: 24px 0;
+            font-style: italic;
+            color: var(--text-main);
+            font-size: 0.98rem;
+            line-height: 1.65;
+        }
+
+        .press-quote-author {
+            display: block;
+            margin-top: 10px;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--lda-red);
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+            margin-top: 24px;
+        }
+
+        .pillar-card {
+            background: var(--bg-app);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 20px;
+            border-left: 3px solid var(--lda-red);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-2px);
+            border-left-color: var(--lda-red);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+        }
+
+        .pillar-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pillar-desc {
+            font-size: 0.88rem;
+            line-height: 1.55;
+            color: var(--text-sec);
+            margin: 0;
+        }
+
+        .qa-item {
+            margin-bottom: 18px;
+            padding: 16px 20px;
+            background: var(--bg-app);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .qa-question {
+            font-weight: 800;
+            font-size: 0.96rem;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .qa-answer {
+            font-size: 0.88rem;
+            color: var(--text-sec);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .journey-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+            font-size: 0.88rem;
+        }
+
+        .journey-table th {
+            text-align: left;
+            padding: 12px 14px;
+            background: rgba(228, 0, 43, 0.05);
+            color: var(--lda-red);
+            font-weight: 800;
+            border-bottom: 2px solid rgba(228, 0, 43, 0.15);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .journey-table td {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+            color: var(--text-main);
+            line-height: 1.55;
+        }
+
+        .kpi-stat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        .kpi-stat-card {
+            background: var(--bg-app);
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .kpi-value {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--lda-red);
+            line-height: 1.2;
+        }
+
+        .kpi-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-sec);
+            margin-top: 4px;
+        }
+
+        .meta-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .meta-item {
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .meta-item:last-child {
+            border-bottom: none;
+        }
+
+        .meta-kicker {
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-sec);
+        }
+
+        .meta-val {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper">
+        <div class="nav-breadcrumb">
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item" title="Inicio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html#seccion-estrategicos" class="nav-breadcrumb-item">Proyectos Estratégicos</a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <a href="index.html" class="nav-breadcrumb-item">Relanzamiento Salud (HNA)</a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <span class="nav-breadcrumb-item current">Comunicado Oficial y Visión</span>
+        </div>
+    </nav>
+
+    <!-- THEME TOGGLE -->
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label">MODO OSCURO</span>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-checkbox" onchange="toggleTheme()">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <main class="container">
+        <!-- HERO SECTION -->
+        <header class="hero">
+            <span class="hero-badge">Iniciativa Estratégica Corporativa</span>
+            <span class="hero-badge-local">Ramo Salud & Experiencia Médica</span>
+            <h1>Relanzamiento del <br><span>Negocio de Salud</span></h1>
+            <p>Salto cualitativo para los 75.000 asegurados de Línea Directa de la mano de HNA: cuadro médico de primer nivel, medicina online integrada, autorizaciones instantáneas con IA y reembolsos en el mismo día.</p>
+        </header>
+
+        <!-- LAYOUT ESTRATÉGICO -->
+        <div class="strategic-grid">
+            <!-- PANEL PRINCIPAL: CONTEXTO Y PILARES -->
+            <section class="executive-panel">
+                <div class="panel-header-badge">
+                    <span class="kicker-dot" style="width: 7px; height: 7px; background: var(--lda-red); border-radius: 50%;"></span>
+                    Documento Oficial · Comunicado de Lanzamiento y Visión
+                </div>
+                <h2 class="panel-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color: var(--lda-red);">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                    </svg>
+                    Línea Directa Relanza su Negocio de Salud de la Mano de HNA
+                </h2>
+                <p class="panel-lead">
+                    <em>Madrid, 2026 — Para distribución interna inmediata.</em> Línea Directa transforma radicalmente su propuesta de valor en el ramo de salud. Con HNA como nuevo proveedor de gestión asistencial (TPA), la compañía relanza un producto que combina el mejor cuadro médico y grupos hospitalarios del mercado con capacidades digitales e inteligencia artificial que sitúan la gestión sanitaria en la palma de la mano del cliente. La ambición: liderar la calidad de servicio en el seguro directo de salud en España.
+                </p>
+                <p style="color: var(--text-sec); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;">
+                    El seguro de salud de Línea Directa da un salto cualitativo real. No es un simple relevo de proveedor técnico: es una nueva experiencia integral para los <strong>75.000 asegurados en cartera</strong> y para quienes buscan una cobertura de salud sin fricciones. Tras una fase de transición impecable con cero incidencias y continuidad asistencial absoluta, el nuevo ecosistema digital y asistencial se despliega a pleno rendimiento.
+                </p>
+
+                <!-- CITA OFICIAL -->
+                <div class="press-quote-box">
+                    «Nuestro asegurado de salud merecía un salto, no una actualización. Un seguro donde pedir cita no implique esperar en una línea de teléfono; donde la autorización de una prueba llegue en segundos, no en días; donde el médico que te atiende online sepa lo que te recetó el especialista presencial. Eso es lo que hemos construido.»
+                    <span class="press-quote-author">— Director de Negocio de Salud, Línea Directa Aseguradora</span>
+                </div>
+
+                <!-- PILARES DE LA TRANSFORMACIÓN -->
+                <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin: 30px 0 16px;">
+                    Tres Ejes Simultáneos de la Nueva Propuesta de Valor
+                </h3>
+                <div class="pillars-grid">
+                    <div class="pillar-card">
+                        <div class="pillar-title">
+                            <span style="color: var(--lda-red); font-weight: 900;">01</span>
+                            Modelo Híbrido Asistencial
+                        </div>
+                        <p class="pillar-desc">
+                            La telemedicina deja de ser un parche y se integra plenamente con la consulta presencial: triaje médico, prescripción de pruebas e historial médico compartido entre canales.
+                        </p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-title">
+                            <span style="color: var(--lda-red); font-weight: 900;">02</span>
+                            IA en Procesos Clave
+                        </div>
+                        <p class="pillar-desc">
+                            <strong>80% de autorizaciones resueltas en tiempo real</strong> por modelos de IA multicanal (app, web, chat). Reembolso digital de facturas médicas liquidado en el mismo día.
+                        </p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-title">
+                            <span style="color: var(--lda-red); font-weight: 900;">03</span>
+                            Acompañamiento Activo
+                        </div>
+                        <p class="pillar-desc">
+                            Asistente virtual para cita online 24/7, seguimiento proactivo de pacientes con patologías crónicas y recompensas en prima por hábitos de vida saludable.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- LO QUE EXPERIMENTA EL ASEGURADO -->
+                <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin: 34px 0 16px;">
+                    Lo que Experimenta el Asegurado: Servicios Tangibles
+                </h3>
+                <div style="overflow-x: auto;">
+                    <table class="journey-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 32%;">Momento del Asegurado</th>
+                                <th>La Nueva Experiencia</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Necesita una autorización médica</strong></td>
+                                <td>La solicita por app, web o chat. El 80% se resuelve al instante mediante IA clínica, sin esperas ni llamadas. El resto pasa priorizado a un médico revisor.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Consulta médica a distancia</strong></td>
+                                <td>Videoconsulta integrada con todo el cuadro médico: el facultativo online accede al historial completo y puede emitir recetas oficiales y prescribir pruebas diagnósticas.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tiene un gasto que reembolsar</strong></td>
+                                <td>Sube la factura y el justificante médico desde el móvil. La compañía procesa y abona el reembolso en el mismo día.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Requiere orientación o cita</strong></td>
+                                <td>Asistente virtual inteligente 24/7 que efectúa el triaje clínico inicial, recomienda el especialista adecuado y agenda la cita de inmediato.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Paciente con enfermedad crónica</strong></td>
+                                <td>Programa de acompañamiento personalizado con recordatorios automáticos y renovación de tratamientos continuos sin fricciones burocráticas.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cuida activamente de su bienestar</strong></td>
+                                <td>Mecanismo que premia la actividad física y hábitos de vida saludables con bonificaciones directas sobre la prima del seguro.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- PREGUNTAS Y RESPUESTAS INTERNAS -->
+                <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin: 36px 0 16px;">
+                    Preguntas y Respuestas Clave (FAQ del Proyecto)
+                </h3>
+
+                <div class="qa-item">
+                    <div class="qa-question">¿Qué ha cambiado realmente para el asegurado respecto al seguro anterior?</div>
+                    <div class="qa-answer">
+                        Casi todo en la calidad de servicio y agilidad, nada en la tranquilidad asistencial: el cuadro médico se mantiene idéntico y sin interrupciones. Pero las autorizaciones pasan de días a segundos, los reembolsos se abonan en el día y el cliente cuenta con un modelo híbrido digital-presencial integrado de verdad.
+                    </div>
+                </div>
+
+                <div class="qa-item">
+                    <div class="qa-question">¿Cómo opera la autorización instantánea con IA en tiempo real?</div>
+                    <div class="qa-answer">
+                        El motor de IA evalúa en segundos el condicionado de la póliza y los protocolos clínicos acreditados, autorizando de forma desatendida el 80% de los casos. El 20% con especificidad clínica compleja se deriva a un médico evaluador con toda la información ya procesada y lista.
+                    </div>
+                </div>
+
+                <div class="qa-item">
+                    <div class="qa-question">¿Por qué era imprescindible el cambio de partner asistencial a HNA?</div>
+                    <div class="qa-answer">
+                        Porque la plataforma tecnológica del proveedor saliente era rígida e incapaz de integrar modelos de IA en autorizaciones, triaje automatizado o telemedicina con historial compartido. HNA aporta infraestructura moderna, flexibilidad y un cuadro hospitalario de máximo prestigio.
+                    </div>
+                </div>
+
+                <div class="qa-item">
+                    <div class="qa-question">¿Cómo se garantiza la visión 360° del paciente entre canales?</div>
+                    <div class="qa-answer">
+                        Mediante el nuevo <strong>Dominio de Datos de Salud</strong>, construido bajo el marco del Proyecto de Gobierno del Dato de Línea Directa. Todos los eventos (citas presenciales, videollamadas, recetas y autorizaciones) convergen en un perfil unificado, seguro y conforme a la normativa reforzada de protección de datos de salud.
+                    </div>
+                </div>
+
+                <!-- INTERDEPENDENCIA CON GOBIERNO DEL DATO -->
+                <div style="margin-top: 32px; padding: 22px; background: rgba(228,0,43,0.03); border-radius: 14px; border: 1px solid rgba(228,0,43,0.15);">
+                    <h4 style="margin: 0 0 10px; color: var(--lda-red); font-weight: 800; font-size: 1rem; display: flex; align-items: center; gap: 8px;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                        </svg>
+                        Dependencia Estratégica: Gobierno del Dato Corporativo
+                    </h4>
+                    <p style="margin: 0; font-size: 0.92rem; line-height: 1.6; color: var(--text-main);">
+                        La visión 360° del asegurado y la precisión de los algoritmos de autorización instantánea dependen críticamente de la integración certificada en el <strong>Lakehouse Corporativo (Databricks)</strong> dentro del Dominio de Salud gobernado.
+                    </p>
+                </div>
+            </section>
+
+            <!-- PANEL LATERAL: FICHA EJECUTIVA PMO -->
+            <aside class="executive-panel">
+                <div class="panel-header-badge" style="color: var(--text-sec); background: var(--bg-app);">
+                    Gobernanza PMO
+                </div>
+                <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin-bottom: 20px;">
+                    Ficha de Proyecto
+                </h3>
+
+                <ul class="meta-list">
+                    <li class="meta-item">
+                        <span class="meta-kicker">Liderazgo & Negocio</span>
+                        <span class="meta-val">Dirección de Negocio de Salud</span>
+                    </li>
+                    <li class="meta-item">
+                        <span class="meta-kicker">Nuevo Partner Gestor (TPA)</span>
+                        <span class="meta-val">HNA (Hermandad Nacional de Arquitectos)</span>
+                    </li>
+                    <li class="meta-item">
+                        <span class="meta-kicker">Colectivo Protegido</span>
+                        <span class="meta-val">75.000 Asegurados en Cartera</span>
+                    </li>
+                    <li class="meta-item">
+                        <span class="meta-kicker">Estado en Portfolio</span>
+                        <span class="meta-val" style="color: #10b981; display: flex; align-items: center; gap: 6px;">
+                            <span style="width: 8px; height: 8px; background: #10b981; border-radius: 50%;"></span>
+                            En Curso · Transición Impecable (Verde)
+                        </span>
+                    </li>
+                    <li class="meta-item">
+                        <span class="meta-kicker">Habilitadores Clave</span>
+                        <span class="meta-val">Gobierno del Dato (Lakehouse), Motor IA HNA</span>
+                    </li>
+                </ul>
+
+                <h4 style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; color: var(--text-sec); margin: 28px 0 12px;">
+                    Compromisos de Servicio
+                </h4>
+                <div class="kpi-stat-grid">
+                    <div class="kpi-stat-card">
+                        <div class="kpi-value">80%</div>
+                        <div class="kpi-label">Autorizaciones IA</div>
+                    </div>
+                    <div class="kpi-stat-card">
+                        <div class="kpi-value">En el Día</div>
+                        <div class="kpi-label">Reembolso Gastos</div>
+                    </div>
+                    <div class="kpi-stat-card">
+                        <div class="kpi-value">75K</div>
+                        <div class="kpi-label">Asegurados Salud</div>
+                    </div>
+                    <div class="kpi-stat-card">
+                        <div class="kpi-value">Top</div>
+                        <div class="kpi-label">Cuadro Médico HNA</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 28px; display: flex; flex-direction: column; gap: 10px;">
+                    <a href="index.html" class="hero-badge" style="text-decoration: none; display: block; text-align: center; padding: 12px; background: var(--lda-red); color: #fff;">
+                        ← Volver al Hub Relanzamiento Salud
+                    </a>
+                    <a href="../Cuaderno de Bitacora (Proyectos)/index.html#seccion-estrategicos" class="hero-badge" style="text-decoration: none; display: block; text-align: center; padding: 12px; background: var(--bg-app); color: var(--text-main); border: 1px solid var(--border-color);">
+                        Volver a Proyectos Estratégicos
+                    </a>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- FOOTER OFICIAL -->
+    <footer class="app-footer">
+        <div class="footer-bottom">
+            <span>© 2026 Línea Directa Aseguradora S.A. — Transformación & Gestión del Cambio</span>
+        </div>
+    </footer>
+
+    <script src="../assets/js/search_index_data.js"></script>
+    <script src="../assets/js/bitacora-core.js"></script>
+    <script>
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            localStorage.setItem('bitacora-theme', newTheme);
+        }
+    </script>
+</body>
+
+</html>

@@ -22,5 +22,5 @@ tmp_*.txt
 extracted_docx/
 
 # Herramientas archivadas y scratch
-scratch/legacy_tools/
-scratch/backups/
+scratch/
+

@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunicado Oficial: Transformación Hogar | Proyectos Estratégicos LDA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/bitacora-core.css">
+    <style>
+        .strategic-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 28px;
+            margin: 32px 0 48px;
+        }
+
+        @media (max-width: 1024px) {
+            .strategic-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .executive-panel {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 32px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+        }
+
+        .panel-header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--lda-red);
+            background: rgba(228, 0, 43, 0.08);
+            padding: 6px 14px;
+            border-radius: 50px;
+            margin-bottom: 16px;
+        }
+
+        .panel-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin: 0 0 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .panel-lead {
+            font-size: 1.05rem;
+            line-height: 1.65;
+            color: var(--text-main);
+            margin-bottom: 20px;
+        }
+
+        .press-quote-box {
+            background: rgba(228, 0, 43, 0.04);
+            border-left: 4px solid var(--lda-red);
+            border-radius: 0 14px 14px 0;
+            padding: 20px 24px;
+            margin: 24px 0;
+            font-style: italic;
+            color: var(--text-main);
+            font-size: 0.98rem;
+            line-height: 1.65;
+        }
+
+        .press-quote-author {
+            display: block;
+            margin-top: 10px;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--lda-red);
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+            margin-top: 24px;
+        }
+
+        .pillar-card {
+            background: var(--bg-app);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 20px;
+            border-left: 3px solid var(--lda-red);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-2px);
+            border-left-color: var(--lda-red);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+        }
+
+        .pillar-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pillar-desc {
+            font-size: 0.88rem;
+            line-height: 1.55;
+            color: var(--text-sec);
+            margin: 0;
+        }
+
+        .qa-item {
+            margin-bottom: 18px;
+            padding: 16px 20px;
+            background: var(--bg-app);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .qa-question {
+            font-weight: 800;
+            font-size: 0.96rem;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .qa-answer {
+            font-size: 0.88rem;
+            color: var(--text-sec);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .journey-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+            font-size: 0.88rem;
+        }
+
+        .journey-table th {
+            text-align: left;
+            padding: 12px 14px;
+            background: rgba(228, 0, 43, 0.05);
+            color: var(--lda-red);
+            font-weight: 800;
+            border-bottom: 2px solid rgba(228, 0, 43, 0.15);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .journey-table td {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+            color: var(--text-main);
+            line-height: 1.55;
+        }
+
+        .kpi-stat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        .kpi-stat-card {
+            background: var(--bg-app);
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .kpi-value {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--lda-red);
+            line-height: 1.2;
+        }
+
+        .kpi-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-sec);
+            margin-top: 4px;
+        }
+
+        .meta-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .meta-item {
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .meta-item:last-child {
+            border-bottom: none;
+        }
+
+        .meta-kicker {
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-sec);
+        }
+
+        .meta-val {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper">
+        <div class="nav-breadcrumb">
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item" title="Inicio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html#seccion-estrategicos" class="nav-breadcrumb-item">Proyectos Estratégicos</a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <a href="index.html" class="nav-breadcrumb-item">Transformación Hogar</a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <span class="nav-breadcrumb-item current">Comunicado Oficial y Visión</span>
+        </div>
+    </nav>
+
+    <!-- THEME TOGGLE -->
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label">MODO OSCURO</span>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-checkbox" onchange="toggleTheme()">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <main class="container">
+        <!-- HERO SECTION -->
+        <header class="hero">
+            <span class="hero-badge">Iniciativa Estratégica Corporativa</span>
+            <span class="hero-badge-local">Excelencia Operativa & Calidad de Servicio</span>
+            <h1>Transformación de <br><span>Seguros de Hogar</span></h1>
+            <p>Convertir a Línea Directa en el referente número 1 en calidad de servicio del ramo de Hogar en España: el cliente sabe en todo momento qué cubre su seguro, qué está pasando con su siniestro y cuándo quedará resuelto.</p>
+        </header>
+
+        <!-- LAYOUT ESTRATÉGICO -->
+        <div class="strategic-grid">
+            <!-- PANEL PRINCIPAL: CONTEXTO Y PILARES -->
+            <section class="executive-panel">
+                <div class="panel-header-badge">
+                    <span class="kicker-dot" style="width: 7px; height: 7px; background: var(--lda-red); border-radius: 50%;"></span>
+                    Documento Oficial · Comunicado de Lanzamiento y Visión
+                </div>
+                <h2 class="panel-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color: var(--lda-red);">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    Línea Directa se Convierte en N.º 1 en Calidad de Servicio de Hogar
+                </h2>
+                <p class="panel-lead">
+                    <em>Madrid, 2026 — Para distribución interna inmediata.</em> Línea Directa lanza su proyecto de Transformación de Hogar con una ambición declarada: ser la aseguradora de referencia en calidad de servicio en el ramo de hogar en España. El punto de partida es incómodo pero necesario de enunciar con claridad: Hogar es el ramo donde la compañía tiene hoy sus mayores deficiencias de calidad de servicio, y esas deficiencias tienen un impacto que va más allá del propio ramo, deteriorando la consideración global de marca entre clientes que, en muchos casos, también son asegurados de motor o salud.
+                </p>
+                <p style="color: var(--text-sec); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;">
+                    El diagnóstico es preciso: cinco causas de insatisfacción identificadas, todas corregibles, ninguna estructural. Primero, la convivencia con productos antiguos con coberturas desfasadas. Segundo, una gestión de siniestros externalizada con prestadores sin integración terminada (generando siniestros sin seguimiento). Tercero, llamadas que sufren abandonos y transferencias. Cuarto, complejidad inherente en las coberturas no explicada al asegurado. Y quinto, la ausencia de comunicaciones proactivas en hitos clave.
+                </p>
+
+                <!-- CITA OFICIAL -->
+                <div class="press-quote-box">
+                    «El cliente de hogar que tiene un siniestro no nos pide que seamos perfectos. Nos pide que estemos. Que le digamos qué va a pasar. Que no le olvidemos. Hemos fallado en eso, y este proyecto existe para no volver a hacerlo.»
+                    <span class="press-quote-author">— Directora de Negocio de Hogar, Línea Directa Aseguradora</span>
+                </div>
+
+                <p style="color: var(--text-sec); font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
+                    La metáfora que guía el diseño es sencilla: <strong>ponernos en el lugar del cliente</strong>. Un incidente en una vivienda interrumpe el ritmo de vida de una persona. Hay días sin agua caliente, habitaciones inaccesibles o familias que duermen fuera de su casa. En ese contexto, el silencio de la aseguradora no es una molestia: es una traición a la confianza que el cliente depositó al contratar. Este proyecto existe para que eso nunca vuelva a ocurrir.
+                </p>
+
+                <!-- PILARES DE LA TRANSFORMACIÓN -->
+                <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin: 30px 0 16px;">
+                    Cuatro Dimensiones del Rediseño Integral
+                </h3>
+                <div class="pillars-grid">
+                    <div class="pillar-card">
+                        <div class="pillar-title">
+                            <span style="color: var(--lda-red); font-weight: 900;">01</span>
+                            Siniestros & Terceros
+                        </div>
+                        <p class="pillar-desc">
+                            Rediseño end-to-end con HomeServe y gremios: hitos obligatorios, SLAs estrictos, alertas automáticas ante inactividad y cero siniestros abandonados.
+                        </p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-title">
+                            <span style="color: var(--lda-red); font-weight: 900;">02</span>
+                            Experiencia Digital & Avisos
+                        </div>
+                        <p class="pillar-desc">
+                            Área de cliente en tiempo real con estado del siniestro, visitas y peritajes. Comunicaciones proactivas por SMS, push y email en cada hito.
+                        </p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-title">
+                            <span style="color: var(--lda-red); font-weight: 900;">03</span>
+                            Negocio, Cartera & SyP
+                        </div>
+                        <p class="pillar-desc">
+                            Equipos de Cartera y Prestaciones como guardianes de la experiencia. Aceleración de la migración de cartera al nuevo condicionado competitivo.
+                        </p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-title">
+                            <span style="color: var(--lda-red); font-weight: 900;">04</span>
+                            Gobierno del Servicio
+                        </div>
+                        <p class="pillar-desc">
+                            Evolución de los roles internos: de la tramitación manual directa al control, monitorización de SLAs y exigencia de excelencia a prestadores.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- VIAJE DEL CLIENTE -->
+                <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin: 34px 0 16px;">
+                    El Viaje del Cliente de Hogar: Los Cinco Momentos Clave
+                </h3>
+                <div style="overflow-x: auto;">
+                    <table class="journey-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 25%;">Momento del Cliente</th>
+                                <th>La Promesa de Experiencia</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Contratación</strong></td>
+                                <td>El asegurado accede a su área digital desde el minuto uno. Póliza transparente en lenguaje claro, sin sorpresas ni letra pequeña en las coberturas.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Suplementos</strong></td>
+                                <td>Cambios en la póliza (nueva dirección, capitales) 100% digitales desde el móvil, sin papeleos ni esperas telefónicas.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Siniestros</strong></td>
+                                <td>Apertura ágil y visibilidad total: cita del perito, asignación del gremio, estado de la reparación e indemnización clara. Cero silencios.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Renovación</strong></td>
+                                <td>Reafirmación de la relación con recordatorio de beneficios acumulados, alternativas ajustadas a su perfil y tiempo prudencial para decidir.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Retención / Excliente</strong></td>
+                                <td>Despedida digna si el cliente decide marcharse, manteniendo acceso temporal al programa <em>Por Ser</em> para habilitar su recuperación futura.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- PREGUNTAS Y RESPUESTAS INTERNAS -->
+                <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin: 36px 0 16px;">
+                    Preguntas y Respuestas Clave (FAQ del Proyecto)
+                </h3>
+
+                <div class="qa-item">
+                    <div class="qa-question">¿Por qué hogar y por qué ahora si otros ramos tienen más volumen?</div>
+                    <div class="qa-answer">
+                        Porque Hogar actúa como un amplificador negativo desproporcionado. Quien vive un mal siniestro en su casa no solo cancela hogar: pierde la confianza y reconsidera sus pólizas de Motor y Salud. Corregir Hogar produce un efecto multiplicador de confianza en toda la marca.
+                    </div>
+                </div>
+
+                <div class="qa-item">
+                    <div class="qa-question">¿Cómo se resuelve el problema de los terceros en la gestión de siniestros?</div>
+                    <div class="qa-answer">
+                        Con integración sistémica profunda y visibilidad total. Los hitos con los prestadores externos pasan a ser obligatorios: apertura, asignación del reparador, visita y cierre. Si un expediente queda sin actividad más tiempo del estipulado, se dispara una alerta operativa automática. Cero siniestros abandonados es innegociable.
+                    </div>
+                </div>
+
+                <div class="qa-item">
+                    <div class="qa-question">¿Qué ocurre con los clientes que tienen el producto antiguo en cartera?</div>
+                    <div class="qa-answer">
+                        Se implementa una estrategia de migración progresiva y proactiva. El criterio cardinal es que ningún asegurado se entere de que existe una cobertura moderna mejor por la vía traumática de un siniestro rehusado que con el producto nuevo habría estado plenamente cubierto.
+                    </div>
+                </div>
+
+                <div class="qa-item">
+                    <div class="qa-question">¿El cliente va a entender mejor las coberturas y los rehúses?</div>
+                    <div class="qa-answer">
+                        Sí, gracias a una comunicación pedagógica desde la contratación y un protocolo empático. Si un siniestro debe rehusarse por corresponder a mantenimiento del hogar o exclusión, se explica con claridad y sensibilidad, abandonando el formato de carta legal ininteligible.
+                    </div>
+                </div>
+
+                <!-- HABILITADORES TRANSVERSALES -->
+                <div style="margin-top: 32px; padding: 22px; background: rgba(228,0,43,0.03); border-radius: 14px; border: 1px solid rgba(228,0,43,0.15);">
+                    <h4 style="margin: 0 0 10px; color: var(--lda-red); font-weight: 800; font-size: 1rem; display: flex; align-items: center; gap: 8px;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                            <polyline points="2 17 12 22 22 17"></polyline>
+                            <polyline points="2 12 12 17 22 12"></polyline>
+                        </svg>
+                        Interdependencia con la Plataforma Corporativa
+                    </h4>
+                    <p style="margin: 0; font-size: 0.92rem; line-height: 1.6; color: var(--text-main);">
+                        La excelencia en Hogar descansa directamente sobre los proyectos hermanos: <strong>CRM Salesforce</strong> (para dotar al operador de visión 360° del cliente y su historial de siniestros) y <strong>Genesys Cloud CXaaS</strong> (para erradicar llamadas transferidas y transcribir conversaciones automáticamente).
+                    </p>
+                </div>
+            </section>
+
+            <!-- PANEL LATERAL: FICHA EJECUTIVA PMO -->
+            <aside class="executive-panel">
+                <div class="panel-header-badge" style="color: var(--text-sec); background: var(--bg-app);">
+                    Gobernanza PMO
+                </div>
+                <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin-bottom: 20px;">
+                    Ficha de Proyecto
+                </h3>
+
+                <ul class="meta-list">
+                    <li class="meta-item">
+                        <span class="meta-kicker">Liderazgo & Sponsor</span>
+                        <span class="meta-val">Dirección de Negocio Hogar</span>
+                    </li>
+                    <li class="meta-item">
+                        <span class="meta-kicker">Partner Reparador Clave</span>
+                        <span class="meta-val">HomeServe & Red de Gremios Externos</span>
+                    </li>
+                    <li class="meta-item">
+                        <span class="meta-kicker">Áreas Implicadas</span>
+                        <span class="meta-val">Transformación, IT, Cartera & SyP, Calidad</span>
+                    </li>
+                    <li class="meta-item">
+                        <span class="meta-kicker">Estado en Portfolio</span>
+                        <span class="meta-val" style="color: #ef4444; display: flex; align-items: center; gap: 6px;">
+                            <span style="width: 8px; height: 8px; background: #ef4444; border-radius: 50%;"></span>
+                            En Curso · Foco en Integración y Choque
+                        </span>
+                    </li>
+                    <li class="meta-item">
+                        <span class="meta-kicker">Habilitadores Clave</span>
+                        <span class="meta-val">CRM Salesforce FSC, Genesys Cloud CXaaS</span>
+                    </li>
+                </ul>
+
+                <h4 style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; color: var(--text-sec); margin: 28px 0 12px;">
+                    Objetivos de Servicio
+                </h4>
+                <div class="kpi-stat-grid">
+                    <div class="kpi-stat-card">
+                        <div class="kpi-value">N.º 1</div>
+                        <div class="kpi-label">Calidad Mercado</div>
+                    </div>
+                    <div class="kpi-stat-card">
+                        <div class="kpi-value">-40%</div>
+                        <div class="kpi-label">Rellamadas Info</div>
+                    </div>
+                    <div class="kpi-stat-card">
+                        <div class="kpi-value">100%</div>
+                        <div class="kpi-label">Trazabilidad Web/App</div>
+                    </div>
+                    <div class="kpi-stat-card">
+                        <div class="kpi-value">24h</div>
+                        <div class="kpi-label">Contacto Gremio</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 28px; display: flex; flex-direction: column; gap: 10px;">
+                    <a href="index.html" class="hero-badge" style="text-decoration: none; display: block; text-align: center; padding: 12px; background: var(--lda-red); color: #fff;">
+                        ← Volver al Hub Transformación Hogar
+                    </a>
+                    <a href="../Cuaderno de Bitacora (Proyectos)/index.html#seccion-estrategicos" class="hero-badge" style="text-decoration: none; display: block; text-align: center; padding: 12px; background: var(--bg-app); color: var(--text-main); border: 1px solid var(--border-color);">
+                        Volver a Proyectos Estratégicos
+                    </a>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- FOOTER OFICIAL -->
+    <footer class="app-footer">
+        <div class="footer-bottom">
+            <span>© 2026 Línea Directa Aseguradora S.A. — Transformación & Gestión del Cambio</span>
+        </div>
+    </footer>
+
+    <script src="../assets/js/search_index_data.js"></script>
+    <script src="../assets/js/bitacora-core.js"></script>
+    <script>
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            localStorage.setItem('bitacora-theme', newTheme);
+        }
+    </script>
+</body>
+
+</html>

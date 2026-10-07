@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunicado Oficial: Reingeniería Siniestros Motor | Proyectos Estratégicos LDA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/bitacora-core.css">
+    <style>
+        .strategic-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 28px;
+            margin: 32px 0 48px;
+        }
+
+        @media (max-width: 1024px) {
+            .strategic-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .executive-panel {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 32px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+        }
+
+        .panel-header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--lda-red);
+            background: rgba(228, 0, 43, 0.08);
+            padding: 6px 14px;
+            border-radius: 50px;
+            margin-bottom: 16px;
+        }
+
+        .panel-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin: 0 0 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .panel-lead {
+            font-size: 1.05rem;
+            line-height: 1.65;
+            color: var(--text-main);
+            margin-bottom: 24px;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+            margin-top: 24px;
+        }
+
+        .pillar-card {
+            background: var(--bg-app);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 20px;
+            border-left: 3px solid var(--lda-red);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-2px);
+            border-left-color: var(--lda-red);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+        }
+
+        .pillar-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pillar-desc {
+            font-size: 0.88rem;
+            line-height: 1.55;
+            color: var(--text-sec);
+            margin: 0;
+        }
+
+        .press-quote-box {
+            background: rgba(228, 0, 43, 0.03);
+            border-left: 4px solid var(--lda-red);
+            border-radius: 0 14px 14px 0;
+            padding: 20px 24px;
+            margin: 24px 0;
+            font-style: italic;
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .press-quote-author {
+            font-style: normal;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--lda-red);
+            margin-top: 8px;
+            display: block;
+        }
+
+        .faq-item {
+            background: var(--bg-app);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+        }
+
+        .faq-question {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .faq-answer {
+            font-size: 0.88rem;
+            line-height: 1.55;
+            color: var(--text-sec);
+            margin: 0;
+        }
+
+        .kpi-stat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        .kpi-stat-card {
+            background: var(--bg-app);
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .kpi-value {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--lda-red);
+            line-height: 1.2;
+        }
+
+        .kpi-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-sec);
+            margin-top: 4px;
+        }
+
+        .meta-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .meta-item {
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .meta-item:last-child {
+            border-bottom: none;
+        }
+
+        .meta-kicker {
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-sec);
+        }
+
+        .meta-val {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="global-nav-wrapper">
+        <div class="nav-breadcrumb">
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html" class="nav-breadcrumb-item" title="Inicio">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <a href="../Cuaderno de Bitacora (Proyectos)/index.html#seccion-estrategicos" class="nav-breadcrumb-item">Proyectos Estratégicos</a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <a href="index.html" class="nav-breadcrumb-item">Reingeniería Siniestros Motor</a>
+            <span style="color: var(--text-sec); margin: 0 10px;">/</span>
+            <span class="nav-breadcrumb-item current">Comunicado Oficial y Visión</span>
+        </div>
+    </nav>
+
+    <!-- THEME TOGGLE -->
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label">MODO OSCURO</span>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-checkbox" onchange="toggleTheme()">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <main class="container">
+        <!-- HERO SECTION -->
+        <header class="hero">
+            <span class="hero-badge">Iniciativa Estratégica Corporativa</span>
+            <span class="hero-badge-local">Operación Core & Triaje Inteligente</span>
+            <h1>Reingeniería Operativa <br><span>Siniestros Motor</span></h1>
+            <p>Línea Directa ofrece el mejor servicio de siniestros del mercado tras transformar su operación de motor: más de 400.000 siniestros al año gestionados con más rapidez, más transparencia y más precisión. La rapidez y la claridad convertidas en el estándar de la compañía.</p>
+        </header>
+
+        <!-- LAYOUT ESTRATÉGICO -->
+        <div class="strategic-grid">
+            <!-- PANEL PRINCIPAL: CONTEXTO Y PILARES -->
+            <section class="executive-panel">
+                <div class="panel-header-badge">
+                    <span class="kicker-dot" style="width: 7px; height: 7px; background: var(--lda-red); border-radius: 50%;"></span>
+                    Documento Oficial · Comunicado de Lanzamiento y Visión
+                </div>
+                <h2 class="panel-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color: var(--lda-red);">
+                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                    </svg>
+                    El Mejor Servicio de Siniestros en el Momento Decisivo
+                </h2>
+                <p class="panel-lead">
+                    <em>Madrid, 2026 — Para distribución interna inmediata.</em> Línea Directa completa la transformación integral de su operativa de siniestros de motor, el área que da servicio a más de 400.000 asegurados al año cuando más lo necesitan. El resultado es un modelo de gestión que convierte a la compañía en referencia del sector: cada expediente se canaliza desde la apertura por el circuito adecuado, el cliente recibe información antes de pedirla y los tiempos de resolución se reducen de manera estructural.
+                </p>
+                <p style="color: var(--text-sec); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;">
+                    Hasta ahora, cuando un asegurado abría un parte entraba en un proceso opaco: desconocía quién gestionaba su caso, si el perito había acudido o cuánto tardaría el taller. Para saberlo, la única opción era llamar. El nuevo modelo clasifica automáticamente cada expediente en el instante de apertura (FNOL): los siniestros estándar avanzan por vía ágil y automatizada (STP), los de complejidad media cuentan con asistencia en pantalla para el tramitador y los casos graves o con lesiones llegan directamente al especialista con la documentación ya estructurada.
+                </p>
+
+                <!-- CITA DE SERVICIOS Y PRESTACIONES -->
+                <div class="press-quote-box">
+                    «Motor es el ramo donde más nos jugamos con el cliente. Cuando tienes un siniestro, la aseguradora o te genera confianza o te genera dudas. Con esta transformación, hemos construido la operación para generar confianza siempre: resolviendo rápido, informando con claridad y garantizando que ningún expediente se queda sin avanzar.»
+                    <span class="press-quote-author">— Directora de Servicios y Prestaciones, Línea Directa Aseguradora</span>
+                </div>
+
+                <p style="color: var(--text-sec); font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
+                    La transformación impacta de lleno en el control económico. Motor concentra más de <strong>600 millones de euros de coste técnico anual</strong>. Una gestión ágil —sin reprocesos, con menor desviación en presupuestos de peritación, direccionamiento eficiente a red de talleres y detección temprana del fraude— reduce sensiblemente ese coste, permitiendo sostener las tarifas más competitivas del mercado directo.
+                </p>
+
+                <!-- PILARES DE TRANSFORMACIÓN -->
+                <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin: 30px 0 16px;">
+                    Cinco Pilares de la Reingeniería de Siniestros
+                </h3>
+                <div class="pillars-grid">
+                    <div class="pillar-card">
+                        <div class="pillar-title">
+                            <span style="color: var(--lda-red); font-weight: 900;">01</span>
+                            Triaje Inteligente STP en FNOL
+                        </div>
+                        <p class="pillar-desc">
+                            Clasificación inmediata desde la apertura según complejidad. Los expedientes sencillos se resuelven sin fricción (Straight Through Processing).
+                        </p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-title">
+                            <span style="color: var(--lda-red); font-weight: 900;">02</span>
+                            Transparencia Proactiva al Cliente
+                        </div>
+                        <p class="pillar-desc">
+                            Notificaciones push y tracking en tiempo real del parte. El cliente conoce cada avance sin necesidad de llamar para averiguar qué ocurre.
+                        </p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-title">
+                            <span style="color: var(--lda-red); font-weight: 900;">03</span>
+                            Peritación Digital & Lectura Documental
+                        </div>
+                        <p class="pillar-desc">
+                            Fotoperitación instantánea y análisis automático de atestados, facturas y partes para extraer datos clave y evitar lecturas manuales extensas.
+                        </p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-title">
+                            <span style="color: var(--lda-red); font-weight: 900;">04</span>
+                            Detección Previa de Fraude
+                        </div>
+                        <p class="pillar-desc">
+                            Modelos predictivos en etapas tempranas que identifican anomalías antes del pago de indemnizaciones, protegiendo la cuenta técnica.
+                        </p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-title">
+                            <span style="color: var(--lda-red); font-weight: 900;">05</span>
+                            Red Concertada y Convenios
+                        </div>
+                        <p class="pillar-desc">
+                            Direccionamiento prioritario a talleres de confianza, agilización en convenios entre aseguradoras (CIDE/ASCIDE) y reducción de costes medios.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- GESTIÓN DEL CAMBIO -->
+                <div style="margin-top: 32px; padding: 22px; background: rgba(228,0,43,0.03); border-radius: 14px; border: 1px solid rgba(228,0,43,0.15);">
+                    <h4 style="margin: 0 0 10px; color: var(--lda-red); font-weight: 800; font-size: 1rem; display: flex; align-items: center; gap: 8px;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        El Tramitador en el Centro, No en la Pantalla
+                    </h4>
+                    <p style="margin: 0; font-size: 0.92rem; line-height: 1.6; color: var(--text-main);">
+                        La automatización de tareas administrativas devuelve tiempo valioso a los tramitadores. Ese tiempo se reinvierte en lo que requiere empatía y criterio humano: acompañamiento a asegurados con lesiones, negociación con peritos y talleres, y resolución de casos complejos. El modelo garantiza autonomía interna sostenible y permanente.
+                    </p>
+                </div>
+
+                <!-- PREGUNTAS CLAVE INTERNAS (FAQ DEL PROYECTO) -->
+                <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin: 34px 0 16px;">
+                    Preguntas y Respuestas Clave (FAQ del Proyecto)
+                </h3>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span style="color: var(--lda-red);">Q:</span> ¿Qué es lo que más percibe el cliente de Línea Directa?
+                    </div>
+                    <p class="faq-answer">
+                        Principalmente tres aspectos: el siniestro avanza de forma proactiva sin silencios de días; cuando contacta a la compañía, quien atiende conoce el estado exacto del expediente; y los plazos totales de resolución se han reducido sustancialmente.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span style="color: var(--lda-red);">Q:</span> ¿Por qué este proyecto influye en la competitividad de las primas?
+                    </div>
+                    <p class="faq-answer">
+                        Al concentrar más de 600M € de coste técnico anual, cada punto porcentual de reducción por eliminación de retrabajos, fraude evitado y convenios bien gestionados abarata el coste por póliza, sosteniendo el liderazgo en precio de Línea Directa.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span style="color: var(--lda-red);">Q:</span> ¿Cómo conecta con Salesforce CRM y la IA Conversacional?
+                    </div>
+                    <p class="faq-answer">
+                        El siniestro ya no es una isla cerrada: todo el estado del expediente se sincroniza con el CRM para que el agente disponga del contexto antes de descolgar, y alimenta a la IA en Voz y Chat (Lupe) para responder de forma exacta preguntas sobre el avance del coche.
+                    </p>
+                </div>
+            </section>
+
+            <!-- PANEL LATERAL: FICHA EJECUTIVA PMO -->
+            <aside class="executive-panel">
+                <div class="panel-header-badge" style="color: var(--text-sec); background: var(--bg-app);">
+                    Gobernanza PMO
+                </div>
+                <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin-bottom: 20px;">
+                    Ficha de Proyecto
+                </h3>
+
+                <ul class="meta-list">
+                    <li class="meta-item">
+                        <span class="meta-kicker">Coordinación PMO PersCom</span>
+                        <span class="meta-val">Jesús Ortega (Backup: Belén Ayala)</span>
+                    </li>
+                    <li class="meta-item">
+                        <span class="meta-kicker">Asesoría / Integración</span>
+                        <span class="meta-val">McKinsey & Co. / Bip Consulting</span>
+                    </li>
+                    <li class="meta-item">
+                        <span class="meta-kicker">Áreas Impulsoras</span>
+                        <span class="meta-val">Servicios y Prestaciones, Transformación, IT, Personas</span>
+                    </li>
+                    <li class="meta-item">
+                        <span class="meta-kicker">Estado en Portfolio</span>
+                        <span class="meta-val" style="color: #10b981; display: flex; align-items: center; gap: 6px;">
+                            <span style="width: 8px; height: 8px; background: #10b981; border-radius: 50%;"></span>
+                            En Curso · Semáforo Verde
+                        </span>
+                    </li>
+                    <li class="meta-item">
+                        <span class="meta-kicker">Volumen Operativo</span>
+                        <span class="meta-val">>400.000 Siniestros Motor / Año</span>
+                    </li>
+                    <li class="meta-item">
+                        <span class="meta-kicker">Dependencias Principales</span>
+                        <span class="meta-val">CRM Salesforce, IA Voz Lupe, Peritaciones Digitales</span>
+                    </li>
+                </ul>
+
+                <h4 style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; color: var(--text-sec); margin: 28px 0 12px;">
+                    Métricas e Indicadores de Impacto
+                </h4>
+                <div class="kpi-stat-grid">
+                    <div class="kpi-stat-card">
+                        <div class="kpi-value">>400K</div>
+                        <div class="kpi-label">Partes Anuales</div>
+                    </div>
+                    <div class="kpi-stat-card">
+                        <div class="kpi-value">600M€</div>
+                        <div class="kpi-label">Coste Técnico</div>
+                    </div>
+                    <div class="kpi-stat-card">
+                        <div class="kpi-value">STP</div>
+                        <div class="kpi-label">Triaje Directo</div>
+                    </div>
+                    <div class="kpi-stat-card">
+                        <div class="kpi-value">-30%</div>
+                        <div class="kpi-label">Ciclo End-to-End</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 28px; display: flex; flex-direction: column; gap: 10px;">
+                    <a href="index.html" class="hero-badge" style="text-decoration: none; display: block; text-align: center; padding: 12px; background: var(--lda-red); color: #fff;">
+                        ← Volver al Hub Siniestros Motor
+                    </a>
+                    <a href="../Cuaderno de Bitacora (Proyectos)/index.html#seccion-estrategicos" class="hero-badge" style="text-decoration: none; display: block; text-align: center; padding: 12px; background: var(--bg-app); color: var(--text-main); border: 1px solid var(--border-color);">
+                        Volver a Proyectos Estratégicos
+                    </a>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- FOOTER OFICIAL -->
+    <footer class="app-footer">
+        <div class="footer-bottom">
+            <span>© 2026 Línea Directa Aseguradora S.A. — Transformación & Gestión del Cambio</span>
+        </div>
+    </footer>
+
+    <script src="../assets/js/search_index_data.js"></script>
+    <script src="../assets/js/bitacora-core.js"></script>
+    <script>
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            localStorage.setItem('bitacora-theme', newTheme);
+        }
+    </script>
+</body>
+
+</html>
