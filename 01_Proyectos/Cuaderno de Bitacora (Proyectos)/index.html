@@ -92,99 +92,116 @@
             <p>Ecosistema centralizado de documentación técnica, wikis funcionales y seguimiento de proyectos de Línea Directa Aseguradora.</p>
         </header>
 
-        <!-- FRANJA EJECUTIVA DE INDICADORES (HOME BITÁCORA) -->
-        <div class="executive-stats-strip">
-            <div class="kpi-clean-card">
-                <span class="kpi-clean-label">Total Proyectos</span>
-                <div class="kpi-clean-value" data-count="14">14</div>
-                <span class="kpi-clean-sub">Iniciativas activas</span>
+        <!-- MACRO SELECTOR PRINCIPAL: BIFURCACIÓN ESTRUCTURAL DE BITÁCORAS -->
+        <div class="bitacora-macro-selector-wrap">
+            <div class="bitacora-macro-selector" role="tablist" aria-label="Selector de Bitácora">
+                <button class="macro-tab-btn is-active" id="macro-tab-projects" onclick="switchMacroBitacora('projects')" role="tab" aria-selected="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                    <span class="macro-tab-title">Bitácora de Gestión de Proyectos</span>
+                    <span class="macro-tab-pill">12 Iniciativas</span>
+                </button>
+                <button class="macro-tab-btn" id="macro-tab-operativas" onclick="switchMacroBitacora('operativas')" role="tab" aria-selected="false">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                    <span class="macro-tab-title">Bitácora de Procedimientos y Operativas</span>
+                    <span class="macro-tab-pill">4 Manuales</span>
+                </button>
             </div>
+        </div>
 
-            <div class="kpi-clean-card">
-                <span class="kpi-clean-label">Estratégicos</span>
-                <div class="kpi-clean-value value-accent-red" data-count="8">8</div>
-                <span class="kpi-clean-sub">Prioridad corporativa</span>
-            </div>
-
-            <div class="kpi-clean-card">
-                <span class="kpi-clean-label">Gestión Directa</span>
-                <div class="kpi-clean-value" data-count="3">3</div>
-                <span class="kpi-clean-sub">Área de Personas</span>
-            </div>
-
-            <div class="kpi-clean-card kpi-card-clickable" onclick="openLicitacionesModal()" title="Pulsar para ver los proyectos en licitación">
-                <div class="kpi-clean-header-interactive">
-                    <span class="kpi-clean-label">En Licitación</span>
-                    <span class="kpi-clean-action">
-                        Ver proyectos
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                            <polyline points="12 5 19 12 12 19"></polyline>
-                        </svg>
-                    </span>
+        <!-- ========================================================================= -->
+        <!-- 1. CONTENEDOR DE LA BITÁCORA DE GESTIÓN DE PROYECTOS -->
+        <!-- ========================================================================= -->
+        <div id="container-bitacora-proyectos" class="macro-bitacora-container">
+            <!-- FRANJA EJECUTIVA DE INDICADORES (PROYECTOS) -->
+            <div class="executive-stats-strip executive-stats-strip-projects">
+                <div class="kpi-clean-card">
+                    <span class="kpi-clean-label">Total Proyectos</span>
+                    <div class="kpi-clean-value" data-count="12">12</div>
+                    <span class="kpi-clean-sub">Iniciativas activas</span>
                 </div>
-                <div class="kpi-clean-value value-accent-amber" data-count="1">1</div>
-                <span class="kpi-clean-sub">Concurso y pliegos abiertos</span>
-            </div>
-        </div>
 
-        <!-- CENTRO DE CONTROL DE FILTRADO Y VISTAS (SEGMENTED CONTROL) -->
-        <div class="view-controls-bar">
-            <!-- Segmented Control de Filtrado por Carril -->
-            <div class="filter-segments">
-                <button class="filter-chip active" onclick="filterPortfolio('all', this)">
-                    <span>Todos</span>
-                    <span class="filter-count">14</span>
-                </button>
-                <button class="filter-chip" onclick="filterPortfolio('direct', this)">
-                    <span class="filter-dot dot-red"></span>
-                    <span>Gestión Directa</span>
-                    <span class="filter-count">3</span>
-                </button>
-                <button class="filter-chip" onclick="filterPortfolio('strategic', this)">
-                    <span class="filter-dot dot-red"></span>
-                    <span>Estratégicos</span>
-                    <span class="filter-count">8</span>
-                </button>
-                <button class="filter-chip" onclick="filterPortfolio('facilitator', this)">
-                    <span class="filter-dot dot-red"></span>
-                    <span>Facilitadores</span>
-                    <span class="filter-count">1</span>
-                </button>
-                <button class="filter-chip" onclick="filterPortfolio('services', this)">
-                    <span class="filter-dot dot-red"></span>
-                    <span>Servicios</span>
-                    <span class="filter-count">4</span>
-                </button>
-                <button class="filter-chip" onclick="filterPortfolio('closed', this)">
-                    <span class="filter-dot dot-red"></span>
-                    <span>Histórico</span>
-                    <span class="filter-count">1</span>
-                </button>
+                <div class="kpi-clean-card">
+                    <span class="kpi-clean-label">Estratégicos</span>
+                    <div class="kpi-clean-value value-accent-red" data-count="8">8</div>
+                    <span class="kpi-clean-sub">Prioridad corporativa</span>
+                </div>
+
+                <div class="kpi-clean-card">
+                    <span class="kpi-clean-label">Gestión Directa</span>
+                    <div class="kpi-clean-value" data-count="3">3</div>
+                    <span class="kpi-clean-sub">Área de Personas</span>
+                </div>
+
+                <div class="kpi-clean-card kpi-card-clickable" onclick="openLicitacionesModal()" title="Pulsar para ver los proyectos en licitación">
+                    <div class="kpi-clean-header-interactive">
+                        <span class="kpi-clean-label">En Licitación</span>
+                        <span class="kpi-clean-action">
+                            Ver proyectos
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="kpi-clean-value value-accent-amber" data-count="1">1</div>
+                    <span class="kpi-clean-sub">Concurso y pliegos abiertos</span>
+                </div>
             </div>
 
-            <!-- Switcher de Vistas (Carrusel vs Mosaico) -->
-            <div class="view-mode-toggle">
-                <button class="view-btn active" id="btn-view-carousel" onclick="setViewMode('carousel')" title="Vista Carrusel Showcase">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="2" y="7" width="20" height="10" rx="2" ry="2"></rect>
-                        <line x1="7" y1="17" x2="7" y2="7"></line>
-                        <line x1="17" y1="17" x2="17" y2="7"></line>
-                    </svg>
-                    <span>Carrusel</span>
-                </button>
-                <button class="view-btn" id="btn-view-grid" onclick="setViewMode('grid')" title="Vista Mosaico Cuadrícula (B)">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="3" y="3" width="7" height="7"></rect>
-                        <rect x="14" y="3" width="7" height="7"></rect>
-                        <rect x="14" y="14" width="7" height="7"></rect>
-                        <rect x="3" y="14" width="7" height="7"></rect>
-                    </svg>
-                    <span>Mosaico</span>
-                    <span class="kbd-hint">B</span>
-                </button>
+            <!-- CENTRO DE CONTROL DE FILTRADO Y VISTAS (PROYECTOS) -->
+            <div class="view-controls-bar">
+                <div class="filter-segments filter-segments-projects">
+                    <button class="filter-chip active" onclick="filterPortfolio('all', this)">
+                        <span>Todos</span>
+                        <span class="filter-count">12</span>
+                    </button>
+                    <button class="filter-chip" onclick="filterPortfolio('direct', this)">
+                        <span class="filter-dot dot-red"></span>
+                        <span>Gestión Directa</span>
+                        <span class="filter-count">3</span>
+                    </button>
+                    <button class="filter-chip" onclick="filterPortfolio('strategic', this)">
+                        <span class="filter-dot dot-red"></span>
+                        <span>Estratégicos</span>
+                        <span class="filter-count">8</span>
+                    </button>
+                    <button class="filter-chip" onclick="filterPortfolio('facilitator', this)">
+                        <span class="filter-dot dot-red"></span>
+                        <span>Facilitadores</span>
+                        <span class="filter-count">1</span>
+                    </button>
+                </div>
+
+                <div class="view-mode-toggle">
+                    <button class="view-btn active" id="btn-view-carousel" onclick="setViewMode('carousel')" title="Vista Carrusel Showcase">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="7" width="20" height="10" rx="2" ry="2"></rect>
+                            <line x1="7" y1="17" x2="7" y2="7"></line>
+                            <line x1="17" y1="17" x2="17" y2="7"></line>
+                        </svg>
+                        <span>Carrusel</span>
+                    </button>
+                    <button class="view-btn" id="btn-view-grid" onclick="setViewMode('grid')" title="Vista Mosaico Cuadrícula (B)">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
+                        <span>Mosaico</span>
+                        <span class="kbd-hint">B</span>
+                    </button>
+                </div>
             </div>
-        </div>
+
 
         <!-- SECCIÓN 1: GESTIÓN DIRECTA (PO / PM) -->
         <section id="seccion-directa" class="portfolio-section" data-category="direct">
@@ -572,214 +589,243 @@
             </p>
         </div>
 
-        <!-- SECCIÓN 4: SERVICIOS Y OPERATIVAS -->
-        <section id="seccion-servicios" class="portfolio-section" data-category="services">
-            <div class="section-header" style="border-left: 4px solid var(--lda-red);">
-                <div class="section-icon" style="color: var(--lda-red);">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                        <line x1="8" y1="21" x2="16" y2="21"></line>
-                        <line x1="12" y1="17" x2="12" y2="21"></line>
-                    </svg>
+        </div> <!-- /container-bitacora-proyectos -->
+
+        <!-- ========================================================================= -->
+        <!-- 2. CONTENEDOR DE LA BITÁCORA DE PROCEDIMIENTOS, MANUALES Y OPERATIVAS -->
+        <!-- ========================================================================= -->
+        <div id="container-bitacora-operativas" class="macro-bitacora-container" style="display: none;">
+            <!-- FRANJA EJECUTIVA DE INDICADORES (OPERATIVAS & MANUALES) -->
+            <div class="executive-stats-strip executive-stats-strip-operativas">
+                <div class="kpi-clean-card">
+                    <span class="kpi-clean-label">Total Documentación</span>
+                    <div class="kpi-clean-value" data-count="4">4</div>
+                    <span class="kpi-clean-sub">Manuales y guías BAU</span>
                 </div>
-                <div class="section-title-wrapper">
-                    <h2 class="section-title">Servicios y Operativas</h2>
-                    <p class="section-subtitle">Catálogo de servicios transversales y documentación funcional</p>
+
+                <div class="kpi-clean-card">
+                    <span class="kpi-clean-label">Vigentes</span>
+                    <div class="kpi-clean-value" style="color: #059669;" data-count="3">3</div>
+                    <span class="kpi-clean-sub">En vigor y cumplimiento</span>
                 </div>
-                <div class="section-counter">1</div>
+
+                <div class="kpi-clean-card">
+                    <span class="kpi-clean-label">En Revisión</span>
+                    <div class="kpi-clean-value value-accent-amber" data-count="1">1</div>
+                    <span class="kpi-clean-sub">Auditoría o actualización</span>
+                </div>
+
+                <div class="kpi-clean-card">
+                    <span class="kpi-clean-label">Normativas Críticas</span>
+                    <div class="kpi-clean-value" data-count="2">2</div>
+                    <span class="kpi-clean-sub">Regulatorio DORA / RGPD</span>
+                </div>
             </div>
-            <div class="carousel-container">
-                <button class="carousel-btn left hidden" onclick="scrollCarousel(this, -340)"
-                    aria-label="Desplazar a la izquierda">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <polyline points="15 18 9 12 15 6"></polyline>
-                    </svg>
-                </button>
-                <div class="carousel-track" onscroll="updateCarouselButtons(this)">
 
-                    <!-- Gestión de Usuarios -->
-                    <a href="../Gestion de Usuarios/index.html" id="card-gestion-usuarios" class="apple-card" data-accent="red">
-                        <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> SERVICIO ACTIVO</div>
-                        <h3 class="title">Gestión de Usuarios</h3>
-                        <p class="desc">Documentación sobre el funcionamiento, arquitectura operativa y servicios vinculados al sistema de Gestión de Usuarios y sus integraciones.</p>
-                        <div class="card-tags">
-                            <span class="tech-tag">Gestión Accesos</span>
-                            <span class="tech-tag">Directorio Activo</span>
-                            <span class="tech-tag">Seguridad y Roles</span>
-                        </div>
-                        <div class="card-visual" style="color: var(--lda-red);">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <!-- Usuario Oficial Línea Directa -->
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12ZM12 5.34091C10.6946 5.34091 9.63636 6.39915 9.63636 7.70455C9.63636 9.00995 10.6946 10.0682 12 10.0682C13.3054 10.0682 14.3636 9.00995 14.3636 7.70455C14.3636 6.39915 13.3054 5.34091 12 5.34091ZM8.63636 7.70455C8.63636 5.84686 10.1423 4.34091 12 4.34091C13.8577 4.34091 15.3636 5.84686 15.3636 7.70455C15.3636 9.56223 13.8577 11.0682 12 11.0682C10.1423 11.0682 8.63636 9.56223 8.63636 7.70455ZM12 12.9773C9.11306 12.9773 6.77273 15.3176 6.77273 18.2045C6.77273 18.4807 6.54887 18.7045 6.27273 18.7045C5.99658 18.7045 5.77273 18.4807 5.77273 18.2045C5.77273 14.7653 8.56077 11.9773 12 11.9773C15.4392 11.9773 18.2273 14.7653 18.2273 18.2045C18.2273 18.4807 18.0034 18.7045 17.7273 18.7045C17.4511 18.7045 17.2273 18.4807 17.2273 18.2045C17.2273 15.3176 14.8869 12.9773 12 12.9773Z" fill="currentColor"/>
-                            </svg>
-                        </div>
-                    </a>
-
-                    <!-- Demo Card 3 -->
-                    <div class="apple-card disabled-card">
-                        <div class="kicker">PRÓXIMA OPERATIVA</div>
-                        <h3 class="title">Nuevo Servicio</h3>
-                        <p class="desc">Espacio reservado para documentar futuras operativas transversales del sistema.</p>
-                        <div class="card-tags">
-                            <span class="tech-tag">Servicio en Estudio</span>
-                            <span class="tech-tag">Operativa Futura</span>
-                            <span class="tech-tag">Roadmap 2026</span>
-                        </div>
-                        <div class="card-visual" style="color: var(--lda-red);">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="3.5" y="3.5" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.1"/>
-                                <rect x="13.5" y="3.5" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.1" stroke-dasharray="2 1.5"/>
-                                <rect x="3.5" y="13.5" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.1" stroke-dasharray="2 1.5"/>
-                                <rect x="13.5" y="13.5" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.1"/>
-                            </svg>
-                        </div>
-                    </div>
-
-                    <!-- Demo Card 4 -->
-                    <div class="apple-card disabled-card">
-                        <div class="kicker">EN DISEÑO</div>
-                        <h3 class="title">Nueva Operativa</h3>
-                        <p class="desc">Tarjetón genérico preparado para alojar servicios organizacionales futuros.</p>
-                        <div class="card-tags">
-                            <span class="tech-tag">Fase de Concepción</span>
-                            <span class="tech-tag">Diseño Funcional</span>
-                            <span class="tech-tag">Arquitectura</span>
-                        </div>
-                        <div class="card-visual" style="color: var(--lda-red);">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.1" stroke-dasharray="3 2"/>
-                                <circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.1"/>
-                                <path d="M12 2V5M12 19V22M2 12H5M19 12H22" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
-                            </svg>
-                        </div>
-                    </div>
-
-                    <!-- Demo Card 5 -->
-                    <div class="apple-card disabled-card">
-                        <div class="kicker">PENDIENTE</div>
-                        <h3 class="title">Próxima Operativa</h3>
-                        <p class="desc">Módulo no definido, espacio visual concebido para balancear el carrusel de servicios.</p>
-                        <div class="card-tags">
-                            <span class="tech-tag">Capacidad Futura</span>
-                            <span class="tech-tag">Portfolio Expandible</span>
-                            <span class="tech-tag">Área Personas</span>
-                        </div>
-                        <div class="card-visual" style="color: var(--lda-red);">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 4L20 8.5L12 13L4 8.5L12 4Z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>
-                                <path d="M4 12.5L12 17L20 12.5" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>
-                                <path d="M4 16.5L12 21L20 16.5" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                    </div>
-
+            <!-- CENTRO DE CONTROL DE FILTRADO (OPERATIVAS) -->
+            <div class="view-controls-bar">
+                <div class="filter-segments filter-segments-operativas">
+                    <button class="filter-chip active" onclick="filterOperativas('all', this)">
+                        <span>Todos</span>
+                        <span class="filter-count">4</span>
+                    </button>
+                    <button class="filter-chip" onclick="filterOperativas('sistemas', this)">
+                        <span class="filter-dot dot-red"></span>
+                        <span>Sistemas & Identidades</span>
+                        <span class="filter-count">1</span>
+                    </button>
+                    <button class="filter-chip" onclick="filterOperativas('datos', this)">
+                        <span class="filter-dot dot-red"></span>
+                        <span>Gobernanza del Dato</span>
+                        <span class="filter-count">1</span>
+                    </button>
+                    <button class="filter-chip" onclick="filterOperativas('workplace', this)">
+                        <span class="filter-dot dot-red"></span>
+                        <span>Workplace</span>
+                        <span class="filter-count">1</span>
+                    </button>
+                    <button class="filter-chip" onclick="filterOperativas('ciber', this)">
+                        <span class="filter-dot dot-red"></span>
+                        <span>Ciberseguridad</span>
+                        <span class="filter-count">1</span>
+                    </button>
                 </div>
-                <button class="carousel-btn right hidden" onclick="scrollCarousel(this, 340)"
-                    aria-label="Desplazar a la derecha">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                </button>
             </div>
-        </section>
 
-        <!-- SECCIÓN 5: PROYECTOS CERRADOS (HISTÓRICO) -->
-        <section id="seccion-cerrados" class="portfolio-section" data-category="closed">
-            <div class="section-header" style="border-left: 4px solid var(--lda-red);">
-                <div class="section-icon" style="color: var(--lda-red);">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                        <line x1="16" y1="2" x2="16" y2="6"></line>
-                        <line x1="8" y1="2" x2="8" y2="6"></line>
-                        <line x1="3" y1="10" x2="21" y2="10"></line>
-                    </svg>
+            <!-- SECCIÓN 4: SISTEMAS E INFRAESTRUCTURA OPERATIVA -->
+            <section id="seccion-operativas-sistemas" class="portfolio-section" data-op-category="sistemas-workplace">
+                <div class="section-header" style="border-left: 4px solid var(--lda-red);">
+                    <div class="section-icon" style="color: var(--lda-red);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
+                    <div class="section-title-wrapper">
+                        <h2 class="section-title">Sistemas e Infraestructura Operativa</h2>
+                        <p class="section-subtitle">Manuales de administración técnica, identidades corporativas y equipamiento continuo</p>
+                    </div>
+                    <div class="section-counter">2</div>
                 </div>
-                <div class="section-title-wrapper">
-                    <h2 class="section-title">Proyectos Cerrados (Histórico)</h2>
-                    <p class="section-subtitle">Repositorio de proyectos completados o transferidos para preservar historial y contexto</p>
-                </div>
-                <div class="section-counter">1</div>
-            </div>
-            <div class="carousel-container">
-                <button class="carousel-btn left hidden" onclick="scrollCarousel(this, -340)"
-                    aria-label="Desplazar a la izquierda">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <polyline points="15 18 9 12 15 6"></polyline>
-                    </svg>
-                </button>
-                <div class="carousel-track" id="track-closed" onscroll="updateCarouselButtons(this)">
-                    <!-- Gestión de la Información (Traspasado a Transformación) -->
-                    <a href="../Gobierno de Informacion/index.html" id="card-gobierno-informacion" class="apple-card" data-accent="red">
-                        <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> HISTÓRICO TRASPASADO</div>
-                        <h3 class="title">Gestión de la Información</h3>
-                        <p class="desc">Proyecto de Inteligencia LidIA y metodología GIN transferido al Área de Transformación. Conserva aquí todo el contexto, historial y wiki funcional.</p>
-                        <div class="card-tags">
-                            <span class="tech-tag">Metodología GIN</span>
-                            <span class="tech-tag">Gobierno del Dato</span>
-                            <span class="tech-tag">Wiki Funcional</span>
-                        </div>
-                        <div class="card-visual" style="color: var(--lda-red);">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <!-- Escudo Oficial de Gobernanza y Pólizas Línea Directa -->
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 3.11805C3.5 2.25694 4.17909 1.5 5.10858 1.5H18.9144C18.944 1.5 18.9734 1.50125 19.0025 1.5037C19.8764 1.56214 20.5 2.29236 20.5 3.11805V9.05908C20.5 10.8518 20.1504 12.5909 19.4816 14.1926C19.3753 14.4475 19.0824 14.5678 18.8276 14.4614C18.5728 14.355 18.4525 14.0622 18.5588 13.8074C19.176 12.3293 19.5 10.7213 19.5 9.05908V3.11805C19.5 2.78975 19.2557 2.52159 18.9331 2.5013L18.9259 2.50085L18.9187 2.50019L18.9144 2.5H5.10858C4.76338 2.5 4.5 2.77667 4.5 3.11805V9.06588C4.5 9.89959 4.50108 11.0299 4.92654 12.4447C5.35317 13.8635 6.20622 15.5677 7.91125 17.5473L11.571 21.312C11.6916 21.4361 12.3445 21.5 12 21.5C12.1466 21.5 12.3149 21.4383 12.4246 21.317L12.4306 21.3103L15.293 18.51C15.4854 18.312 15.802 18.3075 16 18.5C16.198 18.6925 16.2025 19.009 16.01 19.207L13.1596 21.9951C12.8342 22.3501 12.3844 22.5 12 22.5C11.5726 22.5 11.1574 22.3212 10.854 22.009L7.17379 18.2234L7.15357 18.1999C5.36789 16.1267 4.4404 14.3007 3.9689 12.7327C3.49999 11.1733 3.49999 9.92161 3.5 9.07176V3.11805Z" fill="currentColor"/>
-                                <path d="M12 5.99995C12.2761 5.99995 12.5 6.22381 12.5 6.49995V12.4999C12.5 12.7761 12.2761 12.9999 12 12.9999C11.7239 12.9999 11.5 12.7761 11.5 12.4999V6.49995C11.5 6.22381 11.7239 5.99995 12 5.99995Z" fill="currentColor"/>
-                                <path d="M12.3445 15.1272C12.5497 15.3119 12.5664 15.6281 12.3817 15.8333L12.3717 15.8444C12.1869 16.0497 11.8708 16.0663 11.6655 15.8816C11.4603 15.6969 11.4436 15.3807 11.6284 15.1755L11.6384 15.1644C11.8231 14.9591 12.1392 14.9425 12.3445 15.1272Z" fill="currentColor"/>
-                            </svg>
-                        </div>
-                    </a>
 
-                    <!-- Archivo Histórico Card 1 -->
-                    <div class="apple-card disabled-card" data-accent="red">
-                        <div class="kicker" style="color: var(--text-muted);">HISTORIAL ARCHIVADO</div>
-                        <h3 class="title" style="color: var(--text-muted);">Archivo de Porfolio</h3>
-                        <p class="desc">Espacio reservado para almacenar el historial de proyectos concluidos en ciclos anteriores.</p>
-                        <div class="card-tags">
-                            <span class="tech-tag">Ciclos Anteriores</span>
-                            <span class="tech-tag">Auditoría</span>
-                        </div>
-                        <div class="card-visual" style="color: var(--lda-red);">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="3.5" y="3.5" width="17" height="17" rx="3" stroke="currentColor" stroke-width="1.1"/>
-                                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.0"/>
-                            </svg>
+                <div class="carousel-container">
+                    <button class="carousel-btn left hidden" onclick="scrollCarousel(this, -340)" aria-label="Desplazar a la izquierda">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    <div class="carousel-track" onscroll="updateCarouselButtons(this)">
+                        <!-- 1. Gestión de Usuarios -->
+                        <a href="../Gestion de Usuarios/index.html" id="card-op-gestion-usuarios" class="apple-card" data-accent="red" data-op-tag="sistemas">
+                            <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> SISTEMAS & IDENTIDADES</div>
+                            <h3 class="title">Gestión de Usuarios</h3>
+                            <p class="desc">Documentación técnica integral, flujo operativo y arquitectura del sistema de Gestión de Usuarios, Directorio Activo y ciclo de vida de accesos corporativos.</p>
+                            <div class="card-tags">
+                                <span class="doc-badge badge-doc-vigente">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 3px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    Vigente
+                                </span>
+                                <span class="doc-badge badge-doc-version">v2.4</span>
+                                <span class="doc-badge badge-doc-criticidad">Crítica</span>
+                                <span class="tech-tag">Directorio Activo</span>
+                                <span class="tech-tag">IAM</span>
+                            </div>
+                            <div class="doc-meta-strip">
+                                <span>📅 Rev: Octubre 2026</span>
+                                <span>🔄 Próx: Octubre 2027</span>
+                            </div>
+                            <div class="card-visual" style="color: var(--lda-red);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12ZM12 5.34091C10.6946 5.34091 9.63636 6.39915 9.63636 7.70455C9.63636 9.00995 10.6946 10.0682 12 10.0682C13.3054 10.0682 14.3636 9.00995 14.3636 7.70455C14.3636 6.39915 13.3054 5.34091 12 5.34091ZM8.63636 7.70455C8.63636 5.84686 10.1423 4.34091 12 4.34091C13.8577 4.34091 15.3636 5.84686 15.3636 7.70455C15.3636 9.56223 13.8577 11.0682 12 11.0682C10.1423 11.0682 8.63636 9.56223 8.63636 7.70455ZM12 12.9773C9.11306 12.9773 6.77273 15.3176 6.77273 18.2045C6.77273 18.4807 6.54887 18.7045 6.27273 18.7045C5.99658 18.7045 5.77273 18.4807 5.77273 18.2045C5.77273 14.7653 8.56077 11.9773 12 11.9773C15.4392 11.9773 18.2273 14.7653 18.2273 18.2045C18.2273 18.4807 18.0034 18.7045 17.7273 18.7045C17.4511 18.7045 17.2273 18.4807 17.2273 18.2045C17.2273 15.3176 14.8869 12.9773 12 12.9773Z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                        </a>
+
+                        <!-- 2. Protocolo de Puestos & Equipamiento -->
+                        <div id="card-op-protocolo-soporte-puestos" class="apple-card" data-accent="red" data-op-tag="workplace">
+                            <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> INFRAESTRUCTURA & WORKPLACE</div>
+                            <h3 class="title">Protocolo de Puestos & Equipamiento</h3>
+                            <p class="desc">Guía procedimental para asignación, mantenimiento, configuración y entrega de activos informáticos y herramientas de trabajo remoto.</p>
+                            <div class="card-tags">
+                                <span class="doc-badge badge-doc-revision">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 3px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    En Revisión
+                                </span>
+                                <span class="doc-badge badge-doc-version">v1.2</span>
+                                <span class="tech-tag">Workplace</span>
+                                <span class="tech-tag">Logística TI</span>
+                            </div>
+                            <div class="doc-meta-strip">
+                                <span>📅 Rev: Agosto 2026</span>
+                                <span>🔄 Próx: Noviembre 2026</span>
+                            </div>
+                            <div class="card-visual" style="color: var(--lda-red);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                                </svg>
+                            </div>
                         </div>
                     </div>
+                    <button class="carousel-btn right hidden" onclick="scrollCarousel(this, 340)" aria-label="Desplazar a la derecha">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </section>
 
-                    <!-- Archivo Histórico Card 2 -->
-                    <div class="apple-card disabled-card" data-accent="red">
-                        <div class="kicker" style="color: var(--text-muted);">REPOSITORIO</div>
-                        <h3 class="title" style="color: var(--text-muted);">Registro Histórico</h3>
-                        <p class="desc">Conservación de memorias técnicas, lecciones aprendidas y acuerdos de gobernanza pasados.</p>
-                        <div class="card-tags">
-                            <span class="tech-tag">Lecciones</span>
-                            <span class="tech-tag">Memorias</span>
-                        </div>
-                        <div class="card-visual" style="color: var(--lda-red);">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="3.5" y="3.5" width="17" height="17" rx="3" stroke="currentColor" stroke-width="1.1"/>
-                                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.0"/>
-                            </svg>
+            <!-- SECCIÓN 5: GOBERNANZA, NORMATIVA Y CUMPLIMIENTO -->
+            <section id="seccion-operativas-gobierno" class="portfolio-section" data-op-category="gobierno-ciber">
+                <div class="section-header" style="border-left: 4px solid var(--lda-red);">
+                    <div class="section-icon" style="color: var(--lda-red);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <div class="section-title-wrapper">
+                        <h2 class="section-title">Gobernanza, Normativa y Cumplimiento</h2>
+                        <p class="section-subtitle">Marcos metodológicos, auditoría continua de accesos y cumplimiento normativo regulatorio</p>
+                    </div>
+                    <div class="section-counter">2</div>
+                </div>
+
+                <div class="carousel-container">
+                    <button class="carousel-btn left hidden" onclick="scrollCarousel(this, -340)" aria-label="Desplazar a la izquierda">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    <div class="carousel-track" onscroll="updateCarouselButtons(this)">
+                        <!-- 3. Gobierno de la Información -->
+                        <a href="../Gobierno de Informacion/index.html" id="card-op-gobierno-informacion" class="apple-card" data-accent="red" data-op-tag="datos">
+                            <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> TRANSFORMACIÓN & DATOS</div>
+                            <h3 class="title">Gobierno de la Información</h3>
+                            <p class="desc">Marco metodológico, archivo documental y guía procedimental de custodia de datos, arquitectura funcional y directrices de Inteligencia Artificial.</p>
+                            <div class="card-tags">
+                                <span class="doc-badge badge-doc-vigente">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 3px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    Vigente
+                                </span>
+                                <span class="doc-badge badge-doc-version">v1.8</span>
+                                <span class="doc-badge badge-doc-criticidad" style="background: rgba(228,0,43,0.08); color: var(--lda-red); border-color: rgba(228,0,43,0.2);">Alta</span>
+                                <span class="tech-tag">Metodología GIN</span>
+                                <span class="tech-tag">Gobierno del Dato</span>
+                            </div>
+                            <div class="doc-meta-strip">
+                                <span>📅 Rev: Septiembre 2026</span>
+                                <span>🔄 Próx: Septiembre 2027</span>
+                            </div>
+                            <div class="card-visual" style="color: var(--lda-red);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 3.11805C3.5 2.25694 4.17909 1.5 5.10858 1.5H18.9144C18.944 1.5 18.9734 1.50125 19.0025 1.5037C19.8764 1.56214 20.5 2.29236 20.5 3.11805V9.05908C20.5 10.8518 20.1504 12.5909 19.4816 14.1926C19.3753 14.4475 19.0824 14.5678 18.8276 14.4614C18.5728 14.355 18.4525 14.0622 18.5588 13.8074C19.176 12.3293 19.5 10.7213 19.5 9.05908V3.11805C19.5 2.78975 19.2557 2.52159 18.9331 2.5013L18.9259 2.50085L18.9187 2.50019L18.9144 2.5H5.10858C4.76338 2.5 4.5 2.77667 4.5 3.11805V9.06588C4.5 9.89959 4.50108 11.0299 4.92654 12.4447C5.35317 13.8635 6.20622 15.5677 7.91125 17.5473L11.571 21.312C11.6916 21.4361 12.3445 21.5 12 21.5C12.1466 21.5 12.3149 21.4383 12.4246 21.317L12.4306 21.3103L15.293 18.51C15.4854 18.312 15.802 18.3075 16 18.5C16.198 18.6925 16.2025 19.009 16.01 19.207L13.1596 21.9951C12.8342 22.3501 12.3844 22.5 12 22.5C11.5726 22.5 11.1574 22.3212 10.854 22.009L7.17379 18.2234L7.15357 18.1999C5.36789 16.1267 4.4404 14.3007 3.9689 12.7327C3.49999 11.1733 3.49999 9.92161 3.5 9.07176V3.11805Z" fill="currentColor"/>
+                                    <path d="M12 5.99995C12.2761 5.99995 12.5 6.22381 12.5 6.49995V12.4999C12.5 12.7761 12.2761 12.9999 12 12.9999C11.7239 12.9999 11.5 12.7761 11.5 12.4999V6.49995C11.5 6.22381 11.7239 5.99995 12 5.99995Z" fill="currentColor"/>
+                                    <path d="M12.3445 15.1272C12.5497 15.3119 12.5664 15.6281 12.3817 15.8333L12.3717 15.8444C12.1869 16.0497 11.8708 16.0663 11.6655 15.8816C11.4603 15.6969 11.4436 15.3807 11.6284 15.1755L11.6384 15.1644C11.8231 14.9591 12.1392 14.9425 12.3445 15.1272Z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                        </a>
+
+                        <!-- 4. Control de Accesos & Cumplimiento -->
+                        <div id="card-op-auditoria-cumplimiento" class="apple-card" data-accent="red" data-op-tag="ciber">
+                            <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> CIBERSEGURIDAD & RIESGOS</div>
+                            <h3 class="title">Control de Accesos & Cumplimiento</h3>
+                            <p class="desc">Protocolo de revisión periódica de cuentas genéricas, privilegios de administrador y trazabilidad de accesos conforme a la normativa DORA y RGPD.</p>
+                            <div class="card-tags">
+                                <span class="doc-badge badge-doc-vigente">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 3px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    Vigente
+                                </span>
+                                <span class="doc-badge badge-doc-version">v2.0</span>
+                                <span class="doc-badge badge-doc-criticidad">Crítica</span>
+                                <span class="tech-tag">Auditoría DORA</span>
+                                <span class="tech-tag">RGPD</span>
+                            </div>
+                            <div class="doc-meta-strip">
+                                <span>📅 Rev: Octubre 2026</span>
+                                <span>🔄 Próx: Abril 2027</span>
+                            </div>
+                            <div class="card-visual" style="color: var(--lda-red);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                    <path d="M9 12l2 2 4-4"/>
+                                </svg>
+                            </div>
                         </div>
                     </div>
+                    <button class="carousel-btn right hidden" onclick="scrollCarousel(this, 340)" aria-label="Desplazar a la derecha">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
                 </div>
-                <button class="carousel-btn right hidden" onclick="scrollCarousel(this, 340)"
-                    aria-label="Desplazar a la derecha">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                </button>
-            </div>
-        </section>
+            </section>
+        </div> <!-- /container-bitacora-operativas -->
 
     </main>
 
-        <!-- FOOTER CORPORATIVO OFICIAL LÍNEA DIRECTA -->
+    <!-- FOOTER CORPORATIVO OFICIAL LÍNEA DIRECTA -->
     <footer class="app-footer">
         <div class="footer-inner">
             <div class="footer-brand-block">
@@ -796,8 +842,8 @@
                         <li><a href="#seccion-directa">Gestión Directa</a></li>
                         <li><a href="#seccion-estrategicos">Proyectos Estratégicos</a></li>
                         <li><a href="#seccion-facilitadores">Facilitadores</a></li>
-                        <li><a href="#seccion-servicios">Servicios Organizacionales</a></li>
-                        <li><a href="#seccion-cerrados">Proyectos Cerrados</a></li>
+                        <li><a href="#seccion-operativas-sistemas">Operativa de Sistemas</a></li>
+                        <li><a href="#seccion-operativas-gobierno">Gobernanza & Cumplimiento</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -1006,14 +1052,77 @@
         }
 
         // ==========================================
-        // FILTRADO POR CARRILES DEL PORTFOLIO
+        // SELECTOR MACRO DE BITÁCORA (PROYECTOS VS OPERATIVAS)
+        // ==========================================
+        function switchMacroBitacora(mode) {
+            const btnProyectos = document.getElementById('tab-macro-proyectos');
+            const btnOperativas = document.getElementById('tab-macro-operativas');
+            const contProyectos = document.getElementById('container-bitacora-proyectos');
+            const contOperativas = document.getElementById('container-bitacora-operativas');
+
+            if (!btnProyectos || !btnOperativas || !contProyectos || !contOperativas) return;
+
+            if (mode === 'operativas') {
+                btnOperativas.classList.add('is-active');
+                btnProyectos.classList.remove('is-active');
+                contOperativas.style.display = 'block';
+                contProyectos.style.display = 'none';
+                localStorage.setItem('bitacora-macro-mode', 'operativas');
+            } else {
+                btnProyectos.classList.add('is-active');
+                btnOperativas.classList.remove('is-active');
+                contProyectos.style.display = 'block';
+                contOperativas.style.display = 'none';
+                localStorage.setItem('bitacora-macro-mode', 'proyectos');
+            }
+
+            // Re-calcular flechas de carruseles visibles y regenerar TOC
+            setTimeout(() => {
+                const activeContainer = (mode === 'operativas') ? contOperativas : contProyectos;
+                activeContainer.querySelectorAll('.carousel-track').forEach(track => {
+                    updateCarouselButtons(track);
+                });
+                if (typeof window.initSmartTOC === 'function') {
+                    window.initSmartTOC();
+                }
+            }, 60);
+        }
+
+        // ==========================================
+        // FILTRADO POR ÁREA EN BITÁCORA DE OPERATIVAS
+        // ==========================================
+        function filterOperativas(tag, btn) {
+            const buttons = document.querySelectorAll('.filter-segments-operativas .filter-chip');
+            buttons.forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+
+            const cards = document.querySelectorAll('#container-bitacora-operativas .apple-card');
+            cards.forEach(card => {
+                const cardTag = card.getAttribute('data-op-tag');
+                if (tag === 'all' || cardTag === tag) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Actualizar flechas de carrusel tras filtrar
+            setTimeout(() => {
+                document.querySelectorAll('#container-bitacora-operativas .carousel-track').forEach(track => {
+                    updateCarouselButtons(track);
+                });
+            }, 50);
+        }
+
+        // ==========================================
+        // FILTRADO POR CARRILES DEL PORTFOLIO (PROYECTOS)
         // ==========================================
         function filterPortfolio(category, btn) {
             // Actualizar botones de filtro
-            document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.filter-segments:not(.filter-segments-operativas) .filter-chip').forEach(c => c.classList.remove('active'));
             if (btn) btn.classList.add('active');
 
-            const sections = document.querySelectorAll('.portfolio-section');
+            const sections = document.querySelectorAll('#container-bitacora-proyectos .portfolio-section');
             sections.forEach(sec => {
                 const secCat = sec.getAttribute('data-category');
                 if (category === 'all' || secCat === category) {
@@ -1024,12 +1133,12 @@
             });
 
             // Asegurar que todas las tarjetas individuales estén visibles
-            document.querySelectorAll('.portfolio-section .apple-card').forEach(card => {
+            document.querySelectorAll('#container-bitacora-proyectos .apple-card').forEach(card => {
                 card.style.display = '';
             });
 
             // Resetear scroll de carruseles visibles y actualizar flechas
-            document.querySelectorAll('.portfolio-section:not(.section-hidden) .carousel-track').forEach(track => {
+            document.querySelectorAll('#container-bitacora-proyectos .portfolio-section:not(.section-hidden) .carousel-track').forEach(track => {
                 track.scrollLeft = 0;
                 updateCarouselButtons(track);
             });
@@ -1074,6 +1183,10 @@
         // 5. INICIALIZACIÓN COMPLETA DOM
         // ==========================================
         document.addEventListener('DOMContentLoaded', () => {
+            // Restaurar macro bitácora seleccionada (Proyectos u Operativas)
+            const savedMacro = localStorage.getItem('bitacora-macro-mode') || 'proyectos';
+            switchMacroBitacora(savedMacro);
+
             // Restaurar modo de vista (Carrusel o Mosaico)
             const savedView = localStorage.getItem('bitacora-view-mode') || 'carousel';
             setViewMode(savedView);

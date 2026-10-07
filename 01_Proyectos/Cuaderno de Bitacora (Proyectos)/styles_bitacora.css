@@ -5860,3 +5860,202 @@ body[data-density="compact"] .hero {
 
 
 
+
+/* =========================================================================
+   SISTEMA DE BIFURCACIÓN DE BITÁCORAS: PROYECTOS VS OPERATIVAS / MANUALES
+   ========================================================================= */
+
+.bitacora-macro-selector-wrap {
+    margin: 0 auto 35px auto;
+    max-width: 840px;
+    display: flex;
+    justify-content: center;
+}
+
+.bitacora-macro-selector {
+    display: inline-flex;
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    padding: 6px;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+    gap: 8px;
+    width: 100%;
+}
+
+.macro-tab-btn {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 24px;
+    border-radius: 14px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--text-sec);
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.22s ease;
+    text-decoration: none;
+}
+
+.macro-tab-btn:hover {
+    color: var(--text-main);
+    background: rgba(228, 0, 43, 0.04);
+}
+
+.macro-tab-btn.is-active {
+    background: var(--bg-page);
+    color: var(--lda-red);
+    border-color: rgba(228, 0, 43, 0.22);
+    box-shadow: 0 4px 14px rgba(228, 0, 43, 0.12);
+}
+
+[data-theme="dark"] .macro-tab-btn.is-active {
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    border-color: var(--lda-red);
+}
+
+.macro-tab-pill {
+    font-size: 0.75rem;
+    padding: 3px 10px;
+    border-radius: 12px;
+    background: rgba(228, 0, 43, 0.09);
+    color: var(--lda-red);
+    font-weight: 800;
+    letter-spacing: 0.3px;
+}
+
+.macro-tab-btn.is-active .macro-tab-pill {
+    background: var(--lda-red);
+    color: #ffffff;
+}
+
+/* Badges y Metadatos de Procedimientos / Operativas */
+.doc-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    border: 1px solid transparent;
+}
+
+.badge-doc-vigente {
+    background: rgba(16, 185, 129, 0.12);
+    color: #059669;
+    border-color: rgba(16, 185, 129, 0.25);
+}
+[data-theme="dark"] .badge-doc-vigente {
+    background: rgba(16, 185, 129, 0.2);
+    color: #34d399;
+    border-color: rgba(16, 185, 129, 0.4);
+}
+
+.badge-doc-revision {
+    background: rgba(245, 158, 11, 0.12);
+    color: #d97706;
+    border-color: rgba(245, 158, 11, 0.3);
+}
+[data-theme="dark"] .badge-doc-revision {
+    background: rgba(245, 158, 11, 0.2);
+    color: #fbbf24;
+    border-color: rgba(245, 158, 11, 0.4);
+}
+
+.badge-doc-obsoleto {
+    background: rgba(100, 116, 139, 0.12);
+    color: #64748b;
+    border-color: rgba(100, 116, 139, 0.25);
+}
+
+.badge-doc-version {
+    background: rgba(99, 102, 241, 0.1);
+    color: #4f46e5;
+    border-color: rgba(99, 102, 241, 0.25);
+    font-family: monospace;
+    font-weight: 700;
+}
+[data-theme="dark"] .badge-doc-version {
+    background: rgba(99, 102, 241, 0.2);
+    color: #a5b4fc;
+    border-color: rgba(99, 102, 241, 0.4);
+}
+
+.badge-doc-criticidad {
+    background: rgba(228, 0, 43, 0.08);
+    color: var(--lda-red);
+    border-color: rgba(228, 0, 43, 0.2);
+}
+
+.doc-meta-strip {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 12px;
+    margin-top: 14px;
+    border-top: 1px dashed var(--glass-border);
+    font-size: 0.78rem;
+    color: var(--text-sec);
+}
+
+.doc-meta-strip span {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Macro Switcher en el Cajón de Administración */
+.admin-macro-tabs {
+    display: flex;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border-color);
+    padding: 10px 24px 0 24px;
+    gap: 12px;
+}
+
+.admin-macro-tab {
+    padding: 10px 20px;
+    border: none;
+    background: transparent;
+    color: var(--text-sec);
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.admin-macro-tab:hover {
+    color: var(--text-main);
+}
+
+.admin-macro-tab.is-active {
+    color: var(--lda-red);
+    border-bottom-color: var(--lda-red);
+}
+
+.admin-doc-badge-pill {
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    background: rgba(228, 0, 43, 0.08);
+    color: var(--lda-red);
+}
+
+.admin-macro-tab.is-active .admin-doc-badge-pill {
+    background: var(--lda-red);
+    color: #ffffff;
+}

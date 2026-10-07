@@ -1,9 +1,15 @@
 /**
- * CATÁLOGO MAESTRO DE PROYECTOS - LÍNEA DIRECTA ASEGURADORA
- * Base de datos central de estado, gobernanza y carriles del Portfolio.
- * Modificable interactivamente desde el Centro de Gestión del Portfolio mediante Web File System API.
+ * CATÁLOGO MAESTRO DEL CUADERNO DE BITÁCORA - LÍNEA DIRECTA ASEGURADORA
+ * Estructura bifurcada oficial:
+ * 1. BITACORA_PROJECTS_DATA: Iniciativas de Transformación con ciclo de vida, fases, licitaciones y salud operativa.
+ * 2. BITACORA_OPERATIVAS_DATA: Procedimientos, Manuales Técnicos y Operativas continuas (BAU) con gobernanza documental.
+ * Persistencia en disco mediante File System Access API nativa e IndexedDB.
  * Fecha de sincronización: 2026-10-07
  */
+
+// =========================================================================
+// 1. BITÁCORA DE GESTIÓN DE PROYECTOS (INICIATIVAS Y CICLO DE VIDA)
+// =========================================================================
 window.BITACORA_PROJECTS_DATA = [
     {
         "id": "hcm",
@@ -160,31 +166,77 @@ window.BITACORA_PROJECTS_DATA = [
         "semaforo": "verde",
         "href": "../Perseo/index.html",
         "tags": ["Speech Analytics", "Calidad Operativa", "IA Supervisión"]
-    },
+    }
+];
+
+// =========================================================================
+// 2. BITÁCORA DE PROCEDIMIENTOS, MANUALES Y OPERATIVAS (DOCUMENTACIÓN TÉCNICA Y BAU)
+// =========================================================================
+window.BITACORA_OPERATIVAS_DATA = [
     {
         "id": "gestion-usuarios",
         "title": "Gestión de Usuarios",
         "subtitle": "Servicios Transversales & Directorio",
-        "desc": "Arquitectura unificada de identidades, accesos corporativos y ciclo de vida de empleados sobre Directorio Activo.",
-        "carril": "services",
-        "estado": "En Producción",
-        "licitacion": false,
-        "replanificado": false,
-        "semaforo": "verde",
+        "desc": "Documentación técnica integral, flujo operativo y arquitectura del sistema de Gestión de Usuarios, Directorio Activo y ciclo de vida de accesos corporativos.",
+        "tipoDoc": "Manual Operativo",
+        "area": "Sistemas & Identidades",
+        "estadoDoc": "Vigente",
+        "version": "v2.4",
+        "ultimaRevision": "Octubre 2026",
+        "proximaRevision": "Octubre 2027",
+        "criticidad": "Crítica",
         "href": "../Gestion de Usuarios/index.html",
-        "tags": ["Directorio Activo", "IAM", "SSO"]
+        "tags": ["Directorio Activo", "IAM", "Control de Accesos", "SSO"]
     },
     {
         "id": "gobierno-informacion",
-        "title": "Gestión de la Información",
-        "subtitle": "Histórico & Metodología LidIA",
-        "desc": "Preservación del marco documental, arquitectura funcional y fichas maestras del proyecto LidIA y GIN.",
-        "carril": "closed",
-        "estado": "Cerrado / Histórico",
-        "licitacion": false,
-        "replanificado": false,
-        "semaforo": "verde",
+        "title": "Gobierno de la Información",
+        "subtitle": "Histórico & Metodología LidIA / GIN",
+        "desc": "Marco metodológico, archivo documental y guía procedimental de custodia de datos, arquitectura funcional y directrices de Inteligencia Artificial.",
+        "tipoDoc": "Procedimiento Normativo",
+        "area": "Transformación & Datos",
+        "estadoDoc": "Vigente",
+        "version": "v1.8",
+        "ultimaRevision": "Septiembre 2026",
+        "proximaRevision": "Septiembre 2027",
+        "criticidad": "Alta",
         "href": "../Gobierno de Informacion/index.html",
-        "tags": ["Histórico", "Metodología GIN", "LidIA"]
+        "tags": ["Metodología GIN", "Gobierno del Dato", "LidIA", "Normativa"]
+    },
+    {
+        "id": "protocolo-soporte-puestos",
+        "title": "Protocolo de Puestos & Equipamiento",
+        "subtitle": "Operativa de Workplace & Logística",
+        "desc": "Guía procedimental para asignación, mantenimiento, configuración y entrega de activos informáticos y herramientas de trabajo remoto.",
+        "tipoDoc": "Guía Técnica",
+        "area": "Infraestructura & Workplace",
+        "estadoDoc": "En Revisión",
+        "version": "v1.2",
+        "ultimaRevision": "Agosto 2026",
+        "proximaRevision": "Noviembre 2026",
+        "criticidad": "Media",
+        "href": "#",
+        "tags": ["Workplace", "Hardware", "Logística TI"]
+    },
+    {
+        "id": "auditoria-cumplimiento",
+        "title": "Control de Accesos & Cumplimiento",
+        "subtitle": "Auditoría Periódica de Privilegios",
+        "desc": "Protocolo de revisión periódica de cuentas genéricas, privilegios de administrador y trazabilidad de accesos conforme a la normativa DORA y RGPD.",
+        "tipoDoc": "Procedimiento Normativo",
+        "area": "Ciberseguridad & Riesgos",
+        "estadoDoc": "Vigente",
+        "version": "v2.0",
+        "ultimaRevision": "Octubre 2026",
+        "proximaRevision": "Abril 2027",
+        "criticidad": "Crítica",
+        "href": "#",
+        "tags": ["Auditoría DORA", "RGPD", "Ciberseguridad"]
     }
 ];
+
+// Contenedor global de catálogo unificado
+window.BITACORA_CATALOG = {
+    projects: window.BITACORA_PROJECTS_DATA,
+    operativas: window.BITACORA_OPERATIVAS_DATA
+};

@@ -963,7 +963,8 @@ function initSmartTOC() {
         const sections = Array.from(document.querySelectorAll('.portfolio-section'))
             .filter(sec => {
                 const header = sec.querySelector('.section-header');
-                return header !== null;
+                const isHiddenContainer = sec.closest('[style*="display: none"]') !== null;
+                return header !== null && !isHiddenContainer;
             });
 
         if (sections.length === 0) return;
@@ -1188,6 +1189,7 @@ function initSmartTOC() {
     subscribeScroll(updateToc);
     updateToc(window.scrollY || window.pageYOffset || 0);
 }
+window.initSmartTOC = initSmartTOC;
 
 // 2. SPECULAR SPOTLIGHT & 3D TILT EN TARJETAS
 function initCardSpotlightTilt() {
