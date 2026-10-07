@@ -171,14 +171,14 @@ window.BITACORA_PROJECTS_DATA = [
         "id": "gobierno-informacion",
         "title": "Gobierno de la Información",
         "subtitle": "Histórico & Metodología LidIA / GIN",
-        "desc": "Marco metodológico, archivo documental y directrices de arquitectura funcional y gobierno de datos corporativo con LidIA.",
-        "carril": "strategic",
-        "estado": "En Curso",
+        "desc": "Proyecto de Inteligencia LidIA y metodología GIN transferido al Área de Transformación. Conserva aquí todo el contexto, historial y wiki funcional.",
+        "carril": "closed",
+        "estado": "Cerrado / Completado",
         "licitacion": false,
         "replanificado": false,
-        "semaforo": "verde",
+        "semaforo": "gris",
         "href": "../Gobierno de Informacion/index.html",
-        "tags": ["Metodología GIN", "Gobierno del Dato", "LidIA", "Normativa"]
+        "tags": ["Metodología GIN", "Gobierno del Dato", "Wiki Funcional", "Histórico"]
     }
 ];
 

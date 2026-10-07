@@ -122,7 +122,6 @@
                     <div class="macro-card-content">
                         <div class="macro-card-topline">
                             <span class="macro-card-title">Bitácora de Gestión de Proyectos</span>
-                            <span class="macro-card-badge badge-proyectos">12 Iniciativas</span>
                         </div>
                         <p class="macro-card-desc">Iniciativas estratégicas, ciclo de vida, cronograma, semáforos de salud y licitaciones activas.</p>
                         <div class="macro-card-footer">
@@ -132,12 +131,11 @@
                                 </svg>
                                 Bitácora Activa
                             </span>
-                            <span class="macro-card-meta">8 Estratégicos · 3 Directos</span>
                         </div>
                     </div>
                 </button>
 
-                <!-- Tarjeta 2: Procedimientos y Operativas -->
+                <!-- Tarjeta 2: Bitácora de Procedimientos y Operativas -->
                 <button class="macro-card-btn" id="tab-macro-operativas" onclick="switchMacroBitacora('operativas', true)" role="tab" aria-selected="false" aria-controls="container-bitacora-operativas">
                     <div class="macro-card-icon-wrap">
                         <div class="macro-card-icon">
@@ -154,8 +152,7 @@
                     
                     <div class="macro-card-content">
                         <div class="macro-card-topline">
-                            <span class="macro-card-title">Procedimientos y Operativas</span>
-                            <span class="macro-card-badge badge-operativas">4 Manuales BAU</span>
+                            <span class="macro-card-title">Bitácora de Procedimientos y Operativas</span>
                         </div>
                         <p class="macro-card-desc">Gobernanza documental, identidades, normativa regulatoria DORA/RGPD y puestos TI continuos.</p>
                         <div class="macro-card-footer">
@@ -165,7 +162,6 @@
                                 </svg>
                                 Bitácora Activa
                             </span>
-                            <span class="macro-card-meta">3 Vigentes · 1 En Revisión</span>
                         </div>
                     </div>
                 </button>
@@ -180,8 +176,8 @@
             <div class="executive-stats-strip executive-stats-strip-projects">
                 <div class="kpi-clean-card">
                     <span class="kpi-clean-label">Total Proyectos</span>
-                    <div class="kpi-clean-value" data-count="12">12</div>
-                    <span class="kpi-clean-sub">Iniciativas activas</span>
+                    <div class="kpi-clean-value" data-count="13">13</div>
+                    <span class="kpi-clean-sub">Iniciativas registradas</span>
                 </div>
 
                 <div class="kpi-clean-card">
@@ -217,7 +213,7 @@
                 <div class="filter-segments filter-segments-projects">
                     <button class="filter-chip active" onclick="filterPortfolio('all', this)">
                         <span>Todos</span>
-                        <span class="filter-count">12</span>
+                        <span class="filter-count">13</span>
                     </button>
                     <button class="filter-chip" onclick="filterPortfolio('direct', this)">
                         <span class="filter-dot dot-red"></span>
@@ -232,6 +228,11 @@
                     <button class="filter-chip" onclick="filterPortfolio('facilitator', this)">
                         <span class="filter-dot dot-red"></span>
                         <span>Facilitadores</span>
+                        <span class="filter-count">1</span>
+                    </button>
+                    <button class="filter-chip" onclick="filterPortfolio('closed', this)">
+                        <span class="filter-dot dot-red"></span>
+                        <span>Histórico / Cerrados</span>
                         <span class="filter-count">1</span>
                     </button>
                 </div>
@@ -376,10 +377,10 @@
                     </svg>
                 </div>
                 <div class="section-title-wrapper">
-                    <h2 class="section-title">Proyectos Estratégicos (9 Proyectos)</h2>
+                    <h2 class="section-title">Proyectos Estratégicos (8 Proyectos)</h2>
                     <p class="section-subtitle">Grandes iniciativas transversales de transformación estratégica de Línea Directa</p>
                 </div>
-                <div class="section-counter">9</div>
+                <div class="section-counter">8</div>
             </div>
             <div class="carousel-container">
                 <button class="carousel-btn left hidden" onclick="scrollCarousel(this, -340)"
@@ -548,24 +549,6 @@
                             </svg>
                         </div>
                     </a>
-
-                    <!-- 9. Gobierno de la Información -->
-                    <a href="../Gobierno de Informacion/index.html" id="card-gobierno-informacion" class="apple-card" data-accent="red">
-                        <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> PROYECTO ESTRATÉGICO</div>
-                        <h3 class="title">Gobierno de la Información</h3>
-                        <p class="desc">Marco metodológico corporativo, archivo documental y directrices de arquitectura funcional y gobierno de datos corporativo con LidIA.</p>
-                        <div class="card-tags">
-                            <span class="tech-tag">Metodología GIN</span>
-                            <span class="tech-tag">LidIA</span>
-                            <span class="tech-tag">Arquitectura Funcional</span>
-                        </div>
-                        <div class="card-visual" style="color: var(--lda-red);">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 3.11805C3.5 2.25694 4.17909 1.5 5.10858 1.5H18.9144C18.944 1.5 18.9734 1.50125 19.0025 1.5037C19.8764 1.56214 20.5 2.29236 20.5 3.11805V9.05908C20.5 10.8518 20.1504 12.5909 19.4816 14.1926C19.3753 14.4475 19.0824 14.5678 18.8276 14.4614C18.5728 14.355 18.4525 14.0622 18.5588 13.8074C19.176 12.3293 19.5 10.7213 19.5 9.05908V3.11805C19.5 2.78975 19.2557 2.52159 18.9331 2.5013L18.9259 2.50085L18.9187 2.50019L18.9144 2.5H5.10858C4.76338 2.5 4.5 2.77667 4.5 3.11805V9.06588C4.5 9.89959 4.50108 11.0299 4.92654 12.4447C5.35317 13.8635 6.20622 15.5677 7.91125 17.5473L11.571 21.312C11.6916 21.4361 12.3445 21.5 12 21.5C12.1466 21.5 12.3149 21.4383 12.4246 21.317L12.4306 21.3103L15.293 18.51C15.4854 18.312 15.802 18.3075 16 18.5C16.198 18.6925 16.2025 19.009 16.01 19.207L13.1596 21.9951C12.8342 22.3501 12.3844 22.5 12 22.5C11.5726 22.5 11.1574 22.3212 10.854 22.009L7.17379 18.2234L7.15357 18.1999C5.36789 16.1267 4.4404 14.3007 3.9689 12.7327C3.49999 11.1733 3.49999 9.92161 3.5 9.07176V3.11805Z" fill="currentColor"/>
-                                <path d="M12 5.99995C12.2761 5.99995 12.5 6.22381 12.5 6.49995V12.4999C12.5 12.7761 12.2761 12.9999 12 12.9999C11.7239 12.9999 11.5 12.7761 11.5 12.4999V6.49995C11.5 6.22381 11.7239 5.99995 12 5.99995Z" fill="currentColor"/>
-                            </svg>
-                        </div>
-                    </a>
                 </div>
                 <button class="carousel-btn right hidden" onclick="scrollCarousel(this, 340)"
                     aria-label="Desplazar a la derecha">
@@ -663,6 +646,63 @@
             </p>
         </div>
 
+        <!-- SECCIÓN 4: PROYECTOS CERRADOS (HISTÓRICO) -->
+        <section id="seccion-cerrados" class="portfolio-section" data-category="closed">
+            <div class="section-header" style="border-left: 4px solid var(--lda-red);">
+                <div class="section-icon" style="color: var(--lda-red);">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                </div>
+                <div class="section-title-wrapper">
+                    <h2 class="section-title">Histórico / Cerrados</h2>
+                    <p class="section-subtitle">Repositorio de proyectos completados o transferidos para preservar historial y contexto</p>
+                </div>
+                <div class="section-counter">1</div>
+            </div>
+            <div class="carousel-container">
+                <button class="carousel-btn left hidden" onclick="scrollCarousel(this, -340)"
+                    aria-label="Desplazar a la izquierda">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+                <div class="carousel-track" id="track-closed" onscroll="updateCarouselButtons(this)">
+                    <!-- Gobierno de la Información (Traspasado / Histórico) -->
+                    <a href="../Gobierno de Informacion/index.html" id="card-gobierno-informacion" class="apple-card" data-accent="red">
+                        <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> HISTÓRICO TRASPASADO</div>
+                        <h3 class="title">Gobierno de la Información</h3>
+                        <p class="desc">Proyecto de Inteligencia LidIA y metodología GIN transferido al Área de Transformación. Conserva aquí todo el contexto, historial y wiki funcional.</p>
+                        <div class="card-tags">
+                            <span class="tech-tag">Metodología GIN</span>
+                            <span class="tech-tag">Gobierno del Dato</span>
+                            <span class="tech-tag">Wiki Funcional</span>
+                            <span class="tech-tag" style="background: rgba(107, 114, 128, 0.12); color: #4b5563; border-color: rgba(107, 114, 128, 0.25);">Histórico</span>
+                        </div>
+                        <div class="card-visual" style="color: var(--lda-red);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 3.11805C3.5 2.25694 4.17909 1.5 5.10858 1.5H18.9144C18.944 1.5 18.9734 1.50125 19.0025 1.5037C19.8764 1.56214 20.5 2.29236 20.5 3.11805V9.05908C20.5 10.8518 20.1504 12.5909 19.4816 14.1926C19.3753 14.4475 19.0824 14.5678 18.8276 14.4614C18.5728 14.355 18.4525 14.0622 18.5588 13.8074C19.176 12.3293 19.5 10.7213 19.5 9.05908V3.11805C19.5 2.78975 19.2557 2.52159 18.9331 2.5013L18.9259 2.50085L18.9187 2.50019L18.9144 2.5H5.10858C4.76338 2.5 4.5 2.77667 4.5 3.11805V9.06588C4.5 9.89959 4.50108 11.0299 4.92654 12.4447C5.35317 13.8635 6.20622 15.5677 7.91125 17.5473L11.571 21.312C11.6916 21.4361 12.3445 21.5 12 21.5C12.1466 21.5 12.3149 21.4383 12.4246 21.317L12.4306 21.3103L15.293 18.51C15.4854 18.312 15.802 18.3075 16 18.5C16.198 18.6925 16.2025 19.009 16.01 19.207L13.1596 21.9951C12.8342 22.3501 12.3844 22.5 12 22.5C11.5726 22.5 11.1574 22.3212 10.854 22.009L7.17379 18.2234L7.15357 18.1999C5.36789 16.1267 4.4404 14.3007 3.9689 12.7327C3.49999 11.1733 3.49999 9.92161 3.5 9.07176V3.11805Z" fill="currentColor"/>
+                                <path d="M12 5.99995C12.2761 5.99995 12.5 6.22381 12.5 6.49995V12.4999C12.5 12.7761 12.2761 12.9999 12 12.9999C11.7239 12.9999 11.5 12.7761 11.5 12.4999V6.49995C11.5 6.22381 11.7239 5.99995 12 5.99995Z" fill="currentColor"/>
+                                <path d="M12.3445 15.1272C12.5497 15.3119 12.5664 15.6281 12.3817 15.8333L12.3717 15.8444C12.1869 16.0497 11.8708 16.0663 11.6655 15.8816C11.4603 15.6969 11.4436 15.3807 11.6284 15.1755L11.6384 15.1644C11.8231 14.9591 12.1392 14.9425 12.3445 15.1272Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+                <button class="carousel-btn right hidden" onclick="scrollCarousel(this, 340)"
+                    aria-label="Desplazar a la derecha">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+        </section>
+
         </div> <!-- /container-bitacora-proyectos -->
 
         <!-- ========================================================================= -->
@@ -673,25 +713,25 @@
             <div class="executive-stats-strip executive-stats-strip-operativas">
                 <div class="kpi-clean-card">
                     <span class="kpi-clean-label">Total Documentación</span>
-                    <div class="kpi-clean-value" data-count="4">4</div>
+                    <div class="kpi-clean-value" data-count="1">1</div>
                     <span class="kpi-clean-sub">Manuales y guías BAU</span>
                 </div>
 
                 <div class="kpi-clean-card">
                     <span class="kpi-clean-label">Vigentes</span>
-                    <div class="kpi-clean-value" style="color: #059669;" data-count="3">3</div>
+                    <div class="kpi-clean-value" style="color: #059669;" data-count="1">1</div>
                     <span class="kpi-clean-sub">En vigor y cumplimiento</span>
                 </div>
 
                 <div class="kpi-clean-card">
                     <span class="kpi-clean-label">En Revisión</span>
-                    <div class="kpi-clean-value value-accent-amber" data-count="1">1</div>
+                    <div class="kpi-clean-value value-accent-amber" data-count="0">0</div>
                     <span class="kpi-clean-sub">Auditoría o actualización</span>
                 </div>
 
                 <div class="kpi-clean-card">
                     <span class="kpi-clean-label">Normativas Críticas</span>
-                    <div class="kpi-clean-value" data-count="2">2</div>
+                    <div class="kpi-clean-value" data-count="1">1</div>
                     <span class="kpi-clean-sub">Regulatorio DORA / RGPD</span>
                 </div>
             </div>
@@ -701,26 +741,11 @@
                 <div class="filter-segments filter-segments-operativas">
                     <button class="filter-chip active" onclick="filterOperativas('all', this)">
                         <span>Todos</span>
-                        <span class="filter-count">4</span>
+                        <span class="filter-count">1</span>
                     </button>
                     <button class="filter-chip" onclick="filterOperativas('sistemas', this)">
                         <span class="filter-dot dot-red"></span>
                         <span>Sistemas & Identidades</span>
-                        <span class="filter-count">1</span>
-                    </button>
-                    <button class="filter-chip" onclick="filterOperativas('datos', this)">
-                        <span class="filter-dot dot-red"></span>
-                        <span>Gobernanza del Dato</span>
-                        <span class="filter-count">1</span>
-                    </button>
-                    <button class="filter-chip" onclick="filterOperativas('workplace', this)">
-                        <span class="filter-dot dot-red"></span>
-                        <span>Workplace</span>
-                        <span class="filter-count">1</span>
-                    </button>
-                    <button class="filter-chip" onclick="filterOperativas('ciber', this)">
-                        <span class="filter-dot dot-red"></span>
-                        <span>Ciberseguridad</span>
                         <span class="filter-count">1</span>
                     </button>
                 </div>
@@ -804,12 +829,12 @@
                         <li><a href="#seccion-directa" onclick="navigateToSection('seccion-directa', 'proyectos'); return false;">Gestión Directa (PO/PM)</a></li>
                         <li><a href="#seccion-estrategicos" onclick="navigateToSection('seccion-estrategicos', 'proyectos'); return false;">Proyectos Estratégicos</a></li>
                         <li><a href="#seccion-facilitadores" onclick="navigateToSection('seccion-facilitadores', 'proyectos'); return false;">Facilitadores / Afectados</a></li>
-                        <li><a href="../Gobierno de Informacion/index.html">Gobierno de la Información</a></li>
+                        <li><a href="#seccion-cerrados" onclick="navigateToSection('seccion-cerrados', 'proyectos'); return false;">Histórico / Cerrados</a></li>
                         <li><a href="#modal-licitaciones" onclick="openLicitacionesModal(); return false;">Concursos en Licitación</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Procedimientos & Operativas</h4>
+                    <h4>Bitácora de Procedimientos y Operativas</h4>
                     <ul>
                         <li><a href="#seccion-operativas-sistemas" onclick="navigateToSection('seccion-operativas-sistemas', 'operativas'); return false;">Manuales & Operativas TI</a></li>
                         <li><a href="../Gestion de Usuarios/index.html">Gestión de Usuarios (IAM)</a></li>

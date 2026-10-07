@@ -236,16 +236,11 @@
                 if (valCrit) { valCrit.innerText = opCriticas; valCrit.setAttribute('data-count', opCriticas); }
             }
 
-            // Actualizar contadores del Macro Selector en Home
-            const macroPillProj = document.querySelector('#macro-tab-projects .macro-tab-pill');
-            if (macroPillProj) macroPillProj.innerText = `${totalProj} Iniciativas`;
-            const macroPillOp = document.querySelector('#macro-tab-operativas .macro-tab-pill');
-            if (macroPillOp) macroPillOp.innerText = `${totalOp} Manuales`;
-
             // Actualizar filtros de carril de proyectos
+            const closedProjects = this.projects.filter(p => p.carril === 'closed').length;
             const filterChipsProj = document.querySelectorAll('.filter-segments-projects .filter-chip');
             if (filterChipsProj.length >= 4) {
-                const counts = [totalProj, directs, strategics, facilitators];
+                const counts = [totalProj, directs, strategics, facilitators, closedProjects];
                 filterChipsProj.forEach((chip, i) => {
                     const countEl = chip.querySelector('.filter-count');
                     if (countEl && counts[i] !== undefined) countEl.innerText = counts[i];
@@ -256,7 +251,8 @@
             const mapSecCount = {
                 'seccion-directa': directs,
                 'seccion-estrategicos': strategics,
-                'seccion-facilitadores': facilitators
+                'seccion-facilitadores': facilitators,
+                'seccion-cerrados': closedProjects
             };
             Object.keys(mapSecCount).forEach(secId => {
                 const sec = document.getElementById(secId);
@@ -342,7 +338,8 @@
                     const targetSecId = {
                         'direct': 'seccion-directa',
                         'strategic': 'seccion-estrategicos',
-                        'facilitator': 'seccion-facilitadores'
+                        'facilitator': 'seccion-facilitadores',
+                        'closed': 'seccion-cerrados'
                     }[p.carril] || 'seccion-estrategicos';
 
                     const targetTrack = document.querySelector(`#${targetSecId} .carousel-track`);
@@ -443,7 +440,8 @@
             const map = {
                 'direct': 'Gestión Directa',
                 'strategic': 'Proyecto Estratégico',
-                'facilitator': 'Facilitador / Afectado'
+                'facilitator': 'Facilitador / Afectado',
+                'closed': 'Histórico / Cerrado'
             };
             return map[carril] || 'Proyecto';
         },
@@ -667,6 +665,7 @@
                 const dir = this.projects.filter(p => p.carril === 'direct').length;
                 const strat = this.projects.filter(p => p.carril === 'strategic').length;
                 const fac = this.projects.filter(p => p.carril === 'facilitator').length;
+                const closed = this.projects.filter(p => p.carril === 'closed').length;
 
                 container.innerHTML = `
                     <button class="admin-filter-tab ${this.activeTab === 'all' ? 'is-active' : ''}" data-tab="all">
@@ -689,6 +688,10 @@
                     <button class="admin-filter-tab ${this.activeTab === 'facilitator' ? 'is-active' : ''}" data-tab="facilitator">
                         <span>Facilitadores</span>
                         <span class="tab-badge">${fac}</span>
+                    </button>
+                    <button class="admin-filter-tab ${this.activeTab === 'closed' ? 'is-active' : ''}" data-tab="closed">
+                        <span>Histórico / Cerrados</span>
+                        <span class="tab-badge">${closed}</span>
                     </button>
                 `;
             } else {
@@ -770,6 +773,7 @@
                 if (this.activeTab === 'direct' && p.carril !== 'direct') return false;
                 if (this.activeTab === 'strategic' && p.carril !== 'strategic') return false;
                 if (this.activeTab === 'facilitator' && p.carril !== 'facilitator') return false;
+                if (this.activeTab === 'closed' && p.carril !== 'closed') return false;
 
                 if (!this.searchTerm) return true;
                 const matchTitle = p.title.toLowerCase().includes(this.searchTerm);
@@ -872,8 +876,9 @@
                                 <label class="admin-field-label">Carril en el Portfolio</label>
                                 <select class="admin-field-select admin-select-carril" data-id="${p.id}">
                                     <option value="direct" ${p.carril === 'direct' ? 'selected' : ''}>Gestión Directa (PO / PM)</option>
-                                    <option value="strategic" ${p.carril === 'strategic' ? 'selected' : ''}>Estratégicos (8 Grandes)</option>
+                                    <option value="strategic" ${p.carril === 'strategic' ? 'selected' : ''}>Estratégicos</option>
                                     <option value="facilitator" ${p.carril === 'facilitator' ? 'selected' : ''}>Facilitadores / Afectados</option>
+                                    <option value="closed" ${p.carril === 'closed' ? 'selected' : ''}>Histórico / Cerrados</option>
                                 </select>
                             </div>
 
@@ -887,7 +892,7 @@
                                     <option value="En Despliegue" ${p.estado === 'En Despliegue' ? 'selected' : ''}>En Despliegue / Piloto</option>
                                     <option value="En Producción" ${p.estado === 'En Producción' ? 'selected' : ''}>En Producción</option>
                                     <option value="En Pausa / Parado" ${p.estado === 'En Pausa / Parado' || p.estado === 'Parado' ? 'selected' : ''}>En Pausa / Parado</option>
-                                    <option value="Cerrado / Histórico" ${p.estado === 'Cerrado / Histórico' ? 'selected' : ''}>Cerrado / Histórico</option>
+                                    <option value="Cerrado / Completado" ${p.estado === 'Cerrado / Completado' || p.estado === 'Cerrado / Histórico' || p.estado === 'Cerrado' ? 'selected' : ''}>Cerrado / Histórico</option>
                                 </select>
                             </div>
                         </div>
