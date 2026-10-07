@@ -959,6 +959,42 @@ function initSmartTOC() {
     const sectionElements = [];
 
     if (isPortfolioHome) {
+        // Mini Macro Switcher en la cabecera del TOC
+        let miniSwitch = tocContainer.querySelector('.bitacora-toc-macro-switch');
+        if (!miniSwitch) {
+            miniSwitch = document.createElement('div');
+            miniSwitch.className = 'bitacora-toc-macro-switch';
+            const currentMode = localStorage.getItem('bitacora-macro-mode') || 'proyectos';
+            miniSwitch.innerHTML = `
+                <button class="bitacora-toc-switch-btn ${currentMode === 'proyectos' ? 'is-active' : ''}" data-mode="proyectos" title="Ver Bitácora de Proyectos">
+                    📁 Proyectos
+                </button>
+                <button class="bitacora-toc-switch-btn ${currentMode === 'operativas' ? 'is-active' : ''}" data-mode="operativas" title="Ver Procedimientos y Operativas">
+                    📋 Operativas
+                </button>
+            `;
+            miniSwitch.querySelectorAll('.bitacora-toc-switch-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetMode = btn.getAttribute('data-mode');
+                    if (typeof window.switchMacroBitacora === 'function') {
+                        window.switchMacroBitacora(targetMode);
+                    }
+                });
+            });
+            const tocHeader = tocContainer.querySelector('.bitacora-toc-header');
+            if (tocHeader) tocHeader.insertAdjacentElement('afterend', miniSwitch);
+        } else {
+            const currentMode = localStorage.getItem('bitacora-macro-mode') || 'proyectos';
+            miniSwitch.querySelectorAll('.bitacora-toc-switch-btn').forEach(btn => {
+                if (btn.getAttribute('data-mode') === currentMode) {
+                    btn.classList.add('is-active');
+                } else {
+                    btn.classList.remove('is-active');
+                }
+            });
+        }
+
         // MODO PORTFOLIO HOME: Jerarquía estricta Carril -> Proyectos
         const sections = Array.from(document.querySelectorAll('.portfolio-section'))
             .filter(sec => {

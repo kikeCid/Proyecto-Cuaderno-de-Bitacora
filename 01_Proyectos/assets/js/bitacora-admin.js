@@ -1117,14 +1117,14 @@
             this.applyStateToUI();
         },
 
-        openDrawer: function (targetTab = null, targetMacro = 'projects') {
+        openDrawer: function (targetTab = null, targetMacro = null) {
             const drawer = this.buildDrawer();
-            if (targetMacro) {
-                this.macroMode = targetMacro;
-                drawer.querySelectorAll('.admin-macro-tab').forEach(t => {
-                    t.classList.toggle('is-active', t.getAttribute('data-macro') === targetMacro);
-                });
-            }
+            const currentMode = targetMacro || localStorage.getItem('bitacora-macro-mode') || 'projects';
+            const effectiveMacro = (currentMode === 'operativas' || currentMode === 'manuales') ? 'operativas' : 'projects';
+            this.macroMode = effectiveMacro;
+            drawer.querySelectorAll('.admin-macro-tab').forEach(t => {
+                t.classList.toggle('is-active', t.getAttribute('data-macro') === effectiveMacro);
+            });
             if (targetTab) {
                 this.activeTab = targetTab;
             }

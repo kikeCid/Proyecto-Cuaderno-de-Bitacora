@@ -92,26 +92,82 @@
             <p>Ecosistema centralizado de documentación técnica, wikis funcionales y seguimiento de proyectos de Línea Directa Aseguradora.</p>
         </header>
 
-        <!-- MACRO SELECTOR PRINCIPAL: BIFURCACIÓN ESTRUCTURAL DE BITÁCORAS -->
+        <!-- MACRO SELECTOR PRINCIPAL: ARQUITECTURA DUAL EJECUTIVA -->
         <div class="bitacora-macro-selector-wrap">
-            <div class="bitacora-macro-selector" role="tablist" aria-label="Selector de Bitácora">
-                <button class="macro-tab-btn is-active" id="macro-tab-projects" onclick="switchMacroBitacora('projects')" role="tab" aria-selected="true">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+            <div class="macro-selector-header">
+                <span class="macro-selector-label">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
                     </svg>
-                    <span class="macro-tab-title">Bitácora de Gestión de Proyectos</span>
-                    <span class="macro-tab-pill">12 Iniciativas</span>
+                    Centro de Selección de Bitácora
+                </span>
+                <span class="macro-selector-hint">Alterna entre seguimiento de iniciativas y gobernanza documental BAU</span>
+            </div>
+            
+            <div class="bitacora-macro-selector-grid" role="tablist" aria-label="Selector Maestro de Bitácora">
+                <!-- Tarjeta 1: Gestión de Proyectos -->
+                <button class="macro-card-btn is-active" id="tab-macro-proyectos" onclick="switchMacroBitacora('proyectos')" role="tab" aria-selected="true" aria-controls="container-bitacora-proyectos">
+                    <div class="macro-card-icon-wrap">
+                        <div class="macro-card-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                            </svg>
+                        </div>
+                        <span class="macro-card-status-dot"></span>
+                    </div>
+                    
+                    <div class="macro-card-content">
+                        <div class="macro-card-topline">
+                            <span class="macro-card-title">Bitácora de Gestión de Proyectos</span>
+                            <span class="macro-card-badge badge-proyectos">12 Iniciativas</span>
+                        </div>
+                        <p class="macro-card-desc">Iniciativas estratégicas, ciclo de vida, cronograma, semáforos de salud y licitaciones activas.</p>
+                        <div class="macro-card-footer">
+                            <span class="macro-card-indicator">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                Bitácora Activa
+                            </span>
+                            <span class="macro-card-meta">8 Estratégicos · 3 Directos</span>
+                        </div>
+                    </div>
                 </button>
-                <button class="macro-tab-btn" id="macro-tab-operativas" onclick="switchMacroBitacora('operativas')" role="tab" aria-selected="false">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                        <polyline points="14 2 14 8 20 8"></polyline>
-                        <line x1="16" y1="13" x2="8" y2="13"></line>
-                        <line x1="16" y1="17" x2="8" y2="17"></line>
-                        <polyline points="10 9 9 9 8 9"></polyline>
-                    </svg>
-                    <span class="macro-tab-title">Bitácora de Procedimientos y Operativas</span>
-                    <span class="macro-tab-pill">4 Manuales</span>
+
+                <!-- Tarjeta 2: Procedimientos y Operativas -->
+                <button class="macro-card-btn" id="tab-macro-operativas" onclick="switchMacroBitacora('operativas')" role="tab" aria-selected="false" aria-controls="container-bitacora-operativas">
+                    <div class="macro-card-icon-wrap">
+                        <div class="macro-card-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                        </div>
+                        <span class="macro-card-status-dot"></span>
+                    </div>
+                    
+                    <div class="macro-card-content">
+                        <div class="macro-card-topline">
+                            <span class="macro-card-title">Procedimientos y Operativas</span>
+                            <span class="macro-card-badge badge-operativas">4 Manuales BAU</span>
+                        </div>
+                        <p class="macro-card-desc">Gobernanza documental, identidades, normativa regulatoria DORA/RGPD y puestos TI continuos.</p>
+                        <div class="macro-card-footer">
+                            <span class="macro-card-indicator">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                Bitácora Activa
+                            </span>
+                            <span class="macro-card-meta">3 Vigentes · 1 En Revisión</span>
+                        </div>
+                    </div>
                 </button>
             </div>
         </div>
@@ -1055,30 +1111,53 @@
         // SELECTOR MACRO DE BITÁCORA (PROYECTOS VS OPERATIVAS)
         // ==========================================
         function switchMacroBitacora(mode) {
+            const isOperativas = (mode === 'operativas' || mode === 'manuales');
             const btnProyectos = document.getElementById('tab-macro-proyectos');
             const btnOperativas = document.getElementById('tab-macro-operativas');
             const contProyectos = document.getElementById('container-bitacora-proyectos');
             const contOperativas = document.getElementById('container-bitacora-operativas');
 
-            if (!btnProyectos || !btnOperativas || !contProyectos || !contOperativas) return;
+            if (!contProyectos || !contOperativas) return;
 
-            if (mode === 'operativas') {
-                btnOperativas.classList.add('is-active');
-                btnProyectos.classList.remove('is-active');
+            if (isOperativas) {
+                if (btnOperativas) {
+                    btnOperativas.classList.add('is-active');
+                    btnOperativas.setAttribute('aria-selected', 'true');
+                }
+                if (btnProyectos) {
+                    btnProyectos.classList.remove('is-active');
+                    btnProyectos.setAttribute('aria-selected', 'false');
+                }
                 contOperativas.style.display = 'block';
                 contProyectos.style.display = 'none';
                 localStorage.setItem('bitacora-macro-mode', 'operativas');
             } else {
-                btnProyectos.classList.add('is-active');
-                btnOperativas.classList.remove('is-active');
+                if (btnProyectos) {
+                    btnProyectos.classList.add('is-active');
+                    btnProyectos.setAttribute('aria-selected', 'true');
+                }
+                if (btnOperativas) {
+                    btnOperativas.classList.remove('is-active');
+                    btnOperativas.setAttribute('aria-selected', 'false');
+                }
                 contProyectos.style.display = 'block';
                 contOperativas.style.display = 'none';
                 localStorage.setItem('bitacora-macro-mode', 'proyectos');
             }
 
+            // Sincronizar mini-switchers en el menú lateral o barras
+            document.querySelectorAll('.bitacora-toc-switch-btn').forEach(btn => {
+                const bMode = btn.getAttribute('data-mode');
+                if ((isOperativas && bMode === 'operativas') || (!isOperativas && bMode === 'proyectos')) {
+                    btn.classList.add('is-active');
+                } else {
+                    btn.classList.remove('is-active');
+                }
+            });
+
             // Re-calcular flechas de carruseles visibles y regenerar TOC
             setTimeout(() => {
-                const activeContainer = (mode === 'operativas') ? contOperativas : contProyectos;
+                const activeContainer = isOperativas ? contOperativas : contProyectos;
                 activeContainer.querySelectorAll('.carousel-track').forEach(track => {
                     updateCarouselButtons(track);
                 });
@@ -1087,6 +1166,7 @@
                 }
             }, 60);
         }
+        window.switchMacroBitacora = switchMacroBitacora;
 
         // ==========================================
         // FILTRADO POR ÁREA EN BITÁCORA DE OPERATIVAS

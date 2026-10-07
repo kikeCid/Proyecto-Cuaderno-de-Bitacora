@@ -5862,78 +5862,284 @@ body[data-density="compact"] .hero {
 
 
 /* =========================================================================
-   SISTEMA DE BIFURCACIÓN DE BITÁCORAS: PROYECTOS VS OPERATIVAS / MANUALES
+/* =========================================================================
+   SISTEMA DE BIFURCACIÓN DE BITÁCORAS: MACRO SELECTOR EJECUTIVO V4.5
    ========================================================================= */
 
 .bitacora-macro-selector-wrap {
-    margin: 0 auto 35px auto;
-    max-width: 840px;
-    display: flex;
-    justify-content: center;
-}
-
-.bitacora-macro-selector {
-    display: inline-flex;
-    background: var(--bg-card);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--glass-border);
-    padding: 6px;
-    border-radius: 20px;
-    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
-    gap: 8px;
+    margin: 15px auto 40px auto;
+    max-width: 960px;
     width: 100%;
 }
 
-.macro-tab-btn {
-    flex: 1;
+.macro-selector-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6px 12px 6px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.macro-selector-label {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    gap: 12px;
-    padding: 12px 24px;
-    border-radius: 14px;
-    border: 1px solid transparent;
-    background: transparent;
+    gap: 8px;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
+    color: var(--lda-red);
+}
+
+.macro-selector-hint {
+    font-size: 0.82rem;
     color: var(--text-sec);
-    font-size: 0.95rem;
-    font-weight: 700;
+    font-weight: 500;
+}
+
+.bitacora-macro-selector-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .bitacora-macro-selector-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    .macro-selector-hint {
+        display: none;
+    }
+}
+
+/* Tarjeta Botón de Selección Macro */
+.macro-card-btn {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 22px;
+    border-radius: 20px;
+    border: 1.5px solid var(--glass-border);
+    background: var(--bg-card);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.04);
     cursor: pointer;
-    transition: all 0.22s ease;
+    text-align: left;
+    transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
     text-decoration: none;
 }
 
-.macro-tab-btn:hover {
-    color: var(--text-main);
-    background: rgba(228, 0, 43, 0.04);
+.macro-card-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 10% 20%, rgba(228, 0, 43, 0.045) 0%, transparent 65%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
 }
 
-.macro-tab-btn.is-active {
-    background: var(--bg-page);
+.macro-card-btn:hover {
+    transform: translateY(-2px);
+    border-color: rgba(228, 0, 43, 0.35);
+    box-shadow: 0 12px 30px rgba(228, 0, 43, 0.08), 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.macro-card-btn:hover::before {
+    opacity: 1;
+}
+
+/* Estado Activo de la Tarjeta */
+.macro-card-btn.is-active {
+    background: var(--bg-card);
+    border-color: var(--lda-red);
+    box-shadow: 0 14px 34px rgba(228, 0, 43, 0.14), 0 0 0 1px var(--lda-red);
+}
+
+[data-theme="dark"] .macro-card-btn {
+    background: rgba(22, 27, 40, 0.78);
+    border-color: rgba(255, 255, 255, 0.09);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="dark"] .macro-card-btn:hover {
+    border-color: rgba(228, 0, 43, 0.55);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45), 0 0 22px rgba(228, 0, 43, 0.18);
+}
+
+[data-theme="dark"] .macro-card-btn.is-active {
+    background: rgba(30, 36, 54, 0.95);
+    border-color: var(--lda-red);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), 0 0 26px rgba(228, 0, 43, 0.25);
+}
+
+/* Icono y Halo */
+.macro-card-icon-wrap {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.macro-card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: rgba(228, 0, 43, 0.07);
     color: var(--lda-red);
-    border-color: rgba(228, 0, 43, 0.22);
-    box-shadow: 0 4px 14px rgba(228, 0, 43, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(228, 0, 43, 0.18);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-[data-theme="dark"] .macro-tab-btn.is-active {
-    background: rgba(255, 255, 255, 0.08);
+.macro-card-btn:hover .macro-card-icon {
+    transform: scale(1.06);
+}
+
+.macro-card-btn.is-active .macro-card-icon {
+    background: var(--lda-red);
+    color: #ffffff;
+    border-color: var(--lda-red);
+    box-shadow: 0 6px 16px rgba(228, 0, 43, 0.35);
+}
+
+.macro-card-status-dot {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--text-sec);
+    border: 2px solid var(--bg-card);
+    opacity: 0.4;
+    transition: all 0.25s ease;
+}
+
+.macro-card-btn.is-active .macro-card-status-dot {
+    background: #10b981;
+    opacity: 1;
+    box-shadow: 0 0 8px #10b981;
+}
+
+/* Contenido de la Tarjeta */
+.macro-card-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.macro-card-topline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+
+.macro-card-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -0.2px;
+    transition: color 0.2s ease;
+}
+
+.macro-card-btn.is-active .macro-card-title {
+    color: var(--lda-red);
+}
+
+[data-theme="dark"] .macro-card-btn.is-active .macro-card-title {
+    color: #ffffff;
+}
+
+.macro-card-badge {
+    font-size: 0.74rem;
+    font-weight: 800;
+    padding: 3px 9px;
+    border-radius: 10px;
+    letter-spacing: 0.2px;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.badge-proyectos {
+    background: rgba(228, 0, 43, 0.08);
+    color: var(--lda-red);
+    border: 1px solid rgba(228, 0, 43, 0.2);
+}
+
+.badge-operativas {
+    background: rgba(99, 102, 241, 0.09);
+    color: #4f46e5;
+    border: 1px solid rgba(99, 102, 241, 0.22);
+}
+
+[data-theme="dark"] .badge-operativas {
+    background: rgba(99, 102, 241, 0.2);
+    color: #a5b4fc;
+}
+
+.macro-card-btn.is-active .badge-proyectos {
+    background: var(--lda-red);
     color: #ffffff;
     border-color: var(--lda-red);
 }
 
-.macro-tab-pill {
-    font-size: 0.75rem;
-    padding: 3px 10px;
-    border-radius: 12px;
-    background: rgba(228, 0, 43, 0.09);
-    color: var(--lda-red);
-    font-weight: 800;
-    letter-spacing: 0.3px;
+.macro-card-btn.is-active .badge-operativas {
+    background: #4f46e5;
+    color: #ffffff;
+    border-color: #4f46e5;
 }
 
-.macro-tab-btn.is-active .macro-tab-pill {
-    background: var(--lda-red);
+[data-theme="dark"] .macro-card-btn.is-active .badge-operativas {
+    background: #6366f1;
     color: #ffffff;
+}
+
+.macro-card-desc {
+    font-size: 0.84rem;
+    line-height: 1.45;
+    color: var(--text-sec);
+    margin: 0 0 12px 0;
+    font-weight: 450;
+}
+
+.macro-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10px;
+    border-top: 1px dashed var(--glass-border);
+    font-size: 0.78rem;
+    color: var(--text-sec);
+}
+
+.macro-card-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 700;
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: all 0.25s ease;
+    color: #10b981;
+}
+
+.macro-card-btn.is-active .macro-card-indicator {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.macro-card-meta {
+    font-weight: 600;
+    font-size: 0.76rem;
+    color: var(--text-muted);
 }
 
 /* Badges y Metadatos de Procedimientos / Operativas */
@@ -6013,37 +6219,63 @@ body[data-density="compact"] .hero {
     gap: 4px;
 }
 
-/* Macro Switcher en el Cajón de Administración */
+/* Macro Switcher en el Cajón de Administración (Estilo Segmented Control Ejecutivo) */
 .admin-macro-tabs {
     display: flex;
-    background: var(--bg-card);
-    border-bottom: 1px solid var(--border-color);
-    padding: 10px 24px 0 24px;
-    gap: 12px;
+    background: rgba(15, 23, 42, 0.04);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--border-color);
+    padding: 5px;
+    margin: 12px 24px 0 24px;
+    border-radius: 14px;
+    gap: 6px;
+}
+
+[data-theme="dark"] .admin-macro-tabs {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.09);
 }
 
 .admin-macro-tab {
-    padding: 10px 20px;
-    border: none;
+    flex: 1;
+    padding: 10px 16px;
+    border: 1px solid transparent;
+    border-radius: 10px;
     background: transparent;
     color: var(--text-sec);
     font-size: 0.88rem;
     font-weight: 700;
     cursor: pointer;
-    border-bottom: 3px solid transparent;
-    transition: all 0.2s ease;
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
+    position: relative;
 }
 
 .admin-macro-tab:hover {
     color: var(--text-main);
+    background: rgba(255, 255, 255, 0.5);
+}
+
+[data-theme="dark"] .admin-macro-tab:hover {
+    background: rgba(255, 255, 255, 0.06);
 }
 
 .admin-macro-tab.is-active {
+    background: var(--bg-card);
     color: var(--lda-red);
-    border-bottom-color: var(--lda-red);
+    border-color: rgba(228, 0, 43, 0.25);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="dark"] .admin-macro-tab.is-active {
+    background: rgba(30, 36, 54, 0.95);
+    color: #ffffff;
+    border-color: rgba(228, 0, 43, 0.6);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 14px rgba(228, 0, 43, 0.2);
 }
 
 .admin-doc-badge-pill {
@@ -6053,9 +6285,60 @@ body[data-density="compact"] .hero {
     font-weight: 800;
     background: rgba(228, 0, 43, 0.08);
     color: var(--lda-red);
+    transition: all 0.2s ease;
 }
 
 .admin-macro-tab.is-active .admin-doc-badge-pill {
     background: var(--lda-red);
+    color: #ffffff;
+}
+
+/* =========================================================================
+   MINI MACRO SWITCHER EN EL SMART TOC LATERAL
+   ========================================================================= */
+.bitacora-toc-macro-switch {
+    display: flex;
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    padding: 3px;
+    margin: 8px 10px 10px 10px;
+    gap: 4px;
+}
+
+[data-theme="dark"] .bitacora-toc-macro-switch {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.bitacora-toc-switch-btn {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 6px 8px;
+    border-radius: 7px;
+    border: none;
+    background: transparent;
+    color: var(--text-sec);
+    font-size: 0.73rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.bitacora-toc-switch-btn:hover {
+    color: var(--text-main);
+}
+
+.bitacora-toc-switch-btn.is-active {
+    background: var(--bg-card);
+    color: var(--lda-red);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="dark"] .bitacora-toc-switch-btn.is-active {
+    background: rgba(255, 255, 255, 0.12);
     color: #ffffff;
 }
