@@ -6370,3 +6370,256 @@ body[data-density="compact"] .hero {
         transform: translateY(0);
     }
 }
+
+/* =========================================================================
+   CLASIFICADOR DE TIPO (PROYECTOS VS OPERATIVAS) EN EL PANEL DE ADMINISTRACIÓN
+   ========================================================================= */
+.admin-classifier-row {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px 14px;
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: 12px;
+    border: 1px dashed var(--border-color);
+}
+[data-theme="dark"] .admin-classifier-row {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.admin-classifier-label {
+    font-size: 0.68rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-sec);
+}
+
+.admin-classifier-segmented {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.admin-classifier-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 7px 10px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+    color: var(--text-sec);
+    font-size: 0.76rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    white-space: nowrap;
+}
+
+.admin-classifier-btn:hover {
+    color: var(--text-main);
+    border-color: rgba(228, 0, 43, 0.4);
+    background: rgba(228, 0, 43, 0.04);
+}
+
+.admin-classifier-btn.is-active {
+    background: var(--lda-red) !important;
+    border-color: var(--lda-red) !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(228, 0, 43, 0.25);
+    cursor: default;
+}
+
+.admin-classifier-btn svg {
+    flex-shrink: 0;
+}
+
+/* BOTONES DE AUTORIZACIÓN Y ASISTENCIA EN TOOLBAR */
+.admin-auth-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+    color: var(--text-main);
+    font-size: 0.74rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.admin-auth-btn:hover {
+    border-color: var(--lda-red);
+    color: var(--lda-red);
+}
+
+.admin-auth-btn.is-connected {
+    background: rgba(16, 185, 129, 0.08);
+    border-color: rgba(16, 185, 129, 0.4);
+    color: #065f46;
+}
+[data-theme="dark"] .admin-auth-btn.is-connected {
+    color: #34d399;
+}
+
+.admin-auth-btn.is-pending {
+    background: rgba(245, 158, 11, 0.1);
+    border-color: rgba(245, 158, 11, 0.5);
+    color: #b45309;
+    animation: authPulseAmber 2s infinite ease-in-out;
+}
+[data-theme="dark"] .admin-auth-btn.is-pending {
+    color: #fbbf24;
+}
+
+@keyframes authPulseAmber {
+    0%, 100% { border-color: rgba(245, 158, 11, 0.4); }
+    50% { border-color: rgba(245, 158, 11, 0.9); box-shadow: 0 0 10px rgba(245, 158, 11, 0.25); }
+}
+
+.auth-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #94a3b8;
+    flex-shrink: 0;
+}
+.auth-dot.is-connected {
+    background: #10b981;
+    box-shadow: 0 0 6px #10b981;
+}
+.auth-dot.is-pending {
+    background: #f59e0b;
+    box-shadow: 0 0 6px #f59e0b;
+}
+
+.admin-path-help-btn {
+    background: none;
+    border: none;
+    color: var(--text-sec);
+    font-size: 0.72rem;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+.admin-path-help-btn:hover {
+    color: var(--lda-red);
+    background: rgba(228, 0, 43, 0.06);
+}
+
+/* MODAL ASISTIDO DE UBICACIÓN Y GUARDADO MANUAL */
+.admin-path-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.admin-path-modal-backdrop.is-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.admin-path-modal-dialog {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 620px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+    transform: translateY(12px) scale(0.98);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.admin-path-modal-backdrop.is-open .admin-path-modal-dialog {
+    transform: translateY(0) scale(1);
+}
+
+.admin-path-modal-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-app);
+}
+
+.admin-path-modal-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.path-info-box {
+    background: var(--bg-app);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 14px 16px;
+}
+
+.path-info-box-label {
+    font-size: 0.68rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-sec);
+    margin-bottom: 6px;
+    display: block;
+}
+
+.path-code-line {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.85rem;
+    color: var(--text-main);
+    word-break: break-all;
+    user-select: all;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.path-copy-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.path-copy-btn:hover {
+    border-color: var(--lda-red);
+    color: var(--lda-red);
+}
+
+.admin-path-modal-footer {
+    padding: 16px 24px;
+    border-top: 1px solid var(--border-color);
+    background: var(--bg-app);
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}

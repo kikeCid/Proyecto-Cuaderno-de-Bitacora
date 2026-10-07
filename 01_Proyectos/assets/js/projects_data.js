@@ -166,6 +166,19 @@ window.BITACORA_PROJECTS_DATA = [
         "semaforo": "verde",
         "href": "../Perseo/index.html",
         "tags": ["Speech Analytics", "Calidad Operativa", "IA Supervisión"]
+    },
+    {
+        "id": "gobierno-informacion",
+        "title": "Gobierno de la Información",
+        "subtitle": "Histórico & Metodología LidIA / GIN",
+        "desc": "Marco metodológico, archivo documental y directrices de arquitectura funcional y gobierno de datos corporativo con LidIA.",
+        "carril": "strategic",
+        "estado": "En Curso",
+        "licitacion": false,
+        "replanificado": false,
+        "semaforo": "verde",
+        "href": "../Gobierno de Informacion/index.html",
+        "tags": ["Metodología GIN", "Gobierno del Dato", "LidIA", "Normativa"]
     }
 ];
 
@@ -187,51 +200,6 @@ window.BITACORA_OPERATIVAS_DATA = [
         "criticidad": "Crítica",
         "href": "../Gestion de Usuarios/index.html",
         "tags": ["Directorio Activo", "IAM", "Control de Accesos", "SSO"]
-    },
-    {
-        "id": "gobierno-informacion",
-        "title": "Gobierno de la Información",
-        "subtitle": "Histórico & Metodología LidIA / GIN",
-        "desc": "Marco metodológico, archivo documental y guía procedimental de custodia de datos, arquitectura funcional y directrices de Inteligencia Artificial.",
-        "tipoDoc": "Procedimiento Normativo",
-        "area": "Transformación & Datos",
-        "estadoDoc": "Vigente",
-        "version": "v1.8",
-        "ultimaRevision": "Septiembre 2026",
-        "proximaRevision": "Septiembre 2027",
-        "criticidad": "Alta",
-        "href": "../Gobierno de Informacion/index.html",
-        "tags": ["Metodología GIN", "Gobierno del Dato", "LidIA", "Normativa"]
-    },
-    {
-        "id": "protocolo-soporte-puestos",
-        "title": "Protocolo de Puestos & Equipamiento",
-        "subtitle": "Operativa de Workplace & Logística",
-        "desc": "Guía procedimental para asignación, mantenimiento, configuración y entrega de activos informáticos y herramientas de trabajo remoto.",
-        "tipoDoc": "Guía Técnica",
-        "area": "Infraestructura & Workplace",
-        "estadoDoc": "En Revisión",
-        "version": "v1.2",
-        "ultimaRevision": "Agosto 2026",
-        "proximaRevision": "Noviembre 2026",
-        "criticidad": "Media",
-        "href": "#",
-        "tags": ["Workplace", "Hardware", "Logística TI"]
-    },
-    {
-        "id": "auditoria-cumplimiento",
-        "title": "Control de Accesos & Cumplimiento",
-        "subtitle": "Auditoría Periódica de Privilegios",
-        "desc": "Protocolo de revisión periódica de cuentas genéricas, privilegios de administrador y trazabilidad de accesos conforme a la normativa DORA y RGPD.",
-        "tipoDoc": "Procedimiento Normativo",
-        "area": "Ciberseguridad & Riesgos",
-        "estadoDoc": "Vigente",
-        "version": "v2.0",
-        "ultimaRevision": "Octubre 2026",
-        "proximaRevision": "Abril 2027",
-        "criticidad": "Crítica",
-        "href": "#",
-        "tags": ["Auditoría DORA", "RGPD", "Ciberseguridad"]
     }
 ];
 

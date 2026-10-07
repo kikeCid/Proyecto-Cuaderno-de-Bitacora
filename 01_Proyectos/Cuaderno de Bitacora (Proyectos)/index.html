@@ -376,10 +376,10 @@
                     </svg>
                 </div>
                 <div class="section-title-wrapper">
-                    <h2 class="section-title">Proyectos Estratégicos (8 Proyectos)</h2>
+                    <h2 class="section-title">Proyectos Estratégicos (9 Proyectos)</h2>
                     <p class="section-subtitle">Grandes iniciativas transversales de transformación estratégica de Línea Directa</p>
                 </div>
-                <div class="section-counter">8</div>
+                <div class="section-counter">9</div>
             </div>
             <div class="carousel-container">
                 <button class="carousel-btn left hidden" onclick="scrollCarousel(this, -340)"
@@ -545,6 +545,24 @@
                                 <!-- Cruz Médica & Salud Conectada en trazo fino Línea Directa -->
                                 <path d="M9 3.5H15V8.5H20V14.5H15V19.5H9V14.5H4V8.5H9V3.5Z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>
                                 <circle cx="12" cy="11.5" r="1.8" stroke="currentColor" stroke-width="1.0"/>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <!-- 9. Gobierno de la Información -->
+                    <a href="../Gobierno de Informacion/index.html" id="card-gobierno-informacion" class="apple-card" data-accent="red">
+                        <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> PROYECTO ESTRATÉGICO</div>
+                        <h3 class="title">Gobierno de la Información</h3>
+                        <p class="desc">Marco metodológico corporativo, archivo documental y directrices de arquitectura funcional y gobierno de datos corporativo con LidIA.</p>
+                        <div class="card-tags">
+                            <span class="tech-tag">Metodología GIN</span>
+                            <span class="tech-tag">LidIA</span>
+                            <span class="tech-tag">Arquitectura Funcional</span>
+                        </div>
+                        <div class="card-visual" style="color: var(--lda-red);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 3.11805C3.5 2.25694 4.17909 1.5 5.10858 1.5H18.9144C18.944 1.5 18.9734 1.50125 19.0025 1.5037C19.8764 1.56214 20.5 2.29236 20.5 3.11805V9.05908C20.5 10.8518 20.1504 12.5909 19.4816 14.1926C19.3753 14.4475 19.0824 14.5678 18.8276 14.4614C18.5728 14.355 18.4525 14.0622 18.5588 13.8074C19.176 12.3293 19.5 10.7213 19.5 9.05908V3.11805C19.5 2.78975 19.2557 2.52159 18.9331 2.5013L18.9259 2.50085L18.9187 2.50019L18.9144 2.5H5.10858C4.76338 2.5 4.5 2.77667 4.5 3.11805V9.06588C4.5 9.89959 4.50108 11.0299 4.92654 12.4447C5.35317 13.8635 6.20622 15.5677 7.91125 17.5473L11.571 21.312C11.6916 21.4361 12.3445 21.5 12 21.5C12.1466 21.5 12.3149 21.4383 12.4246 21.317L12.4306 21.3103L15.293 18.51C15.4854 18.312 15.802 18.3075 16 18.5C16.198 18.6925 16.2025 19.009 16.01 19.207L13.1596 21.9951C12.8342 22.3501 12.3844 22.5 12 22.5C11.5726 22.5 11.1574 22.3212 10.854 22.009L7.17379 18.2234L7.15357 18.1999C5.36789 16.1267 4.4404 14.3007 3.9689 12.7327C3.49999 11.1733 3.49999 9.92161 3.5 9.07176V3.11805Z" fill="currentColor"/>
+                                <path d="M12 5.99995C12.2761 5.99995 12.5 6.22381 12.5 6.49995V12.4999C12.5 12.7761 12.2761 12.9999 12 12.9999C11.7239 12.9999 11.5 12.7761 11.5 12.4999V6.49995C11.5 6.22381 11.7239 5.99995 12 5.99995Z" fill="currentColor"/>
                             </svg>
                         </div>
                     </a>
@@ -719,10 +737,10 @@
                         </svg>
                     </div>
                     <div class="section-title-wrapper">
-                        <h2 class="section-title">Sistemas e Infraestructura Operativa</h2>
-                        <p class="section-subtitle">Manuales de administración técnica, identidades corporativas y equipamiento continuo</p>
+                        <h2 class="section-title">Procedimientos y Manuales Operativos</h2>
+                        <p class="section-subtitle">Documentación técnica oficial, gestión de identidades y ciclo de vida de sistemas</p>
                     </div>
-                    <div class="section-counter">2</div>
+                    <div class="section-counter">1</div>
                 </div>
 
                 <div class="carousel-container">
@@ -731,7 +749,7 @@
                             <polyline points="15 18 9 12 15 6"></polyline>
                         </svg>
                     </button>
-                    <div class="carousel-track" onscroll="updateCarouselButtons(this)">
+                    <div class="carousel-track" id="track-operativas-sistemas" onscroll="updateCarouselButtons(this)">
                         <!-- 1. Gestión de Usuarios -->
                         <a href="../Gestion de Usuarios/index.html" id="card-op-gestion-usuarios" class="apple-card" data-accent="red" data-op-tag="sistemas">
                             <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> SISTEMAS & IDENTIDADES</div>
@@ -757,118 +775,6 @@
                                 </svg>
                             </div>
                         </a>
-
-                        <!-- 2. Protocolo de Puestos & Equipamiento -->
-                        <div id="card-op-protocolo-soporte-puestos" class="apple-card" data-accent="red" data-op-tag="workplace">
-                            <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> INFRAESTRUCTURA & WORKPLACE</div>
-                            <h3 class="title">Protocolo de Puestos & Equipamiento</h3>
-                            <p class="desc">Guía procedimental para asignación, mantenimiento, configuración y entrega de activos informáticos y herramientas de trabajo remoto.</p>
-                            <div class="card-tags">
-                                <span class="doc-badge badge-doc-revision">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 3px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                    En Revisión
-                                </span>
-                                <span class="doc-badge badge-doc-version">v1.2</span>
-                                <span class="tech-tag">Workplace</span>
-                                <span class="tech-tag">Logística TI</span>
-                            </div>
-                            <div class="doc-meta-strip">
-                                <span>📅 Rev: Agosto 2026</span>
-                                <span>🔄 Próx: Noviembre 2026</span>
-                            </div>
-                            <div class="card-visual" style="color: var(--lda-red);">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                                    <line x1="8" y1="21" x2="16" y2="21"></line>
-                                    <line x1="12" y1="17" x2="12" y2="21"></line>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="carousel-btn right hidden" onclick="scrollCarousel(this, 340)" aria-label="Desplazar a la derecha">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="9 18 15 12 9 6"></polyline>
-                        </svg>
-                    </button>
-                </div>
-            </section>
-
-            <!-- SECCIÓN 5: GOBERNANZA, NORMATIVA Y CUMPLIMIENTO -->
-            <section id="seccion-operativas-gobierno" class="portfolio-section" data-op-category="gobierno-ciber">
-                <div class="section-header" style="border-left: 4px solid var(--lda-red);">
-                    <div class="section-icon" style="color: var(--lda-red);">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        </svg>
-                    </div>
-                    <div class="section-title-wrapper">
-                        <h2 class="section-title">Gobernanza, Normativa y Cumplimiento</h2>
-                        <p class="section-subtitle">Marcos metodológicos, auditoría continua de accesos y cumplimiento normativo regulatorio</p>
-                    </div>
-                    <div class="section-counter">2</div>
-                </div>
-
-                <div class="carousel-container">
-                    <button class="carousel-btn left hidden" onclick="scrollCarousel(this, -340)" aria-label="Desplazar a la izquierda">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="15 18 9 12 15 6"></polyline>
-                        </svg>
-                    </button>
-                    <div class="carousel-track" onscroll="updateCarouselButtons(this)">
-                        <!-- 3. Gobierno de la Información -->
-                        <a href="../Gobierno de Informacion/index.html" id="card-op-gobierno-informacion" class="apple-card" data-accent="red" data-op-tag="datos">
-                            <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> TRANSFORMACIÓN & DATOS</div>
-                            <h3 class="title">Gobierno de la Información</h3>
-                            <p class="desc">Marco metodológico, archivo documental y guía procedimental de custodia de datos, arquitectura funcional y directrices de Inteligencia Artificial.</p>
-                            <div class="card-tags">
-                                <span class="doc-badge badge-doc-vigente">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 3px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                    Vigente
-                                </span>
-                                <span class="doc-badge badge-doc-version">v1.8</span>
-                                <span class="doc-badge badge-doc-criticidad" style="background: rgba(228,0,43,0.08); color: var(--lda-red); border-color: rgba(228,0,43,0.2);">Alta</span>
-                                <span class="tech-tag">Metodología GIN</span>
-                                <span class="tech-tag">Gobierno del Dato</span>
-                            </div>
-                            <div class="doc-meta-strip">
-                                <span>📅 Rev: Septiembre 2026</span>
-                                <span>🔄 Próx: Septiembre 2027</span>
-                            </div>
-                            <div class="card-visual" style="color: var(--lda-red);">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 3.11805C3.5 2.25694 4.17909 1.5 5.10858 1.5H18.9144C18.944 1.5 18.9734 1.50125 19.0025 1.5037C19.8764 1.56214 20.5 2.29236 20.5 3.11805V9.05908C20.5 10.8518 20.1504 12.5909 19.4816 14.1926C19.3753 14.4475 19.0824 14.5678 18.8276 14.4614C18.5728 14.355 18.4525 14.0622 18.5588 13.8074C19.176 12.3293 19.5 10.7213 19.5 9.05908V3.11805C19.5 2.78975 19.2557 2.52159 18.9331 2.5013L18.9259 2.50085L18.9187 2.50019L18.9144 2.5H5.10858C4.76338 2.5 4.5 2.77667 4.5 3.11805V9.06588C4.5 9.89959 4.50108 11.0299 4.92654 12.4447C5.35317 13.8635 6.20622 15.5677 7.91125 17.5473L11.571 21.312C11.6916 21.4361 12.3445 21.5 12 21.5C12.1466 21.5 12.3149 21.4383 12.4246 21.317L12.4306 21.3103L15.293 18.51C15.4854 18.312 15.802 18.3075 16 18.5C16.198 18.6925 16.2025 19.009 16.01 19.207L13.1596 21.9951C12.8342 22.3501 12.3844 22.5 12 22.5C11.5726 22.5 11.1574 22.3212 10.854 22.009L7.17379 18.2234L7.15357 18.1999C5.36789 16.1267 4.4404 14.3007 3.9689 12.7327C3.49999 11.1733 3.49999 9.92161 3.5 9.07176V3.11805Z" fill="currentColor"/>
-                                    <path d="M12 5.99995C12.2761 5.99995 12.5 6.22381 12.5 6.49995V12.4999C12.5 12.7761 12.2761 12.9999 12 12.9999C11.7239 12.9999 11.5 12.7761 11.5 12.4999V6.49995C11.5 6.22381 11.7239 5.99995 12 5.99995Z" fill="currentColor"/>
-                                    <path d="M12.3445 15.1272C12.5497 15.3119 12.5664 15.6281 12.3817 15.8333L12.3717 15.8444C12.1869 16.0497 11.8708 16.0663 11.6655 15.8816C11.4603 15.6969 11.4436 15.3807 11.6284 15.1755L11.6384 15.1644C11.8231 14.9591 12.1392 14.9425 12.3445 15.1272Z" fill="currentColor"/>
-                                </svg>
-                            </div>
-                        </a>
-
-                        <!-- 4. Control de Accesos & Cumplimiento -->
-                        <div id="card-op-auditoria-cumplimiento" class="apple-card" data-accent="red" data-op-tag="ciber">
-                            <div class="kicker" style="color: var(--lda-red);"><span class="kicker-dot"></span> CIBERSEGURIDAD & RIESGOS</div>
-                            <h3 class="title">Control de Accesos & Cumplimiento</h3>
-                            <p class="desc">Protocolo de revisión periódica de cuentas genéricas, privilegios de administrador y trazabilidad de accesos conforme a la normativa DORA y RGPD.</p>
-                            <div class="card-tags">
-                                <span class="doc-badge badge-doc-vigente">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 3px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                    Vigente
-                                </span>
-                                <span class="doc-badge badge-doc-version">v2.0</span>
-                                <span class="doc-badge badge-doc-criticidad">Crítica</span>
-                                <span class="tech-tag">Auditoría DORA</span>
-                                <span class="tech-tag">RGPD</span>
-                            </div>
-                            <div class="doc-meta-strip">
-                                <span>📅 Rev: Octubre 2026</span>
-                                <span>🔄 Próx: Abril 2027</span>
-                            </div>
-                            <div class="card-visual" style="color: var(--lda-red);">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                    <path d="M9 12l2 2 4-4"/>
-                                </svg>
-                            </div>
-                        </div>
                     </div>
                     <button class="carousel-btn right hidden" onclick="scrollCarousel(this, 340)" aria-label="Desplazar a la derecha">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
@@ -898,16 +804,15 @@
                         <li><a href="#seccion-directa" onclick="navigateToSection('seccion-directa', 'proyectos'); return false;">Gestión Directa (PO/PM)</a></li>
                         <li><a href="#seccion-estrategicos" onclick="navigateToSection('seccion-estrategicos', 'proyectos'); return false;">Proyectos Estratégicos</a></li>
                         <li><a href="#seccion-facilitadores" onclick="navigateToSection('seccion-facilitadores', 'proyectos'); return false;">Facilitadores / Afectados</a></li>
+                        <li><a href="../Gobierno de Informacion/index.html">Gobierno de la Información</a></li>
                         <li><a href="#modal-licitaciones" onclick="openLicitacionesModal(); return false;">Concursos en Licitación</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Procedimientos & Operativas</h4>
                     <ul>
-                        <li><a href="#seccion-operativas-sistemas" onclick="navigateToSection('seccion-operativas-sistemas', 'operativas'); return false;">Sistemas & Equipamiento TI</a></li>
-                        <li><a href="#seccion-operativas-gobierno" onclick="navigateToSection('seccion-operativas-gobierno', 'operativas'); return false;">Gobernanza & Cumplimiento</a></li>
+                        <li><a href="#seccion-operativas-sistemas" onclick="navigateToSection('seccion-operativas-sistemas', 'operativas'); return false;">Manuales & Operativas TI</a></li>
                         <li><a href="../Gestion de Usuarios/index.html">Gestión de Usuarios (IAM)</a></li>
-                        <li><a href="../Gobierno de Informacion/index.html">Gobierno de Datos & LidIA</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">

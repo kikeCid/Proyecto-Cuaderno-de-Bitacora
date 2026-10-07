@@ -343,23 +343,28 @@
                         'direct': 'seccion-directa',
                         'strategic': 'seccion-estrategicos',
                         'facilitator': 'seccion-facilitadores'
-                    }[p.carril];
+                    }[p.carril] || 'seccion-estrategicos';
 
-                    if (targetSecId) {
-                        const targetTrack = document.querySelector(`#${targetSecId} .carousel-track`);
-                        const currentTrack = card.closest('.carousel-track');
-                        if (targetTrack && currentTrack && targetTrack !== currentTrack) {
-                            targetTrack.appendChild(card);
-                        }
+                    const targetTrack = document.querySelector(`#${targetSecId} .carousel-track`);
+                    const currentTrack = card.closest('.carousel-track');
+                    if (targetTrack && currentTrack && targetTrack !== currentTrack) {
+                        targetTrack.appendChild(card);
                     }
                 }
             });
 
             // D) ACTUALIZAR TARJETAS EN EL CATÁLOGO DE OPERATIVAS / MANUALES
+            const trackOperativas = document.getElementById('track-operativas-sistemas');
             this.operativas.forEach(op => {
                 const card = document.getElementById(`card-op-${op.id}`) ||
-                             document.querySelector(`.apple-card-doc[data-id="${op.id}"]`);
+                             document.querySelector(`.apple-card[id*="${op.id}"]`) ||
+                             document.querySelector(`.apple-card[href*="${op.id}"]`);
                 if (card) {
+                    // Si estaba en proyectos, moverla al carril de operativas
+                    if (trackOperativas && card.closest('#container-bitacora-proyectos')) {
+                        trackOperativas.appendChild(card);
+                    }
+
                     // Actualizar badge de estado documental
                     const badgeEstado = card.querySelector('.badge-doc-estado, .badge-doc-vigente, .badge-doc-revision, .badge-doc-obsoleto');
                     if (badgeEstado) {
@@ -384,6 +389,13 @@
                     if (dateRev) dateRev.innerText = op.ultimaRevision || 'Revisión al día';
                 }
             });
+
+            // Actualizar contador en la sección de operativas
+            const secOp = document.getElementById('seccion-operativas-sistemas');
+            if (secOp) {
+                const counterOp = secOp.querySelector('.section-counter');
+                if (counterOp) counterOp.innerText = this.operativas.length;
+            }
 
             // Actualizar Modal de Licitaciones y estadísticas del cajón
             this.renderLicitacionesModalContent();
@@ -482,7 +494,7 @@
                         </button>
                     </div>
 
-                    <!-- BARRA DE BÚSQUEDA Y PROTOCOLO -->
+                    <!-- BARRA DE BÚSQUEDA Y ESTADO DE ESCRITURA EN DISCO -->
                     <div class="admin-drawer-toolbar">
                         <div class="admin-search-wrap">
                             <svg class="admin-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -492,11 +504,16 @@
                             <input type="text" id="admin-search-input" placeholder="Buscar iniciativas, procedimientos o tags..." autocomplete="off">
                             <button id="admin-search-clear" class="admin-search-clear" title="Limpiar búsqueda" style="display: none;">&times;</button>
                         </div>
-                        <div class="admin-status-pill" id="admin-persistence-pill" title="Persistencia física directa en archivo projects_data.js">
-                            <span class="admin-dot-live"></span>
-                            <span id="admin-persistence-text">${this.fileHandle ? 'Auto-guardado activo' : 'Web File System API'}</span>
-                            <button type="button" id="btn-admin-change-path" class="admin-link-change-path" title="Cambiar archivo destino en disco">Cambiar...</button>
-                        </div>
+
+                        <!-- BOTÓN REACTIVO DE AUTORIZACIÓN / ESTADO -->
+                        <button type="button" class="admin-auth-btn" id="btn-admin-auth" title="Autorizar o reactivar permisos de escritura directa en projects_data.js">
+                            <span class="auth-dot" id="admin-auth-dot"></span>
+                            <span id="admin-auth-text">Autorizar Escritura Directa</span>
+                        </button>
+
+                        <button type="button" class="admin-path-help-btn" id="btn-admin-path-help" title="Ver ruta exacta de projects_data.js y guía de guardado">
+                            📁 ¿Dónde se guarda?
+                        </button>
                     </div>
 
                     <!-- PESTAÑAS DE FILTRO RÁPIDO DENTRO DEL PANEL -->
@@ -513,15 +530,65 @@
                     <div class="admin-drawer-footer">
                         <div class="admin-footer-left">
                             <button class="admin-btn-secondary" id="btn-admin-download" title="Descargar archivo projects_data.js actualizado">
-                                📥 Descargar Copia
+                                📥 Descargar projects_data.js
                             </button>
                             <button class="admin-btn-secondary" id="btn-admin-reset" title="Restablecer a valores iniciales">
                                 ↺ Revertir
                             </button>
                         </div>
                         <div class="admin-footer-right">
-                            <button class="admin-btn-primary" id="btn-admin-save" title="Escribir físicamente en projects_data.js en disco">
+                            <button class="admin-btn-primary" id="btn-admin-save" title="Escribir directamente en disco en projects_data.js">
                                 💾 Guardar Cambios en Archivo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MODAL POPUP ASISTIDO: DÓNDE SE GUARDA Y DESCARGA DIRECTA -->
+                <div class="admin-path-modal-backdrop" id="modal-admin-path-help" onclick="if(event.target===this) BitacoraAdmin.closePathHelpModal()">
+                    <div class="admin-path-modal-dialog">
+                        <div class="admin-path-modal-header">
+                            <div>
+                                <span class="admin-drawer-kicker">PERSISTENCIA & GOBERNANZA TÉCNICA</span>
+                                <h3 style="margin: 0; font-size: 1.15rem; color: var(--text-main); font-weight: 800;">Destino de Guardado: projects_data.js</h3>
+                            </div>
+                            <button class="admin-drawer-close" onclick="BitacoraAdmin.closePathHelpModal()" aria-label="Cerrar">&times;</button>
+                        </div>
+                        <div class="admin-path-modal-body">
+                            <div class="path-info-box">
+                                <span class="path-info-box-label">Nombre exacto del archivo:</span>
+                                <div class="path-code-line">
+                                    <strong style="color: var(--lda-red); font-size: 0.95rem;">projects_data.js</strong>
+                                    <span style="font-size: 0.72rem; color: var(--text-sec); font-family: sans-serif;">(Catálogo unificado de Proyectos y Operativas)</span>
+                                </div>
+                            </div>
+
+                            <div class="path-info-box">
+                                <span class="path-info-box-label">Ruta en este equipo (Directorio físico a sobrescribir):</span>
+                                <div class="path-code-line">
+                                    <span id="text-full-path">C:\\Proyectos_Claude\\Proyecto Cuaderno de Bitacora\\01_Proyectos\\assets\\js\\projects_data.js</span>
+                                    <button type="button" class="path-copy-btn" id="btn-copy-full-path">Copiar Ruta</button>
+                                </div>
+                            </div>
+
+                            <div class="path-info-box">
+                                <span class="path-info-box-label">Ruta relativa dentro del repositorio:</span>
+                                <div class="path-code-line">
+                                    <span>01_Proyectos/assets/js/projects_data.js</span>
+                                </div>
+                            </div>
+
+                            <div style="font-size: 0.84rem; color: var(--text-sec); line-height: 1.55; margin-top: 4px;">
+                                <p style="margin: 0 0 6px 0;"><strong style="color: var(--text-main);">¿Cómo asegurar el guardado automático sin cuadro de diálogo?</strong></p>
+                                <p style="margin: 0;">Haz clic en <strong>"Autorizar Escritura Directa"</strong> y selecciona tu archivo <code>projects_data.js</code> una sola vez. Tu navegador Edge/Chrome guardará el permiso para que todas las modificaciones se guarden en disco al instante.</p>
+                            </div>
+                        </div>
+                        <div class="admin-path-modal-footer">
+                            <button class="admin-btn-secondary" onclick="BitacoraAdmin.downloadMasterFile()">
+                                📥 Descargar Archivo para Reemplazar
+                            </button>
+                            <button class="admin-btn-primary" onclick="BitacoraAdmin.authorizeOrReactivateAccess(true)">
+                                🔑 Autorizar / Vincular en Disco
                             </button>
                         </div>
                     </div>
@@ -568,11 +635,24 @@
                 this.renderList();
             });
 
-            // Handlers de guardado y descarga
+            // Handlers de persistencia y autorización
+            backdrop.querySelector('#btn-admin-auth')?.addEventListener('click', () => this.authorizeOrReactivateAccess(false));
+            backdrop.querySelector('#btn-admin-path-help')?.addEventListener('click', () => this.openPathHelpModal());
             backdrop.querySelector('#btn-admin-save')?.addEventListener('click', () => this.saveViaFileSystemAPI(false));
-            backdrop.querySelector('#btn-admin-change-path')?.addEventListener('click', () => this.saveViaFileSystemAPI(true));
             backdrop.querySelector('#btn-admin-download')?.addEventListener('click', () => this.downloadMasterFile());
             backdrop.querySelector('#btn-admin-reset')?.addEventListener('click', () => this.resetToDefaults());
+
+            backdrop.querySelector('#btn-copy-full-path')?.addEventListener('click', () => {
+                const pathText = 'C:\\Proyectos_Claude\\Proyecto Cuaderno de Bitacora\\01_Proyectos\\assets\\js\\projects_data.js';
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(pathText);
+                    const btn = backdrop.querySelector('#btn-copy-full-path');
+                    if (btn) {
+                        btn.innerText = '✓ ¡Copiada!';
+                        setTimeout(() => btn.innerText = 'Copiar Ruta', 2000);
+                    }
+                }
+            });
 
             return backdrop;
         },
@@ -732,6 +812,21 @@
                             </span>
                         </div>
 
+                        <!-- CLASIFICACIÓN MACRO: PROYECTO VS OPERATIVA -->
+                        <div class="admin-classifier-row">
+                            <span class="admin-classifier-label">Tipo de Bitácora / Clasificación:</span>
+                            <div class="admin-classifier-segmented" data-id="${p.id}">
+                                <button type="button" class="admin-classifier-btn is-active" data-id="${p.id}" title="Clasificado en Bitácora de Proyectos">
+                                    ${LDA_ICONS.folderProjects}
+                                    <span>Iniciativa de Proyecto</span>
+                                </button>
+                                <button type="button" class="admin-classifier-btn btn-to-operativa" data-id="${p.id}" title="Mover este elemento a Procedimientos y Operativas">
+                                    ${LDA_ICONS.fileManuals}
+                                    <span>Mover a Procedimientos &rarr;</span>
+                                </button>
+                            </div>
+                        </div>
+
                         <!-- FILA DE TOGGLES: LICITACIÓN Y REPLANIFICACIÓN -->
                         <div class="admin-toggles-row">
                             <div class="admin-licitacion-box ${isLicitacion ? 'is-active' : ''}" data-id="${p.id}">
@@ -822,6 +917,14 @@
                     </div>
                 `;
             }).join('');
+
+            // BINDING DE RECLASIFICACIÓN DE PROYECTO A OPERATIVA
+            body.querySelectorAll('.btn-to-operativa').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const id = btn.getAttribute('data-id');
+                    this.reclassifyItem(id, 'operativa');
+                });
+            });
 
             // BINDINGS DE PROYECTOS
             body.querySelectorAll('.admin-toggle-licitacion').forEach(chk => {
@@ -941,6 +1044,21 @@
                             <span class="doc-badge badge-doc-version">${op.version || 'v1.0'}</span>
                         </div>
 
+                        <!-- CLASIFICACIÓN MACRO: PROYECTO VS OPERATIVA -->
+                        <div class="admin-classifier-row">
+                            <span class="admin-classifier-label">Tipo de Bitácora / Clasificación:</span>
+                            <div class="admin-classifier-segmented" data-id="${op.id}">
+                                <button type="button" class="admin-classifier-btn btn-to-project" data-id="${op.id}" title="Mover este elemento a Iniciativas de Proyecto">
+                                    ${LDA_ICONS.folderProjects}
+                                    <span>Mover a Proyectos &rarr;</span>
+                                </button>
+                                <button type="button" class="admin-classifier-btn is-active" data-id="${op.id}" title="Clasificado en Procedimientos y Operativas">
+                                    ${LDA_ICONS.fileManuals}
+                                    <span>Procedimiento / Operativa</span>
+                                </button>
+                            </div>
+                        </div>
+
                         <!-- CONTROLES DOCUMENTALES PROPIOS -->
                         <div class="admin-fields-grid" style="margin-top: 14px;">
                             <!-- Estado Documental -->
@@ -1001,6 +1119,14 @@
                     </div>
                 `;
             }).join('');
+
+            // BINDING DE RECLASIFICACIÓN DE OPERATIVA A PROYECTO
+            body.querySelectorAll('.btn-to-project').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const id = btn.getAttribute('data-id');
+                    this.reclassifyItem(id, 'project');
+                });
+            });
 
             // BINDINGS DE OPERATIVAS
             body.querySelectorAll('.admin-select-op-estado').forEach(sel => {
@@ -1117,6 +1243,170 @@
             this.applyStateToUI();
         },
 
+        reclassifyItem: function (id, toType) {
+            if (toType === 'operativa') {
+                const idx = this.projects.findIndex(x => x.id === id);
+                if (idx === -1) return;
+                const proj = this.projects[idx];
+                this.projects.splice(idx, 1);
+
+                const op = {
+                    id: proj.id,
+                    title: proj.title,
+                    subtitle: proj.subtitle || proj.desc || '',
+                    desc: proj.desc || '',
+                    tipoDoc: 'Manual Operativo',
+                    area: 'Sistemas & Identidades',
+                    estadoDoc: 'Vigente',
+                    version: 'v1.0',
+                    ultimaRevision: 'Octubre 2026',
+                    proximaRevision: 'Octubre 2027',
+                    criticidad: 'Alta',
+                    href: proj.href || '#',
+                    tags: proj.tags || []
+                };
+                this.operativas.push(op);
+
+                this.applyStateToUI();
+                this.updateDrawerStats();
+                this.renderFilterTabs();
+                this.renderList();
+                this.showToast(`✓ '${proj.title}' movido a Procedimientos y Operativas`);
+            } else if (toType === 'project') {
+                const idx = this.operativas.findIndex(x => x.id === id);
+                if (idx === -1) return;
+                const op = this.operativas[idx];
+                this.operativas.splice(idx, 1);
+
+                const proj = {
+                    id: op.id,
+                    title: op.title,
+                    subtitle: op.subtitle || op.desc || '',
+                    desc: op.desc || '',
+                    carril: 'strategic',
+                    estado: 'En Curso',
+                    licitacion: false,
+                    replanificado: false,
+                    semaforo: 'verde',
+                    href: op.href || '#',
+                    tags: op.tags || []
+                };
+                this.projects.push(proj);
+
+                this.applyStateToUI();
+                this.updateDrawerStats();
+                this.renderFilterTabs();
+                this.renderList();
+                this.showToast(`✓ '${op.title}' movido a Iniciativas de Proyecto`);
+            }
+        },
+
+        getPermissionStatus: async function () {
+            if (!this.fileHandle) return 'disconnected';
+            try {
+                if (typeof this.fileHandle.queryPermission === 'function') {
+                    const q = await this.fileHandle.queryPermission({ mode: 'readwrite' });
+                    return q; // 'granted' | 'prompt' | 'denied'
+                }
+                return 'prompt';
+            } catch (_) {
+                return 'prompt';
+            }
+        },
+
+        updatePersistenceUI: async function () {
+            const btnAuth = document.getElementById('btn-admin-auth');
+            const dot = document.getElementById('admin-auth-dot');
+            const text = document.getElementById('admin-auth-text');
+            if (!btnAuth || !dot || !text) return;
+
+            const status = await this.getPermissionStatus();
+
+            btnAuth.classList.remove('is-connected', 'is-pending');
+            dot.classList.remove('is-connected', 'is-pending');
+
+            if (status === 'granted') {
+                btnAuth.classList.add('is-connected');
+                dot.classList.add('is-connected');
+                text.innerText = '🟢 Escritura directa conectada';
+                btnAuth.title = 'projects_data.js vinculado y con permisos de escritura activos en disco';
+            } else if (status === 'prompt') {
+                btnAuth.classList.add('is-pending');
+                dot.classList.add('is-pending');
+                text.innerText = '⚠️ Reactivar permiso de guardado';
+                btnAuth.title = 'Haz clic para renovar el permiso de escritura directa sin volver a seleccionar el archivo';
+            } else {
+                text.innerText = '🔑 Autorizar Escritura Directa';
+                btnAuth.title = 'Selecciona projects_data.js una sola vez para permitir guardado directo';
+            }
+        },
+
+        authorizeOrReactivateAccess: async function (forcePicker = false) {
+            try {
+                if (this.fileHandle && !forcePicker) {
+                    let perm = 'prompt';
+                    if (typeof this.fileHandle.requestPermission === 'function') {
+                        perm = await this.fileHandle.requestPermission({ mode: 'readwrite' });
+                    }
+                    if (perm === 'granted') {
+                        await this.updatePersistenceUI();
+                        this.showToast('✅ Permiso reactivado — guardado directo en disco activo');
+                        this.closePathHelpModal();
+                        return true;
+                    }
+                }
+
+                if ('showOpenFilePicker' in window) {
+                    const [handle] = await window.showOpenFilePicker({
+                        id: 'bitacora-data-file',
+                        types: [{
+                            description: 'Archivo projects_data.js de Bitácora',
+                            accept: { 'text/javascript': ['.js'] }
+                        }],
+                        multiple: false
+                    });
+
+                    if (handle) {
+                        this.fileHandle = handle;
+                        await storeHandle(handle);
+                        let perm = 'prompt';
+                        if (typeof handle.requestPermission === 'function') {
+                            perm = await handle.requestPermission({ mode: 'readwrite' });
+                        }
+                        await this.updatePersistenceUI();
+                        if (perm === 'granted') {
+                            this.showToast('✅ projects_data.js vinculado. Escritura directa habilitada.');
+                            this.closePathHelpModal();
+                            return true;
+                        }
+                    }
+                } else {
+                    this.openPathHelpModal();
+                }
+            } catch (err) {
+                if (err.name !== 'AbortError') {
+                    console.warn('Error autorizando:', err);
+                    this.showToast('⚠️ No se concedió el permiso de escritura');
+                }
+            }
+            await this.updatePersistenceUI();
+            return false;
+        },
+
+        openPathHelpModal: function () {
+            const modal = document.getElementById('modal-admin-path-help');
+            if (modal) {
+                modal.classList.add('is-open');
+            }
+        },
+
+        closePathHelpModal: function () {
+            const modal = document.getElementById('modal-admin-path-help');
+            if (modal) {
+                modal.classList.remove('is-open');
+            }
+        },
+
         openDrawer: function (targetTab = null, targetMacro = null) {
             const drawer = this.buildDrawer();
             const currentMode = targetMacro || localStorage.getItem('bitacora-macro-mode') || 'projects';
@@ -1130,7 +1420,7 @@
             }
             this.renderFilterTabs();
             this.renderList();
-            this.updatePersistencePill(!!this.fileHandle);
+            this.updatePersistenceUI();
             drawer.classList.add('is-open');
             document.body.style.overflow = 'hidden';
             this.isOpen = true;
@@ -1161,41 +1451,17 @@
             const saveBtn = document.getElementById('btn-admin-save');
             if (saveBtn) {
                 saveBtn.disabled = true;
-                saveBtn.innerText = 'Guardando...';
+                saveBtn.innerText = 'Guardando en disco...';
             }
 
             try {
-                if ('showOpenFilePicker' in window || 'showSaveFilePicker' in window) {
-                    if (!this.fileHandle && !forceNew) {
-                        this.fileHandle = await getStoredHandle();
-                    }
+                let savedDirectly = false;
 
-                    if (!this.fileHandle || forceNew) {
-                        if ('showOpenFilePicker' in window) {
-                            const [handle] = await window.showOpenFilePicker({
-                                types: [{
-                                    description: 'Archivo projects_data.js de Bitácora',
-                                    accept: { 'text/javascript': ['.js'] }
-                                }],
-                                multiple: false
-                            });
-                            this.fileHandle = handle;
-                        } else {
-                            this.fileHandle = await window.showSaveFilePicker({
-                                suggestedName: 'projects_data.js',
-                                types: [{
-                                    description: 'Archivo JavaScript',
-                                    accept: { 'text/javascript': ['.js'] }
-                                }]
-                            });
-                        }
+                if (!this.fileHandle && !forceNew) {
+                    this.fileHandle = await getStoredHandle();
+                }
 
-                        if (this.fileHandle) {
-                            await storeHandle(this.fileHandle);
-                            this.updatePersistencePill(true);
-                        }
-                    }
-
+                if (this.fileHandle && !forceNew) {
                     let hasPermission = false;
                     try {
                         const q = await this.fileHandle.queryPermission({ mode: 'readwrite' });
@@ -1206,39 +1472,49 @@
                             hasPermission = (req === 'granted');
                         }
                     } catch (_) {
-                        hasPermission = true;
+                        hasPermission = false;
                     }
 
-                    if (!hasPermission) {
-                        throw new Error('Permiso de escritura no concedido');
+                    if (hasPermission) {
+                        const writable = await this.fileHandle.createWritable();
+                        await writable.write(this.generateFileContent());
+                        await writable.close();
+                        savedDirectly = true;
+                        await this.updatePersistenceUI();
+                        this.showToast('✅ Cambios guardados físicamente en projects_data.js');
+                    }
+                }
+
+                if (!savedDirectly) {
+                    // Si no tiene handle o no concedió permiso, ofrecer autorizar o descargar
+                    if ('showOpenFilePicker' in window && !this.fileHandle) {
+                        const authorized = await this.authorizeOrReactivateAccess(true);
+                        if (authorized && this.fileHandle) {
+                            const writable = await this.fileHandle.createWritable();
+                            await writable.write(this.generateFileContent());
+                            await writable.close();
+                            this.showToast('✅ Cambios guardados físicamente en projects_data.js');
+                            savedDirectly = true;
+                        }
                     }
 
-                    const writable = await this.fileHandle.createWritable();
-                    await writable.write(this.generateFileContent());
-                    await writable.close();
-
-                    this.updatePersistencePill(true);
-                    this.showToast('✓ Guardado automáticamente en projects_data.js');
-                } else {
-                    this.downloadMasterFile();
-                    this.showToast('ℹ Archivo generado. Descarga de copia lista.');
+                    if (!savedDirectly) {
+                        this.openPathHelpModal();
+                        this.downloadMasterFile();
+                    }
                 }
             } catch (err) {
                 if (err.name !== 'AbortError') {
-                    console.warn('Error con File System API:', err);
-                    if (this.fileHandle && !forceNew) {
-                        this.fileHandle = null;
-                        await clearStoredHandle();
-                        this.updatePersistencePill(false);
-                    }
+                    console.warn('Error guardando en disco:', err);
+                    this.openPathHelpModal();
                     this.downloadMasterFile();
-                    this.showToast('ℹ Guardado mediante descarga de respaldo.');
                 }
             } finally {
                 if (saveBtn) {
                     saveBtn.disabled = false;
                     saveBtn.innerText = '💾 Guardar Cambios en Archivo';
                 }
+                await this.updatePersistenceUI();
             }
         },
 
