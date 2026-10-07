@@ -909,20 +909,41 @@ function initSmoothAnchors() {
         const anchor = e.target.closest('a[href^="#"]');
         if (!anchor) return;
         const hash = anchor.getAttribute('href');
-        if (!hash || hash === '#') return;
+        if (!hash || hash === '#' || hash.length <= 1) return;
 
         try {
             const targetEl = document.querySelector(hash);
-            if (targetEl) {
-                e.preventDefault();
+            if (!targetEl) return;
+
+            e.preventDefault();
+
+            // Detectar si el elemento objetivo pertenece a una macro-bitácora oculta
+            const inOperativas = targetEl.closest('#container-bitacora-operativas') !== null;
+            const inProyectos = targetEl.closest('#container-bitacora-proyectos') !== null;
+
+            if (inOperativas && typeof window.switchMacroBitacora === 'function') {
+                window.switchMacroBitacora('operativas', false);
+            } else if (inProyectos && typeof window.switchMacroBitacora === 'function') {
+                window.switchMacroBitacora('proyectos', false);
+            }
+
+            // Desplazamiento suave con retardo para permitir que el contenedor se haga visible
+            setTimeout(() => {
                 targetEl.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 });
+
+                // Destello visual de foco en la sección o tarjeta
+                targetEl.classList.remove('bitacora-card-target-focus');
+                void targetEl.offsetWidth;
+                targetEl.classList.add('bitacora-card-target-focus');
+                setTimeout(() => targetEl.classList.remove('bitacora-card-target-focus'), 1800);
+
                 if (history.pushState) {
                     history.pushState(null, '', hash);
                 }
-            }
+            }, 70);
         } catch (_) {}
     });
 }

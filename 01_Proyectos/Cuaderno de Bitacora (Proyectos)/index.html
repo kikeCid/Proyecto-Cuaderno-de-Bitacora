@@ -109,7 +109,7 @@
             
             <div class="bitacora-macro-selector-grid" role="tablist" aria-label="Selector Maestro de Bitácora">
                 <!-- Tarjeta 1: Gestión de Proyectos -->
-                <button class="macro-card-btn is-active" id="tab-macro-proyectos" onclick="switchMacroBitacora('proyectos')" role="tab" aria-selected="true" aria-controls="container-bitacora-proyectos">
+                <button class="macro-card-btn is-active" id="tab-macro-proyectos" onclick="switchMacroBitacora('proyectos', true)" role="tab" aria-selected="true" aria-controls="container-bitacora-proyectos">
                     <div class="macro-card-icon-wrap">
                         <div class="macro-card-icon">
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -138,7 +138,7 @@
                 </button>
 
                 <!-- Tarjeta 2: Procedimientos y Operativas -->
-                <button class="macro-card-btn" id="tab-macro-operativas" onclick="switchMacroBitacora('operativas')" role="tab" aria-selected="false" aria-controls="container-bitacora-operativas">
+                <button class="macro-card-btn" id="tab-macro-operativas" onclick="switchMacroBitacora('operativas', true)" role="tab" aria-selected="false" aria-controls="container-bitacora-operativas">
                     <div class="macro-card-icon-wrap">
                         <div class="macro-card-icon">
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -893,13 +893,21 @@
             
             <div class="footer-links-grid">
                 <div class="footer-col">
-                    <h4>Navegación</h4>
+                    <h4>Bitácora de Proyectos</h4>
                     <ul>
-                        <li><a href="#seccion-directa">Gestión Directa</a></li>
-                        <li><a href="#seccion-estrategicos">Proyectos Estratégicos</a></li>
-                        <li><a href="#seccion-facilitadores">Facilitadores</a></li>
-                        <li><a href="#seccion-operativas-sistemas">Operativa de Sistemas</a></li>
-                        <li><a href="#seccion-operativas-gobierno">Gobernanza & Cumplimiento</a></li>
+                        <li><a href="#seccion-directa" onclick="navigateToSection('seccion-directa', 'proyectos'); return false;">Gestión Directa (PO/PM)</a></li>
+                        <li><a href="#seccion-estrategicos" onclick="navigateToSection('seccion-estrategicos', 'proyectos'); return false;">Proyectos Estratégicos</a></li>
+                        <li><a href="#seccion-facilitadores" onclick="navigateToSection('seccion-facilitadores', 'proyectos'); return false;">Facilitadores / Afectados</a></li>
+                        <li><a href="#modal-licitaciones" onclick="openLicitacionesModal(); return false;">Concursos en Licitación</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Procedimientos & Operativas</h4>
+                    <ul>
+                        <li><a href="#seccion-operativas-sistemas" onclick="navigateToSection('seccion-operativas-sistemas', 'operativas'); return false;">Sistemas & Equipamiento TI</a></li>
+                        <li><a href="#seccion-operativas-gobierno" onclick="navigateToSection('seccion-operativas-gobierno', 'operativas'); return false;">Gobernanza & Cumplimiento</a></li>
+                        <li><a href="../Gestion de Usuarios/index.html">Gestión de Usuarios (IAM)</a></li>
+                        <li><a href="../Gobierno de Informacion/index.html">Gobierno de Datos & LidIA</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -1110,7 +1118,7 @@
         // ==========================================
         // SELECTOR MACRO DE BITÁCORA (PROYECTOS VS OPERATIVAS)
         // ==========================================
-        function switchMacroBitacora(mode) {
+        function switchMacroBitacora(mode, shouldScroll = false) {
             const isOperativas = (mode === 'operativas' || mode === 'manuales');
             const btnProyectos = document.getElementById('tab-macro-proyectos');
             const btnOperativas = document.getElementById('tab-macro-operativas');
@@ -1128,8 +1136,14 @@
                     btnProyectos.classList.remove('is-active');
                     btnProyectos.setAttribute('aria-selected', 'false');
                 }
+                contOperativas.classList.remove('is-hidden-container');
+                contOperativas.classList.add('is-active-container');
                 contOperativas.style.display = 'block';
+
+                contProyectos.classList.remove('is-active-container');
+                contProyectos.classList.add('is-hidden-container');
                 contProyectos.style.display = 'none';
+
                 localStorage.setItem('bitacora-macro-mode', 'operativas');
             } else {
                 if (btnProyectos) {
@@ -1140,8 +1154,14 @@
                     btnOperativas.classList.remove('is-active');
                     btnOperativas.setAttribute('aria-selected', 'false');
                 }
+                contProyectos.classList.remove('is-hidden-container');
+                contProyectos.classList.add('is-active-container');
                 contProyectos.style.display = 'block';
+
+                contOperativas.classList.remove('is-active-container');
+                contOperativas.classList.add('is-hidden-container');
                 contOperativas.style.display = 'none';
+
                 localStorage.setItem('bitacora-macro-mode', 'proyectos');
             }
 
@@ -1155,9 +1175,17 @@
                 }
             });
 
+            const activeContainer = isOperativas ? contOperativas : contProyectos;
+
+            // Desplazamiento suave directo al contenido si fue solicitado por click del usuario
+            if (shouldScroll && activeContainer) {
+                setTimeout(() => {
+                    activeContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 50);
+            }
+
             // Re-calcular flechas de carruseles visibles y regenerar TOC
             setTimeout(() => {
-                const activeContainer = isOperativas ? contOperativas : contProyectos;
                 activeContainer.querySelectorAll('.carousel-track').forEach(track => {
                     updateCarouselButtons(track);
                 });
@@ -1167,6 +1195,26 @@
             }, 60);
         }
         window.switchMacroBitacora = switchMacroBitacora;
+
+        // ==========================================
+        // NAVEGACIÓN DIRECTA DESDE FOOTER O ENLACES A SECCIÓN
+        // ==========================================
+        function navigateToSection(sectionId, targetMacro = null) {
+            if (targetMacro && typeof switchMacroBitacora === 'function') {
+                switchMacroBitacora(targetMacro, false);
+            }
+            setTimeout(() => {
+                const targetEl = document.getElementById(sectionId);
+                if (targetEl) {
+                    targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    targetEl.classList.remove('bitacora-card-target-focus');
+                    void targetEl.offsetWidth;
+                    targetEl.classList.add('bitacora-card-target-focus');
+                    setTimeout(() => targetEl.classList.remove('bitacora-card-target-focus'), 1800);
+                }
+            }, 80);
+        }
+        window.navigateToSection = navigateToSection;
 
         // ==========================================
         // FILTRADO POR ÁREA EN BITÁCORA DE OPERATIVAS
