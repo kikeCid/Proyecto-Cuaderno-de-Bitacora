@@ -1309,6 +1309,8 @@ function initKPICounters() {
                         }
                     }
                     requestAnimationFrame(updateCount);
+                } else if (!isNaN(targetVal) && targetVal === 0) {
+                    el.innerText = '0';
                 }
                 obs.unobserve(el);
             }

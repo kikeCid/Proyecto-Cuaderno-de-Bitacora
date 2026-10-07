@@ -193,13 +193,28 @@
         // 2. MOTOR REACTIVO: ACTUALIZAR DOM EN TIEMPO REAL
         // ==========================================
         applyStateToUI: function () {
-            // A) RECALCULAR KPIS DE PROYECTOS
+            // A) RECALCULAR KPIS DE PROYECTOS (REACTIVIDAD ABSOLUTA)
             const totalProj = this.projects.length;
             const strategics = this.projects.filter(p => p.carril === 'strategic').length;
             const directs = this.projects.filter(p => p.carril === 'direct').length;
             const licitaciones = this.projects.filter(p => p.licitacion === true).length;
             const facilitators = this.projects.filter(p => p.carril === 'facilitator').length;
+            const closedProjects = this.projects.filter(p => p.carril === 'closed').length;
 
+            // Actualización por ID prioritario
+            const elTotalProj = document.getElementById('kpi-val-proj-total');
+            if (elTotalProj) { elTotalProj.innerText = totalProj; elTotalProj.setAttribute('data-count', totalProj); }
+
+            const elStratProj = document.getElementById('kpi-val-proj-strategic');
+            if (elStratProj) { elStratProj.innerText = strategics; elStratProj.setAttribute('data-count', strategics); }
+
+            const elDirProj = document.getElementById('kpi-val-proj-direct');
+            if (elDirProj) { elDirProj.innerText = directs; elDirProj.setAttribute('data-count', directs); }
+
+            const elLicProj = document.getElementById('kpi-val-proj-licitacion');
+            if (elLicProj) { elLicProj.innerText = licitaciones; elLicProj.setAttribute('data-count', licitaciones); }
+
+            // Respaldo por selector genérico de tarjetas de proyectos
             const kpiCards = document.querySelectorAll('.executive-stats-strip-projects .kpi-clean-card');
             if (kpiCards.length >= 4) {
                 const valTotal = kpiCards[0].querySelector('.kpi-clean-value');
@@ -215,12 +230,25 @@
                 if (valLic) { valLic.innerText = licitaciones; valLic.setAttribute('data-count', licitaciones); }
             }
 
-            // B) RECALCULAR KPIS DE OPERATIVAS / MANUALES
+            // B) RECALCULAR KPIS DE OPERATIVAS / MANUALES (REACTIVIDAD ABSOLUTA)
             const totalOp = this.operativas.length;
             const opVigentes = this.operativas.filter(o => o.estadoDoc === 'Vigente').length;
             const opRevision = this.operativas.filter(o => o.estadoDoc === 'En Revisión').length;
             const opCriticas = this.operativas.filter(o => o.criticidad === 'Crítica').length;
 
+            const elTotalOp = document.getElementById('kpi-val-op-total');
+            if (elTotalOp) { elTotalOp.innerText = totalOp; elTotalOp.setAttribute('data-count', totalOp); }
+
+            const elVigOp = document.getElementById('kpi-val-op-vigentes');
+            if (elVigOp) { elVigOp.innerText = opVigentes; elVigOp.setAttribute('data-count', opVigentes); }
+
+            const elRevOp = document.getElementById('kpi-val-op-revision');
+            if (elRevOp) { elRevOp.innerText = opRevision; elRevOp.setAttribute('data-count', opRevision); }
+
+            const elCritOp = document.getElementById('kpi-val-op-criticas');
+            if (elCritOp) { elCritOp.innerText = opCriticas; elCritOp.setAttribute('data-count', opCriticas); }
+
+            // Respaldo por selector genérico de tarjetas de operativas
             const kpiCardsOp = document.querySelectorAll('.executive-stats-strip-operativas .kpi-clean-card');
             if (kpiCardsOp.length >= 4) {
                 const valTotalOp = kpiCardsOp[0].querySelector('.kpi-clean-value');
@@ -237,13 +265,23 @@
             }
 
             // Actualizar filtros de carril de proyectos
-            const closedProjects = this.projects.filter(p => p.carril === 'closed').length;
             const filterChipsProj = document.querySelectorAll('.filter-segments-projects .filter-chip');
-            if (filterChipsProj.length >= 4) {
+            if (filterChipsProj.length >= 5) {
                 const counts = [totalProj, directs, strategics, facilitators, closedProjects];
                 filterChipsProj.forEach((chip, i) => {
                     const countEl = chip.querySelector('.filter-count');
                     if (countEl && counts[i] !== undefined) countEl.innerText = counts[i];
+                });
+            }
+
+            // Actualizar filtros de operativas
+            const filterChipsOp = document.querySelectorAll('.filter-segments-operativas .filter-chip');
+            if (filterChipsOp.length >= 2) {
+                const opSistemas = this.operativas.filter(o => o.area === 'Sistemas & Identidades' || o.id === 'gestion-usuarios').length;
+                const countsOp = [totalOp, opSistemas];
+                filterChipsOp.forEach((chip, i) => {
+                    const countEl = chip.querySelector('.filter-count');
+                    if (countEl && countsOp[i] !== undefined) countEl.innerText = countsOp[i];
                 });
             }
 
@@ -252,7 +290,8 @@
                 'seccion-directa': directs,
                 'seccion-estrategicos': strategics,
                 'seccion-facilitadores': facilitators,
-                'seccion-cerrados': closedProjects
+                'seccion-cerrados': closedProjects,
+                'seccion-operativas-sistemas': totalOp
             };
             Object.keys(mapSecCount).forEach(secId => {
                 const sec = document.getElementById(secId);
@@ -292,8 +331,12 @@
                                 tagsContainer.insertBefore(licTag, tagsContainer.firstChild);
                             }
                             licTag.innerHTML = `${LDA_ICONS.licitacion.replace('width="18" height="18"', 'width="12" height="12" style="vertical-align: -1px; margin-right: 3px;"')}<span>Licitación</span>`;
-                        } else if (licTag) {
-                            licTag.remove();
+                        } else {
+                            if (licTag) licTag.remove();
+                            // Limpieza preventiva de tags estáticos residuales
+                            tagsContainer.querySelectorAll('.tech-tag').forEach(t => {
+                                if (t.innerText.trim().toLowerCase() === 'licitación') t.remove();
+                            });
                         }
 
                         // Tag de Fase Especial (Parado / Decisión)
@@ -387,33 +430,46 @@
                 }
             });
 
-            // Actualizar contador en la sección de operativas
-            const secOp = document.getElementById('seccion-operativas-sistemas');
-            if (secOp) {
-                const counterOp = secOp.querySelector('.section-counter');
-                if (counterOp) counterOp.innerText = this.operativas.length;
-            }
-
             // Actualizar Modal de Licitaciones y estadísticas del cajón
             this.renderLicitacionesModalContent();
             this.updateDrawerStats();
         },
 
         renderLicitacionesModalContent: function () {
-            const listContainer = document.querySelector('.licitaciones-projects-list');
+            const listContainer = document.getElementById('licitaciones-modal-grid') ||
+                                  document.querySelector('.licitaciones-projects-list') ||
+                                  document.querySelector('.licitaciones-modal-grid');
             if (!listContainer) return;
 
-            const licitados = this.projects.filter(p => p.licitacion === true);
+            const intro = document.getElementById('licitaciones-modal-intro') ||
+                          document.querySelector('.licitaciones-modal-intro');
+
+            const licitados = (this.projects || []).filter(p => p.licitacion === true);
 
             if (licitados.length === 0) {
+                if (intro) {
+                    intro.innerHTML = 'Actualmente no hay ninguna iniciativa en proceso de licitación o pliego abierto en el portfolio.';
+                }
                 listContainer.innerHTML = `
-                    <div style="text-align: center; padding: 40px 20px; color: var(--text-sec);">
-                        <div style="margin-bottom: 12px; color: var(--lda-red);">${LDA_ICONS.licitacion.replace('width="18" height="18"', 'width="40" height="40"')}</div>
-                        <h4 style="color: var(--text-main); font-weight: 700; margin-bottom: 6px;">No hay concursos activos</h4>
-                        <p style="font-size: 0.9rem; margin: 0;">Actualmente no hay iniciativas en fase de licitación o pliegos abiertos.</p>
+                    <div class="licitaciones-empty-state" style="grid-column: 1 / -1; text-align: center; padding: 48px 20px; background: var(--bg-app); border: 1px dashed var(--border-color); border-radius: 16px;">
+                        <div style="margin-bottom: 14px; color: var(--lda-red); display: flex; justify-content: center;">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--lda-red);">
+                                <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
+                                <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
+                                <path d="M7 21h10"/>
+                                <path d="M12 3v18"/>
+                                <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>
+                            </svg>
+                        </div>
+                        <h4 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin: 0 0 8px 0;">No hay licitaciones en curso</h4>
+                        <p style="font-size: 0.92rem; color: var(--text-sec); margin: 0 auto; max-width: 480px; line-height: 1.5;">Actualmente todas las iniciativas del portfolio se desarrollan bajo asignación directa o recursos internos sin pliegos abiertos.</p>
                     </div>
                 `;
                 return;
+            }
+
+            if (intro) {
+                intro.innerHTML = `Las siguientes <strong>${licitados.length} iniciativa${licitados.length > 1 ? 's' : ''} del portfolio</strong> se encuentran en curso de pliego técnico, concurso competitivo de integradores o fase de adjudicación contractual:`;
             }
 
             listContainer.innerHTML = licitados.map(item => `
@@ -1656,6 +1712,11 @@
     };
 
     window.BitacoraAdmin = BitacoraAdmin;
+    window.syncBitacoraHomeKPIs = function () {
+        if (window.BitacoraAdmin && typeof window.BitacoraAdmin.applyStateToUI === 'function') {
+            window.BitacoraAdmin.applyStateToUI();
+        }
+    };
 
     // Inicializar al cargar el DOM
     if (document.readyState === 'loading') {
