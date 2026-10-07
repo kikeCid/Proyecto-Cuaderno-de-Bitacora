@@ -6623,3 +6623,85 @@ body[data-density="compact"] .hero {
     justify-content: flex-end;
     gap: 10px;
 }
+
+/* TARJETAS DE PASOS DEL ASISTENTE DE VINCULACIÓN */
+.path-step-card {
+    background: var(--bg-app);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.path-step-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.path-step-number {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--lda-red);
+    color: #ffffff;
+    font-size: 0.76rem;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.path-step-title {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+.path-input-display {
+    flex: 1;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.8rem;
+    color: var(--text-main);
+    outline: none;
+    user-select: all;
+    min-width: 0;
+}
+.copy-feedback {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #059669;
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: 8px;
+    padding: 6px 10px;
+}
+.path-fallback-note {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding-top: 10px;
+    font-size: 0.8rem;
+    color: var(--text-sec);
+    border-top: 1px dashed var(--glass-border);
+    flex-wrap: wrap;
+}
+.admin-link-btn {
+    background: none;
+    border: none;
+    color: var(--lda-red);
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 0;
+    transition: color 0.2s ease;
+}
+.admin-link-btn:hover {
+    color: #b91c1c;
+}
+

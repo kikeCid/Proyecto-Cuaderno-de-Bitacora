@@ -7,9 +7,7 @@
  * Fecha de sincronización: 2026-10-07
  */
 
-// =========================================================================
-// 1. BITÁCORA DE GESTIÓN DE PROYECTOS (INICIATIVAS Y CICLO DE VIDA)
-// =========================================================================
+// 1. BITÁCORA DE GESTIÓN DE PROYECTOS
 window.BITACORA_PROJECTS_DATA = [
     {
         "id": "hcm",
@@ -17,12 +15,16 @@ window.BITACORA_PROJECTS_DATA = [
         "subtitle": "Oracle Cloud HCM",
         "desc": "Núcleo integral de RR.HH. Migración estratégica de PeopleSoft a Oracle Cloud Fusion, optimizando la gestión del talento, nóminas y estructura organizativa.",
         "carril": "direct",
-        "estado": "En Licitación",
-        "licitacion": true,
+        "estado": "En Pausa / Parado",
+        "licitacion": false,
         "replanificado": false,
-        "semaforo": "verde",
+        "semaforo": "pausa",
         "href": "../HCM/index.html",
-        "tags": ["Oracle Cloud HCM", "Gestión Talento", "Nóminas"]
+        "tags": [
+            "Oracle Cloud HCM",
+            "Gestión Talento",
+            "Nóminas"
+        ]
     },
     {
         "id": "ia-personas",
@@ -30,12 +32,16 @@ window.BITACORA_PROJECTS_DATA = [
         "subtitle": "Copilot & Agentes LidIA",
         "desc": "Iniciativa estratégica para automatización de consultas internas, asistentes cognitivos con LidIA y optimización operativa en gestión de personas.",
         "carril": "direct",
-        "estado": "En Decisión",
+        "estado": "En Pausa / Parado",
         "licitacion": false,
         "replanificado": false,
-        "semaforo": "verde",
+        "semaforo": "pausa",
         "href": "../IA Area Personas/index.html",
-        "tags": ["Inteligencia Artificial", "Copilot M365", "Asistente LidIA"]
+        "tags": [
+            "Inteligencia Artificial",
+            "Copilot M365",
+            "Asistente LidIA"
+        ]
     },
     {
         "id": "pmo-perscom",
@@ -48,7 +54,11 @@ window.BITACORA_PROJECTS_DATA = [
         "replanificado": false,
         "semaforo": "verde",
         "href": "../PMO Perscom/index.html",
-        "tags": ["Metodología 360°", "Gobierno PMO", "Gestión del Cambio"]
+        "tags": [
+            "Metodología 360°",
+            "Gobierno PMO",
+            "Gestión del Cambio"
+        ]
     },
     {
         "id": "crm-operacional",
@@ -61,7 +71,11 @@ window.BITACORA_PROJECTS_DATA = [
         "replanificado": false,
         "semaforo": "verde",
         "href": "../CRM Operacional/index.html",
-        "tags": ["Salesforce FSC", "OMEGA", "Omnicanalidad"]
+        "tags": [
+            "Salesforce FSC",
+            "OMEGA",
+            "Omnicanalidad"
+        ]
     },
     {
         "id": "telefonia-genesys",
@@ -71,10 +85,14 @@ window.BITACORA_PROJECTS_DATA = [
         "carril": "strategic",
         "estado": "En Curso",
         "licitacion": false,
-        "replanificado": false,
+        "replanificado": true,
         "semaforo": "verde",
         "href": "../Telefonia - Genesis CX/index.html",
-        "tags": ["Genesys Cloud", "AWS Cloud", "Telefonía 360°"]
+        "tags": [
+            "Genesys Cloud",
+            "AWS Cloud",
+            "Telefonía 360°"
+        ]
     },
     {
         "id": "reingenieria-siniestros",
@@ -87,7 +105,11 @@ window.BITACORA_PROJECTS_DATA = [
         "replanificado": false,
         "semaforo": "verde",
         "href": "../Reingenieria Siniestros/index.html",
-        "tags": ["Triaje STP", "Peritación Digital", "Core Autos"]
+        "tags": [
+            "Triaje STP",
+            "Peritación Digital",
+            "Core Autos"
+        ]
     },
     {
         "id": "gobierno-dato",
@@ -100,7 +122,11 @@ window.BITACORA_PROJECTS_DATA = [
         "replanificado": false,
         "semaforo": "verde",
         "href": "../Gobierno del Dato/index.html",
-        "tags": ["Data Mesh", "Databricks", "Data Governance"]
+        "tags": [
+            "Data Mesh",
+            "Databricks",
+            "Data Governance"
+        ]
     },
     {
         "id": "ia-voz-chat",
@@ -113,7 +139,11 @@ window.BITACORA_PROJECTS_DATA = [
         "replanificado": false,
         "semaforo": "verde",
         "href": "../IA Voz y Chat/index.html",
-        "tags": ["Agente Lupe", "Speech Analytics", "NLP"]
+        "tags": [
+            "Agente Lupe",
+            "Speech Analytics",
+            "NLP"
+        ]
     },
     {
         "id": "transformacion-agile",
@@ -126,7 +156,11 @@ window.BITACORA_PROJECTS_DATA = [
         "replanificado": false,
         "semaforo": "verde",
         "href": "../Transformacion Agile/index.html",
-        "tags": ["Agile Mindset", "Squads", "OKRs"]
+        "tags": [
+            "Agile Mindset",
+            "Squads",
+            "OKRs"
+        ]
     },
     {
         "id": "transformacion-hogar",
@@ -137,9 +171,13 @@ window.BITACORA_PROJECTS_DATA = [
         "estado": "En Curso",
         "licitacion": false,
         "replanificado": false,
-        "semaforo": "verde",
+        "semaforo": "ambar",
         "href": "../Transformacion Hogar/index.html",
-        "tags": ["HomeServe", "Tracking Asistencias", "Hogar Digital"]
+        "tags": [
+            "HomeServe",
+            "Tracking Asistencias",
+            "Hogar Digital"
+        ]
     },
     {
         "id": "transformacion-salud",
@@ -147,12 +185,16 @@ window.BITACORA_PROJECTS_DATA = [
         "subtitle": "Alianza HNA & Cuadro Médico",
         "desc": "Salto de escala para 75.000 asegurados: acceso digital a cuadro médico de primer nivel, copago optimizado y autorizaciones inmediatas.",
         "carril": "strategic",
-        "estado": "En Despliegue",
+        "estado": "En Curso",
         "licitacion": false,
         "replanificado": false,
-        "semaforo": "verde",
+        "semaforo": "ambar",
         "href": "../Transformacion Salud/index.html",
-        "tags": ["Alianza HNA", "Cuadro Médico", "Autorizaciones IA"]
+        "tags": [
+            "Alianza HNA",
+            "Cuadro Médico",
+            "Autorizaciones IA"
+        ]
     },
     {
         "id": "perseo",
@@ -165,7 +207,11 @@ window.BITACORA_PROJECTS_DATA = [
         "replanificado": false,
         "semaforo": "verde",
         "href": "../Perseo/index.html",
-        "tags": ["Speech Analytics", "Calidad Operativa", "IA Supervisión"]
+        "tags": [
+            "Speech Analytics",
+            "Calidad Operativa",
+            "IA Supervisión"
+        ]
     },
     {
         "id": "gobierno-informacion",
@@ -178,13 +224,16 @@ window.BITACORA_PROJECTS_DATA = [
         "replanificado": false,
         "semaforo": "gris",
         "href": "../Gobierno de Informacion/index.html",
-        "tags": ["Metodología GIN", "Gobierno del Dato", "Wiki Funcional", "Histórico"]
+        "tags": [
+            "Metodología GIN",
+            "Gobierno del Dato",
+            "Wiki Funcional",
+            "Histórico"
+        ]
     }
 ];
 
-// =========================================================================
-// 2. BITÁCORA DE PROCEDIMIENTOS, MANUALES Y OPERATIVAS (DOCUMENTACIÓN TÉCNICA Y BAU)
-// =========================================================================
+// 2. BITÁCORA DE PROCEDIMIENTOS Y OPERATIVAS
 window.BITACORA_OPERATIVAS_DATA = [
     {
         "id": "gestion-usuarios",
@@ -199,7 +248,12 @@ window.BITACORA_OPERATIVAS_DATA = [
         "proximaRevision": "Octubre 2027",
         "criticidad": "Crítica",
         "href": "../Gestion de Usuarios/index.html",
-        "tags": ["Directorio Activo", "IAM", "Control de Accesos", "SSO"]
+        "tags": [
+            "Directorio Activo",
+            "IAM",
+            "Control de Accesos",
+            "SSO"
+        ]
     }
 ];
 

@@ -542,52 +542,64 @@
                     </div>
                 </div>
 
-                <!-- MODAL POPUP ASISTIDO: DÓNDE SE GUARDA Y DESCARGA DIRECTA -->
+                <!-- MODAL POPUP ASISTIDO: DÓNDE SE GUARDA Y VINCULACIÓN DIRECTA -->
                 <div class="admin-path-modal-backdrop" id="modal-admin-path-help" onclick="if(event.target===this) BitacoraAdmin.closePathHelpModal()">
                     <div class="admin-path-modal-dialog">
                         <div class="admin-path-modal-header">
                             <div>
-                                <span class="admin-drawer-kicker">PERSISTENCIA & GOBERNANZA TÉCNICA</span>
-                                <h3 style="margin: 0; font-size: 1.15rem; color: var(--text-main); font-weight: 800;">Destino de Guardado: projects_data.js</h3>
+                                <span class="admin-drawer-kicker">ASISTENTE DE GUARDADO DIRECTO EN DISCO</span>
+                                <h3 style="margin: 0; font-size: 1.15rem; color: var(--text-main); font-weight: 800;">Vincular projects_data.js</h3>
                             </div>
                             <button class="admin-drawer-close" onclick="BitacoraAdmin.closePathHelpModal()" aria-label="Cerrar">&times;</button>
                         </div>
                         <div class="admin-path-modal-body">
-                            <div class="path-info-box">
-                                <span class="path-info-box-label">Nombre exacto del archivo:</span>
+                            <p style="margin: 0; font-size: 0.88rem; color: var(--text-sec); line-height: 1.5;">
+                                Para que todos los cambios se guarden directamente en tu proyecto sin tener que descargar archivos, autoriza la escritura en tu archivo local una sola vez (como en Portfolio):
+                            </p>
+
+                            <!-- PASO 1: COPIAR RUTA -->
+                            <div class="path-step-card">
+                                <div class="path-step-header">
+                                    <span class="path-step-number">1</span>
+                                    <span class="path-step-title">Copia la ruta exacta del archivo en tu equipo:</span>
+                                </div>
                                 <div class="path-code-line">
-                                    <strong style="color: var(--lda-red); font-size: 0.95rem;">projects_data.js</strong>
-                                    <span style="font-size: 0.72rem; color: var(--text-sec); font-family: sans-serif;">(Catálogo unificado de Proyectos y Operativas)</span>
+                                    <input type="text" readonly value="C:\\Proyectos_Claude\\Proyecto Cuaderno de Bitacora\\01_Proyectos\\assets\\js\\projects_data.js" id="text-full-path-input" class="path-input-display">
+                                    <button type="button" class="path-copy-btn" id="btn-copy-full-path">
+                                        📋 Copiar Ruta
+                                    </button>
+                                </div>
+                                <div id="copy-feedback-msg" class="copy-feedback" style="display: none;">
+                                    ✅ ¡Ruta copiada al portapapeles! Ahora pulsa el botón del Paso 2.
                                 </div>
                             </div>
 
-                            <div class="path-info-box">
-                                <span class="path-info-box-label">Ruta en este equipo (Directorio físico a sobrescribir):</span>
-                                <div class="path-code-line">
-                                    <span id="text-full-path">C:\\Proyectos_Claude\\Proyecto Cuaderno de Bitacora\\01_Proyectos\\assets\\js\\projects_data.js</span>
-                                    <button type="button" class="path-copy-btn" id="btn-copy-full-path">Copiar Ruta</button>
+                            <!-- PASO 2: SELECCIONAR Y GUARDAR -->
+                            <div class="path-step-card">
+                                <div class="path-step-header">
+                                    <span class="path-step-number">2</span>
+                                    <span class="path-step-title">Selecciona y autoriza el archivo:</span>
+                                </div>
+                                <p style="margin: 0; font-size: 0.82rem; color: var(--text-sec); line-height: 1.45;">
+                                    Al pulsar el botón se abrirá la ventana del explorador. Pega la ruta en la barra de direcciones superior o en el campo "Nombre" y selecciona <strong>projects_data.js</strong>:
+                                </p>
+                                <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px;">
+                                    <button type="button" class="admin-btn-primary" id="btn-modal-link-file" style="flex: 1; padding: 12px 18px; font-size: 0.92rem; justify-content: center;">
+                                        📂 Seleccionar projects_data.js y Guardar
+                                    </button>
+                                    <button type="button" class="admin-btn-secondary" id="btn-modal-link-dir" style="padding: 12px 14px; font-size: 0.84rem;" title="O si lo prefieres, autoriza la carpeta del proyecto">
+                                        📁 O vincular carpeta assets/js
+                                    </button>
                                 </div>
                             </div>
 
-                            <div class="path-info-box">
-                                <span class="path-info-box-label">Ruta relativa dentro del repositorio:</span>
-                                <div class="path-code-line">
-                                    <span>01_Proyectos/assets/js/projects_data.js</span>
-                                </div>
+                            <!-- FALLBACK SECUNDARIO -->
+                            <div class="path-fallback-note">
+                                <span>¿Prefieres guardar manualmente sin autorizar permisos?</span>
+                                <button type="button" class="admin-link-btn" id="btn-modal-download-fallback">
+                                    📥 Descargar copia manual de projects_data.js
+                                </button>
                             </div>
-
-                            <div style="font-size: 0.84rem; color: var(--text-sec); line-height: 1.55; margin-top: 4px;">
-                                <p style="margin: 0 0 6px 0;"><strong style="color: var(--text-main);">¿Cómo asegurar el guardado automático sin cuadro de diálogo?</strong></p>
-                                <p style="margin: 0;">Haz clic en <strong>"Autorizar Escritura Directa"</strong> y selecciona tu archivo <code>projects_data.js</code> una sola vez. Tu navegador Edge/Chrome guardará el permiso para que todas las modificaciones se guarden en disco al instante.</p>
-                            </div>
-                        </div>
-                        <div class="admin-path-modal-footer">
-                            <button class="admin-btn-secondary" onclick="BitacoraAdmin.downloadMasterFile()">
-                                📥 Descargar Archivo para Reemplazar
-                            </button>
-                            <button class="admin-btn-primary" onclick="BitacoraAdmin.authorizeOrReactivateAccess(true)">
-                                🔑 Autorizar / Vincular en Disco
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -634,23 +646,46 @@
             });
 
             // Handlers de persistencia y autorización
-            backdrop.querySelector('#btn-admin-auth')?.addEventListener('click', () => this.authorizeOrReactivateAccess(false));
+            backdrop.querySelector('#btn-admin-auth')?.addEventListener('click', () => this.authorizeOrReactivateAccess());
             backdrop.querySelector('#btn-admin-path-help')?.addEventListener('click', () => this.openPathHelpModal());
-            backdrop.querySelector('#btn-admin-save')?.addEventListener('click', () => this.saveViaFileSystemAPI(false));
+            backdrop.querySelector('#btn-admin-save')?.addEventListener('click', () => this.saveViaFileSystemAPI());
             backdrop.querySelector('#btn-admin-download')?.addEventListener('click', () => this.downloadMasterFile());
             backdrop.querySelector('#btn-admin-reset')?.addEventListener('click', () => this.resetToDefaults());
 
             backdrop.querySelector('#btn-copy-full-path')?.addEventListener('click', () => {
                 const pathText = 'C:\\Proyectos_Claude\\Proyecto Cuaderno de Bitacora\\01_Proyectos\\assets\\js\\projects_data.js';
-                if (navigator.clipboard) {
-                    navigator.clipboard.writeText(pathText);
+                const feedback = backdrop.querySelector('#copy-feedback-msg');
+                const input = backdrop.querySelector('#text-full-path-input');
+                if (input) input.select();
+
+                const showSuccess = () => {
+                    if (feedback) feedback.style.display = 'block';
                     const btn = backdrop.querySelector('#btn-copy-full-path');
                     if (btn) {
                         btn.innerText = '✓ ¡Copiada!';
-                        setTimeout(() => btn.innerText = 'Copiar Ruta', 2000);
+                        setTimeout(() => btn.innerText = '📋 Copiar Ruta', 2500);
                     }
+                    this.showToast('📋 Ruta completa copiada al portapapeles');
+                };
+
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(pathText).then(showSuccess).catch(() => {
+                        if (input) {
+                            input.select();
+                            document.execCommand('copy');
+                            showSuccess();
+                        }
+                    });
+                } else if (input) {
+                    input.select();
+                    document.execCommand('copy');
+                    showSuccess();
                 }
             });
+
+            backdrop.querySelector('#btn-modal-link-file')?.addEventListener('click', () => this.linkFileAndSave());
+            backdrop.querySelector('#btn-modal-link-dir')?.addEventListener('click', () => this.linkDirectoryAndSave());
+            backdrop.querySelector('#btn-modal-download-fallback')?.addEventListener('click', () => this.downloadMasterFile());
 
             return backdrop;
         },
@@ -1346,9 +1381,9 @@
             }
         },
 
-        authorizeOrReactivateAccess: async function (forcePicker = false) {
+        authorizeOrReactivateAccess: async function () {
             try {
-                if (this.fileHandle && !forcePicker) {
+                if (this.fileHandle) {
                     let perm = 'prompt';
                     if (typeof this.fileHandle.requestPermission === 'function') {
                         perm = await this.fileHandle.requestPermission({ mode: 'readwrite' });
@@ -1360,41 +1395,112 @@
                         return true;
                     }
                 }
-
-                if ('showOpenFilePicker' in window) {
-                    const [handle] = await window.showOpenFilePicker({
-                        id: 'bitacora-data-file',
-                        types: [{
-                            description: 'Archivo projects_data.js de Bitácora',
-                            accept: { 'text/javascript': ['.js'] }
-                        }],
-                        multiple: false
-                    });
-
-                    if (handle) {
-                        this.fileHandle = handle;
-                        await storeHandle(handle);
-                        let perm = 'prompt';
-                        if (typeof handle.requestPermission === 'function') {
-                            perm = await handle.requestPermission({ mode: 'readwrite' });
-                        }
-                        await this.updatePersistenceUI();
-                        if (perm === 'granted') {
-                            this.showToast('✅ projects_data.js vinculado. Escritura directa habilitada.');
-                            this.closePathHelpModal();
-                            return true;
-                        }
-                    }
-                } else {
-                    this.openPathHelpModal();
-                }
+                // Si no tiene handle guardado, abrir el asistente guiado
+                this.openPathHelpModal();
             } catch (err) {
                 if (err.name !== 'AbortError') {
                     console.warn('Error autorizando:', err);
-                    this.showToast('⚠️ No se concedió el permiso de escritura');
+                    this.openPathHelpModal();
                 }
             }
             await this.updatePersistenceUI();
+            return false;
+        },
+
+        linkFileAndSave: async function () {
+            try {
+                if (!('showOpenFilePicker' in window)) {
+                    this.showToast('⚠️ Tu navegador no soporta File System Access API. Usa Edge o Chrome.');
+                    return false;
+                }
+
+                const [handle] = await window.showOpenFilePicker({
+                    id: 'bitacora-projects-data-picker',
+                    types: [{
+                        description: 'Archivo projects_data.js de Bitácora',
+                        accept: {
+                            'text/javascript': ['.js'],
+                            'application/javascript': ['.js']
+                        }
+                    }],
+                    multiple: false
+                });
+
+                if (handle) {
+                    this.fileHandle = handle;
+                    await storeHandle(handle);
+
+                    let perm = 'granted';
+                    if (typeof handle.requestPermission === 'function') {
+                        perm = await handle.requestPermission({ mode: 'readwrite' });
+                    }
+
+                    if (perm === 'granted') {
+                        const writable = await handle.createWritable();
+                        await writable.write(this.generateFileContent());
+                        await writable.close();
+
+                        this.closePathHelpModal();
+                        await this.updatePersistenceUI();
+                        this.showToast('✅ projects_data.js vinculado y cambios guardados en disco');
+                        return true;
+                    }
+                }
+            } catch (err) {
+                if (err.name !== 'AbortError') {
+                    console.warn('Error al vincular archivo:', err);
+                    this.showToast('⚠️ No se seleccionó projects_data.js');
+                }
+            }
+            return false;
+        },
+
+        linkDirectoryAndSave: async function () {
+            try {
+                if (!('showDirectoryPicker' in window)) {
+                    this.showToast('⚠️ Tu navegador no soporta selección de carpetas.');
+                    return false;
+                }
+
+                const dirHandle = await window.showDirectoryPicker({
+                    id: 'bitacora-projects-dir-picker',
+                    mode: 'readwrite'
+                });
+
+                if (dirHandle) {
+                    let fileHandle = null;
+                    try {
+                        fileHandle = await dirHandle.getFileHandle('projects_data.js', { create: false });
+                    } catch (_) {
+                        try {
+                            const assetsDir = await dirHandle.getDirectoryHandle('assets', { create: false });
+                            const jsDir = await assetsDir.getDirectoryHandle('js', { create: false });
+                            fileHandle = await jsDir.getFileHandle('projects_data.js', { create: false });
+                        } catch (_) {
+                            this.showToast('⚠️ No se encontró projects_data.js en la carpeta seleccionada.');
+                            return false;
+                        }
+                    }
+
+                    if (fileHandle) {
+                        this.fileHandle = fileHandle;
+                        await storeHandle(fileHandle);
+
+                        const writable = await fileHandle.createWritable();
+                        await writable.write(this.generateFileContent());
+                        await writable.close();
+
+                        this.closePathHelpModal();
+                        await this.updatePersistenceUI();
+                        this.showToast('✅ Carpeta vinculada y projects_data.js guardado en disco');
+                        return true;
+                    }
+                }
+            } catch (err) {
+                if (err.name !== 'AbortError') {
+                    console.warn('Error al vincular carpeta:', err);
+                }
+            }
             return false;
         },
 
@@ -1402,6 +1508,8 @@
             const modal = document.getElementById('modal-admin-path-help');
             if (modal) {
                 modal.classList.add('is-open');
+                const input = modal.querySelector('#text-full-path-input');
+                if (input) input.select();
             }
         },
 
@@ -1409,6 +1517,8 @@
             const modal = document.getElementById('modal-admin-path-help');
             if (modal) {
                 modal.classList.remove('is-open');
+                const feedback = modal.querySelector('#copy-feedback-msg');
+                if (feedback) feedback.style.display = 'none';
             }
         },
 
@@ -1460,8 +1570,6 @@
             }
 
             try {
-                let savedDirectly = false;
-
                 if (!this.fileHandle && !forceNew) {
                     this.fileHandle = await getStoredHandle();
                 }
@@ -1484,35 +1592,19 @@
                         const writable = await this.fileHandle.createWritable();
                         await writable.write(this.generateFileContent());
                         await writable.close();
-                        savedDirectly = true;
                         await this.updatePersistenceUI();
                         this.showToast('✅ Cambios guardados físicamente en projects_data.js');
+                        return true;
                     }
                 }
 
-                if (!savedDirectly) {
-                    // Si no tiene handle o no concedió permiso, ofrecer autorizar o descargar
-                    if ('showOpenFilePicker' in window && !this.fileHandle) {
-                        const authorized = await this.authorizeOrReactivateAccess(true);
-                        if (authorized && this.fileHandle) {
-                            const writable = await this.fileHandle.createWritable();
-                            await writable.write(this.generateFileContent());
-                            await writable.close();
-                            this.showToast('✅ Cambios guardados físicamente en projects_data.js');
-                            savedDirectly = true;
-                        }
-                    }
+                // Si no tiene handle o no concedió permiso: abrir el asistente guiado (sin descargar automáticamente)
+                this.openPathHelpModal();
 
-                    if (!savedDirectly) {
-                        this.openPathHelpModal();
-                        this.downloadMasterFile();
-                    }
-                }
             } catch (err) {
                 if (err.name !== 'AbortError') {
                     console.warn('Error guardando en disco:', err);
                     this.openPathHelpModal();
-                    this.downloadMasterFile();
                 }
             } finally {
                 if (saveBtn) {
