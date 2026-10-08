@@ -377,6 +377,21 @@
                         }
                     }
 
+                    // Actualizar Kicker Ejecutivo (Semáforo + Estado en 1 sola línea - Opción A)
+                    const kickerEl = card.querySelector('.kicker');
+                    if (kickerEl) {
+                        const semClass = {
+                            'verde': 'dot-verde',
+                            'ambar': 'dot-ambar',
+                            'rojo': 'dot-rojo',
+                            'pausa': 'dot-pausa',
+                            'gris': 'dot-gris'
+                        }[p.semaforo] || 'dot-verde';
+
+                        const estText = (p.estado || '').toUpperCase();
+                        kickerEl.innerHTML = `<span class="kicker-dot ${semClass}"></span><span class="kicker-status">${estText}</span>`;
+                    }
+
                     // Reubicar de carril si el usuario cambió su sección
                     const targetSecId = {
                         'direct': 'seccion-directa',
@@ -403,6 +418,14 @@
                     // Si estaba en proyectos, moverla al carril de operativas
                     if (trackOperativas && card.closest('#container-bitacora-proyectos')) {
                         trackOperativas.appendChild(card);
+                    }
+
+                    // Actualizar Kicker Ejecutivo de Operativas (Semáforo + Estado en 1 sola línea - Opción A)
+                    const kickerEl = card.querySelector('.kicker');
+                    if (kickerEl) {
+                        const semClass = op.estadoDoc === 'Vigente' ? 'dot-verde' : op.estadoDoc === 'En Revisión' ? 'dot-ambar' : 'dot-gris';
+                        const estText = `${op.estadoDoc.toUpperCase()}${op.version ? ` (${op.version})` : ''}`;
+                        kickerEl.innerHTML = `<span class="kicker-dot ${semClass}"></span><span class="kicker-status">${estText}</span>`;
                     }
 
                     // Actualizar badge de estado documental
