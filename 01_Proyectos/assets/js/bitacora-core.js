@@ -715,7 +715,11 @@ function initKeyboardShortcutsModal() {
                     <span class="kbd-badge">C</span>
                 </div>
                 <div class="kbd-row">
-                    <span>Alternar vista Bento / Carrusel (Inicio)</span>
+                    <span>Alternar vista Carrusel / Mosaico / Tabla (Inicio)</span>
+                    <span class="kbd-badge">V</span>
+                </div>
+                <div class="kbd-row">
+                    <span>Alternar macro bitácora Proyectos / Operativas (Inicio)</span>
                     <span class="kbd-badge">B</span>
                 </div>
                 <div class="kbd-row">

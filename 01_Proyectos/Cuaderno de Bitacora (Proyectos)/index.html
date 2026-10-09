@@ -260,6 +260,11 @@
                         <span>Histórico / Cerrados</span>
                         <span class="filter-count">1</span>
                     </button>
+                    <button class="filter-chip filter-chip-fav" id="chip-filter-fav" onclick="filterPortfolio('favorites', this)" title="Ver únicamente iniciativas favoritas marcadas con estrella">
+                        <span class="fav-star-icon">★</span>
+                        <span>Favoritos</span>
+                        <span class="filter-count" id="fav-count">0</span>
+                    </button>
                 </div>
 
                 <div class="view-mode-toggle">
@@ -280,6 +285,24 @@
                         </svg>
                         <span>Mosaico</span>
                         <span class="kbd-hint">B</span>
+                    </button>
+                    <button class="view-btn" id="btn-view-table" onclick="setViewMode('table')" title="Vista Tabla Ejecutiva Compacta (V)">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 3h18v18H3z"></path>
+                            <path d="M3 9h18"></path>
+                            <path d="M3 15h18"></path>
+                            <path d="M9 3v18"></path>
+                        </svg>
+                        <span>Tabla</span>
+                        <span class="kbd-hint">V</span>
+                    </button>
+                    <button class="btn-export-csv" id="btn-export-csv" onclick="exportPortfolioCSV()" title="Exportar iniciativas visibles a archivo CSV / Excel">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        <span>Exportar CSV</span>
                     </button>
                 </div>
             </div>
@@ -762,6 +785,29 @@
             </div>
         </section>
 
+        <!-- TABLA EJECUTIVA COMPACTA (BENCHMARK OPEN-SOURCE: REFINE & DUB.CO) -->
+        <div class="portfolio-table-container" id="portfolio-table-container">
+            <div class="portfolio-table-wrapper">
+                <table class="portfolio-table">
+                    <thead>
+                        <tr>
+                            <th class="table-col-fav" title="Favorito">★</th>
+                            <th>ID / Código</th>
+                            <th>Iniciativa & Subtítulo</th>
+                            <th>Carril</th>
+                            <th>Salud Operativa</th>
+                            <th>Estado</th>
+                            <th>Licitación</th>
+                            <th style="text-align: right;">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="portfolio-table-body">
+                        <!-- Poblado dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
             <!-- EMPTY STATE CUANDO NO HAY COINCIDENCIAS DE FILTRO (Benchmark shadcn / twenty) -->
             <div id="portfolio-empty-state" class="portfolio-empty-state">
                 <div class="empty-state-icon-wrap">
@@ -1079,7 +1125,7 @@
                 <div class="shortcuts-group">
                     <span class="shortcuts-group-title">Vistas y Presentación</span>
                     <div class="shortcut-item">
-                        <span class="shortcut-desc">Alternar vista carrusel / mosaico</span>
+                        <span class="shortcut-desc">Alternar vista: Carrusel / Mosaico / Tabla</span>
                         <div class="shortcut-keys"><kbd>V</kbd></div>
                     </div>
                 </div>
@@ -1102,24 +1148,32 @@
     <script src="../assets/js/bitacora-admin.js"></script>
     <script>
         // ==========================================
-        // SWITCHER DE VISTAS (CARRUSEL VS MOSAICO)
+        // SWITCHER DE VISTAS (CARRUSEL, MOSAICO Y TABLA EJECUTIVA)
         // ==========================================
         function setViewMode(mode) {
             const container = document.getElementById('main-content');
             const btnCarousel = document.getElementById('btn-view-carousel');
             const btnGrid = document.getElementById('btn-view-grid');
+            const btnTable = document.getElementById('btn-view-table');
 
-            if (!container || !btnCarousel || !btnGrid) return;
+            if (!container) return;
+
+            container.classList.remove('view-mode-grid', 'view-mode-table');
+            if (btnCarousel) btnCarousel.classList.remove('active');
+            if (btnGrid) btnGrid.classList.remove('active');
+            if (btnTable) btnTable.classList.remove('active');
 
             if (mode === 'grid') {
                 container.classList.add('view-mode-grid');
-                btnGrid.classList.add('active');
-                btnCarousel.classList.remove('active');
+                if (btnGrid) btnGrid.classList.add('active');
                 localStorage.setItem('bitacora-view-mode', 'grid');
+            } else if (mode === 'table') {
+                container.classList.add('view-mode-table');
+                if (btnTable) btnTable.classList.add('active');
+                localStorage.setItem('bitacora-view-mode', 'table');
+                renderPortfolioTable();
             } else {
-                container.classList.remove('view-mode-grid');
-                btnCarousel.classList.add('active');
-                btnGrid.classList.remove('active');
+                if (btnCarousel) btnCarousel.classList.add('active');
                 localStorage.setItem('bitacora-view-mode', 'carousel');
                 // Re-inicializar botones de carrusel
                 if (typeof initIslandLiquidGlass === 'function') initIslandLiquidGlass();
@@ -1257,7 +1311,303 @@
         }
 
         // ==========================================
-        // SISTEMA UNIFICADO DE FILTRADO COMBINADO (CATEGORÍA + SALUD OPERATIVA)
+        // SISTEMA DE FAVORITOS LOCALES (BENCHMARK OUTLINE)
+        // ==========================================
+        function getFavorites() {
+            try {
+                return JSON.parse(localStorage.getItem('bitacora_favorites')) || [];
+            } catch (e) {
+                return [];
+            }
+        }
+
+        function setFavorites(favs) {
+            localStorage.setItem('bitacora_favorites', JSON.stringify(favs));
+            updateFavoritesUI();
+        }
+
+        function toggleFavorite(event, projectId) {
+            if (event) {
+                event.stopPropagation();
+                event.preventDefault();
+            }
+            let favs = getFavorites();
+            const idx = favs.indexOf(projectId);
+            let added = false;
+            if (idx > -1) {
+                favs.splice(idx, 1);
+            } else {
+                favs.push(projectId);
+                added = true;
+            }
+            setFavorites(favs);
+            showToast(added ? '★ Iniciativa guardada en Favoritos' : '☆ Eliminada de Favoritos', added ? 'success' : 'info');
+            if (currentCategoryFilter === 'favorites') {
+                applyCombinedFilters();
+            }
+        }
+        window.toggleFavorite = toggleFavorite;
+
+        function updateFavoritesUI() {
+            const favs = getFavorites();
+            const countEl = document.getElementById('fav-count');
+            if (countEl) countEl.textContent = favs.length;
+
+            // Actualizar botones en tarjetas
+            document.querySelectorAll('.apple-card').forEach(card => {
+                const pId = card.id ? card.id.replace('card-', '') : '';
+                const starBtn = card.querySelector('.card-fav-btn');
+                if (starBtn && pId) {
+                    if (favs.includes(pId)) {
+                        starBtn.classList.add('is-active');
+                        starBtn.setAttribute('title', 'Quitar de favoritos');
+                    } else {
+                        starBtn.classList.remove('is-active');
+                        starBtn.setAttribute('title', 'Guardar en favoritos');
+                    }
+                }
+            });
+
+            // Actualizar botones en tabla
+            document.querySelectorAll('.table-fav-btn').forEach(btn => {
+                const pId = btn.getAttribute('data-project-id');
+                if (pId && favs.includes(pId)) {
+                    btn.classList.add('is-active');
+                    btn.textContent = '★';
+                } else {
+                    btn.classList.remove('is-active');
+                    btn.textContent = '☆';
+                }
+            });
+        }
+
+        function initFavoritesOnCards() {
+            document.querySelectorAll('#container-bitacora-proyectos .apple-card').forEach(card => {
+                if (!card.querySelector('.card-fav-btn') && card.id) {
+                    const pId = card.id.replace('card-', '');
+                    const btn = document.createElement('button');
+                    btn.className = 'card-fav-btn';
+                    btn.type = 'button';
+                    btn.innerHTML = '★';
+                    btn.setAttribute('aria-label', 'Guardar en favoritos');
+                    btn.setAttribute('title', 'Guardar en favoritos');
+                    btn.onclick = (e) => toggleFavorite(e, pId);
+                    card.style.position = 'relative';
+                    card.appendChild(btn);
+                }
+            });
+            updateFavoritesUI();
+        }
+
+        // ==========================================
+        // RENDERIZADO DE TABLA EJECUTIVA COMPACTA (BENCHMARK REFINE & DUB.CO)
+        // ==========================================
+        function renderPortfolioTable() {
+            const tbody = document.getElementById('portfolio-table-body');
+            if (!tbody || !window.BITACORA_PROJECTS_DATA) return;
+
+            const favs = getFavorites();
+            let rowsHtml = '';
+            let visibleCount = 0;
+
+            window.BITACORA_PROJECTS_DATA.forEach(p => {
+                const isFav = favs.includes(p.id);
+                const sem = p.semaforo || 'verde';
+                const isLic = !!p.licitacion;
+                const isPaused = (p.estado && p.estado.toLowerCase().includes('pausa')) || sem === 'pausa';
+
+                // Comprobar filtro de carril / favoritos
+                let catMatch = false;
+                if (currentCategoryFilter === 'all') {
+                    catMatch = true;
+                } else if (currentCategoryFilter === 'favorites') {
+                    catMatch = isFav;
+                } else {
+                    catMatch = (p.carril === currentCategoryFilter);
+                }
+
+                // Comprobar filtro de salud operativa
+                let healthMatch = false;
+                if (currentHealthFilter === 'all') {
+                    healthMatch = true;
+                } else if (currentHealthFilter === 'licitacion') {
+                    healthMatch = isLic;
+                } else if (currentHealthFilter === 'pausa') {
+                    healthMatch = isPaused;
+                } else {
+                    healthMatch = (sem === currentHealthFilter);
+                }
+
+                if (!catMatch || !healthMatch) return;
+                visibleCount++;
+
+                const carrilLabels = {
+                    'direct': 'Gestión Directa',
+                    'strategic': 'Estratégico',
+                    'facilitator': 'Facilitador',
+                    'closed': 'Histórico / BAU'
+                };
+                const carrilLabel = carrilLabels[p.carril] || p.carril || 'General';
+
+                const healthLabels = {
+                    'verde': 'En Plazo',
+                    'ambar': 'En Riesgo',
+                    'pausa': 'En Pausa',
+                    'gris': 'Cerrado'
+                };
+                const healthLabel = healthLabels[sem] || 'En Plazo';
+                const healthPillClass = `pill-${sem}`;
+
+                rowsHtml += `
+                    <tr data-project-id="${p.id}">
+                        <td class="table-col-fav">
+                            <button class="table-fav-btn ${isFav ? 'is-active' : ''}" data-project-id="${p.id}" onclick="toggleFavorite(event, '${p.id}')" title="${isFav ? 'Quitar de favoritos' : 'Marcar como favorito'}">
+                                ${isFav ? '★' : '☆'}
+                            </button>
+                        </td>
+                        <td>
+                            <code style="font-size: 0.76rem; font-weight: 700; color: var(--text-sec);">${p.id}</code>
+                        </td>
+                        <td>
+                            <div class="table-project-cell">
+                                <a href="${p.href}" class="table-project-title">
+                                    ${p.title}
+                                </a>
+                                <span class="table-project-sub">${p.subtitle || p.desc || ''}</span>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="table-carril-badge">${carrilLabel}</span>
+                        </td>
+                        <td>
+                            <span class="table-health-pill ${healthPillClass}">
+                                <span class="filter-dot dot-${sem}"></span>
+                                ${healthLabel}
+                            </span>
+                        </td>
+                        <td>
+                            <span style="font-weight: 600; font-size: 0.82rem; color: var(--text-main);">${p.estado || 'Activo'}</span>
+                        </td>
+                        <td>
+                            ${isLic ? '<span style="color: var(--primary-accent, #e4002b); font-weight: 700; font-size: 0.78rem;">Abierta</span>' : '<span style="color: var(--text-sec); font-size: 0.78rem;">—</span>'}
+                        </td>
+                        <td style="text-align: right;">
+                            <a href="${p.href}" class="table-btn-cta">
+                                Abrir Ficha &rarr;
+                            </a>
+                        </td>
+                    </tr>
+                `;
+            });
+
+            if (visibleCount === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="8" style="text-align: center; padding: 36px; color: var(--text-sec);">
+                            No hay iniciativas que coincidan con los filtros seleccionados.
+                        </td>
+                    </tr>
+                `;
+            } else {
+                tbody.innerHTML = rowsHtml;
+            }
+        }
+        window.renderPortfolioTable = renderPortfolioTable;
+
+        // ==========================================
+        // EXPORTADOR DE PORTFOLIO A CSV (BENCHMARK REFINE)
+        // ==========================================
+        function exportPortfolioCSV() {
+            if (!window.BITACORA_PROJECTS_DATA) {
+                showToast('No hay datos disponibles para exportar', 'warning');
+                return;
+            }
+
+            const favs = getFavorites();
+            const headers = ['ID', 'Iniciativa', 'Subtítulo', 'Carril', 'Salud Operativa', 'Semáforo', 'Estado', 'Licitación', 'Favorito', 'Enlace'];
+            const rows = [headers];
+
+            window.BITACORA_PROJECTS_DATA.forEach(p => {
+                const isFav = favs.includes(p.id);
+                const sem = p.semaforo || 'verde';
+                const isLic = !!p.licitacion;
+                const isPaused = (p.estado && p.estado.toLowerCase().includes('pausa')) || sem === 'pausa';
+
+                let catMatch = false;
+                if (currentCategoryFilter === 'all') {
+                    catMatch = true;
+                } else if (currentCategoryFilter === 'favorites') {
+                    catMatch = isFav;
+                } else {
+                    catMatch = (p.carril === currentCategoryFilter);
+                }
+
+                let healthMatch = false;
+                if (currentHealthFilter === 'all') {
+                    healthMatch = true;
+                } else if (currentHealthFilter === 'licitacion') {
+                    healthMatch = isLic;
+                } else if (currentHealthFilter === 'pausa') {
+                    healthMatch = isPaused;
+                } else {
+                    healthMatch = (sem === currentHealthFilter);
+                }
+
+                if (!catMatch || !healthMatch) return;
+
+                const carrilLabels = {
+                    'direct': 'Gestión Directa',
+                    'strategic': 'Estratégico',
+                    'facilitator': 'Facilitador',
+                    'closed': 'Histórico / BAU'
+                };
+                const carrilLabel = carrilLabels[p.carril] || p.carril || 'General';
+
+                const healthLabels = {
+                    'verde': 'En Plazo',
+                    'ambar': 'En Riesgo',
+                    'pausa': 'En Pausa',
+                    'gris': 'Cerrado'
+                };
+                const healthLabel = healthLabels[sem] || 'En Plazo';
+
+                rows.push([
+                    `"${p.id}"`,
+                    `"${(p.title || '').replace(/"/g, '""')}"`,
+                    `"${(p.subtitle || '').replace(/"/g, '""')}"`,
+                    `"${carrilLabel}"`,
+                    `"${healthLabel}"`,
+                    `"${sem}"`,
+                    `"${(p.estado || '').replace(/"/g, '""')}"`,
+                    `"${isLic ? 'Sí' : 'No'}"`,
+                    `"${isFav ? 'Sí' : 'No'}"`,
+                    `"${p.href || ''}"`
+                ]);
+            });
+
+            if (rows.length <= 1) {
+                showToast('No hay iniciativas visibles para exportar con estos filtros', 'warning');
+                return;
+            }
+
+            const csvContent = '\uFEFF' + rows.map(r => r.join(';')).join('\r\n');
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            const dateStr = new Date().toISOString().slice(0, 10);
+            a.href = url;
+            a.download = `portfolio_iniciativas_${dateStr}.csv`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            showToast(`✓ Exportadas ${rows.length - 1} iniciativas a CSV con éxito`, 'success');
+        }
+        window.exportPortfolioCSV = exportPortfolioCSV;
+
+        // ==========================================
+        // SISTEMA UNIFICADO DE FILTRADO COMBINADO
         // ==========================================
         let currentCategoryFilter = 'all';
         let currentHealthFilter = 'all';
@@ -1275,6 +1625,10 @@
                 if (category === 'strategic' && chips[2]) chips[2].classList.add('active');
                 if (category === 'facilitator' && chips[3]) chips[3].classList.add('active');
                 if (category === 'closed' && chips[4]) chips[4].classList.add('active');
+                if (category === 'favorites') {
+                    const favChip = document.getElementById('chip-filter-fav');
+                    if (favChip) favChip.classList.add('active');
+                }
             }
             applyCombinedFilters();
         }
@@ -1294,17 +1648,29 @@
 
         function applyCombinedFilters() {
             const sections = document.querySelectorAll('#container-bitacora-proyectos .portfolio-section');
+            const favs = getFavorites();
             let totalVisibleCards = 0;
+
             sections.forEach(sec => {
                 const secCat = sec.getAttribute('data-category');
-                const categoryMatch = (currentCategoryFilter === 'all' || secCat === currentCategoryFilter);
-
                 let visibleInSec = 0;
                 const cards = sec.querySelectorAll('.apple-card');
+
                 cards.forEach(card => {
+                    const pId = card.id ? card.id.replace('card-', '') : '';
+                    const isFav = favs.includes(pId);
                     const sem = card.getAttribute('data-semaforo') || 'verde';
                     const isLic = card.getAttribute('data-licitacion') === 'true';
                     const isPaused = card.classList.contains('is-paused') || sem === 'pausa';
+
+                    let categoryMatch = false;
+                    if (currentCategoryFilter === 'all') {
+                        categoryMatch = true;
+                    } else if (currentCategoryFilter === 'favorites') {
+                        categoryMatch = isFav;
+                    } else {
+                        categoryMatch = (secCat === currentCategoryFilter);
+                    }
 
                     let healthMatch = false;
                     if (currentHealthFilter === 'all') {
@@ -1326,19 +1692,21 @@
                     }
                 });
 
-                if (!categoryMatch || visibleInSec === 0) {
+                if (visibleInSec === 0) {
                     sec.classList.add('section-hidden');
                 } else {
                     sec.classList.remove('section-hidden');
                 }
 
-                // Resetear scroll de carruseles visibles y actualizar flechas
                 const track = sec.querySelector('.carousel-track');
                 if (track) {
                     track.scrollLeft = 0;
                     updateCarouselButtons(track);
                 }
             });
+
+            // Si está activa la vista tabla, sincronizar la tabla
+            renderPortfolioTable();
 
             // Actualizar Empty State si ningún proyecto coincide
             const emptyState = document.getElementById('portfolio-empty-state');
@@ -1471,12 +1839,24 @@
                 return;
             }
 
-            // Tecla V para alternar carrusel vs mosaico
+            // Tecla V para alternar vistas: Carrusel -> Mosaico -> Tabla
             if (e.key.toLowerCase() === 'v' && !e.ctrlKey && !e.metaKey) {
                 e.preventDefault();
-                const isGrid = document.getElementById('main-content')?.classList.contains('view-mode-grid');
-                setViewMode(isGrid ? 'carousel' : 'grid');
-                showToast(`Modo de vista: ${isGrid ? 'Carrusel' : 'Mosaico / Grid'}`, 'info');
+                const current = localStorage.getItem('bitacora-view-mode') || 'carousel';
+                let nextMode = 'grid';
+                let label = 'Mosaico / Grid';
+                if (current === 'carousel') {
+                    nextMode = 'grid';
+                    label = 'Mosaico / Grid';
+                } else if (current === 'grid') {
+                    nextMode = 'table';
+                    label = 'Tabla Ejecutiva Compacta';
+                } else {
+                    nextMode = 'carousel';
+                    label = 'Carrusel Showcase';
+                }
+                setViewMode(nextMode);
+                showToast(`Modo de vista: ${label}`, 'info');
                 return;
             }
         });
@@ -1513,11 +1893,14 @@
         // 5. INICIALIZACIÓN COMPLETA DOM
         // ==========================================
         document.addEventListener('DOMContentLoaded', () => {
+            // Inicializar botones de favoritos en las tarjetas
+            initFavoritesOnCards();
+
             // Restaurar macro bitácora seleccionada (Proyectos u Operativas)
             const savedMacro = localStorage.getItem('bitacora-macro-mode') || 'proyectos';
             switchMacroBitacora(savedMacro);
 
-            // Restaurar modo de vista (Carrusel o Mosaico)
+            // Restaurar modo de vista (Carrusel, Mosaico o Tabla)
             const savedView = localStorage.getItem('bitacora-view-mode') || 'carousel';
             setViewMode(savedView);
 

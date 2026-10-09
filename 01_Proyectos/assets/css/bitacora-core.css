@@ -5935,5 +5935,288 @@ body[data-density="compact"] .hero {
     flex-shrink: 0;
 }
 
+/* ==========================================================================
+   BENCHMARK OPEN-SOURCE: FAVORITOS, VISTA TABLA Y EXPORTADOR CSV
+   ========================================================================== */
 
+/* 1. Botón de Favoritos en Tarjetas */
+.card-fav-btn {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-sec);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 10;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
 
+.card-fav-btn:hover {
+    transform: scale(1.15);
+    color: #f59e0b;
+    border-color: rgba(245, 158, 11, 0.4);
+    background: rgba(245, 158, 11, 0.08);
+}
+
+.card-fav-btn.is-active {
+    color: #f59e0b;
+    border-color: rgba(245, 158, 11, 0.6);
+    background: rgba(245, 158, 11, 0.12);
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.25);
+}
+
+.filter-chip-fav .fav-star-icon {
+    color: #f59e0b;
+    font-size: 0.95rem;
+    margin-right: 2px;
+}
+
+.filter-chip-fav.active {
+    background: rgba(245, 158, 11, 0.15) !important;
+    border-color: rgba(245, 158, 11, 0.5) !important;
+    color: #d97706 !important;
+}
+[data-theme="dark"] .filter-chip-fav.active {
+    color: #fbbf24 !important;
+}
+
+/* 2. Botón de Exportación CSV */
+.btn-export-csv {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 6px 14px;
+    border-radius: 10px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-export-csv svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+.btn-export-csv:hover {
+    background: var(--bg-app);
+    border-color: var(--primary-accent, #e4002b);
+    color: var(--primary-accent, #e4002b);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* 3. Vista Tabla Ejecutiva Compacta */
+.portfolio-table-container {
+    display: none;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    margin: 20px 0 40px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.view-mode-table .portfolio-table-container {
+    display: block;
+    animation: fadeInTable 0.25s ease-out;
+}
+
+.view-mode-table .portfolio-section {
+    display: none !important;
+}
+
+@keyframes fadeInTable {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.portfolio-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.portfolio-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.88rem;
+    text-align: left;
+}
+
+.portfolio-table th {
+    background: var(--bg-app);
+    color: var(--text-sec);
+    font-weight: 700;
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border-color);
+    white-space: nowrap;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+
+.portfolio-table td {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-main);
+    vertical-align: middle;
+    transition: background 0.15s ease;
+}
+
+.portfolio-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.portfolio-table tbody tr:hover td {
+    background: rgba(0, 0, 0, 0.02);
+}
+[data-theme="dark"] .portfolio-table tbody tr:hover td {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.table-col-fav {
+    width: 44px;
+    text-align: center;
+    padding-left: 14px !important;
+    padding-right: 6px !important;
+}
+
+.table-fav-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted, #94a3b8);
+    font-size: 1.1rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: transform 0.15s ease, color 0.15s ease;
+    padding: 4px;
+}
+
+.table-fav-btn:hover,
+.table-fav-btn.is-active {
+    color: #f59e0b;
+    transform: scale(1.2);
+}
+
+.table-project-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.table-project-title {
+    font-weight: 700;
+    color: var(--text-main);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.15s ease;
+}
+
+.table-project-title:hover {
+    color: var(--primary-accent, #e4002b);
+}
+
+.table-project-sub {
+    font-size: 0.76rem;
+    color: var(--text-sec);
+}
+
+.table-carril-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 0.74rem;
+    font-weight: 600;
+    background: rgba(0, 0, 0, 0.04);
+    color: var(--text-sec);
+    white-space: nowrap;
+}
+[data-theme="dark"] .table-carril-badge {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.table-health-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.table-health-pill.pill-verde {
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+    border: 1px solid rgba(16, 185, 129, 0.25);
+}
+[data-theme="dark"] .table-health-pill.pill-verde {
+    color: #34d399;
+    border-color: rgba(16, 185, 129, 0.4);
+}
+
+.table-health-pill.pill-ambar {
+    background: rgba(245, 158, 11, 0.1);
+    color: #d97706;
+    border: 1px solid rgba(245, 158, 11, 0.25);
+}
+[data-theme="dark"] .table-health-pill.pill-ambar {
+    color: #fbbf24;
+    border-color: rgba(245, 158, 11, 0.4);
+}
+
+.table-health-pill.pill-pausa {
+    background: rgba(100, 116, 139, 0.1);
+    color: #475569;
+    border: 1px solid rgba(100, 116, 139, 0.25);
+}
+[data-theme="dark"] .table-health-pill.pill-pausa {
+    color: #94a3b8;
+    border-color: rgba(100, 116, 139, 0.4);
+}
+
+.table-btn-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-decoration: none;
+    background: var(--bg-app);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    transition: all 0.15s ease;
+    white-space: nowrap;
+}
+
+.table-btn-cta:hover {
+    background: var(--primary-accent, #e4002b);
+    border-color: var(--primary-accent, #e4002b);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
