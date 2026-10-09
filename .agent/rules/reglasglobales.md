@@ -168,3 +168,16 @@ Cuando uses `editar_nota()`:
 | `nota` | Notas genéricas de conocimiento |
 | `referencia` | Guías y documentación de referencia |
 | `recurso` | Recursos externos y enlaces útiles |
+
+---
+
+## 🛡️ Protocolo Obligatorio de Anonimización para Git y GitHub
+
+> [!CAUTION]
+> **REGLA ABSOLUTA DE PRIVACIDAD PARA GIT**:
+> Al preparar commits, ramas, PRs, changelogs o cualquier publicación en Git/GitHub:
+> 1. **NUNCA** incluir nombres reales de proyectos, clientes, empleados ni marcas identificativas de la empresa.
+> 2. **SIEMPRE** referirse a los proyectos de manera generalizada: **"Proyecto 1"**, **"Proyecto 2"**, **"Iniciativa A"**, **"Iniciativa B"**.
+> 3. Referirse a la empresa únicamente como **"Entidad"**, **"Organización"** o **"Compañía Aseguradora"**.
+> 4. Antes de hacer commit o push, ejecutar la auditoría de la skill `git-publisher`:
+>    `python .agent/skills/git-publisher/scripts/git_privacy_checker.py --check-staged`

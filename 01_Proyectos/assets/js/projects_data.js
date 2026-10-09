@@ -1,5 +1,5 @@
 /**
- * CATÁLOGO MAESTRO DEL CUADERNO DE BITÁCORA - LÍNEA DIRECTA ASEGURADORA
+ * CATÁLOGO MAESTRO DEL CUADERNO DE BITÁCORA - ENTIDAD ASEGURADORA
  * Estructura bifurcada oficial:
  * 1. BITACORA_PROJECTS_DATA: Iniciativas de Transformación con ciclo de vida, fases, licitaciones y salud operativa.
  * 2. BITACORA_OPERATIVAS_DATA: Procedimientos, Manuales Técnicos y Operativas continuas (BAU) con gobernanza documental.

@@ -21,10 +21,9 @@
     <!-- CABECERA EJECUTIVA FLOTANTE (EXECUTIVE TOPBAR) -->
     <header class="app-header-island">
         <!-- Identidad Corporativa -->
-                <!-- Identidad Corporativa Oficial Línea Directa -->
         <a href="#" class="island-brand" title="Inicio - Cuaderno de Bitácora">
             <div class="island-logo-badge">
-                <img src="../assets/img/logo_header_lda.png" alt="Línea Directa Aseguradora" class="island-logo-img">
+                <img src="../assets/img/logo_header_lda.png" alt="Portal Corporativo" class="island-logo-img">
             </div>
             <div class="island-title">
                 <div class="island-title-row">
@@ -89,7 +88,7 @@
                 <span class="hero-badge-local">Recurso en Local</span>
             </div>
             <h1>Cuaderno de <br><span>Bitácora</span></h1>
-            <p>Ecosistema centralizado de documentación técnica, wikis funcionales y seguimiento de proyectos de Línea Directa Aseguradora.</p>
+            <p>Ecosistema centralizado de documentación técnica, wikis funcionales y seguimiento de proyectos estratégicos de la Organización.</p>
         </header>
 
         <!-- MACRO SELECTOR PRINCIPAL: ARQUITECTURA DUAL EJECUTIVA -->
@@ -174,22 +173,40 @@
         <div id="container-bitacora-proyectos" class="macro-bitacora-container">
             <!-- FRANJA EJECUTIVA DE INDICADORES (PROYECTOS) -->
             <div class="executive-stats-strip executive-stats-strip-projects">
-                <div class="kpi-clean-card">
+                <div class="kpi-clean-card kpi-card-clickable" onclick="filterPortfolio('all', document.querySelector('.filter-segments-projects .filter-chip')); filterByHealth('all');" title="Pulsar para mostrar todas las iniciativas">
                     <span class="kpi-clean-label">Total Proyectos</span>
                     <div class="kpi-clean-value" id="kpi-val-proj-total" data-count="13">13</div>
                     <span class="kpi-clean-sub">Iniciativas registradas</span>
                 </div>
 
-                <div class="kpi-clean-card">
+                <div class="kpi-clean-card kpi-card-clickable" onclick="filterPortfolio('strategic', document.querySelectorAll('.filter-segments-projects .filter-chip')[2]);" title="Pulsar para filtrar proyectos estratégicos">
                     <span class="kpi-clean-label">Estratégicos</span>
                     <div class="kpi-clean-value value-accent-red" id="kpi-val-proj-strategic" data-count="8">8</div>
                     <span class="kpi-clean-sub">Prioridad corporativa</span>
                 </div>
 
-                <div class="kpi-clean-card">
-                    <span class="kpi-clean-label">Gestión Directa</span>
-                    <div class="kpi-clean-value" id="kpi-val-proj-direct" data-count="3">3</div>
-                    <span class="kpi-clean-sub">Área de Personas</span>
+                <div class="kpi-clean-card kpi-card-clickable" onclick="filterByHealth('verde');" title="Pulsar para filtrar iniciativas saludables y en plazo">
+                    <div class="kpi-clean-header-interactive">
+                        <span class="kpi-clean-label">En Plazo</span>
+                        <span class="kpi-clean-action">
+                            Filtrar
+                            <span class="kicker-dot dot-verde" style="margin-left: 4px;"></span>
+                        </span>
+                    </div>
+                    <div class="kpi-clean-value" style="color: #059669;" id="kpi-val-proj-healthy" data-count="8">8</div>
+                    <span class="kpi-clean-sub">Salud operativa óptima</span>
+                </div>
+
+                <div class="kpi-clean-card kpi-card-clickable" onclick="filterByHealth('pausa');" title="Pulsar para ver iniciativas en pausa o atención">
+                    <div class="kpi-clean-header-interactive">
+                        <span class="kpi-clean-label">En Pausa / Riesgo</span>
+                        <span class="kpi-clean-action">
+                            Filtrar
+                            <span class="kicker-dot dot-pausa" style="margin-left: 4px;"></span>
+                        </span>
+                    </div>
+                    <div class="kpi-clean-value value-accent-amber" id="kpi-val-proj-attention" data-count="4">4</div>
+                    <span class="kpi-clean-sub">Requieren foco ejecutivo</span>
                 </div>
 
                 <div class="kpi-clean-card kpi-card-clickable" onclick="openLicitacionesModal()" title="Pulsar para ver los proyectos en licitación">
@@ -203,7 +220,7 @@
                             </svg>
                         </span>
                     </div>
-                    <div class="kpi-clean-value value-accent-amber" id="kpi-val-proj-licitacion" data-count="0">0</div>
+                    <div class="kpi-clean-value" id="kpi-val-proj-licitacion" data-count="0">0</div>
                     <span class="kpi-clean-sub">Concurso y pliegos abiertos</span>
                 </div>
             </div>
@@ -255,6 +272,41 @@
                         </svg>
                         <span>Mosaico</span>
                         <span class="kbd-hint">B</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- FRANJA DE FILTRADO POR SALUD OPERATIVA (SCORECARDS) -->
+            <div class="health-filters-strip">
+                <span class="health-filters-title">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                    </svg>
+                    Salud Operativa:
+                </span>
+                <div class="health-chips-wrap">
+                    <button class="health-chip active" data-health="all" onclick="filterByHealth('all', this)">
+                        <span>Todos los Estados</span>
+                    </button>
+                    <button class="health-chip" data-health="verde" onclick="filterByHealth('verde', this)">
+                        <span class="filter-dot dot-verde"></span>
+                        <span>En Plazo</span>
+                        <span class="health-badge" id="count-health-verde">8</span>
+                    </button>
+                    <button class="health-chip" data-health="ambar" onclick="filterByHealth('ambar', this)">
+                        <span class="filter-dot dot-ambar"></span>
+                        <span>En Riesgo</span>
+                        <span class="health-badge" id="count-health-ambar">2</span>
+                    </button>
+                    <button class="health-chip" data-health="pausa" onclick="filterByHealth('pausa', this)">
+                        <span class="filter-dot dot-pausa"></span>
+                        <span>En Pausa</span>
+                        <span class="health-badge" id="count-health-pausa">2</span>
+                    </button>
+                    <button class="health-chip" data-health="licitacion" onclick="filterByHealth('licitacion', this)">
+                        <span class="filter-dot dot-red"></span>
+                        <span>Licitación</span>
+                        <span class="health-badge" id="count-health-licitacion">0</span>
                     </button>
                 </div>
             </div>
@@ -1098,34 +1150,89 @@
         }
 
         // ==========================================
-        // FILTRADO POR CARRILES DEL PORTFOLIO (PROYECTOS)
+        // SISTEMA UNIFICADO DE FILTRADO COMBINADO (CATEGORÍA + SALUD OPERATIVA)
         // ==========================================
-        function filterPortfolio(category, btn) {
-            // Actualizar botones de filtro
-            document.querySelectorAll('.filter-segments:not(.filter-segments-operativas) .filter-chip').forEach(c => c.classList.remove('active'));
-            if (btn) btn.classList.add('active');
+        let currentCategoryFilter = 'all';
+        let currentHealthFilter = 'all';
 
+        function filterPortfolio(category, btn) {
+            currentCategoryFilter = category;
+            // Actualizar botones de filtro de carriles
+            document.querySelectorAll('.filter-segments:not(.filter-segments-operativas) .filter-chip').forEach(c => c.classList.remove('active'));
+            if (btn) {
+                btn.classList.add('active');
+            } else {
+                const chips = document.querySelectorAll('.filter-segments:not(.filter-segments-operativas) .filter-chip');
+                if (category === 'all' && chips[0]) chips[0].classList.add('active');
+                if (category === 'direct' && chips[1]) chips[1].classList.add('active');
+                if (category === 'strategic' && chips[2]) chips[2].classList.add('active');
+                if (category === 'facilitator' && chips[3]) chips[3].classList.add('active');
+                if (category === 'closed' && chips[4]) chips[4].classList.add('active');
+            }
+            applyCombinedFilters();
+        }
+
+        function filterByHealth(health, btn) {
+            currentHealthFilter = health;
+            // Actualizar botones de chips de salud
+            document.querySelectorAll('.health-chip').forEach(c => c.classList.remove('active'));
+            if (btn) {
+                btn.classList.add('active');
+            } else {
+                const target = document.querySelector(`.health-chip[data-health="${health}"]`);
+                if (target) target.classList.add('active');
+            }
+            applyCombinedFilters();
+        }
+
+        function applyCombinedFilters() {
             const sections = document.querySelectorAll('#container-bitacora-proyectos .portfolio-section');
             sections.forEach(sec => {
                 const secCat = sec.getAttribute('data-category');
-                if (category === 'all' || secCat === category) {
-                    sec.classList.remove('section-hidden');
-                } else {
+                const categoryMatch = (currentCategoryFilter === 'all' || secCat === currentCategoryFilter);
+
+                let visibleInSec = 0;
+                const cards = sec.querySelectorAll('.apple-card');
+                cards.forEach(card => {
+                    const sem = card.getAttribute('data-semaforo') || 'verde';
+                    const isLic = card.getAttribute('data-licitacion') === 'true';
+                    const isPaused = card.classList.contains('is-paused') || sem === 'pausa';
+
+                    let healthMatch = false;
+                    if (currentHealthFilter === 'all') {
+                        healthMatch = true;
+                    } else if (currentHealthFilter === 'licitacion') {
+                        healthMatch = isLic;
+                    } else if (currentHealthFilter === 'pausa') {
+                        healthMatch = isPaused;
+                    } else {
+                        healthMatch = (sem === currentHealthFilter);
+                    }
+
+                    if (categoryMatch && healthMatch) {
+                        card.style.display = '';
+                        visibleInSec++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                if (!categoryMatch || visibleInSec === 0) {
                     sec.classList.add('section-hidden');
+                } else {
+                    sec.classList.remove('section-hidden');
+                }
+
+                // Resetear scroll de carruseles visibles y actualizar flechas
+                const track = sec.querySelector('.carousel-track');
+                if (track) {
+                    track.scrollLeft = 0;
+                    updateCarouselButtons(track);
                 }
             });
-
-            // Asegurar que todas las tarjetas individuales estén visibles
-            document.querySelectorAll('#container-bitacora-proyectos .apple-card').forEach(card => {
-                card.style.display = '';
-            });
-
-            // Resetear scroll de carruseles visibles y actualizar flechas
-            document.querySelectorAll('#container-bitacora-proyectos .portfolio-section:not(.section-hidden) .carousel-track').forEach(track => {
-                track.scrollLeft = 0;
-                updateCarouselButtons(track);
-            });
         }
+        window.applyCombinedFilters = applyCombinedFilters;
+        window.filterByHealth = filterByHealth;
 
         // ==========================================
         // GESTIÓN DEL POPUP MODAL DE LICITACIONES

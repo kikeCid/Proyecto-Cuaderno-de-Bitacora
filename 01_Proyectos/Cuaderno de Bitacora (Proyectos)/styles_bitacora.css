@@ -4453,9 +4453,9 @@ body[data-density="compact"] .hero {
 /* 9b. FRANJA EJECUTIVA DE INDICADORES LIMPIOS (HOME BITÁCORA) */
 .executive-stats-strip {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 16px;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
 }
 
 @media (max-width: 960px) {
@@ -4468,6 +4468,80 @@ body[data-density="compact"] .hero {
     .executive-stats-strip {
         grid-template-columns: 1fr;
     }
+}
+
+/* Franja de Filtrado por Salud Operativa (Scorecards) */
+.health-filters-strip {
+    max-width: 1200px;
+    margin: -15px auto 28px auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 6px 14px;
+    flex-wrap: wrap;
+}
+
+.health-filters-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.health-chips-wrap {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.health-chip {
+    padding: 5px 12px;
+    border-radius: 16px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-sec);
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.health-chip:hover {
+    color: var(--text-main);
+    border-color: rgba(15, 23, 42, 0.2);
+    transform: translateY(-1px);
+}
+
+[data-theme="dark"] .health-chip:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.health-chip.active {
+    background: var(--text-main);
+    color: var(--bg-card);
+    border-color: var(--text-main);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.health-badge {
+    font-size: 0.7rem;
+    padding: 1px 5px;
+    border-radius: 8px;
+    background: rgba(125, 125, 125, 0.15);
+    font-weight: 700;
+}
+
+.health-chip.active .health-badge {
+    background: rgba(255, 255, 255, 0.25);
+    color: inherit;
 }
 
 .kpi-clean-card {

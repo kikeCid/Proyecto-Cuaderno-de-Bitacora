@@ -81,10 +81,13 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.h
 - **Changelog del proyecto**: `02_Proyectos/<proyecto>/CHANGELOG.md`
 - **Notas de release**: `02_Proyectos/<proyecto>/Documentación/Releases/`
 
-### Proyectos Activos
-Los proyectos del vault son: **LidIA**, **Siniestros**, **VoiceBot**.
+### Proyectos Activos (Nomenclatura Anónima para Git)
+Para changelogs destinados a control de versiones o repositorios públicos, usa siempre nombres generales: **Proyecto 1**, **Proyecto 2**, **Proyecto 3**.
+
+> [!CAUTION] Privacidad en Git
+> Nunca expongas nombres reales de la empresa ni proyectos específicos en el CHANGELOG subido a GitHub. Consulta la skill `git-publisher`.
 
 ## Consejos
 - Escribe para el USUARIO, no para el desarrollador.
-- Cada entrada debe ser autoexplicativa.
+- Cada entrada debe ser autoexplicativa y neutra.
 - Usa verbos en pasado: "Añadida", "Corregido", "Mejorada".

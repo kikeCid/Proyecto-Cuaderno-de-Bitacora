@@ -38,6 +38,15 @@ Cuando uses `editar_nota`:
 - **NUNCA** dupliques el bloque `---` de YAML.
 - **REEMPLAZA** la metadata anterior, no la añadas debajo.
 
-## 🔒 Restricciones
+## 🔒 Restricciones y Privacidad
 - No accedas a archivos en `.forbidden_paths`.
 - Respeta la privacidad de notas marcadas con `#privado`.
+
+## 🛡️ Regla de Oro de Privacidad para Git y GitHub
+Al interactuar con Git o subir cambios a GitHub (commits, PRs, changelogs, issues o descripciones públicas):
+- **PROHIBIDO** incluir nombres reales de proyectos de la empresa, datos de clientes, proveedores directos o menciones explícitas a la organización.
+- **OBLIGATORIO** hablar siempre de manera general y codificada:
+  - Usa **"Proyecto 1"**, **"Proyecto 2"**, **"Iniciativa A"**, **"Iniciativa B"**, etc.
+  - Usa **"Entidad"**, **"Organización"** o **"Compañía"** en vez de nombres corporativos.
+- Los mensajes de commit deben ser técnicos y abstractos (ej. `feat(ui): nuevos filtros de salud en dashboard`, `refactor(core): optimización de estructura en Proyecto 1`).
+- Aplica y consulta la skill `git-publisher` antes de cualquier operación de control de versiones.

@@ -20,11 +20,11 @@ tools: ['read', 'run_command', 'obsidian-mcp']
 
 ## Plantilla del Vault
 
-Usa la plantilla `ZZ_Plantillas/Daily Template.md` que incluye los equipos:
-- **Equipo LidIA**: Gerson, Quique
-- **Equipo Maldonado**: Kiko, Manu
-- **Equipo Kitt**: Alex, Gabriel
-- **Equipo Lupe**: Jonathan, Álvaro
+Usa la plantilla `ZZ_Plantillas/Daily Template.md` estructurada por squads/roles genéricos:
+- **Squad 1 (Iniciativas Core)**: Product Owner, Tech Lead
+- **Squad 2 (Operaciones y Procesos)**: Product Owner, Líder Técnico
+- **Squad 3 (Canales y Atención)**: PM, Especialista Técnico
+- **Squad 4 (Datos y Analytics)**: Data Lead, Ingeniero
 
 ## Formato de Daily
 
@@ -40,43 +40,27 @@ tags:
 
 # Daily YYYY-MM-DD
 
-## Equipo LidIA
-- **Gerson**
+## Squad 1
+- **Rol A**
   - Ayer:
   - Hoy:
-- **Quique**
-  - Ayer:
-  - Hoy:
-
-## Equipo Maldonado
-- **Kiko**
-  - Ayer:
-  - Hoy:
-- **Manu**
+- **Rol B**
   - Ayer:
   - Hoy:
 
-## Equipo Kitt
-- **Alex**
+## Squad 2
+- **Rol C**
   - Ayer:
   - Hoy:
-- **Gabriel**
-  - Ayer:
-  - Hoy:
-
-## Equipo Lupe
-- **Jonathan**
-  - Ayer:
-  - Hoy:
-- **Álvaro**
+- **Rol D**
   - Ayer:
   - Hoy:
 
 ## Bloqueos
-
+- [ ] 
 
 ## Notas Adicionales
-- [ ]
+- [ ] 
 ```
 
 ## Fuentes de Información
@@ -84,7 +68,7 @@ tags:
 ### 1. Notas Modificadas (MCP)
 Usa `resumen_actividad_reciente(dias=1)` para obtener notas tocadas hoy.
 
-### 2. Commits de Git
+### 2. Commits de Git (Con Anonimización)
 ```bash
 git log --since="1 day ago" --oneline --author="$(git config user.name)"
 ```
@@ -95,13 +79,13 @@ Busca en notas marcadas con `[x]` modificadas hoy.
 ## Flujo de Trabajo
 
 1. **Recopila** información de las fuentes.
-2. **Agrupa** por proyecto (LidIA, Siniestros, VoiceBot).
-3. **Redacta** entradas concisas y accionables.
+2. **Agrupa** por iniciativa (Proyecto 1, Proyecto 2, Proyecto 3).
+3. **Redacta** entradas concisas y accionables. Si la daily se sube a Git, aplica la skill `git-publisher` para asegurar anonimización.
 4. **Guarda** en `04_Reuniones/Daily/` con la fecha como nombre.
 
 ## Integración con Proyectos
 
-Enlaza las tareas mencionadas con sus proyectos correspondientes:
-- [[LidIA]] - Proyecto de IA
-- [[Siniestros]] - Gestión de siniestros
-- [[VoiceBot]] - Asistente de voz
+Enlaza las tareas mencionadas con sus iniciativas correspondientes manteniendo la privacidad:
+- [[Proyecto 1]] - Gestión de Clientes
+- [[Proyecto 2]] - Contact Center y Telefonía
+- [[Proyecto 3]] - Operaciones Core y Siniestros

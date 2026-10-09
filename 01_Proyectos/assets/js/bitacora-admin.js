@@ -201,6 +201,11 @@
             const facilitators = this.projects.filter(p => p.carril === 'facilitator').length;
             const closedProjects = this.projects.filter(p => p.carril === 'closed').length;
 
+            const healthyProjects = this.projects.filter(p => p.semaforo === 'verde').length;
+            const attentionProjects = this.projects.filter(p => p.semaforo === 'ambar' || p.semaforo === 'pausa' || p.semaforo === 'rojo').length;
+            const pausedProjects = this.projects.filter(p => p.semaforo === 'pausa').length;
+            const riskProjects = this.projects.filter(p => p.semaforo === 'ambar' || p.semaforo === 'rojo').length;
+
             // Actualización por ID prioritario
             const elTotalProj = document.getElementById('kpi-val-proj-total');
             if (elTotalProj) { elTotalProj.innerText = totalProj; elTotalProj.setAttribute('data-count', totalProj); }
@@ -213,6 +218,25 @@
 
             const elLicProj = document.getElementById('kpi-val-proj-licitacion');
             if (elLicProj) { elLicProj.innerText = licitaciones; elLicProj.setAttribute('data-count', licitaciones); }
+
+            const elHealthyProj = document.getElementById('kpi-val-proj-healthy');
+            if (elHealthyProj) { elHealthyProj.innerText = healthyProjects; elHealthyProj.setAttribute('data-count', healthyProjects); }
+
+            const elAttProj = document.getElementById('kpi-val-proj-attention');
+            if (elAttProj) { elAttProj.innerText = attentionProjects; elAttProj.setAttribute('data-count', attentionProjects); }
+
+            // Conteo dinámico en filtros facetados de salud
+            const countHVerde = document.getElementById('count-health-verde');
+            if (countHVerde) countHVerde.innerText = healthyProjects;
+
+            const countHAmbar = document.getElementById('count-health-ambar');
+            if (countHAmbar) countHAmbar.innerText = riskProjects;
+
+            const countHPausa = document.getElementById('count-health-pausa');
+            if (countHPausa) countHPausa.innerText = pausedProjects;
+
+            const countHLic = document.getElementById('count-health-licitacion');
+            if (countHLic) countHLic.innerText = licitaciones;
 
             // Respaldo por selector genérico de tarjetas de proyectos
             const kpiCards = document.querySelectorAll('.executive-stats-strip-projects .kpi-clean-card');
@@ -311,6 +335,8 @@
                              });
 
                 if (card) {
+                    card.setAttribute('data-semaforo', p.semaforo || 'verde');
+                    card.setAttribute('data-carril', p.carril || 'strategic');
                     if (p.licitacion) {
                         card.setAttribute('data-licitacion', 'true');
                     } else {
@@ -456,6 +482,11 @@
             // Actualizar Modal de Licitaciones y estadísticas del cajón
             this.renderLicitacionesModalContent();
             this.updateDrawerStats();
+
+            // Reaplicar filtros combinados si están activos
+            if (typeof window.applyCombinedFilters === 'function') {
+                window.applyCombinedFilters();
+            }
         },
 
         renderLicitacionesModalContent: function () {
