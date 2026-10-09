@@ -181,3 +181,15 @@ Cuando uses `editar_nota()`:
 > 3. Referirse a la empresa únicamente como **"Entidad"**, **"Organización"** o **"Compañía Aseguradora"**.
 > 4. Antes de hacer commit o push, ejecutar la auditoría de la skill `git-publisher`:
 >    `python .agent/skills/git-publisher/scripts/git_privacy_checker.py --check-staged`
+
+---
+
+## 🌟 Protocolo Obligatorio de Benchmarking Open-Source (>1.000 ⭐)
+
+> [!IMPORTANT]
+> **REGLA OBLIGATORIA PARA NUEVOS PROYECTOS O SERVICIOS**:
+> Antes de diseñar o generar cualquier nuevo servicio, interfaz de usuario o módulo:
+> 1. **ACTIVAR OBLIGATORIAMENTE** la skill `repo-benchmark`.
+> 2. Buscar en GitHub proyectos de código abierto con **más de 1.000 estrellas** relacionados con el objetivo técnico y funcional.
+> 3. Extraer e implementar las mejores prácticas de **interfaz (UI)**, **usabilidad (UX)**, accesibilidad, retroalimentación al usuario y diseño ergonómico.
+> 4. Documentar los aprendizajes y aplicarlos siempre respetando la privacidad de `git-publisher`.

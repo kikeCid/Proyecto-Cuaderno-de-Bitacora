@@ -50,3 +50,9 @@ Al interactuar con Git o subir cambios a GitHub (commits, PRs, changelogs, issue
   - Usa **"Entidad"**, **"Organización"** o **"Compañía"** en vez de nombres corporativos.
 - Los mensajes de commit deben ser técnicos y abstractos (ej. `feat(ui): nuevos filtros de salud en dashboard`, `refactor(core): optimización de estructura en Proyecto 1`).
 - Aplica y consulta la skill `git-publisher` antes de cualquier operación de control de versiones.
+
+## 🌟 Regla de Benchmarking Open-Source Obligatoria
+Antes de diseñar, implementar o evolucionar cualquier nuevo servicio, interfaz, flujo de usuario o módulo de proyecto:
+- **OBLIGATORIO** activar y ejecutar la skill `repo-benchmark`.
+- Investigar repositorios de código abierto líderes en GitHub con **más de 1.000 estrellas** en la temática correspondiente.
+- Extraer sus mejores prácticas de **interfaz (UI)**, **ergonomía y usabilidad (UX)**, atajos de teclado y arquitectura, aplicándolas directamente en el proyecto.

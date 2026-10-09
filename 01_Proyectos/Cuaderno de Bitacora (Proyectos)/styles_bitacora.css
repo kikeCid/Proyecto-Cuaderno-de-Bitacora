@@ -6779,3 +6779,344 @@ body[data-density="compact"] .hero {
     color: #b91c1c;
 }
 
+/* ==========================================================================
+   COMPONENTES UI/UX INSPIRADOS EN BENCHMARK OPEN-SOURCE (>1.000 ⭐)
+   ========================================================================== */
+
+/* 1. BOTÓN DE ATAJOS EN CABECERA (DYNAMIC ISLAND) */
+.island-shortcuts-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-sec);
+    cursor: pointer;
+    transition: var(--transition);
+}
+.island-shortcuts-btn:hover {
+    color: var(--primary-accent, #e4002b);
+    border-color: var(--primary-accent, #e4002b);
+    transform: translateY(-1px) scale(1.05);
+    box-shadow: 0 4px 12px rgba(228, 0, 43, 0.15);
+}
+[data-theme="dark"] .island-shortcuts-btn {
+    background: rgba(30, 32, 44, 0.8);
+    border-color: rgba(255, 255, 255, 0.14);
+}
+
+/* 2. MODAL DE ATAJOS DE TECLADO (BENCHMARK TWENTY / CAL.COM) */
+.shortcuts-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+    padding: 16px;
+}
+.shortcuts-modal-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
+.shortcuts-modal-dialog {
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 520px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+    transform: scale(0.96) translateY(8px);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+}
+.shortcuts-modal-backdrop.active .shortcuts-modal-dialog {
+    transform: scale(1) translateY(0);
+}
+.shortcuts-modal-header {
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-color);
+}
+.shortcuts-header-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.shortcuts-modal-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: rgba(228, 0, 43, 0.08);
+    color: var(--primary-accent, #e4002b);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.shortcuts-kicker {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--primary-accent, #e4002b);
+    display: block;
+}
+.shortcuts-modal-title {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--text-main);
+}
+.shortcuts-modal-close {
+    background: transparent;
+    border: none;
+    color: var(--text-sec);
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+.shortcuts-modal-close:hover {
+    color: var(--text-main);
+    background: rgba(0, 0, 0, 0.05);
+}
+[data-theme="dark"] .shortcuts-modal-close:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+.shortcuts-modal-body {
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 65vh;
+    overflow-y: auto;
+}
+.shortcuts-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.shortcuts-group-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-sec);
+}
+.shortcut-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+}
+[data-theme="dark"] .shortcut-item {
+    background: rgba(255, 255, 255, 0.03);
+}
+.shortcut-desc {
+    font-size: 0.88rem;
+    color: var(--text-main);
+    font-weight: 500;
+}
+.shortcut-keys {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.shortcut-plus {
+    font-size: 0.75rem;
+    color: var(--text-sec);
+    padding: 0 1px;
+}
+kbd {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 24px;
+    height: 24px;
+    padding: 0 7px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    font-family: inherit;
+    color: var(--text-main);
+    background: var(--bg-app);
+    border: 1px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color);
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+}
+.shortcuts-modal-footer {
+    padding: 14px 24px;
+    border-top: 1px solid var(--border-color);
+    background: rgba(0, 0, 0, 0.015);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--text-sec);
+}
+[data-theme="dark"] .shortcuts-modal-footer {
+    background: rgba(255, 255, 255, 0.02);
+}
+.shortcuts-footer-btn {
+    background: var(--primary-accent, #e4002b);
+    color: #fff;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+}
+.shortcuts-footer-btn:hover {
+    background: #b91c1c;
+    transform: translateY(-1px);
+}
+
+/* 3. SISTEMA DE TOASTS FLOTANTES (BENCHMARK SHADCN / SONNER) */
+.bitacora-toast-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 10001;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+    pointer-events: none;
+    max-width: 380px;
+    width: calc(100% - 32px);
+}
+.bitacora-toast {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: var(--bg-card);
+    color: var(--text-main);
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+    font-size: 0.88rem;
+    font-weight: 600;
+    pointer-events: auto;
+    opacity: 0;
+    transform: translateY(12px) scale(0.95);
+    animation: toastEnter 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transition: opacity 0.22s ease, transform 0.22s ease;
+}
+.bitacora-toast.toast-hiding {
+    opacity: 0;
+    transform: translateY(12px) scale(0.95);
+}
+.bitacora-toast-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bitacora-toast.toast-info .bitacora-toast-icon {
+    color: #2563eb;
+}
+.bitacora-toast.toast-success .bitacora-toast-icon {
+    color: #059669;
+}
+.bitacora-toast.toast-warning .bitacora-toast-icon {
+    color: #d97706;
+}
+@keyframes toastEnter {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* 4. EMPTY STATE DE FILTROS EN PORTFOLIO (BENCHMARK SHADCN / TWENTY) */
+.portfolio-empty-state {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 24px;
+    margin: 30px 0;
+    background: var(--bg-card);
+    border: 1.5px dashed var(--border-color);
+    border-radius: 20px;
+    animation: fadeInEmpty 0.3s ease;
+}
+.portfolio-empty-state.active {
+    display: flex;
+}
+.empty-state-icon-wrap {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    background: rgba(228, 0, 43, 0.08);
+    color: var(--primary-accent, #e4002b);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+.empty-state-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin: 0 0 8px 0;
+}
+.empty-state-desc {
+    font-size: 0.92rem;
+    color: var(--text-sec);
+    max-width: 440px;
+    margin: 0 0 20px 0;
+    line-height: 1.5;
+}
+.empty-state-reset-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 20px;
+    background: var(--primary-accent, #e4002b);
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 14px rgba(228, 0, 43, 0.25);
+}
+.empty-state-reset-btn:hover {
+    background: #b91c1c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(228, 0, 43, 0.35);
+}
+@keyframes fadeInEmpty {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
