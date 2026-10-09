@@ -18,7 +18,7 @@ Inspirado en el estándar de la industria [npryce/adr-tools](https://github.com/
 | Identificador | Título de la Decisión | Iniciativa / Proyecto | Estado | Fecha |
 |:---:|---|---|:---:|:---:|
 | [[ADR-001-Adjudicacion-Plataforma-Omnicanal\|ADR-001]] | Adjudicación de Plataforma Omnicanal y Modelo de Integración | Proyecto 1 (Gestión de Clientes) | `Aceptado` | 2026-03-15 |
-| [[ADR-002-Arquitectura-Lakehouse-Analitica\|ADR-002]] | Adopción de Modelo Lakehouse para Plataforma Analítica | Proyecto 4 (Gobierno del Dato) | `Aceptado` | 2026-04-20 |
+| [[ADR-002-Arquitectura-Lakehouse-Analitica\|ADR-002]] | Adopción de Modelo Lakehouse para Plataforma Analítica | Proyecto 4 (Plataforma Analítica & Lakehouse) | `Aceptado` | 2026-04-20 |
 | [[ADR-003-Migracion-Contact-Center-Cloud\|ADR-003]] | Transición a Contact Center Cloud sobre Infraestructura AWS | Proyecto 2 (Telefonía CX) | `Aceptado` | 2026-05-10 |
 
 ---

@@ -2926,8 +2926,9 @@ body::before {
     align-items: center;
 }
 
+.badge-primary-red,
 .badge-lda-red {
-    background: var(--lda-red);
+    background: var(--primary-accent, #e4002b);
     color: #FFFFFF;
     font-size: 0.72rem;
     font-weight: 700;
@@ -2937,6 +2938,7 @@ body::before {
     border-radius: 8px;
 }
 
+.badge-primary-outline,
 .badge-lda-outline {
     border: 1px solid var(--glass-border);
     color: var(--text-sec);

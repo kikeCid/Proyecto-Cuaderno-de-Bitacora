@@ -1,6 +1,6 @@
 /**
  * MÓDULO DE ADMINISTRACIÓN REACTIVA DEL CUADERNO DE BITÁCORA
- * Línea Directa Aseguradora - Centro de Control
+ * Entidad Aseguradora - Centro de Control
  * Persistencia en disco mediante Web File System Access API nativa e IndexedDB.
  * Gobernanza bifurcada:
  * - 📁 Proyectos e Iniciativas (fases, hitos, licitaciones y semáforos de salud operativa)
@@ -9,7 +9,7 @@
 
 (function () {
     // ==========================================
-    // HELPERS DE ICONOGRAFÍA LINEAL CORPORATIVA (LÍNEA DIRECTA ASEGURADORA)
+    // HELPERS DE ICONOGRAFÍA LINEAL CORPORATIVA (ENTIDAD ASEGURADORA)
     // ==========================================
     const LDA_ICONS = {
         licitacion: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lda-svg-icon" style="color: var(--lda-red);"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg>`,
@@ -1669,7 +1669,7 @@
         // 5. PERSISTENCIA UNIVERSAL MEDIANTE FILE SYSTEM API Y AUTO-GUARDADO
         // ==========================================
         generateFileContent: function () {
-            return `/**\n * CATÁLOGO MAESTRO DEL CUADERNO DE BITÁCORA - LÍNEA DIRECTA ASEGURADORA\n * Estructura bifurcada oficial:\n * 1. BITACORA_PROJECTS_DATA: Iniciativas de Transformación con ciclo de vida, fases, licitaciones y salud operativa.\n * 2. BITACORA_OPERATIVAS_DATA: Procedimientos, Manuales Técnicos y Operativas continuas (BAU) con gobernanza documental.\n * Persistencia en disco mediante File System Access API nativa e IndexedDB.\n * Fecha de sincronización: ${new Date().toISOString().split('T')[0]}\n */\n\n// 1. BITÁCORA DE GESTIÓN DE PROYECTOS\nwindow.BITACORA_PROJECTS_DATA = ${JSON.stringify(this.projects, null, 4)};\n\n// 2. BITÁCORA DE PROCEDIMIENTOS Y OPERATIVAS\nwindow.BITACORA_OPERATIVAS_DATA = ${JSON.stringify(this.operativas, null, 4)};\n\n// Contenedor global de catálogo unificado\nwindow.BITACORA_CATALOG = {\n    projects: window.BITACORA_PROJECTS_DATA,\n    operativas: window.BITACORA_OPERATIVAS_DATA\n};\n`;
+            return `/**\n * CATÁLOGO MAESTRO DEL CUADERNO DE BITÁCORA - ENTIDAD ASEGURADORA\n * Estructura bifurcada oficial:\n * 1. BITACORA_PROJECTS_DATA: Iniciativas de Transformación con ciclo de vida, fases, licitaciones y salud operativa.\n * 2. BITACORA_OPERATIVAS_DATA: Procedimientos, Manuales Técnicos y Operativas continuas (BAU) con gobernanza documental.\n * Persistencia en disco mediante File System Access API nativa e IndexedDB.\n * Fecha de sincronización: ${new Date().toISOString().split('T')[0]}\n */\n\n// 1. BITÁCORA DE GESTIÓN DE PROYECTOS\nwindow.BITACORA_PROJECTS_DATA = ${JSON.stringify(this.projects, null, 4)};\n\n// 2. BITÁCORA DE PROCEDIMIENTOS Y OPERATIVAS\nwindow.BITACORA_OPERATIVAS_DATA = ${JSON.stringify(this.operativas, null, 4)};\n\n// Contenedor global de catálogo unificado\nwindow.BITACORA_CATALOG = {\n    projects: window.BITACORA_PROJECTS_DATA,\n    operativas: window.BITACORA_OPERATIVAS_DATA\n};\n`;
         },
 
         saveViaFileSystemAPI: async function (forceNew = false) {

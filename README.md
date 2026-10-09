@@ -50,6 +50,12 @@ El portfolio se organiza en carriles semánticos normalizados según el modelo d
   - Búsqueda instantánea en milisegundos sobre más de 50 documentos indexados con resaltado de coincidencias y filtros por categoría.
 - **Modo Presentación Zen (Tecla `Z` / `ESC`)**:
   - Vista a pantalla completa sin distracciones para presentaciones ejecutivas ante Dirección y comités.
+- **Modal de Atajos de Teclado y Navegación Rápida (Tecla `?`)**:
+  - Modal interactivo de ayuda rápida (*cheatsheet*) inspirado en estándares ergonómicos open-source (Twenty, Cal.com).
+- **Sistema Flotante de Toasts Reactivos**:
+  - Retroalimentación no invasiva de cambios de estado, vistas y filtros inspirado en Shadcn / Sonner.
+- **Empty States Accesibles con Reseteo en 1 Clic**:
+  - Gestión visual de estados vacíos cuando los filtros no producen coincidencias, con botón de restauración guiado.
 - **Modo Oscuro / Claro (Tecla `D`)**:
   - Paleta cromática adaptativa validada bajo estándares WCAG AAA.
 
@@ -62,20 +68,23 @@ Proyecto Cuaderno de Bitacora/
 ├── 01_Proyectos/
 │   ├── Cuaderno de Bitacora (Proyectos)/
 │   │   ├── index.html                    # Portada principal del Cuaderno de Bitácora
+│   │   ├── perfil.html                   # Perfil profesional y trayectoria
 │   │   └── styles_bitacora.css           # Hoja de estilos maestra
 │   ├── ADRs/                             # Registro formal de Decisiones de Arquitectura
-│   ├── CRM Operacional/                  # Proyecto 1: Hub, Ficha Ejecutiva y Comunicado Oficial
-│   ├── Telefonia - Genesis CX/           # Proyecto 2: Hub, Ficha Ejecutiva y Comunicado Oficial
-│   ├── Reingenieria Siniestros/          # Proyecto 3: Hub, Ficha Ejecutiva y Comunicado Oficial
-│   ├── Gobierno del Dato/                # Proyecto 4: Hub, Ficha Ejecutiva y Comunicado Oficial
-│   ├── IA Voz y Chat/                    # Proyecto 5: Hub, Ficha Ejecutiva y Comunicado Oficial
-│   ├── HCM/                              # Proyecto 6: Hub y Documentación
-│   ├── IA Area Personas/                 # Proyecto 7: Hub de Asistentes y Diagnóstico
-│   ├── Gestion de Usuarios/              # Proyecto 8: Hub de Identidades y Accesos
-│   ├── Transformacion Hogar/             # Hub, Ficha Ejecutiva y Comunicado Oficial Hogar
-│   ├── Transformacion Salud/             # Hub, Ficha Ejecutiva y Comunicado Oficial Salud
-│   ├── Transformacion Agile/             # Hub, Ficha Ejecutiva y Comunicado Oficial Agile
-│   ├── Gobierno de Informacion/          # Hub Histórico de Gobernanza
+│   ├── Proyecto 1/                       # Plataforma Omnicanal de Clientes (Hub, Ficha y Comunicado)
+│   ├── Proyecto 2/                       # Contact Center Cloud (Hub, Ficha y Comunicado)
+│   ├── Proyecto 3/                       # Reingeniería de Operaciones Core (Hub, Ficha y Comunicado)
+│   ├── Proyecto 4/                       # Plataforma Analítica & Lakehouse (Hub, Ficha y Comunicado)
+│   ├── Proyecto 5/                       # Agentes Conversacionales & IA (Hub, Ficha y Comunicado)
+│   ├── Proyecto 6/                       # Evolución Cloud de Personas (Hub y Documentación)
+│   ├── Proyecto 7/                       # Eficiencia & Asistentes de IA (Hub y Diagnóstico)
+│   ├── Proyecto 8/                       # Gestión de Accesos e Identidades (Hub y Servicios)
+│   ├── Iniciativa A/                     # Asistencia Doméstica Digital (Hub, Ficha y Comunicado)
+│   ├── Iniciativa B/                     # Cuadro Médico y Salud (Hub, Ficha y Comunicado)
+│   ├── Iniciativa C/                     # Transformación Ágil (Hub, Ficha y Comunicado)
+│   ├── Iniciativa Facilitadora/          # Speech Analytics & Calidad Operativa
+│   ├── Oficina de Proyectos/             # Marco Metodológico y Operativo de Gestión
+│   ├── Archivo Histórico/                # Conservación Documental y Metodología
 │   └── assets/
 │       ├── css/
 │       │   └── bitacora-core.css         # Framework CSS compartido
@@ -86,7 +95,7 @@ Proyecto Cuaderno de Bitacora/
 │           └── search_index_data.js      # Índice de búsqueda Spotlight
 ├── .agent/
 │   ├── rules/                            # Reglas obligatorias de gobernanza y privacidad Git
-│   └── skills/                           # Skills especializadas (git-publisher, standup, etc.)
+│   └── skills/                           # Skills especializadas (git-publisher, repo-benchmark, etc.)
 ├── ZZ_Plantillas/                        # Plantillas oficiales (ADRs, Bitácora Continua)
 ├── .gitignore                            # Exclusiones de Git (scratch, temporales, venv)
 ├── Índice del Vault.md                   # Mapa central del Vault de conocimiento anonimizado

@@ -71,6 +71,8 @@ def check_staged_diff() -> bool:
                 clean_text = re.sub(r'\[\[[^|\]]+\|([^\]]+)\]\]', r'\1', raw_text)
                 # En enlaces estándar [texto](ruta), inspeccionamos el texto visible
                 clean_text = re.sub(r'\[([^\]]+)\]\([^)]+\)', r'\1', clean_text)
+                # En enlaces HTML <a href="...">texto</a>, inspeccionamos el texto visible
+                clean_text = re.sub(r'<a\s+[^>]*href=["\'][^"\']*["\'][^>]*>(.*?)</a>', r'\1', clean_text, flags=re.IGNORECASE)
                 added_lines.append(clean_text)
         full_added = "\n".join(added_lines)
         valid = check_text(full_added, "Líneas añadidas en git stage")

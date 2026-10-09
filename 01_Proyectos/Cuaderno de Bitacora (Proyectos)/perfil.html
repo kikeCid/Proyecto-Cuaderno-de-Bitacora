@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Perfil | Portfolio Profesional - Línea Directa</title>
+    <title>Mi Perfil | Portfolio Profesional - Entidad Aseguradora</title>
     <!-- Core CSS Unificado -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/bitacora-core.css">
@@ -524,7 +524,7 @@
     <header class="app-header-island">
         <a href="index.html" class="island-brand" title="Volver al Inicio">
             <div class="island-logo-badge">
-                <img src="../assets/img/logo_header_lda.png" alt="Línea Directa Aseguradora" class="island-logo-img">
+                <img src="../assets/img/logo_header_lda.png" alt="Entidad Aseguradora" class="island-logo-img">
             </div>
             <div class="island-title">
                 <div class="island-title-row">
@@ -546,6 +546,15 @@
                     <polyline points="12 19 5 12 12 5"></polyline>
                 </svg>
                 <span>Volver al Inicio</span>
+            </button>
+
+            <!-- Botón Atajos de Teclado (?) (Benchmark Twenty / Cal.com) -->
+            <button class="island-shortcuts-btn" id="btn-profile-shortcuts" onclick="toggleProfileShortcutsModal()" title="Atajos de Teclado (?)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
             </button>
 
             <!-- Modo Oscuro / Claro -->
@@ -574,9 +583,9 @@
         <!-- HERO PROFILE CARD -->
         <section class="profile-hero-card">
             <div class="profile-avatar-container">
-                <img src="avatar.png" alt="Kike Cid" class="profile-avatar-large"
+                <img src="avatar.png" alt="Perfil Ejecutivo" class="profile-avatar-large"
                     onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'%23e4002b\'><path d=\'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z\'/></svg>'">
-                <span class="profile-badge-trayectoria">24 Años LDA</span>
+                <span class="profile-badge-trayectoria">24 Años en la Entidad</span>
             </div>
 
             <div class="profile-info">
@@ -585,7 +594,7 @@
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
                         </svg>
-                        Línea Directa Aseguradora
+                        Entidad Aseguradora
                     </span>
                     <span class="hero-badge-local">Recurso en Local</span>
                 </div>
@@ -595,7 +604,7 @@
                 <p>
                     Estratega con mentalidad digital, apasionado por la inteligencia artificial y la mejora continua.
                     Combino un enfoque pragmático con un firme compromiso por la autenticidad, enfocado siempre en
-                    alcanzar resultados concretos que aporten valor real. En mis más de <strong>24 años de trayectoria en Línea Directa</strong>,
+                    alcanzar resultados concretos que aporten valor real. En mis más de <strong>24 años de trayectoria en la Entidad Aseguradora</strong>,
                     impulso el ritmo cuestionando el "siempre se ha hecho así" y orientando el esfuerzo de los equipos hacia un propósito transformador.
                 </p>
 
@@ -785,10 +794,10 @@
             </div>
         </div>
 
-        <!-- TRAYECTORIA EN LÍNEA DIRECTA -->
+        <!-- TRAYECTORIA EN LA ENTIDAD ASEGURADORA -->
         <div class="section-header-styled">
             <span class="section-kicker">Trayectoria Corporativa</span>
-            <h2>24 Años en <span>Línea Directa</span></h2>
+            <h2>24 Años en la <span>Entidad Aseguradora</span></h2>
             <p style="text-align: center; color: var(--text-sec); font-size: 1.05rem; margin-top: 10px;">
                 Un recorrido continuo de evolución, compromiso y liderazgo técnico y metodológico.
             </p>
@@ -845,8 +854,67 @@
     </main>
 
     <footer style="text-align: center; padding: 50px 20px; font-size: 0.95rem; color: var(--text-sec); border-top: 1px solid var(--glass-border); max-width: 1080px; margin: 0 auto;">
-        <p>&copy; 2026 Cuaderno de Bitácora | Línea Directa Aseguradora</p>
+        <p>&copy; 2026 Cuaderno de Bitácora | Entidad Aseguradora</p>
     </footer>
+
+    <!-- MODAL ATAJOS DE TECLADO PERFIL (Benchmark Twenty / Cal.com) -->
+    <div class="shortcuts-modal-backdrop" id="modal-profile-shortcuts" onclick="handleProfileBackdrop(event)" role="dialog" aria-modal="true" aria-labelledby="modal-profile-shortcuts-title">
+        <div class="shortcuts-modal-dialog">
+            <div class="shortcuts-modal-header">
+                <div class="shortcuts-header-title-wrap">
+                    <div class="shortcuts-modal-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
+                            <path d="M6 8h.001"></path>
+                            <path d="M10 8h.001"></path>
+                            <path d="M14 8h.001"></path>
+                            <path d="M18 8h.001"></path>
+                            <path d="M8 12h.001"></path>
+                            <path d="M12 12h.001"></path>
+                            <path d="M16 12h.001"></path>
+                            <path d="M7 16h10"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="shortcuts-kicker">Navegación Eficiente</span>
+                        <h3 class="shortcuts-modal-title" id="modal-profile-shortcuts-title">Atajos de Teclado</h3>
+                    </div>
+                </div>
+                <button class="shortcuts-modal-close" onclick="toggleProfileShortcutsModal(false)" title="Cerrar ventana (ESC)" aria-label="Cerrar ventana">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="shortcuts-modal-body">
+                <div class="shortcuts-group">
+                    <span class="shortcuts-group-title">Navegación y Acciones</span>
+                    <div class="shortcut-item">
+                        <span class="shortcut-desc">Volver al Cuaderno de Bitácora</span>
+                        <div class="shortcut-keys"><kbd>Esc</kbd></div>
+                    </div>
+                    <div class="shortcut-item">
+                        <span class="shortcut-desc">Alternar modo claro / oscuro</span>
+                        <div class="shortcut-keys"><kbd>D</kbd></div>
+                    </div>
+                    <div class="shortcut-item">
+                        <span class="shortcut-desc">Ver ayuda de atajos de teclado</span>
+                        <div class="shortcut-keys"><kbd>?</kbd></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="shortcuts-modal-footer">
+                <span>Inspirado en estándares ergonómicos open-source.</span>
+                <button class="shortcuts-footer-btn" onclick="toggleProfileShortcutsModal(false)">Entendido</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTENEDOR TOAST FLOTANTE -->
+    <div id="bitacora-toast-container" class="bitacora-toast-container" aria-live="polite" aria-atomic="true"></div>
 
     <!-- CONTROLADORES GLOBALES -->
     <script>
@@ -855,13 +923,58 @@
             const newTheme = currentTheme === 'light' ? 'dark' : 'light';
             document.documentElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('bitacora-theme', newTheme);
+            showProfileToast(`Modo ${newTheme === 'dark' ? 'Oscuro' : 'Claro'} activado`, 'info');
         }
 
-        // Atajo de teclado 'D' para modo oscuro y 'Escape' para volver
+        function showProfileToast(message, type = 'info') {
+            const container = document.getElementById('bitacora-toast-container');
+            if (!container) return;
+            const toast = document.createElement('div');
+            toast.className = `bitacora-toast toast-${type}`;
+            const iconSvg = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>`;
+            toast.innerHTML = `<div class="bitacora-toast-icon">${iconSvg}</div><div class="bitacora-toast-msg">${message}</div>`;
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.classList.add('toast-hiding');
+                setTimeout(() => toast.remove(), 250);
+            }, 2800);
+        }
+
+        function toggleProfileShortcutsModal(forceState) {
+            const modal = document.getElementById('modal-profile-shortcuts');
+            if (!modal) return;
+            const shouldOpen = (typeof forceState === 'boolean') ? forceState : !modal.classList.contains('active');
+            modal.classList.toggle('active', shouldOpen);
+            document.body.style.overflow = shouldOpen ? 'hidden' : '';
+        }
+
+        function handleProfileBackdrop(e) {
+            if (e.target && e.target.id === 'modal-profile-shortcuts') {
+                toggleProfileShortcutsModal(false);
+            }
+        }
+
+        // Atajo de teclado: 'D' (tema), '?' (atajos), 'Escape' (cerrar o volver)
         document.addEventListener('keydown', (e) => {
-            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-            if (e.key === 'd' || e.key === 'D') toggleTheme();
-            if (e.key === 'Escape') window.location.href = 'index.html';
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable) return;
+            if (e.key === '?' || (e.shiftKey && e.key === '/')) {
+                e.preventDefault();
+                toggleProfileShortcutsModal();
+                return;
+            }
+            if (e.key === 'd' || e.key === 'D') {
+                e.preventDefault();
+                toggleTheme();
+                return;
+            }
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('modal-profile-shortcuts');
+                if (modal && modal.classList.contains('active')) {
+                    toggleProfileShortcutsModal(false);
+                } else {
+                    window.location.href = 'index.html';
+                }
+            }
         });
     </script>
 </body>

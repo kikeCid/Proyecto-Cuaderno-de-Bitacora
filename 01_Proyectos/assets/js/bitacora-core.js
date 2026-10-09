@@ -155,6 +155,13 @@ function initQuickActions() {
                 <polyline points="12 6 12 12 16 14"></polyline>
             </svg>
         </button>
+        <button class="quick-action-btn" id="btn-shortcuts-help" title="Atajos de Teclado (?)" aria-label="Atajos de Teclado">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+        </button>
         <button class="quick-action-btn" id="btn-copy-url" title="Copiar enlace de esta página (C)" aria-label="Copiar enlace">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
@@ -177,6 +184,13 @@ function initQuickActions() {
     });
     actions.querySelector('#btn-recent-drawer')?.addEventListener('click', () => {
         if (window.BitacoraUI && window.BitacoraUI.toggleRecentDrawer) window.BitacoraUI.toggleRecentDrawer();
+    });
+    actions.querySelector('#btn-shortcuts-help')?.addEventListener('click', () => {
+        const m = document.getElementById('bitacora-kbd-modal');
+        if (m) {
+            const isActive = m.classList.toggle('active');
+            m.style.display = isActive ? 'flex' : 'none';
+        }
     });
     actions.querySelector('#btn-scroll-top')?.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -668,7 +682,7 @@ function initKeyboardShortcutsModal() {
             <div class="bitacora-kbd-content" role="dialog" aria-modal="true">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                     <h3 style="margin: 0; font-size: 1.15rem; font-weight: 800; display: flex; align-items: center; gap: 8px;">
-                        <span style="color: var(--lda-red);">⌨</span> Atajos de Teclado
+                        <span style="color: var(--primary-accent, #e4002b);">⌨</span> Atajos de Teclado
                     </h3>
                     <button onclick="const m = document.getElementById('bitacora-kbd-modal'); if(m){ m.classList.remove('active'); m.style.display='none'; }" style="background: none; border: none; font-size: 1.4rem; color: var(--text-sec); cursor: pointer;">×</button>
                 </div>
@@ -949,7 +963,7 @@ function initSmoothAnchors() {
 }
 
 // ==========================================================================
-// 12. SUITE AVANZADA DE COMPONENTES UI/UX v4.0 (LÍNEA DIRECTA ASEGURADORA)
+// 12. SUITE AVANZADA DE COMPONENTES UI/UX v4.0 (SISTEMA DE GOBERNANZA CORPORATIVA)
 // ==========================================================================
 
 // 1. SMART TOC FLOTANTE JERÁRQUICO (ON-THIS-PAGE NAVIGATOR)
@@ -1548,7 +1562,7 @@ function initRecentProjectsDrawer() {
     try {
         const titleEl = document.querySelector('h1') || document.querySelector('title');
         let rawTitle = titleEl ? titleEl.innerText.replace(/<[^>]+>/g, '').trim().split('\n')[0] : document.title;
-        rawTitle = rawTitle.replace(/^Línea Directa Aseguradora\s*[-·|]?\s*/i, '').trim();
+        rawTitle = rawTitle.replace(/^(Entidad Aseguradora|Organización)\s*[-·|]?\s*/i, '').trim();
         const currentUrl = window.location.pathname;
 
         if (currentUrl.endsWith('.html') && !currentUrl.includes('export_estatico')) {
