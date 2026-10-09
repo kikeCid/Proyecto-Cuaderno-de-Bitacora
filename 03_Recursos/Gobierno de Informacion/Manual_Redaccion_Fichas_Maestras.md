@@ -1,13 +1,13 @@
 ---
-tags: [manual, lidia, calidad, redacción]
+tags: [manual, documentacion, calidad, redacción]
 type: referencia
 status: terminado
 created: 2026-02-03
 ---
 
-# 📖 Manual de Redacción de Fichas Maestras: Proyecto LidIA 🚀
+# 📖 Manual de Redacción de Fichas Maestras: Proyecto de Inteligencia Documental 🚀
 
-> [!IMPORTANT] El Principio de Oro de LidIA
+> [!IMPORTANT] El Principio de Oro de la Plataforma
 > **"Si no está escrito, la IA no lo sabe".**  
 > No resumas. Tu misión es **explicar el proceso completo**. Escribe como si el operador no supiera nada del negocio, porque así es como la IA podrá guiarle paso a paso con seguridad.
 
@@ -45,11 +45,11 @@ Usa siempre este esquema mental:
 
 ## 🌓 4. Transformación de Ejemplos (Infografía)
 
-Aquí tienes cómo debemos mejorar la documentación actual para que sea útil para LidIA:
+Aquí tienes cómo debemos mejorar la documentación actual para que sea útil para la Plataforma:
 
 ### Ejemplo 1: Cancelaciones
 *   ❌ **Redacción Actual:** "Antes de transferir a Cross-selling por técnica, es obligatorio consultar con el supervisor."
-*   ✅ **Redacción LidIA:** "En solicitudes de cancelación de Hogar, antes de derivar al departamento de Cross-selling, el operador debe llamar por la línea interna al supervisor de turno para validar si existe una contraoferta técnica disponible. Solo si el supervisor autoriza, se procederá a la transferencia marcando el motivo 'Técnica Autorizada'."
+*   ✅ **Redacción la Plataforma:** "En solicitudes de cancelación de Hogar, antes de derivar al departamento de Cross-selling, el operador debe llamar por la línea interna al supervisor de turno para validar si existe una contraoferta técnica disponible. Solo si el supervisor autoriza, se procederá a la transferencia marcando el motivo 'Técnica Autorizada'."
 
 ### Fase 3: Redacción con Metadatos (La Ficha del Bibliotecario)
 
@@ -89,11 +89,11 @@ relaciones: [Enlaces a otros docs. Ej: "[[Condicionado General]]"]
 
 ### Ejemplo 2: Cambio de Tomador
 *   ❌ **Redacción Actual:** "NUNCA se debe inducir el cambio. Solo se tramitará nueva cotización a petición expresa del cliente."
-*   ✅ **Redacción LidIA:** "Bajo ninguna circunstancia el operador sugerirá al cliente el cambio de tomador de la póliza para bajar el precio. Si el cliente pregunta directamente '¿puedo poner a otra persona como tomador?', el operador debe informar que eso requiere una nueva cotización desde cero y la pérdida de las bonificaciones actuales."
+*   ✅ **Redacción la Plataforma:** "Bajo ninguna circunstancia el operador sugerirá al cliente el cambio de tomador de la póliza para bajar el precio. Si el cliente pregunta directamente '¿puedo poner a otra persona como tomador?', el operador debe informar que eso requiere una nueva cotización desde cero y la pérdida de las bonificaciones actuales."
 
 ### Ejemplo 3: Gestión de Impagos
 *   ❌ **Redacción Actual:** "En pólizas con marca de impago, validar con supervisor la eliminación de la marca antes de la transferencia."
-*   ✅ **Redacción LidIA:** "Si al abrir la ficha del cliente aparece el aviso rojo de 'IMPAGO', el operador no podrá realizar ninguna transferencia a Cross-selling. Primero se debe verificar que el recibo ha sido abonado. Una vez confirmado el pago, se debe solicitar al supervisor que borre manualmente la marca en el sistema. Sin este borrado, el sistema de Cross-selling bloqueará la entrada de la llamada."
+*   ✅ **Redacción la Plataforma:** "Si al abrir la ficha del cliente aparece el aviso rojo de 'IMPAGO', el operador no podrá realizar ninguna transferencia a Cross-selling. Primero se debe verificar que el recibo ha sido abonado. Una vez confirmado el pago, se debe solicitar al supervisor que borre manualmente la marca en el sistema. Sin este borrado, el sistema de Cross-selling bloqueará la entrada de la llamada."
 
 ---
 

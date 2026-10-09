@@ -11,9 +11,9 @@
 window.BITACORA_PROJECTS_DATA = [
     {
         "id": "hcm",
-        "title": "Evolución HCM Cloud",
+        "title": "Proyecto 6 (Evolución Cloud de Personas)",
         "subtitle": "Oracle Cloud HCM",
-        "desc": "Núcleo integral de RR.HH. Migración estratégica de PeopleSoft a Oracle Cloud Fusion, optimizando la gestión del talento, nóminas y estructura organizativa.",
+        "desc": "Núcleo integral de RR.HH. Migración estratégica de ERP legacy a suite cloud de personas, optimizando la gestión del talento, nóminas y estructura organizativa.",
         "carril": "direct",
         "estado": "En Pausa / Parado",
         "licitacion": false,
@@ -28,9 +28,9 @@ window.BITACORA_PROJECTS_DATA = [
     },
     {
         "id": "ia-personas",
-        "title": "Eficiencia RRHH & IA",
-        "subtitle": "Copilot & Agentes LidIA",
-        "desc": "Iniciativa estratégica para automatización de consultas internas, asistentes cognitivos con LidIA y optimización operativa en gestión de personas.",
+        "title": "Proyecto 7 (Eficiencia & Asistentes IA)",
+        "subtitle": "Asistentes Cognitivos & Automatización",
+        "desc": "Iniciativa estratégica para automatización de consultas internas, asistentes cognitivos y optimización operativa en gestión de personas.",
         "carril": "direct",
         "estado": "En Pausa / Parado",
         "licitacion": false,
@@ -40,12 +40,12 @@ window.BITACORA_PROJECTS_DATA = [
         "tags": [
             "Inteligencia Artificial",
             "Copilot M365",
-            "Asistente LidIA"
+            "Asistente IA"
         ]
     },
     {
         "id": "pmo-perscom",
-        "title": "PMO PersCom",
+        "title": "Oficina de Proyectos (PMO)",
         "subtitle": "Oficina de Proyectos Personas",
         "desc": "Oficina de Gestión de Proyectos desde Personas: anticipación de impactos organizativos, sincronización entre PMOs y modelo 360°.",
         "carril": "direct",
@@ -62,9 +62,9 @@ window.BITACORA_PROJECTS_DATA = [
     },
     {
         "id": "crm-operacional",
-        "title": "CRM Operacional",
+        "title": "Proyecto 1 (CRM Operacional)",
         "subtitle": "Salesforce Financial Services Cloud",
-        "desc": "Nuevo modelo omnicanal 360° de cliente y asegurado. Unificación comercial, fidelización y tramitación en Salesforce FSC + OMEGA.",
+        "desc": "Nuevo modelo omnicanal 360° de cliente y asegurado. Unificación comercial, fidelización y tramitación en solución cloud con integrador partner.",
         "carril": "strategic",
         "estado": "En Curso",
         "licitacion": false,
@@ -79,9 +79,9 @@ window.BITACORA_PROJECTS_DATA = [
     },
     {
         "id": "telefonia-genesys",
-        "title": "Telefonía Genesys CX",
+        "title": "Proyecto 2 (Telefonía Cloud CX)",
         "subtitle": "Contact Center Cloud AWS",
-        "desc": "Transición de telefonía local hacia Genesys Cloud sobre AWS. 15 millones de llamadas anuales, 2.000 operadores y enrutamiento inteligente.",
+        "desc": "Transición de telefonía local hacia plataforma cloud sobre AWS. 15 millones de llamadas anuales, 2.000 operadores y enrutamiento inteligente.",
         "carril": "strategic",
         "estado": "En Curso",
         "licitacion": false,
@@ -89,14 +89,14 @@ window.BITACORA_PROJECTS_DATA = [
         "semaforo": "verde",
         "href": "../Telefonia - Genesis CX/index.html",
         "tags": [
-            "Genesys Cloud",
+            "Telefonía Cloud",
             "AWS Cloud",
             "Telefonía 360°"
         ]
     },
     {
         "id": "reingenieria-siniestros",
-        "title": "Reingeniería Siniestros",
+        "title": "Proyecto 3 (Reingeniería de Operaciones)",
         "subtitle": "Transformación Core Autos & Hogar",
         "desc": "Transformación de punta a punta del proceso de siniestros (>400K partes/año): triaje inteligente STP, red de talleres y peritación digital.",
         "carril": "strategic",
@@ -113,7 +113,7 @@ window.BITACORA_PROJECTS_DATA = [
     },
     {
         "id": "gobierno-dato",
-        "title": "Gobierno del Dato",
+        "title": "Proyecto 4 (Plataforma Analítica & Lakehouse)",
         "subtitle": "Plataforma Analítica & Databricks",
         "desc": "Democratización y calidad analítica corporativa: Data Mesh por dominios, linaje automatizado y Lakehouse corporativo en Databricks.",
         "carril": "strategic",
@@ -130,8 +130,8 @@ window.BITACORA_PROJECTS_DATA = [
     },
     {
         "id": "ia-voz-chat",
-        "title": "IA en Voz & Chat",
-        "subtitle": "Agentes Cognitivos & Lupe",
+        "title": "Proyecto 5 (Agentes Conversacionales & IA)",
+        "subtitle": "Asistente Virtual Inteligente",
         "desc": "Asistentes conversacionales multicanal con IA generativa: gestión integral en lenguaje natural y resolución directa en primer contacto.",
         "carril": "strategic",
         "estado": "En Curso",
@@ -140,14 +140,14 @@ window.BITACORA_PROJECTS_DATA = [
         "semaforo": "verde",
         "href": "../IA Voz y Chat/index.html",
         "tags": [
-            "Agente Lupe",
+            "Asistente Virtual",
             "Speech Analytics",
             "NLP"
         ]
     },
     {
         "id": "transformacion-agile",
-        "title": "Transformación Agile",
+        "title": "Iniciativa C (Transformación Agile)",
         "subtitle": "Evolución Organizacional",
         "desc": "Adopción de nuevas formas de trabajo basadas en squads multidisciplinares, foco en aportación de valor de negocio y reducción de ciclos.",
         "carril": "strategic",
@@ -164,7 +164,7 @@ window.BITACORA_PROJECTS_DATA = [
     },
     {
         "id": "transformacion-hogar",
-        "title": "Transformación Hogar",
+        "title": "Iniciativa A (Asistencia Doméstica)",
         "subtitle": "Liderazgo en Calidad de Servicio",
         "desc": "Modelo de autoservicio digital y gestión ágil de asistencias domésticas con integración delegada en HomeServe y trazabilidad en tiempo real.",
         "carril": "strategic",
@@ -181,7 +181,7 @@ window.BITACORA_PROJECTS_DATA = [
     },
     {
         "id": "transformacion-salud",
-        "title": "Relanzamiento Salud",
+        "title": "Iniciativa B (Cuadro Médico y Salud)",
         "subtitle": "Alianza HNA & Cuadro Médico",
         "desc": "Salto de escala para 75.000 asegurados: acceso digital a cuadro médico de primer nivel, copago optimizado y autorizaciones inmediatas.",
         "carril": "strategic",
@@ -198,7 +198,7 @@ window.BITACORA_PROJECTS_DATA = [
     },
     {
         "id": "perseo",
-        "title": "Perseo",
+        "title": "Proyecto Facilitador (Speech Analytics)",
         "subtitle": "Speech Analytics & Calidad Operativa",
         "desc": "Plataforma de escucha masiva con IA generativa que audita el 100% de las conversaciones telefónicas de ventas, siniestros y atención.",
         "carril": "facilitator",
@@ -215,9 +215,9 @@ window.BITACORA_PROJECTS_DATA = [
     },
     {
         "id": "gobierno-informacion",
-        "title": "Gobierno de la Información",
+        "title": "Histórico de Gobierno Documental",
         "subtitle": "Histórico & Metodología LidIA / GIN",
-        "desc": "Proyecto de Inteligencia LidIA y metodología GIN transferido al Área de Transformación. Conserva aquí todo el contexto, historial y wiki funcional.",
+        "desc": "Metodología de gobierno documental transferido al Área de Transformación. Conserva aquí todo el contexto, historial y wiki funcional.",
         "carril": "closed",
         "estado": "Cerrado / Completado",
         "licitacion": false,
@@ -237,7 +237,7 @@ window.BITACORA_PROJECTS_DATA = [
 window.BITACORA_OPERATIVAS_DATA = [
     {
         "id": "gestion-usuarios",
-        "title": "Gestión de Usuarios",
+        "title": "Proyecto 8 (Gestión de Accesos e Identidades)",
         "subtitle": "Servicios Transversales & Directorio",
         "desc": "Documentación técnica integral, flujo operativo y arquitectura del sistema de Gestión de Usuarios, Directorio Activo y ciclo de vida de accesos corporativos.",
         "tipoDoc": "Manual Operativo",

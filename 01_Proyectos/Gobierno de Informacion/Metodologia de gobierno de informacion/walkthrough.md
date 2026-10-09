@@ -1,6 +1,6 @@
-# Walkthrough: Estandarización de Cabeceras LidIA
+# Walkthrough: Estandarización de Cabeceras la Plataforma de Inteligencia Documental
 
-Este documento detalla los cambios realizados para unificar el diseño de las cabeceras en todo el ecosistema de documentación de LidIA.
+Este documento detalla los cambios realizados para unificar el diseño de las cabeceras en todo el ecosistema de documentación de la Plataforma de Inteligencia Documental.
 
 ## Objetivo
 
